@@ -745,8 +745,8 @@ ValkyrieJavelinPantheon {
         ValkyrieJavelin(
             Javelin {
                 data: JavelinData::PathLeading {
-                    path: JavPath::Fugitive(
-                        FugitivePath(`malamute::narrow_down`, `Ritchie(
+                    path: JavPath::Form(
+                        FormPath(`malamute::narrow_down`, `Ritchie(
                             Gn,
                         )`),
                     ),
@@ -4593,8 +4593,8 @@ ValkyrieJavelinPantheon {
         ValkyrieJavelin(
             Javelin {
                 data: JavelinData::PathLeading {
-                    path: JavPath::Fugitive(
-                        FugitivePath(`malamute::narrow_down`, `Ritchie(
+                    path: JavPath::Form(
+                        FormPath(`malamute::narrow_down`, `Ritchie(
                             Gn,
                         )`),
                     ),

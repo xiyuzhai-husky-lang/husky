@@ -2,8 +2,8 @@ use crate::*;
 
 use husky_entity_path::TypeVariantIndex;
 use husky_hir_opr::binary::HirBinaryOpr;
-use husky_ki::{ValOpn, ValPatternData};
-use husky_ki_repr::repr::{KiArgumentRepr, KiRepr, ValDomainRepr};
+use husky_ki::{KiOpn, KiPatternData};
+use husky_ki_repr::repr::{KiArgumentRepr, KiDomainRepr, KiRepr};
 use husky_opr::{BinaryClosedOpr, BinaryComparisonOpr};
 use husky_task::{
     dev_ascension::{dev_eval_context, with_runtime_and_base_point, IsDevAscension},
@@ -26,14 +26,14 @@ impl<Task: IsTask> DevRuntime<Task> {
         })
     }
 
-    pub fn eval_val_domain_repr_at_pedestal(
+    pub fn eval_ki_domain_repr_at_pedestal(
         &self,
-        val_domain_repr: ValDomainRepr,
+        ki_domain_repr: KiDomainRepr,
         pedestal: TaskDevPedestal<Task>,
     ) -> KiControlFlow<(), Infallible, TaskError<Task>> {
-        match val_domain_repr {
-            ValDomainRepr::Omni => KiControlFlow::Continue(()),
-            ValDomainRepr::ConditionSatisfied(condition_ki_repr) => {
+        match ki_domain_repr {
+            KiDomainRepr::Omni => KiControlFlow::Continue(()),
+            KiDomainRepr::ConditionSatisfied(condition_ki_repr) => {
                 match self.eval_ki_repr_at_pedestal(condition_ki_repr, pedestal) {
                     KiControlFlow::Continue(value) => match value.to_bool() {
                         true => KiControlFlow::Continue(()),
@@ -46,7 +46,7 @@ impl<Task: IsTask> DevRuntime<Task> {
                     KiControlFlow::Throw(_) => todo!(),
                 }
             }
-            ValDomainRepr::ConditionNotSatisfied(condition_ki_repr) => {
+            KiDomainRepr::ConditionNotSatisfied(condition_ki_repr) => {
                 match self.eval_ki_repr_at_pedestal(condition_ki_repr, pedestal) {
                     KiControlFlow::Continue(value) => match value.to_bool() {
                         true => KiControlFlow::Undefined,
@@ -59,7 +59,7 @@ impl<Task: IsTask> DevRuntime<Task> {
                     KiControlFlow::Throw(_) => todo!(),
                 }
             }
-            ValDomainRepr::StmtNotReturned(stmt_ki_repr) => {
+            KiDomainRepr::StmtNotReturned(stmt_ki_repr) => {
                 match self.eval_ki_repr_at_pedestal(stmt_ki_repr, pedestal) {
                     KiControlFlow::Continue(_) => KiControlFlow::Continue(()),
                     KiControlFlow::LoopContinue => todo!(),
@@ -68,7 +68,7 @@ impl<Task: IsTask> DevRuntime<Task> {
                     KiControlFlow::Throw(_) => todo!(),
                 }
             }
-            ValDomainRepr::ExprNotReturned(_) => todo!(),
+            KiDomainRepr::ExprNotReturned(_) => todo!(),
         }
     }
 
@@ -79,8 +79,8 @@ impl<Task: IsTask> DevRuntime<Task> {
         // todo: consider domain
         let db = self.db();
         let result = match ki_repr.opn(db) {
-            ValOpn::Return => todo!(),
-            ValOpn::Require => {
+            KiOpn::Return => todo!(),
+            KiOpn::Require => {
                 let arguments: &[_] = ki_repr.arguments(db);
                 debug_assert_eq!(arguments.len(), 2);
                 let KiArgumentRepr::Simple(condition) = arguments[0] else {
@@ -95,7 +95,7 @@ impl<Task: IsTask> DevRuntime<Task> {
                     KiControlFlow::Return(self.eval_ki_repr(default)?)
                 }
             }
-            ValOpn::Assert => {
+            KiOpn::Assert => {
                 let arguments: &[_] = ki_repr.arguments(db);
                 debug_assert_eq!(arguments.len(), 1);
                 let KiArgumentRepr::Simple(condition) = arguments[0] else {
@@ -106,7 +106,7 @@ impl<Task: IsTask> DevRuntime<Task> {
                 }
                 KiControlFlow::Continue(().into())
             }
-            ValOpn::Literal(lit) => {
+            KiOpn::Literal(lit) => {
                 // ad hoc
                 let db = self.db();
                 let value: TaskValue<Task> = match lit {
@@ -138,11 +138,11 @@ impl<Task: IsTask> DevRuntime<Task> {
                 };
                 KiControlFlow::Continue(value)
             }
-            ValOpn::ValItemLazilyDefined(_path) => {
+            KiOpn::ValItemLazilyDefined(_path) => {
                 let expansion = ki_repr.expansion(db).unwrap();
                 self.eval_root_stmts(expansion.root_hir_lazy_stmt_ki_reprs(db))
             }
-            ValOpn::Linkage(linkage) => {
+            KiOpn::Linkage(linkage) => {
                 let linkage_impl = self.comptime.linkage_impl(linkage);
                 let control_flow = linkage_impl.eval_ki(
                     ki_repr.into(),
@@ -155,10 +155,10 @@ impl<Task: IsTask> DevRuntime<Task> {
                 );
                 control_flow
             }
-            ValOpn::FunctionGn(_) => todo!(),
-            ValOpn::Prefix(_) => todo!(),
-            ValOpn::Suffix(_) => todo!(),
-            ValOpn::Binary(opr) => {
+            KiOpn::FunctionGn(_) => todo!(),
+            KiOpn::Prefix(_) => todo!(),
+            KiOpn::Suffix(_) => todo!(),
+            KiOpn::Binary(opr) => {
                 let arguments: &[_] = ki_repr.arguments(db);
                 debug_assert_eq!(arguments.len(), 2);
                 let KiArgumentRepr::Simple(lopd) = arguments[0] else {
@@ -208,8 +208,8 @@ impl<Task: IsTask> DevRuntime<Task> {
                     HirBinaryOpr::ShortCircuitLogic(_) => todo!(),
                 }
             }
-            ValOpn::EvalDiscarded => todo!(),
-            ValOpn::Branches => {
+            KiOpn::EvalDiscarded => todo!(),
+            KiOpn::Branches => {
                 for val_argument_repr in ki_repr.arguments(db) {
                     let KiArgumentRepr::Branch {
                         condition,
@@ -227,7 +227,7 @@ impl<Task: IsTask> DevRuntime<Task> {
                 }
                 KiControlFlow::Continue(().into())
             }
-            ValOpn::TypeVariant(path) => match path.index(db) {
+            KiOpn::TypeVariant(path) => match path.index(db) {
                 TypeVariantIndex::U8(index_raw) => {
                     let presenter = self
                         .comptime
@@ -236,7 +236,7 @@ impl<Task: IsTask> DevRuntime<Task> {
                     KiControlFlow::Continue(TaskValue::<Task>::from_enum_u8(index_raw, presenter))
                 }
             },
-            ValOpn::Be { pattern_data } => {
+            KiOpn::Be { pattern_data } => {
                 let arguments: &[_] = ki_repr.arguments(db);
                 debug_assert_eq!(arguments.len(), 1);
                 let KiArgumentRepr::Simple(src) = arguments[0] else {
@@ -245,13 +245,13 @@ impl<Task: IsTask> DevRuntime<Task> {
                 let src = self.eval_ki_repr(src)?;
                 KiControlFlow::Continue(
                     match pattern_data {
-                        ValPatternData::None => src.is_none(),
-                        ValPatternData::Some => src.is_some(),
+                        KiPatternData::None => src.is_none(),
+                        KiPatternData::Some => src.is_some(),
                     }
                     .into(),
                 )
             }
-            ValOpn::Unwrap {} => {
+            KiOpn::Unwrap {} => {
                 use husky_print_utils::p;
                 let pedestal =
                     <TaskDevAscension<Task> as IsDevAscension>::dev_eval_context_local_key()
@@ -262,7 +262,7 @@ impl<Task: IsTask> DevRuntime<Task> {
                 p!(ki_repr.source(db).debug_info(db));
                 todo!()
             }
-            ValOpn::Index => {
+            KiOpn::Index => {
                 // ad hoc
                 let arguments: &[_] = ki_repr.arguments(db);
                 debug_assert_eq!(arguments.len(), 2);

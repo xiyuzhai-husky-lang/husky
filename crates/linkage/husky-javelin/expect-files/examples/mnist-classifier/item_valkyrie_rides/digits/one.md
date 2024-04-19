@@ -2,8 +2,8 @@
 [
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
             ),
         ),
         Some(
@@ -68,8 +68,8 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
             ),
         ),
         Some(
@@ -77,8 +77,8 @@
                 hir_template_parameters: None,
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::Fugitive(
-                            FugitivePath(`malamute::narrow_down`, `Ritchie(
+                        javelin_item_path: JavPath::Form(
+                            FormPath(`malamute::narrow_down`, `Ritchie(
                                 Gn,
                             )`),
                         ),
@@ -283,8 +283,8 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::one::upmost`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::one::upmost`, `Ritchie(
                     Fn,
                 )`),
             ),
@@ -302,8 +302,8 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::one::downmost`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::one::downmost`, `Ritchie(
                     Fn,
                 )`),
             ),
@@ -321,8 +321,8 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::one::hat`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::one::hat`, `Ritchie(
                     Fn,
                 )`),
             ),

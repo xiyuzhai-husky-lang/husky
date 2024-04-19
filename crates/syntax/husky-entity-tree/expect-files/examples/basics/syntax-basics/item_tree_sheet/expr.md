@@ -6,8 +6,8 @@ EntityTreeSheet {
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
-                        syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`syntax_basics::expr::nested`, `Ritchie(
+                        syn_node_path: MajorItemSynNodePath::Form(
+                            FormSynNodePath(`syntax_basics::expr::nested`, `Ritchie(
                                 Fn,
                             )`, (0)),
                         ),
@@ -21,12 +21,12 @@ EntityTreeSheet {
                                 2,
                             ),
                         },
-                        block: DefnBlock::Fugitive {
-                            path: FugitivePath(`syntax_basics::expr::nested`, `Ritchie(
+                        block: DefnBlock::Form {
+                            path: FormPath(`syntax_basics::expr::nested`, `Ritchie(
                                 Fn,
                             )`),
                             body: Some(
-                                FugitiveBody {
+                                FormBody {
                                     ast_idx_range: ArenaIdxRange(
                                         0..1,
                                     ),
@@ -36,8 +36,8 @@ EntityTreeSheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`syntax_basics::expr::nested`, `Ritchie(
+                    MajorItemSynNodePath::Form(
+                        FormSynNodePath(`syntax_basics::expr::nested`, `Ritchie(
                             Fn,
                         )`, (0)),
                     ),
@@ -50,8 +50,8 @@ EntityTreeSheet {
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
-                        syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`syntax_basics::expr::closure_inline`, `Ritchie(
+                        syn_node_path: MajorItemSynNodePath::Form(
+                            FormSynNodePath(`syntax_basics::expr::closure_inline`, `Ritchie(
                                 Fn,
                             )`, (0)),
                         ),
@@ -65,12 +65,12 @@ EntityTreeSheet {
                                 13,
                             ),
                         },
-                        block: DefnBlock::Fugitive {
-                            path: FugitivePath(`syntax_basics::expr::closure_inline`, `Ritchie(
+                        block: DefnBlock::Form {
+                            path: FormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
                                 Fn,
                             )`),
                             body: Some(
-                                FugitiveBody {
+                                FormBody {
                                     ast_idx_range: ArenaIdxRange(
                                         1..2,
                                     ),
@@ -80,8 +80,8 @@ EntityTreeSheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`syntax_basics::expr::closure_inline`, `Ritchie(
+                    MajorItemSynNodePath::Form(
+                        FormSynNodePath(`syntax_basics::expr::closure_inline`, `Ritchie(
                             Fn,
                         )`, (0)),
                     ),
@@ -94,8 +94,8 @@ EntityTreeSheet {
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
-                        syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`syntax_basics::expr::closure_nested`, `Ritchie(
+                        syn_node_path: MajorItemSynNodePath::Form(
+                            FormSynNodePath(`syntax_basics::expr::closure_nested`, `Ritchie(
                                 Fn,
                             )`, (0)),
                         ),
@@ -109,12 +109,12 @@ EntityTreeSheet {
                                 29,
                             ),
                         },
-                        block: DefnBlock::Fugitive {
-                            path: FugitivePath(`syntax_basics::expr::closure_nested`, `Ritchie(
+                        block: DefnBlock::Form {
+                            path: FormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
                                 Fn,
                             )`),
                             body: Some(
-                                FugitiveBody {
+                                FormBody {
                                     ast_idx_range: ArenaIdxRange(
                                         2..3,
                                     ),
@@ -124,8 +124,8 @@ EntityTreeSheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`syntax_basics::expr::closure_nested`, `Ritchie(
+                    MajorItemSynNodePath::Form(
+                        FormSynNodePath(`syntax_basics::expr::closure_nested`, `Ritchie(
                             Fn,
                         )`, (0)),
                     ),
@@ -145,8 +145,8 @@ EntityTreeSheet {
                     `syntax_basics::expr`,
                 ),
                 symbol: EntitySymbol::MajorItem {
-                    major_item_path: MajorItemPath::Fugitive(
-                        FugitivePath(`syntax_basics::expr::nested`, `Ritchie(
+                    major_item_path: MajorItemPath::Form(
+                        FormPath(`syntax_basics::expr::nested`, `Ritchie(
                             Fn,
                         )`),
                     ),
@@ -158,8 +158,8 @@ EntityTreeSheet {
                     `syntax_basics::expr`,
                 ),
                 symbol: EntitySymbol::MajorItem {
-                    major_item_path: MajorItemPath::Fugitive(
-                        FugitivePath(`syntax_basics::expr::closure_inline`, `Ritchie(
+                    major_item_path: MajorItemPath::Form(
+                        FormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
                             Fn,
                         )`),
                     ),
@@ -171,8 +171,8 @@ EntityTreeSheet {
                     `syntax_basics::expr`,
                 ),
                 symbol: EntitySymbol::MajorItem {
-                    major_item_path: MajorItemPath::Fugitive(
-                        FugitivePath(`syntax_basics::expr::closure_nested`, `Ritchie(
+                    major_item_path: MajorItemPath::Form(
+                        FormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
                             Fn,
                         )`),
                     ),

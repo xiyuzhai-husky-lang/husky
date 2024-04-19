@@ -318,15 +318,15 @@ SynNodeDeclSheet {
         ),
         (
             ItemSynNodePath::MajorItem(
-                MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath(`mnist_classifier::main`, `Val`, (0)),
+                MajorItemSynNodePath::Form(
+                    FormSynNodePath(`mnist_classifier::main`, `Val`, (0)),
                 ),
             ),
             ItemSynNodeDecl::MajorItem(
-                MajorItemSynNodeDecl::Fugitive(
-                    FugitiveSynNodeDecl::Ki(
+                MajorItemSynNodeDecl::Form(
+                    FormSynNodeDecl::Ki(
                         MajorValSynNodeDecl {
-                            syn_node_path: FugitiveSynNodePath(`mnist_classifier::main`, `Val`, (0)),
+                            syn_node_path: FormSynNodePath(`mnist_classifier::main`, `Val`, (0)),
                             colon_token: Ok(
                                 ColonRegionalToken(
                                     RegionalTokenIdx(
@@ -352,8 +352,8 @@ SynNodeDeclSheet {
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`mnist_classifier::main`, `Val`, (0)),
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`mnist_classifier::main`, `Val`, (0)),
                                             ),
                                         ),
                                     ),

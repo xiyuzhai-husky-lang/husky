@@ -16,8 +16,8 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavPath::Fugitive(
-                    FugitivePath(`mnist::input`, `Val`),
+                path: JavPath::Form(
+                    FormPath(`mnist::input`, `Val`),
                 ),
                 instantiation: JavInstantiation {
                     symbol_resolutions: [],

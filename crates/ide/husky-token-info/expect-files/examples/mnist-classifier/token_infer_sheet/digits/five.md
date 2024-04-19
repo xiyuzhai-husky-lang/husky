@@ -36,13 +36,13 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
-                            MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::digits::five::is_five`, `Val`, (0)),
+                            MajorItemSynNodePath::Form(
+                                FormSynNodePath(`mnist_classifier::digits::five::is_five`, `Val`, (0)),
                             ),
                         ),
                         EntityKind::MajorItem {
-                            module_item_kind: MajorItemKind::Fugitive(
-                                MajorFugitiveKind::Val,
+                            module_item_kind: MajorItemKind::Form(
+                                MajorFormKind::Val,
                             ),
                             connection: MajorItemConnectionKind::Connected,
                         },

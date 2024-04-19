@@ -2,8 +2,8 @@
 [
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`syntax_basics::expr::nested`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`syntax_basics::expr::nested`, `Ritchie(
                     Fn,
                 )`),
             ),
@@ -21,8 +21,8 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`syntax_basics::expr::closure_inline`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
                     Fn,
                 )`),
             ),
@@ -40,8 +40,8 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`syntax_basics::expr::closure_nested`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
                     Fn,
                 )`),
             ),

@@ -174,8 +174,8 @@ EntityTreeSheet {
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
-                        syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`mnist::input`, `Val`, (0)),
+                        syn_node_path: MajorItemSynNodePath::Form(
+                            FormSynNodePath(`mnist::input`, `Val`, (0)),
                         ),
                         visibility: Scope::Pub,
                         ast_idx: 26,
@@ -185,15 +185,15 @@ EntityTreeSheet {
                                 115,
                             ),
                         },
-                        block: DefnBlock::Fugitive {
-                            path: FugitivePath(`mnist::input`, `Val`),
+                        block: DefnBlock::Form {
+                            path: FormPath(`mnist::input`, `Val`),
                             body: None,
                         },
                     },
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`mnist::input`, `Val`, (0)),
+                    MajorItemSynNodePath::Form(
+                        FormSynNodePath(`mnist::input`, `Val`, (0)),
                     ),
                 ),
                 ident: `input`,
@@ -234,8 +234,8 @@ EntityTreeSheet {
                 ident: `input`,
                 visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
-                    major_item_path: MajorItemPath::Fugitive(
-                        FugitivePath(`mnist::input`, `Val`),
+                    major_item_path: MajorItemPath::Form(
+                        FormPath(`mnist::input`, `Val`),
                     ),
                 },
             },

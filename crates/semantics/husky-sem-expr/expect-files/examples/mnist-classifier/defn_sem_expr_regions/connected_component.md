@@ -3,8 +3,8 @@
     SemaExprRegion {
         path: RegionPath::Defn(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -13,8 +13,8 @@
         data: SemaExprRegionData {
             path: RegionPath::Defn(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                             Fn,
                         )`),
                     ),
@@ -1042,8 +1042,8 @@
     SemaExprRegion {
         path: RegionPath::Defn(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -1052,8 +1052,8 @@
         data: SemaExprRegionData {
             path: RegionPath::Defn(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                             Fn,
                         )`),
                     ),
@@ -6089,8 +6089,8 @@
     SemaExprRegion {
         path: RegionPath::Defn(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -6099,8 +6099,8 @@
         data: SemaExprRegionData {
             path: RegionPath::Defn(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
                             Fn,
                         )`),
                     ),
@@ -7473,8 +7473,8 @@
                                 SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 2,
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -7483,8 +7483,8 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                                                MajorItemPath::Form(
+                                                    FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -8632,8 +8632,8 @@
                                 SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 3,
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -8642,8 +8642,8 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                                                MajorItemPath::Form(
+                                                    FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -10307,8 +10307,8 @@
                                 SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 4,
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -10317,8 +10317,8 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                                                MajorItemPath::Form(
+                                                    FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -19754,8 +19754,8 @@
                                 SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -19764,8 +19764,8 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
+                                                MajorItemPath::Form(
+                                                    FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -20738,8 +20738,8 @@
                                 SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 1,
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -20748,8 +20748,8 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                                                MajorItemPath::Form(
+                                                    FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -21037,8 +21037,8 @@
                                 SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 2,
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -21047,8 +21047,8 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                                                MajorItemPath::Form(
+                                                    FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -21497,8 +21497,8 @@
                                 SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 3,
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -21507,8 +21507,8 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                                                MajorItemPath::Form(
+                                                    FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                                                         Fn,
                                                     )`),
                                                 ),

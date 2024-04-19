@@ -618,8 +618,8 @@
     SemaExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -628,8 +628,8 @@
         data: SemaExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
                             Fn,
                         )`),
                     ),

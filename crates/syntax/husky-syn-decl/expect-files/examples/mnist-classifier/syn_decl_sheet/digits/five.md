@@ -3,15 +3,15 @@ SynDeclSheet {
     decls: [
         (
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                 ),
             ),
             SynDecl::MajorItem(
-                MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::Ki(
+                MajorItemSynDecl::Form(
+                    FormSynDecl::Val(
                         MajorValSynDecl {
-                            path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                            path: FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                             return_ty: ReturnTypeBeforeEqSyndicate {
                                 expr: 4,
                             },
@@ -21,8 +21,8 @@ SynDeclSheet {
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`mnist_classifier::digits::five::is_five`, `Val`, (0)),
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`mnist_classifier::digits::five::is_five`, `Val`, (0)),
                                             ),
                                         ),
                                     ),

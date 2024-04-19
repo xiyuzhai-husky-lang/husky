@@ -394,7 +394,7 @@
     },
     Linkage {
         data: LinkageData::MajorRitchieEager {
-            path: FugitivePath(`syntax_basics::expr::nested`, `Ritchie(
+            path: FormPath(`syntax_basics::expr::nested`, `Ritchie(
                 Fn,
             )`),
             instantiation: LinInstantiation {
@@ -405,7 +405,7 @@
     },
     Linkage {
         data: LinkageData::MajorRitchieEager {
-            path: FugitivePath(`syntax_basics::expr::closure_inline`, `Ritchie(
+            path: FormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
                 Fn,
             )`),
             instantiation: LinInstantiation {
@@ -416,7 +416,7 @@
     },
     Linkage {
         data: LinkageData::MajorRitchieEager {
-            path: FugitivePath(`syntax_basics::expr::closure_nested`, `Ritchie(
+            path: FormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
                 Fn,
             )`),
             instantiation: LinInstantiation {

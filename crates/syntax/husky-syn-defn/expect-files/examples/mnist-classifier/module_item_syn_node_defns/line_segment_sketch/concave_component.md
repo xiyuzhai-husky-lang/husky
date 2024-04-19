@@ -23,8 +23,8 @@
     ),
     (
         ItemSynNodePath::MajorItem(
-            MajorItemSynNodePath::Fugitive(
-                FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
+            MajorItemSynNodePath::Form(
+                FormSynNodePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
                     Fn,
                 )`, (0)),
             ),
@@ -40,8 +40,8 @@
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -245,8 +245,8 @@
                         ),
                         path: SynNodeRegionPath::Defn(
                             ItemSynNodePath::MajorItem(
-                                MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
+                                MajorItemSynNodePath::Form(
+                                    FormSynNodePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),
@@ -379,8 +379,8 @@
                                     path_expr_idx: 1,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -579,8 +579,8 @@
                                     path_expr_idx: 2,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -999,8 +999,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -1016,8 +1016,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),

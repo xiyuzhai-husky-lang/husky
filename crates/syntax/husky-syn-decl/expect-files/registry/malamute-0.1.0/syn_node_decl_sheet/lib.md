@@ -731,26 +731,206 @@ SynNodeDeclSheet {
         ),
         (
             ItemSynNodePath::MajorItem(
-                MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath(`malamute::narrow_down`, `Ritchie(
+                MajorItemSynNodePath::Form(
+                    FormSynNodePath(`malamute::narrow_down`, `Ritchie(
                         Gn,
                     )`, (0)),
                 ),
             ),
             ItemSynNodeDecl::MajorItem(
-                MajorItemSynNodeDecl::Fugitive(
-                    FugitiveSynNodeDecl::Gn(
-                        MajorGnSynNodeDecl {
-                            syn_node_path: FugitiveSynNodePath(`malamute::narrow_down`, `Ritchie(
+                MajorItemSynNodeDecl::Form(
+                    FormSynNodeDecl::Ritchie(
+                        MajorRitchieSynNodeDecl {
+                            syn_node_path: FormSynNodePath(`malamute::narrow_down`, `Ritchie(
                                 Gn,
                             )`, (0)),
+                            ritchie_item_kind: RitchieItemKind::Gn,
+                            template_parameter_obelisk_list: Ok(
+                                Some(
+                                    SynTemplateParameterSyndicateList {
+                                        langle: LaOrLtRegionalToken(
+                                            RegionalTokenIdx(
+                                                4,
+                                            ),
+                                        ),
+                                        template_parameters: [
+                                            TemplateSynParameterData {
+                                                annotated_variance_token: None,
+                                                symbol: 0,
+                                                variant: TemplateParameterSyndicateVariant::Type {
+                                                    ident_token: IdentRegionalToken {
+                                                        ident: `Label`,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            5,
+                                                        ),
+                                                    },
+                                                    traits: None,
+                                                },
+                                            },
+                                            TemplateSynParameterData {
+                                                annotated_variance_token: None,
+                                                symbol: 1,
+                                                variant: TemplateParameterSyndicateVariant::Constant {
+                                                    const_token: ConstRegionalToken {
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            9,
+                                                        ),
+                                                    },
+                                                    ident_token: IdentRegionalToken {
+                                                        ident: `label`,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            10,
+                                                        ),
+                                                    },
+                                                    colon_token: ColonRegionalToken(
+                                                        RegionalTokenIdx(
+                                                            11,
+                                                        ),
+                                                    ),
+                                                    ty_expr: 0,
+                                                },
+                                            },
+                                        ],
+                                        commas: [
+                                            CommaRegionalToken(
+                                                RegionalTokenIdx(
+                                                    6,
+                                                ),
+                                            ),
+                                        ],
+                                        decl_list_result: Ok(
+                                            (),
+                                        ),
+                                        rangle: RaOrGtRegionalToken(
+                                            RegionalTokenIdx(
+                                                13,
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                            parenate_parameter_obelisk_list: Ok(
+                                ParenateParameterSyndicateList {
+                                    lpar: LparRegionalToken(
+                                        RegionalTokenIdx(
+                                            14,
+                                        ),
+                                    ),
+                                    self_value_parameter: None,
+                                    comma_after_self_parameter: None,
+                                    parenate_parameters: [
+                                        ParenateParameterSyndicate::Variadic {
+                                            dot_dot_dot_token: DotDotDotRegionalToken(
+                                                RegionalTokenIdx(
+                                                    15,
+                                                ),
+                                            ),
+                                            variadic_variant: SynVariadicParameterVariant::Vec {
+                                                lbox_token: LboxRegionalToken(
+                                                    RegionalTokenIdx(
+                                                        16,
+                                                    ),
+                                                ),
+                                                rbox_token: RboxRegionalToken(
+                                                    RegionalTokenIdx(
+                                                        17,
+                                                    ),
+                                                ),
+                                            },
+                                            symbol_modifier_keyword_group: None,
+                                            ident_token: IdentRegionalToken {
+                                                ident: `f`,
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    18,
+                                                ),
+                                            },
+                                            variable: 2,
+                                            colon: ColonRegionalToken(
+                                                RegionalTokenIdx(
+                                                    19,
+                                                ),
+                                            ),
+                                            ty: 1,
+                                        },
+                                        ParenateParameterSyndicate::Keyed {
+                                            syn_pattern_root: ParenateParameterSynPatternExprRoot {
+                                                syn_pattern_expr_idx: 0,
+                                            },
+                                            symbol_modifier_keyword_group: None,
+                                            ident_token: IdentRegionalToken {
+                                                ident: `skip`,
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    22,
+                                                ),
+                                            },
+                                            variable: 3,
+                                            colon: ColonRegionalToken(
+                                                RegionalTokenIdx(
+                                                    23,
+                                                ),
+                                            ),
+                                            ty: 2,
+                                            eq_token: EqRegionalToken(
+                                                RegionalTokenIdx(
+                                                    25,
+                                                ),
+                                            ),
+                                            default: Right(
+                                                3,
+                                            ),
+                                        },
+                                    ],
+                                    commas: [
+                                        CommaRegionalToken(
+                                            RegionalTokenIdx(
+                                                21,
+                                            ),
+                                        ),
+                                        CommaRegionalToken(
+                                            RegionalTokenIdx(
+                                                27,
+                                            ),
+                                        ),
+                                    ],
+                                    rpar: RparRegionalToken(
+                                        RegionalTokenIdx(
+                                            28,
+                                        ),
+                                    ),
+                                },
+                            ),
+                            light_arrow_token: Ok(
+                                Some(
+                                    LightArrowRegionalToken(
+                                        RegionalTokenIdx(
+                                            29,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            return_ty: Ok(
+                                Some(
+                                    ReturnTypeBeforeColonSyndicate {
+                                        syn_expr_idx: 8,
+                                    },
+                                ),
+                            ),
+                            eol_colon: Ok(
+                                EolRegionalToken::Semicolon(
+                                    EolSemicolonRegionalToken {
+                                        regional_token_idx: RegionalTokenIdx(
+                                            33,
+                                        ),
+                                    },
+                                ),
+                            ),
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`malamute::narrow_down`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`malamute::narrow_down`, `Ritchie(
                                                     Gn,
                                                 )`, (0)),
                                             ),
@@ -1131,185 +1311,6 @@ SynNodeDeclSheet {
                                     ],
                                 },
                             },
-                            template_parameter_decl_list: Ok(
-                                Some(
-                                    SynTemplateParameterSyndicateList {
-                                        langle: LaOrLtRegionalToken(
-                                            RegionalTokenIdx(
-                                                4,
-                                            ),
-                                        ),
-                                        template_parameters: [
-                                            TemplateSynParameterData {
-                                                annotated_variance_token: None,
-                                                symbol: 0,
-                                                variant: TemplateParameterSyndicateVariant::Type {
-                                                    ident_token: IdentRegionalToken {
-                                                        ident: `Label`,
-                                                        regional_token_idx: RegionalTokenIdx(
-                                                            5,
-                                                        ),
-                                                    },
-                                                    traits: None,
-                                                },
-                                            },
-                                            TemplateSynParameterData {
-                                                annotated_variance_token: None,
-                                                symbol: 1,
-                                                variant: TemplateParameterSyndicateVariant::Constant {
-                                                    const_token: ConstRegionalToken {
-                                                        regional_token_idx: RegionalTokenIdx(
-                                                            9,
-                                                        ),
-                                                    },
-                                                    ident_token: IdentRegionalToken {
-                                                        ident: `label`,
-                                                        regional_token_idx: RegionalTokenIdx(
-                                                            10,
-                                                        ),
-                                                    },
-                                                    colon_token: ColonRegionalToken(
-                                                        RegionalTokenIdx(
-                                                            11,
-                                                        ),
-                                                    ),
-                                                    ty_expr: 0,
-                                                },
-                                            },
-                                        ],
-                                        commas: [
-                                            CommaRegionalToken(
-                                                RegionalTokenIdx(
-                                                    6,
-                                                ),
-                                            ),
-                                        ],
-                                        decl_list_result: Ok(
-                                            (),
-                                        ),
-                                        rangle: RaOrGtRegionalToken(
-                                            RegionalTokenIdx(
-                                                13,
-                                            ),
-                                        ),
-                                    },
-                                ),
-                            ),
-                            parenate_parameter_decl_list: Ok(
-                                ParenateParameterSyndicateList {
-                                    lpar: LparRegionalToken(
-                                        RegionalTokenIdx(
-                                            14,
-                                        ),
-                                    ),
-                                    self_value_parameter: None,
-                                    comma_after_self_parameter: None,
-                                    parenate_parameters: [
-                                        ParenateParameterSyndicate::Variadic {
-                                            dot_dot_dot_token: DotDotDotRegionalToken(
-                                                RegionalTokenIdx(
-                                                    15,
-                                                ),
-                                            ),
-                                            variadic_variant: SynVariadicParameterVariant::Vec {
-                                                lbox_token: LboxRegionalToken(
-                                                    RegionalTokenIdx(
-                                                        16,
-                                                    ),
-                                                ),
-                                                rbox_token: RboxRegionalToken(
-                                                    RegionalTokenIdx(
-                                                        17,
-                                                    ),
-                                                ),
-                                            },
-                                            symbol_modifier_keyword_group: None,
-                                            ident_token: IdentRegionalToken {
-                                                ident: `f`,
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    18,
-                                                ),
-                                            },
-                                            variable: 2,
-                                            colon: ColonRegionalToken(
-                                                RegionalTokenIdx(
-                                                    19,
-                                                ),
-                                            ),
-                                            ty: 1,
-                                        },
-                                        ParenateParameterSyndicate::Keyed {
-                                            syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                                syn_pattern_expr_idx: 0,
-                                            },
-                                            symbol_modifier_keyword_group: None,
-                                            ident_token: IdentRegionalToken {
-                                                ident: `skip`,
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    22,
-                                                ),
-                                            },
-                                            variable: 3,
-                                            colon: ColonRegionalToken(
-                                                RegionalTokenIdx(
-                                                    23,
-                                                ),
-                                            ),
-                                            ty: 2,
-                                            eq_token: EqRegionalToken(
-                                                RegionalTokenIdx(
-                                                    25,
-                                                ),
-                                            ),
-                                            default: Right(
-                                                3,
-                                            ),
-                                        },
-                                    ],
-                                    commas: [
-                                        CommaRegionalToken(
-                                            RegionalTokenIdx(
-                                                21,
-                                            ),
-                                        ),
-                                        CommaRegionalToken(
-                                            RegionalTokenIdx(
-                                                27,
-                                            ),
-                                        ),
-                                    ],
-                                    rpar: RparRegionalToken(
-                                        RegionalTokenIdx(
-                                            28,
-                                        ),
-                                    ),
-                                },
-                            ),
-                            light_arrow_token: Ok(
-                                Some(
-                                    LightArrowRegionalToken(
-                                        RegionalTokenIdx(
-                                            29,
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            return_ty: Ok(
-                                Some(
-                                    ReturnTypeBeforeColonSyndicate {
-                                        syn_expr_idx: 8,
-                                    },
-                                ),
-                            ),
-                            eol_colon: Ok(
-                                EolRegionalToken::Semicolon(
-                                    EolSemicolonRegionalToken {
-                                        regional_token_idx: RegionalTokenIdx(
-                                            33,
-                                        ),
-                                    },
-                                ),
-                            ),
                         },
                     ),
                 ),

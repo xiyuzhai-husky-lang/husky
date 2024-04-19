@@ -19,8 +19,8 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                     Fn,
                 )`),
             ),

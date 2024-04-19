@@ -391,15 +391,15 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
-                            MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                            MajorItemSynNodePath::Form(
+                                FormSynNodePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                                     Fn,
                                 )`, (0)),
                             ),
                         ),
                         EntityKind::MajorItem {
-                            module_item_kind: MajorItemKind::Fugitive(
-                                MajorFugitiveKind::Ritchie(
+                            module_item_kind: MajorItemKind::Form(
+                                MajorFormKind::Ritchie(
                                     RitchieItemKind::Fn,
                                 ),
                             ),
@@ -873,8 +873,8 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -882,8 +882,8 @@ Ok(
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -1136,8 +1136,8 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         1,
                         PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -1145,8 +1145,8 @@ Ok(
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -1217,8 +1217,8 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         2,
                         PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -1226,8 +1226,8 @@ Ok(
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -1298,8 +1298,8 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         3,
                         PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -1307,8 +1307,8 @@ Ok(
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -3870,15 +3870,15 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
-                            MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                            MajorItemSynNodePath::Form(
+                                FormSynNodePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                                     Fn,
                                 )`, (0)),
                             ),
                         ),
                         EntityKind::MajorItem {
-                            module_item_kind: MajorItemKind::Fugitive(
-                                MajorFugitiveKind::Ritchie(
+                            module_item_kind: MajorItemKind::Form(
+                                MajorFormKind::Ritchie(
                                     RitchieItemKind::Fn,
                                 ),
                             ),
@@ -4353,15 +4353,15 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
-                            MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                            MajorItemSynNodePath::Form(
+                                FormSynNodePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
                                     Fn,
                                 )`, (0)),
                             ),
                         ),
                         EntityKind::MajorItem {
-                            module_item_kind: MajorItemKind::Fugitive(
-                                MajorFugitiveKind::Ritchie(
+                            module_item_kind: MajorItemKind::Form(
+                                MajorFormKind::Ritchie(
                                     RitchieItemKind::Fn,
                                 ),
                             ),
@@ -4801,8 +4801,8 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         2,
                         PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -4810,8 +4810,8 @@ Ok(
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -5074,8 +5074,8 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         3,
                         PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -5083,8 +5083,8 @@ Ok(
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -5432,8 +5432,8 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         4,
                         PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -5441,8 +5441,8 @@ Ok(
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                                     Fn,
                                 )`),
                             ),

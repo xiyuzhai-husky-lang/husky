@@ -1046,8 +1046,8 @@
     SemaExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -1056,8 +1056,8 @@
         data: SemaExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                             Fn,
                         )`),
                     ),
@@ -1657,8 +1657,8 @@
     SemaExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -1667,8 +1667,8 @@
         data: SemaExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                             Fn,
                         )`),
                     ),
@@ -2041,8 +2041,8 @@
     SemaExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -2051,8 +2051,8 @@
         data: SemaExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
                             Fn,
                         )`),
                     ),

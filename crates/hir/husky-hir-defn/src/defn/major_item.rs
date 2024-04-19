@@ -15,7 +15,7 @@ use husky_hir_decl::decl::MajorItemHirDecl;
 pub enum MajorItemHirDefn {
     Type(TypeHirDefn),
     Trait(TraitHirDefn),
-    Form(FormHirDefn),
+    Form(MajorFormHirDefn),
 }
 
 impl MajorItemHirDefn {

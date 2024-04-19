@@ -3,19 +3,20 @@ SynNodeDeclSheet {
     decls: [
         (
             ItemSynNodePath::MajorItem(
-                MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath(`quick_sort::quick_sort`, `Ritchie(
+                MajorItemSynNodePath::Form(
+                    FormSynNodePath(`quick_sort::quick_sort`, `Ritchie(
                         Fn,
                     )`, (0)),
                 ),
             ),
             ItemSynNodeDecl::MajorItem(
-                MajorItemSynNodeDecl::Fugitive(
-                    FugitiveSynNodeDecl::Fn(
-                        MajorFnSynNodeDecl {
-                            syn_node_path: FugitiveSynNodePath(`quick_sort::quick_sort`, `Ritchie(
+                MajorItemSynNodeDecl::Form(
+                    FormSynNodeDecl::Ritchie(
+                        MajorRitchieSynNodeDecl {
+                            syn_node_path: FormSynNodePath(`quick_sort::quick_sort`, `Ritchie(
                                 Fn,
                             )`, (0)),
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameter_obelisk_list: Ok(
                                 Some(
                                     SynTemplateParameterSyndicateList {
@@ -116,8 +117,8 @@ SynNodeDeclSheet {
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`quick_sort::quick_sort`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`quick_sort::quick_sort`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -343,19 +344,20 @@ SynNodeDeclSheet {
         ),
         (
             ItemSynNodePath::MajorItem(
-                MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                MajorItemSynNodePath::Form(
+                    FormSynNodePath(`quick_sort::quick_sort_aux`, `Ritchie(
                         Fn,
                     )`, (0)),
                 ),
             ),
             ItemSynNodeDecl::MajorItem(
-                MajorItemSynNodeDecl::Fugitive(
-                    FugitiveSynNodeDecl::Fn(
-                        MajorFnSynNodeDecl {
-                            syn_node_path: FugitiveSynNodePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                MajorItemSynNodeDecl::Form(
+                    FormSynNodeDecl::Ritchie(
+                        MajorRitchieSynNodeDecl {
+                            syn_node_path: FormSynNodePath(`quick_sort::quick_sort_aux`, `Ritchie(
                                 Fn,
                             )`, (0)),
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameter_obelisk_list: Ok(
                                 Some(
                                     SynTemplateParameterSyndicateList {
@@ -495,8 +497,8 @@ SynNodeDeclSheet {
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`quick_sort::quick_sort_aux`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -880,19 +882,20 @@ SynNodeDeclSheet {
         ),
         (
             ItemSynNodePath::MajorItem(
-                MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath(`quick_sort::partition`, `Ritchie(
+                MajorItemSynNodePath::Form(
+                    FormSynNodePath(`quick_sort::partition`, `Ritchie(
                         Fn,
                     )`, (0)),
                 ),
             ),
             ItemSynNodeDecl::MajorItem(
-                MajorItemSynNodeDecl::Fugitive(
-                    FugitiveSynNodeDecl::Fn(
-                        MajorFnSynNodeDecl {
-                            syn_node_path: FugitiveSynNodePath(`quick_sort::partition`, `Ritchie(
+                MajorItemSynNodeDecl::Form(
+                    FormSynNodeDecl::Ritchie(
+                        MajorRitchieSynNodeDecl {
+                            syn_node_path: FormSynNodePath(`quick_sort::partition`, `Ritchie(
                                 Fn,
                             )`, (0)),
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameter_obelisk_list: Ok(
                                 Some(
                                     SynTemplateParameterSyndicateList {
@@ -1042,8 +1045,8 @@ SynNodeDeclSheet {
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`quick_sort::partition`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`quick_sort::partition`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -1456,19 +1459,20 @@ SynNodeDeclSheet {
         ),
         (
             ItemSynNodePath::MajorItem(
-                MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+                MajorItemSynNodePath::Form(
+                    FormSynNodePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                         Fn,
                     )`, (0)),
                 ),
             ),
             ItemSynNodeDecl::MajorItem(
-                MajorItemSynNodeDecl::Fugitive(
-                    FugitiveSynNodeDecl::Fn(
-                        MajorFnSynNodeDecl {
-                            syn_node_path: FugitiveSynNodePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+                MajorItemSynNodeDecl::Form(
+                    FormSynNodeDecl::Ritchie(
+                        MajorRitchieSynNodeDecl {
+                            syn_node_path: FormSynNodePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                                 Fn,
                             )`, (0)),
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameter_obelisk_list: Ok(
                                 None,
                             ),
@@ -1510,8 +1514,8 @@ SynNodeDeclSheet {
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -1566,19 +1570,20 @@ SynNodeDeclSheet {
         ),
         (
             ItemSynNodePath::MajorItem(
-                MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+                MajorItemSynNodePath::Form(
+                    FormSynNodePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                         Fn,
                     )`, (0)),
                 ),
             ),
             ItemSynNodeDecl::MajorItem(
-                MajorItemSynNodeDecl::Fugitive(
-                    FugitiveSynNodeDecl::Fn(
-                        MajorFnSynNodeDecl {
-                            syn_node_path: FugitiveSynNodePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+                MajorItemSynNodeDecl::Form(
+                    FormSynNodeDecl::Ritchie(
+                        MajorRitchieSynNodeDecl {
+                            syn_node_path: FormSynNodePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                                 Fn,
                             )`, (0)),
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameter_obelisk_list: Ok(
                                 None,
                             ),
@@ -1620,8 +1625,8 @@ SynNodeDeclSheet {
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),

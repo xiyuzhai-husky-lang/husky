@@ -2,8 +2,8 @@
 [
     (
         ItemSynNodePath::MajorItem(
-            MajorItemSynNodePath::Fugitive(
-                FugitiveSynNodePath(`syntax_basics::expr::nested`, `Ritchie(
+            MajorItemSynNodePath::Form(
+                FormSynNodePath(`syntax_basics::expr::nested`, `Ritchie(
                     Fn,
                 )`, (0)),
             ),
@@ -19,8 +19,8 @@
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`syntax_basics::expr::nested`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`syntax_basics::expr::nested`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -71,8 +71,8 @@
                         ),
                         path: SynNodeRegionPath::Defn(
                             ItemSynNodePath::MajorItem(
-                                MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`syntax_basics::expr::nested`, `Ritchie(
+                                MajorItemSynNodePath::Form(
+                                    FormSynNodePath(`syntax_basics::expr::nested`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),
@@ -256,8 +256,8 @@
     ),
     (
         ItemSynNodePath::MajorItem(
-            MajorItemSynNodePath::Fugitive(
-                FugitiveSynNodePath(`syntax_basics::expr::closure_inline`, `Ritchie(
+            MajorItemSynNodePath::Form(
+                FormSynNodePath(`syntax_basics::expr::closure_inline`, `Ritchie(
                     Fn,
                 )`, (0)),
             ),
@@ -273,8 +273,8 @@
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`syntax_basics::expr::closure_inline`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`syntax_basics::expr::closure_inline`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -325,8 +325,8 @@
                         ),
                         path: SynNodeRegionPath::Defn(
                             ItemSynNodePath::MajorItem(
-                                MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`syntax_basics::expr::closure_inline`, `Ritchie(
+                                MajorItemSynNodePath::Form(
+                                    FormSynNodePath(`syntax_basics::expr::closure_inline`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),
@@ -627,8 +627,8 @@
     ),
     (
         ItemSynNodePath::MajorItem(
-            MajorItemSynNodePath::Fugitive(
-                FugitiveSynNodePath(`syntax_basics::expr::closure_nested`, `Ritchie(
+            MajorItemSynNodePath::Form(
+                FormSynNodePath(`syntax_basics::expr::closure_nested`, `Ritchie(
                     Fn,
                 )`, (0)),
             ),
@@ -644,8 +644,8 @@
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`syntax_basics::expr::closure_nested`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`syntax_basics::expr::closure_nested`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -696,8 +696,8 @@
                         ),
                         path: SynNodeRegionPath::Defn(
                             ItemSynNodePath::MajorItem(
-                                MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`syntax_basics::expr::closure_nested`, `Ritchie(
+                                MajorItemSynNodePath::Form(
+                                    FormSynNodePath(`syntax_basics::expr::closure_nested`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),

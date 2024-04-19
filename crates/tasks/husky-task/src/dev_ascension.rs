@@ -2,7 +2,7 @@ use crate::*;
 use husky_ki::Ki;
 use husky_task_interface::{
     ki_control_flow::KiControlFlow,
-    ki_repr::{KiReprInterface, ValDomainReprInterface},
+    ki_repr::{KiDomainReprInterface, KiReprInterface},
     pedestal::IsPedestalFull,
     DevEvalContext, IsDevRuntime,
 };
@@ -26,7 +26,7 @@ pub trait IsDevAscension {
     type RuntimeSpecificConfig: Default + Send;
     type TraceProtocol: IsTraceProtocol<Pedestal = Self::Pedestal> + IsTraceProtocolFull;
     fn calc_figure<DevRuntime: IsDevRuntime<Self::LinkageImpl>>(
-        followed: Option<(TraceId, KiReprInterface, ValDomainReprInterface)>,
+        followed: Option<(TraceId, KiReprInterface, KiDomainReprInterface)>,
         accompanyings_except_followed: &[(TraceId, KiReprInterface)],
         pedestal: Self::Pedestal,
         runtime: &DevRuntime,

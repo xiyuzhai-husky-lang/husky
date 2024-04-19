@@ -3,16 +3,16 @@
     SemaExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                     ),
                 ),
             ),
@@ -158,8 +158,8 @@
     SemaExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -168,8 +168,8 @@
         data: SemaExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
                             Fn,
                         )`),
                     ),
@@ -579,16 +579,16 @@
     SemaExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                     ),
                 ),
             ),
@@ -734,8 +734,8 @@
     SemaExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -744,8 +744,8 @@
         data: SemaExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
                             Fn,
                         )`),
                     ),
@@ -1155,8 +1155,8 @@
     SemaExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -1165,8 +1165,8 @@
         data: SemaExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
                             Fn,
                         )`),
                     ),
@@ -1576,16 +1576,16 @@
     SemaExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                     ),
                 ),
             ),

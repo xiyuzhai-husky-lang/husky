@@ -3,16 +3,16 @@
     SemaExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::major::connected_components`, `Val`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::major::connected_components`, `Val`),
                     ),
                 ),
             ),
@@ -322,16 +322,16 @@
     SemaExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     ),
                 ),
             ),
@@ -548,16 +548,16 @@
     SemaExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                     ),
                 ),
             ),
@@ -703,16 +703,16 @@
     SemaExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
                     ),
                 ),
             ),
@@ -1093,16 +1093,16 @@
     SemaExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                     ),
                 ),
             ),
@@ -1319,16 +1319,16 @@
     SemaExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                     ),
                 ),
             ),
@@ -1545,16 +1545,16 @@
     SemaExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     ),
                 ),
             ),

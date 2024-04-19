@@ -14,7 +14,7 @@ output
 TokenSheetData {
     tokens: [
         TokenData::Keyword(
-            Keyword::Fugitive(
+            Keyword::Form(
                 Def,
             ),
         ),

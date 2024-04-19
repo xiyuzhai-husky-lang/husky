@@ -92,12 +92,12 @@
         },
     ),
     HirDefn::MajorItem(
-        MajorItemHirDefn::Fugitive(
-            FugitiveHirDefn::Ki(
+        MajorItemHirDefn::Form(
+            MajorFormHirDefn::Val(
                 ValHirDefn {
-                    path: FugitivePath(`mnist_classifier::main`, `Val`),
-                    hir_decl: ValFugitiveHirDecl {
-                        path: FugitivePath(`mnist_classifier::main`, `Val`),
+                    path: FormPath(`mnist_classifier::main`, `Val`),
+                    hir_decl: MajorValHirDecl {
+                        path: FormPath(`mnist_classifier::main`, `Val`),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`malamute::Class`, `Enum`),
@@ -118,8 +118,8 @@
                         hir_eager_expr_region: HirEagerExprRegion {
                             region_path: RegionPath::Decl(
                                 ItemPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::main`, `Val`),
+                                    MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::main`, `Val`),
                                     ),
                                 ),
                             ),

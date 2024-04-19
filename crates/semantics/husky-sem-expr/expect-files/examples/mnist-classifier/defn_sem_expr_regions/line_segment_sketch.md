@@ -3,8 +3,8 @@
     SemaExprRegion {
         path: RegionPath::Defn(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -13,8 +13,8 @@
         data: SemaExprRegionData {
             path: RegionPath::Defn(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                             Fn,
                         )`),
                     ),
@@ -5334,8 +5334,8 @@
     SemaExprRegion {
         path: RegionPath::Defn(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -5344,8 +5344,8 @@
         data: SemaExprRegionData {
             path: RegionPath::Defn(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                             Fn,
                         )`),
                     ),
@@ -10665,8 +10665,8 @@
     SemaExprRegion {
         path: RegionPath::Defn(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -10675,8 +10675,8 @@
         data: SemaExprRegionData {
             path: RegionPath::Defn(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
                             Fn,
                         )`),
                     ),
@@ -12895,8 +12895,8 @@
                                 SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -12905,8 +12905,8 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                                                MajorItemPath::Form(
+                                                    FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -13137,8 +13137,8 @@
                                 SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 1,
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -13147,8 +13147,8 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                                                MajorItemPath::Form(
+                                                    FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -15082,8 +15082,8 @@
                                 SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 2,
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -15092,8 +15092,8 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                                                MajorItemPath::Form(
+                                                    FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -15324,8 +15324,8 @@
                                 SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 3,
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -15334,8 +15334,8 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                                                MajorItemPath::Form(
+                                                    FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -23513,8 +23513,8 @@
     SemaExprRegion {
         path: RegionPath::Defn(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -23523,8 +23523,8 @@
         data: SemaExprRegionData {
             path: RegionPath::Defn(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
                             Fn,
                         )`),
                     ),
@@ -25892,8 +25892,8 @@
                                 SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -25902,8 +25902,8 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                                                MajorItemPath::Form(
+                                                    FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -26134,8 +26134,8 @@
                                 SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 1,
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -26144,8 +26144,8 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                                                MajorItemPath::Form(
+                                                    FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -27752,8 +27752,8 @@
                                 SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 2,
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -27762,8 +27762,8 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                                                MajorItemPath::Form(
+                                                    FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -27994,8 +27994,8 @@
                                 SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 3,
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -28004,8 +28004,8 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                                                MajorItemPath::Form(
+                                                    FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -37522,8 +37522,8 @@
     SemaExprRegion {
         path: RegionPath::Defn(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -37532,8 +37532,8 @@
         data: SemaExprRegionData {
             path: RegionPath::Defn(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
                             Fn,
                         )`),
                     ),
@@ -38363,8 +38363,8 @@
                                 SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 1,
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -38373,8 +38373,8 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
+                                                MajorItemPath::Form(
+                                                    FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -42283,8 +42283,8 @@
                                 SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 4,
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -42293,8 +42293,8 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
+                                                MajorItemPath::Form(
+                                                    FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -64774,8 +64774,8 @@
                                 SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -64784,8 +64784,8 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
+                                                MajorItemPath::Form(
+                                                    FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -72323,8 +72323,8 @@
                                 SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 1,
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -72333,8 +72333,8 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
+                                                MajorItemPath::Form(
+                                                    FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
                                                         Fn,
                                                     )`),
                                                 ),

@@ -71,8 +71,8 @@
         ),
     ),
     ItemPath::MajorItem(
-        MajorItemPath::Fugitive(
-            FugitivePath(`mnist_classifier::main`, `Val`),
+        MajorItemPath::Form(
+            FormPath(`mnist_classifier::main`, `Val`),
         ),
     ),
 ]

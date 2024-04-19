@@ -1,12 +1,13 @@
 ```rust
 [
     HirDecl::MajorItem(
-        MajorItemHirDecl::Fugitive(
-            FugitiveHirDecl::FunctionFn(
-                FunctionMajorFnHirDecl {
-                    path: FugitivePath(`quick_sort::quick_sort`, `Ritchie(
+        MajorItemHirDecl::Form(
+            MajorFormHirDecl::Ritchie(
+                MajorRitchieHirDecl {
+                    path: FormPath(`quick_sort::quick_sort`, `Ritchie(
                         Fn,
                     )`),
+                    ritchie_item_kind: RitchieItemKind::Fn,
                     template_parameters: HirTemplateParameters(
                         [
                             HirTemplateParameter {
@@ -31,32 +32,34 @@
                             },
                         ],
                     ),
-                    parenate_parameters: HirEagerParenateParameters(
-                        [
-                            HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 0,
-                                contract: BorrowMut,
-                                ty: HirType::PathLeading(
-                                    HirTypePathLeading {
-                                        ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                                        template_arguments: [
-                                            HirTemplateArgument::Type(
-                                                HirType::Variable(
-                                                    HirTypeTemplateVariable::Type {
-                                                        attrs: HirTemplateVariableAttrs {
-                                                            class: Comptime,
+                    parenate_parameters: HirParenateParameters::Eager(
+                        HirEagerParenateParameters(
+                            [
+                                HirEagerParenateParameter::Simple {
+                                    pattern_expr_idx: 0,
+                                    contract: BorrowMut,
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::slice::Slice`, `Extern`),
+                                            template_arguments: [
+                                                HirTemplateArgument::Type(
+                                                    HirType::Variable(
+                                                        HirTypeTemplateVariable::Type {
+                                                            attrs: HirTemplateVariableAttrs {
+                                                                class: Comptime,
+                                                            },
+                                                            variance: None,
+                                                            disambiguator: 0,
                                                         },
-                                                        variance: None,
-                                                        disambiguator: 0,
-                                                    },
+                                                    ),
                                                 ),
-                                            ),
-                                        ],
-                                        always_copyable: false,
-                                    },
-                                ),
-                            },
-                        ],
+                                            ],
+                                            always_copyable: false,
+                                        },
+                                    ),
+                                },
+                            ],
+                        ),
                     ),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {
@@ -65,81 +68,25 @@
                             always_copyable: true,
                         },
                     ),
-                    hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`quick_sort::quick_sort`, `Ritchie(
-                                        Fn,
-                                    )`),
-                                ),
-                            ),
+                    hir_expr_region: Eager(
+                        HirEagerExprRegion(
+                            Id {
+                                value: 1,
+                            },
                         ),
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_arena: Arena {
-                            data: [
-                                HirEagerPatternEntry {
-                                    data: HirEagerPatternData::Ident {
-                                        symbol_modifier: Some(
-                                            RefMut,
-                                        ),
-                                        ident: `arr`,
-                                    },
-                                    contract: BorrowMut,
-                                },
-                            ],
-                        },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
-                            arena: Arena {
-                                data: [
-                                    HirEagerComptimeVariableEntry {
-                                        name: HirEagerComptimeVariableName::Ident(
-                                            `T`,
-                                        ),
-                                        data: Current,
-                                        hir_comptime_symbol: HirTemplateVariable::Type(
-                                            HirTypeTemplateVariable::Type {
-                                                attrs: HirTemplateVariableAttrs {
-                                                    class: Comptime,
-                                                },
-                                                variance: None,
-                                                disambiguator: 0,
-                                            },
-                                        ),
-                                    },
-                                ],
-                            },
-                        },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
-                            arena: Arena {
-                                data: [
-                                    HirEagerRuntimeVariableEntry {
-                                        name: HirEagerRuntimeVariableName::Ident(
-                                            `arr`,
-                                        ),
-                                        data: HirEagerRuntimeVariableData::ParenateParameter,
-                                    },
-                                ],
-                            },
-                            self_value_variable: None,
-                        },
-                    },
+                    ),
                 },
             ),
         ),
     ),
     HirDecl::MajorItem(
-        MajorItemHirDecl::Fugitive(
-            FugitiveHirDecl::FunctionFn(
-                FunctionMajorFnHirDecl {
-                    path: FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+        MajorItemHirDecl::Form(
+            MajorFormHirDecl::Ritchie(
+                MajorRitchieHirDecl {
+                    path: FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                         Fn,
                     )`),
+                    ritchie_item_kind: RitchieItemKind::Fn,
                     template_parameters: HirTemplateParameters(
                         [
                             HirTemplateParameter {
@@ -164,54 +111,56 @@
                             },
                         ],
                     ),
-                    parenate_parameters: HirEagerParenateParameters(
-                        [
-                            HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 0,
-                                contract: BorrowMut,
-                                ty: HirType::PathLeading(
-                                    HirTypePathLeading {
-                                        ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                                        template_arguments: [
-                                            HirTemplateArgument::Type(
-                                                HirType::Variable(
-                                                    HirTypeTemplateVariable::Type {
-                                                        attrs: HirTemplateVariableAttrs {
-                                                            class: Comptime,
+                    parenate_parameters: HirParenateParameters::Eager(
+                        HirEagerParenateParameters(
+                            [
+                                HirEagerParenateParameter::Simple {
+                                    pattern_expr_idx: 0,
+                                    contract: BorrowMut,
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::slice::Slice`, `Extern`),
+                                            template_arguments: [
+                                                HirTemplateArgument::Type(
+                                                    HirType::Variable(
+                                                        HirTypeTemplateVariable::Type {
+                                                            attrs: HirTemplateVariableAttrs {
+                                                                class: Comptime,
+                                                            },
+                                                            variance: None,
+                                                            disambiguator: 0,
                                                         },
-                                                        variance: None,
-                                                        disambiguator: 0,
-                                                    },
+                                                    ),
                                                 ),
-                                            ),
-                                        ],
-                                        always_copyable: false,
-                                    },
-                                ),
-                            },
-                            HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 1,
-                                contract: Pure,
-                                ty: HirType::PathLeading(
-                                    HirTypePathLeading {
-                                        ty_path: TypePath(`core::num::isize`, `Extern`),
-                                        template_arguments: [],
-                                        always_copyable: true,
-                                    },
-                                ),
-                            },
-                            HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 2,
-                                contract: Pure,
-                                ty: HirType::PathLeading(
-                                    HirTypePathLeading {
-                                        ty_path: TypePath(`core::num::isize`, `Extern`),
-                                        template_arguments: [],
-                                        always_copyable: true,
-                                    },
-                                ),
-                            },
-                        ],
+                                            ],
+                                            always_copyable: false,
+                                        },
+                                    ),
+                                },
+                                HirEagerParenateParameter::Simple {
+                                    pattern_expr_idx: 1,
+                                    contract: Pure,
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::num::isize`, `Extern`),
+                                            template_arguments: [],
+                                            always_copyable: true,
+                                        },
+                                    ),
+                                },
+                                HirEagerParenateParameter::Simple {
+                                    pattern_expr_idx: 2,
+                                    contract: Pure,
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::num::isize`, `Extern`),
+                                            template_arguments: [],
+                                            always_copyable: true,
+                                        },
+                                    ),
+                                },
+                            ],
+                        ),
                     ),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {
@@ -220,107 +169,25 @@
                             always_copyable: true,
                         },
                     ),
-                    hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
-                                        Fn,
-                                    )`),
-                                ),
-                            ),
+                    hir_expr_region: Eager(
+                        HirEagerExprRegion(
+                            Id {
+                                value: 2,
+                            },
                         ),
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_arena: Arena {
-                            data: [
-                                HirEagerPatternEntry {
-                                    data: HirEagerPatternData::Ident {
-                                        symbol_modifier: Some(
-                                            RefMut,
-                                        ),
-                                        ident: `arr`,
-                                    },
-                                    contract: BorrowMut,
-                                },
-                                HirEagerPatternEntry {
-                                    data: HirEagerPatternData::Ident {
-                                        symbol_modifier: None,
-                                        ident: `low`,
-                                    },
-                                    contract: Pure,
-                                },
-                                HirEagerPatternEntry {
-                                    data: HirEagerPatternData::Ident {
-                                        symbol_modifier: None,
-                                        ident: `high`,
-                                    },
-                                    contract: Pure,
-                                },
-                            ],
-                        },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
-                            arena: Arena {
-                                data: [
-                                    HirEagerComptimeVariableEntry {
-                                        name: HirEagerComptimeVariableName::Ident(
-                                            `T`,
-                                        ),
-                                        data: Current,
-                                        hir_comptime_symbol: HirTemplateVariable::Type(
-                                            HirTypeTemplateVariable::Type {
-                                                attrs: HirTemplateVariableAttrs {
-                                                    class: Comptime,
-                                                },
-                                                variance: None,
-                                                disambiguator: 0,
-                                            },
-                                        ),
-                                    },
-                                ],
-                            },
-                        },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
-                            arena: Arena {
-                                data: [
-                                    HirEagerRuntimeVariableEntry {
-                                        name: HirEagerRuntimeVariableName::Ident(
-                                            `arr`,
-                                        ),
-                                        data: HirEagerRuntimeVariableData::ParenateParameter,
-                                    },
-                                    HirEagerRuntimeVariableEntry {
-                                        name: HirEagerRuntimeVariableName::Ident(
-                                            `low`,
-                                        ),
-                                        data: HirEagerRuntimeVariableData::ParenateParameter,
-                                    },
-                                    HirEagerRuntimeVariableEntry {
-                                        name: HirEagerRuntimeVariableName::Ident(
-                                            `high`,
-                                        ),
-                                        data: HirEagerRuntimeVariableData::ParenateParameter,
-                                    },
-                                ],
-                            },
-                            self_value_variable: None,
-                        },
-                    },
+                    ),
                 },
             ),
         ),
     ),
     HirDecl::MajorItem(
-        MajorItemHirDecl::Fugitive(
-            FugitiveHirDecl::FunctionFn(
-                FunctionMajorFnHirDecl {
-                    path: FugitivePath(`quick_sort::partition`, `Ritchie(
+        MajorItemHirDecl::Form(
+            MajorFormHirDecl::Ritchie(
+                MajorRitchieHirDecl {
+                    path: FormPath(`quick_sort::partition`, `Ritchie(
                         Fn,
                     )`),
+                    ritchie_item_kind: RitchieItemKind::Fn,
                     template_parameters: HirTemplateParameters(
                         [
                             HirTemplateParameter {
@@ -345,54 +212,56 @@
                             },
                         ],
                     ),
-                    parenate_parameters: HirEagerParenateParameters(
-                        [
-                            HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 0,
-                                contract: BorrowMut,
-                                ty: HirType::PathLeading(
-                                    HirTypePathLeading {
-                                        ty_path: TypePath(`core::slice::Slice`, `Extern`),
-                                        template_arguments: [
-                                            HirTemplateArgument::Type(
-                                                HirType::Variable(
-                                                    HirTypeTemplateVariable::Type {
-                                                        attrs: HirTemplateVariableAttrs {
-                                                            class: Comptime,
+                    parenate_parameters: HirParenateParameters::Eager(
+                        HirEagerParenateParameters(
+                            [
+                                HirEagerParenateParameter::Simple {
+                                    pattern_expr_idx: 0,
+                                    contract: BorrowMut,
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::slice::Slice`, `Extern`),
+                                            template_arguments: [
+                                                HirTemplateArgument::Type(
+                                                    HirType::Variable(
+                                                        HirTypeTemplateVariable::Type {
+                                                            attrs: HirTemplateVariableAttrs {
+                                                                class: Comptime,
+                                                            },
+                                                            variance: None,
+                                                            disambiguator: 0,
                                                         },
-                                                        variance: None,
-                                                        disambiguator: 0,
-                                                    },
+                                                    ),
                                                 ),
-                                            ),
-                                        ],
-                                        always_copyable: false,
-                                    },
-                                ),
-                            },
-                            HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 1,
-                                contract: Pure,
-                                ty: HirType::PathLeading(
-                                    HirTypePathLeading {
-                                        ty_path: TypePath(`core::num::isize`, `Extern`),
-                                        template_arguments: [],
-                                        always_copyable: true,
-                                    },
-                                ),
-                            },
-                            HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 2,
-                                contract: Pure,
-                                ty: HirType::PathLeading(
-                                    HirTypePathLeading {
-                                        ty_path: TypePath(`core::num::isize`, `Extern`),
-                                        template_arguments: [],
-                                        always_copyable: true,
-                                    },
-                                ),
-                            },
-                        ],
+                                            ],
+                                            always_copyable: false,
+                                        },
+                                    ),
+                                },
+                                HirEagerParenateParameter::Simple {
+                                    pattern_expr_idx: 1,
+                                    contract: Pure,
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::num::isize`, `Extern`),
+                                            template_arguments: [],
+                                            always_copyable: true,
+                                        },
+                                    ),
+                                },
+                                HirEagerParenateParameter::Simple {
+                                    pattern_expr_idx: 2,
+                                    contract: Pure,
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::num::isize`, `Extern`),
+                                            template_arguments: [],
+                                            always_copyable: true,
+                                        },
+                                    ),
+                                },
+                            ],
+                        ),
                     ),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {
@@ -401,112 +270,32 @@
                             always_copyable: true,
                         },
                     ),
-                    hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`quick_sort::partition`, `Ritchie(
-                                        Fn,
-                                    )`),
-                                ),
-                            ),
+                    hir_expr_region: Eager(
+                        HirEagerExprRegion(
+                            Id {
+                                value: 3,
+                            },
                         ),
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_arena: Arena {
-                            data: [
-                                HirEagerPatternEntry {
-                                    data: HirEagerPatternData::Ident {
-                                        symbol_modifier: Some(
-                                            RefMut,
-                                        ),
-                                        ident: `arr`,
-                                    },
-                                    contract: BorrowMut,
-                                },
-                                HirEagerPatternEntry {
-                                    data: HirEagerPatternData::Ident {
-                                        symbol_modifier: None,
-                                        ident: `low`,
-                                    },
-                                    contract: Pure,
-                                },
-                                HirEagerPatternEntry {
-                                    data: HirEagerPatternData::Ident {
-                                        symbol_modifier: None,
-                                        ident: `high`,
-                                    },
-                                    contract: Pure,
-                                },
-                            ],
-                        },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
-                            arena: Arena {
-                                data: [
-                                    HirEagerComptimeVariableEntry {
-                                        name: HirEagerComptimeVariableName::Ident(
-                                            `T`,
-                                        ),
-                                        data: Current,
-                                        hir_comptime_symbol: HirTemplateVariable::Type(
-                                            HirTypeTemplateVariable::Type {
-                                                attrs: HirTemplateVariableAttrs {
-                                                    class: Comptime,
-                                                },
-                                                variance: None,
-                                                disambiguator: 0,
-                                            },
-                                        ),
-                                    },
-                                ],
-                            },
-                        },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
-                            arena: Arena {
-                                data: [
-                                    HirEagerRuntimeVariableEntry {
-                                        name: HirEagerRuntimeVariableName::Ident(
-                                            `arr`,
-                                        ),
-                                        data: HirEagerRuntimeVariableData::ParenateParameter,
-                                    },
-                                    HirEagerRuntimeVariableEntry {
-                                        name: HirEagerRuntimeVariableName::Ident(
-                                            `low`,
-                                        ),
-                                        data: HirEagerRuntimeVariableData::ParenateParameter,
-                                    },
-                                    HirEagerRuntimeVariableEntry {
-                                        name: HirEagerRuntimeVariableName::Ident(
-                                            `high`,
-                                        ),
-                                        data: HirEagerRuntimeVariableData::ParenateParameter,
-                                    },
-                                ],
-                            },
-                            self_value_variable: None,
-                        },
-                    },
+                    ),
                 },
             ),
         ),
     ),
     HirDecl::MajorItem(
-        MajorItemHirDecl::Fugitive(
-            FugitiveHirDecl::FunctionFn(
-                FunctionMajorFnHirDecl {
-                    path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+        MajorItemHirDecl::Form(
+            MajorFormHirDecl::Ritchie(
+                MajorRitchieHirDecl {
+                    path: FormPath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                         Fn,
                     )`),
+                    ritchie_item_kind: RitchieItemKind::Fn,
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    parenate_parameters: HirEagerParenateParameters(
-                        [],
+                    parenate_parameters: HirParenateParameters::Eager(
+                        HirEagerParenateParameters(
+                            [],
+                        ),
                     ),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {
@@ -515,53 +304,32 @@
                             always_copyable: true,
                         },
                     ),
-                    hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
-                                        Fn,
-                                    )`),
-                                ),
-                            ),
+                    hir_expr_region: Eager(
+                        HirEagerExprRegion(
+                            Id {
+                                value: 4,
+                            },
                         ),
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_arena: Arena {
-                            data: [],
-                        },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
-                            arena: Arena {
-                                data: [],
-                            },
-                        },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
-                            arena: Arena {
-                                data: [],
-                            },
-                            self_value_variable: None,
-                        },
-                    },
+                    ),
                 },
             ),
         ),
     ),
     HirDecl::MajorItem(
-        MajorItemHirDecl::Fugitive(
-            FugitiveHirDecl::FunctionFn(
-                FunctionMajorFnHirDecl {
-                    path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+        MajorItemHirDecl::Form(
+            MajorFormHirDecl::Ritchie(
+                MajorRitchieHirDecl {
+                    path: FormPath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                         Fn,
                     )`),
+                    ritchie_item_kind: RitchieItemKind::Fn,
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    parenate_parameters: HirEagerParenateParameters(
-                        [],
+                    parenate_parameters: HirParenateParameters::Eager(
+                        HirEagerParenateParameters(
+                            [],
+                        ),
                     ),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {
@@ -570,37 +338,13 @@
                             always_copyable: true,
                         },
                     ),
-                    hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
-                                        Fn,
-                                    )`),
-                                ),
-                            ),
+                    hir_expr_region: Eager(
+                        HirEagerExprRegion(
+                            Id {
+                                value: 5,
+                            },
                         ),
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_arena: Arena {
-                            data: [],
-                        },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
-                            arena: Arena {
-                                data: [],
-                            },
-                        },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
-                            arena: Arena {
-                                data: [],
-                            },
-                            self_value_variable: None,
-                        },
-                    },
+                    ),
                 },
             ),
         ),

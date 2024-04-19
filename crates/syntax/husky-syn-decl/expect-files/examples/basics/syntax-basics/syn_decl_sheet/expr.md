@@ -3,19 +3,20 @@ SynDeclSheet {
     decls: [
         (
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`syntax_basics::expr::nested`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`syntax_basics::expr::nested`, `Ritchie(
                         Fn,
                     )`),
                 ),
             ),
             SynDecl::MajorItem(
-                MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::Fn(
-                        MajorFnSynDecl {
-                            path: FugitivePath(`syntax_basics::expr::nested`, `Ritchie(
+                MajorItemSynDecl::Form(
+                    FormSynDecl::Ritchie(
+                        MajorRitchieSynDecl {
+                            path: FormPath(`syntax_basics::expr::nested`, `Ritchie(
                                 Fn,
                             )`),
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameters: [],
                             parenate_parameters: [],
                             return_ty: None,
@@ -24,8 +25,8 @@ SynDeclSheet {
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`syntax_basics::expr::nested`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`syntax_basics::expr::nested`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -80,19 +81,20 @@ SynDeclSheet {
         ),
         (
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`syntax_basics::expr::closure_inline`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
                         Fn,
                     )`),
                 ),
             ),
             SynDecl::MajorItem(
-                MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::Fn(
-                        MajorFnSynDecl {
-                            path: FugitivePath(`syntax_basics::expr::closure_inline`, `Ritchie(
+                MajorItemSynDecl::Form(
+                    FormSynDecl::Ritchie(
+                        MajorRitchieSynDecl {
+                            path: FormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
                                 Fn,
                             )`),
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameters: [],
                             parenate_parameters: [],
                             return_ty: None,
@@ -101,8 +103,8 @@ SynDeclSheet {
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`syntax_basics::expr::closure_inline`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`syntax_basics::expr::closure_inline`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -157,19 +159,20 @@ SynDeclSheet {
         ),
         (
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`syntax_basics::expr::closure_nested`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
                         Fn,
                     )`),
                 ),
             ),
             SynDecl::MajorItem(
-                MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::Fn(
-                        MajorFnSynDecl {
-                            path: FugitivePath(`syntax_basics::expr::closure_nested`, `Ritchie(
+                MajorItemSynDecl::Form(
+                    FormSynDecl::Ritchie(
+                        MajorRitchieSynDecl {
+                            path: FormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
                                 Fn,
                             )`),
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameters: [],
                             parenate_parameters: [],
                             return_ty: None,
@@ -178,8 +181,8 @@ SynDeclSheet {
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`syntax_basics::expr::closure_nested`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`syntax_basics::expr::closure_nested`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),

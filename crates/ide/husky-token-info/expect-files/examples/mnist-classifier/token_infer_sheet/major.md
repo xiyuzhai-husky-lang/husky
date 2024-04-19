@@ -32,13 +32,13 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
-                            MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::major::connected_components`, `Val`, (0)),
+                            MajorItemSynNodePath::Form(
+                                FormSynNodePath(`mnist_classifier::major::connected_components`, `Val`, (0)),
                             ),
                         ),
                         EntityKind::MajorItem {
-                            module_item_kind: MajorItemKind::Fugitive(
-                                MajorFugitiveKind::Val,
+                            module_item_kind: MajorItemKind::Form(
+                                MajorFormKind::Val,
                             ),
                             connection: MajorItemConnectionKind::Connected,
                         },
@@ -91,8 +91,8 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -100,8 +100,8 @@ Ok(
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -124,15 +124,15 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         1,
                         PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist::input`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist::input`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist::input`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist::input`, `Val`),
                             ),
                         ),
                     ),
@@ -155,13 +155,13 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
-                            MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::major::major_connected_component`, `Val`, (0)),
+                            MajorItemSynNodePath::Form(
+                                FormSynNodePath(`mnist_classifier::major::major_connected_component`, `Val`, (0)),
                             ),
                         ),
                         EntityKind::MajorItem {
-                            module_item_kind: MajorItemKind::Fugitive(
-                                MajorFugitiveKind::Val,
+                            module_item_kind: MajorItemKind::Form(
+                                MajorFormKind::Val,
                             ),
                             connection: MajorItemConnectionKind::Connected,
                         },
@@ -258,15 +258,15 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::major::connected_components`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::major::connected_components`, `Val`),
                             ),
                         ),
                     ),
@@ -307,15 +307,15 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         1,
                         PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::major::connected_components`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::major::connected_components`, `Val`),
                             ),
                         ),
                     ),
@@ -457,15 +457,15 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         2,
                         PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::major::connected_components`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::major::connected_components`, `Val`),
                             ),
                         ),
                     ),
@@ -496,13 +496,13 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
-                            MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`, (0)),
+                            MajorItemSynNodePath::Form(
+                                FormSynNodePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`, (0)),
                             ),
                         ),
                         EntityKind::MajorItem {
-                            module_item_kind: MajorItemKind::Fugitive(
-                                MajorFugitiveKind::Val,
+                            module_item_kind: MajorItemKind::Form(
+                                MajorFormKind::Val,
                             ),
                             connection: MajorItemConnectionKind::Connected,
                         },
@@ -571,15 +571,15 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::major::connected_components`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::major::connected_components`, `Val`),
                             ),
                         ),
                     ),
@@ -621,15 +621,15 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         1,
                         PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::major::connected_components`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::major::connected_components`, `Val`),
                             ),
                         ),
                     ),
@@ -687,15 +687,15 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         2,
                         PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             ),
                         ),
                     ),
@@ -719,13 +719,13 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
-                            MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::major::major_raw_contours`, `Val`, (0)),
+                            MajorItemSynNodePath::Form(
+                                FormSynNodePath(`mnist_classifier::major::major_raw_contours`, `Val`, (0)),
                             ),
                         ),
                         EntityKind::MajorItem {
-                            module_item_kind: MajorItemKind::Fugitive(
-                                MajorFugitiveKind::Val,
+                            module_item_kind: MajorItemKind::Form(
+                                MajorFormKind::Val,
                             ),
                             connection: MajorItemConnectionKind::Connected,
                         },
@@ -788,15 +788,15 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             ),
                         ),
                     ),
@@ -820,13 +820,13 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
-                            MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::major::major_raw_contour`, `Val`, (0)),
+                            MajorItemSynNodePath::Form(
+                                FormSynNodePath(`mnist_classifier::major::major_raw_contour`, `Val`, (0)),
                             ),
                         ),
                         EntityKind::MajorItem {
-                            module_item_kind: MajorItemKind::Fugitive(
-                                MajorFugitiveKind::Val,
+                            module_item_kind: MajorItemKind::Form(
+                                MajorFormKind::Val,
                             ),
                             connection: MajorItemConnectionKind::Connected,
                         },
@@ -869,15 +869,15 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             ),
                         ),
                     ),
@@ -904,13 +904,13 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
-                            MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`, (0)),
+                            MajorItemSynNodePath::Form(
+                                FormSynNodePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`, (0)),
                             ),
                         ),
                         EntityKind::MajorItem {
-                            module_item_kind: MajorItemKind::Fugitive(
-                                MajorFugitiveKind::Val,
+                            module_item_kind: MajorItemKind::Form(
+                                MajorFormKind::Val,
                             ),
                             connection: MajorItemConnectionKind::Connected,
                         },
@@ -953,15 +953,15 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                             ),
                         ),
                     ),
@@ -985,13 +985,13 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
-                            MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist_classifier::major::major_concave_components`, `Val`, (0)),
+                            MajorItemSynNodePath::Form(
+                                FormSynNodePath(`mnist_classifier::major::major_concave_components`, `Val`, (0)),
                             ),
                         ),
                         EntityKind::MajorItem {
-                            module_item_kind: MajorItemKind::Fugitive(
-                                MajorFugitiveKind::Val,
+                            module_item_kind: MajorItemKind::Form(
+                                MajorFormKind::Val,
                             ),
                             connection: MajorItemConnectionKind::Connected,
                         },
@@ -1054,15 +1054,15 @@ Ok(
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         0,
                         PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                             ),
                         ),
                     ),

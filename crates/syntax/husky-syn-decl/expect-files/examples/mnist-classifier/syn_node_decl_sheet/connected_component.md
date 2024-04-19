@@ -782,19 +782,20 @@ SynNodeDeclSheet {
         ),
         (
             ItemSynNodePath::MajorItem(
-                MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                MajorItemSynNodePath::Form(
+                    FormSynNodePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                         Fn,
                     )`, (0)),
                 ),
             ),
             ItemSynNodeDecl::MajorItem(
-                MajorItemSynNodeDecl::Fugitive(
-                    FugitiveSynNodeDecl::Fn(
-                        MajorFnSynNodeDecl {
-                            syn_node_path: FugitiveSynNodePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                MajorItemSynNodeDecl::Form(
+                    FormSynNodeDecl::Ritchie(
+                        MajorRitchieSynNodeDecl {
+                            syn_node_path: FormSynNodePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                                 Fn,
                             )`, (0)),
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameter_obelisk_list: Ok(
                                 None,
                             ),
@@ -861,8 +862,8 @@ SynNodeDeclSheet {
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -1280,19 +1281,20 @@ SynNodeDeclSheet {
         ),
         (
             ItemSynNodePath::MajorItem(
-                MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                MajorItemSynNodePath::Form(
+                    FormSynNodePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                         Fn,
                     )`, (0)),
                 ),
             ),
             ItemSynNodeDecl::MajorItem(
-                MajorItemSynNodeDecl::Fugitive(
-                    FugitiveSynNodeDecl::Fn(
-                        MajorFnSynNodeDecl {
-                            syn_node_path: FugitiveSynNodePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                MajorItemSynNodeDecl::Form(
+                    FormSynNodeDecl::Ritchie(
+                        MajorRitchieSynNodeDecl {
+                            syn_node_path: FormSynNodePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                                 Fn,
                             )`, (0)),
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameter_obelisk_list: Ok(
                                 None,
                             ),
@@ -1379,8 +1381,8 @@ SynNodeDeclSheet {
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -1634,19 +1636,20 @@ SynNodeDeclSheet {
         ),
         (
             ItemSynNodePath::MajorItem(
-                MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                MajorItemSynNodePath::Form(
+                    FormSynNodePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
                         Fn,
                     )`, (0)),
                 ),
             ),
             ItemSynNodeDecl::MajorItem(
-                MajorItemSynNodeDecl::Fugitive(
-                    FugitiveSynNodeDecl::Fn(
-                        MajorFnSynNodeDecl {
-                            syn_node_path: FugitiveSynNodePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                MajorItemSynNodeDecl::Form(
+                    FormSynNodeDecl::Ritchie(
+                        MajorRitchieSynNodeDecl {
+                            syn_node_path: FormSynNodePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
                                 Fn,
                             )`, (0)),
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameter_obelisk_list: Ok(
                                 None,
                             ),
@@ -1713,8 +1716,8 @@ SynNodeDeclSheet {
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),

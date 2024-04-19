@@ -132,6 +132,10 @@ pub struct SemaExprRegionData {
 }
 
 impl SemaExprRegionData {
+    pub fn path(&self) -> RegionPath {
+        self.path
+    }
+
     pub fn syn_root_to_sem_expr_idx(&self, syn_expr_root: SynExprIdx) -> SemaExprIdx {
         (self.sem_expr_roots[syn_expr_root].1).0
     }

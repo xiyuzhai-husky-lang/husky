@@ -2088,8 +2088,8 @@
     SemaExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -2098,8 +2098,8 @@
         data: SemaExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                             Fn,
                         )`),
                     ),
@@ -2472,8 +2472,8 @@
     SemaExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -2482,8 +2482,8 @@
         data: SemaExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                             Fn,
                         )`),
                     ),
@@ -2856,8 +2856,8 @@
     SemaExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -2866,8 +2866,8 @@
         data: SemaExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
                             Fn,
                         )`),
                     ),
@@ -3422,8 +3422,8 @@
     SemaExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -3432,8 +3432,8 @@
         data: SemaExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
                             Fn,
                         )`),
                     ),
@@ -4099,8 +4099,8 @@
     SemaExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -4109,8 +4109,8 @@
         data: SemaExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
                             Fn,
                         )`),
                     ),

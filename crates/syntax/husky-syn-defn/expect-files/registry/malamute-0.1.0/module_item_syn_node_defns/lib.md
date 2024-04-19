@@ -188,8 +188,8 @@
     ),
     (
         ItemSynNodePath::MajorItem(
-            MajorItemSynNodePath::Fugitive(
-                FugitiveSynNodePath(`malamute::narrow_down`, `Ritchie(
+            MajorItemSynNodePath::Form(
+                FormSynNodePath(`malamute::narrow_down`, `Ritchie(
                     Gn,
                 )`, (0)),
             ),

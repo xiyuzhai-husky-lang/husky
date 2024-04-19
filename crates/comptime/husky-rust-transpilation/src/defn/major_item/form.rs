@@ -1,25 +1,23 @@
-use husky_hir_decl::decl::{FunctionMajorFnHirDecl, ValFormHirDecl};
-use husky_hir_expr::{HirExprIdx, HirExprRegion};
-
 use super::*;
 use crate::builder::keyword::RustKeyword;
+use husky_hir_decl::decl::{MajorRitchieHirDecl, MajorValHirDecl};
+use husky_hir_expr::{HirExprIdx, HirExprRegion};
 
-impl TranspileToRustWith for FormHirDefn {
+impl TranspileToRustWith for MajorFormHirDefn {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {
         match self {
-            FormHirDefn::FunctionFn(hir_defn) => hir_defn.transpile_to_rust(builder),
-            FormHirDefn::Ki(hir_defn) => hir_defn.transpile_to_rust(builder),
-            FormHirDefn::FunctionGn(hir_defn) => hir_defn.transpile_to_rust(builder),
-            FormHirDefn::TypeAlias(_) => todo!(),
+            MajorFormHirDefn::Ritchie(hir_defn) => hir_defn.transpile_to_rust(builder),
+            MajorFormHirDefn::Val(hir_defn) => hir_defn.transpile_to_rust(builder),
+            MajorFormHirDefn::TypeAlias(_) => todo!(),
         }
     }
 }
 
-impl TranspileToRustWith for FunctionFnHirDefn {
+impl TranspileToRustWith for MajorRitchieHirDefn {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
-        let Some((body, body_hir_eager_expr_region)) =
-            self.eager_body_with_hir_eager_expr_region(db)
+        let Some((HirExprIdx::Eager(body), HirExprRegion::Eager(body_hir_eager_expr_region))) =
+            self.body_with_hir_expr_region(db)
         else {
             return;
         };
@@ -28,22 +26,23 @@ impl TranspileToRustWith for FunctionFnHirDefn {
     }
 }
 
-impl TranspileToRustWith for FunctionMajorFnHirDecl {
+impl TranspileToRustWith for MajorRitchieHirDecl {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
-        builder.with_hir_eager_expr_region(self.hir_eager_expr_region(db), |builder| {
+        let HirExprRegion::Eager(hir_eager_expr_region) = self.hir_expr_region(db) else {
+            return;
+        };
+        builder.with_hir_eager_expr_region(hir_eager_expr_region, |builder| {
             builder.keyword(RustKeyword::Pub);
             builder.keyword(RustKeyword::Fn);
             self.path(db).ident(db).transpile_to_rust(builder);
             self.template_parameters(db).transpile_to_rust(builder);
-            self.parenate_parameters(db).transpile_to_rust(builder);
+            self.parenate_parameters(db)
+                .eager()
+                .transpile_to_rust(builder);
             builder.return_ty(self.return_ty(db))
         })
     }
-}
-
-impl TranspileToRustWith for FunctionGnHirDefn {
-    fn transpile_to_rust(self, _builder: &mut RustTranspilationBuilder) {}
 }
 
 impl TranspileToRustWith for ValHirDefn {
@@ -70,7 +69,7 @@ impl TranspileToRustWith for ValHirDefn {
     }
 }
 
-impl TranspileToRustWith for ValFormHirDecl {
+impl TranspileToRustWith for MajorValHirDecl {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {
         let hir_eager_expr_region = self.hir_eager_expr_region(builder.db());
         builder.with_hir_eager_expr_region(hir_eager_expr_region, |builder| {

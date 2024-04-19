@@ -1,11 +1,11 @@
 ```rust
 [
     (
-        FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+        FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
         None,
     ),
     (
-        FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+        FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
         Some(
             KiReprExpansion {
                 hir_lazy_variable_ki_repr_map: ArenaMap {
@@ -119,11 +119,11 @@
                 },
                 hir_lazy_expr_ki_repr_map: [
                     KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::Linkage(
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorVal {
-                                    path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                    path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -133,13 +133,13 @@
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
                     KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::Linkage(
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
@@ -165,13 +165,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -182,11 +182,11 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::Linkage(
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorVal {
-                                    path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                                    path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -196,13 +196,13 @@
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                            FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
                     KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::Literal(
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Literal(
                             Literal::I32(
                                 5,
                             ),
@@ -210,13 +210,13 @@
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -227,11 +227,11 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::Linkage(
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorRitchieLazy {
-                                    path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                    path: FormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
                                     instantiation: LinInstantiation {
@@ -300,13 +300,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -317,8 +317,8 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::Linkage(
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::UnveilAssocFn {
                                     path: TraitForTypeItemPath(
@@ -350,13 +350,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -367,11 +367,11 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::Linkage(
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorVal {
-                                    path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                    path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -381,19 +381,19 @@
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 19,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::VecConstructor {
                                     element_ty: LinType::Ritchie(
@@ -437,13 +437,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -454,17 +454,17 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 19,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorRitchieEager {
-                                    path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                    path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                         Fn,
                                     )`),
                                     instantiation: LinInstantiation {
@@ -495,13 +495,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -512,17 +512,17 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 19,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorRitchieEager {
-                                    path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                    path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                         Fn,
                                     )`),
                                     instantiation: LinInstantiation {
@@ -553,13 +553,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -570,14 +570,14 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 19,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
@@ -603,13 +603,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -620,14 +620,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 19,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Literal(
+                        opn: KiOpn::Literal(
                             Literal::F32(
                                 F32Literal {
                                     value: OrderedFloat(
@@ -640,13 +640,13 @@
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -657,14 +657,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 19,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Binary(
+                        opn: KiOpn::Binary(
                             Comparison(
                                 Less,
                             ),
@@ -687,13 +687,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -704,11 +704,11 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::Linkage(
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorVal {
-                                    path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                    path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -718,19 +718,19 @@
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        ki_domain_repr: ConditionSatisfied(
                             KiRepr(
                                 Id {
                                     value: 26,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
@@ -756,13 +756,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -773,14 +773,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        ki_domain_repr: ConditionSatisfied(
                             KiRepr(
                                 Id {
                                     value: 26,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Literal(
+                        opn: KiOpn::Literal(
                             Literal::I32(
                                 5,
                             ),
@@ -788,13 +788,13 @@
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -805,17 +805,17 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        ki_domain_repr: ConditionSatisfied(
                             KiRepr(
                                 Id {
                                     value: 26,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorRitchieLazy {
-                                    path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                    path: FormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
                                     instantiation: LinInstantiation {
@@ -879,13 +879,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -896,14 +896,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        ki_domain_repr: ConditionSatisfied(
                             KiRepr(
                                 Id {
                                     value: 26,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::UnveilAssocFn {
                                     path: TraitForTypeItemPath(
@@ -935,13 +935,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -952,11 +952,11 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::Linkage(
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorVal {
-                                    path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                    path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -966,19 +966,19 @@
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 30,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
@@ -1004,13 +1004,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -1021,14 +1021,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 30,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Literal(
+                        opn: KiOpn::Literal(
                             Literal::F32(
                                 F32Literal {
                                     value: OrderedFloat(
@@ -1041,13 +1041,13 @@
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -1058,14 +1058,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 30,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Binary(
+                        opn: KiOpn::Binary(
                             Comparison(
                                 Greater,
                             ),
@@ -1088,13 +1088,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -1105,11 +1105,11 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::Linkage(
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorVal {
-                                    path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                    path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -1119,19 +1119,19 @@
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        ki_domain_repr: ConditionSatisfied(
                             KiRepr(
                                 Id {
                                     value: 33,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
@@ -1157,13 +1157,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -1174,14 +1174,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        ki_domain_repr: ConditionSatisfied(
                             KiRepr(
                                 Id {
                                     value: 33,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Literal(
+                        opn: KiOpn::Literal(
                             Literal::F32(
                                 F32Literal {
                                     value: OrderedFloat(
@@ -1194,13 +1194,13 @@
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -1211,14 +1211,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        ki_domain_repr: ConditionSatisfied(
                             KiRepr(
                                 Id {
                                     value: 33,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Binary(
+                        opn: KiOpn::Binary(
                             Comparison(
                                 Eq,
                             ),
@@ -1241,13 +1241,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -1258,14 +1258,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 39,
                                 },
                             ),
                         ),
-                        opn: ValOpn::TypeVariant(
+                        opn: KiOpn::TypeVariant(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
@@ -1277,13 +1277,13 @@
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -1294,11 +1294,11 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::Linkage(
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorVal {
-                                    path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                    path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -1308,19 +1308,19 @@
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionNotSatisfied(
+                        ki_domain_repr: ConditionNotSatisfied(
                             KiRepr(
                                 Id {
                                     value: 26,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
@@ -1346,13 +1346,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -1363,14 +1363,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionNotSatisfied(
+                        ki_domain_repr: ConditionNotSatisfied(
                             KiRepr(
                                 Id {
                                     value: 26,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Literal(
+                        opn: KiOpn::Literal(
                             Literal::F32(
                                 F32Literal {
                                     value: OrderedFloat(
@@ -1383,13 +1383,13 @@
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -1400,14 +1400,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionNotSatisfied(
+                        ki_domain_repr: ConditionNotSatisfied(
                             KiRepr(
                                 Id {
                                     value: 26,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Binary(
+                        opn: KiOpn::Binary(
                             Comparison(
                                 Eq,
                             ),
@@ -1430,13 +1430,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -1447,11 +1447,11 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::Linkage(
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorVal {
-                                    path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                                    path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -1461,19 +1461,19 @@
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                            FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 45,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Literal(
+                        opn: KiOpn::Literal(
                             Literal::F32(
                                 F32Literal {
                                     value: OrderedFloat(
@@ -1486,13 +1486,13 @@
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -1503,14 +1503,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 45,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Binary(
+                        opn: KiOpn::Binary(
                             Comparison(
                                 Eq,
                             ),
@@ -1533,13 +1533,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -1550,11 +1550,11 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::Linkage(
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorVal {
-                                    path: FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                                    path: FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -1564,19 +1564,19 @@
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 49,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::StructField {
                                     self_ty: LinTypePathLeading {
@@ -1606,13 +1606,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -1623,14 +1623,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 49,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Literal(
+                        opn: KiOpn::Literal(
                             Literal::USize(
                                 USizeLiteral {
                                     value: 0,
@@ -1640,13 +1640,13 @@
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -1657,14 +1657,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 49,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Index,
+                        opn: KiOpn::Index,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -1683,13 +1683,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -1700,11 +1700,11 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::Linkage(
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorVal {
-                                    path: FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                                    path: FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -1714,19 +1714,19 @@
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 49,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::StructField {
                                     self_ty: LinTypePathLeading {
@@ -1756,13 +1756,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -1773,14 +1773,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 49,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Literal(
+                        opn: KiOpn::Literal(
                             Literal::USize(
                                 USizeLiteral {
                                     value: 1,
@@ -1790,13 +1790,13 @@
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -1807,14 +1807,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 49,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Index,
+                        opn: KiOpn::Index,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -1833,13 +1833,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -1850,11 +1850,11 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::Linkage(
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorVal {
-                                    path: FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                                    path: FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -1864,19 +1864,19 @@
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 49,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::StructField {
                                     self_ty: LinTypePathLeading {
@@ -1906,13 +1906,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -1923,14 +1923,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 49,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Literal(
+                        opn: KiOpn::Literal(
                             Literal::USize(
                                 USizeLiteral {
                                     value: 2,
@@ -1940,13 +1940,13 @@
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -1957,14 +1957,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 49,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Index,
+                        opn: KiOpn::Index,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -1983,13 +1983,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -2000,14 +2000,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 49,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Index,
+                        opn: KiOpn::Index,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -2026,13 +2026,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -2043,17 +2043,17 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 19,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorRitchieEager {
-                                    path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                    path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                         Fn,
                                     )`),
                                     instantiation: LinInstantiation {
@@ -2084,13 +2084,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -2101,14 +2101,14 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        ki_domain_repr: ConditionSatisfied(
                             KiRepr(
                                 Id {
                                     value: 62,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
@@ -2134,13 +2134,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -2151,14 +2151,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        ki_domain_repr: ConditionSatisfied(
                             KiRepr(
                                 Id {
                                     value: 62,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Literal(
+                        opn: KiOpn::Literal(
                             Literal::F32(
                                 F32Literal {
                                     value: OrderedFloat(
@@ -2171,13 +2171,13 @@
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -2188,14 +2188,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        ki_domain_repr: ConditionSatisfied(
                             KiRepr(
                                 Id {
                                     value: 62,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Binary(
+                        opn: KiOpn::Binary(
                             Comparison(
                                 Less,
                             ),
@@ -2218,13 +2218,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -2235,17 +2235,17 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 19,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorRitchieEager {
-                                    path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                    path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                         Fn,
                                     )`),
                                     instantiation: LinInstantiation {
@@ -2276,13 +2276,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -2293,14 +2293,14 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 67,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
@@ -2326,13 +2326,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -2343,14 +2343,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 67,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
@@ -2381,13 +2381,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -2398,14 +2398,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 67,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Literal(
+                        opn: KiOpn::Literal(
                             Literal::I32(
                                 5,
                             ),
@@ -2413,13 +2413,13 @@
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -2430,17 +2430,17 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 67,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorRitchieLazy {
-                                    path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                    path: FormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
                                     instantiation: LinInstantiation {
@@ -2504,13 +2504,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -2521,14 +2521,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 67,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::UnveilAssocFn {
                                     path: TraitForTypeItemPath(
@@ -2560,13 +2560,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -2577,14 +2577,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 72,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Literal(
+                        opn: KiOpn::Literal(
                             Literal::F32(
                                 F32Literal {
                                     value: OrderedFloat(
@@ -2597,13 +2597,13 @@
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -2614,11 +2614,11 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::Linkage(
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorVal {
-                                    path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                    path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -2628,19 +2628,19 @@
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 72,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
@@ -2666,13 +2666,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -2683,14 +2683,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 72,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Binary(
+                        opn: KiOpn::Binary(
                             Closed(
                                 Mul,
                             ),
@@ -2713,13 +2713,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -2730,11 +2730,11 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::Linkage(
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorVal {
-                                    path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                    path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -2744,19 +2744,19 @@
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 72,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
@@ -2782,13 +2782,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -2799,14 +2799,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 72,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Binary(
+                        opn: KiOpn::Binary(
                             Closed(
                                 Sub,
                             ),
@@ -2829,13 +2829,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -2846,14 +2846,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 72,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Literal(
+                        opn: KiOpn::Literal(
                             Literal::F32(
                                 F32Literal {
                                     value: OrderedFloat(
@@ -2866,13 +2866,13 @@
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -2883,14 +2883,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 72,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Binary(
+                        opn: KiOpn::Binary(
                             Comparison(
                                 Less,
                             ),
@@ -2913,13 +2913,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -2930,14 +2930,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 81,
                                 },
                             ),
                         ),
-                        opn: ValOpn::TypeVariant(
+                        opn: KiOpn::TypeVariant(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
@@ -2949,13 +2949,13 @@
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -2966,14 +2966,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 49,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Index,
+                        opn: KiOpn::Index,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -2992,13 +2992,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -3009,14 +3009,14 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 84,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Unwrap,
+                        opn: KiOpn::Unwrap,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -3028,13 +3028,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -3045,14 +3045,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 84,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::StructField {
                                     self_ty: LinTypePathLeading {
@@ -3091,13 +3091,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -3108,14 +3108,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 84,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
@@ -3169,13 +3169,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -3186,14 +3186,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 49,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Index,
+                        opn: KiOpn::Index,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -3212,13 +3212,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -3229,14 +3229,14 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 84,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Unwrap,
+                        opn: KiOpn::Unwrap,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -3248,13 +3248,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -3265,14 +3265,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 84,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::StructField {
                                     self_ty: LinTypePathLeading {
@@ -3311,13 +3311,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -3328,14 +3328,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 84,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
@@ -3389,13 +3389,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -3406,14 +3406,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 84,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Binary(
+                        opn: KiOpn::Binary(
                             Closed(
                                 Sub,
                             ),
@@ -3436,13 +3436,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -3453,11 +3453,11 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::Linkage(
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorVal {
-                                    path: FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                                    path: FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -3467,19 +3467,19 @@
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 84,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
@@ -3505,13 +3505,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -3522,14 +3522,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 84,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Literal(
+                        opn: KiOpn::Literal(
                             Literal::F32(
                                 F32Literal {
                                     value: OrderedFloat(
@@ -3542,13 +3542,13 @@
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -3559,14 +3559,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 84,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Binary(
+                        opn: KiOpn::Binary(
                             Comparison(
                                 Less,
                             ),
@@ -3589,13 +3589,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -3606,11 +3606,11 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::Linkage(
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorVal {
-                                    path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                    path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -3620,19 +3620,19 @@
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 97,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Literal(
+                        opn: KiOpn::Literal(
                             Literal::I32(
                                 3,
                             ),
@@ -3640,13 +3640,13 @@
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -3657,14 +3657,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 97,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
@@ -3702,13 +3702,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -3719,11 +3719,11 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::Linkage(
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorVal {
-                                    path: FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                                    path: FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -3733,19 +3733,19 @@
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 97,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
@@ -3771,13 +3771,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -3788,11 +3788,11 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::Linkage(
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorVal {
-                                    path: FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                                    path: FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -3802,19 +3802,19 @@
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 97,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
@@ -3840,13 +3840,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -3857,11 +3857,11 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::Linkage(
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorVal {
-                                    path: FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                                    path: FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -3871,19 +3871,19 @@
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 97,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
@@ -3909,13 +3909,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -3926,14 +3926,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 97,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Literal(
+                        opn: KiOpn::Literal(
                             Literal::I32(
                                 12,
                             ),
@@ -3941,13 +3941,13 @@
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -3958,17 +3958,17 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 97,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorRitchieLazy {
-                                    path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                    path: FormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
                                     instantiation: LinInstantiation {
@@ -4047,13 +4047,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -4064,14 +4064,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 97,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::UnveilAssocFn {
                                     path: TraitForTypeItemPath(
@@ -4103,13 +4103,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -4120,11 +4120,11 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::Linkage(
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorVal {
-                                    path: FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                                    path: FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -4134,19 +4134,19 @@
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 105,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::StructField {
                                     self_ty: LinTypePathLeading {
@@ -4176,13 +4176,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -4193,14 +4193,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 105,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Literal(
+                        opn: KiOpn::Literal(
                             Literal::USize(
                                 USizeLiteral {
                                     value: 0,
@@ -4210,13 +4210,13 @@
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -4227,14 +4227,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 105,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Index,
+                        opn: KiOpn::Index,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -4253,13 +4253,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -4270,14 +4270,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 105,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Unwrap,
+                        opn: KiOpn::Unwrap,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -4289,13 +4289,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -4306,14 +4306,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 105,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
@@ -4339,13 +4339,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -4356,11 +4356,11 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::Linkage(
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorVal {
-                                    path: FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                                    path: FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -4370,19 +4370,19 @@
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 105,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::StructField {
                                     self_ty: LinTypePathLeading {
@@ -4412,13 +4412,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -4429,14 +4429,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 105,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Literal(
+                        opn: KiOpn::Literal(
                             Literal::USize(
                                 USizeLiteral {
                                     value: 0,
@@ -4446,13 +4446,13 @@
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -4463,14 +4463,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 105,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Index,
+                        opn: KiOpn::Index,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -4489,13 +4489,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -4506,14 +4506,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 105,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Unwrap,
+                        opn: KiOpn::Unwrap,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -4525,13 +4525,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -4542,14 +4542,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 105,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
@@ -4575,13 +4575,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -4592,14 +4592,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 105,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
@@ -4630,13 +4630,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -4647,14 +4647,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 105,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Literal(
+                        opn: KiOpn::Literal(
                             Literal::I32(
                                 2,
                             ),
@@ -4662,13 +4662,13 @@
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -4679,17 +4679,17 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 105,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorRitchieLazy {
-                                    path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                    path: FormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
                                     instantiation: LinInstantiation {
@@ -4758,13 +4758,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -4775,14 +4775,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 105,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::UnveilAssocFn {
                                     path: TraitForTypeItemPath(
@@ -4814,13 +4814,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -4831,14 +4831,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 49,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Index,
+                        opn: KiOpn::Index,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -4857,13 +4857,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -4874,14 +4874,14 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 49,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Index,
+                        opn: KiOpn::Index,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -4900,13 +4900,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -4917,14 +4917,14 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        ki_domain_repr: ConditionSatisfied(
                             KiRepr(
                                 Id {
                                     value: 120,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Unwrap,
+                        opn: KiOpn::Unwrap,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -4936,13 +4936,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -4953,14 +4953,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        ki_domain_repr: ConditionSatisfied(
                             KiRepr(
                                 Id {
                                     value: 120,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::StructField {
                                     self_ty: LinTypePathLeading {
@@ -4999,13 +4999,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -5016,14 +5016,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        ki_domain_repr: ConditionSatisfied(
                             KiRepr(
                                 Id {
                                     value: 120,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
@@ -5077,13 +5077,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -5094,14 +5094,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 49,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Index,
+                        opn: KiOpn::Index,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -5120,13 +5120,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -5137,14 +5137,14 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        ki_domain_repr: ConditionSatisfied(
                             KiRepr(
                                 Id {
                                     value: 120,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Unwrap,
+                        opn: KiOpn::Unwrap,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -5156,13 +5156,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -5173,14 +5173,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        ki_domain_repr: ConditionSatisfied(
                             KiRepr(
                                 Id {
                                     value: 120,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::StructField {
                                     self_ty: LinTypePathLeading {
@@ -5219,13 +5219,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -5236,14 +5236,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        ki_domain_repr: ConditionSatisfied(
                             KiRepr(
                                 Id {
                                     value: 120,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
@@ -5297,13 +5297,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -5314,14 +5314,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        ki_domain_repr: ConditionSatisfied(
                             KiRepr(
                                 Id {
                                     value: 120,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Binary(
+                        opn: KiOpn::Binary(
                             Closed(
                                 Sub,
                             ),
@@ -5344,13 +5344,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -5361,14 +5361,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        ki_domain_repr: ConditionSatisfied(
                             KiRepr(
                                 Id {
                                     value: 120,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Literal(
+                        opn: KiOpn::Literal(
                             Literal::I32(
                                 2,
                             ),
@@ -5376,13 +5376,13 @@
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -5393,14 +5393,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        ki_domain_repr: ConditionSatisfied(
                             KiRepr(
                                 Id {
                                     value: 120,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Binary(
+                        opn: KiOpn::Binary(
                             Comparison(
                                 Eq,
                             ),
@@ -5423,13 +5423,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -5440,14 +5440,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 49,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Index,
+                        opn: KiOpn::Index,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -5466,13 +5466,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -5483,14 +5483,14 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 131,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Unwrap,
+                        opn: KiOpn::Unwrap,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -5502,13 +5502,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -5519,14 +5519,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 131,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::StructField {
                                     self_ty: LinTypePathLeading {
@@ -5565,13 +5565,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -5582,14 +5582,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 49,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Index,
+                        opn: KiOpn::Index,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -5608,13 +5608,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -5625,14 +5625,14 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 131,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Unwrap,
+                        opn: KiOpn::Unwrap,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -5644,13 +5644,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -5661,14 +5661,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 131,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::StructField {
                                     self_ty: LinTypePathLeading {
@@ -5707,13 +5707,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -5724,14 +5724,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 131,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
@@ -5785,13 +5785,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -5802,14 +5802,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 131,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Literal(
+                        opn: KiOpn::Literal(
                             Literal::I32(
                                 1,
                             ),
@@ -5817,13 +5817,13 @@
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -5834,14 +5834,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 131,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Binary(
+                        opn: KiOpn::Binary(
                             Closed(
                                 Add,
                             ),
@@ -5864,13 +5864,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -5881,14 +5881,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 131,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Index,
+                        opn: KiOpn::Index,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -5907,13 +5907,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -5924,14 +5924,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 131,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Index,
+                        opn: KiOpn::Index,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -5950,13 +5950,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -5967,14 +5967,14 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 131,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
@@ -6005,13 +6005,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -6022,14 +6022,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 131,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
@@ -6060,13 +6060,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -6077,14 +6077,14 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 131,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::StructField {
                                     self_ty: LinTypePathLeading {
@@ -6114,13 +6114,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -6131,14 +6131,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 131,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Literal(
+                        opn: KiOpn::Literal(
                             Literal::F32(
                                 F32Literal {
                                     value: OrderedFloat(
@@ -6151,13 +6151,13 @@
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -6168,14 +6168,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 131,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Binary(
+                        opn: KiOpn::Binary(
                             Comparison(
                                 Greater,
                             ),
@@ -6198,13 +6198,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -6215,14 +6215,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 49,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Index,
+                        opn: KiOpn::Index,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -6241,13 +6241,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -6258,14 +6258,14 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 147,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Unwrap,
+                        opn: KiOpn::Unwrap,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -6277,13 +6277,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -6294,14 +6294,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 147,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
@@ -6327,13 +6327,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -6344,14 +6344,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 49,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Index,
+                        opn: KiOpn::Index,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -6370,13 +6370,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -6387,14 +6387,14 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 147,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Unwrap,
+                        opn: KiOpn::Unwrap,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -6406,13 +6406,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -6423,14 +6423,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 147,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
@@ -6456,13 +6456,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -6473,14 +6473,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 49,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Index,
+                        opn: KiOpn::Index,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -6499,13 +6499,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -6516,14 +6516,14 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 147,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Unwrap,
+                        opn: KiOpn::Unwrap,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -6535,13 +6535,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -6552,14 +6552,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 147,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
@@ -6585,13 +6585,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -6602,14 +6602,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 147,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
@@ -6640,13 +6640,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -6657,14 +6657,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 147,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Literal(
+                        opn: KiOpn::Literal(
                             Literal::I32(
                                 2,
                             ),
@@ -6672,13 +6672,13 @@
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -6689,17 +6689,17 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 147,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorRitchieLazy {
-                                    path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                    path: FormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
                                     instantiation: LinInstantiation {
@@ -6773,13 +6773,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -6790,14 +6790,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 147,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::UnveilAssocFn {
                                     path: TraitForTypeItemPath(
@@ -6829,13 +6829,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -6846,14 +6846,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 131,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
@@ -6884,13 +6884,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -6901,14 +6901,14 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 157,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
@@ -6939,13 +6939,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -6956,14 +6956,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 131,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
@@ -6994,13 +6994,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -7011,14 +7011,14 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 157,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::StructField {
                                     self_ty: LinTypePathLeading {
@@ -7048,13 +7048,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -7065,14 +7065,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 131,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
@@ -7103,13 +7103,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -7120,14 +7120,14 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 157,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::StructField {
                                     self_ty: LinTypePathLeading {
@@ -7157,13 +7157,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -7174,14 +7174,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 157,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Binary(
+                        opn: KiOpn::Binary(
                             Closed(
                                 Div,
                             ),
@@ -7204,13 +7204,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -7221,14 +7221,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 157,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Literal(
+                        opn: KiOpn::Literal(
                             Literal::I32(
                                 2,
                             ),
@@ -7236,13 +7236,13 @@
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -7253,17 +7253,17 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 157,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorRitchieLazy {
-                                    path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                    path: FormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
                                     instantiation: LinInstantiation {
@@ -7332,13 +7332,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -7349,14 +7349,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 157,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::UnveilAssocFn {
                                     path: TraitForTypeItemPath(
@@ -7388,13 +7388,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -7405,14 +7405,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 49,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Index,
+                        opn: KiOpn::Index,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -7431,13 +7431,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -7448,11 +7448,11 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::Linkage(
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorVal {
-                                    path: FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                                    path: FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -7462,19 +7462,19 @@
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        ki_domain_repr: ConditionSatisfied(
                             KiRepr(
                                 Id {
                                     value: 166,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::StructField {
                                     self_ty: LinTypePathLeading {
@@ -7504,13 +7504,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -7521,14 +7521,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        ki_domain_repr: ConditionSatisfied(
                             KiRepr(
                                 Id {
                                     value: 166,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Literal(
+                        opn: KiOpn::Literal(
                             Literal::USize(
                                 USizeLiteral {
                                     value: 2,
@@ -7538,13 +7538,13 @@
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -7555,14 +7555,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        ki_domain_repr: ConditionSatisfied(
                             KiRepr(
                                 Id {
                                     value: 166,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Index,
+                        opn: KiOpn::Index,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -7581,13 +7581,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -7598,14 +7598,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        ki_domain_repr: ConditionSatisfied(
                             KiRepr(
                                 Id {
                                     value: 166,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Unwrap,
+                        opn: KiOpn::Unwrap,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -7617,13 +7617,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -7634,14 +7634,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        ki_domain_repr: ConditionSatisfied(
                             KiRepr(
                                 Id {
                                     value: 166,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
@@ -7667,13 +7667,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -7684,11 +7684,11 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::Linkage(
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorVal {
-                                    path: FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                                    path: FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -7698,19 +7698,19 @@
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        ki_domain_repr: ConditionSatisfied(
                             KiRepr(
                                 Id {
                                     value: 166,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::StructField {
                                     self_ty: LinTypePathLeading {
@@ -7740,13 +7740,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -7757,14 +7757,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        ki_domain_repr: ConditionSatisfied(
                             KiRepr(
                                 Id {
                                     value: 166,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Literal(
+                        opn: KiOpn::Literal(
                             Literal::USize(
                                 USizeLiteral {
                                     value: 2,
@@ -7774,13 +7774,13 @@
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -7791,14 +7791,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        ki_domain_repr: ConditionSatisfied(
                             KiRepr(
                                 Id {
                                     value: 166,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Index,
+                        opn: KiOpn::Index,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -7817,13 +7817,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -7834,14 +7834,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        ki_domain_repr: ConditionSatisfied(
                             KiRepr(
                                 Id {
                                     value: 166,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Unwrap,
+                        opn: KiOpn::Unwrap,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -7853,13 +7853,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -7870,14 +7870,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        ki_domain_repr: ConditionSatisfied(
                             KiRepr(
                                 Id {
                                     value: 166,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
@@ -7903,13 +7903,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -7920,11 +7920,11 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::Linkage(
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorVal {
-                                    path: FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                                    path: FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -7934,19 +7934,19 @@
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                            FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        ki_domain_repr: ConditionSatisfied(
                             KiRepr(
                                 Id {
                                     value: 166,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::StructField {
                                     self_ty: LinTypePathLeading {
@@ -7976,13 +7976,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -7993,14 +7993,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        ki_domain_repr: ConditionSatisfied(
                             KiRepr(
                                 Id {
                                     value: 166,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Literal(
+                        opn: KiOpn::Literal(
                             Literal::USize(
                                 USizeLiteral {
                                     value: 2,
@@ -8010,13 +8010,13 @@
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -8027,14 +8027,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        ki_domain_repr: ConditionSatisfied(
                             KiRepr(
                                 Id {
                                     value: 166,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Index,
+                        opn: KiOpn::Index,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -8053,13 +8053,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -8070,14 +8070,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        ki_domain_repr: ConditionSatisfied(
                             KiRepr(
                                 Id {
                                     value: 166,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Unwrap,
+                        opn: KiOpn::Unwrap,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -8089,13 +8089,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -8106,14 +8106,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        ki_domain_repr: ConditionSatisfied(
                             KiRepr(
                                 Id {
                                     value: 166,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
@@ -8139,13 +8139,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -8156,14 +8156,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        ki_domain_repr: ConditionSatisfied(
                             KiRepr(
                                 Id {
                                     value: 166,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
@@ -8194,13 +8194,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -8211,14 +8211,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        ki_domain_repr: ConditionSatisfied(
                             KiRepr(
                                 Id {
                                     value: 166,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Literal(
+                        opn: KiOpn::Literal(
                             Literal::I32(
                                 2,
                             ),
@@ -8226,13 +8226,13 @@
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -8243,17 +8243,17 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        ki_domain_repr: ConditionSatisfied(
                             KiRepr(
                                 Id {
                                     value: 166,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorRitchieLazy {
-                                    path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                    path: FormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
                                     instantiation: LinInstantiation {
@@ -8327,13 +8327,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -8344,14 +8344,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        ki_domain_repr: ConditionSatisfied(
                             KiRepr(
                                 Id {
                                     value: 166,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::UnveilAssocFn {
                                     path: TraitForTypeItemPath(
@@ -8383,13 +8383,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -8400,14 +8400,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 84,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Binary(
+                        opn: KiOpn::Binary(
                             Closed(
                                 Sub,
                             ),
@@ -8430,13 +8430,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -8447,14 +8447,14 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 186,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Literal(
+                        opn: KiOpn::Literal(
                             Literal::I32(
                                 3,
                             ),
@@ -8462,13 +8462,13 @@
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -8479,14 +8479,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 186,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Binary(
+                        opn: KiOpn::Binary(
                             Comparison(
                                 Eq,
                             ),
@@ -8509,13 +8509,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -8526,14 +8526,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 49,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Index,
+                        opn: KiOpn::Index,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -8552,13 +8552,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -8569,14 +8569,14 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 190,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Unwrap,
+                        opn: KiOpn::Unwrap,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -8588,13 +8588,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -8605,14 +8605,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 190,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::StructField {
                                     self_ty: LinTypePathLeading {
@@ -8651,13 +8651,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -8668,14 +8668,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 49,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Index,
+                        opn: KiOpn::Index,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -8694,13 +8694,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -8711,14 +8711,14 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 190,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Unwrap,
+                        opn: KiOpn::Unwrap,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -8730,13 +8730,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -8747,14 +8747,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 190,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::StructField {
                                     self_ty: LinTypePathLeading {
@@ -8793,13 +8793,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -8810,14 +8810,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 190,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
@@ -8871,13 +8871,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -8888,14 +8888,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 190,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Index,
+                        opn: KiOpn::Index,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -8914,13 +8914,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -8931,14 +8931,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 190,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Index,
+                        opn: KiOpn::Index,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -8957,13 +8957,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -8974,14 +8974,14 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 190,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
@@ -9012,13 +9012,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -9029,14 +9029,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 49,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Index,
+                        opn: KiOpn::Index,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -9055,13 +9055,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -9072,14 +9072,14 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 190,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Unwrap,
+                        opn: KiOpn::Unwrap,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -9091,13 +9091,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -9108,14 +9108,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 190,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::StructField {
                                     self_ty: LinTypePathLeading {
@@ -9154,13 +9154,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -9171,14 +9171,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 49,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Index,
+                        opn: KiOpn::Index,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -9197,13 +9197,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -9214,14 +9214,14 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 190,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Unwrap,
+                        opn: KiOpn::Unwrap,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -9233,13 +9233,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -9250,14 +9250,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 190,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::StructField {
                                     self_ty: LinTypePathLeading {
@@ -9296,13 +9296,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -9313,14 +9313,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 190,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
@@ -9374,13 +9374,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -9391,14 +9391,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 190,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Literal(
+                        opn: KiOpn::Literal(
                             Literal::I32(
                                 2,
                             ),
@@ -9406,13 +9406,13 @@
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -9423,14 +9423,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 190,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Binary(
+                        opn: KiOpn::Binary(
                             Closed(
                                 Add,
                             ),
@@ -9453,13 +9453,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -9470,14 +9470,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 190,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Index,
+                        opn: KiOpn::Index,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -9496,13 +9496,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -9513,14 +9513,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 190,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Index,
+                        opn: KiOpn::Index,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -9539,13 +9539,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -9556,14 +9556,14 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 190,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
@@ -9594,13 +9594,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -9611,14 +9611,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 190,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
@@ -9649,13 +9649,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -9666,14 +9666,14 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 190,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::StructField {
                                     self_ty: LinTypePathLeading {
@@ -9703,13 +9703,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -9720,14 +9720,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 190,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MethodRitchie {
                                     path: AssocItemPath::TypeItem(
@@ -9758,13 +9758,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -9775,14 +9775,14 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 190,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::StructField {
                                     self_ty: LinTypePathLeading {
@@ -9812,13 +9812,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -9829,14 +9829,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 190,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Literal(
+                        opn: KiOpn::Literal(
                             Literal::I32(
                                 5,
                             ),
@@ -9844,13 +9844,13 @@
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -9861,17 +9861,17 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 190,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorRitchieLazy {
-                                    path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                    path: FormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
                                     instantiation: LinInstantiation {
@@ -9940,13 +9940,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -9957,14 +9957,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 190,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::UnveilAssocFn {
                                     path: TraitForTypeItemPath(
@@ -9996,13 +9996,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -10013,14 +10013,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 84,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Binary(
+                        opn: KiOpn::Binary(
                             Closed(
                                 Sub,
                             ),
@@ -10043,13 +10043,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -10060,14 +10060,14 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 215,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Literal(
+                        opn: KiOpn::Literal(
                             Literal::I32(
                                 3,
                             ),
@@ -10075,13 +10075,13 @@
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -10092,14 +10092,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 215,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Binary(
+                        opn: KiOpn::Binary(
                             Comparison(
                                 Eq,
                             ),
@@ -10122,13 +10122,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -10139,11 +10139,11 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::Linkage(
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorVal {
-                                    path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                    path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -10153,19 +10153,19 @@
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 219,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
@@ -10191,13 +10191,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -10208,11 +10208,11 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::Linkage(
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MajorVal {
-                                    path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                    path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                     instantiation: LinInstantiation {
                                         symbol_resolutions: [],
                                         separator: None,
@@ -10222,19 +10222,19 @@
                         ),
                         arguments: [],
                         source: KiReprSource::ValItem(
-                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                         ),
                         caching_class: ValItem,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 219,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
@@ -10260,13 +10260,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -10277,14 +10277,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 219,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
@@ -10310,13 +10310,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -10327,14 +10327,14 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 219,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
@@ -10360,13 +10360,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -10377,14 +10377,14 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 219,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Binary(
+                        opn: KiOpn::Binary(
                             Closed(
                                 Sub,
                             ),
@@ -10407,13 +10407,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -10424,14 +10424,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 219,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Binary(
+                        opn: KiOpn::Binary(
                             Closed(
                                 Sub,
                             ),
@@ -10454,13 +10454,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -10471,14 +10471,14 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 219,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Linkage(
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::MemoizedField {
                                     path: AssocItemPath::TypeItem(
@@ -10504,13 +10504,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -10521,14 +10521,14 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 219,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Binary(
+                        opn: KiOpn::Binary(
                             Closed(
                                 Add,
                             ),
@@ -10551,13 +10551,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -10568,14 +10568,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 219,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Binary(
+                        opn: KiOpn::Binary(
                             Closed(
                                 Sub,
                             ),
@@ -10598,13 +10598,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -10615,14 +10615,14 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 219,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Literal(
+                        opn: KiOpn::Literal(
                             Literal::F32(
                                 F32Literal {
                                     value: OrderedFloat(
@@ -10635,13 +10635,13 @@
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -10652,14 +10652,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 219,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Prefix(
+                        opn: KiOpn::Prefix(
                             Minus,
                         ),
                         arguments: [
@@ -10673,13 +10673,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -10690,14 +10690,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 219,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Binary(
+                        opn: KiOpn::Binary(
                             Comparison(
                                 Geq,
                             ),
@@ -10720,13 +10720,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -10737,14 +10737,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 219,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Binary(
+                        opn: KiOpn::Binary(
                             Closed(
                                 Sub,
                             ),
@@ -10767,13 +10767,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -10784,14 +10784,14 @@
                         caching_class: Variable,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 232,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Literal(
+                        opn: KiOpn::Literal(
                             Literal::F32(
                                 F32Literal {
                                     value: OrderedFloat(
@@ -10804,13 +10804,13 @@
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -10821,14 +10821,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 232,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Binary(
+                        opn: KiOpn::Binary(
                             Comparison(
                                 Leq,
                             ),
@@ -10851,13 +10851,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -10868,14 +10868,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 236,
                                 },
                             ),
                         ),
-                        opn: ValOpn::TypeVariant(
+                        opn: KiOpn::TypeVariant(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
@@ -10887,13 +10887,13 @@
                         arguments: [],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -10906,14 +10906,14 @@
                 ],
                 hir_lazy_stmt_ki_repr_map: [
                     KiRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        ki_domain_repr: ConditionSatisfied(
                             KiRepr(
                                 Id {
                                     value: 33,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Require,
+                        opn: KiOpn::Require,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -10932,13 +10932,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -10949,14 +10949,14 @@
                         caching_class: Stmt,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 30,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Branches,
+                        opn: KiOpn::Branches,
                         arguments: [
                             Branch {
                                 condition: Some(
@@ -10977,13 +10977,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -10994,14 +10994,14 @@
                         caching_class: Stmt,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        ki_domain_repr: ConditionSatisfied(
                             KiRepr(
                                 Id {
                                     value: 62,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Require,
+                        opn: KiOpn::Require,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -11020,13 +11020,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -11037,14 +11037,14 @@
                         caching_class: Stmt,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 72,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Require,
+                        opn: KiOpn::Require,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -11063,13 +11063,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -11080,14 +11080,14 @@
                         caching_class: Stmt,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 81,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Return,
+                        opn: KiOpn::Return,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -11099,13 +11099,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -11116,14 +11116,14 @@
                         caching_class: Stmt,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionSatisfied(
+                        ki_domain_repr: ConditionSatisfied(
                             KiRepr(
                                 Id {
                                     value: 120,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Require,
+                        opn: KiOpn::Require,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -11142,13 +11142,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -11159,14 +11159,14 @@
                         caching_class: Stmt,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 131,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Require,
+                        opn: KiOpn::Require,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -11185,13 +11185,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -11202,14 +11202,14 @@
                         caching_class: Stmt,
                     },
                     KiRepr {
-                        val_domain_repr: ConditionNotSatisfied(
+                        ki_domain_repr: ConditionNotSatisfied(
                             KiRepr(
                                 Id {
                                     value: 26,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Require,
+                        opn: KiOpn::Require,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -11228,13 +11228,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -11245,14 +11245,14 @@
                         caching_class: Stmt,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 45,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Require,
+                        opn: KiOpn::Require,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -11271,13 +11271,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -11288,14 +11288,14 @@
                         caching_class: Stmt,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 49,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Branches,
+                        opn: KiOpn::Branches,
                         arguments: [
                             Branch {
                                 condition: Some(
@@ -11331,13 +11331,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -11348,14 +11348,14 @@
                         caching_class: Stmt,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 84,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Require,
+                        opn: KiOpn::Require,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -11374,13 +11374,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -11391,14 +11391,14 @@
                         caching_class: Stmt,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 119,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Branches,
+                        opn: KiOpn::Branches,
                         arguments: [
                             Branch {
                                 condition: Some(
@@ -11434,13 +11434,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -11451,14 +11451,14 @@
                         caching_class: Stmt,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 165,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Branches,
+                        opn: KiOpn::Branches,
                         arguments: [
                             Branch {
                                 condition: Some(
@@ -11479,13 +11479,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -11496,14 +11496,14 @@
                         caching_class: Stmt,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 186,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Require,
+                        opn: KiOpn::Require,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -11522,13 +11522,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -11539,14 +11539,14 @@
                         caching_class: Stmt,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 215,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Require,
+                        opn: KiOpn::Require,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -11565,13 +11565,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -11582,14 +11582,14 @@
                         caching_class: Stmt,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 219,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Require,
+                        opn: KiOpn::Require,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -11608,13 +11608,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -11625,14 +11625,14 @@
                         caching_class: Stmt,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 232,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Require,
+                        opn: KiOpn::Require,
                         arguments: [
                             Simple(
                                 KiRepr(
@@ -11651,13 +11651,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -11668,14 +11668,14 @@
                         caching_class: Stmt,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 19,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Branches,
+                        opn: KiOpn::Branches,
                         arguments: [
                             Branch {
                                 condition: Some(
@@ -11781,13 +11781,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -11800,8 +11800,8 @@
                 ],
                 root_hir_lazy_stmt_ki_reprs: [
                     KiRepr {
-                        val_domain_repr: Omni,
-                        opn: ValOpn::Linkage(
+                        ki_domain_repr: Omni,
+                        opn: KiOpn::Linkage(
                             Linkage {
                                 data: LinkageData::UnveilAssocFn {
                                     path: TraitForTypeItemPath(
@@ -11833,13 +11833,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },
@@ -11850,14 +11850,14 @@
                         caching_class: Expr,
                     },
                     KiRepr {
-                        val_domain_repr: StmtNotReturned(
+                        ki_domain_repr: StmtNotReturned(
                             KiRepr(
                                 Id {
                                     value: 19,
                                 },
                             ),
                         ),
-                        opn: ValOpn::Branches,
+                        opn: KiOpn::Branches,
                         arguments: [
                             Branch {
                                 condition: Some(
@@ -11963,13 +11963,13 @@
                         ],
                         source: KiReprSource::Expansion {
                             parent_ki_repr: KiRepr {
-                                val_domain_repr: Omni,
-                                opn: ValOpn::ValItemLazilyDefined(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                ki_domain_repr: Omni,
+                                opn: KiOpn::ValItemLazilyDefined(
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 arguments: [],
                                 source: KiReprSource::ValItem(
-                                    FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 ),
                                 caching_class: ValItem,
                             },

@@ -124,10 +124,10 @@
         ),
     ),
     HirDecl::MajorItem(
-        MajorItemHirDecl::Fugitive(
-            FugitiveHirDecl::Ki(
-                ValFugitiveHirDecl {
-                    path: FugitivePath(`mnist::input`, `Val`),
+        MajorItemHirDecl::Form(
+            MajorFormHirDecl::Val(
+                MajorValHirDecl {
+                    path: FormPath(`mnist::input`, `Val`),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {
                             ty_path: TypePath(`mnist::BinaryImage28`, `Extern`),
@@ -138,8 +138,8 @@
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist::input`, `Val`),
+                                MajorItemPath::Form(
+                                    FormPath(`mnist::input`, `Val`),
                                 ),
                             ),
                         ),

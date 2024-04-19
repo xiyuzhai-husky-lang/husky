@@ -1,7 +1,11 @@
 use super::*;
 use husky_hir_decl::{
-    decl::MajorRitchieHirDecl, parameter::parenate::eager::HirEagerParenateParameter,
+    decl::MajorRitchieHirDecl,
+    parameter::parenate::{
+        eager::HirEagerParenateParameter, lazy::HirLazyParenateParameter, HirParenateParameters,
+    },
 };
+use husky_hir_expr::helpers::hir_body_with_expr_region;
 
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
 pub struct MajorRitchieHirDefn {
@@ -32,11 +36,11 @@ impl MajorRitchieHirDefn {
             db,
             path,
             hir_decl,
-            hir_eager_body_with_expr_region(path.into(), db),
+            hir_body_with_expr_region(path.into(), db),
         )
     }
 
-    pub fn hir_expr_region(self, db: &::salsa::Db) -> Option<HirEagerExprRegion> {
+    pub fn hir_expr_region(self, db: &::salsa::Db) -> Option<HirExprRegion> {
         Some(self.body_with_hir_expr_region(db)?.1)
     }
 
@@ -56,17 +60,31 @@ fn major_ritchie_hir_defn_dependencies(
 ) -> HirDefnDependencies {
     let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
     let hir_decl = hir_defn.hir_decl(db);
-    builder.add_hir_eager_expr_region(hir_decl.hir_expr_region(db));
-    for param in hir_decl.parenate_parameters(db).iter() {
-        match *param {
-            HirEagerParenateParameter::Simple { ty, .. } => builder.add_hir_ty(ty),
-            HirEagerParenateParameter::Keyed => todo!(),
-            HirEagerParenateParameter::Variadic => todo!(),
+    builder.add_hir_expr_region(hir_decl.hir_expr_region(db));
+    match hir_decl.parenate_parameters(db) {
+        HirParenateParameters::Eager(parenate_parameters) => {
+            for param in parenate_parameters.iter() {
+                match *param {
+                    HirEagerParenateParameter::Simple { ty, .. } => builder.add_hir_ty(ty),
+                    HirEagerParenateParameter::Keyed => todo!(),
+                    HirEagerParenateParameter::Variadic => todo!(),
+                }
+            }
+        }
+        HirParenateParameters::Lazy(parenate_parameters) => {
+            for param in parenate_parameters.iter() {
+                match *param {
+                    HirLazyParenateParameter::Simple { ty, .. } => builder.add_hir_ty(ty),
+                    HirLazyParenateParameter::SelfValue => todo!(),
+                    HirLazyParenateParameter::Keyed { ident, ty } => builder.add_hir_ty(ty),
+                    HirLazyParenateParameter::Variadic { variant, ty } => builder.add_hir_ty(ty),
+                }
+            }
         }
     }
     builder.add_hir_ty(hir_decl.return_ty(db));
-    if let Some(hir_eager_expr_region) = hir_defn.hir_eager_expr_region(db) {
-        builder.add_hir_eager_expr_region(hir_eager_expr_region);
+    if let Some(hir_expr_region) = hir_defn.hir_expr_region(db) {
+        builder.add_hir_expr_region(hir_expr_region);
     }
     builder.finish()
 }

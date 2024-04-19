@@ -3,16 +3,16 @@
     SemaExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::main`, `Val`),
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::main`, `Val`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::main`, `Val`),
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::main`, `Val`),
                     ),
                 ),
             ),

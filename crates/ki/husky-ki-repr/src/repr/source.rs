@@ -44,9 +44,9 @@ impl KiReprSource {
                 parent_ki_repr,
                 source,
             } => match parent_ki_repr.opn(db) {
-                ValOpn::Require => todo!(),
-                ValOpn::Assert => todo!(),
-                ValOpn::ValItemLazilyDefined(path) => {
+                KiOpn::Require => todo!(),
+                KiOpn::Assert => todo!(),
+                KiOpn::ValItemLazilyDefined(path) => {
                     let ItemSynDefn {
                         syn_expr_region, ..
                     } = item_syn_defn(db, path.into()).unwrap();
@@ -68,8 +68,8 @@ impl KiReprSource {
                         KiReprExpansionSource::Stmt { stmt } => todo!(),
                     }
                 }
-                ValOpn::FunctionGn(_) => todo!(),
-                ValOpn::Linkage(linkage) => todo!(),
+                KiOpn::FunctionGn(_) => todo!(),
+                KiOpn::Linkage(linkage) => todo!(),
                 _ => unreachable!(),
             },
         }
@@ -106,25 +106,25 @@ pub enum KiReprExpansionSource {
 }
 
 impl KiReprSource {
-    pub(crate) fn caching_class(self) -> ValCachingClass {
+    pub(crate) fn caching_class(self) -> KiCachingClass {
         match self {
-            KiReprSource::ValItem(_) => ValCachingClass::ValItem,
+            KiReprSource::ValItem(_) => KiCachingClass::ValItem,
             KiReprSource::Expansion { source, .. } => source.caching_class(),
         }
     }
 }
 
 impl KiReprExpansionSource {
-    pub(crate) fn caching_class(self) -> ValCachingClass {
+    pub(crate) fn caching_class(self) -> KiCachingClass {
         match self {
-            KiReprExpansionSource::LetVariable { .. } => ValCachingClass::Variable,
-            KiReprExpansionSource::RequireDefault { .. } => ValCachingClass::Expr,
+            KiReprExpansionSource::LetVariable { .. } => KiCachingClass::Variable,
+            KiReprExpansionSource::RequireDefault { .. } => KiCachingClass::Expr,
             KiReprExpansionSource::RequireCondition { .. }
             | KiReprExpansionSource::AssertCondition { .. }
             | KiReprExpansionSource::IfCondition { .. }
-            | KiReprExpansionSource::ElifCondition { .. } => ValCachingClass::Condition,
-            KiReprExpansionSource::Expr { .. } => ValCachingClass::Expr,
-            KiReprExpansionSource::Stmt { .. } => ValCachingClass::Stmt,
+            | KiReprExpansionSource::ElifCondition { .. } => KiCachingClass::Condition,
+            KiReprExpansionSource::Expr { .. } => KiCachingClass::Expr,
+            KiReprExpansionSource::Stmt { .. } => KiCachingClass::Stmt,
         }
     }
 }

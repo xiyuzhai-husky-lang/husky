@@ -22,7 +22,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Keyword(
-            Keyword::Fugitive(
+            Keyword::Form(
                 Val,
             ),
         ),
@@ -104,7 +104,7 @@ TokenSheetData {
             Keyword::Pub,
         ),
         TokenData::Keyword(
-            Keyword::Fugitive(
+            Keyword::Form(
                 Val,
             ),
         ),
@@ -2630,7 +2630,7 @@ TokenSheetData {
             `Yes`,
         ),
         TokenData::Keyword(
-            Keyword::Fugitive(
+            Keyword::Form(
                 Fn,
             ),
         ),
@@ -2769,7 +2769,7 @@ TokenSheetData {
             `y`,
         ),
         TokenData::Keyword(
-            Keyword::Fugitive(
+            Keyword::Form(
                 Fn,
             ),
         ),
@@ -2939,7 +2939,7 @@ TokenSheetData {
             `y`,
         ),
         TokenData::Keyword(
-            Keyword::Fugitive(
+            Keyword::Form(
                 Fn,
             ),
         ),

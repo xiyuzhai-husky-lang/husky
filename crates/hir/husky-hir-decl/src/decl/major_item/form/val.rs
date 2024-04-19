@@ -2,13 +2,13 @@ use super::*;
 use husky_syn_decl::decl::MajorValSynDecl;
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
-pub struct MajorValFormHirDecl {
+pub struct MajorValHirDecl {
     pub path: MajorFormPath,
     pub return_ty: HirType,
     pub hir_eager_expr_region: HirEagerExprRegion,
 }
 
-impl MajorValFormHirDecl {
+impl MajorValHirDecl {
     pub(super) fn from_syn(
         path: MajorFormPath,
         syn_decl: MajorValSynDecl,

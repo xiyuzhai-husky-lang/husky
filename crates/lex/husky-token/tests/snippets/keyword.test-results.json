@@ -1,7 +1,7 @@
 [
   {
     "input": "def",
-    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Keyword(\n            Keyword::Fugitive(\n                Def,\n            ),\n        ),\n    ],\n    token_verses: TokenVerses {\n        main_sequence: MainTokenVerseSequence {\n            verses_data: [\n                TokenVerseData {\n                    start: TokenVerseStart(\n                        TokenIdx(\n                            1,\n                        ),\n                    ),\n                    indent: 0,\n                },\n            ],\n        },\n        nested_sequences: [],\n    },\n}"
+    "output": "TokenSheetData {\n    tokens: [\n        TokenData::Keyword(\n            Keyword::Form(\n                Def,\n            ),\n        ),\n    ],\n    token_verses: TokenVerses {\n        main_sequence: MainTokenVerseSequence {\n            verses_data: [\n                TokenVerseData {\n                    start: TokenVerseStart(\n                        TokenIdx(\n                            1,\n                        ),\n                    ),\n                    indent: 0,\n                },\n            ],\n        },\n        nested_sequences: [],\n    },\n}"
   },
   {
     "input": "func",

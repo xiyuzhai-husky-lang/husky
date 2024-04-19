@@ -3,16 +3,16 @@
     SemaExprRegion {
         path: RegionPath::Defn(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Defn(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                     ),
                 ),
             ),
@@ -28,8 +28,8 @@
                                 SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -38,8 +38,8 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                                MajorItemPath::Form(
+                                                    FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -76,16 +76,16 @@
                                 SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 1,
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                                MajorItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -128,8 +128,8 @@
                                 SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 2,
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::digits::nine::downmost`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::nine::downmost`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -138,8 +138,8 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::digits::nine::downmost`, `Ritchie(
+                                                MajorItemPath::Form(
+                                                    FormPath(`mnist_classifier::digits::nine::downmost`, `Ritchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -697,16 +697,16 @@
     SemaExprRegion {
         path: RegionPath::Defn(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Defn(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                     ),
                 ),
             ),
@@ -722,8 +722,8 @@
                                 SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -732,8 +732,8 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                                MajorItemPath::Form(
+                                                    FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -770,16 +770,16 @@
                                 SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 1,
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                                MajorItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -822,8 +822,8 @@
                                 SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 2,
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::digits::nine::big_cc`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::nine::big_cc`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -832,8 +832,8 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::digits::nine::big_cc`, `Ritchie(
+                                                MajorItemPath::Form(
+                                                    FormPath(`mnist_classifier::digits::nine::big_cc`, `Ritchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -1391,16 +1391,16 @@
     SemaExprRegion {
         path: RegionPath::Defn(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Defn(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                     ),
                 ),
             ),
@@ -1497,16 +1497,16 @@
                                 SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                MajorItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -1928,16 +1928,16 @@
                                 SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 2,
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+                                                MajorItemPath::Form(
+                                                    FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -2488,16 +2488,16 @@
                                 SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 4,
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                MajorItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -2632,16 +2632,16 @@
                                 SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 5,
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                MajorItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -3239,16 +3239,16 @@
                                 SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 7,
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                                MajorItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -3487,16 +3487,16 @@
                                 SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 8,
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
+                                                MajorItemPath::Form(
+                                                    FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -3808,16 +3808,16 @@
                                 SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 10,
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
+                                                MajorItemPath::Form(
+                                                    FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -4036,16 +4036,16 @@
                                 SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 11,
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                MajorItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -4180,16 +4180,16 @@
                                 SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 12,
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                MajorItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -4369,16 +4369,16 @@
                                 SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 13,
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
+                                                MajorItemPath::Form(
+                                                    FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -5307,16 +5307,16 @@
                                 SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 15,
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
+                                                MajorItemPath::Form(
+                                                    FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -5535,16 +5535,16 @@
                                 SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 16,
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                         ),
                                     ),
                                     ty_path_disambiguation: InstanceConstructor,
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                                MajorItemPath::Form(
+                                                    FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                                 ),
                                             ),
                                             env: TypeOntologyConstructor,
@@ -11115,8 +11115,8 @@
     SemaExprRegion {
         path: RegionPath::Defn(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::nine::downmost`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::digits::nine::downmost`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -11125,8 +11125,8 @@
         data: SemaExprRegionData {
             path: RegionPath::Defn(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::digits::nine::downmost`, `Ritchie(
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::digits::nine::downmost`, `Ritchie(
                             Fn,
                         )`),
                     ),
@@ -12235,8 +12235,8 @@
     SemaExprRegion {
         path: RegionPath::Defn(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::nine::big_cc`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::digits::nine::big_cc`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -12245,8 +12245,8 @@
         data: SemaExprRegionData {
             path: RegionPath::Defn(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::digits::nine::big_cc`, `Ritchie(
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::digits::nine::big_cc`, `Ritchie(
                             Fn,
                         )`),
                     ),

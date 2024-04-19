@@ -2,8 +2,8 @@
 [
     (
         ItemSynNodePath::MajorItem(
-            MajorItemSynNodePath::Fugitive(
-                FugitiveSynNodePath(`quick_sort::quick_sort`, `Ritchie(
+            MajorItemSynNodePath::Form(
+                FormSynNodePath(`quick_sort::quick_sort`, `Ritchie(
                     Fn,
                 )`, (0)),
             ),
@@ -19,8 +19,8 @@
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`quick_sort::quick_sort`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`quick_sort::quick_sort`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -242,8 +242,8 @@
                         ),
                         path: SynNodeRegionPath::Defn(
                             ItemSynNodePath::MajorItem(
-                                MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`quick_sort::quick_sort`, `Ritchie(
+                                MajorItemSynNodePath::Form(
+                                    FormSynNodePath(`quick_sort::quick_sort`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),
@@ -285,8 +285,8 @@
                                     path_expr_idx: 0,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                            MajorItemPath::Form(
+                                                FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -421,8 +421,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -603,8 +603,8 @@
     ),
     (
         ItemSynNodePath::MajorItem(
-            MajorItemSynNodePath::Fugitive(
-                FugitiveSynNodePath(`quick_sort::quick_sort_aux`, `Ritchie(
+            MajorItemSynNodePath::Form(
+                FormSynNodePath(`quick_sort::quick_sort_aux`, `Ritchie(
                     Fn,
                 )`, (0)),
             ),
@@ -620,8 +620,8 @@
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`quick_sort::quick_sort_aux`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -1001,8 +1001,8 @@
                         ),
                         path: SynNodeRegionPath::Defn(
                             ItemSynNodePath::MajorItem(
-                                MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                MajorItemSynNodePath::Form(
+                                    FormSynNodePath(`quick_sort::quick_sort_aux`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),
@@ -1044,8 +1044,8 @@
                                     path_expr_idx: 0,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`quick_sort::partition`, `Ritchie(
+                                            MajorItemPath::Form(
+                                                FormPath(`quick_sort::partition`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -1118,8 +1118,8 @@
                                     path_expr_idx: 1,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                            MajorItemPath::Form(
+                                                FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -1212,8 +1212,8 @@
                                     path_expr_idx: 2,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                            MajorItemPath::Form(
+                                                FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -1321,8 +1321,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`quick_sort::partition`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`quick_sort::partition`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -1338,8 +1338,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -1355,8 +1355,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -1568,8 +1568,8 @@
     ),
     (
         ItemSynNodePath::MajorItem(
-            MajorItemSynNodePath::Fugitive(
-                FugitiveSynNodePath(`quick_sort::partition`, `Ritchie(
+            MajorItemSynNodePath::Form(
+                FormSynNodePath(`quick_sort::partition`, `Ritchie(
                     Fn,
                 )`, (0)),
             ),
@@ -1585,8 +1585,8 @@
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`quick_sort::partition`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`quick_sort::partition`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -1995,8 +1995,8 @@
                         ),
                         path: SynNodeRegionPath::Defn(
                             ItemSynNodePath::MajorItem(
-                                MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`quick_sort::partition`, `Ritchie(
+                                MajorItemSynNodePath::Form(
+                                    FormSynNodePath(`quick_sort::partition`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),
@@ -3307,8 +3307,8 @@
     ),
     (
         ItemSynNodePath::MajorItem(
-            MajorItemSynNodePath::Fugitive(
-                FugitiveSynNodePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+            MajorItemSynNodePath::Form(
+                FormSynNodePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                     Fn,
                 )`, (0)),
             ),
@@ -3324,8 +3324,8 @@
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -3376,8 +3376,8 @@
                         ),
                         path: SynNodeRegionPath::Defn(
                             ItemSynNodePath::MajorItem(
-                                MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+                                MajorItemSynNodePath::Form(
+                                    FormSynNodePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),
@@ -3798,8 +3798,8 @@
                     data: ItemSynNodePathData::Attr(
                         AttrSynNodePathData {
                             parent_syn_node_path: ItemSynNodePath::MajorItem(
-                                MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+                                MajorItemSynNodePath::Form(
+                                    FormSynNodePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),
@@ -3822,8 +3822,8 @@
     ),
     (
         ItemSynNodePath::MajorItem(
-            MajorItemSynNodePath::Fugitive(
-                FugitiveSynNodePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+            MajorItemSynNodePath::Form(
+                FormSynNodePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                     Fn,
                 )`, (0)),
             ),
@@ -3839,8 +3839,8 @@
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
@@ -3891,8 +3891,8 @@
                         ),
                         path: SynNodeRegionPath::Defn(
                             ItemSynNodePath::MajorItem(
-                                MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+                                MajorItemSynNodePath::Form(
+                                    FormSynNodePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),
@@ -4171,8 +4171,8 @@
                     data: ItemSynNodePathData::Attr(
                         AttrSynNodePathData {
                             parent_syn_node_path: ItemSynNodePath::MajorItem(
-                                MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+                                MajorItemSynNodePath::Form(
+                                    FormSynNodePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),

@@ -3,15 +3,15 @@ SynNodeDeclSheet {
     decls: [
         (
             ItemSynNodePath::MajorItem(
-                MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`, (0)),
+                MajorItemSynNodePath::Form(
+                    FormSynNodePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`, (0)),
                 ),
             ),
             ItemSynNodeDecl::MajorItem(
-                MajorItemSynNodeDecl::Fugitive(
-                    FugitiveSynNodeDecl::Ki(
+                MajorItemSynNodeDecl::Form(
+                    FormSynNodeDecl::Ki(
                         MajorValSynNodeDecl {
-                            syn_node_path: FugitiveSynNodePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`, (0)),
+                            syn_node_path: FormSynNodePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`, (0)),
                             colon_token: Ok(
                                 ColonRegionalToken(
                                     RegionalTokenIdx(
@@ -37,8 +37,8 @@ SynNodeDeclSheet {
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`, (0)),
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
@@ -123,15 +123,15 @@ SynNodeDeclSheet {
         ),
         (
             ItemSynNodePath::MajorItem(
-                MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath(`mnist_classifier::digits::eight::is_eight`, `Val`, (0)),
+                MajorItemSynNodePath::Form(
+                    FormSynNodePath(`mnist_classifier::digits::eight::is_eight`, `Val`, (0)),
                 ),
             ),
             ItemSynNodeDecl::MajorItem(
-                MajorItemSynNodeDecl::Fugitive(
-                    FugitiveSynNodeDecl::Ki(
+                MajorItemSynNodeDecl::Form(
+                    FormSynNodeDecl::Ki(
                         MajorValSynNodeDecl {
-                            syn_node_path: FugitiveSynNodePath(`mnist_classifier::digits::eight::is_eight`, `Val`, (0)),
+                            syn_node_path: FormSynNodePath(`mnist_classifier::digits::eight::is_eight`, `Val`, (0)),
                             colon_token: Ok(
                                 ColonRegionalToken(
                                     RegionalTokenIdx(
@@ -157,8 +157,8 @@ SynNodeDeclSheet {
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`mnist_classifier::digits::eight::is_eight`, `Val`, (0)),
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`mnist_classifier::digits::eight::is_eight`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
@@ -332,19 +332,20 @@ SynNodeDeclSheet {
         ),
         (
             ItemSynNodePath::MajorItem(
-                MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
+                MajorItemSynNodePath::Form(
+                    FormSynNodePath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
                         Fn,
                     )`, (0)),
                 ),
             ),
             ItemSynNodeDecl::MajorItem(
-                MajorItemSynNodeDecl::Fugitive(
-                    FugitiveSynNodeDecl::Fn(
-                        MajorFnSynNodeDecl {
-                            syn_node_path: FugitiveSynNodePath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
+                MajorItemSynNodeDecl::Form(
+                    FormSynNodeDecl::Ritchie(
+                        MajorRitchieSynNodeDecl {
+                            syn_node_path: FormSynNodePath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
                                 Fn,
                             )`, (0)),
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameter_obelisk_list: Ok(
                                 None,
                             ),
@@ -411,8 +412,8 @@ SynNodeDeclSheet {
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),

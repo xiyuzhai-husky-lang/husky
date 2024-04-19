@@ -3,8 +3,8 @@
     SemaExprRegion {
         path: RegionPath::Defn(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`quick_sort::quick_sort`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`quick_sort::quick_sort`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -13,8 +13,8 @@
         data: SemaExprRegionData {
             path: RegionPath::Defn(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`quick_sort::quick_sort`, `Ritchie(
+                    MajorItemPath::Form(
+                        FormPath(`quick_sort::quick_sort`, `Ritchie(
                             Fn,
                         )`),
                     ),
@@ -211,8 +211,8 @@
                                 SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -221,8 +221,8 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                                MajorItemPath::Form(
+                                                    FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -1643,8 +1643,8 @@
     SemaExprRegion {
         path: RegionPath::Defn(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -1653,8 +1653,8 @@
         data: SemaExprRegionData {
             path: RegionPath::Defn(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                    MajorItemPath::Form(
+                        FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                             Fn,
                         )`),
                     ),
@@ -1818,8 +1818,8 @@
                                 SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`quick_sort::partition`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`quick_sort::partition`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -1828,8 +1828,8 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`quick_sort::partition`, `Ritchie(
+                                                MajorItemPath::Form(
+                                                    FormPath(`quick_sort::partition`, `Ritchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -2162,8 +2162,8 @@
                                 SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 1,
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -2172,8 +2172,8 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                                MajorItemPath::Form(
+                                                    FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -2584,8 +2584,8 @@
                                 SemaExprData::PrincipalEntityPath {
                                     path_expr_idx: 2,
                                     path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -2594,8 +2594,8 @@
                                     instantiation: Some(
                                         FlyInstantiation {
                                             path: ItemPath::MajorItem(
-                                                MajorItemPath::Fugitive(
-                                                    FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                                MajorItemPath::Form(
+                                                    FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                                         Fn,
                                                     )`),
                                                 ),
@@ -4846,8 +4846,8 @@
     SemaExprRegion {
         path: RegionPath::Defn(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`quick_sort::partition`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`quick_sort::partition`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -4856,8 +4856,8 @@
         data: SemaExprRegionData {
             path: RegionPath::Defn(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`quick_sort::partition`, `Ritchie(
+                    MajorItemPath::Form(
+                        FormPath(`quick_sort::partition`, `Ritchie(
                             Fn,
                         )`),
                     ),
@@ -11311,8 +11311,8 @@
     SemaExprRegion {
         path: RegionPath::Defn(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -11321,8 +11321,8 @@
         data: SemaExprRegionData {
             path: RegionPath::Defn(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+                    MajorItemPath::Form(
+                        FormPath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                             Fn,
                         )`),
                     ),
@@ -12998,8 +12998,8 @@
     SemaExprRegion {
         path: RegionPath::Defn(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -13008,8 +13008,8 @@
         data: SemaExprRegionData {
             path: RegionPath::Defn(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+                    MajorItemPath::Form(
+                        FormPath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                             Fn,
                         )`),
                     ),

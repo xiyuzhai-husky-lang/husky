@@ -8,8 +8,8 @@ EntityTreeCrateBundle {
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
-                                syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`quick_sort::quick_sort`, `Ritchie(
+                                syn_node_path: MajorItemSynNodePath::Form(
+                                    FormSynNodePath(`quick_sort::quick_sort`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),
@@ -21,12 +21,12 @@ EntityTreeCrateBundle {
                                         3,
                                     ),
                                 },
-                                block: DefnBlock::Fugitive {
-                                    path: FugitivePath(`quick_sort::quick_sort`, `Ritchie(
+                                block: DefnBlock::Form {
+                                    path: FormPath(`quick_sort::quick_sort`, `Ritchie(
                                         Fn,
                                     )`),
                                     body: Some(
-                                        FugitiveBody {
+                                        FormBody {
                                             ast_idx_range: ArenaIdxRange(
                                                 0..2,
                                             ),
@@ -36,8 +36,8 @@ EntityTreeCrateBundle {
                             },
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
-                            MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`quick_sort::quick_sort`, `Ritchie(
+                            MajorItemSynNodePath::Form(
+                                FormSynNodePath(`quick_sort::quick_sort`, `Ritchie(
                                     Fn,
                                 )`, (0)),
                             ),
@@ -48,8 +48,8 @@ EntityTreeCrateBundle {
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
-                                syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                syn_node_path: MajorItemSynNodePath::Form(
+                                    FormSynNodePath(`quick_sort::quick_sort_aux`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),
@@ -63,12 +63,12 @@ EntityTreeCrateBundle {
                                         43,
                                     ),
                                 },
-                                block: DefnBlock::Fugitive {
-                                    path: FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                block: DefnBlock::Form {
+                                    path: FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                         Fn,
                                     )`),
                                     body: Some(
-                                        FugitiveBody {
+                                        FormBody {
                                             ast_idx_range: ArenaIdxRange(
                                                 6..7,
                                             ),
@@ -78,8 +78,8 @@ EntityTreeCrateBundle {
                             },
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
-                            MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                            MajorItemSynNodePath::Form(
+                                FormSynNodePath(`quick_sort::quick_sort_aux`, `Ritchie(
                                     Fn,
                                 )`, (0)),
                             ),
@@ -92,8 +92,8 @@ EntityTreeCrateBundle {
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
-                                syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`quick_sort::partition`, `Ritchie(
+                                syn_node_path: MajorItemSynNodePath::Form(
+                                    FormSynNodePath(`quick_sort::partition`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),
@@ -107,12 +107,12 @@ EntityTreeCrateBundle {
                                         105,
                                     ),
                                 },
-                                block: DefnBlock::Fugitive {
-                                    path: FugitivePath(`quick_sort::partition`, `Ritchie(
+                                block: DefnBlock::Form {
+                                    path: FormPath(`quick_sort::partition`, `Ritchie(
                                         Fn,
                                     )`),
                                     body: Some(
-                                        FugitiveBody {
+                                        FormBody {
                                             ast_idx_range: ArenaIdxRange(
                                                 18..24,
                                             ),
@@ -122,8 +122,8 @@ EntityTreeCrateBundle {
                             },
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
-                            MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`quick_sort::partition`, `Ritchie(
+                            MajorItemSynNodePath::Form(
+                                FormSynNodePath(`quick_sort::partition`, `Ritchie(
                                     Fn,
                                 )`, (0)),
                             ),
@@ -136,8 +136,8 @@ EntityTreeCrateBundle {
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
-                                syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+                                syn_node_path: MajorItemSynNodePath::Form(
+                                    FormSynNodePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),
@@ -151,12 +151,12 @@ EntityTreeCrateBundle {
                                         231,
                                     ),
                                 },
-                                block: DefnBlock::Fugitive {
-                                    path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+                                block: DefnBlock::Form {
+                                    path: FormPath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                                         Fn,
                                     )`),
                                     body: Some(
-                                        FugitiveBody {
+                                        FormBody {
                                             ast_idx_range: ArenaIdxRange(
                                                 24..25,
                                             ),
@@ -166,8 +166,8 @@ EntityTreeCrateBundle {
                             },
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
-                            MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+                            MajorItemSynNodePath::Form(
+                                FormSynNodePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                                     Fn,
                                 )`, (0)),
                             ),
@@ -180,8 +180,8 @@ EntityTreeCrateBundle {
                     ItemNodeEntry {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
-                                syn_node_path: MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+                                syn_node_path: MajorItemSynNodePath::Form(
+                                    FormSynNodePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),
@@ -195,12 +195,12 @@ EntityTreeCrateBundle {
                                         268,
                                     ),
                                 },
-                                block: DefnBlock::Fugitive {
-                                    path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+                                block: DefnBlock::Form {
+                                    path: FormPath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                                         Fn,
                                     )`),
                                     body: Some(
-                                        FugitiveBody {
+                                        FormBody {
                                             ast_idx_range: ArenaIdxRange(
                                                 25..26,
                                             ),
@@ -210,8 +210,8 @@ EntityTreeCrateBundle {
                             },
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
-                            MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+                            MajorItemSynNodePath::Form(
+                                FormSynNodePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                                     Fn,
                                 )`, (0)),
                             ),
@@ -229,8 +229,8 @@ EntityTreeCrateBundle {
                         ident: `quick_sort`,
                         visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
-                            major_item_path: MajorItemPath::Fugitive(
-                                FugitivePath(`quick_sort::quick_sort`, `Ritchie(
+                            major_item_path: MajorItemPath::Form(
+                                FormPath(`quick_sort::quick_sort`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -242,8 +242,8 @@ EntityTreeCrateBundle {
                             `quick_sort`,
                         ),
                         symbol: EntitySymbol::MajorItem {
-                            major_item_path: MajorItemPath::Fugitive(
-                                FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                            major_item_path: MajorItemPath::Form(
+                                FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -255,8 +255,8 @@ EntityTreeCrateBundle {
                             `quick_sort`,
                         ),
                         symbol: EntitySymbol::MajorItem {
-                            major_item_path: MajorItemPath::Fugitive(
-                                FugitivePath(`quick_sort::partition`, `Ritchie(
+                            major_item_path: MajorItemPath::Form(
+                                FormPath(`quick_sort::partition`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -268,8 +268,8 @@ EntityTreeCrateBundle {
                             `quick_sort`,
                         ),
                         symbol: EntitySymbol::MajorItem {
-                            major_item_path: MajorItemPath::Fugitive(
-                                FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+                            major_item_path: MajorItemPath::Form(
+                                FormPath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -281,8 +281,8 @@ EntityTreeCrateBundle {
                             `quick_sort`,
                         ),
                         symbol: EntitySymbol::MajorItem {
-                            major_item_path: MajorItemPath::Fugitive(
-                                FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+                            major_item_path: MajorItemPath::Form(
+                                FormPath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                                     Fn,
                                 )`),
                             ),

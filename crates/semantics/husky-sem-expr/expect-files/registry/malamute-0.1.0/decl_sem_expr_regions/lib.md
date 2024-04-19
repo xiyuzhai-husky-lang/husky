@@ -496,8 +496,8 @@
     SemaExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`malamute::narrow_down`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`malamute::narrow_down`, `Ritchie(
                         Gn,
                     )`),
                 ),
@@ -506,8 +506,8 @@
         data: SemaExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`malamute::narrow_down`, `Ritchie(
+                    MajorItemPath::Form(
+                        FormPath(`malamute::narrow_down`, `Ritchie(
                             Gn,
                         )`),
                     ),

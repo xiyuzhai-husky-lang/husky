@@ -26,8 +26,8 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`malamute::narrow_down`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`malamute::narrow_down`, `Ritchie(
                     Gn,
                 )`),
             ),

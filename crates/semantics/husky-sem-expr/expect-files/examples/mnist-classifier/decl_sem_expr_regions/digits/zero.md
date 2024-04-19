@@ -3,16 +3,16 @@
     SemaExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                     ),
                 ),
             ),
@@ -158,8 +158,8 @@
     SemaExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -168,8 +168,8 @@
         data: SemaExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
                             Fn,
                         )`),
                     ),
@@ -579,16 +579,16 @@
     SemaExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                 ),
             ),
         ),
         data: SemaExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                    MajorItemPath::Form(
+                        FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                     ),
                 ),
             ),

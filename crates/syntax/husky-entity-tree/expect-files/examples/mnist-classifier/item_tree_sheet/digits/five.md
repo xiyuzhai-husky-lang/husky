@@ -6,8 +6,8 @@ EntityTreeSheet {
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
-                        syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`mnist_classifier::digits::five::is_five`, `Val`, (0)),
+                        syn_node_path: MajorItemSynNodePath::Form(
+                            FormSynNodePath(`mnist_classifier::digits::five::is_five`, `Val`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits`,
@@ -19,10 +19,10 @@ EntityTreeSheet {
                                 10,
                             ),
                         },
-                        block: DefnBlock::Fugitive {
-                            path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                        block: DefnBlock::Form {
+                            path: FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                             body: Some(
-                                FugitiveBody {
+                                FormBody {
                                     ast_idx_range: ArenaIdxRange(
                                         0..1,
                                     ),
@@ -32,8 +32,8 @@ EntityTreeSheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`mnist_classifier::digits::five::is_five`, `Val`, (0)),
+                    MajorItemSynNodePath::Form(
+                        FormSynNodePath(`mnist_classifier::digits::five::is_five`, `Val`, (0)),
                     ),
                 ),
                 ident: `is_five`,
@@ -51,8 +51,8 @@ EntityTreeSheet {
                     `mnist_classifier::digits`,
                 ),
                 symbol: EntitySymbol::MajorItem {
-                    major_item_path: MajorItemPath::Fugitive(
-                        FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                    major_item_path: MajorItemPath::Form(
+                        FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                     ),
                 },
             },
@@ -336,13 +336,13 @@ EntityTreeSheet {
                         original_symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
-                                    major_item_path: MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    major_item_path: MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                     ),
                                 },
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -351,8 +351,8 @@ EntityTreeSheet {
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -646,13 +646,13 @@ EntityTreeSheet {
                         original_symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
-                                    major_item_path: MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::main`, `Val`),
+                                    major_item_path: MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::main`, `Val`),
                                     ),
                                 },
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::main`, `Val`),
+                                    MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::main`, `Val`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -663,8 +663,8 @@ EntityTreeSheet {
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::main`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::main`, `Val`),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -846,15 +846,15 @@ EntityTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            major_item_path: MajorItemPath::Fugitive(
-                                                FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                            major_item_path: MajorItemPath::Form(
+                                                FormPath(`malamute::narrow_down`, `Ritchie(
                                                     Gn,
                                                 )`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                            MajorItemPath::Form(
+                                                FormPath(`malamute::narrow_down`, `Ritchie(
                                                     Gn,
                                                 )`),
                                             ),
@@ -867,8 +867,8 @@ EntityTreeSheet {
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                    MajorItemPath::Form(
+                                        FormPath(`malamute::narrow_down`, `Ritchie(
                                             Gn,
                                         )`),
                                     ),
@@ -881,8 +881,8 @@ EntityTreeSheet {
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`malamute::narrow_down`, `Ritchie(
+                            MajorItemPath::Form(
+                                FormPath(`malamute::narrow_down`, `Ritchie(
                                     Gn,
                                 )`),
                             ),
@@ -1066,13 +1066,13 @@ EntityTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            major_item_path: MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist::input`, `Val`),
+                                            major_item_path: MajorItemPath::Form(
+                                                FormPath(`mnist::input`, `Val`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist::input`, `Val`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist::input`, `Val`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -1083,8 +1083,8 @@ EntityTreeSheet {
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist::input`, `Val`),
+                                    MajorItemPath::Form(
+                                        FormPath(`mnist::input`, `Val`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -1095,8 +1095,8 @@ EntityTreeSheet {
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist::input`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist::input`, `Val`),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -1117,13 +1117,13 @@ EntityTreeSheet {
                         original_symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
-                                    major_item_path: MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    major_item_path: MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                     ),
                                 },
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -1132,8 +1132,8 @@ EntityTreeSheet {
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -1154,13 +1154,13 @@ EntityTreeSheet {
                         original_symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
-                                    major_item_path: MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    major_item_path: MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                     ),
                                 },
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -1169,8 +1169,8 @@ EntityTreeSheet {
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -1191,13 +1191,13 @@ EntityTreeSheet {
                         original_symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
-                                    major_item_path: MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
+                                    major_item_path: MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                                     ),
                                 },
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
+                                    MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -1206,8 +1206,8 @@ EntityTreeSheet {
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -1228,13 +1228,13 @@ EntityTreeSheet {
                         original_symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
-                                    major_item_path: MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                                    major_item_path: MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                                     ),
                                 },
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                                    MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -1243,8 +1243,8 @@ EntityTreeSheet {
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -1265,13 +1265,13 @@ EntityTreeSheet {
                         original_symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
-                                    major_item_path: MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                                    major_item_path: MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                                     ),
                                 },
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                                    MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -1280,8 +1280,8 @@ EntityTreeSheet {
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -1302,13 +1302,13 @@ EntityTreeSheet {
                         original_symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
-                                    major_item_path: MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                                    major_item_path: MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                                     ),
                                 },
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                                    MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -1317,8 +1317,8 @@ EntityTreeSheet {
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -1339,13 +1339,13 @@ EntityTreeSheet {
                         original_symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
-                                    major_item_path: MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                                    major_item_path: MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                                     ),
                                 },
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                                    MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -1354,8 +1354,8 @@ EntityTreeSheet {
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -1376,13 +1376,13 @@ EntityTreeSheet {
                         original_symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
-                                    major_item_path: MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                                    major_item_path: MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                                     ),
                                 },
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                                    MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -1391,8 +1391,8 @@ EntityTreeSheet {
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -1415,13 +1415,13 @@ EntityTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            major_item_path: MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                                            major_item_path: MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::major::connected_components`, `Val`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::major::connected_components`, `Val`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -1432,8 +1432,8 @@ EntityTreeSheet {
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                                    MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::major::connected_components`, `Val`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -1444,8 +1444,8 @@ EntityTreeSheet {
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::major::connected_components`, `Val`),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -1468,13 +1468,13 @@ EntityTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            major_item_path: MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                            major_item_path: MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -1485,8 +1485,8 @@ EntityTreeSheet {
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                    MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -1497,8 +1497,8 @@ EntityTreeSheet {
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -1521,13 +1521,13 @@ EntityTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            major_item_path: MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                                            major_item_path: MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -1538,8 +1538,8 @@ EntityTreeSheet {
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                                    MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -1550,8 +1550,8 @@ EntityTreeSheet {
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -1574,13 +1574,13 @@ EntityTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            major_item_path: MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
+                                            major_item_path: MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -1591,8 +1591,8 @@ EntityTreeSheet {
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
+                                    MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -1603,8 +1603,8 @@ EntityTreeSheet {
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -1627,13 +1627,13 @@ EntityTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            major_item_path: MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                                            major_item_path: MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -1644,8 +1644,8 @@ EntityTreeSheet {
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                                    MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -1656,8 +1656,8 @@ EntityTreeSheet {
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -1680,13 +1680,13 @@ EntityTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            major_item_path: MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                                            major_item_path: MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -1697,8 +1697,8 @@ EntityTreeSheet {
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                                    MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -1709,8 +1709,8 @@ EntityTreeSheet {
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -1733,13 +1733,13 @@ EntityTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            major_item_path: MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                            major_item_path: MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -1750,8 +1750,8 @@ EntityTreeSheet {
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                    MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -1762,8 +1762,8 @@ EntityTreeSheet {
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -1788,13 +1788,13 @@ EntityTreeSheet {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
-                                                    major_item_path: MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                    major_item_path: MajorItemPath::Form(
+                                                        FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                    MajorItemPath::Form(
+                                                        FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -1803,8 +1803,8 @@ EntityTreeSheet {
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -1815,8 +1815,8 @@ EntityTreeSheet {
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -1827,8 +1827,8 @@ EntityTreeSheet {
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -1904,15 +1904,15 @@ EntityTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            major_item_path: MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                            major_item_path: MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -1925,8 +1925,8 @@ EntityTreeSheet {
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                    MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                             Fn,
                                         )`),
                                     ),
@@ -1939,8 +1939,8 @@ EntityTreeSheet {
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -2018,15 +2018,15 @@ EntityTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            major_item_path: MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
+                                            major_item_path: MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -2039,8 +2039,8 @@ EntityTreeSheet {
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
+                                    MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
                                             Fn,
                                         )`),
                                     ),
@@ -2053,8 +2053,8 @@ EntityTreeSheet {
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -2252,15 +2252,15 @@ EntityTreeSheet {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
-                                                    major_item_path: MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
+                                                    major_item_path: MajorItemPath::Form(
+                                                        FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
                                                             Fn,
                                                         )`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
+                                                    MajorItemPath::Form(
+                                                        FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
                                                             Fn,
                                                         )`),
                                                     ),
@@ -2271,8 +2271,8 @@ EntityTreeSheet {
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -2285,8 +2285,8 @@ EntityTreeSheet {
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
+                                    MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
                                             Fn,
                                         )`),
                                     ),
@@ -2299,8 +2299,8 @@ EntityTreeSheet {
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -2549,15 +2549,15 @@ EntityTreeSheet {
                                 original_symbol: EntitySymbol::Use(
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
-                                            major_item_path: MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                                            major_item_path: MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -2570,8 +2570,8 @@ EntityTreeSheet {
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                                    MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
                                             Fn,
                                         )`),
                                     ),
@@ -2584,8 +2584,8 @@ EntityTreeSheet {
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -2612,13 +2612,13 @@ EntityTreeSheet {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
-                                                    major_item_path: MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                    major_item_path: MajorItemPath::Form(
+                                                        FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                    MajorItemPath::Form(
+                                                        FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -2627,8 +2627,8 @@ EntityTreeSheet {
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -2639,8 +2639,8 @@ EntityTreeSheet {
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -2651,8 +2651,8 @@ EntityTreeSheet {
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -2677,13 +2677,13 @@ EntityTreeSheet {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
-                                                    major_item_path: MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                    major_item_path: MajorItemPath::Form(
+                                                        FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                    MajorItemPath::Form(
+                                                        FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -2692,8 +2692,8 @@ EntityTreeSheet {
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -2704,8 +2704,8 @@ EntityTreeSheet {
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -2716,8 +2716,8 @@ EntityTreeSheet {
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -2742,13 +2742,13 @@ EntityTreeSheet {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
-                                                    major_item_path: MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
+                                                    major_item_path: MajorItemPath::Form(
+                                                        FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
+                                                    MajorItemPath::Form(
+                                                        FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -2757,8 +2757,8 @@ EntityTreeSheet {
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -2769,8 +2769,8 @@ EntityTreeSheet {
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
+                                    MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -2781,8 +2781,8 @@ EntityTreeSheet {
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -2807,13 +2807,13 @@ EntityTreeSheet {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
-                                                    major_item_path: MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                                                    major_item_path: MajorItemPath::Form(
+                                                        FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                                                    MajorItemPath::Form(
+                                                        FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -2822,8 +2822,8 @@ EntityTreeSheet {
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -2834,8 +2834,8 @@ EntityTreeSheet {
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                                    MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -2846,8 +2846,8 @@ EntityTreeSheet {
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -2872,13 +2872,13 @@ EntityTreeSheet {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
-                                                    major_item_path: MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                                                    major_item_path: MajorItemPath::Form(
+                                                        FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                                                    MajorItemPath::Form(
+                                                        FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -2887,8 +2887,8 @@ EntityTreeSheet {
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -2899,8 +2899,8 @@ EntityTreeSheet {
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                                    MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -2911,8 +2911,8 @@ EntityTreeSheet {
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -2937,13 +2937,13 @@ EntityTreeSheet {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
-                                                    major_item_path: MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                                                    major_item_path: MajorItemPath::Form(
+                                                        FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                                                    MajorItemPath::Form(
+                                                        FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -2952,8 +2952,8 @@ EntityTreeSheet {
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -2964,8 +2964,8 @@ EntityTreeSheet {
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                                    MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -2976,8 +2976,8 @@ EntityTreeSheet {
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -3002,13 +3002,13 @@ EntityTreeSheet {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
-                                                    major_item_path: MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                                                    major_item_path: MajorItemPath::Form(
+                                                        FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                                                    MajorItemPath::Form(
+                                                        FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -3017,8 +3017,8 @@ EntityTreeSheet {
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -3029,8 +3029,8 @@ EntityTreeSheet {
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                                    MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -3041,8 +3041,8 @@ EntityTreeSheet {
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                             ),
                         ),
                         visibility: Scope::PubUnder(
@@ -3067,13 +3067,13 @@ EntityTreeSheet {
                                         original_symbol: EntitySymbol::Use(
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
-                                                    major_item_path: MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                                                    major_item_path: MajorItemPath::Form(
+                                                        FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Fugitive(
-                                                        FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                                                    MajorItemPath::Form(
+                                                        FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -3082,8 +3082,8 @@ EntityTreeSheet {
                                             },
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -3094,8 +3094,8 @@ EntityTreeSheet {
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                                    MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -3106,8 +3106,8 @@ EntityTreeSheet {
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                             ),
                         ),
                         visibility: Scope::PubUnder(

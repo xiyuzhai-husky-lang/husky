@@ -3,8 +3,8 @@
     SemaExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`syntax_basics::expr::nested`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`syntax_basics::expr::nested`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -13,8 +13,8 @@
         data: SemaExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`syntax_basics::expr::nested`, `Ritchie(
+                    MajorItemPath::Form(
+                        FormPath(`syntax_basics::expr::nested`, `Ritchie(
                             Fn,
                         )`),
                     ),
@@ -72,8 +72,8 @@
     SemaExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`syntax_basics::expr::closure_inline`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -82,8 +82,8 @@
         data: SemaExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`syntax_basics::expr::closure_inline`, `Ritchie(
+                    MajorItemPath::Form(
+                        FormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
                             Fn,
                         )`),
                     ),
@@ -141,8 +141,8 @@
     SemaExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`syntax_basics::expr::closure_nested`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -151,8 +151,8 @@
         data: SemaExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
-                    MajorItemPath::Fugitive(
-                        FugitivePath(`syntax_basics::expr::closure_nested`, `Ritchie(
+                    MajorItemPath::Form(
+                        FormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
                             Fn,
                         )`),
                     ),
