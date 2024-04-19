@@ -67,3 +67,7 @@ type command:
 ```
 settings set frame-format frame #${frame.index}: ${frame.pc}{ ${module.file.basename}{\`${function.name}}}{ at ${line.file.fullpath}:${line.number}}\n
 ```
+
+## lean server gives fwIn.txt fwOut.txt wdErr.txt wdIn.txt wdOut.txt
+
+search ## Logging LSP requests in the source repository
