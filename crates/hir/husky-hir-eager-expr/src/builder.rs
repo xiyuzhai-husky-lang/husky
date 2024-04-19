@@ -44,11 +44,11 @@ impl<'a> HirEagerExprBuilder<'a> {
         let sem_to_hir_eager_stmt_idx_map = SemaStmtMap::new(sem_expr_region_data.sem_stmt_arena());
         let hir_eager_comptime_symbol_region_data = HirEagerComptimeVariableRegionData::from_sema(
             sem_expr_region_data,
-            syn_expr_region_data.symbol_region(),
+            syn_expr_region_data.variable_region(),
             db,
         );
         let (hir_eager_runtime_symbol_region, syn_symbol_to_hir_eager_runtime_symbol_map) =
-            HirEagerRuntimeVariableRegionData::from_syn(syn_expr_region_data.symbol_region());
+            HirEagerRuntimeVariableRegionData::from_syn(syn_expr_region_data.variable_region());
         Self {
             db,
             syn_expr_region_data,

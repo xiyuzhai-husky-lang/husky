@@ -1,5 +1,5 @@
 use crate::*;
-use husky_dec_term::term::DecTermSymbolicVariableTypeErrorKind;
+use husky_dec_term::term::DecSymbolicVariableTypeErrorKind;
 use husky_syn_decl::SynDeclError;
 use thiserror::Error;
 
@@ -14,8 +14,8 @@ pub enum DeclarativeTypeError {
     Derived(#[from] DerivedDeclarativeTypeError),
 }
 
-impl From<DecTermSymbolicVariableTypeErrorKind> for DeclarativeTypeError {
-    fn from(e: DecTermSymbolicVariableTypeErrorKind) -> Self {
+impl From<DecSymbolicVariableTypeErrorKind> for DeclarativeTypeError {
+    fn from(e: DecSymbolicVariableTypeErrorKind) -> Self {
         DerivedDeclarativeTypeError::SymbolType(e).into()
     }
 }
@@ -65,5 +65,5 @@ pub enum DerivedDeclarativeTypeError {
     #[error("TypeItemNotFound")]
     TypeItemNotFound,
     #[error("SymbolType")]
-    SymbolType(DecTermSymbolicVariableTypeErrorKind),
+    SymbolType(DecSymbolicVariableTypeErrorKind),
 }

@@ -25,7 +25,7 @@ pub struct SynExprDecTermRegion {
     symbolic_variable_region: DecSymbolicVariableRegion,
     expr_terms: SynExprMap<DecTermResult2<DecTerm>>,
     pattern_expr_ty_infos: SynPatternMap<PatternExprDeclarativeTypeInfo>,
-    pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolDeclarativeTypeInfo>,
+    pattern_symbol_ty_infos: SynPatternSymbolMap<DecPatternVariableTypeInfo>,
 }
 
 impl SynExprDecTermRegion {
@@ -34,7 +34,7 @@ impl SynExprDecTermRegion {
         symbolic_variable_region: DecSymbolicVariableRegion,
         expr_terms: SynExprMap<DecTermResult2<DecTerm>>,
         pattern_expr_ty_infos: SynPatternMap<PatternExprDeclarativeTypeInfo>,
-        pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolDeclarativeTypeInfo>,
+        pattern_symbol_ty_infos: SynPatternSymbolMap<DecPatternVariableTypeInfo>,
     ) -> Self {
         Self {
             path,

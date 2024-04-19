@@ -25,15 +25,21 @@ impl SynExprRoot {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum SynExprRootKind {
     SelfType,
-    Trait,
+    PrimalTrait,
     ReturnType,
-    PropsStructFieldType { ident_token: IdentRegionalToken },
+    PropsStructFieldType {
+        ident_token: IdentRegionalToken,
+    },
     TupleStructFieldType,
     BlockExpr,
     ReturnExpr,
     Condition,
-    ParenateParameterDefaultValue { ty_syn_expr_idx: SynExprIdx },
-    FieldBindInitialValue { ty_syn_expr_idx: SynExprIdx },
+    ParenateParameterDefaultValue {
+        ty_syn_expr_idx: SynExprIdx,
+    },
+    FieldBindInitialValue {
+        ty_syn_expr_idx: SynExprIdx,
+    },
     ConstantImplicitParameterType,
     ExplicitParameterType,
     HtmlArgumentExpr,
@@ -44,6 +50,8 @@ pub enum SynExprRootKind {
     EvalExpr,
     AssocTypeTerm,
     TypeAliasTypeTerm,
+    /// these are traits in the trait constraints
+    TraitInConstraint,
 }
 
 #[salsa::derive_debug_with_db]

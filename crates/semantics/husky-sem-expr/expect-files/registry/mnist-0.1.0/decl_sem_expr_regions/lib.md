@@ -460,7 +460,7 @@
                         SemaExprIdx(
                             0,
                         ),
-                        SynExprRootKind::Trait,
+                        SynExprRootKind::PrimalTrait,
                     ),
                 ),
                 (
@@ -1191,7 +1191,7 @@
                         SemaExprIdx(
                             0,
                         ),
-                        SynExprRootKind::Trait,
+                        SynExprRootKind::PrimalTrait,
                     ),
                 ),
                 (
@@ -1591,7 +1591,7 @@
                         SemaExprIdx(
                             0,
                         ),
-                        SynExprRootKind::Trait,
+                        SynExprRootKind::PrimalTrait,
                     ),
                 ),
                 (
@@ -2322,7 +2322,7 @@
                         SemaExprIdx(
                             0,
                         ),
-                        SynExprRootKind::Trait,
+                        SynExprRootKind::PrimalTrait,
                     ),
                 ),
                 (

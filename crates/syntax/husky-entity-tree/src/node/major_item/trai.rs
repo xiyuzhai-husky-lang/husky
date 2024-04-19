@@ -41,6 +41,12 @@ impl TraitSynNodePath {
         }
     }
 
+    pub fn unambiguous_item_path(self, db: &::salsa::Db) -> Option<TraitPath> {
+        self.data(db)
+            .disambiguated_item_path
+            .unambiguous_item_path()
+    }
+
     pub fn ident(self, db: &::salsa::Db) -> Ident {
         self.data(db)
             .disambiguated_item_path

@@ -27,7 +27,7 @@
                             self_ty: Application(
                                 DecApplication(
                                     Id {
-                                        value: 28,
+                                        value: 42,
                                     },
                                 ),
                             ),

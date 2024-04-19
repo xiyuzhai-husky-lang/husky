@@ -70,7 +70,7 @@ impl<'a> SynExprContext<'a> {
             parent_syn_expr_region: parent_expr_region,
             syn_symbol_context: SynSymbolContextMut::new(
                 module_symbol_context,
-                parent_expr_region.map(|er| er.data(db).symbol_region()),
+                parent_expr_region.map(|er| er.data(db).variable_region()),
                 allow_self_type,
                 allow_self_value,
             ),

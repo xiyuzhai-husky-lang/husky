@@ -34,7 +34,7 @@ impl<'a> HirLazyExprBuilder<'a> {
         let syn_to_hir_lazy_pattern_expr_idx_map =
             SynPatternMap::new(syn_expr_region_data.pattern_expr_arena());
         let (hir_lazy_variable_region, syn_symbol_to_hir_lazy_variable_map) =
-            HirLazyVariableRegion::from_syn(syn_expr_region_data.symbol_region());
+            HirLazyVariableRegion::from_syn(syn_expr_region_data.variable_region());
         Self {
             db,
             syn_expr_region_data,

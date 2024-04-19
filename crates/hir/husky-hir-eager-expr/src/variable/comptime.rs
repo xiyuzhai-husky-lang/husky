@@ -98,10 +98,10 @@ impl HirEagerComptimeVariableRegionData {
                     else {
                         continue;
                     };
-                    let current_syn_symbol = &syn_symobl_region_data[current_syn_symbol_idx];
-                    let name = match current_syn_symbol.ident() {
+                    let current_variable = &syn_symobl_region_data[current_syn_symbol_idx];
+                    let name = match current_variable.ident() {
                         Some(ident) => HirEagerComptimeVariableName::Ident(ident),
-                        None => match current_syn_symbol.data() {
+                        None => match current_variable.data() {
                             CurrentVariableData::TemplateParameter {
                                 syn_attrs: _,
                                 annotated_variance_token: _,
@@ -113,7 +113,7 @@ impl HirEagerComptimeVariableRegionData {
                                 CurrentTemplateVariableData::Place { label_token } => {
                                     HirEagerComptimeVariableName::Label(label_token.label())
                                 }
-                                CurrentTemplateVariableData::Type { ident_token: _ } => {
+                                CurrentTemplateVariableData::Type { .. } => {
                                     todo!()
                                 }
                                 CurrentTemplateVariableData::Constant {

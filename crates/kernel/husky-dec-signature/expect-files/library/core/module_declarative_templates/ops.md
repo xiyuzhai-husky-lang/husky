@@ -638,7 +638,7 @@
                             self_ty: Application(
                                 DecApplication(
                                     Id {
-                                        value: 27,
+                                        value: 41,
                                     },
                                 ),
                             ),

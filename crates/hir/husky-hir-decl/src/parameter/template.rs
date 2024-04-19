@@ -52,9 +52,9 @@ impl HirTemplateParameter {
                 ident: ident_token.ident(),
                 traits: match *traits {
                     Some(TraitsSyndicate {
-                        ref trait_syn_expr_idxs,
+                        ref trai_syn_expr_idxs,
                         ..
-                    }) => trait_syn_expr_idxs
+                    }) => trai_syn_expr_idxs
                         .iter()
                         .map(|&trai_syn_expr_idx| {
                             let sem_expr_region_data = &builder.sem_expr_region_data();

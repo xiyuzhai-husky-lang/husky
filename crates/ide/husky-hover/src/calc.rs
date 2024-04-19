@@ -101,7 +101,7 @@ impl<'a> HoverResultCalculator<'a> {
                 } => {
                     format!(
                         "{:#?}",
-                        syn_expr_region.data(self.db).symbol_region()[*current_syn_symbol_idx]
+                        syn_expr_region.data(self.db).variable_region()[*current_syn_symbol_idx]
                             .debug(self.db)
                     )
                 }
@@ -112,7 +112,7 @@ impl<'a> HoverResultCalculator<'a> {
                 } => {
                     format!(
                         "{:#?}",
-                        syn_expr_region.data(self.db).symbol_region()[*inherited_syn_symbol_idx]
+                        syn_expr_region.data(self.db).variable_region()[*inherited_syn_symbol_idx]
                             .debug(self.db)
                     )
                 }

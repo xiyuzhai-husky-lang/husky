@@ -2,12 +2,12 @@ use super::*;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub(crate) struct PatternSymbolDeclarativeTypeInfo {
+pub(crate) struct DecPatternVariableTypeInfo {
     modifier: VariableModifier,
     base_ty: DecTerm,
 }
 
-impl PatternSymbolDeclarativeTypeInfo {
+impl DecPatternVariableTypeInfo {
     fn new(modifier: VariableModifier, base_ty: DecTerm) -> Self {
         Self { modifier, base_ty }
     }
@@ -43,7 +43,7 @@ impl<'a> DecTermEngine<'a> {
         let base_ty = self.calc_new_pattern_symbol_base_ty(pattern_variable_idx);
         self.pattern_symbol_ty_infos.insert_new(
             pattern_variable_idx,
-            PatternSymbolDeclarativeTypeInfo::new(modifier, base_ty),
+            DecPatternVariableTypeInfo::new(modifier, base_ty),
         )
     }
 

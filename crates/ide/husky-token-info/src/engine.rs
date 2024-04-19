@@ -201,12 +201,12 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
         {
             self.visit_item_path_expr(item_path_expr_idx, item_path_expr)
         }
-        for (current_syn_symbol_idx, current_syn_symbol) in self
+        for (current_syn_symbol_idx, current_variable) in self
             .syn_expr_region_data
-            .symbol_region()
+            .variable_region()
             .indexed_current_syn_symbols()
         {
-            self.visit_current_variable(current_syn_symbol_idx, current_syn_symbol)
+            self.visit_current_variable(current_syn_symbol_idx, current_variable)
         }
     }
 

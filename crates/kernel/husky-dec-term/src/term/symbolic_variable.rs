@@ -178,7 +178,7 @@ impl DecSymbolicVariable {
 }
 
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum DecTermSymbolicVariableTypeErrorKind {
+pub enum DecSymbolicVariableTypeErrorKind {
     #[error("signature declarative_term error")]
     SignatureDecTermError,
     #[error("sketch declarative_term error")]
@@ -187,7 +187,7 @@ pub enum DecTermSymbolicVariableTypeErrorKind {
     CannotInferTypeExprTerm(SynNodeRegionPath),
 }
 
-pub type DecSymbolicVariableTypeResult<T> = Result<T, DecTermSymbolicVariableTypeErrorKind>;
+pub type DecSymbolicVariableTypeResult<T> = Result<T, DecSymbolicVariableTypeErrorKind>;
 
 impl salsa::DisplayWithDb for DecSymbolicVariable {
     fn display_fmt_with_db(

@@ -24,18 +24,6 @@ pub enum Symbol {
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum TemplateVariable {
-    Lifetime {
-        label_token: LifetimeLabelRegionalToken,
-    },
-    Type {
-        ident_token: IdentRegionalToken,
-    },
-    Const {},
-}
-
-#[salsa::derive_debug_with_db]
-#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct InheritedVariable {
     modifier: VariableModifier,
     kind: InheritedVariableKind,
@@ -369,6 +357,7 @@ pub enum CurrentTemplateVariableData {
     },
     Type {
         ident_token: IdentRegionalToken,
+        trai_syn_expr_idxs: SmallVec<[SynExprIdx; 4]>,
     },
     Constant {
         ident_token: IdentRegionalToken,

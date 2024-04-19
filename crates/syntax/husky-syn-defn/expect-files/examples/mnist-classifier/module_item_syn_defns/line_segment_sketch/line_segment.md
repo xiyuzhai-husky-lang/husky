@@ -65,7 +65,7 @@
                                                         ),
                                                     ),
                                                 ),
-                                                syn_expr_arena: Arena {
+                                                expr_arena: Arena {
                                                     data: [
                                                         SynExprData::PrincipalEntityPath {
                                                             path_expr_idx: 0,
@@ -116,7 +116,7 @@
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: VariableRegionData {
+                                                variable_region: VariableRegionData {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -127,8 +127,8 @@
                                                     allow_self_value: False,
                                                     pattern_ty_constraints: [],
                                                 },
-                                                syn_pattern_expr_roots: [],
-                                                syn_expr_roots: [
+                                                pattern_roots: [],
+                                                expr_roots: [
                                                     SynExprRoot {
                                                         kind: SynExprRootKind::SelfType,
                                                         syn_expr_idx: 0,
@@ -136,7 +136,7 @@
                                                 ],
                                                 has_self_lifetime: false,
                                                 has_self_place: false,
-                                                syn_pattern_to_current_syn_symbol_map: [],
+                                                pattern_to_current_variable_map: [],
                                             },
                                         },
                                     ),
@@ -162,7 +162,7 @@
                                             ),
                                         ),
                                     ),
-                                    syn_expr_arena: Arena {
+                                    expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 0,
@@ -213,7 +213,7 @@
                                             data: [],
                                         },
                                     },
-                                    symbol_region: VariableRegionData {
+                                    variable_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -224,8 +224,8 @@
                                         allow_self_value: True,
                                         pattern_ty_constraints: [],
                                     },
-                                    syn_pattern_expr_roots: [],
-                                    syn_expr_roots: [
+                                    pattern_roots: [],
+                                    expr_roots: [
                                         SynExprRoot {
                                             kind: SynExprRootKind::ReturnType,
                                             syn_expr_idx: 0,
@@ -233,7 +233,7 @@
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
-                                    syn_pattern_to_current_syn_symbol_map: [],
+                                    pattern_to_current_variable_map: [],
                                 },
                             },
                         ),
@@ -259,7 +259,7 @@
                                 ),
                             ),
                         ),
-                        syn_expr_arena: Arena {
+                        expr_arena: Arena {
                             data: [
                                 SynExprData::SelfValue(
                                     RegionalTokenIdx(
@@ -355,7 +355,7 @@
                                 data: [],
                             },
                         },
-                        symbol_region: VariableRegionData {
+                        variable_region: VariableRegionData {
                             inherited_syn_symbol_arena: Arena {
                                 data: [],
                             },
@@ -366,8 +366,8 @@
                             allow_self_value: True,
                             pattern_ty_constraints: [],
                         },
-                        syn_pattern_expr_roots: [],
-                        syn_expr_roots: [
+                        pattern_roots: [],
+                        expr_roots: [
                             SynExprRoot {
                                 kind: SynExprRootKind::EvalExpr,
                                 syn_expr_idx: 4,
@@ -379,7 +379,7 @@
                         ],
                         has_self_lifetime: false,
                         has_self_place: false,
-                        syn_pattern_to_current_syn_symbol_map: [],
+                        pattern_to_current_variable_map: [],
                     },
                 },
             },
@@ -428,7 +428,7 @@
                                                         ),
                                                     ),
                                                 ),
-                                                syn_expr_arena: Arena {
+                                                expr_arena: Arena {
                                                     data: [
                                                         SynExprData::PrincipalEntityPath {
                                                             path_expr_idx: 0,
@@ -479,7 +479,7 @@
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: VariableRegionData {
+                                                variable_region: VariableRegionData {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
@@ -490,8 +490,8 @@
                                                     allow_self_value: False,
                                                     pattern_ty_constraints: [],
                                                 },
-                                                syn_pattern_expr_roots: [],
-                                                syn_expr_roots: [
+                                                pattern_roots: [],
+                                                expr_roots: [
                                                     SynExprRoot {
                                                         kind: SynExprRootKind::SelfType,
                                                         syn_expr_idx: 0,
@@ -499,7 +499,7 @@
                                                 ],
                                                 has_self_lifetime: false,
                                                 has_self_place: false,
-                                                syn_pattern_to_current_syn_symbol_map: [],
+                                                pattern_to_current_variable_map: [],
                                             },
                                         },
                                     ),
@@ -525,7 +525,7 @@
                                             ),
                                         ),
                                     ),
-                                    syn_expr_arena: Arena {
+                                    expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 0,
@@ -626,7 +626,7 @@
                                             ],
                                         },
                                     },
-                                    symbol_region: VariableRegionData {
+                                    variable_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
@@ -640,7 +640,7 @@
                                                     access_end: None,
                                                     data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `pt`,
-                                                        pattern_symbol_idx: 0,
+                                                        pattern_variable_idx: 0,
                                                     },
                                                 },
                                             ],
@@ -661,13 +661,13 @@
                                             ),
                                         ],
                                     },
-                                    syn_pattern_expr_roots: [
+                                    pattern_roots: [
                                         SynPatternRoot {
                                             kind: SynPatternExprRootKind::Parenate,
                                             syn_pattern_expr_idx: 0,
                                         },
                                     ],
-                                    syn_expr_roots: [
+                                    expr_roots: [
                                         SynExprRoot {
                                             kind: SynExprRootKind::ExplicitParameterType,
                                             syn_expr_idx: 0,
@@ -679,7 +679,7 @@
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
-                                    syn_pattern_to_current_syn_symbol_map: [
+                                    pattern_to_current_variable_map: [
                                         (
                                             0,
                                             0,
@@ -710,7 +710,7 @@
                                 ),
                             ),
                         ),
-                        syn_expr_arena: Arena {
+                        expr_arena: Arena {
                             data: [
                                 SynExprData::SelfValue(
                                     RegionalTokenIdx(
@@ -796,7 +796,7 @@
                                     ),
                                     current_syn_symbol_idx: 0,
                                     current_syn_symbol_kind: CurrentVariableKind::LetVariable {
-                                        pattern_symbol_idx: 0,
+                                        pattern_variable_idx: 0,
                                     },
                                 },
                                 SynExprData::CurrentSynSymbol {
@@ -806,7 +806,7 @@
                                     ),
                                     current_syn_symbol_idx: 1,
                                     current_syn_symbol_kind: CurrentVariableKind::LetVariable {
-                                        pattern_symbol_idx: 1,
+                                        pattern_variable_idx: 1,
                                     },
                                 },
                                 SynExprData::MethodApplicationOrCall {
@@ -865,7 +865,7 @@
                                     ),
                                     current_syn_symbol_idx: 1,
                                     current_syn_symbol_kind: CurrentVariableKind::LetVariable {
-                                        pattern_symbol_idx: 1,
+                                        pattern_variable_idx: 1,
                                     },
                                 },
                                 SynExprData::MethodApplicationOrCall {
@@ -947,7 +947,7 @@
                                     ),
                                     current_syn_symbol_idx: 0,
                                     current_syn_symbol_kind: CurrentVariableKind::LetVariable {
-                                        pattern_symbol_idx: 0,
+                                        pattern_variable_idx: 0,
                                     },
                                 },
                                 SynExprData::CurrentSynSymbol {
@@ -957,7 +957,7 @@
                                     ),
                                     current_syn_symbol_idx: 2,
                                     current_syn_symbol_kind: CurrentVariableKind::LetVariable {
-                                        pattern_symbol_idx: 2,
+                                        pattern_variable_idx: 2,
                                     },
                                 },
                                 SynExprData::MethodApplicationOrCall {
@@ -1016,7 +1016,7 @@
                                     ),
                                     current_syn_symbol_idx: 2,
                                     current_syn_symbol_kind: CurrentVariableKind::LetVariable {
-                                        pattern_symbol_idx: 2,
+                                        pattern_variable_idx: 2,
                                     },
                                 },
                                 SynExprData::MethodApplicationOrCall {
@@ -1046,7 +1046,7 @@
                                     ),
                                     current_syn_symbol_idx: 0,
                                     current_syn_symbol_kind: CurrentVariableKind::LetVariable {
-                                        pattern_symbol_idx: 0,
+                                        pattern_variable_idx: 0,
                                     },
                                 },
                                 SynExprData::CurrentSynSymbol {
@@ -1056,7 +1056,7 @@
                                     ),
                                     current_syn_symbol_idx: 1,
                                     current_syn_symbol_kind: CurrentVariableKind::LetVariable {
-                                        pattern_symbol_idx: 1,
+                                        pattern_variable_idx: 1,
                                     },
                                 },
                                 SynExprData::MethodApplicationOrCall {
@@ -1091,7 +1091,7 @@
                                     ),
                                     current_syn_symbol_idx: 0,
                                     current_syn_symbol_kind: CurrentVariableKind::LetVariable {
-                                        pattern_symbol_idx: 0,
+                                        pattern_variable_idx: 0,
                                     },
                                 },
                                 SynExprData::MethodApplicationOrCall {
@@ -1427,7 +1427,7 @@
                                 ],
                             },
                         },
-                        symbol_region: VariableRegionData {
+                        variable_region: VariableRegionData {
                             inherited_syn_symbol_arena: Arena {
                                 data: [
                                     InheritedVariable {
@@ -1454,7 +1454,7 @@
                                         ),
                                         data: CurrentVariableData::LetVariable {
                                             ident: `ab`,
-                                            pattern_symbol_idx: 0,
+                                            pattern_variable_idx: 0,
                                         },
                                     },
                                     CurrentVariableEntry {
@@ -1471,7 +1471,7 @@
                                         ),
                                         data: CurrentVariableData::LetVariable {
                                             ident: `ap`,
-                                            pattern_symbol_idx: 1,
+                                            pattern_variable_idx: 1,
                                         },
                                     },
                                     CurrentVariableEntry {
@@ -1488,7 +1488,7 @@
                                         ),
                                         data: CurrentVariableData::LetVariable {
                                             ident: `bp`,
-                                            pattern_symbol_idx: 2,
+                                            pattern_variable_idx: 2,
                                         },
                                     },
                                 ],
@@ -1497,7 +1497,7 @@
                             allow_self_value: True,
                             pattern_ty_constraints: [],
                         },
-                        syn_pattern_expr_roots: [
+                        pattern_roots: [
                             SynPatternRoot {
                                 kind: SynPatternExprRootKind::Let,
                                 syn_pattern_expr_idx: 0,
@@ -1511,7 +1511,7 @@
                                 syn_pattern_expr_idx: 2,
                             },
                         ],
-                        syn_expr_roots: [
+                        expr_roots: [
                             SynExprRoot {
                                 kind: SynExprRootKind::LetStmtInitialValue,
                                 syn_expr_idx: 1,
@@ -1543,7 +1543,7 @@
                         ],
                         has_self_lifetime: false,
                         has_self_place: false,
-                        syn_pattern_to_current_syn_symbol_map: [
+                        pattern_to_current_variable_map: [
                             (
                                 0,
                                 0,

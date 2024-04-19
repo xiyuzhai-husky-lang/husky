@@ -1,4 +1,4 @@
-use husky_dec_term::term::DecTermSymbolicVariableTypeErrorKind;
+use husky_dec_term::term::DecSymbolicVariableTypeErrorKind;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
@@ -7,9 +7,15 @@ pub enum DecTermError2 {
     Derived(DerivedDecTermError2),
 }
 
-impl Into<DecTermSymbolicVariableTypeErrorKind> for DecTermError2 {
-    fn into(self) -> DecTermSymbolicVariableTypeErrorKind {
-        DecTermSymbolicVariableTypeErrorKind::SignatureDecTermError
+impl Into<DecSymbolicVariableTypeErrorKind> for DecTermError2 {
+    fn into(self) -> DecSymbolicVariableTypeErrorKind {
+        DecSymbolicVariableTypeErrorKind::SignatureDecTermError
+    }
+}
+
+impl Into<DecSymbolicVariableTypeErrorKind> for DerivedDecTermError2 {
+    fn into(self) -> DecSymbolicVariableTypeErrorKind {
+        DecSymbolicVariableTypeErrorKind::SignatureDecTermError
     }
 }
 
@@ -31,7 +37,7 @@ pub enum OriginalDecTermError2 {
     InvalidSymbolForTerm,
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum DerivedDecTermError2 {
     InvalidEntityPath,
     CannotInferFunctionDecTermInApplication,
@@ -49,4 +55,5 @@ pub enum DerivedDecTermError2 {
 }
 
 pub type DecTermResult2<T> = Result<T, DecTermError2>;
+pub type DerivedDecTermResult2<T> = Result<T, DerivedDecTermError2>;
 pub type DecTermResultBorrowed2<'a, T> = Result<T, &'a DecTermError2>;

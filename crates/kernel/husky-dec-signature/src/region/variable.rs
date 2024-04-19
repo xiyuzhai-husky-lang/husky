@@ -3,7 +3,7 @@ use husky_entity_tree::*;
 use husky_syn_expr::*;
 use husky_term_prelude::symbol::SymbolName;
 use husky_vfs::Toolchain;
-use vec_like::SmallVecSet;
+use vec_like::{SmallVecPairMap, SmallVecSet};
 
 use super::*;
 
@@ -20,7 +20,8 @@ pub struct DecSymbolicVariableRegion {
     self_place: Option<DecSymbolicVariable>,
     /// things like `Self` in trait
     autos: SmallVec<[DecSymbolicVariable; 1]>,
-    obvious_trais: SymbolOrderedMap<SmallVecSet<DecTerm, 2>>,
+    obvious_trais:
+        SmallVecPairMap<DecSymbolicVariable, DerivedDecTermResult2<SmallVecSet<DecTerm, 2>>, 4>,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -76,7 +77,8 @@ impl DecSymbolicVariableRegion {
             .has_self_place()
             .then_some(dec_term_menu.auto_self_place());
         let names = parent.map_or(Default::default(), |parent| parent.names.clone());
-        let obvious_trais = SymbolOrderedMap::new(parent.map(|parent| &parent.obvious_trais));
+        let obvious_trais =
+            parent.map_or(Default::default(), |parent| parent.obvious_trais.clone());
         let self_value = parent.map(|parent| parent.self_value).flatten();
         let self_ty = parent.map(|parent| parent.self_ty).flatten();
         let autos = self_lifetime.into_iter().chain(self_place).collect();
@@ -109,6 +111,7 @@ impl DecSymbolicVariableRegion {
     pub fn auto_template_parameter_symbols(&self) -> &[DecSymbolicVariable] {
         &self.autos
     }
+
     /// this only works on type definitions
     ///
     /// example:
@@ -119,8 +122,42 @@ impl DecSymbolicVariableRegion {
     /// ```
     ///
     /// then self type term is `Animal T`
-    fn ty_defn_self_ty_term(&self, db: &::salsa::Db, ty_path: TypePath) -> DecTerm {
-        let mut self_ty: DecTerm = DecItemPath::Type(ty_path.into()).into();
+    fn ty_item_self_ty_term(&self, db: &::salsa::Db, ty_path: TypePath) -> DecTerm {
+        // construction of the application
+        // start with the type path
+        let mut self_ty: DecTerm = DecItemPath::Type(ty_path).into();
+        // recursively apply the arguments
+        for current_syn_symbol_signature in self.signatures.current_syn_symbol_map().iter().copied()
+        {
+            match current_syn_symbol_signature.kind {
+                SymbolicVariableSignatureKind::TemplateParameter => {
+                    let argument = current_syn_symbol_signature
+                        .term()
+                        .expect("should have term");
+                    self_ty = self_ty.apply(db, argument)
+                }
+                SymbolicVariableSignatureKind::ParenateParameter => unreachable!(),
+                SymbolicVariableSignatureKind::FieldVariable => break,
+            }
+        }
+        self_ty
+    }
+
+    /// this only works on trait definitions
+    ///
+    /// example:
+    /// ```husky
+    /// enum Animal<T> where
+    /// | Dog
+    /// | Cat
+    /// ```
+    ///
+    /// then self type term is `Animal T`
+    fn trait_item_self_ty_term(&self, db: &::salsa::Db, trai_path: TraitPath) -> DecTerm {
+        // construction of the application
+        // start with the type path
+        let mut self_ty: DecTerm = DecItemPath::Trait(trai_path).into();
+        // recursively apply the arguments
         for current_syn_symbol_signature in self.signatures.current_syn_symbol_map().iter().copied()
         {
             match current_syn_symbol_signature.kind {
@@ -185,12 +222,21 @@ impl DecSymbolicVariableRegion {
         if symbol_region.allow_self_ty().to_bool() && self.self_ty.is_none() {
             self.self_ty = match region_path {
                 SynNodeRegionPath::Decl(ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Trait(_),
-                )) => Some(self.new_self_ty_symbol(toolchain, db).into()),
+                    MajorItemSynNodePath::Trait(trai_path),
+                )) => Some(
+                    self.add_trai_item_self_ty_symbol(
+                        toolchain,
+                        trai_path
+                            .unambiguous_item_path(db)
+                            .expect("ambiguous path shouldn't be touched for dec signature"),
+                        db,
+                    )
+                    .into(),
+                ),
                 SynNodeRegionPath::Decl(ItemSynNodePath::MajorItem(
                     MajorItemSynNodePath::Type(ty_node_path),
                 )) => Some(
-                    self.ty_defn_self_ty_term(
+                    self.ty_item_self_ty_term(
                         db,
                         ty_node_path
                             .unambiguous_item_path(db)
@@ -204,9 +250,12 @@ impl DecSymbolicVariableRegion {
                         }
                         ImplBlockSynNodePath::TraitForTypeImplBlock(impl_block_path) => {
                             match impl_block_path.ty_sketch(db) {
-                                TypeSketch::DeriveAny => {
-                                    Some(self.new_self_ty_symbol(toolchain, db).into())
-                                }
+                                TypeSketch::DeriveAny => Some(
+                                    self.trai_for_ty_impl_block_derive_any_self_ty_symbol(
+                                        toolchain, db,
+                                    )
+                                    .into(),
+                                ),
                                 TypeSketch::Path(ty_path) => None, // reserved for later stage
                             }
                         }
@@ -229,7 +278,27 @@ impl DecSymbolicVariableRegion {
         }
     }
 
-    fn new_self_ty_symbol(
+    fn add_trai_item_self_ty_symbol(
+        &mut self,
+        toolchain: Toolchain,
+        trai_path: TraitPath,
+        db: &::salsa::Db,
+    ) -> DecSymbolicVariable {
+        let var = DecSymbolicVariable::new_self_ty(db, toolchain, &mut self.registry);
+        self.autos.push(var);
+        self.obvious_trais
+            .insert_new((
+                var,
+                Ok(SmallVecSet::new_one_elem_set(
+                    self.trait_item_self_ty_term(db, trai_path),
+                )),
+            ))
+            .unwrap();
+        var
+    }
+
+    #[deprecated(note = "todo: add obvious trai")]
+    fn trai_for_ty_impl_block_derive_any_self_ty_symbol(
         &mut self,
         toolchain: Toolchain,
         db: &::salsa::Db,
@@ -250,20 +319,21 @@ impl DecSymbolicVariableRegion {
         db: &::salsa::Db,
         idx: CurrentVariableIdx,
         ty: DecSymbolicVariableTypeResult<DecTerm>,
-        term_symbol: DecSymbolicVariable,
+        var: DecSymbolicVariable,
         name: SymbolName,
+        trai_expr_idxs: DerivedDecTermResult2<Vec<DecTerm>>,
     ) {
         self.add_new_current_variable(
             db,
             idx,
             DecSymbolicVariableSignature {
                 kind: SymbolicVariableSignatureKind::TemplateParameter,
-                term: Some(term_symbol),
+                term: Some(var),
                 ty,
                 modifier: VariableModifier::Const,
             },
             name,
-            [todo!("template variable")],
+            trai_expr_idxs,
         )
     }
 
@@ -271,7 +341,7 @@ impl DecSymbolicVariableRegion {
     pub(crate) fn add_new_parenate_variable(
         &mut self,
         db: &::salsa::Db,
-        current_syn_symbol: CurrentVariableIdx,
+        current_variable: CurrentVariableIdx,
         modifier: VariableModifier,
         ty: DecSymbolicVariableTypeResult<DecTerm>,
         name: SymbolName,
@@ -282,7 +352,7 @@ impl DecSymbolicVariableRegion {
         };
         self.add_new_current_variable(
             db,
-            current_syn_symbol,
+            current_variable,
             DecSymbolicVariableSignature {
                 kind: SymbolicVariableSignatureKind::ParenateParameter,
                 modifier,
@@ -290,7 +360,7 @@ impl DecSymbolicVariableRegion {
                 term: symbol,
             },
             name,
-            [],
+            Ok(vec![]),
         )
     }
 
@@ -298,13 +368,13 @@ impl DecSymbolicVariableRegion {
     pub(crate) fn add_new_field_variable_symbol_signature(
         &mut self,
         db: &::salsa::Db,
-        current_syn_symbol: CurrentVariableIdx,
+        current_variable: CurrentVariableIdx,
         ty: DecSymbolicVariableTypeResult<DecTerm>,
         ident: Ident,
     ) {
         self.add_new_current_variable(
             db,
-            current_syn_symbol,
+            current_variable,
             DecSymbolicVariableSignature {
                 kind: SymbolicVariableSignatureKind::FieldVariable,
                 modifier: VariableModifier::Pure,
@@ -312,7 +382,7 @@ impl DecSymbolicVariableRegion {
                 term: None,
             },
             ident.into(),
-            [],
+            Ok(vec![]),
         )
     }
 
@@ -323,13 +393,25 @@ impl DecSymbolicVariableRegion {
         idx: CurrentVariableIdx,
         signature: DecSymbolicVariableSignature,
         name: SymbolName,
-        obvious_trais: impl IntoIterator<Item = DecTerm>,
+        obvious_trais: DerivedDecTermResult2<Vec<DecTerm>>,
     ) {
-        if let Some(symbol) = signature.term {
-            self.names.add(symbol, name)
-        }
-        for trai in obvious_trais {
-            todo!()
+        if let Some(var) = signature.term {
+            self.names.add(var, name);
+            match obvious_trais {
+                Ok(obvious_trais) => {
+                    for trai in obvious_trais {
+                        self.obvious_trais.update_value_or_insert_with(
+                            var,
+                            |trais| match trais {
+                                Ok(trais) => trais.insert(trai),
+                                Err(_) => (),
+                            },
+                            || Ok(SmallVecSet::new_one_elem_set(trai)),
+                        )
+                    }
+                }
+                Err(_) => todo!(),
+            }
         }
         self.signatures.insert_next(idx, signature)
     }
