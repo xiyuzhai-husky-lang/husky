@@ -31,8 +31,8 @@ impl From<&DecSignatureError> for DecSignatureError {
     }
 }
 
-impl From<DecTermError2> for DecSignatureError {
-    fn from(value: DecTermError2) -> Self {
+impl From<SynExprDecTermError> for DecSignatureError {
+    fn from(value: SynExprDecTermError) -> Self {
         todo!()
     }
 }
@@ -60,8 +60,8 @@ impl From<&DecTermError> for DecSignatureError {
     }
 }
 
-impl From<&DecTermError2> for DecSignatureError {
-    fn from(value: &DecTermError2) -> Self {
+impl From<&SynExprDecTermError> for DecSignatureError {
+    fn from(value: &SynExprDecTermError) -> Self {
         DecSignatureError::DecTermError
     }
 }

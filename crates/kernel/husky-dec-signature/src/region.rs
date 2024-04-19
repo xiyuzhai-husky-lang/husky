@@ -23,7 +23,7 @@ use husky_syn_expr::{
 pub struct SynExprDecTermRegion {
     path: SynNodeRegionPath,
     symbolic_variable_region: DecSymbolicVariableRegion,
-    expr_terms: SynExprMap<DecTermResult2<DecTerm>>,
+    expr_terms: SynExprMap<SynExprDecTermResult<DecTerm>>,
     pattern_expr_ty_infos: SynPatternMap<PatternExprDeclarativeTypeInfo>,
     pattern_symbol_ty_infos: SynPatternSymbolMap<DecPatternVariableTypeInfo>,
 }
@@ -32,7 +32,7 @@ impl SynExprDecTermRegion {
     pub(crate) fn new(
         path: SynNodeRegionPath,
         symbolic_variable_region: DecSymbolicVariableRegion,
-        expr_terms: SynExprMap<DecTermResult2<DecTerm>>,
+        expr_terms: SynExprMap<SynExprDecTermResult<DecTerm>>,
         pattern_expr_ty_infos: SynPatternMap<PatternExprDeclarativeTypeInfo>,
         pattern_symbol_ty_infos: SynPatternSymbolMap<DecPatternVariableTypeInfo>,
     ) -> Self {
@@ -45,7 +45,7 @@ impl SynExprDecTermRegion {
         }
     }
 
-    pub fn symbol_variable_region(&self) -> &DecSymbolicVariableRegion {
+    pub fn symbolic_variable_region(&self) -> &DecSymbolicVariableRegion {
         &self.symbolic_variable_region
     }
 
@@ -57,7 +57,7 @@ impl SynExprDecTermRegion {
             .current_parameter_variable_signature(current_variable_idx)
     }
 
-    pub fn expr_term(&self, expr: SynExprIdx) -> DecTermResultBorrowed2<DecTerm> {
+    pub fn expr_term(&self, expr: SynExprIdx) -> SynExprDecTermResultRef<DecTerm> {
         self.expr_terms[expr].as_ref().copied()
     }
 

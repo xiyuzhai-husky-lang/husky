@@ -119,7 +119,7 @@ impl DecTemplateParameters {
                 })
                 .chain(
                     dec_term_region
-                        .symbol_variable_region()
+                        .symbolic_variable_region()
                         .auto_template_parameter_symbols()
                         .iter()
                         .map(|&a| DeclarativeTemplateParameter::new_implicit(a)),

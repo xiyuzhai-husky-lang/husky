@@ -76,8 +76,8 @@ fn list_like_index_signature(
         },
         FlyTermData::Sort(_) => todo!(),
         FlyTermData::Ritchie { .. } => todo!(),
-        FlyTermData::Symbol { .. } => todo!(),
-        FlyTermData::Hvar { .. } => todo!(),
+        FlyTermData::SymbolicVariable { .. } => todo!(),
+        FlyTermData::LambdaVariable { .. } => todo!(),
         FlyTermData::TypeVariant { path } => todo!(),
     }
 }

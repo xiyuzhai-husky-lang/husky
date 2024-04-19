@@ -15,7 +15,7 @@ pub fn sem_expr_region_requires_lazy(db: &::salsa::Db, sem_expr_region: SemaExpr
                 }
                 _ => (),
             },
-            SemaExprData::AssocItem {
+            SemaExprData::MajorItemPathAssocItem {
                 static_dispatch: StaticDispatch::AssocGn,
                 ..
             }

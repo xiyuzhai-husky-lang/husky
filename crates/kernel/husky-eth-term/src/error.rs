@@ -69,6 +69,12 @@ impl From<&EntityPathError> for EthTermError {
     }
 }
 
+impl From<DerivedSynExprDecTermError> for EthTermError {
+    fn from(e: DerivedSynExprDecTermError) -> Self {
+        todo!()
+    }
+}
+
 pub type EthTermResult<T> = Result<T, EthTermError>;
 
 pub type EthTermMaybeResult<T> = MaybeResult<T, EthTermError>;

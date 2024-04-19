@@ -56,8 +56,11 @@ fn coersible_to_int(engine: &mut impl FlyTermEngineMut, index_ty: FlyTerm) -> bo
             parameter_contracted_tys,
             return_ty,
         } => false,
-        FlyTermData::Symbol { term, ty } => false,
-        FlyTermData::Hvar { .. } => unreachable!(),
+        FlyTermData::SymbolicVariable {
+            symbolic_variable: term,
+            ty,
+        } => false,
+        FlyTermData::LambdaVariable { .. } => unreachable!(),
         FlyTermData::TypeVariant { path } => unreachable!(),
     }
 }

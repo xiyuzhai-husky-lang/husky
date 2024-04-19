@@ -1,6 +1,8 @@
 use super::*;
 use husky_entity_tree::helpers::AvailableTraitItemsTable;
+use husky_eth_term::term::symbolic_variable::EthSymbolicVariable;
 use husky_place::{place::idx::PlaceIdx, PlaceInfo, PlaceRegistry};
+use vec_like::SmallVecSet;
 
 pub trait FlyTermEngine<'a>: Sized {
     fn db(&self) -> &'a ::salsa::Db;
@@ -16,6 +18,29 @@ pub trait FlyTermEngine<'a>: Sized {
 
     fn path(&self) -> String {
         format!("{:?}", self.syn_expr_region_data().path().debug(self.db()))
+    }
+
+    fn obvious_trais_map(
+        &self,
+    ) -> &[(
+        EthSymbolicVariable,
+        Result<SmallVecSet<EthTerm, 2>, EthTermError>,
+    )];
+
+    /// final
+    fn symbolic_variable_obvious_trais(
+        &self,
+        svar: EthSymbolicVariable,
+    ) -> EthTermResult<&[EthTerm]> {
+        use vec_like::VecMapGetEntry;
+
+        match self.obvious_trais_map().get_entry(svar) {
+            Some((_, symbolic_variable_obvious_trais)) => match *symbolic_variable_obvious_trais {
+                Ok(ref symbolic_variable_obvious_trais) => Ok(symbolic_variable_obvious_trais),
+                Err(e) => Err(e),
+            },
+            None => Ok(&[]),
+        }
     }
 }
 

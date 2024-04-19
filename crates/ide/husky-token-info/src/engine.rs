@@ -300,7 +300,6 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             },
             SemaExprData::Literal(_, _)
             | SemaExprData::PrincipalEntityPath { .. }
-            | SemaExprData::AssocItem { .. }
             | SemaExprData::Binary { .. }
             | SemaExprData::Suffix { .. }
             | SemaExprData::Unveil { .. }
@@ -312,6 +311,8 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             | SemaExprData::Block { .. }
             | SemaExprData::Be { .. } => (),
             SemaExprData::FunctionApplication { .. } => (),
+            SemaExprData::MajorItemPathAssocItem { .. } => (),
+            SemaExprData::AssocItem { .. } => (),
             SemaExprData::Index {
                 owner: _,
                 lbox_regional_token_idx: _,

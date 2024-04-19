@@ -195,7 +195,11 @@ impl ToHirEager for SemaExprIdx {
                 // ad hoc
                 HirEagerExprData::PrincipalEntityPath(path)
             }
-            SemaExprData::AssocItem {
+            SemaExprData::MajorItemPathAssocItem {
+                ref static_dispatch,
+                ..
+            }
+            | SemaExprData::AssocItem {
                 ref static_dispatch,
                 ..
             } => match static_dispatch {
@@ -203,6 +207,7 @@ impl ToHirEager for SemaExprIdx {
                     assoc_item_path: signature.path(),
                 },
                 StaticDispatch::AssocGn => unreachable!(),
+                StaticDispatch::TypeAsTrait { trai } => todo!(),
             },
             SemaExprData::InheritedSynSymbol {
                 inherited_syn_symbol_idx,
@@ -366,7 +371,7 @@ impl ToHirEager for SemaExprIdx {
                             }
                         }
                     },
-                    SemaExprData::AssocItem {
+                    SemaExprData::MajorItemPathAssocItem {
                         ref static_dispatch,
                         ..
                     } => match static_dispatch {
@@ -383,6 +388,7 @@ impl ToHirEager for SemaExprIdx {
                             }
                         }
                         StaticDispatch::AssocGn => unreachable!(),
+                        StaticDispatch::TypeAsTrait { trai } => todo!(),
                     },
                     _ => todo!(),
                 }

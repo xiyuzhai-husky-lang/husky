@@ -5,7 +5,7 @@ use husky_regional_token::IdentRegionalToken;
 use maybe_result::*;
 
 impl<'a> SemaExprBuilder<'a> {
-    pub(super) fn calc_assoc_item_ty(
+    pub(super) fn calc_major_item_path_assoc_item_ty(
         &mut self,
         expr_idx: SynExprIdx,
         parent_path: MajorItemPath,
@@ -23,30 +23,54 @@ impl<'a> SemaExprBuilder<'a> {
             MajorItemPath::Trait(_) => todo!(),
             MajorItemPath::Fugitive(_) => todo!(),
         };
-        match parent_term.static_dispatch(self, expr_idx, ident_token.ident(), /*ad hoc */ &[]) {
+        self.calc_assoc_item_ty_aux(
+            parent_term,
+            expr_idx,
+            ident_token.ident(),
+            ident_token.regional_token_idx(),
+        )
+    }
+
+    pub(super) fn calc_assoc_item_ty(
+        &mut self,
+        expr_idx: SynExprIdx,
+        parent_expr: SemaExprIdx,
+        colon_colon_regional_token_idx: RegionalTokenIdx,
+        ident: Ident,
+        ident_regional_token_idx: RegionalTokenIdx,
+    ) -> (
+        SemaExprDataResult<StaticDispatch>,
+        SemaExprTypeResult<FlyTerm>,
+    ) {
+        let Some(parent_term) = self.infer_expr_term(parent_expr) else {
+            todo!()
+        };
+        self.calc_assoc_item_ty_aux(parent_term, expr_idx, ident, ident_regional_token_idx)
+    }
+
+    fn calc_assoc_item_ty_aux(
+        &mut self,
+        parent_term: FlyTerm,
+        expr_idx: ArenaIdx<SynExprData>,
+        ident: Ident,
+        ident_regional_token_idx: RegionalTokenIdx,
+    ) -> (
+        Result<StaticDispatch, SemaExprDataError>,
+        Result<FlyTerm, SemaExprTypeError>,
+    ) {
+        match parent_term.static_dispatch(self, expr_idx, ident, /*ad hoc */ &[]) {
             JustOk(static_dispatch) => match static_dispatch {
                 StaticDispatch::AssocFn(ref signature) => {
                     let ty = signature.ty();
                     (Ok(static_dispatch), Ok(ty))
                 }
                 StaticDispatch::AssocGn => todo!(),
+                StaticDispatch::TypeAsTrait { trai } => {
+                    todo!()
+                }
             },
             JustErr(_) => todo!(),
             Nothing => todo!(),
         }
-        // self.infer_new_expr_ty_discarded(parent_expr_idx, ExpectEqsCategory::new_any_sort());
-        // let parent_term = self
-        //     .infer_expr_term(parent_expr_idx)
-        //     .ok_or(DerivedSemaExprError::UnableToInferAssocItemParentTerm)?;
-        // match parent_term.static_dispatch(self, expr_idx, ident_token.ident(), /*ad hoc */ &[]) {
-        //     JustOk(disambiguation) => match disambiguation {
-        //         StaticDispatch::AssocFn(ref signature) => {
-        //             let ty = signature.ty();
-        //             Ok((disambiguation.into(), Ok(ty)))
-        //         }
-        //     },
-        //     JustErr(_) => todo!(),
-        //     Nothing => todo!(),
-        // }
     }
 }

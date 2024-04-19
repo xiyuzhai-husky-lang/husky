@@ -250,8 +250,12 @@ impl ExpectCoersion {
                 p!(src_base_ty_data.debug(db), dst_base_ty_data.debug(db));
                 todo!()
             }
-            FlyBaseTypeData::Symbol { symbol: term } => AltNone,
-            FlyBaseTypeData::Hvar { hvar } => todo!(),
+            FlyBaseTypeData::SymbolicVariable {
+                symbolic_variable: term,
+            } => AltNone,
+            FlyBaseTypeData::LambdaVariable {
+                lambda_variable: hvar,
+            } => todo!(),
         }
     }
 }

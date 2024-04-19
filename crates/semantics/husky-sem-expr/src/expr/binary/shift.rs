@@ -68,8 +68,8 @@ impl<'a> SemaExprBuilder<'a> {
             | FlyTermData::Curry { .. }
             | FlyTermData::Sort(_) => todo!(),
             FlyTermData::Ritchie { .. } => todo!(),
-            FlyTermData::Symbol { .. } => todo!(),
-            FlyTermData::Hvar { .. } => todo!(),
+            FlyTermData::SymbolicVariable { .. } => todo!(),
+            FlyTermData::LambdaVariable { .. } => todo!(),
             FlyTermData::TypeVariant { path } => todo!(),
         }
     }

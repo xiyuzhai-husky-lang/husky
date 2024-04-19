@@ -72,7 +72,7 @@ impl FlyTerms {
         parameter_hvar: FlyHvar,
     ) -> HolTerm {
         let hole_kind = match parameter_hvar.data_inner(db, self) {
-            FlyTermData::Hvar { ty, .. } => match ty.data_inner(db, self) {
+            FlyTermData::LambdaVariable { ty, .. } => match ty.data_inner(db, self) {
                 FlyTermData::TypeOntology {
                     ty_path: path,
                     refined_ty_path: refined_path,
@@ -101,8 +101,8 @@ impl FlyTerms {
                     parameter_contracted_tys,
                     return_ty,
                 } => todo!(),
-                FlyTermData::Symbol { .. } => HoleKind::AnyOriginal,
-                FlyTermData::Hvar { .. } => todo!(),
+                FlyTermData::SymbolicVariable { .. } => HoleKind::AnyOriginal,
+                FlyTermData::LambdaVariable { .. } => todo!(),
                 _ => unreachable!(),
             },
             FlyTermData::Hole(_, _) => todo!(),

@@ -30,7 +30,7 @@ use crate::{obelisks::closure_parameter::ClosureParameterObelisk, *};
 use husky_coword::{Ident, IdentMap};
 use husky_entity_path::{MajorItemPath, PrincipalEntityPath};
 use husky_eth_signature::TraitForTypeAssocTypeEtherealSignature;
-use husky_eth_term::term::EthTerm;
+use husky_eth_term::term::{ty_as_trai_item::EthTypeAsTraitItem, EthTerm};
 use husky_fly_term::{
     dispatch::{
         dynamic_dispatch::binary_opr::SemaBinaryOprDynamicDispatch, FlyFieldDyanmicDispatch,
@@ -75,11 +75,18 @@ pub enum SemaExprData {
         /// only None if `path` is an ontology constructor
         instantiation: Option<FlyInstantiation>,
     },
-    AssocItem {
+    MajorItemPathAssocItem {
         parent_expr_idx: SynPrincipalEntityPathSynExprIdx,
         parent_path: MajorItemPath,
         colon_colon_regional_token: ColonColonRegionalToken,
         ident_token: IdentRegionalToken,
+        static_dispatch: StaticDispatch,
+    },
+    AssocItem {
+        parent_expr_idx: SemaExprIdx,
+        colon_colon_regional_token_idx: RegionalTokenIdx,
+        ident: Ident,
+        ident_regional_token_idx: RegionalTokenIdx,
         static_dispatch: StaticDispatch,
     },
     InheritedSynSymbol {
@@ -728,22 +735,23 @@ impl<'a> SemaExprBuilder<'a> {
                     todo!()
                 }
             },
-            SynExprData::PrincipalEntityPathAssocItem {
+            SynExprData::MajorItemPathAssocItem {
                 parent_expr_idx,
                 parent_path,
                 colon_colon_regional_token,
                 ident_token,
             } => {
                 let (static_dispatch_result, ty_result) =
-                    self.calc_assoc_item_ty(syn_expr_idx, parent_path, ident_token);
-                let data_result =
-                    static_dispatch_result.map(|static_dispatch| SemaExprData::AssocItem {
+                    self.calc_major_item_path_assoc_item_ty(syn_expr_idx, parent_path, ident_token);
+                let data_result = static_dispatch_result.map(|static_dispatch| {
+                    SemaExprData::MajorItemPathAssocItem {
                         parent_expr_idx,
                         parent_path,
                         colon_colon_regional_token,
                         ident_token,
                         static_dispatch,
-                    });
+                    }
+                });
                 (data_result, ty_result)
             }
             SynExprData::AssocItem {
@@ -752,7 +760,23 @@ impl<'a> SemaExprBuilder<'a> {
                 ident,
                 ident_regional_token_idx,
             } => {
-                todo!()
+                let parent_expr_idx = self.build_sem_expr(parent_expr_idx, ExpectAnyOriginal);
+                let (static_dispatch_result, ty_result) = self.calc_assoc_item_ty(
+                    syn_expr_idx,
+                    parent_expr_idx,
+                    colon_colon_regional_token_idx,
+                    ident,
+                    ident_regional_token_idx,
+                );
+                let data_result =
+                    static_dispatch_result.map(|static_dispatch| SemaExprData::AssocItem {
+                        parent_expr_idx,
+                        colon_colon_regional_token_idx,
+                        ident,
+                        ident_regional_token_idx,
+                        static_dispatch,
+                    });
+                (data_result, ty_result)
             }
             SynExprData::InheritedSynSymbol {
                 ident,
@@ -1108,8 +1132,8 @@ impl<'a> SemaExprBuilder<'a> {
                                     return_ty,
                                     ..
                                 } => todo!(),
-                                FlyTermData::Symbol { .. } => todo!(),
-                                FlyTermData::Hvar { .. } => todo!(),
+                                FlyTermData::SymbolicVariable { .. } => todo!(),
+                                FlyTermData::LambdaVariable { .. } => todo!(),
                                 FlyTermData::TypeVariant { path } => todo!(),
                             },
                             FlyTermDestination::AnyOriginal => {

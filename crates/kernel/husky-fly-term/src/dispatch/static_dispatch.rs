@@ -5,12 +5,14 @@ mod solid;
 use super::*;
 use husky_coword::Ident;
 use husky_eth_signature::{HasTypeItemTemplates, TypeItemEthTemplates};
+use husky_eth_term::term::ty_as_trai_item::EthTypeAsTraitItem;
 
 #[derive(Debug, PartialEq, Eq)]
 #[enum_class::from_variants]
 pub enum StaticDispatch {
     AssocFn(AssocFnFlySignature),
     AssocGn,
+    TypeAsTrait { trai: EthTerm },
 }
 
 impl FlyTerm {
@@ -83,7 +85,15 @@ impl FlyTerm {
                 JustErr(_) => todo!(),
                 Nothing => todo!(),
             },
-            FlyTermData::Curry { .. } => todo!(),
+            FlyTermData::Curry {
+                toolchain,
+                curry_kind,
+                variance,
+                parameter_hvar,
+                parameter_ty,
+                return_ty,
+                ty_ethereal_term,
+            } => todo!(),
             FlyTermData::Hole(_, _) => todo!(),
             FlyTermData::Sort(_) => todo!(),
             FlyTermData::Ritchie {
@@ -91,8 +101,24 @@ impl FlyTerm {
                 parameter_contracted_tys,
                 return_ty,
             } => todo!(),
-            FlyTermData::Symbol { .. } => todo!(),
-            FlyTermData::Hvar { .. } => todo!(),
+            FlyTermData::SymbolicVariable {
+                symbolic_variable, ..
+            } => {
+                let Ok(symbolic_variable_obvious_trais) =
+                    engine.symbolic_variable_obvious_trais(symbolic_variable)
+                else {
+                    todo!()
+                };
+                match symbolic_variable_obvious_trais.len() {
+                    0 => todo!(),
+                    1 => {
+                        let trai = symbolic_variable_obvious_trais[0];
+                        JustOk(StaticDispatch::TypeAsTrait { trai })
+                    }
+                    _ => todo!(),
+                }
+            }
+            FlyTermData::LambdaVariable { ty, index } => todo!(),
             FlyTermData::TypeVariant { path } => todo!(),
         }
     }

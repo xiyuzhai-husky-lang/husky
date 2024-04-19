@@ -10,7 +10,7 @@ impl<'a> SemaExprBuilder<'a> {
         {
             let Some(signature) = self
                 .dec_term_region
-                .symbol_variable_region()
+                .symbolic_variable_region()
                 .current_parameter_variable_signature(current_syn_symbol_idx)
             else {
                 return;

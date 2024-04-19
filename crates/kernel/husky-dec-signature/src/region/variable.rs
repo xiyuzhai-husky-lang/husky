@@ -20,8 +20,11 @@ pub struct DecSymbolicVariableRegion {
     self_place: Option<DecSymbolicVariable>,
     /// things like `Self` in trait
     autos: SmallVec<[DecSymbolicVariable; 1]>,
-    obvious_trais:
-        SmallVecPairMap<DecSymbolicVariable, DerivedDecTermResult2<SmallVecSet<DecTerm, 2>>, 4>,
+    obvious_trais_map: SmallVecPairMap<
+        DecSymbolicVariable,
+        DerivedSynExprDecTermResult<SmallVecSet<DecTerm, 2>>,
+        4,
+    >,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -77,8 +80,9 @@ impl DecSymbolicVariableRegion {
             .has_self_place()
             .then_some(dec_term_menu.auto_self_place());
         let names = parent.map_or(Default::default(), |parent| parent.names.clone());
-        let obvious_trais =
-            parent.map_or(Default::default(), |parent| parent.obvious_trais.clone());
+        let symbolic_variable_obvious_trais = parent.map_or(Default::default(), |parent| {
+            parent.obvious_trais_map.clone()
+        });
         let self_value = parent.map(|parent| parent.self_value).flatten();
         let self_ty = parent.map(|parent| parent.self_ty).flatten();
         let autos = self_lifetime.into_iter().chain(self_place).collect();
@@ -92,7 +96,7 @@ impl DecSymbolicVariableRegion {
             self_lifetime,
             self_place,
             autos,
-            obvious_trais,
+            obvious_trais_map: symbolic_variable_obvious_trais,
         }
     }
 }
@@ -204,13 +208,33 @@ impl DecSymbolicVariableRegion {
             .copied()
     }
 
-    pub fn obvious_trais(&self, svar: DecSymbolicVariable) -> DerivedDecTermResult2<&[DecTerm]> {
-        match self.obvious_trais[svar].1 {
-            Ok(ref obvious_trais) => Ok(obvious_trais),
-            Err(e) => Err(e),
+    pub fn symbolic_variable_obvious_trais(
+        &self,
+        svar: DecSymbolicVariable,
+    ) -> DerivedSynExprDecTermResult<&[DecTerm]> {
+        match self.obvious_trais_map.get_value(svar) {
+            Some(symbolic_variable_obvious_trais) => match *symbolic_variable_obvious_trais {
+                Ok(ref symbolic_variable_obvious_trais) => Ok(symbolic_variable_obvious_trais),
+                Err(e) => Err(e),
+            },
+            None => Ok(&[]),
         }
     }
 
+    pub fn obvious_trais_map(
+        &self,
+    ) -> &SmallVecPairMap<
+        DecSymbolicVariable,
+        DerivedSynExprDecTermResult<SmallVecSet<DecTerm, 2>>,
+        4,
+    > {
+        &self.obvious_trais_map
+    }
+}
+
+/// # getters mut
+
+impl DecSymbolicVariableRegion {
     pub(crate) fn registry_mut(&mut self) -> &mut DecSymbolicVariableRegistry {
         &mut self.registry
     }
@@ -293,7 +317,7 @@ impl DecSymbolicVariableRegion {
     ) -> DecSymbolicVariable {
         let var = DecSymbolicVariable::new_self_ty(db, toolchain, &mut self.registry);
         self.autos.push(var);
-        self.obvious_trais
+        self.obvious_trais_map
             .insert_new((
                 var,
                 Ok(SmallVecSet::new_one_elem_set(
@@ -328,7 +352,7 @@ impl DecSymbolicVariableRegion {
         ty: DecSymbolicVariableTypeResult<DecTerm>,
         var: DecSymbolicVariable,
         name: SymbolName,
-        trai_expr_idxs: DerivedDecTermResult2<Vec<DecTerm>>,
+        trai_expr_idxs: DerivedSynExprDecTermResult<Vec<DecTerm>>,
     ) {
         self.add_new_current_variable(
             db,
@@ -400,14 +424,14 @@ impl DecSymbolicVariableRegion {
         idx: CurrentVariableIdx,
         signature: DecSymbolicVariableSignature,
         name: SymbolName,
-        obvious_trais: DerivedDecTermResult2<Vec<DecTerm>>,
+        symbolic_variable_obvious_trais: DerivedSynExprDecTermResult<Vec<DecTerm>>,
     ) {
         if let Some(var) = signature.term {
             self.names.add(var, name);
-            match obvious_trais {
-                Ok(obvious_trais) => {
-                    for trai in obvious_trais {
-                        self.obvious_trais.update_value_or_insert_with(
+            match symbolic_variable_obvious_trais {
+                Ok(symbolic_variable_obvious_trais) => {
+                    for trai in symbolic_variable_obvious_trais {
+                        self.obvious_trais_map.update_value_or_insert_with(
                             var,
                             |trais| match trais {
                                 Ok(trais) => trais.insert(trai),
