@@ -70,4 +70,4 @@ settings set frame-format frame #${frame.index}: ${frame.pc}{ ${module.file.base
 
 ## lean server gives fwIn.txt fwOut.txt wdErr.txt wdIn.txt wdOut.txt
 
-search ## Logging LSP requests in the source repository
+search for Server Logging: Enabled in its setting
