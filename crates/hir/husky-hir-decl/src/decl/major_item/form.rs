@@ -14,8 +14,8 @@ use husky_syn_decl::decl::FormSynDecl;
 #[enum_class::from_variants]
 pub enum MajorFormHirDecl {
     Ritchie(MajorRitchieHirDecl),
-    Val(ValFormHirDecl),
-    TypeAlias(TypeAliasHirDecl),
+    Val(MajorValFormHirDecl),
+    TypeAlias(MajorTypeAliasHirDecl),
 }
 
 impl MajorFormHirDecl {
@@ -48,19 +48,18 @@ impl HasHirDecl for MajorFormPath {
     type HirDecl = MajorFormHirDecl;
 
     fn hir_decl(self, db: &::salsa::Db) -> Option<Self::HirDecl> {
-        form_hir_decl(db, self)
+        major_form_hir_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = HirDeclJar)]
-fn form_hir_decl(db: &::salsa::Db, path: MajorFormPath) -> Option<MajorFormHirDecl> {
+fn major_form_hir_decl(db: &::salsa::Db, path: MajorFormPath) -> Option<MajorFormHirDecl> {
     match path.syn_decl(db).expect("no errors for hir stage") {
         FormSynDecl::Ritchie(syn_decl) => {
             Some(MajorRitchieHirDecl::from_syn(path, syn_decl, db).into())
         }
-        FormSynDecl::Val(syn_decl) => Some(ValFormHirDecl::from_syn(path, syn_decl, db).into()),
-        FormSynDecl::FunctionGn(syn_decl) => {
-            Some(FunctionGnFormHirDecl::from_syn(path, syn_decl, db).into())
+        FormSynDecl::Val(syn_decl) => {
+            Some(MajorValFormHirDecl::from_syn(path, syn_decl, db).into())
         }
         FormSynDecl::TypeAlias(_) => None, // should there be some?
     }

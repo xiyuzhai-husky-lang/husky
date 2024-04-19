@@ -1,10 +1,10 @@
 use super::*;
-use husky_hir_decl::decl::TypeAliasHirDecl;
+use husky_hir_decl::decl::MajorTypeAliasHirDecl;
 
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar)]
 pub struct TypeAliasHirDefn {
     pub path: MajorFormPath,
-    pub hir_decl: TypeAliasHirDecl,
+    pub hir_decl: MajorTypeAliasHirDecl,
     pub hir_eager_expr_region: Option<HirEagerExprRegion>,
 }
 
