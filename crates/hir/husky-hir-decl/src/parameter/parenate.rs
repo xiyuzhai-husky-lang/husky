@@ -10,6 +10,7 @@ use husky_hir_eager_expr::HirEagerPatternIdx;
 use husky_syn_expr::{ParenateParameterSyndicate, SelfValueParameterSyndicate};
 use smallvec::SmallVec;
 
+#[enum_class::from_variants]
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub enum HirParenateParameters {

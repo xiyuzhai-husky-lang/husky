@@ -2,7 +2,7 @@ use super::*;
 use husky_syn_decl::decl::TypeAliasSynDecl;
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
-pub struct TypeAliasHirDecl {
+pub struct MajorTypeAliasHirDecl {
     pub path: MajorFormPath,
     #[return_ref]
     pub template_parameters: HirTemplateParameters,
@@ -10,7 +10,7 @@ pub struct TypeAliasHirDecl {
     pub hir_eager_expr_region: HirEagerExprRegion,
 }
 
-impl TypeAliasHirDecl {
+impl MajorTypeAliasHirDecl {
     pub(super) fn from_syn(
         path: MajorFormPath,
         syn_decl: TypeAliasSynDecl,
