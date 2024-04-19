@@ -11,22 +11,22 @@ use husky_eth_term::term::symbolic_variable::EthSymbolicVariable;
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct FlyTerms {
-    solid_terms: SolTerms,
-    hollow_terms: HolTerms,
+    sol_terms: SolTerms,
+    hol_terms: HolTerms,
 }
 
 impl std::borrow::Borrow<HolTerms> for FlyTerms {
     fn borrow(&self) -> &HolTerms {
-        &self.hollow_terms
+        &self.hol_terms
     }
 }
 
 impl FlyTerms {
     pub(crate) fn new(terms: Option<&Self>) -> Self {
         Self {
-            solid_terms: SolTerms::new(terms.map(|terms| &terms.solid_terms)),
+            sol_terms: SolTerms::new(terms.map(|terms| &terms.sol_terms)),
             // `Default` is derived for `hollow_terms` because we never inherited hollow terms
-            hollow_terms: Default::default(),
+            hol_terms: Default::default(),
         }
     }
 
@@ -38,8 +38,8 @@ impl FlyTerms {
     ) -> HolTerm {
         let hole_kind = match template_parameter_symbol.ty(db) {
             EthTerm::Literal(_) => todo!(),
-            EthTerm::Symbol(_) => HoleKind::AnyOriginal,
-            EthTerm::Hvar(_) => todo!(),
+            EthTerm::SymbolicVariable(_) => HoleKind::AnyOriginal,
+            EthTerm::LambdaVariable(_) => todo!(),
             EthTerm::EntityPath(_) => todo!(),
             EthTerm::Category(cat) => {
                 if cat.universe().raw() != 1 {
@@ -56,7 +56,7 @@ impl FlyTerms {
             EthTerm::TypeAsTraitItem(_) => todo!(),
             EthTerm::TraitConstraint(_) => todo!(),
         };
-        self.hollow_terms.alloc_new(HolTermData::Hole {
+        self.hol_terms.alloc_new(HolTermData::Hole {
             hole_source,
             hole_kind,
             fill: None,
@@ -117,7 +117,7 @@ impl FlyTerms {
                 unreachable!()
             }
         };
-        self.hollow_terms.alloc_new(HolTermData::Hole {
+        self.hol_terms.alloc_new(HolTermData::Hole {
             hole_source,
             hole_kind,
             fill: None,
@@ -125,19 +125,19 @@ impl FlyTerms {
         })
     }
 
-    pub fn hollow_terms(&self) -> &HolTerms {
-        &self.hollow_terms
+    pub fn hol_terms(&self) -> &HolTerms {
+        &self.hol_terms
     }
 
-    pub fn solid_terms(&self) -> &SolTerms {
-        &self.solid_terms
+    pub fn sol_terms(&self) -> &SolTerms {
+        &self.sol_terms
     }
 
-    pub fn hollow_terms_mut(&mut self) -> &mut HolTerms {
-        &mut self.hollow_terms
+    pub fn hol_terms_mut(&mut self) -> &mut HolTerms {
+        &mut self.hol_terms
     }
 
-    pub fn solid_terms_mut(&mut self) -> &mut SolTerms {
-        &mut self.solid_terms
+    pub fn sol_terms_mut(&mut self) -> &mut SolTerms {
+        &mut self.sol_terms
     }
 }

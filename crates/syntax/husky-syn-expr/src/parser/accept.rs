@@ -30,13 +30,13 @@ where
             DisambiguatedTokenData::CurrentSynSymbol {
                 ident,
                 regional_token_idx,
-                current_syn_symbol_idx,
-                current_syn_symbol_kind,
+                current_variable_idx,
+                current_variable_kind,
             } => self.accept_atom(SynExprData::CurrentSynSymbol {
                 ident,
                 regional_token_idx,
-                current_syn_symbol_idx,
-                current_syn_symbol_kind,
+                current_variable_idx,
+                current_variable_kind,
             }),
             DisambiguatedTokenData::SelfType(regional_token_idx) => {
                 self.accept_atom(SynExprData::SelfType(regional_token_idx))

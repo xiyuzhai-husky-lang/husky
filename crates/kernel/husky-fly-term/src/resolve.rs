@@ -15,7 +15,7 @@ impl FlyTermRegion {
         }
         for (hole, hole_kind, constraints) in self
             .terms
-            .hollow_terms()
+            .hol_terms()
             .empty_holes_with_non_empty_constraints()
         {
             for constraint in constraints {

@@ -98,14 +98,14 @@ pub enum SemaExprData {
     CurrentSynSymbol {
         ident: Ident,
         regional_token_idx: RegionalTokenIdx,
-        current_syn_symbol_idx: CurrentVariableIdx,
-        current_syn_symbol_kind: CurrentVariableKind,
+        current_variable_idx: CurrentVariableIdx,
+        current_variable_kind: CurrentVariableKind,
     },
     FrameVarDecl {
         regional_token_idx: RegionalTokenIdx,
         ident: Ident,
         frame_var_symbol_idx: CurrentVariableIdx,
-        current_syn_symbol_kind: CurrentVariableKind,
+        current_variable_kind: CurrentVariableKind,
     },
     SelfType(RegionalTokenIdx),
     SelfValue(RegionalTokenIdx),
@@ -802,30 +802,30 @@ impl<'a> SemaExprBuilder<'a> {
             SynExprData::CurrentSynSymbol {
                 ident,
                 regional_token_idx,
-                current_syn_symbol_idx,
-                current_syn_symbol_kind,
+                current_variable_idx,
+                current_variable_kind,
             } => (
                 Ok(SemaExprData::CurrentSynSymbol {
                     ident,
                     regional_token_idx,
-                    current_syn_symbol_idx,
-                    current_syn_symbol_kind,
+                    current_variable_idx,
+                    current_variable_kind,
                 }),
-                self.get_current_syn_symbol_ty(syn_expr_idx, current_syn_symbol_idx),
+                self.get_current_variable_ty(syn_expr_idx, current_variable_idx),
             ),
             SynExprData::FrameVarDecl {
                 ident,
                 regional_token_idx,
                 frame_var_symbol_idx,
-                current_syn_symbol_kind,
+                current_variable_kind,
             } => (
                 Ok(SemaExprData::FrameVarDecl {
                     ident,
                     regional_token_idx,
                     frame_var_symbol_idx,
-                    current_syn_symbol_kind,
+                    current_variable_kind,
                 }),
-                self.get_current_syn_symbol_ty(syn_expr_idx, frame_var_symbol_idx),
+                self.get_current_variable_ty(syn_expr_idx, frame_var_symbol_idx),
             ),
             SynExprData::SelfType(regional_token_idx) => (
                 Ok(SemaExprData::SelfType(regional_token_idx)),

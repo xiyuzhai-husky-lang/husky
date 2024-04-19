@@ -45,8 +45,8 @@ impl HirTemplateArgument {
     pub(crate) fn from_eth(argument: EthTerm, db: &::salsa::Db) -> Option<Self> {
         Some(match argument {
             EthTerm::Literal(lit) => HirConstant::from_term(lit, db).into(),
-            EthTerm::Symbol(symbol) => HirTemplateVariable::from_eth(symbol, db)?.into(),
-            EthTerm::Hvar(_) => todo!(),
+            EthTerm::SymbolicVariable(symbol) => HirTemplateVariable::from_eth(symbol, db)?.into(),
+            EthTerm::LambdaVariable(_) => todo!(),
             EthTerm::EntityPath(path) => match path {
                 ItemPathTerm::Fugitive(_path) => todo!(),
                 ItemPathTerm::Trait(_) => todo!(),

@@ -29,15 +29,15 @@ impl EthSymbolicVariable {
     #[inline(always)]
     pub fn from_dec(
         db: &::salsa::Db,
-        declarative_term_symbol: DecSymbolicVariable,
+        dec_symbolic_variable: DecSymbolicVariable,
     ) -> EthTermResult<Self> {
-        let ty = declarative_term_symbol.ty(db)?;
+        let ty = dec_symbolic_variable.ty(db)?;
         let ty = EthTerm::ty_from_dec(db, ty)?;
         Ok(Self::new_inner(
             db,
-            declarative_term_symbol.toolchain(db),
+            dec_symbolic_variable.toolchain(db),
             ty,
-            EthTermSymbolIndex::from_dec(declarative_term_symbol.index(db)),
+            EthTermSymbolIndex::from_dec(dec_symbolic_variable.index(db)),
         ))
     }
 }

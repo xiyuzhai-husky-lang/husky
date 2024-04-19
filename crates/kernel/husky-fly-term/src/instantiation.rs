@@ -253,7 +253,7 @@ impl FlyTermInstantiationBuilder {
     pub(crate) fn try_add_rule(&mut self, src: EthTerm, dst: FlyTerm) -> FlyTermMaybeResult<()> {
         match src {
             EthTerm::Literal(_) => todo!(),
-            EthTerm::Symbol(symbol) => {
+            EthTerm::SymbolicVariable(symbol) => {
                 let (_, ref mut dst0) = self.symbol_map[symbol];
                 match *dst0 {
                     Some(dst0) => match dst0 {
@@ -272,7 +272,7 @@ impl FlyTermInstantiationBuilder {
                 }
                 JustOk(())
             }
-            EthTerm::Hvar(_) => todo!(),
+            EthTerm::LambdaVariable(_) => todo!(),
             EthTerm::EntityPath(_) => todo!(),
             EthTerm::Category(_) => todo!(),
             EthTerm::Universe(_) => todo!(),
@@ -313,14 +313,14 @@ impl FlyInstantiate for EthTerm {
         }
         match self {
             EthTerm::Literal(_) => todo!(),
-            EthTerm::Symbol(symbol) => match instantiation[symbol] {
+            EthTerm::SymbolicVariable(symbol) => match instantiation[symbol] {
                 resolution => match resolution {
                     FlyTermSymbolResolution::Explicit(term) => term,
                     FlyTermSymbolResolution::SelfLifetime => todo!(),
                     FlyTermSymbolResolution::SelfQuary(place) => place.into(),
                 },
             },
-            EthTerm::Hvar(_) => todo!(),
+            EthTerm::LambdaVariable(_) => todo!(),
             EthTerm::EntityPath(_) => self.into(),
             EthTerm::Category(_) => todo!(),
             EthTerm::Universe(_) => todo!(),

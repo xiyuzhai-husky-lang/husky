@@ -50,7 +50,7 @@ impl FlyTerm {
             .into()),
             FlyTermDataKind::Solid => todo!(),
             FlyTermDataKind::Hollow => Ok(terms
-                .hollow_terms_mut()
+                .hol_terms_mut()
                 .alloc_new(HolTermData::Ritchie {
                     ritchie_kind,
                     params,

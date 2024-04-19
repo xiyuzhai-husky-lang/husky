@@ -183,11 +183,11 @@ impl<'a> SynExprContext<'a> {
                 ropd,
             } => {
                 let particulars = self.parse_for_between_particulars(lopd, ropd, comparison_opr);
-                let current_syn_symbol_variant = CurrentVariableData::LoopVariable {
+                let current_variable_variant = CurrentVariableData::LoopVariable {
                     expr_idx: particulars.for_between_loop_var_expr_idx,
                     ident: particulars.for_between_loop_var_ident,
                 };
-                let current_syn_symbol_kind = current_syn_symbol_variant.kind();
+                let current_variable_kind = current_variable_variant.kind();
                 let access_start = self
                     .ast_token_idx_range(body.start())
                     .start()
@@ -197,7 +197,7 @@ impl<'a> SynExprContext<'a> {
                     self.syn_pattern_expr_region(),
                     access_start,
                     Some(access_end),
-                    current_syn_symbol_variant,
+                    current_variable_variant,
                 );
                 let frame_var_symbol_idx = self
                     .define_symbols(
@@ -211,7 +211,7 @@ impl<'a> SynExprContext<'a> {
                         regional_token_idx: particulars.for_between_loop_var_regional_token_idx,
                         ident: particulars.for_between_loop_var_ident,
                         frame_var_symbol_idx,
-                        current_syn_symbol_kind,
+                        current_variable_kind,
                     },
                 );
                 SynStmtData::ForBetween {
@@ -337,8 +337,8 @@ impl<'a> SynExprContext<'a> {
                 SynExprData::CurrentSynSymbol {
                     ident,
                     regional_token_idx,
-                    current_syn_symbol_idx: _,
-                    current_syn_symbol_kind: _,
+                    current_variable_idx: _,
+                    current_variable_kind: _,
                 } => (ident, regional_token_idx),
                 _ => todo!(),
             };

@@ -95,13 +95,13 @@ impl<'a> HoverResultCalculator<'a> {
                 TokenInfoData::Entity(_) => format!(""),
                 TokenInfoData::EntityNode(_, _) => format!(""),
                 TokenInfoData::CurrentSynSymbol {
-                    current_syn_symbol_idx,
+                    current_variable_idx,
                     syn_expr_region,
                     ..
                 } => {
                     format!(
                         "{:#?}",
-                        syn_expr_region.data(self.db).variable_region()[*current_syn_symbol_idx]
+                        syn_expr_region.data(self.db).variable_region()[*current_variable_idx]
                             .debug(self.db)
                     )
                 }

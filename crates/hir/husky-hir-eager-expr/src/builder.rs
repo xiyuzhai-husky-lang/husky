@@ -217,12 +217,12 @@ impl<'a> HirEagerExprBuilder<'a> {
             .copied()
     }
 
-    pub(crate) fn current_syn_symbol_to_hir_eager_runtime_symbol(
+    pub(crate) fn current_variable_to_hir_eager_runtime_symbol(
         &self,
-        current_syn_symbol_idx: CurrentVariableIdx,
+        current_variable_idx: CurrentVariableIdx,
     ) -> Option<HirEagerRvarIdx> {
         self.syn_symbol_to_hir_eager_runtime_symbol_map
-            .get_current(current_syn_symbol_idx)
+            .get_current(current_variable_idx)
             .copied()
     }
 

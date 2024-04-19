@@ -1,22 +1,22 @@
 use super::*;
-use crate::term::lambda_variable::EthHvar;
+use crate::term::lambda_variable::EthLambdaVariable;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct EthTermSubstitution {
-    src: EthHvar,
+    src: EthLambdaVariable,
     dst: EthTerm,
 }
 
 impl EthTermSubstitution {
-    pub fn new(src: EthHvar, dst: EthTerm) -> Self {
+    pub fn new(src: EthLambdaVariable, dst: EthTerm) -> Self {
         Self { src, dst }
     }
 }
 
 /// # getters
 impl EthTermSubstitution {
-    pub fn src(&self) -> EthHvar {
+    pub fn src(&self) -> EthLambdaVariable {
         self.src
     }
 

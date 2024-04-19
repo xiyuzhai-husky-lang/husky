@@ -59,13 +59,13 @@ impl<'a> SemaExprBuilder<'a> {
 
     fn infer_new_current_variable_syn_symbol_ty(
         &mut self,
-        current_syn_symbol_idx: CurrentVariableIdx,
+        current_variable_idx: CurrentVariableIdx,
     ) {
-        let Some(ty) = self.calc_new_current_syn_symbol_ty(current_syn_symbol_idx) else {
+        let Some(ty) = self.calc_new_current_variable_ty(current_variable_idx) else {
             return;
         };
         let modifier =
-            match *self.syn_expr_region_data.variable_region()[current_syn_symbol_idx].data() {
+            match *self.syn_expr_region_data.variable_region()[current_variable_idx].data() {
                 CurrentVariableData::SimpleClosureParameter {
                     pattern_variable_idx,
                     ..
@@ -86,18 +86,18 @@ impl<'a> SemaExprBuilder<'a> {
                     .pattern_symbol_modifier(pattern_variable_idx),
                 _ => unreachable!(),
             };
-        let ty = match SymbolType::new_variable_ty(self, current_syn_symbol_idx, modifier, ty) {
+        let ty = match SymbolType::new_variable_ty(self, current_variable_idx, modifier, ty) {
             Ok(ty) => ty,
             Err(_) => todo!(),
         };
-        self.symbol_tys.insert_new(current_syn_symbol_idx, ty)
+        self.symbol_tys.insert_new(current_variable_idx, ty)
     }
 
-    fn calc_new_current_syn_symbol_ty(
+    fn calc_new_current_variable_ty(
         &mut self,
-        current_syn_symbol_idx: CurrentVariableIdx,
+        current_variable_idx: CurrentVariableIdx,
     ) -> Option<FlyTerm> {
-        match self.syn_expr_region_data[current_syn_symbol_idx].data() {
+        match self.syn_expr_region_data[current_variable_idx].data() {
             CurrentVariableData::TemplateParameter {
                 data: template_parameter_variant,
                 ..

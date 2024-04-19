@@ -32,7 +32,7 @@ impl<'a> HirLazyExprBuilder<'a> {
             variables: let_variables_pattern
                 .variables()
                 .into_iter()
-                .filter_map(|var| self.current_syn_symbol_to_hir_lazy_variable(var))
+                .filter_map(|var| self.current_variable_to_hir_lazy_variable(var))
                 .collect(),
             ty: let_variables_pattern
                 .ty_sem_expr_idx()

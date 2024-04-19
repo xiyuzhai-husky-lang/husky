@@ -4,7 +4,7 @@ pub mod toolchain;
 use self::term::{
     application::{EthApplication, TermFunctionReduced},
     curry::EthCurry,
-    lambda_variable::EthHvar,
+    lambda_variable::EthLambdaVariable,
     ritchie::EthRitchie,
 };
 use crate::*;
@@ -94,7 +94,7 @@ impl EthTerm {
     }
 }
 
-impl EthHvar {
+impl EthLambdaVariable {
     fn toolchain(self, db: &::salsa::Db) -> Option<Toolchain> {
         self.ty(db).toolchain(db)
     }

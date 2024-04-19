@@ -67,7 +67,7 @@ impl HirEagerComptimeVariableRegionData {
                 unreachable!()
             };
             match term {
-                EthTerm::Symbol(term_symbol) => {
+                EthTerm::SymbolicVariable(term_symbol) => {
                     let Some(hir_comptime_symbol) = HirTemplateVariable::from_eth(term_symbol, db)
                     else {
                         continue;
@@ -85,20 +85,20 @@ impl HirEagerComptimeVariableRegionData {
                 _ => todo!(),
             }
         }
-        for (current_syn_symbol_idx, &fly_term) in sem_expr_region_data
+        for (current_variable_idx, &fly_term) in sem_expr_region_data
             .symbol_terms()
-            .current_syn_symbol_key_values()
+            .current_variable_key_values()
         {
             let FlyTermBase::Eth(term) = fly_term.base_resolved_inner(terms) else {
                 unreachable!()
             };
             match term {
-                EthTerm::Symbol(term_symbol) => {
+                EthTerm::SymbolicVariable(term_symbol) => {
                     let Some(hir_comptime_symbol) = HirTemplateVariable::from_eth(term_symbol, db)
                     else {
                         continue;
                     };
-                    let current_variable = &syn_symobl_region_data[current_syn_symbol_idx];
+                    let current_variable = &syn_symobl_region_data[current_variable_idx];
                     let name = match current_variable.ident() {
                         Some(ident) => HirEagerComptimeVariableName::Ident(ident),
                         None => match current_variable.data() {

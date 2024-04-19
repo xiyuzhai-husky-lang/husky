@@ -207,7 +207,10 @@ impl ToHirEager for SemaExprIdx {
                     assoc_item_path: signature.path(),
                 },
                 StaticDispatch::AssocGn => unreachable!(),
-                StaticDispatch::TypeAsTrait { trai } => todo!(),
+                StaticDispatch::TypeAsTrait {
+                    trai,
+                    trai_item_path,
+                } => todo!(),
             },
             SemaExprData::InheritedSynSymbol {
                 inherited_syn_symbol_idx,
@@ -232,11 +235,11 @@ impl ToHirEager for SemaExprIdx {
                 ),
             },
             SemaExprData::CurrentSynSymbol {
-                current_syn_symbol_idx,
+                current_variable_idx,
                 ..
             } => HirEagerExprData::Variable(
                 builder
-                    .current_syn_symbol_to_hir_eager_runtime_symbol(current_syn_symbol_idx)
+                    .current_variable_to_hir_eager_runtime_symbol(current_variable_idx)
                     .unwrap(),
             ),
             SemaExprData::FrameVarDecl { .. } => todo!(),
@@ -388,7 +391,10 @@ impl ToHirEager for SemaExprIdx {
                             }
                         }
                         StaticDispatch::AssocGn => unreachable!(),
-                        StaticDispatch::TypeAsTrait { trai } => todo!(),
+                        StaticDispatch::TypeAsTrait {
+                            trai,
+                            trai_item_path,
+                        } => todo!(),
                     },
                     _ => todo!(),
                 }

@@ -64,7 +64,7 @@ impl DecSymbolicVariableSignature {
 
 impl DecSymbolicVariableRegion {
     /// will initialize `inherited_syn_symbol_terms`;
-    /// but will leave current_syn_symbol_terms unintialized;
+    /// but will leave current_variable_terms unintialized;
     /// `self_ty_term` is set to that of parent if parent exists, otherwise none;
     /// `self_value_term` is set to that of parent if parent exists, otherwise none
     pub(crate) fn new(
@@ -131,13 +131,10 @@ impl DecSymbolicVariableRegion {
         // start with the type path
         let mut self_ty: DecTerm = DecItemPath::Type(ty_path).into();
         // recursively apply the arguments
-        for current_syn_symbol_signature in self.signatures.current_syn_symbol_map().iter().copied()
-        {
-            match current_syn_symbol_signature.kind {
+        for current_variable_signature in self.signatures.current_variable_map().iter().copied() {
+            match current_variable_signature.kind {
                 SymbolicVariableSignatureKind::TemplateParameter => {
-                    let argument = current_syn_symbol_signature
-                        .term()
-                        .expect("should have term");
+                    let argument = current_variable_signature.term().expect("should have term");
                     self_ty = self_ty.apply(db, argument)
                 }
                 SymbolicVariableSignatureKind::ParenateParameter => unreachable!(),
@@ -162,13 +159,10 @@ impl DecSymbolicVariableRegion {
         // start with the type path
         let mut self_ty: DecTerm = DecItemPath::Trait(trai_path).into();
         // recursively apply the arguments
-        for current_syn_symbol_signature in self.signatures.current_syn_symbol_map().iter().copied()
-        {
-            match current_syn_symbol_signature.kind {
+        for current_variable_signature in self.signatures.current_variable_map().iter().copied() {
+            match current_variable_signature.kind {
                 SymbolicVariableSignatureKind::TemplateParameter => {
-                    let argument = current_syn_symbol_signature
-                        .term()
-                        .expect("should have term");
+                    let argument = current_variable_signature.term().expect("should have term");
                     self_ty = self_ty.apply(db, argument)
                 }
                 SymbolicVariableSignatureKind::ParenateParameter => unreachable!(),
@@ -203,7 +197,7 @@ impl DecSymbolicVariableRegion {
         current_variable_idx: CurrentVariableIdx,
     ) -> Option<DecSymbolicVariableSignature> {
         self.signatures
-            .current_syn_symbol_map()
+            .current_variable_map()
             .get(current_variable_idx.index())
             .copied()
     }

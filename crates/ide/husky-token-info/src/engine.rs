@@ -201,12 +201,12 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
         {
             self.visit_item_path_expr(item_path_expr_idx, item_path_expr)
         }
-        for (current_syn_symbol_idx, current_variable) in self
+        for (current_variable_idx, current_variable) in self
             .syn_expr_region_data
             .variable_region()
-            .indexed_current_syn_symbols()
+            .indexed_current_variables()
         {
-            self.visit_current_variable(current_syn_symbol_idx, current_variable)
+            self.visit_current_variable(current_variable_idx, current_variable)
         }
     }
 
@@ -214,21 +214,21 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
         match sem_expr_data {
             SemaExprData::CurrentSynSymbol {
                 regional_token_idx,
-                current_syn_symbol_idx,
-                current_syn_symbol_kind,
+                current_variable_idx,
+                current_variable_kind,
                 ..
             }
             | SemaExprData::FrameVarDecl {
                 regional_token_idx,
-                frame_var_symbol_idx: current_syn_symbol_idx,
-                current_syn_symbol_kind,
+                frame_var_symbol_idx: current_variable_idx,
+                current_variable_kind,
                 ..
             } => self.add(
                 *regional_token_idx,
                 sem_expr_idx,
                 TokenInfoData::CurrentSynSymbol {
-                    current_syn_symbol_idx: *current_syn_symbol_idx,
-                    current_syn_symbol_kind: *current_syn_symbol_kind,
+                    current_variable_idx: *current_variable_idx,
+                    current_variable_kind: *current_variable_kind,
                     syn_expr_region: self.syn_expr_region,
                 },
             ),
@@ -561,9 +561,9 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                             ident_token.regional_token_idx(),
                             pattern_expr_idx,
                             TokenInfoData::CurrentSynSymbol {
-                                current_syn_symbol_idx: current_variable_idx,
+                                current_variable_idx: current_variable_idx,
                                 syn_expr_region: self.syn_expr_region,
-                                current_syn_symbol_kind: current_variable_kind,
+                                current_variable_kind: current_variable_kind,
                             },
                         ),
                         _ => unreachable!(),
@@ -578,36 +578,36 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                     ident_token.regional_token_idx(),
                     TokenInfoSource::TemplateParameter(current_variable_idx),
                     TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: current_variable_idx,
+                        current_variable_idx: current_variable_idx,
                         syn_expr_region: self.syn_expr_region,
-                        current_syn_symbol_kind: current_variable_kind,
+                        current_variable_kind: current_variable_kind,
                     },
                 ),
                 CurrentTemplateParameterSynSymbolKind::Lifetime { label_token } => self.add(
                     label_token.regional_token_idx(),
                     current_variable_idx,
                     TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: current_variable_idx,
+                        current_variable_idx: current_variable_idx,
                         syn_expr_region: self.syn_expr_region,
-                        current_syn_symbol_kind: current_variable_kind,
+                        current_variable_kind: current_variable_kind,
                     },
                 ),
                 CurrentTemplateParameterSynSymbolKind::Place { label_token } => self.add(
                     label_token.regional_token_idx(),
                     current_variable_idx,
                     TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: current_variable_idx,
+                        current_variable_idx: current_variable_idx,
                         syn_expr_region: self.syn_expr_region,
-                        current_syn_symbol_kind: current_variable_kind,
+                        current_variable_kind: current_variable_kind,
                     },
                 ),
                 CurrentTemplateParameterSynSymbolKind::Constant { ident_token } => self.add(
                     ident_token.regional_token_idx(),
                     current_variable_idx,
                     TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: current_variable_idx,
+                        current_variable_idx: current_variable_idx,
                         syn_expr_region: self.syn_expr_region,
-                        current_syn_symbol_kind: current_variable_kind,
+                        current_variable_kind: current_variable_kind,
                     },
                 ),
             },
@@ -615,18 +615,18 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                 ident_token.regional_token_idx(),
                 current_variable_idx,
                 TokenInfoData::CurrentSynSymbol {
-                    current_syn_symbol_idx: current_variable_idx,
+                    current_variable_idx: current_variable_idx,
                     syn_expr_region: self.syn_expr_region,
-                    current_syn_symbol_kind: current_variable_kind,
+                    current_variable_kind: current_variable_kind,
                 },
             ),
             CurrentVariableKind::FieldVariable { ident_token } => self.add(
                 ident_token.regional_token_idx(),
                 current_variable_idx,
                 TokenInfoData::CurrentSynSymbol {
-                    current_syn_symbol_idx: current_variable_idx,
+                    current_variable_idx: current_variable_idx,
                     syn_expr_region: self.syn_expr_region,
-                    current_syn_symbol_kind: current_variable_kind,
+                    current_variable_kind: current_variable_kind,
                 },
             ),
         }

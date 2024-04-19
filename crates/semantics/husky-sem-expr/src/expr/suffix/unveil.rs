@@ -228,8 +228,8 @@ fn unveil_impl_block_signature_templates(
     term: EthTerm,
 ) -> EtherealSignatureMaybeResult<&[EthTraitForTypeImplBlockSignatureBuilder]> {
     match term {
-        EthTerm::Symbol(_) => Nothing, // ad hoc
-        EthTerm::Hvar(_) => Nothing,   // ad hoc
+        EthTerm::SymbolicVariable(_) => Nothing, // ad hoc
+        EthTerm::LambdaVariable(_) => Nothing,   // ad hoc
         EthTerm::EntityPath(ItemPathTerm::TypeOntology(path)) => {
             ty_ontology_path_unveil_impl_block_signature_templates(db, path).just_ok_as_ref2()
         }

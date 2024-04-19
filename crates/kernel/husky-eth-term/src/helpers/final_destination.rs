@@ -6,7 +6,9 @@ impl EthTerm {
     pub fn final_destination(self, db: &::salsa::Db) -> FinalDestination {
         match self {
             EthTerm::Literal(_) => FinalDestination::AnyDerived,
-            EthTerm::Symbol(_) | EthTerm::Hvar(_) => FinalDestination::AnyOriginal,
+            EthTerm::SymbolicVariable(_) | EthTerm::LambdaVariable(_) => {
+                FinalDestination::AnyOriginal
+            }
             EthTerm::EntityPath(path) => match path {
                 ItemPathTerm::Fugitive(path) => match path.major_fugitive_kind(db) {
                     MajorFugitiveKind::TypeAlias => todo!(),

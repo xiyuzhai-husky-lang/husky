@@ -188,11 +188,11 @@ impl EtherealInstantiationBuilder {
             return JustOk(());
         }
         let is_symbol_or_hvar: EthTermMaybeResult<()> = match dst {
-            EthTerm::Symbol(_) | EthTerm::Hvar(_) => JustOk(()),
+            EthTerm::SymbolicVariable(_) | EthTerm::LambdaVariable(_) => JustOk(()),
             _ => Nothing,
         };
         match src {
-            EthTerm::Symbol(symbol) => self.try_add_symbol_rule(symbol, dst),
+            EthTerm::SymbolicVariable(symbol) => self.try_add_symbol_rule(symbol, dst),
             EthTerm::Application(_) => {
                 let src_application_expansion = src.application_expansion(db);
                 let dst_application_expansion = dst.application_expansion(db);
@@ -220,7 +220,7 @@ impl EtherealInstantiationBuilder {
             | EthTerm::EntityPath(_)
             | EthTerm::Category(_)
             | EthTerm::Universe(_)
-            | EthTerm::Hvar(_) => Nothing,
+            | EthTerm::LambdaVariable(_) => Nothing,
             EthTerm::Curry(_) => {
                 todo!("dependent type")
                 // let EthTerm::TraitConstraint(dst) = dst else {

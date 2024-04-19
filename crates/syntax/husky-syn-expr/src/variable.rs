@@ -510,7 +510,7 @@ impl From<CurrentVariableIdx> for ParentVariableIdx {
 #[derive(Debug, PartialEq, Eq)]
 pub struct VariableMap<V> {
     inherited_syn_symbol_map: InheritedSynSymbolMap<V>,
-    current_syn_symbol_map: CurrentSynSymbolMap<V>,
+    current_variable_map: CurrentSynSymbolMap<V>,
 }
 
 impl<V> VariableMap<V> {
@@ -519,9 +519,9 @@ impl<V> VariableMap<V> {
             .insert_new(inherited_syn_symbol_idx, v)
     }
 
-    pub fn push_current(&mut self, current_syn_symbol_idx: CurrentVariableIdx, v: V) {
-        self.current_syn_symbol_map
-            .insert_new(current_syn_symbol_idx, v)
+    pub fn push_current(&mut self, current_variable_idx: CurrentVariableIdx, v: V) {
+        self.current_variable_map
+            .insert_new(current_variable_idx, v)
     }
 
     pub fn get_inherited(
@@ -531,8 +531,8 @@ impl<V> VariableMap<V> {
         self.inherited_syn_symbol_map.get(inherited_syn_symbol_idx)
     }
 
-    pub fn get_current(&self, current_syn_symbol_idx: CurrentVariableIdx) -> Option<&V> {
-        self.current_syn_symbol_map.get(current_syn_symbol_idx)
+    pub fn get_current(&self, current_variable_idx: CurrentVariableIdx) -> Option<&V> {
+        self.current_variable_map.get(current_variable_idx)
     }
 }
 
@@ -542,8 +542,8 @@ impl<V> VariableMap<V> {
             inherited_syn_symbol_map: InheritedSynSymbolMap::new(
                 syn_symbol_region.inherited_syn_symbol_arena(),
             ),
-            current_syn_symbol_map: CurrentSynSymbolMap::new(
-                syn_symbol_region.current_syn_symbol_arena(),
+            current_variable_map: CurrentSynSymbolMap::new(
+                syn_symbol_region.current_variable_arena(),
             ),
         }
     }
@@ -561,13 +561,13 @@ impl<V> std::ops::Index<CurrentVariableIdx> for VariableMap<V> {
     type Output = V;
 
     fn index(&self, idx: CurrentVariableIdx) -> &Self::Output {
-        &self.current_syn_symbol_map[idx]
+        &self.current_variable_map[idx]
     }
 }
 
 pub struct SynSymbolOrderedMap<V> {
     inherited_syn_symbol_ordered_map: InheritedSynSymbolOrderedMap<V>,
-    current_syn_symbol_ordered_map: CurrentSynSymbolOrderedMap<V>,
+    current_variable_ordered_map: CurrentSynSymbolOrderedMap<V>,
 }
 
 impl<V> SynSymbolOrderedMap<V> {
@@ -576,9 +576,9 @@ impl<V> SynSymbolOrderedMap<V> {
             .insert_next(inherited_syn_symbol_idx, v)
     }
 
-    pub fn push_current(&mut self, current_syn_symbol_idx: CurrentVariableIdx, v: V) {
-        self.current_syn_symbol_ordered_map
-            .insert_next(current_syn_symbol_idx, v)
+    pub fn push_current(&mut self, current_variable_idx: CurrentVariableIdx, v: V) {
+        self.current_variable_ordered_map
+            .insert_next(current_variable_idx, v)
     }
 }
 
@@ -586,7 +586,7 @@ impl<V> Default for SynSymbolOrderedMap<V> {
     fn default() -> Self {
         Self {
             inherited_syn_symbol_ordered_map: Default::default(),
-            current_syn_symbol_ordered_map: Default::default(),
+            current_variable_ordered_map: Default::default(),
         }
     }
 }
@@ -603,6 +603,6 @@ impl<V> std::ops::Index<CurrentVariableIdx> for SynSymbolOrderedMap<V> {
     type Output = V;
 
     fn index(&self, idx: CurrentVariableIdx) -> &Self::Output {
-        &self.current_syn_symbol_ordered_map[idx]
+        &self.current_variable_ordered_map[idx]
     }
 }
