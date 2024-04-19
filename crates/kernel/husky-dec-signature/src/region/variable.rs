@@ -204,6 +204,13 @@ impl DecSymbolicVariableRegion {
             .copied()
     }
 
+    pub fn obvious_trais(&self, svar: DecSymbolicVariable) -> DerivedDecTermResult2<&[DecTerm]> {
+        match self.obvious_trais[svar].1 {
+            Ok(ref obvious_trais) => Ok(obvious_trais),
+            Err(e) => Err(e),
+        }
+    }
+
     pub(crate) fn registry_mut(&mut self) -> &mut DecSymbolicVariableRegistry {
         &mut self.registry
     }

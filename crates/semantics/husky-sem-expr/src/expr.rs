@@ -751,7 +751,9 @@ impl<'a> SemaExprBuilder<'a> {
                 colon_colon_regional_token_idx,
                 ident,
                 ident_regional_token_idx,
-            } => todo!(),
+            } => {
+                todo!()
+            }
             SynExprData::InheritedSynSymbol {
                 ident,
                 regional_token_idx,

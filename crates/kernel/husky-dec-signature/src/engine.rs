@@ -402,10 +402,20 @@ impl<'a> DecTermEngine<'a> {
                 ident,
                 ident_regional_token_idx,
             } => {
-                let parent_term = self.infer_new_expr_term(parent_expr_idx)?;
-                match parent_term {
+                let parent = self.infer_new_expr_term(parent_expr_idx)?;
+                match parent {
                     DecTerm::Literal(_) => todo!(),
-                    DecTerm::SymbolicVariable(svar) => todo!(),
+                    DecTerm::SymbolicVariable(svar) => {
+                        let obvious_trais = self.symbolic_variable_region.obvious_trais(svar)?;
+                        match obvious_trais.len() {
+                            0 => unreachable!(),
+                            1 => {
+                                let trai = obvious_trais[0];
+                                Ok(DecTypeAsTraitItem::new(db, parent, trai, ident).into())
+                            }
+                            _ => todo!(),
+                        }
+                    }
                     DecTerm::LambdaVariable(_) => todo!(),
                     DecTerm::EntityPath(_) => todo!(),
                     DecTerm::Category(_) => todo!(),
