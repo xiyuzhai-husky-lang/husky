@@ -1,3 +1,6 @@
+use husky_coword::coword_menu;
+use husky_entity_kind::MajorFormKind;
+
 use super::*;
 
 pub trait HasItemPaths: Copy {
@@ -80,6 +83,18 @@ pub fn module_item_paths(db: &::salsa::Db, module_path: ModulePath) -> Vec<ItemP
         .collect()
 }
 
+#[test]
+fn module_item_paths_works() {
+    DB::ast_expect_test_debug_with_db(
+        |db, module_path| module_item_paths(db, module_path),
+        &AstTestConfig::new(
+            "module_item_paths",
+            FileExtensionConfig::Markdown,
+            TestDomainsConfig::SYNTAX,
+        ),
+    )
+}
+
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub fn crate_item_paths(db: &::salsa::Db, crate_path: CratePath) -> Vec<ItemPath> {
     crate_path
@@ -87,6 +102,49 @@ pub fn crate_item_paths(db: &::salsa::Db, crate_path: CratePath) -> Vec<ItemPath
         .iter()
         .flat_map(|module_path| module_path.item_paths(db).iter().copied())
         .collect()
+}
+
+#[test]
+fn crate_item_paths_works() {
+    DB::ast_expect_test_debug_with_db(
+        |db, crate_path| crate_item_paths(db, crate_path),
+        &AstTestConfig::new(
+            "crate_item_paths",
+            FileExtensionConfig::Markdown,
+            TestDomainsConfig::SYNTAX,
+        ),
+    )
+}
+
+#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+pub fn crate_test_paths(db: &::salsa::Db, crate_path: CratePath) -> Vec<MajorFormPath> {
+    let test_ident = coword_menu(db).test_ident();
+    crate_item_paths(db, crate_path)
+        .iter()
+        .filter_map(|&item_path| match item_path {
+            ItemPath::MajorItem(MajorItemPath::Form(path)) => match path.major_form_kind(db) {
+                MajorFormKind::Ritchie(_) | MajorFormKind::Val => path
+                    .attr_paths(db)
+                    .iter()
+                    .any(|attr_path| attr_path.ident(db) == test_ident)
+                    .then_some(path),
+                _ => None,
+            },
+            _ => None,
+        })
+        .collect()
+}
+
+#[test]
+fn crate_test_paths_works() {
+    DB::ast_expect_test_debug_with_db(
+        |db, crate_path| crate_test_paths(db, crate_path),
+        &AstTestConfig::new(
+            "crate_test_paths",
+            FileExtensionConfig::Markdown,
+            TestDomainsConfig::SYNTAX,
+        ),
+    )
 }
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
@@ -102,18 +160,6 @@ pub fn module_submodule_item_paths(
             _ => None,
         })
         .collect()
-}
-
-#[test]
-fn module_item_paths_works() {
-    DB::ast_expect_test_debug_with_db(
-        |db, module_path| module_item_paths(db, module_path),
-        &AstTestConfig::new(
-            "module_item_paths",
-            FileExtensionConfig::Markdown,
-            TestDomainsConfig::SYNTAX,
-        ),
-    )
 }
 
 #[test]
