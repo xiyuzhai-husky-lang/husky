@@ -24,7 +24,7 @@ pub struct HirDeclJar(
     crate::decl::TraitForTypeAssocFnHirDecl,
     crate::decl::TraitForTypeAssocTypeHirDecl,
     crate::decl::TraitForTypeAssocValHirDecl,
-    crate::decl::TraitForTypeMethodFnHirDecl,
+    crate::decl::TraitForTypeMethodRitchieHirDecl,
     // ty
     crate::decl::ty_hir_decl,
     crate::decl::EnumHirDecl,

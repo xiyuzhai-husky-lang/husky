@@ -221,7 +221,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TraitForTypeItem(
             TraitForTypeItemHirDecl::MethodFn(
-                TraitForTypeMethodFnHirDecl {
+                TraitForTypeMethodRitchieHirDecl {
                     path: TraitForTypeItemPath(
                         `<mnist::BinaryImage28 as core::visual::Visualize(0)>::visualize`,
                         TraitItemKind::MethodRitchie(
@@ -573,7 +573,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TraitForTypeItem(
             TraitForTypeItemHirDecl::MethodFn(
-                TraitForTypeMethodFnHirDecl {
+                TraitForTypeMethodRitchieHirDecl {
                     path: TraitForTypeItemPath(
                         `<mnist::BinaryGrid28 as core::visual::Visualize(0)>::visualize`,
                         TraitItemKind::MethodRitchie(

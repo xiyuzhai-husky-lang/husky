@@ -17,7 +17,7 @@ pub enum TraitForTypeItemEthTemplate {
     AssocFn(TraitForTypeAssocFnEthTemplate),
     AssocVal(TraitForTypeAssocValEthTemplate),
     AssocType(TraitForTypeAssocTypeEthTemplate),
-    MethodFn(TraitForTypeMethodFnEthTemplate),
+    MethodFn(TraitForTypeMethodRitchieEthTemplate),
 }
 
 impl TraitForTypeItemEthTemplate {
@@ -55,7 +55,7 @@ impl TraitForTypeItemEthTemplate {
 #[enum_class::from_variants]
 pub enum TraitForTypeItemEtherealSignatureBuilder {
     AssocType(TraitForTypeAssocTypeEtherealSignatureBuilder),
-    Method(TraitForTypeMethodFnEtherealSignatureBuilder),
+    Method(TraitForTypeMethodRitchieEtherealSignatureBuilder),
 }
 
 impl HasEthTemplate for TraitForTypeItemPath {
@@ -74,7 +74,7 @@ fn trai_for_ty_item_eth_template(
     Ok(match path.dec_template(db)? {
         TraitForTypeItemDecTemplate::AssocFn(_) => todo!(),
         TraitForTypeItemDecTemplate::MethodFn(dec_template) => {
-            TraitForTypeMethodFnEthTemplate::from_dec(db, path, dec_template)?.into()
+            TraitForTypeMethodRitchieEthTemplate::from_dec(db, path, dec_template)?.into()
         }
         TraitForTypeItemDecTemplate::AssocType(dec_template) => {
             TraitForTypeAssocTypeEthTemplate::from_dec(db, path, dec_template)?.into()

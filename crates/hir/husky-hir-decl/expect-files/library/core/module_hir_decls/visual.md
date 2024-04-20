@@ -129,7 +129,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TraitForTypeItem(
             TraitForTypeItemHirDecl::MethodFn(
-                TraitForTypeMethodFnHirDecl {
+                TraitForTypeMethodRitchieHirDecl {
                     path: TraitForTypeItemPath(
                         `<#derive _ as core::visual::Visualize(0)>::visualize`,
                         TraitItemKind::MethodRitchie(

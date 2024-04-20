@@ -545,7 +545,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodFn(
-                        TraitForTypeMethodFnDecTemplate {
+                        TraitForTypeMethodRitchieDecTemplate {
                             self_ty: EntityPath(
                                 Type(
                                     TypePath(
@@ -876,7 +876,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodFn(
-                        TraitForTypeMethodFnDecTemplate {
+                        TraitForTypeMethodRitchieDecTemplate {
                             self_ty: EntityPath(
                                 Type(
                                     TypePath(
@@ -1304,7 +1304,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodFn(
-                        TraitForTypeMethodFnDecTemplate {
+                        TraitForTypeMethodRitchieDecTemplate {
                             self_ty: EntityPath(
                                 Type(
                                     TypePath(
@@ -1538,7 +1538,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodFn(
-                        TraitForTypeMethodFnDecTemplate {
+                        TraitForTypeMethodRitchieDecTemplate {
                             self_ty: EntityPath(
                                 Type(
                                     TypePath(
@@ -1772,7 +1772,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodFn(
-                        TraitForTypeMethodFnDecTemplate {
+                        TraitForTypeMethodRitchieDecTemplate {
                             self_ty: EntityPath(
                                 Type(
                                     TypePath(
@@ -2006,7 +2006,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodFn(
-                        TraitForTypeMethodFnDecTemplate {
+                        TraitForTypeMethodRitchieDecTemplate {
                             self_ty: EntityPath(
                                 Type(
                                     TypePath(
@@ -2240,7 +2240,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodFn(
-                        TraitForTypeMethodFnDecTemplate {
+                        TraitForTypeMethodRitchieDecTemplate {
                             self_ty: EntityPath(
                                 Type(
                                     TypePath(
@@ -2474,7 +2474,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodFn(
-                        TraitForTypeMethodFnDecTemplate {
+                        TraitForTypeMethodRitchieDecTemplate {
                             self_ty: EntityPath(
                                 Type(
                                     TypePath(
@@ -2708,7 +2708,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodFn(
-                        TraitForTypeMethodFnDecTemplate {
+                        TraitForTypeMethodRitchieDecTemplate {
                             self_ty: EntityPath(
                                 Type(
                                     TypePath(
@@ -2942,7 +2942,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodFn(
-                        TraitForTypeMethodFnDecTemplate {
+                        TraitForTypeMethodRitchieDecTemplate {
                             self_ty: EntityPath(
                                 Type(
                                     TypePath(
@@ -3176,7 +3176,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodFn(
-                        TraitForTypeMethodFnDecTemplate {
+                        TraitForTypeMethodRitchieDecTemplate {
                             self_ty: EntityPath(
                                 Type(
                                     TypePath(
@@ -3410,7 +3410,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodFn(
-                        TraitForTypeMethodFnDecTemplate {
+                        TraitForTypeMethodRitchieDecTemplate {
                             self_ty: EntityPath(
                                 Type(
                                     TypePath(
@@ -4238,7 +4238,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodFn(
-                        TraitForTypeMethodFnDecTemplate {
+                        TraitForTypeMethodRitchieDecTemplate {
                             self_ty: EntityPath(
                                 Type(
                                     TypePath(
@@ -4552,7 +4552,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TraitForTypeItem(
                     TraitForTypeItemDecTemplate::MethodFn(
-                        TraitForTypeMethodFnDecTemplate {
+                        TraitForTypeMethodRitchieDecTemplate {
                             self_ty: EntityPath(
                                 Type(
                                     TypePath(

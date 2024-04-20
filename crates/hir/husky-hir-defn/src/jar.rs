@@ -87,7 +87,7 @@ pub struct HirDefnJar(
     TraitForTypeAssocFnHirDefn,
     crate::defn::trai_for_ty_assoc_fn_hir_defn_dependencies,
     crate::defn::trai_for_ty_assoc_fn_hir_defn_version_stamp,
-    TraitForTypeMethodFnHirDefn,
+    TraitForTypeMethodRitchieHirDefn,
     crate::defn::trai_for_ty_method_fn_hir_defn_dependencies,
     crate::defn::trai_for_ty_method_fn_hir_defn_version_stamp,
     TraitForTypeAssocTypeHirDefn,

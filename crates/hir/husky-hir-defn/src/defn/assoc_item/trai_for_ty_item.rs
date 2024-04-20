@@ -17,7 +17,7 @@ use super::*;
 #[enum_class::from_variants]
 pub enum TraitForTypeItemHirDefn {
     AssocFn(TraitForTypeAssocFnHirDefn),
-    MethodFn(TraitForTypeMethodFnHirDefn),
+    MethodFn(TraitForTypeMethodRitchieHirDefn),
     AssocType(TraitForTypeAssocTypeHirDefn),
     AssocVal(TraitForTypeAssocValHirDefn),
 }
@@ -109,7 +109,7 @@ pub(crate) fn trai_for_ty_item_hir_defn(
             Some(TraitForTypeAssocFnHirDefn::new(db, path, hir_decl).into())
         }
         TraitForTypeItemHirDecl::MethodFn(hir_decl) => {
-            Some(TraitForTypeMethodFnHirDefn::new(db, path, hir_decl).into())
+            Some(TraitForTypeMethodRitchieHirDefn::new(db, path, hir_decl).into())
         }
         TraitForTypeItemHirDecl::AssocType(hir_decl) => {
             Some(TraitForTypeAssocTypeHirDefn::new(db, path, hir_decl).into())

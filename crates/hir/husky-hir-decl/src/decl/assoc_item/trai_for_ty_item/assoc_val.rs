@@ -23,7 +23,7 @@ impl TraitForTypeAssocValHirDecl {
         // let parenate_parameters =
         //     HirParenateParameters::from_syn(template.parenate_parameters(db), db);
         // let return_ty = builder.hir_ty(template.return_ty(db), db);
-        // TraitForTypeMethodFnHirDecl::new(
+        // TraitForTypeMethodRitchieHirDecl::new(
         //     db,
         //     path,
         //     template_parameters,

@@ -21,8 +21,8 @@ pub struct EtherealSignatureJar(
     TraitForTypeAssocTypeEtherealSignatureBuilder,
     // trai_for_ty_item_eth_template,
     trai_for_ty_assoc_ty_ethereal_signature_signature_builder_try_into_signature,
-    TraitForTypeMethodFnEthTemplate,
-    TraitForTypeMethodFnEtherealSignatureBuilder,
+    TraitForTypeMethodRitchieEthTemplate,
+    TraitForTypeMethodRitchieEtherealSignatureBuilder,
     trai_for_ty_method_fn_ethereal_signature_signature_builder_try_into_signature,
     // trai
     TraitEthTemplate,

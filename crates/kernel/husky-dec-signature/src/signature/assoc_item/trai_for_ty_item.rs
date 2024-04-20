@@ -15,7 +15,7 @@ use super::*;
 #[enum_class::from_variants]
 pub enum TraitForTypeItemDecTemplate {
     AssocFn(TraitForTypeAssocFnDecTemplate),
-    MethodFn(TraitForTypeMethodFnDecTemplate),
+    MethodFn(TraitForTypeMethodRitchieDecTemplate),
     AssocType(TraitForTypeAssocTypeDecTemplate),
     AssocVal(TraitForTypeAssocValDecTemplate),
 }
@@ -39,7 +39,7 @@ pub(crate) fn trai_for_ty_item_syn_declarative_signature_from_decl(
             TraitForTypeAssocFnDecTemplate::from_decl(db, decl).map(Into::into)
         }
         TraitForTypeItemSynDecl::MethodFn(decl) => {
-            TraitForTypeMethodFnDecTemplate::from_decl(db, decl).map(Into::into)
+            TraitForTypeMethodRitchieDecTemplate::from_decl(db, decl).map(Into::into)
         }
         TraitForTypeItemSynDecl::AssocType(decl) => {
             TraitForTypeAssocTypeDecTemplate::from_decl(db, path, decl).map(Into::into)

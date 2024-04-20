@@ -137,14 +137,14 @@
     HirDefn::AssocItem(
         AssocItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::MethodFn(
-                TraitForTypeMethodFnHirDefn {
+                TraitForTypeMethodRitchieHirDefn {
                     path: TraitForTypeItemPath(
                         `<#derive _ as core::visual::Visualize(0)>::visualize`,
                         TraitItemKind::MethodRitchie(
                             RitchieItemKind::Fn,
                         ),
                     ),
-                    hir_decl: TraitForTypeMethodFnHirDecl {
+                    hir_decl: TraitForTypeMethodRitchieHirDecl {
                         path: TraitForTypeItemPath(
                             `<#derive _ as core::visual::Visualize(0)>::visualize`,
                             TraitItemKind::MethodRitchie(

@@ -1,32 +1,32 @@
 use super::*;
-use husky_hir_decl::decl::TraitForTypeMethodFnHirDecl;
+use husky_hir_decl::decl::TraitForTypeMethodRitchieHirDecl;
 
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
-pub struct TraitForTypeMethodFnHirDefn {
+pub struct TraitForTypeMethodRitchieHirDefn {
     pub path: TraitForTypeItemPath,
-    pub hir_decl: TraitForTypeMethodFnHirDecl,
+    pub hir_decl: TraitForTypeMethodRitchieHirDecl,
     pub eager_body_with_hir_eager_expr_region: Option<(HirEagerExprIdx, HirEagerExprRegion)>,
 }
 
-impl From<TraitForTypeMethodFnHirDefn> for AssocItemHirDefn {
-    fn from(hir_defn: TraitForTypeMethodFnHirDefn) -> Self {
+impl From<TraitForTypeMethodRitchieHirDefn> for AssocItemHirDefn {
+    fn from(hir_defn: TraitForTypeMethodRitchieHirDefn) -> Self {
         AssocItemHirDefn::TraitForTypeItem(hir_defn.into())
     }
 }
 
-impl From<TraitForTypeMethodFnHirDefn> for HirDefn {
-    fn from(hir_defn: TraitForTypeMethodFnHirDefn) -> Self {
+impl From<TraitForTypeMethodRitchieHirDefn> for HirDefn {
+    fn from(hir_defn: TraitForTypeMethodRitchieHirDefn) -> Self {
         HirDefn::AssocItem(hir_defn.into())
     }
 }
 
-impl TraitForTypeMethodFnHirDefn {
+impl TraitForTypeMethodRitchieHirDefn {
     pub(super) fn new(
         db: &::salsa::Db,
         path: TraitForTypeItemPath,
-        hir_decl: TraitForTypeMethodFnHirDecl,
-    ) -> TraitForTypeMethodFnHirDefn {
-        TraitForTypeMethodFnHirDefn::new_inner(
+        hir_decl: TraitForTypeMethodRitchieHirDecl,
+    ) -> TraitForTypeMethodRitchieHirDefn {
+        TraitForTypeMethodRitchieHirDefn::new_inner(
             db,
             path,
             hir_decl,
@@ -51,7 +51,7 @@ impl TraitForTypeMethodFnHirDefn {
 #[salsa::tracked(jar = HirDefnJar)]
 fn trai_for_ty_method_fn_hir_defn_dependencies(
     db: &::salsa::Db,
-    hir_defn: TraitForTypeMethodFnHirDefn,
+    hir_defn: TraitForTypeMethodRitchieHirDefn,
 ) -> HirDefnDependencies {
     let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
     let hir_decl = hir_defn.hir_decl(db);
@@ -74,7 +74,7 @@ fn trai_for_ty_method_fn_hir_defn_dependencies(
 #[salsa::tracked(jar = HirDefnJar)]
 fn trai_for_ty_method_fn_hir_defn_version_stamp(
     db: &::salsa::Db,
-    hir_defn: TraitForTypeMethodFnHirDefn,
+    hir_defn: TraitForTypeMethodRitchieHirDefn,
 ) -> HirDefnVersionStamp {
     HirDefnVersionStamp::new(hir_defn, db)
 }

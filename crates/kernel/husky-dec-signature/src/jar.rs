@@ -65,7 +65,7 @@ pub struct DecSignatureJar(
     // type as trait item
     // trai_for_ty_item_syn_declarative_signature_from_decl,
     TraitForTypeAssocFnDecTemplate,
-    TraitForTypeMethodFnDecTemplate,
+    TraitForTypeMethodRitchieDecTemplate,
     TraitForTypeAssocTypeDecTemplate,
     TraitForTypeAssocValDecTemplate,
     // attr
