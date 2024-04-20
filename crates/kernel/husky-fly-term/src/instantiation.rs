@@ -55,7 +55,7 @@ pub enum FlyTermSymbolResolution {
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum FlyInstantiationEnvironment {
     TypeOntologyConstructor,
-    AssocFn,
+    AssocRitchie,
     MethodFn { self_place: FlyQuary },
     MemoizedField,
 }
@@ -224,7 +224,7 @@ impl FlyTermInstantiationBuilder {
                                 Some(FlyTermSymbolResolution::SelfLifetime)
                             }
                             EthTermSymbolIndexImpl::SelfPlace => Some(match env {
-                                FlyInstantiationEnvironment::AssocFn => todo!(),
+                                FlyInstantiationEnvironment::AssocRitchie => todo!(),
                                 FlyInstantiationEnvironment::MethodFn { self_place } => {
                                     FlyTermSymbolResolution::SelfQuary(self_place)
                                 }

@@ -1183,7 +1183,7 @@ SynDeclSheet {
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TraitForTypeItem(
-                    TraitForTypeItemSynDecl::AssocFn(
+                    TraitForTypeItemSynDecl::AssocRitchie(
                         TraitForTypeAssocRitchieSynDecl {
                             path: TraitForTypeItemPath(
                                 `<core::result::Result as core::ops::Unveil(0)>::unveil`,

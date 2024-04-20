@@ -61,7 +61,7 @@ impl<'a> SemaExprBuilder<'a> {
         let db = self.db();
         match parent_term.static_dispatch(self, expr_idx, ident, /*ad hoc */ &[]) {
             JustOk(static_dispatch) => match static_dispatch {
-                StaticDispatch::AssocFn(ref signature) => {
+                StaticDispatch::AssocRitchie(ref signature) => {
                     let ty = signature.ty();
                     (Ok(static_dispatch), Ok(ty))
                 }

@@ -90,7 +90,7 @@ fn linkage_version_stamp(db: &::salsa::Db, linkage: Linkage) -> LinkageVersionSt
             builder.add(hir_defn);
             builder.add_instantiation(instantiation)
         }
-        LinkageData::UnveilAssocFn {
+        LinkageData::UnveilAssocRitchie {
             path,
             ref instantiation,
         } => {

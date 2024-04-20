@@ -100,7 +100,7 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
                 HirEagerExprData::EmptyHtmlTag { .. } => (),
                 HirEagerExprData::Todo => (),
                 HirEagerExprData::Unreachable => (),
-                HirEagerExprData::AssocFn { assoc_item_path } => {
+                HirEagerExprData::AssocRitchie { assoc_item_path } => {
                     self.add_item_path(assoc_item_path)
                 }
                 HirEagerExprData::As { opd: _, ty } => self.add_hir_ty(ty),
@@ -167,7 +167,7 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
                 HirLazyExprData::EmptyHtmlTag { .. } => (),
                 HirLazyExprData::Todo => (),
                 HirLazyExprData::Unreachable => (),
-                HirLazyExprData::AssocFn { path } => self.add_item_path(path),
+                HirLazyExprData::AssocRitchie { path } => self.add_item_path(path),
                 HirLazyExprData::As { ty, .. } => self.add_hir_ty(ty),
             }
         }

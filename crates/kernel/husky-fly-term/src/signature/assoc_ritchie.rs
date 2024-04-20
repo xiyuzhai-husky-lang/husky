@@ -2,7 +2,7 @@ use super::*;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub struct AssocFnFlySignature {
+pub struct AssocRitchieFlySignature {
     path: AssocItemPath,
     parenate_parameters: SmallVec<[FlyRitchieParameter; 4]>,
     return_ty: FlyTerm,
@@ -11,7 +11,7 @@ pub struct AssocFnFlySignature {
     self_ty: FlyTerm,
 }
 
-impl AssocFnFlySignature {
+impl AssocRitchieFlySignature {
     pub fn parenate_parameter_contracted_tys(&self) -> &[FlyRitchieParameter] {
         &self.parenate_parameters
     }
@@ -36,10 +36,10 @@ impl AssocFnFlySignature {
 pub(crate) fn ty_assoc_fn_fly_signature<Term: Copy + Into<FlyTerm>>(
     engine: &mut impl FlyTermEngineMut,
     expr_idx: SynExprIdx,
-    template: TypeAssocFnEthTemplate,
+    template: TypeAssocRitchieEthTemplate,
     ty_template_arguments: &[Term],
     assoc_fn_template_arguments: &[FlyTerm],
-) -> FlyTermMaybeResult<AssocFnFlySignature> {
+) -> FlyTermMaybeResult<AssocRitchieFlySignature> {
     let db = engine.db();
     let self_ty_application_expansion = template.self_ty(db).application_expansion(db);
     if self_ty_application_expansion.arguments(db).len() != ty_template_arguments.len() {
@@ -47,7 +47,7 @@ pub(crate) fn ty_assoc_fn_fly_signature<Term: Copy + Into<FlyTerm>>(
     }
     let mut instantiation_builder = FlyTermInstantiationBuilder::new_associated(
         template.path(db),
-        FlyInstantiationEnvironment::AssocFn,
+        FlyInstantiationEnvironment::AssocRitchie,
         template
             .path(db)
             .impl_block(db)
@@ -69,7 +69,7 @@ pub(crate) fn ty_assoc_fn_fly_signature<Term: Copy + Into<FlyTerm>>(
         instantiation_builder.try_add_rule(src.symbol().into(), dst.into())
     })?;
     let instantiation = instantiation_builder.finish(db);
-    JustOk(AssocFnFlySignature {
+    JustOk(AssocRitchieFlySignature {
         path: template.path(db).into(),
         parenate_parameters: template
             .parenate_parameters(db)

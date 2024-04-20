@@ -382,12 +382,12 @@
     ),
     HirDefn::AssocItem(
         AssocItemHirDefn::TypeItem(
-            TypeItemHirDefn::AssocFn(
-                TypeAssocFnHirDefn {
+            TypeItemHirDefn::AssocRitchie(
+                TypeAssocRitchieHirDefn {
                     path: TypeItemPath(`<mnist::BinaryImage28(0)>::new_zeros`, `AssocRitchie(
                         Fn,
                     )`),
-                    hir_decl: TypeAssocFnHirDecl {
+                    hir_decl: TypeAssocRitchieHirDecl {
                         path: TypeItemPath(`<mnist::BinaryImage28(0)>::new_zeros`, `AssocRitchie(
                             Fn,
                         )`),
@@ -761,12 +761,12 @@
     ),
     HirDefn::AssocItem(
         AssocItemHirDefn::TypeItem(
-            TypeItemHirDefn::AssocFn(
-                TypeAssocFnHirDefn {
+            TypeItemHirDefn::AssocRitchie(
+                TypeAssocRitchieHirDefn {
                     path: TypeItemPath(`<mnist::BinaryGrid28(0)>::new_zeros`, `AssocRitchie(
                         Fn,
                     )`),
-                    hir_decl: TypeAssocFnHirDecl {
+                    hir_decl: TypeAssocRitchieHirDecl {
                         path: TypeItemPath(`<mnist::BinaryGrid28(0)>::new_zeros`, `AssocRitchie(
                             Fn,
                         )`),

@@ -190,7 +190,7 @@ impl<'a> SemaExprBuilder<'a> {
                 ident_regional_token_idx,
                 ref static_dispatch,
             } => match *static_dispatch {
-                StaticDispatch::AssocFn(_) => todo!(),
+                StaticDispatch::AssocRitchie(_) => todo!(),
                 StaticDispatch::AssocGn => todo!(),
                 StaticDispatch::TypeAsTrait {
                     trai,

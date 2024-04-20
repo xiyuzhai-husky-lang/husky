@@ -1,10 +1,10 @@
-mod assoc_fn;
+mod assoc_ritchie;
 mod assoc_ty;
 mod assoc_val;
 mod memo_field;
 mod method_ritchie;
 
-pub use self::assoc_fn::*;
+pub use self::assoc_ritchie::*;
 pub use self::assoc_ty::*;
 pub use self::assoc_val::*;
 pub use self::memo_field::*;
@@ -17,7 +17,7 @@ use husky_syn_decl::decl::TypeItemSynDecl;
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum TypeItemHirDecl {
-    AssocFn(TypeAssocFnHirDecl),
+    AssocRitchie(TypeAssocRitchieHirDecl),
     AssocType(TypeAssocTypeHirDecl),
     AssocVal(TypeAssocValHirDecl),
     MethodFn(TypeMethodRitchieHirDecl),
@@ -27,7 +27,7 @@ pub enum TypeItemHirDecl {
 impl TypeItemHirDecl {
     pub fn path(self, db: &::salsa::Db) -> TypeItemPath {
         match self {
-            TypeItemHirDecl::AssocFn(decl) => decl.path(db),
+            TypeItemHirDecl::AssocRitchie(decl) => decl.path(db),
             TypeItemHirDecl::MethodFn(decl) => decl.path(db),
             TypeItemHirDecl::AssocType(_) => todo!(),
             TypeItemHirDecl::AssocVal(_) => todo!(),
@@ -37,7 +37,7 @@ impl TypeItemHirDecl {
 
     pub fn template_parameters<'a>(self, db: &'a ::salsa::Db) -> Option<&'a HirTemplateParameters> {
         match self {
-            TypeItemHirDecl::AssocFn(slf) => Some(slf.template_parameters(db)),
+            TypeItemHirDecl::AssocRitchie(slf) => Some(slf.template_parameters(db)),
             TypeItemHirDecl::MethodFn(slf) => Some(slf.template_parameters(db)),
             TypeItemHirDecl::AssocType(slf) =>
             /* ad hoc */
@@ -51,7 +51,7 @@ impl TypeItemHirDecl {
 
     pub fn hir_expr_region(self, db: &::salsa::Db) -> HirExprRegion {
         match self {
-            TypeItemHirDecl::AssocFn(decl) => decl.hir_eager_expr_region(db).into(),
+            TypeItemHirDecl::AssocRitchie(decl) => decl.hir_eager_expr_region(db).into(),
             TypeItemHirDecl::MethodFn(decl) => decl.hir_eager_expr_region(db).into(),
             TypeItemHirDecl::AssocType(decl) => decl.hir_eager_expr_region(db).into(),
             TypeItemHirDecl::AssocVal(decl) => decl.hir_expr_region(db).into(),
@@ -71,8 +71,8 @@ impl HasHirDecl for TypeItemPath {
 // #[salsa::tracked(jar = HirDeclJar)]
 pub(crate) fn ty_item_hir_decl(db: &::salsa::Db, path: TypeItemPath) -> Option<TypeItemHirDecl> {
     match path.syn_decl(db).expect("ok") {
-        TypeItemSynDecl::AssocFn(syn_decl) => {
-            Some(TypeAssocFnHirDecl::from_syn(path, syn_decl, db).into())
+        TypeItemSynDecl::AssocRitchie(syn_decl) => {
+            Some(TypeAssocRitchieHirDecl::from_syn(path, syn_decl, db).into())
         }
         TypeItemSynDecl::MethodFn(syn_decl) => {
             Some(TypeMethodRitchieHirDecl::from_syn(path, syn_decl, db).into())
@@ -88,8 +88,8 @@ pub(crate) fn ty_item_hir_decl(db: &::salsa::Db, path: TypeItemPath) -> Option<T
         }
     }
 }
-// TypeItemEthTemplate::AssocFn(eth_template) => {
-//     Some(TypeAssocFnHirDecl::from_syn(path, eth_template, db).into())
+// TypeItemEthTemplate::AssocRitchie(eth_template) => {
+//     Some(TypeAssocRitchieHirDecl::from_syn(path, eth_template, db).into())
 // }
 // TypeItemEthTemplate::MethodFn(syn_decl) => {
 //     Some(TypeMethodRitchieHirDecl::from_syn(path, syn_decl, db).into())
@@ -99,8 +99,8 @@ pub(crate) fn ty_item_hir_decl(db: &::salsa::Db, path: TypeItemPath) -> Option<T
 //     Some(TypeMemoFieldHirDecl::from_syn(path, eth_template, db).into())
 // }
 
-// TypeItemDecTemplate::AssocFn(template) => {
-//     TypeAssocFnHirDecl::from_dec(db, path, template)?.into()
+// TypeItemDecTemplate::AssocRitchie(template) => {
+//     TypeAssocRitchieHirDecl::from_dec(db, path, template)?.into()
 // }
 // TypeItemDecTemplate::MethodFn(template) => {
 //     TypeMethodRitchieHirDecl::from_dec(db, template)?.into()

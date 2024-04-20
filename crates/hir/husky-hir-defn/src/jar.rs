@@ -53,7 +53,7 @@ pub struct HirDefnJar(
     crate::defn::enum_props_variant_hir_defn_version_stamp,
     // - type item
     ty_item_hir_defn,
-    TypeAssocFnHirDefn,
+    TypeAssocRitchieHirDefn,
     crate::defn::ty_assoc_fn_hir_defn_dependencies,
     crate::defn::ty_assoc_fn_hir_defn_version_stamp,
     TypeMethodRitchieHirDefn,
@@ -70,7 +70,7 @@ pub struct HirDefnJar(
     crate::defn::ty_memo_field_hir_defn_version_stamp,
     // - trait item
     trai_item_hir_defn,
-    TraitAssocFnHirDefn,
+    TraitAssocRitchieHirDefn,
     crate::defn::trai_assoc_fn_hir_defn_dependencies,
     crate::defn::trai_assoc_fn_hir_defn_version_stamp,
     TraitMethodFnHirDefn,

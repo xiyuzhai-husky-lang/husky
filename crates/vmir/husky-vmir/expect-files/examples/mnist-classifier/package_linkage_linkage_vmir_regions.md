@@ -29,7 +29,7 @@
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Unveil {
                             linkage_impl: Linkage {
-                                data: LinkageData::UnveilAssocFn {
+                                data: LinkageData::UnveilAssocRitchie {
                                     path: TraitForTypeItemPath(
                                         `<malamute::Class as core::ops::Unveil(0)>::unveil`,
                                         TraitItemKind::AssocRitchie(
@@ -74,7 +74,7 @@
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Unveil {
                             linkage_impl: Linkage {
-                                data: LinkageData::UnveilAssocFn {
+                                data: LinkageData::UnveilAssocRitchie {
                                     path: TraitForTypeItemPath(
                                         `<malamute::Class as core::ops::Unveil(0)>::unveil`,
                                         TraitItemKind::AssocRitchie(
@@ -119,7 +119,7 @@
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Unveil {
                             linkage_impl: Linkage {
-                                data: LinkageData::UnveilAssocFn {
+                                data: LinkageData::UnveilAssocRitchie {
                                     path: TraitForTypeItemPath(
                                         `<malamute::Class as core::ops::Unveil(0)>::unveil`,
                                         TraitItemKind::AssocRitchie(
@@ -164,7 +164,7 @@
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Unveil {
                             linkage_impl: Linkage {
-                                data: LinkageData::UnveilAssocFn {
+                                data: LinkageData::UnveilAssocRitchie {
                                     path: TraitForTypeItemPath(
                                         `<malamute::Class as core::ops::Unveil(0)>::unveil`,
                                         TraitItemKind::AssocRitchie(
@@ -209,7 +209,7 @@
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Unveil {
                             linkage_impl: Linkage {
-                                data: LinkageData::UnveilAssocFn {
+                                data: LinkageData::UnveilAssocRitchie {
                                     path: TraitForTypeItemPath(
                                         `<malamute::Class as core::ops::Unveil(0)>::unveil`,
                                         TraitItemKind::AssocRitchie(
@@ -254,7 +254,7 @@
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Unveil {
                             linkage_impl: Linkage {
-                                data: LinkageData::UnveilAssocFn {
+                                data: LinkageData::UnveilAssocRitchie {
                                     path: TraitForTypeItemPath(
                                         `<malamute::Class as core::ops::Unveil(0)>::unveil`,
                                         TraitItemKind::AssocRitchie(
@@ -299,7 +299,7 @@
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Unveil {
                             linkage_impl: Linkage {
-                                data: LinkageData::UnveilAssocFn {
+                                data: LinkageData::UnveilAssocRitchie {
                                     path: TraitForTypeItemPath(
                                         `<malamute::Class as core::ops::Unveil(0)>::unveil`,
                                         TraitItemKind::AssocRitchie(
@@ -344,7 +344,7 @@
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Unveil {
                             linkage_impl: Linkage {
-                                data: LinkageData::UnveilAssocFn {
+                                data: LinkageData::UnveilAssocRitchie {
                                     path: TraitForTypeItemPath(
                                         `<malamute::Class as core::ops::Unveil(0)>::unveil`,
                                         TraitItemKind::AssocRitchie(
@@ -389,7 +389,7 @@
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Unveil {
                             linkage_impl: Linkage {
-                                data: LinkageData::UnveilAssocFn {
+                                data: LinkageData::UnveilAssocRitchie {
                                     path: TraitForTypeItemPath(
                                         `<malamute::Class as core::ops::Unveil(0)>::unveil`,
                                         TraitItemKind::AssocRitchie(
@@ -47076,7 +47076,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::UnveilAssocFn {
+            data: LinkageData::UnveilAssocRitchie {
                 path: TraitForTypeItemPath(
                     `<malamute::Class as core::ops::Unveil(0)>::unveil`,
                     TraitItemKind::AssocRitchie(
@@ -47117,7 +47117,7 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::UnveilAssocFn {
+                    data: LinkageData::UnveilAssocRitchie {
                         path: TraitForTypeItemPath(
                             `<malamute::Class as core::ops::Unveil(0)>::unveil`,
                             TraitItemKind::AssocRitchie(

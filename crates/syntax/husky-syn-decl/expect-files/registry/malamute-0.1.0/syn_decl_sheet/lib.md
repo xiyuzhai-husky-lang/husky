@@ -1435,7 +1435,7 @@ SynDeclSheet {
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TraitForTypeItem(
-                    TraitForTypeItemSynDecl::AssocFn(
+                    TraitForTypeItemSynDecl::AssocRitchie(
                         TraitForTypeAssocRitchieSynDecl {
                             path: TraitForTypeItemPath(
                                 `<malamute::OneVsAll as core::default::Default(0)>::default`,
@@ -2720,7 +2720,7 @@ SynDeclSheet {
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TraitForTypeItem(
-                    TraitForTypeItemSynDecl::AssocFn(
+                    TraitForTypeItemSynDecl::AssocRitchie(
                         TraitForTypeAssocRitchieSynDecl {
                             path: TraitForTypeItemPath(
                                 `<malamute::Class as core::ops::Unveil(0)>::unveil`,
@@ -4370,7 +4370,7 @@ SynDeclSheet {
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TraitForTypeItem(
-                    TraitForTypeItemSynDecl::AssocFn(
+                    TraitForTypeItemSynDecl::AssocRitchie(
                         TraitForTypeAssocRitchieSynDecl {
                             path: TraitForTypeItemPath(
                                 `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,

@@ -2695,7 +2695,7 @@
         },
     },
     Linkage {
-        data: LinkageData::UnveilAssocFn {
+        data: LinkageData::UnveilAssocRitchie {
             path: TraitForTypeItemPath(
                 `<malamute::Class as core::ops::Unveil(0)>::unveil`,
                 TraitItemKind::AssocRitchie(

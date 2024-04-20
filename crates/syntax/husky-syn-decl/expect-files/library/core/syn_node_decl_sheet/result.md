@@ -1358,7 +1358,7 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::AssocItem(
                 AssocItemSynNodeDecl::TraitForTypeItem(
-                    TraitForTypeItemSynNodeDecl::AssocFn(
+                    TraitForTypeItemSynNodeDecl::AssocRitchie(
                         TraitForTypeAssocRitchieSynNodeDecl {
                             syn_node_path: TraitForTypeItemSynNodePath(
                                 ItemSynNodePathId {

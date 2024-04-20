@@ -1448,12 +1448,12 @@
     ),
     HirDefn::AssocItem(
         AssocItemHirDefn::TypeItem(
-            TypeItemHirDefn::AssocFn(
-                TypeAssocFnHirDefn {
+            TypeItemHirDefn::AssocRitchie(
+                TypeAssocRitchieHirDefn {
                     path: TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::new`, `AssocRitchie(
                         Fn,
                     )`),
-                    hir_decl: TypeAssocFnHirDecl {
+                    hir_decl: TypeAssocRitchieHirDecl {
                         path: TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::new`, `AssocRitchie(
                             Fn,
                         )`),
@@ -4829,12 +4829,12 @@
     ),
     HirDefn::AssocItem(
         AssocItemHirDefn::TypeItem(
-            TypeItemHirDefn::AssocFn(
-                TypeAssocFnHirDefn {
+            TypeItemHirDefn::AssocRitchie(
+                TypeAssocRitchieHirDefn {
                     path: TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::new`, `AssocRitchie(
                         Fn,
                     )`),
-                    hir_decl: TypeAssocFnHirDecl {
+                    hir_decl: TypeAssocRitchieHirDecl {
                         path: TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::new`, `AssocRitchie(
                             Fn,
                         )`),

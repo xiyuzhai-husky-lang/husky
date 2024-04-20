@@ -3947,8 +3947,8 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::AssocItem(
                 AssocItemSynNodeDecl::TypeItem(
-                    TypeItemSynNodeDecl::AssocFn(
-                        TypeAssocFnSynNodeDecl {
+                    TypeItemSynNodeDecl::AssocRitchie(
+                        TypeAssocRitchieSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::AssocItem(
@@ -6057,8 +6057,8 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::AssocItem(
                 AssocItemSynNodeDecl::TypeItem(
-                    TypeItemSynNodeDecl::AssocFn(
-                        TypeAssocFnSynNodeDecl {
+                    TypeItemSynNodeDecl::AssocRitchie(
+                        TypeAssocRitchieSynNodeDecl {
                             syn_node_path: TypeItemSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::AssocItem(

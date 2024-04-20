@@ -69,7 +69,7 @@ impl HirEagerExprEntry {
 pub enum HirEagerExprData {
     Literal(Literal),
     PrincipalEntityPath(PrincipalEntityPath),
-    AssocFn {
+    AssocRitchie {
         assoc_item_path: AssocItemPath,
     },
     ConstVariable {
@@ -203,7 +203,7 @@ impl ToHirEager for SemaExprIdx {
                 ref static_dispatch,
                 ..
             } => match static_dispatch {
-                StaticDispatch::AssocFn(signature) => HirEagerExprData::AssocFn {
+                StaticDispatch::AssocRitchie(signature) => HirEagerExprData::AssocRitchie {
                     assoc_item_path: signature.path(),
                 },
                 StaticDispatch::AssocGn => unreachable!(),
@@ -378,7 +378,7 @@ impl ToHirEager for SemaExprIdx {
                         ref static_dispatch,
                         ..
                     } => match static_dispatch {
-                        StaticDispatch::AssocFn(signature) => {
+                        StaticDispatch::AssocRitchie(signature) => {
                             HirEagerExprData::AssocFunctionFnCall {
                                 path: signature.path(),
                                 instantiation: HirInstantiation::from_fly(

@@ -356,8 +356,8 @@
     ),
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
-            TypeItemHirDecl::AssocFn(
-                TypeAssocFnHirDecl {
+            TypeItemHirDecl::AssocRitchie(
+                TypeAssocRitchieHirDecl {
                     path: TypeItemPath(`<mnist::BinaryImage28(0)>::new_zeros`, `AssocRitchie(
                         Fn,
                     )`),
@@ -708,8 +708,8 @@
     ),
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
-            TypeItemHirDecl::AssocFn(
-                TypeAssocFnHirDecl {
+            TypeItemHirDecl::AssocRitchie(
+                TypeAssocRitchieHirDecl {
                     path: TypeItemPath(`<mnist::BinaryGrid28(0)>::new_zeros`, `AssocRitchie(
                         Fn,
                     )`),

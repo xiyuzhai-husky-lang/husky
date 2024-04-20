@@ -14,7 +14,7 @@ use super::*;
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[enum_class::from_variants]
 pub enum TraitForTypeItemEthTemplate {
-    AssocFn(TraitForTypeAssocRitchieEthTemplate),
+    AssocRitchie(TraitForTypeAssocRitchieEthTemplate),
     AssocVal(TraitForTypeAssocValEthTemplate),
     AssocType(TraitForTypeAssocTypeEthTemplate),
     MethodFn(TraitForTypeMethodRitchieEthTemplate),
@@ -23,7 +23,7 @@ pub enum TraitForTypeItemEthTemplate {
 impl TraitForTypeItemEthTemplate {
     pub fn self_ty(self, db: &::salsa::Db) -> Option<EthTerm> {
         match self {
-            TraitForTypeItemEthTemplate::AssocFn(_) => None,
+            TraitForTypeItemEthTemplate::AssocRitchie(_) => None,
             TraitForTypeItemEthTemplate::AssocVal(_) => None,
             TraitForTypeItemEthTemplate::AssocType(_) => None,
             TraitForTypeItemEthTemplate::MethodFn(template) => {
@@ -45,7 +45,7 @@ impl TraitForTypeItemEthTemplate {
             TraitForTypeItemEthTemplate::MethodFn(item_template) => item_template
                 .inherit_instantiation_builder(db, impl_block_signature_builder)
                 .into(),
-            TraitForTypeItemEthTemplate::AssocFn(_) => todo!(),
+            TraitForTypeItemEthTemplate::AssocRitchie(_) => todo!(),
             TraitForTypeItemEthTemplate::AssocVal(_) => todo!(),
         }
     }
@@ -72,7 +72,7 @@ fn trai_for_ty_item_eth_template(
     path: TraitForTypeItemPath,
 ) -> EtherealSignatureResult<TraitForTypeItemEthTemplate> {
     Ok(match path.dec_template(db)? {
-        TraitForTypeItemDecTemplate::AssocFn(_) => todo!(),
+        TraitForTypeItemDecTemplate::AssocRitchie(_) => todo!(),
         TraitForTypeItemDecTemplate::MethodFn(dec_template) => {
             TraitForTypeMethodRitchieEthTemplate::from_dec(db, path, dec_template)?.into()
         }

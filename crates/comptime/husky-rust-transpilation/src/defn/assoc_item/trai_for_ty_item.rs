@@ -10,7 +10,7 @@ use crate::builder::keyword::RustKeyword;
 impl TranspileToRustWith for TraitForTypeItemHirDefn {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {
         match self {
-            TraitForTypeItemHirDefn::AssocFn(hir_defn) => hir_defn.transpile_to_rust(builder),
+            TraitForTypeItemHirDefn::AssocRitchie(hir_defn) => hir_defn.transpile_to_rust(builder),
             TraitForTypeItemHirDefn::MethodFn(hir_defn) => hir_defn.transpile_to_rust(builder),
             TraitForTypeItemHirDefn::AssocType(hir_defn) => hir_defn.transpile_to_rust(builder),
             TraitForTypeItemHirDefn::AssocVal(hir_defn) => hir_defn.transpile_to_rust(builder),

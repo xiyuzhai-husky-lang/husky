@@ -1,7 +1,7 @@
 use super::*;
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
-pub struct TypeAssocFnSynNodeDecl {
+pub struct TypeAssocRitchieSynNodeDecl {
     #[id]
     pub syn_node_path: TypeItemSynNodePath,
     #[return_ref]
@@ -16,7 +16,7 @@ pub struct TypeAssocFnSynNodeDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl TypeAssocFnSynNodeDecl {
+impl TypeAssocRitchieSynNodeDecl {
     pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         SmallVec::from_iter(
             self.template_parameter_decl_list(db)
@@ -39,7 +39,7 @@ impl<'a> DeclParser<'a> {
     pub(super) fn parse_ty_assoc_fn_node_decl(
         &self,
         syn_node_path: TypeItemSynNodePath,
-    ) -> TypeAssocFnSynNodeDecl {
+    ) -> TypeAssocRitchieSynNodeDecl {
         let db = self.db();
         let mut parser = self.expr_parser(
             Some(
@@ -65,7 +65,7 @@ impl<'a> DeclParser<'a> {
             Ok(None)
         };
         let eol_colon = parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEolColon);
-        TypeAssocFnSynNodeDecl::new(
+        TypeAssocRitchieSynNodeDecl::new(
             db,
             syn_node_path,
             template_parameter_decl_list,
@@ -79,7 +79,7 @@ impl<'a> DeclParser<'a> {
 }
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar, constructor = new)]
-pub struct TypeAssocFnSynDecl {
+pub struct TypeAssocRitchieSynDecl {
     #[id]
     pub path: TypeItemPath,
     #[return_ref]
@@ -90,11 +90,11 @@ pub struct TypeAssocFnSynDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl TypeAssocFnSynDecl {
+impl TypeAssocRitchieSynDecl {
     pub(super) fn from_node_decl(
         db: &::salsa::Db,
         path: TypeItemPath,
-        syn_node_decl: TypeAssocFnSynNodeDecl,
+        syn_node_decl: TypeAssocRitchieSynNodeDecl,
     ) -> SynDeclResult<Self> {
         let template_parameters = syn_node_decl
             .template_parameter_decl_list(db)
@@ -116,7 +116,7 @@ impl TypeAssocFnSynDecl {
             .collect();
         let return_ty = *syn_node_decl.return_ty(db).as_ref()?;
         let syn_expr_region = syn_node_decl.syn_expr_region(db);
-        Ok(TypeAssocFnSynDecl::new(
+        Ok(TypeAssocRitchieSynDecl::new(
             db,
             path,
             template_parameters,

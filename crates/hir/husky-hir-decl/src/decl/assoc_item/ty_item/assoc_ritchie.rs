@@ -1,8 +1,8 @@
 use super::*;
-use husky_syn_decl::decl::{HasSynDecl, TypeAssocFnSynDecl, TypeItemSynDecl};
+use husky_syn_decl::decl::{HasSynDecl, TypeAssocRitchieSynDecl, TypeItemSynDecl};
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
-pub struct TypeAssocFnHirDecl {
+pub struct TypeAssocRitchieHirDecl {
     pub path: TypeItemPath,
     #[return_ref]
     pub template_parameters: HirTemplateParameters,
@@ -12,13 +12,13 @@ pub struct TypeAssocFnHirDecl {
     pub hir_eager_expr_region: HirEagerExprRegion,
 }
 
-impl TypeAssocFnHirDecl {
+impl TypeAssocRitchieHirDecl {
     pub(super) fn from_syn(
         path: TypeItemPath,
-        _syn_decl: TypeAssocFnSynDecl,
+        _syn_decl: TypeAssocRitchieSynDecl,
         db: &::salsa::Db,
     ) -> Self {
-        let TypeItemSynDecl::AssocFn(syn_decl) = path.syn_decl(db).expect("ok") else {
+        let TypeItemSynDecl::AssocRitchie(syn_decl) = path.syn_decl(db).expect("ok") else {
             unreachable!()
         };
         let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);

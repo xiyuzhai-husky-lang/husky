@@ -118,7 +118,7 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
                 value: lit.into_literal_value(self.db()),
             },
             HirEagerExprData::PrincipalEntityPath(_) => VmirExprData::PrincipalEntityPath,
-            HirEagerExprData::AssocFn { assoc_item_path } => todo!(),
+            HirEagerExprData::AssocRitchie { assoc_item_path } => todo!(),
             HirEagerExprData::ConstVariable { ident } => VmirExprData::ConstTemplateVariable,
             HirEagerExprData::Variable(_) => {
                 let place_idx = match entry.quary().place() {

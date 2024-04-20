@@ -548,12 +548,12 @@
     ),
     HirDefn::AssocItem(
         AssocItemHirDefn::TypeItem(
-            TypeItemHirDefn::AssocFn(
-                TypeAssocFnHirDefn {
+            TypeItemHirDefn::AssocRitchie(
+                TypeAssocRitchieHirDefn {
                     path: TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::from_i_shift28`, `AssocRitchie(
                         Fn,
                     )`),
-                    hir_decl: TypeAssocFnHirDecl {
+                    hir_decl: TypeAssocRitchieHirDecl {
                         path: TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::from_i_shift28`, `AssocRitchie(
                             Fn,
                         )`),

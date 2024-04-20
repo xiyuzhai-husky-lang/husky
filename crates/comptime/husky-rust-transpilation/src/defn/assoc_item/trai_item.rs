@@ -3,7 +3,7 @@ use super::*;
 impl TranspileToRustWith for TraitItemHirDefn {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {
         match self {
-            TraitItemHirDefn::AssocFn(hir_defn) => hir_defn.transpile_to_rust(builder),
+            TraitItemHirDefn::AssocRitchie(hir_defn) => hir_defn.transpile_to_rust(builder),
             TraitItemHirDefn::MethodFn(hir_defn) => hir_defn.transpile_to_rust(builder),
             TraitItemHirDefn::AssocType(hir_defn) => hir_defn.transpile_to_rust(builder),
             TraitItemHirDefn::AssocVal(hir_defn) => hir_defn.transpile_to_rust(builder),
@@ -11,7 +11,7 @@ impl TranspileToRustWith for TraitItemHirDefn {
     }
 }
 
-impl TranspileToRustWith for TraitAssocFnHirDefn {
+impl TranspileToRustWith for TraitAssocRitchieHirDefn {
     fn transpile_to_rust(self, _builder: &mut RustTranspilationBuilder) {
         todo!()
     }

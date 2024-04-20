@@ -123,7 +123,7 @@ pub enum HirLazyExprData {
     },
     Todo,
     Unreachable,
-    AssocFn {
+    AssocRitchie {
         // ad hoc, needs more
         path: AssocItemPath,
     },

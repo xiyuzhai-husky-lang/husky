@@ -14,7 +14,7 @@ use super::*;
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum TraitForTypeItemDecTemplate {
-    AssocFn(TraitForTypeAssocRitchieDecTemplate),
+    AssocRitchie(TraitForTypeAssocRitchieDecTemplate),
     MethodFn(TraitForTypeMethodRitchieDecTemplate),
     AssocType(TraitForTypeAssocTypeDecTemplate),
     AssocVal(TraitForTypeAssocValDecTemplate),
@@ -35,7 +35,7 @@ pub(crate) fn trai_for_ty_item_syn_declarative_signature_from_decl(
 ) -> DecSignatureResult<TraitForTypeItemDecTemplate> {
     let decl = path.syn_decl(db)?;
     match decl {
-        TraitForTypeItemSynDecl::AssocFn(decl) => {
+        TraitForTypeItemSynDecl::AssocRitchie(decl) => {
             TraitForTypeAssocRitchieDecTemplate::from_decl(db, decl).map(Into::into)
         }
         TraitForTypeItemSynDecl::MethodFn(decl) => {
@@ -53,7 +53,7 @@ pub(crate) fn trai_for_ty_item_syn_declarative_signature_from_decl(
 impl TraitForTypeItemDecTemplate {
     pub fn template_parameters(self, db: &::salsa::Db) -> &[DeclarativeTemplateParameter] {
         match self {
-            TraitForTypeItemDecTemplate::AssocFn(tmpl) => tmpl.template_parameters(db),
+            TraitForTypeItemDecTemplate::AssocRitchie(tmpl) => tmpl.template_parameters(db),
             TraitForTypeItemDecTemplate::MethodFn(tmpl) => tmpl.template_parameters(db),
             TraitForTypeItemDecTemplate::AssocType(tmpl) => tmpl.template_parameters(db),
             TraitForTypeItemDecTemplate::AssocVal(tmpl) => &[],
