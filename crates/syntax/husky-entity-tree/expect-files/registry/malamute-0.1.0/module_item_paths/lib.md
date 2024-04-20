@@ -5,14 +5,114 @@
             TypePath(`malamute::Class`, `Enum`),
         ),
     ),
+    ItemPath::Attr(
+        Room32,
+        AttrItemPath(
+            ItemPathId(
+                Id {
+                    value: 147,
+                },
+            ),
+        ),
+    ),
+    ItemPath::TypeVariant(
+        Room32,
+        TypeVariantPath(
+            ItemPathId(
+                Id {
+                    value: 2,
+                },
+            ),
+        ),
+    ),
+    ItemPath::TypeVariant(
+        Room32,
+        TypeVariantPath(
+            ItemPathId(
+                Id {
+                    value: 3,
+                },
+            ),
+        ),
+    ),
     ItemPath::MajorItem(
         MajorItemPath::Type(
             TypePath(`malamute::OneVsAll`, `Enum`),
         ),
     ),
+    ItemPath::Attr(
+        Room32,
+        AttrItemPath(
+            ItemPathId(
+                Id {
+                    value: 148,
+                },
+            ),
+        ),
+    ),
+    ItemPath::TypeVariant(
+        Room32,
+        TypeVariantPath(
+            ItemPathId(
+                Id {
+                    value: 5,
+                },
+            ),
+        ),
+    ),
+    ItemPath::TypeVariant(
+        Room32,
+        TypeVariantPath(
+            ItemPathId(
+                Id {
+                    value: 6,
+                },
+            ),
+        ),
+    ),
     ItemPath::MajorItem(
         MajorItemPath::Type(
             TypePath(`malamute::OneVsAllResult`, `Enum`),
+        ),
+    ),
+    ItemPath::Attr(
+        Room32,
+        AttrItemPath(
+            ItemPathId(
+                Id {
+                    value: 149,
+                },
+            ),
+        ),
+    ),
+    ItemPath::TypeVariant(
+        Room32,
+        TypeVariantPath(
+            ItemPathId(
+                Id {
+                    value: 8,
+                },
+            ),
+        ),
+    ),
+    ItemPath::TypeVariant(
+        Room32,
+        TypeVariantPath(
+            ItemPathId(
+                Id {
+                    value: 9,
+                },
+            ),
+        ),
+    ),
+    ItemPath::TypeVariant(
+        Room32,
+        TypeVariantPath(
+            ItemPathId(
+                Id {
+                    value: 10,
+                },
+            ),
         ),
     ),
     ItemPath::MajorItem(

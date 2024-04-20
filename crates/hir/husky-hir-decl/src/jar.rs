@@ -54,7 +54,10 @@ pub struct HirDeclJar(
     crate::decl::trai_for_ty_impl_block_hir_decl,
     crate::decl::TraitForTypeImplBlockHirDecl,
     // attr
-    crate::decl::DeriveAttrHirDecl,
+    crate::decl::attr::backprop::BackpropAttrHirDecl,
+    crate::decl::attr::derive::DeriveAttrHirDecl,
+    crate::decl::attr::effect::EffectAttrHirDecl,
+    crate::decl::attr::test::TestAttrHirDecl,
     // helpers
     crate::helpers::enum_ty_has_only_unit_variants,
 );

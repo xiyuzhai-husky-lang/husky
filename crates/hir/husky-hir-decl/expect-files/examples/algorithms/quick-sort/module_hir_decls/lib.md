@@ -315,6 +315,19 @@
             ),
         ),
     ),
+    HirDecl::Attr(
+        AttrHirDecl::Test(
+            TestAttrHirDecl {
+                path: AttrItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 138,
+                        },
+                    ),
+                ),
+            },
+        ),
+    ),
     HirDecl::MajorItem(
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Ritchie(
@@ -341,12 +354,25 @@
                     hir_expr_region: Eager(
                         HirEagerExprRegion(
                             Id {
-                                value: 5,
+                                value: 6,
                             },
                         ),
                     ),
                 },
             ),
+        ),
+    ),
+    HirDecl::Attr(
+        AttrHirDecl::Test(
+            TestAttrHirDecl {
+                path: AttrItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 139,
+                        },
+                    ),
+                ),
+            },
         ),
     ),
 ]

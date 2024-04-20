@@ -9,7 +9,7 @@ mod tests;
 
 use self::builder::*;
 use self::decl::*;
-use self::jar::*;
+use self::jar::HirDeclJar as Jar;
 use self::parameter::*;
 use husky_coword::*;
 use husky_entity_path::*;

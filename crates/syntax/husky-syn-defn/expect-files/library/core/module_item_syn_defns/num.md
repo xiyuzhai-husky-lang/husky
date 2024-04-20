@@ -9,9 +9,35 @@
         None,
     ),
     (
+        ItemPath::Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 134,
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
         ItemPath::MajorItem(
             MajorItemPath::Type(
                 TypePath(`core::num::i16`, `Extern`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 135,
+                    },
+                ),
             ),
         ),
         None,
@@ -25,9 +51,35 @@
         None,
     ),
     (
+        ItemPath::Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 136,
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
         ItemPath::MajorItem(
             MajorItemPath::Type(
                 TypePath(`core::num::i64`, `Extern`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 137,
+                    },
+                ),
             ),
         ),
         None,
@@ -41,9 +93,35 @@
         None,
     ),
     (
+        ItemPath::Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 138,
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
         ItemPath::MajorItem(
             MajorItemPath::Type(
                 TypePath(`core::num::isize`, `Extern`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 139,
+                    },
+                ),
             ),
         ),
         None,
@@ -57,9 +135,35 @@
         None,
     ),
     (
+        ItemPath::Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 140,
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
         ItemPath::MajorItem(
             MajorItemPath::Type(
                 TypePath(`core::num::u16`, `Extern`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 141,
+                    },
+                ),
             ),
         ),
         None,
@@ -73,9 +177,35 @@
         None,
     ),
     (
+        ItemPath::Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 142,
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
         ItemPath::MajorItem(
             MajorItemPath::Type(
                 TypePath(`core::num::u64`, `Extern`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 143,
+                    },
+                ),
             ),
         ),
         None,
@@ -89,9 +219,35 @@
         None,
     ),
     (
+        ItemPath::Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 144,
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
         ItemPath::MajorItem(
             MajorItemPath::Type(
                 TypePath(`core::num::usize`, `Extern`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 145,
+                    },
+                ),
             ),
         ),
         None,
@@ -105,9 +261,35 @@
         None,
     ),
     (
+        ItemPath::Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 146,
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
         ItemPath::MajorItem(
             MajorItemPath::Type(
                 TypePath(`core::num::f64`, `Extern`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 147,
+                    },
+                ),
             ),
         ),
         None,
@@ -717,11 +899,37 @@
         None,
     ),
     (
+        ItemPath::Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 184,
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
                 TypeItemPath(`<core::num::f32(0)>::sqrt`, `MethodRitchie(
                     Fn,
                 )`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 185,
+                    },
+                ),
             ),
         ),
         None,
@@ -737,11 +945,37 @@
         None,
     ),
     (
+        ItemPath::Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 186,
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
                 TypeItemPath(`<core::num::f32(0)>::min`, `MethodRitchie(
                     Fn,
                 )`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 187,
+                    },
+                ),
             ),
         ),
         None,
@@ -767,11 +1001,37 @@
         None,
     ),
     (
+        ItemPath::Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 188,
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
                 TypeItemPath(`<core::num::f32(0)>::sin`, `MethodRitchie(
                     Fn,
                 )`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 189,
+                    },
+                ),
             ),
         ),
         None,
@@ -802,6 +1062,19 @@
                     TraitItemKind::MethodRitchie(
                         RitchieItemKind::Fn,
                     ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 191,
+                    },
                 ),
             ),
         ),

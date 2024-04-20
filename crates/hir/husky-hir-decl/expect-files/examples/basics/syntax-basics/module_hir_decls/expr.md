@@ -26,7 +26,7 @@
                     hir_expr_region: Eager(
                         HirEagerExprRegion(
                             Id {
-                                value: 2,
+                                value: 7,
                             },
                         ),
                     ),
@@ -60,7 +60,7 @@
                     hir_expr_region: Eager(
                         HirEagerExprRegion(
                             Id {
-                                value: 3,
+                                value: 8,
                             },
                         ),
                     ),
@@ -94,7 +94,7 @@
                     hir_expr_region: Eager(
                         HirEagerExprRegion(
                             Id {
-                                value: 4,
+                                value: 9,
                             },
                         ),
                     ),

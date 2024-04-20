@@ -9,6 +9,19 @@
         None,
     ),
     (
+        ItemPath::Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 224,
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
                 TypeImplBlockPath(

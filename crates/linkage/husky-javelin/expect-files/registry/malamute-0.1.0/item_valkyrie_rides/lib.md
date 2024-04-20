@@ -34,6 +34,55 @@
         ),
     ),
     (
+        ItemPath::Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 147,
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::TypeVariant(
+            Room32,
+            TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 2,
+                    },
+                ),
+            ),
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: None,
+                rides: [],
+            },
+        ),
+    ),
+    (
+        ItemPath::TypeVariant(
+            Room32,
+            TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 3,
+                    },
+                ),
+            ),
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: None,
+                rides: [],
+            },
+        ),
+    ),
+    (
         ItemPath::MajorItem(
             MajorItemPath::Type(
                 TypePath(`malamute::OneVsAll`, `Enum`),
@@ -51,6 +100,55 @@
         ),
     ),
     (
+        ItemPath::Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 148,
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::TypeVariant(
+            Room32,
+            TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 5,
+                    },
+                ),
+            ),
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: None,
+                rides: [],
+            },
+        ),
+    ),
+    (
+        ItemPath::TypeVariant(
+            Room32,
+            TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 6,
+                    },
+                ),
+            ),
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: None,
+                rides: [],
+            },
+        ),
+    ),
+    (
         ItemPath::MajorItem(
             MajorItemPath::Type(
                 TypePath(`malamute::OneVsAllResult`, `Enum`),
@@ -63,6 +161,73 @@
                         [],
                     ),
                 ),
+                rides: [],
+            },
+        ),
+    ),
+    (
+        ItemPath::Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 149,
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::TypeVariant(
+            Room32,
+            TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 8,
+                    },
+                ),
+            ),
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: None,
+                rides: [],
+            },
+        ),
+    ),
+    (
+        ItemPath::TypeVariant(
+            Room32,
+            TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 9,
+                    },
+                ),
+            ),
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: None,
+                rides: [],
+            },
+        ),
+    ),
+    (
+        ItemPath::TypeVariant(
+            Room32,
+            TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 10,
+                    },
+                ),
+            ),
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: None,
                 rides: [],
             },
         ),
@@ -280,7 +445,7 @@
                 ),
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::Type(
+                        path: JavPath::Type(
                             TypePath(`malamute::Class`, `Enum`),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -314,7 +479,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::Type(
+                        path: JavPath::Type(
                             TypePath(`core::ops::ControlFlow`, `Enum`),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -440,7 +605,7 @@
                 ),
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::Type(
+                        path: JavPath::Type(
                             TypePath(`core::ops::ControlFlow`, `Enum`),
                         ),
                         hir_instantiation: HirInstantiation {

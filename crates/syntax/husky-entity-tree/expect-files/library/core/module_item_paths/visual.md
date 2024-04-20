@@ -5,6 +5,13 @@
             TraitPath(`core::visual::Visualize`),
         ),
     ),
+    ItemPath::AssocItem(
+        AssocItemPath::TraitItem(
+            TraitItemPath(`core::visual::Visualize::visualize`, `MethodRitchie(
+                Fn,
+            )`),
+        ),
+    ),
     ItemPath::MajorItem(
         MajorItemPath::Type(
             TypePath(`core::visual::Visual`, `Extern`),

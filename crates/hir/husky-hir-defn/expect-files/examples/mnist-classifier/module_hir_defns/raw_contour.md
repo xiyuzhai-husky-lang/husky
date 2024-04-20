@@ -145,6 +145,230 @@
             ),
         ),
     ),
+    HirDefn::TypeVariant(
+        TypeVariantHirDefn::Unit(
+            EnumUnitVariantHirDefn {
+                path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 17,
+                        },
+                    ),
+                ),
+                hir_decl: EnumUnitTypeVariantHirDecl {
+                    path: TypeVariantPath(
+                        ItemPathId(
+                            Id {
+                                value: 17,
+                            },
+                        ),
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        region_path: RegionPath::Decl(
+                            ItemPath::TypeVariant(
+                                Room32,
+                                TypeVariantPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 17,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
+                },
+            },
+        ),
+    ),
+    HirDefn::TypeVariant(
+        TypeVariantHirDefn::Unit(
+            EnumUnitVariantHirDefn {
+                path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 18,
+                        },
+                    ),
+                ),
+                hir_decl: EnumUnitTypeVariantHirDecl {
+                    path: TypeVariantPath(
+                        ItemPathId(
+                            Id {
+                                value: 18,
+                            },
+                        ),
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        region_path: RegionPath::Decl(
+                            ItemPath::TypeVariant(
+                                Room32,
+                                TypeVariantPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 18,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
+                },
+            },
+        ),
+    ),
+    HirDefn::TypeVariant(
+        TypeVariantHirDefn::Unit(
+            EnumUnitVariantHirDefn {
+                path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 19,
+                        },
+                    ),
+                ),
+                hir_decl: EnumUnitTypeVariantHirDecl {
+                    path: TypeVariantPath(
+                        ItemPathId(
+                            Id {
+                                value: 19,
+                            },
+                        ),
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        region_path: RegionPath::Decl(
+                            ItemPath::TypeVariant(
+                                Room32,
+                                TypeVariantPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 19,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
+                },
+            },
+        ),
+    ),
+    HirDefn::TypeVariant(
+        TypeVariantHirDefn::Unit(
+            EnumUnitVariantHirDefn {
+                path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 20,
+                        },
+                    ),
+                ),
+                hir_decl: EnumUnitTypeVariantHirDecl {
+                    path: TypeVariantPath(
+                        ItemPathId(
+                            Id {
+                                value: 20,
+                            },
+                        ),
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        region_path: RegionPath::Decl(
+                            ItemPath::TypeVariant(
+                                Room32,
+                                TypeVariantPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 20,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
+                },
+            },
+        ),
+    ),
     HirDefn::MajorItem(
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Ritchie(
@@ -198,7 +422,7 @@
                         hir_expr_region: Eager(
                             HirEagerExprRegion(
                                 Id {
-                                    value: 283,
+                                    value: 287,
                                 },
                             ),
                         ),
@@ -211,7 +435,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 284,
+                                        value: 288,
                                     },
                                 ),
                             ),
@@ -274,7 +498,7 @@
                         hir_expr_region: Eager(
                             HirEagerExprRegion(
                                 Id {
-                                    value: 285,
+                                    value: 289,
                                 },
                             ),
                         ),
@@ -287,7 +511,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 286,
+                                        value: 290,
                                     },
                                 ),
                             ),
@@ -350,7 +574,7 @@
                         hir_expr_region: Eager(
                             HirEagerExprRegion(
                                 Id {
-                                    value: 287,
+                                    value: 291,
                                 },
                             ),
                         ),
@@ -363,7 +587,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 288,
+                                        value: 292,
                                     },
                                 ),
                             ),
@@ -437,7 +661,7 @@
                         hir_expr_region: Eager(
                             HirEagerExprRegion(
                                 Id {
-                                    value: 289,
+                                    value: 293,
                                 },
                             ),
                         ),
@@ -450,7 +674,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 290,
+                                        value: 294,
                                     },
                                 ),
                             ),
@@ -513,7 +737,7 @@
                         hir_expr_region: Eager(
                             HirEagerExprRegion(
                                 Id {
-                                    value: 291,
+                                    value: 295,
                                 },
                             ),
                         ),
@@ -526,7 +750,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 292,
+                                        value: 296,
                                     },
                                 ),
                             ),
@@ -611,7 +835,7 @@
                         hir_expr_region: Eager(
                             HirEagerExprRegion(
                                 Id {
-                                    value: 293,
+                                    value: 297,
                                 },
                             ),
                         ),
@@ -624,7 +848,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 294,
+                                        value: 298,
                                     },
                                 ),
                             ),
@@ -767,7 +991,7 @@
                         hir_expr_region: Eager(
                             HirEagerExprRegion(
                                 Id {
-                                    value: 296,
+                                    value: 300,
                                 },
                             ),
                         ),
@@ -780,7 +1004,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 297,
+                                        value: 301,
                                     },
                                 ),
                             ),
@@ -852,7 +1076,7 @@
                         hir_expr_region: Eager(
                             HirEagerExprRegion(
                                 Id {
-                                    value: 298,
+                                    value: 302,
                                 },
                             ),
                         ),
@@ -865,7 +1089,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 299,
+                                        value: 303,
                                     },
                                 ),
                             ),

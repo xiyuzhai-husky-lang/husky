@@ -52,7 +52,7 @@ impl HasHirDecl for MajorFormPath {
     }
 }
 
-#[salsa::tracked(jar = HirDeclJar)]
+#[salsa::tracked]
 fn major_form_hir_decl(db: &::salsa::Db, path: MajorFormPath) -> Option<MajorFormHirDecl> {
     match path.syn_decl(db).expect("no errors for hir stage") {
         FormSynDecl::Ritchie(syn_decl) => {

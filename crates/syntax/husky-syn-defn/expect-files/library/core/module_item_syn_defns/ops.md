@@ -9,9 +9,45 @@
         None,
     ),
     (
+        ItemPath::AssocItem(
+            AssocItemPath::TraitItem(
+                TraitItemPath(`core::ops::Add::Output`, `AssocType`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TraitItem(
+                TraitItemPath(`core::ops::Add::add`, `MethodRitchie(
+                    Fn,
+                )`),
+            ),
+        ),
+        None,
+    ),
+    (
         ItemPath::MajorItem(
             MajorItemPath::Trait(
                 TraitPath(`core::ops::AddAssign`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TraitItem(
+                TraitItemPath(`core::ops::AddAssign::Output`, `AssocType`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TraitItem(
+                TraitItemPath(`core::ops::AddAssign::add`, `MethodRitchie(
+                    Fn,
+                )`),
             ),
         ),
         None,
@@ -25,9 +61,37 @@
         None,
     ),
     (
+        ItemPath::AssocItem(
+            AssocItemPath::TraitItem(
+                TraitItemPath(`core::ops::BitAnd::Output`, `AssocType`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TraitItem(
+                TraitItemPath(`core::ops::BitAnd::bitand`, `MethodRitchie(
+                    Fn,
+                )`),
+            ),
+        ),
+        None,
+    ),
+    (
         ItemPath::MajorItem(
             MajorItemPath::Trait(
                 TraitPath(`core::ops::BitAndAssign`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TraitItem(
+                TraitItemPath(`core::ops::BitAndAssign::bitand_assign`, `MethodRitchie(
+                    Fn,
+                )`),
             ),
         ),
         None,
@@ -41,9 +105,37 @@
         None,
     ),
     (
+        ItemPath::AssocItem(
+            AssocItemPath::TraitItem(
+                TraitItemPath(`core::ops::BitOr::Output`, `AssocType`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TraitItem(
+                TraitItemPath(`core::ops::BitOr::bitor`, `MethodRitchie(
+                    Fn,
+                )`),
+            ),
+        ),
+        None,
+    ),
+    (
         ItemPath::MajorItem(
             MajorItemPath::Trait(
                 TraitPath(`core::ops::BitOrAssign`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TraitItem(
+                TraitItemPath(`core::ops::BitOrAssign::bitor_assign`, `MethodRitchie(
+                    Fn,
+                )`),
             ),
         ),
         None,
@@ -57,9 +149,37 @@
         None,
     ),
     (
+        ItemPath::AssocItem(
+            AssocItemPath::TraitItem(
+                TraitItemPath(`core::ops::BitXor::Output`, `AssocType`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TraitItem(
+                TraitItemPath(`core::ops::BitXor::bitxor`, `MethodRitchie(
+                    Fn,
+                )`),
+            ),
+        ),
+        None,
+    ),
+    (
         ItemPath::MajorItem(
             MajorItemPath::Trait(
                 TraitPath(`core::ops::BitXorAssign`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TraitItem(
+                TraitItemPath(`core::ops::BitXorAssign::bitxor_assign`, `MethodRitchie(
+                    Fn,
+                )`),
             ),
         ),
         None,
@@ -73,9 +193,37 @@
         None,
     ),
     (
+        ItemPath::AssocItem(
+            AssocItemPath::TraitItem(
+                TraitItemPath(`core::ops::Div::Output`, `AssocType`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TraitItem(
+                TraitItemPath(`core::ops::Div::div`, `MethodRitchie(
+                    Fn,
+                )`),
+            ),
+        ),
+        None,
+    ),
+    (
         ItemPath::MajorItem(
             MajorItemPath::Trait(
                 TraitPath(`core::ops::DivAssign`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TraitItem(
+                TraitItemPath(`core::ops::DivAssign::div_assign`, `MethodRitchie(
+                    Fn,
+                )`),
             ),
         ),
         None,
@@ -89,9 +237,35 @@
         None,
     ),
     (
+        ItemPath::AssocItem(
+            AssocItemPath::TraitItem(
+                TraitItemPath(`core::ops::IntIndex::Output`, `AssocType`),
+            ),
+        ),
+        None,
+    ),
+    (
         ItemPath::MajorItem(
             MajorItemPath::Trait(
                 TraitPath(`core::ops::Mul`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TraitItem(
+                TraitItemPath(`core::ops::Mul::Output`, `AssocType`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TraitItem(
+                TraitItemPath(`core::ops::Mul::mul`, `MethodRitchie(
+                    Fn,
+                )`),
             ),
         ),
         None,
@@ -105,9 +279,37 @@
         None,
     ),
     (
+        ItemPath::AssocItem(
+            AssocItemPath::TraitItem(
+                TraitItemPath(`core::ops::MulAssign::mul_assign`, `MethodRitchie(
+                    Fn,
+                )`),
+            ),
+        ),
+        None,
+    ),
+    (
         ItemPath::MajorItem(
             MajorItemPath::Trait(
                 TraitPath(`core::ops::Neg`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TraitItem(
+                TraitItemPath(`core::ops::Neg::Output`, `AssocType`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TraitItem(
+                TraitItemPath(`core::ops::Neg::neg`, `MethodRitchie(
+                    Fn,
+                )`),
             ),
         ),
         None,
@@ -121,9 +323,45 @@
         None,
     ),
     (
+        ItemPath::AssocItem(
+            AssocItemPath::TraitItem(
+                TraitItemPath(`core::ops::Not::Output`, `AssocType`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TraitItem(
+                TraitItemPath(`core::ops::Not::not`, `MethodRitchie(
+                    Fn,
+                )`),
+            ),
+        ),
+        None,
+    ),
+    (
         ItemPath::MajorItem(
             MajorItemPath::Trait(
                 TraitPath(`core::ops::Sub`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TraitItem(
+                TraitItemPath(`core::ops::Sub::Output`, `AssocType`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TraitItem(
+                TraitItemPath(`core::ops::Sub::sub`, `MethodRitchie(
+                    Fn,
+                )`),
             ),
         ),
         None,
@@ -137,9 +375,53 @@
         None,
     ),
     (
+        ItemPath::AssocItem(
+            AssocItemPath::TraitItem(
+                TraitItemPath(`core::ops::Unveil::Output`, `AssocType`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TraitItem(
+                TraitItemPath(`core::ops::Unveil::unveil`, `AssocRitchie(
+                    Fn,
+                )`),
+            ),
+        ),
+        None,
+    ),
+    (
         ItemPath::MajorItem(
             MajorItemPath::Type(
                 TypePath(`core::ops::ControlFlow`, `Enum`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::TypeVariant(
+            Room32,
+            TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 74,
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::TypeVariant(
+            Room32,
+            TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 75,
+                    },
+                ),
             ),
         ),
         None,

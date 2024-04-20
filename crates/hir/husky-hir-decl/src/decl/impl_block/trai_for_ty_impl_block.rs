@@ -21,7 +21,7 @@ impl HasHirDecl for TraitForTypeImplBlockPath {
     }
 }
 
-#[salsa::tracked(jar = HirDeclJar)]
+#[salsa::tracked]
 fn trai_for_ty_impl_block_hir_decl(
     db: &::salsa::Db,
     path: TraitForTypeImplBlockPath,

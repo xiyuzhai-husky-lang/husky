@@ -54,9 +54,11 @@ pub struct TestAttrSynDecl {
 
 impl TestAttrSynDecl {
     pub(super) fn from_node(
-        node_decl: TestAttrSynNodeDecl,
+        path: AttrItemPath,
+        syn_node_decl: TestAttrSynNodeDecl,
         db: &::salsa::Db,
     ) -> SynDeclResult<Self> {
-        todo!()
+        let syn_expr_region = syn_node_decl.syn_expr_region(db);
+        Ok(Self::new(db, path, syn_expr_region))
     }
 }

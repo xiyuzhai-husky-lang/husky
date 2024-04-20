@@ -38,7 +38,7 @@
                 ),
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TypeItem(
+                        path: JavPath::TypeItem(
                             TypeItemPath(`<core::slice::Slice(0)>::len`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -76,7 +76,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::Form(
+                        path: JavPath::Form(
                             FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                 Fn,
                             )`),
@@ -153,7 +153,7 @@
                 ),
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::Form(
+                        path: JavPath::Form(
                             FormPath(`quick_sort::partition`, `Ritchie(
                                 Fn,
                             )`),
@@ -189,7 +189,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::Form(
+                        path: JavPath::Form(
                             FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                 Fn,
                             )`),
@@ -266,7 +266,7 @@
                 ),
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TypeItem(
+                        path: JavPath::TypeItem(
                             TypeItemPath(`<core::slice::Slice(0)>::swap`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -343,6 +343,19 @@
         ),
     ),
     (
+        ItemPath::Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 138,
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
         ItemPath::MajorItem(
             MajorItemPath::Form(
                 FormPath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
@@ -383,6 +396,19 @@
                 ],
             },
         ),
+    ),
+    (
+        ItemPath::Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 139,
+                    },
+                ),
+            ),
+        ),
+        None,
     ),
 ]
 ```

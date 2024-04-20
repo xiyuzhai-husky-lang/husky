@@ -90,5 +90,15 @@
             value: 126,
         },
     ),
+    HirDefnDependencies(
+        Id {
+            value: 127,
+        },
+    ),
+    HirDefnDependencies(
+        Id {
+            value: 128,
+        },
+    ),
 ]
 ```

@@ -16,7 +16,49 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 135,
+                        value: 139,
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        TypeVariant(
+            Room32,
+            TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 81,
+                    },
+                ),
+            ),
+        ),
+        Some(
+            Some(
+                HirDefnVersionStamp(
+                    Id {
+                        value: 140,
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        TypeVariant(
+            Room32,
+            TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 82,
+                    },
+                ),
+            ),
+        ),
+        Some(
+            Some(
+                HirDefnVersionStamp(
+                    Id {
+                        value: 141,
                     },
                 ),
             ),
@@ -38,7 +80,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 136,
+                        value: 142,
                     },
                 ),
             ),
@@ -50,7 +92,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 225,
+                            value: 236,
                         },
                     ),
                 ),
@@ -60,7 +102,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 137,
+                        value: 143,
                     },
                 ),
             ),
@@ -72,7 +114,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 226,
+                            value: 237,
                         },
                     ),
                 ),
@@ -82,7 +124,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 138,
+                        value: 144,
                     },
                 ),
             ),

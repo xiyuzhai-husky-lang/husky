@@ -118,6 +118,7 @@ impl<'a> TokenInfoEngine<'a> {
                 TokenInfoSource::AstIdentifiable,
                 TokenInfoData::EntityNode(syn_node_path, item_kind),
             ),
+            AstData::TypeVariant { .. } => (),
             AstData::ImplBlock { .. } => (),
             // ad hoc
             AstData::Attr { .. } => (),

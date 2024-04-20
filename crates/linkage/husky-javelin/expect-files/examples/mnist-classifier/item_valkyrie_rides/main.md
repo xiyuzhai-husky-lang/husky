@@ -102,7 +102,7 @@
                 hir_template_parameters: None,
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TraitForTypeItem(
+                        path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
                                 `<malamute::Class as core::ops::Unveil(0)>::unveil`,
                                 TraitItemKind::AssocRitchie(
@@ -175,7 +175,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TraitForTypeItem(
+                        path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
                                 `<malamute::Class as core::ops::Unveil(0)>::unveil`,
                                 TraitItemKind::AssocRitchie(
@@ -248,7 +248,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TraitForTypeItem(
+                        path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
                                 `<malamute::Class as core::ops::Unveil(0)>::unveil`,
                                 TraitItemKind::AssocRitchie(
@@ -321,7 +321,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TraitForTypeItem(
+                        path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
                                 `<malamute::Class as core::ops::Unveil(0)>::unveil`,
                                 TraitItemKind::AssocRitchie(
@@ -394,7 +394,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TraitForTypeItem(
+                        path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
                                 `<malamute::Class as core::ops::Unveil(0)>::unveil`,
                                 TraitItemKind::AssocRitchie(
@@ -467,7 +467,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TraitForTypeItem(
+                        path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
                                 `<malamute::Class as core::ops::Unveil(0)>::unveil`,
                                 TraitItemKind::AssocRitchie(
@@ -540,7 +540,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TraitForTypeItem(
+                        path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
                                 `<malamute::Class as core::ops::Unveil(0)>::unveil`,
                                 TraitItemKind::AssocRitchie(
@@ -613,7 +613,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TraitForTypeItem(
+                        path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
                                 `<malamute::Class as core::ops::Unveil(0)>::unveil`,
                                 TraitItemKind::AssocRitchie(
@@ -686,7 +686,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TraitForTypeItem(
+                        path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
                                 `<malamute::Class as core::ops::Unveil(0)>::unveil`,
                                 TraitItemKind::AssocRitchie(

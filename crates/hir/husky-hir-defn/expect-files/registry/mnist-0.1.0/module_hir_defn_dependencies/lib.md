@@ -80,5 +80,55 @@
             value: 16,
         },
     ),
+    HirDefnDependencies(
+        Id {
+            value: 17,
+        },
+    ),
+    HirDefnDependencies(
+        Id {
+            value: 18,
+        },
+    ),
+    HirDefnDependencies(
+        Id {
+            value: 19,
+        },
+    ),
+    HirDefnDependencies(
+        Id {
+            value: 20,
+        },
+    ),
+    HirDefnDependencies(
+        Id {
+            value: 21,
+        },
+    ),
+    HirDefnDependencies(
+        Id {
+            value: 22,
+        },
+    ),
+    HirDefnDependencies(
+        Id {
+            value: 23,
+        },
+    ),
+    HirDefnDependencies(
+        Id {
+            value: 24,
+        },
+    ),
+    HirDefnDependencies(
+        Id {
+            value: 25,
+        },
+    ),
+    HirDefnDependencies(
+        Id {
+            value: 26,
+        },
+    ),
 ]
 ```

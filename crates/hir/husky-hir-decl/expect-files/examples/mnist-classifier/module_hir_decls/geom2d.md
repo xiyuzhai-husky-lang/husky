@@ -78,6 +78,80 @@
             ),
         ),
     ),
+    HirDecl::Attr(
+        AttrHirDecl::Derive(
+            DeriveAttrHirDecl {
+                path: AttrItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                ),
+                trais: [
+                    HirTrait {
+                        trai_path: TraitPath(`core::fmt::Debug`),
+                        template_arguments: [],
+                    },
+                    HirTrait {
+                        trai_path: TraitPath(`core::clone::Clone`),
+                        template_arguments: [],
+                    },
+                    HirTrait {
+                        trai_path: TraitPath(`core::visual::Visualize`),
+                        template_arguments: [],
+                    },
+                ],
+                hir_eager_expr_region: HirEagerExprRegion {
+                    region_path: RegionPath::Decl(
+                        ItemPath::Attr(
+                            Room32,
+                            AttrItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 325,
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                    expr_arena: Arena {
+                        data: [],
+                    },
+                    stmt_arena: Arena {
+                        data: [],
+                    },
+                    pattern_arena: Arena {
+                        data: [],
+                    },
+                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        arena: Arena {
+                            data: [],
+                        },
+                    },
+                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        arena: Arena {
+                            data: [
+                                HirEagerRuntimeVariableEntry {
+                                    name: HirEagerRuntimeVariableName::Ident(
+                                        `x`,
+                                    ),
+                                    data: HirEagerRuntimeVariableData::FieldVariable,
+                                },
+                                HirEagerRuntimeVariableEntry {
+                                    name: HirEagerRuntimeVariableName::Ident(
+                                        `y`,
+                                    ),
+                                    data: HirEagerRuntimeVariableData::FieldVariable,
+                                },
+                            ],
+                        },
+                        self_value_variable: None,
+                    },
+                },
+            },
+        ),
+    ),
     HirDecl::MajorItem(
         MajorItemHirDecl::Type(
             TypeHirDecl::PropsStruct(

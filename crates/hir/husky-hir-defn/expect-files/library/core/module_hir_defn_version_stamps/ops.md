@@ -23,6 +23,34 @@
         ),
     ),
     (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 201,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 202,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
         MajorItem(
             Trait(
                 TraitPath(
@@ -43,6 +71,34 @@
                 ),
             ),
         ),
+    ),
+    (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 203,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 204,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
     ),
     (
         MajorItem(
@@ -67,6 +123,34 @@
         ),
     ),
     (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 205,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 206,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
         MajorItem(
             Trait(
                 TraitPath(
@@ -87,6 +171,20 @@
                 ),
             ),
         ),
+    ),
+    (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 207,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
     ),
     (
         MajorItem(
@@ -111,6 +209,34 @@
         ),
     ),
     (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 208,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 209,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
         MajorItem(
             Trait(
                 TraitPath(
@@ -131,6 +257,20 @@
                 ),
             ),
         ),
+    ),
+    (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 210,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
     ),
     (
         MajorItem(
@@ -155,6 +295,34 @@
         ),
     ),
     (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 211,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 212,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
         MajorItem(
             Trait(
                 TraitPath(
@@ -175,6 +343,20 @@
                 ),
             ),
         ),
+    ),
+    (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 213,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
     ),
     (
         MajorItem(
@@ -199,6 +381,34 @@
         ),
     ),
     (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 214,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 215,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
         MajorItem(
             Trait(
                 TraitPath(
@@ -219,6 +429,20 @@
                 ),
             ),
         ),
+    ),
+    (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 216,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
     ),
     (
         MajorItem(
@@ -243,6 +467,20 @@
         ),
     ),
     (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 217,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
         MajorItem(
             Trait(
                 TraitPath(
@@ -263,6 +501,34 @@
                 ),
             ),
         ),
+    ),
+    (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 218,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 219,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
     ),
     (
         MajorItem(
@@ -287,6 +553,20 @@
         ),
     ),
     (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 220,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
         MajorItem(
             Trait(
                 TraitPath(
@@ -307,6 +587,34 @@
                 ),
             ),
         ),
+    ),
+    (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 221,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 222,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
     ),
     (
         MajorItem(
@@ -331,6 +639,34 @@
         ),
     ),
     (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 223,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 224,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
         MajorItem(
             Trait(
                 TraitPath(
@@ -351,6 +687,34 @@
                 ),
             ),
         ),
+    ),
+    (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 225,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 226,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
     ),
     (
         MajorItem(
@@ -375,6 +739,34 @@
         ),
     ),
     (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 227,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 228,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
         MajorItem(
             Type(
                 TypePath(
@@ -391,6 +783,48 @@
                 HirDefnVersionStamp(
                     Id {
                         value: 126,
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        TypeVariant(
+            Room32,
+            TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 74,
+                    },
+                ),
+            ),
+        ),
+        Some(
+            Some(
+                HirDefnVersionStamp(
+                    Id {
+                        value: 127,
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        TypeVariant(
+            Room32,
+            TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 75,
+                    },
+                ),
+            ),
+        ),
+        Some(
+            Some(
+                HirDefnVersionStamp(
+                    Id {
+                        value: 128,
                     },
                 ),
             ),
