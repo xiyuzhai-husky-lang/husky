@@ -70,7 +70,16 @@ impl JavPath {
                 AssocItemPath::TypeItem(path) => Some(JavPath::TypeItem(path)),
                 AssocItemPath::TraitItem(path) => Some(JavPath::TraitItem(path)),
             },
-            ItemPath::TypeVariant(_, path) => None,
+            ItemPath::TypeVariant(_, path) => {
+                if path.parent_ty_path(db).ident(db).data(db) == "Class" {
+                    use husky_print_utils::p;
+                    use salsa::DebugWithDb;
+
+                    p!(path.ident(db).debug(db));
+                    todo!()
+                }
+                Some(path.parent_ty_path(db).into())
+            }
             ItemPath::ImplBlock(_) => None,
             ItemPath::Attr(_, _) => None,
         }
