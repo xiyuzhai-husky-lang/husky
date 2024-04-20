@@ -312,11 +312,6 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                     .map(f)
                     .collect()
             }
-            if let Some(ident) = path.ident(db) {
-                if ident.data(db) == "Class" && (instantiation.is_empty()) {
-                    todo!()
-                }
-            }
             match path {
                 JavPath::Form(path) => match path.major_form_kind(db) {
                     MajorFormKind::Ritchie(ritchie_item_kind) => {
