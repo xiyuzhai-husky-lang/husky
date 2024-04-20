@@ -66,7 +66,7 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodFn(
+                    TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<core::raw_bits::r32(0)>::last_bits`, `MethodRitchie(
                                 Fn,
@@ -163,7 +163,7 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodFn(
+                    TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<core::raw_bits::r32(0)>::ctz`, `MethodRitchie(
                                 Fn,
@@ -243,7 +243,7 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodFn(
+                    TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<core::raw_bits::r32(0)>::co`, `MethodRitchie(
                                 Fn,
@@ -323,7 +323,7 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodFn(
+                    TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<core::raw_bits::r32(0)>::span`, `MethodRitchie(
                                 Fn,
@@ -403,7 +403,7 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodFn(
+                    TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<core::raw_bits::r32(0)>::right_mass`, `MethodRitchie(
                                 Fn,

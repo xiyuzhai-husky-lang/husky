@@ -114,7 +114,7 @@
         Ok(
             DecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(
-                    MajorFormDecTemplate::Ki(
+                    MajorFormDecTemplate::Val(
                         MajorValDecTemplate {
                             return_ty: Application(
                                 DecApplication(

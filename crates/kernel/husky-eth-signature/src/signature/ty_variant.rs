@@ -49,11 +49,11 @@ fn ty_variant_eth_template(
     path: TypeVariantPath,
 ) -> EtherealSignatureResult<TypeVariantEthTemplate> {
     Ok(match path.dec_template(db)? {
-        TypeVariantDecTemplate::Props(_) => todo!(),
-        TypeVariantDecTemplate::Unit(dec_template) => {
+        TypeVariantDecTemplate::EnumProps(_) => todo!(),
+        TypeVariantDecTemplate::EnumUnit(dec_template) => {
             EnumUnitTypeVariantEthTemplate::from_dec(db, path, dec_template)?.into()
         }
-        TypeVariantDecTemplate::Tuple(dec_template) => {
+        TypeVariantDecTemplate::EnumTuple(dec_template) => {
             EnumTupleVariantEthTemplate::from_dec(db, path, dec_template)?.into()
         }
     })

@@ -17,7 +17,7 @@ pub enum TraitForTypeItemEthTemplate {
     AssocRitchie(TraitForTypeAssocRitchieEthTemplate),
     AssocVal(TraitForTypeAssocValEthTemplate),
     AssocType(TraitForTypeAssocTypeEthTemplate),
-    MethodFn(TraitForTypeMethodRitchieEthTemplate),
+    MethodRitchie(TraitForTypeMethodRitchieEthTemplate),
 }
 
 impl TraitForTypeItemEthTemplate {
@@ -26,7 +26,7 @@ impl TraitForTypeItemEthTemplate {
             TraitForTypeItemEthTemplate::AssocRitchie(_) => None,
             TraitForTypeItemEthTemplate::AssocVal(_) => None,
             TraitForTypeItemEthTemplate::AssocType(_) => None,
-            TraitForTypeItemEthTemplate::MethodFn(template) => {
+            TraitForTypeItemEthTemplate::MethodRitchie(template) => {
                 // ad hoc
                 Some(template.self_ty(db))
             }
@@ -42,7 +42,7 @@ impl TraitForTypeItemEthTemplate {
             TraitForTypeItemEthTemplate::AssocType(item_template) => item_template
                 .inherit_instantiation_builder(db, impl_block_signature_builder)
                 .into(),
-            TraitForTypeItemEthTemplate::MethodFn(item_template) => item_template
+            TraitForTypeItemEthTemplate::MethodRitchie(item_template) => item_template
                 .inherit_instantiation_builder(db, impl_block_signature_builder)
                 .into(),
             TraitForTypeItemEthTemplate::AssocRitchie(_) => todo!(),
@@ -73,7 +73,7 @@ fn trai_for_ty_item_eth_template(
 ) -> EtherealSignatureResult<TraitForTypeItemEthTemplate> {
     Ok(match path.dec_template(db)? {
         TraitForTypeItemDecTemplate::AssocRitchie(_) => todo!(),
-        TraitForTypeItemDecTemplate::MethodFn(dec_template) => {
+        TraitForTypeItemDecTemplate::MethodRitchie(dec_template) => {
             TraitForTypeMethodRitchieEthTemplate::from_dec(db, path, dec_template)?.into()
         }
         TraitForTypeItemDecTemplate::AssocType(dec_template) => {

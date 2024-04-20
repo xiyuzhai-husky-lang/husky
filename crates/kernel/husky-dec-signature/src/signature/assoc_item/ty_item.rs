@@ -19,7 +19,7 @@ use crate::*;
 #[enum_class::from_variants]
 pub enum TypeItemDecTemplate {
     AssocRitchie(TypeAssocRitchieDecTemplate),
-    MethodFn(TypeMethodRitchieDecTemplate),
+    MethodRitchie(TypeMethodRitchieDecTemplate),
     AssocType(TypeAssocTypeDecTemplate),
     AssocVal(TypeAssocValDecTemplate),
     MemoizedField(TypeMemoizedFieldDecTemplate),
@@ -40,7 +40,7 @@ impl TypeItemDecTemplate {
     pub fn template_parameters(self, db: &::salsa::Db) -> &[DeclarativeTemplateParameter] {
         match self {
             TypeItemDecTemplate::AssocRitchie(signature) => signature.template_parameters(db),
-            TypeItemDecTemplate::MethodFn(signature) => signature.template_parameters(db),
+            TypeItemDecTemplate::MethodRitchie(signature) => signature.template_parameters(db),
             TypeItemDecTemplate::AssocType(signature) => signature.template_parameters(db),
             TypeItemDecTemplate::AssocVal(_) => &[],
             TypeItemDecTemplate::MemoizedField(_) => &[],
