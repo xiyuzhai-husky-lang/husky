@@ -30,7 +30,7 @@
                         hir_expr_region: Eager(
                             HirEagerExprRegion(
                                 Id {
-                                    value: 2,
+                                    value: 7,
                                 },
                             ),
                         ),
@@ -43,7 +43,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 3,
+                                        value: 8,
                                     },
                                 ),
                             ),
@@ -83,7 +83,7 @@
                         hir_expr_region: Eager(
                             HirEagerExprRegion(
                                 Id {
-                                    value: 4,
+                                    value: 9,
                                 },
                             ),
                         ),
@@ -96,7 +96,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 5,
+                                        value: 10,
                                     },
                                 ),
                             ),
@@ -136,7 +136,7 @@
                         hir_expr_region: Eager(
                             HirEagerExprRegion(
                                 Id {
-                                    value: 6,
+                                    value: 11,
                                 },
                             ),
                         ),
@@ -149,7 +149,7 @@
                             Eager(
                                 HirEagerExprRegion(
                                     Id {
-                                        value: 7,
+                                        value: 12,
                                     },
                                 ),
                             ),

@@ -68,7 +68,7 @@ impl HasHirDecl for TypeItemPath {
     }
 }
 
-// #[salsa::tracked(jar = HirDeclJar)]
+// #[salsa::tracked]
 pub(crate) fn ty_item_hir_decl(db: &::salsa::Db, path: TypeItemPath) -> Option<TypeItemHirDecl> {
     match path.syn_decl(db).expect("ok") {
         TypeItemSynDecl::AssocRitchie(syn_decl) => {

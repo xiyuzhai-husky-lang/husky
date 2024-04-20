@@ -5,6 +5,16 @@
             TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
         ),
     ),
+    ItemPath::Attr(
+        Room32,
+        AttrItemPath(
+            ItemPathId(
+                Id {
+                    value: 314,
+                },
+            ),
+        ),
+    ),
     ItemPath::MajorItem(
         MajorItemPath::Type(
             TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),

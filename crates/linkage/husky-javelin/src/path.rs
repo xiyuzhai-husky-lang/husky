@@ -23,20 +23,20 @@ impl std::ops::Deref for JavPath {
 }
 
 #[test]
-fn javelin_item_path_deref_works() {
+fn jav_path_deref_works() {
     use crate::*;
     use husky_entity_tree::helpers::paths::module_item_paths;
 
     DB::ast_plain_test(
         |db, module_path| {
             for &item_path in module_item_paths(db, module_path) {
-                if let Some(javelin_item_path) = JavPath::try_from_item_path(item_path, db) {
-                    assert_eq!(*javelin_item_path, *item_path)
+                if let Some(jav_path) = JavPath::try_from_item_path(item_path, db) {
+                    assert_eq!(*jav_path, *item_path)
                 }
             }
         },
         &AstTestConfig::new(
-            "javelin_item_path_deref",
+            "jav_path_deref",
             FileExtensionConfig::Markdown,
             TestDomainsConfig::LINKAGE,
         ),

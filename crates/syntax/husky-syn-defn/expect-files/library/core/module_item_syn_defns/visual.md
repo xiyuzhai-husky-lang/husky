@@ -9,6 +9,16 @@
         None,
     ),
     (
+        ItemPath::AssocItem(
+            AssocItemPath::TraitItem(
+                TraitItemPath(`core::visual::Visualize::visualize`, `MethodRitchie(
+                    Fn,
+                )`),
+            ),
+        ),
+        None,
+    ),
+    (
         ItemPath::MajorItem(
             MajorItemPath::Type(
                 TypePath(`core::visual::Visual`, `Extern`),

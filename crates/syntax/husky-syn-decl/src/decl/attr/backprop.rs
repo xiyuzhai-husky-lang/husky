@@ -20,7 +20,7 @@ pub struct BackpropAttrSynNodeDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct BackpropAttrArgument {
     parameter_ident_token: IdentRegionalToken,
     eq_token: EqRegionalToken,
@@ -109,5 +109,31 @@ impl<'a> TryParseOptionFromStream<SynDeclExprParser<'a>> for BackpropAttrArgumen
             eq_token,
             backprop_function,
         }))
+    }
+}
+
+/// # syn decl
+
+#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
+pub struct BackpropAttrSynDecl {
+    #[id]
+    pub path: AttrItemPath,
+    #[return_ref]
+    pub arguments: SmallVec<[BackpropAttrArgument; 8]>,
+    pub syn_expr_region: SynExprRegion,
+}
+
+/// ## constructor
+
+impl BackpropAttrSynDecl {
+    #[inline(always)]
+    pub(super) fn from_node_decl(
+        db: &::salsa::Db,
+        path: AttrItemPath,
+        syn_node_decl: BackpropAttrSynNodeDecl,
+    ) -> SynDeclResult<Self> {
+        let trais = SmallVec::from(syn_node_decl.arguments(db).as_ref()?.elements());
+        let syn_expr_region = syn_node_decl.syn_expr_region(db);
+        Ok(Self::new(db, path, trais, syn_expr_region))
     }
 }

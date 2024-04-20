@@ -28,7 +28,7 @@ impl HasDecTemplate for TraitForTypeItemPath {
     }
 }
 
-// #[salsa::tracked(jar = DecSignatureJar)]
+#[salsa::tracked(jar = DecSignatureJar)]
 pub(crate) fn trai_for_ty_item_syn_declarative_signature_from_decl(
     db: &::salsa::Db,
     path: TraitForTypeItemPath,

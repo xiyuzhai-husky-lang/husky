@@ -59,7 +59,7 @@ impl HasHirDecl for TraitForTypeItemPath {
     }
 }
 
-#[salsa::tracked(jar = HirDeclJar)]
+#[salsa::tracked]
 fn trai_for_ty_item_hir_decl(
     db: &::salsa::Db,
     path: TraitForTypeItemPath,

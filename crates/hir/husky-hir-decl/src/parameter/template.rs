@@ -165,7 +165,7 @@ impl std::ops::AddAssign<Self> for HirTemplateParameterStats {
 }
 
 /// for associated items, the parent's template parameters count
-#[salsa::tracked(jar = HirDeclJar)]
+#[salsa::tracked]
 pub fn item_hir_template_parameter_stats(
     db: &::salsa::Db,
     item_path_id: ItemPathId,

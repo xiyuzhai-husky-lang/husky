@@ -77,7 +77,7 @@
                 hir_template_parameters: None,
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TypeItem(
+                        path: JavPath::TypeItem(
                             TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -133,7 +133,7 @@
                 ),
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::Type(
+                        path: JavPath::Type(
                             TypePath(`core::option::Option`, `Enum`),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -185,7 +185,7 @@
                 ),
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::Type(
+                        path: JavPath::Type(
                             TypePath(`core::option::Option`, `Enum`),
                         ),
                         hir_instantiation: HirInstantiation {
@@ -237,7 +237,7 @@
                 ),
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::Type(
+                        path: JavPath::Type(
                             TypePath(`core::option::Option`, `Enum`),
                         ),
                         hir_instantiation: HirInstantiation {

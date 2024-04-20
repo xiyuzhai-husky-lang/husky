@@ -84,6 +84,158 @@
         None,
     ),
     (
+        ItemSynNodePath::TypeVariant(
+            Room32,
+            TypeVariantSynNodePath(
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::TypeVariant(
+                        TypeVariantSynNodePathData {
+                            parent_ty_node_path: TypeSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                            disambiguated_item_path: DisambiguatedItemPath {
+                                maybe_ambiguous_item_path: TypeVariantPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 17,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemSynNodePath::TypeVariant(
+            Room32,
+            TypeVariantSynNodePath(
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::TypeVariant(
+                        TypeVariantSynNodePathData {
+                            parent_ty_node_path: TypeSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                            disambiguated_item_path: DisambiguatedItemPath {
+                                maybe_ambiguous_item_path: TypeVariantPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 18,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemSynNodePath::TypeVariant(
+            Room32,
+            TypeVariantSynNodePath(
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::TypeVariant(
+                        TypeVariantSynNodePathData {
+                            parent_ty_node_path: TypeSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                            disambiguated_item_path: DisambiguatedItemPath {
+                                maybe_ambiguous_item_path: TypeVariantPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 19,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemSynNodePath::TypeVariant(
+            Room32,
+            TypeVariantSynNodePath(
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::TypeVariant(
+                        TypeVariantSynNodePathData {
+                            parent_ty_node_path: TypeSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                            disambiguated_item_path: DisambiguatedItemPath {
+                                maybe_ambiguous_item_path: TypeVariantPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 20,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
+            ),
+        ),
+        None,
+    ),
+    (
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Form(
                 FormSynNodePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(

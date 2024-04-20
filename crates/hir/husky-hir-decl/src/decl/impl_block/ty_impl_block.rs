@@ -19,7 +19,7 @@ impl HasHirDecl for TypeImplBlockPath {
     }
 }
 
-#[salsa::tracked(jar = HirDeclJar)]
+#[salsa::tracked]
 fn ty_impl_block_hir_decl(db: &::salsa::Db, path: TypeImplBlockPath) -> TypeImplBlockHirDecl {
     let eth_template = path.eth_template(db).expect("ok");
     let syn_decl = path.syn_decl(db).expect("ok");

@@ -32,7 +32,6 @@ pub struct DecSignatureJar(
     TraitDecTemplate,
     trai_syn_dec_template,
     // Form
-    // form_signature,
     form_syn_dec_template,
     MajorValDecTemplate,
     MajorFunctionRitchieDecTemplate,
@@ -57,19 +56,19 @@ pub struct DecSignatureJar(
     TypeAssocValDecTemplate,
     TypeMemoizedFieldDecTemplate,
     // trait item
-    // trai_item_syn_dec_template,
+    trai_item_syn_dec_template,
     TraitAssocRitchieDecTemplate,
     TraitMethodRitchieDecTemplate,
     TraitAssocTypeDecTemplate,
     TraitAssocValDecTemplate,
     // type as trait item
-    // trai_for_ty_item_syn_declarative_signature_from_decl,
+    trai_for_ty_item_syn_declarative_signature_from_decl,
     TraitForTypeAssocRitchieDecTemplate,
     TraitForTypeMethodRitchieDecTemplate,
     TraitForTypeAssocTypeDecTemplate,
     TraitForTypeAssocValDecTemplate,
     // attr
-    // attr_dec_template,
+    attr_dec_template,
     DeriveAttrDecTemplate,
     DeriveAttrShardDecTemplate,
 );

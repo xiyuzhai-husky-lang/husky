@@ -38,3 +38,14 @@ pub struct EffectAttrSynDecl {
     // todo: effects
     pub syn_expr_region: SynExprRegion,
 }
+
+impl EffectAttrSynDecl {
+    pub(super) fn from_node(
+        path: AttrItemPath,
+        syn_node_decl: EffectAttrSynNodeDecl,
+        db: &::salsa::Db,
+    ) -> SynDeclResult<Self> {
+        let syn_expr_region = syn_node_decl.syn_expr_region(db);
+        Ok(Self::new(db, path, syn_expr_region))
+    }
+}

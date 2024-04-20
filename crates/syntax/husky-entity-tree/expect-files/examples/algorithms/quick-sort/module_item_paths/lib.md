@@ -28,11 +28,31 @@
             )`),
         ),
     ),
+    ItemPath::Attr(
+        Room32,
+        AttrItemPath(
+            ItemPathId(
+                Id {
+                    value: 138,
+                },
+            ),
+        ),
+    ),
     ItemPath::MajorItem(
         MajorItemPath::Form(
             FormPath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                 Fn,
             )`),
+        ),
+    ),
+    ItemPath::Attr(
+        Room32,
+        AttrItemPath(
+            ItemPathId(
+                Id {
+                    value: 139,
+                },
+            ),
         ),
     ),
 ]

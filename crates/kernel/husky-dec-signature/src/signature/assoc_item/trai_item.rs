@@ -40,7 +40,7 @@ impl HasDecTemplate for TraitItemPath {
     }
 }
 
-// #[salsa::tracked(jar = DecSignatureJar)]
+#[salsa::tracked(jar = DecSignatureJar)]
 pub(crate) fn trai_item_syn_dec_template(
     db: &::salsa::Db,
     path: TraitItemPath,

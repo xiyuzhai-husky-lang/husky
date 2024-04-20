@@ -23,6 +23,20 @@
         ),
     ),
     (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 135,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
         ImplBlock(
             TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath(
@@ -50,7 +64,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 137,
+                            value: 140,
                         },
                     ),
                 ),

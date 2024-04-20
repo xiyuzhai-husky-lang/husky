@@ -143,7 +143,7 @@
                 hir_template_parameters: None,
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::Form(
+                        path: JavPath::Form(
                             FormPath(`malamute::narrow_down`, `Ritchie(
                                 Gn,
                             )`),
