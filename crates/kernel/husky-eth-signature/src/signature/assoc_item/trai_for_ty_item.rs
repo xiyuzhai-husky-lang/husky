@@ -1,20 +1,20 @@
-mod assoc_fn;
+mod assoc_ritchie;
 mod assoc_ty;
 mod assoc_val;
-mod method_fn;
-mod method_function;
+mod method_curry;
+mod method_ritchie;
 
-pub use self::assoc_fn::*;
+pub use self::assoc_ritchie::*;
 pub use self::assoc_ty::*;
 pub use self::assoc_val::*;
-pub use self::method_fn::*;
+pub use self::method_ritchie::*;
 
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[enum_class::from_variants]
 pub enum TraitForTypeItemEthTemplate {
-    AssocFn(TraitForTypeAssocFnEthTemplate),
+    AssocFn(TraitForTypeAssocRitchieEthTemplate),
     AssocVal(TraitForTypeAssocValEthTemplate),
     AssocType(TraitForTypeAssocTypeEthTemplate),
     MethodFn(TraitForTypeMethodRitchieEthTemplate),

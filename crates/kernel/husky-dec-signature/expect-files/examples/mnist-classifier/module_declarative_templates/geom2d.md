@@ -820,7 +820,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::vector`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -900,7 +900,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::to`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -997,7 +997,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::norm`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -1077,7 +1077,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::dist`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -1209,7 +1209,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::point`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -1289,7 +1289,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::to`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -1386,7 +1386,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::norm`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -1466,7 +1466,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::dot`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -1563,7 +1563,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::cross`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -1660,7 +1660,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::angle`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -1757,7 +1757,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::rotation_direction_to`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -1854,7 +1854,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::angle_to`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -2002,7 +2002,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<mnist_classifier::geom2d::ClosedRange(0)>::relative_range`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -2099,7 +2099,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<mnist_classifier::geom2d::ClosedRange(0)>::relative_point`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -2231,7 +2231,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::relative_bounding_box`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -2328,7 +2328,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::relative_point`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -2425,7 +2425,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::xmin`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -2505,7 +2505,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::xmax`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -2585,7 +2585,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::ymin`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -2665,7 +2665,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::ymax`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -2780,7 +2780,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::xmin`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -2860,7 +2860,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::xmax`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -2940,7 +2940,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::ymin`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -3020,7 +3020,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::ymax`, `MethodRitchie(
                                 Fn,
                             )`),

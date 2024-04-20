@@ -289,7 +289,7 @@ fn transpile_hir_eager_expr_to_rust(
                         HirContract::Pure => ident.transpile_to_rust(builder),
                         HirContract::Move => todo!(),
                         HirContract::Borrow => todo!(),
-                        HirContract::BorrowMut => builder.method_fn_ident_mut(ident),
+                        HirContract::BorrowMut => builder.method_ritchie_ident_mut(ident),
                         HirContract::Const => todo!(),
                         HirContract::Leash => todo!(),
                         HirContract::At => todo!(),

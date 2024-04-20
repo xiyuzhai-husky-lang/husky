@@ -102,7 +102,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
-                TypeMethodFnHirDecl {
+                TypeMethodRitchieHirDecl {
                     path: TypeItemPath(`<core::raw_bits::r32(0)>::last_bits`, `MethodRitchie(
                         Fn,
                     )`),
@@ -200,7 +200,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
-                TypeMethodFnHirDecl {
+                TypeMethodRitchieHirDecl {
                     path: TypeItemPath(`<core::raw_bits::r32(0)>::ctz`, `MethodRitchie(
                         Fn,
                     )`),
@@ -272,7 +272,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
-                TypeMethodFnHirDecl {
+                TypeMethodRitchieHirDecl {
                     path: TypeItemPath(`<core::raw_bits::r32(0)>::co`, `MethodRitchie(
                         Fn,
                     )`),
@@ -344,7 +344,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
-                TypeMethodFnHirDecl {
+                TypeMethodRitchieHirDecl {
                     path: TypeItemPath(`<core::raw_bits::r32(0)>::span`, `MethodRitchie(
                         Fn,
                     )`),
@@ -416,7 +416,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
-                TypeMethodFnHirDecl {
+                TypeMethodRitchieHirDecl {
                     path: TypeItemPath(`<core::raw_bits::r32(0)>::right_mass`, `MethodRitchie(
                         Fn,
                     )`),

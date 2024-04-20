@@ -491,7 +491,7 @@ SynDeclSheet {
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
-                        TypeMethodFnSynDecl {
+                        TypeMethodRitchieSynDecl {
                             path: TypeItemPath(`<core::slice::Slice(0)>::len`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -779,7 +779,7 @@ SynDeclSheet {
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
-                        TypeMethodFnSynDecl {
+                        TypeMethodRitchieSynDecl {
                             path: TypeItemPath(`<core::slice::Slice(0)>::swap`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -2035,7 +2035,7 @@ SynDeclSheet {
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
-                        TypeMethodFnSynDecl {
+                        TypeMethodRitchieSynDecl {
                             path: TypeItemPath(`<core::slice::CyclicSlice(0)>::ilen`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -2323,7 +2323,7 @@ SynDeclSheet {
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
-                        TypeMethodFnSynDecl {
+                        TypeMethodRitchieSynDecl {
                             path: TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -2611,7 +2611,7 @@ SynDeclSheet {
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
-                        TypeMethodFnSynDecl {
+                        TypeMethodRitchieSynDecl {
                             path: TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -2899,7 +2899,7 @@ SynDeclSheet {
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
-                        TypeMethodFnSynDecl {
+                        TypeMethodRitchieSynDecl {
                             path: TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -3187,7 +3187,7 @@ SynDeclSheet {
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
-                        TypeMethodFnSynDecl {
+                        TypeMethodRitchieSynDecl {
                             path: TypeItemPath(`<core::slice::CyclicSlice(0)>::last`, `MethodRitchie(
                                 Fn,
                             )`),

@@ -67,7 +67,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<core::raw_bits::r32(0)>::last_bits`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -164,7 +164,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<core::raw_bits::r32(0)>::ctz`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -244,7 +244,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<core::raw_bits::r32(0)>::co`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -324,7 +324,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<core::raw_bits::r32(0)>::span`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -404,7 +404,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<core::raw_bits::r32(0)>::right_mass`, `MethodRitchie(
                                 Fn,
                             )`),

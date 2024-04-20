@@ -373,7 +373,7 @@ impl<E> TranspileToRustWith<E> for (TypeItemPath, &LinInstantiation) {
                     }
                     LinTermSymbolResolution::SelfQual(place) => match place {
                         qual::LinQual::Ref => ident.transpile_to_rust(builder),
-                        qual::LinQual::RefMut => builder.method_fn_ident_mut(ident),
+                        qual::LinQual::RefMut => builder.method_ritchie_ident_mut(ident),
                         qual::LinQual::Transient => todo!(),
                     },
                     _ => unreachable!(),

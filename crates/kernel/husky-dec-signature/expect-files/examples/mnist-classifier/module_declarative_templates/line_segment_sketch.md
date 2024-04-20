@@ -895,7 +895,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::displacement`, `MethodRitchie(
                                 Fn,
                             )`),

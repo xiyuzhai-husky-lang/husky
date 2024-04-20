@@ -1,6 +1,6 @@
-pub(crate) mod method_fn;
+pub(crate) mod method_ritchie;
 
-use self::{method_fn::MethodFnFlySignature, quary::FlyQuary};
+use self::{method_ritchie::MethodFnFlySignature, quary::FlyQuary};
 use super::*;
 
 #[salsa::derive_debug_with_db]

@@ -1,16 +1,16 @@
-mod assoc_fn;
+mod assoc_ritchie;
 mod assoc_ty;
 mod assoc_val;
 mod memo_field;
-mod method_fn;
-mod method_function;
+mod method_curry;
+mod method_ritchie;
 
-pub use self::assoc_fn::*;
+pub use self::assoc_ritchie::*;
 pub use self::assoc_ty::*;
 pub use self::assoc_val::*;
 pub use self::memo_field::*;
-pub use self::method_fn::*;
-pub use self::method_function::*;
+pub use self::method_curry::*;
+pub use self::method_ritchie::*;
 
 use crate::*;
 
@@ -19,7 +19,7 @@ use crate::*;
 #[enum_class::from_variants]
 pub enum TypeItemDecTemplate {
     AssocFn(TypeAssocFnDecTemplate),
-    MethodFn(TypeMethodFnDecTemplate),
+    MethodFn(TypeMethodRitchieDecTemplate),
     AssocType(TypeAssocTypeDecTemplate),
     AssocVal(TypeAssocValDecTemplate),
     MemoizedField(TypeMemoizedFieldDecTemplate),
@@ -30,7 +30,7 @@ pub enum TypeItemDecTemplate {
 #[enum_class::from_variants]
 pub enum TypeItemDecTemplates {
     AssocFn(SmallVecImpl<TypeAssocFnDecTemplate>),
-    MethodFn(SmallVecImpl<TypeMethodFnDecTemplate>),
+    MethodFn(SmallVecImpl<TypeMethodRitchieDecTemplate>),
     AssocType(SmallVecImpl<TypeAssocTypeDecTemplate>),
     AssocVal(SmallVecImpl<TypeAssocValDecTemplate>),
     MemoizedField(SmallVecImpl<TypeMemoizedFieldDecTemplate>),
@@ -67,7 +67,7 @@ pub(crate) fn ty_item_syn_dec_template(
             TypeAssocFnDecTemplate::from_decl(db, path, decl).map(Into::into)
         }
         TypeItemSynDecl::MethodFn(decl) => {
-            TypeMethodFnDecTemplate::from_decl(db, path, decl).map(Into::into)
+            TypeMethodRitchieDecTemplate::from_decl(db, path, decl).map(Into::into)
         }
         TypeItemSynDecl::AssocType(decl) => {
             TypeAssocTypeDecTemplate::from_decl(db, path, decl).map(Into::into)
@@ -83,8 +83,8 @@ pub(crate) fn ty_item_syn_dec_template(
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum TypeMethodDecTemplates {
-    MethodFn(SmallVecImpl<TypeMethodFnDecTemplate>),
-    MethodFunction(SmallVecImpl<TypeMethodFunctionDecTemplate>),
+    MethodFn(SmallVecImpl<TypeMethodRitchieDecTemplate>),
+    MethodFunction(SmallVecImpl<TypeMethodCurryDecTemplate>),
 }
 
 pub trait HasTypeMethodDecTemplates: Copy {

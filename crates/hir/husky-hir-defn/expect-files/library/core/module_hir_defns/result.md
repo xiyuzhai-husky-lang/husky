@@ -462,14 +462,14 @@
     HirDefn::AssocItem(
         AssocItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::AssocFn(
-                TraitForTypeAssocFnHirDefn {
+                TraitForTypeAssocRitchieHirDefn {
                     path: TraitForTypeItemPath(
                         `<core::result::Result as core::ops::Unveil(0)>::unveil`,
                         TraitItemKind::AssocRitchie(
                             RitchieItemKind::Fn,
                         ),
                     ),
-                    hir_decl: TraitForTypeAssocFnHirDecl {
+                    hir_decl: TraitForTypeAssocRitchieHirDecl {
                         path: TraitForTypeItemPath(
                             `<core::result::Result as core::ops::Unveil(0)>::unveil`,
                             TraitItemKind::AssocRitchie(

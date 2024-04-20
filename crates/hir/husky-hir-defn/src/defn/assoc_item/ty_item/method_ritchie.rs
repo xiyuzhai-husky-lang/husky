@@ -1,32 +1,32 @@
 use super::*;
-use husky_hir_decl::decl::TraitForTypeMethodRitchieHirDecl;
+use husky_hir_decl::decl::TypeMethodRitchieHirDecl;
 
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
-pub struct TraitForTypeMethodRitchieHirDefn {
-    pub path: TraitForTypeItemPath,
-    pub hir_decl: TraitForTypeMethodRitchieHirDecl,
+pub struct TypeMethodRitchieHirDefn {
+    pub path: TypeItemPath,
+    pub hir_decl: TypeMethodRitchieHirDecl,
     pub eager_body_with_hir_eager_expr_region: Option<(HirEagerExprIdx, HirEagerExprRegion)>,
 }
 
-impl From<TraitForTypeMethodRitchieHirDefn> for AssocItemHirDefn {
-    fn from(hir_defn: TraitForTypeMethodRitchieHirDefn) -> Self {
-        AssocItemHirDefn::TraitForTypeItem(hir_defn.into())
+impl From<TypeMethodRitchieHirDefn> for AssocItemHirDefn {
+    fn from(hir_defn: TypeMethodRitchieHirDefn) -> Self {
+        AssocItemHirDefn::TypeItem(hir_defn.into())
     }
 }
 
-impl From<TraitForTypeMethodRitchieHirDefn> for HirDefn {
-    fn from(hir_defn: TraitForTypeMethodRitchieHirDefn) -> Self {
+impl From<TypeMethodRitchieHirDefn> for HirDefn {
+    fn from(hir_defn: TypeMethodRitchieHirDefn) -> Self {
         HirDefn::AssocItem(hir_defn.into())
     }
 }
 
-impl TraitForTypeMethodRitchieHirDefn {
+impl TypeMethodRitchieHirDefn {
     pub(super) fn new(
         db: &::salsa::Db,
-        path: TraitForTypeItemPath,
-        hir_decl: TraitForTypeMethodRitchieHirDecl,
-    ) -> TraitForTypeMethodRitchieHirDefn {
-        TraitForTypeMethodRitchieHirDefn::new_inner(
+        path: TypeItemPath,
+        hir_decl: TypeMethodRitchieHirDecl,
+    ) -> Self {
+        TypeMethodRitchieHirDefn::new_inner(
             db,
             path,
             hir_decl,
@@ -35,28 +35,27 @@ impl TraitForTypeMethodRitchieHirDefn {
     }
 
     pub fn hir_eager_expr_region(self, db: &::salsa::Db) -> Option<HirEagerExprRegion> {
-        self.eager_body_with_hir_eager_expr_region(db)
-            .map(|(_, region)| region)
+        Some(self.eager_body_with_hir_eager_expr_region(db)?.1)
     }
 
     pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
-        trai_for_ty_method_fn_hir_defn_dependencies(db, self)
+        ty_method_ritchie_hir_defn_dependencies(db, self)
     }
 
     pub(super) fn version_stamp(self, db: &::salsa::Db) -> HirDefnVersionStamp {
-        trai_for_ty_method_fn_hir_defn_version_stamp(db, self)
+        ty_method_ritchie_hir_defn_version_stamp(db, self)
     }
 }
 
 #[salsa::tracked(jar = HirDefnJar)]
-fn trai_for_ty_method_fn_hir_defn_dependencies(
+fn ty_method_ritchie_hir_defn_dependencies(
     db: &::salsa::Db,
-    hir_defn: TraitForTypeMethodRitchieHirDefn,
+    hir_defn: TypeMethodRitchieHirDefn,
 ) -> HirDefnDependencies {
     let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
     let hir_decl = hir_defn.hir_decl(db);
-    builder.add_hir_eager_expr_region(hir_decl.hir_eager_expr_region(db));
     builder.add_item_path(hir_decl.path(db).impl_block(db));
+    builder.add_hir_eager_expr_region(hir_decl.hir_eager_expr_region(db));
     for param in hir_decl.parenate_parameters(db).iter() {
         match *param {
             HirEagerParenateParameter::Simple { ty, .. } => builder.add_hir_ty(ty),
@@ -72,9 +71,9 @@ fn trai_for_ty_method_fn_hir_defn_dependencies(
 }
 
 #[salsa::tracked(jar = HirDefnJar)]
-fn trai_for_ty_method_fn_hir_defn_version_stamp(
+fn ty_method_ritchie_hir_defn_version_stamp(
     db: &::salsa::Db,
-    hir_defn: TraitForTypeMethodRitchieHirDefn,
+    hir_defn: TypeMethodRitchieHirDefn,
 ) -> HirDefnVersionStamp {
     HirDefnVersionStamp::new(hir_defn, db)
 }

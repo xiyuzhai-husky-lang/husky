@@ -1142,7 +1142,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
                                 Fn,
                             )`),

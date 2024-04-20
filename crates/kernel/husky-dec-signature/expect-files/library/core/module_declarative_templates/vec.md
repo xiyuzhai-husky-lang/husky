@@ -85,7 +85,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -163,7 +163,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -264,7 +264,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<core::vec::Vec(0)>::first`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -348,7 +348,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<core::vec::Vec(0)>::last`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -432,7 +432,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<core::vec::Vec(0)>::pop`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -516,7 +516,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<core::vec::Vec(0)>::collect_leashes`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -590,7 +590,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<core::vec::Vec(0)>::cyclic_slice_leashed`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -697,7 +697,7 @@
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<core::vec::Vec(0)>::pop_with_largest_opt_f32`, `MethodRitchie(
                                 Fn,
                             )`),

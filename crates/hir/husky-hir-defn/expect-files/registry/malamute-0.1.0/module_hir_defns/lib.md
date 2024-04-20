@@ -335,14 +335,14 @@
     HirDefn::AssocItem(
         AssocItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::AssocFn(
-                TraitForTypeAssocFnHirDefn {
+                TraitForTypeAssocRitchieHirDefn {
                     path: TraitForTypeItemPath(
                         `<malamute::OneVsAll as core::default::Default(0)>::default`,
                         TraitItemKind::AssocRitchie(
                             RitchieItemKind::Fn,
                         ),
                     ),
-                    hir_decl: TraitForTypeAssocFnHirDecl {
+                    hir_decl: TraitForTypeAssocRitchieHirDecl {
                         path: TraitForTypeItemPath(
                             `<malamute::OneVsAll as core::default::Default(0)>::default`,
                             TraitItemKind::AssocRitchie(
@@ -764,14 +764,14 @@
     HirDefn::AssocItem(
         AssocItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::AssocFn(
-                TraitForTypeAssocFnHirDefn {
+                TraitForTypeAssocRitchieHirDefn {
                     path: TraitForTypeItemPath(
                         `<malamute::Class as core::ops::Unveil(0)>::unveil`,
                         TraitItemKind::AssocRitchie(
                             RitchieItemKind::Fn,
                         ),
                     ),
-                    hir_decl: TraitForTypeAssocFnHirDecl {
+                    hir_decl: TraitForTypeAssocRitchieHirDecl {
                         path: TraitForTypeItemPath(
                             `<malamute::Class as core::ops::Unveil(0)>::unveil`,
                             TraitItemKind::AssocRitchie(
@@ -1556,14 +1556,14 @@
     HirDefn::AssocItem(
         AssocItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::AssocFn(
-                TraitForTypeAssocFnHirDefn {
+                TraitForTypeAssocRitchieHirDefn {
                     path: TraitForTypeItemPath(
                         `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
                         TraitItemKind::AssocRitchie(
                             RitchieItemKind::Fn,
                         ),
                     ),
-                    hir_decl: TraitForTypeAssocFnHirDecl {
+                    hir_decl: TraitForTypeAssocRitchieHirDecl {
                         path: TraitForTypeItemPath(
                             `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
                             TraitItemKind::AssocRitchie(

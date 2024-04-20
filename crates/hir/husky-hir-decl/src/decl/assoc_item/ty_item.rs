@@ -2,13 +2,13 @@ mod assoc_fn;
 mod assoc_ty;
 mod assoc_val;
 mod memo_field;
-mod method_fn;
+mod method_ritchie;
 
 pub use self::assoc_fn::*;
 pub use self::assoc_ty::*;
 pub use self::assoc_val::*;
 pub use self::memo_field::*;
-pub use self::method_fn::*;
+pub use self::method_ritchie::*;
 
 use super::*;
 use husky_syn_decl::decl::TypeItemSynDecl;
@@ -20,7 +20,7 @@ pub enum TypeItemHirDecl {
     AssocFn(TypeAssocFnHirDecl),
     AssocType(TypeAssocTypeHirDecl),
     AssocVal(TypeAssocValHirDecl),
-    MethodFn(TypeMethodFnHirDecl),
+    MethodFn(TypeMethodRitchieHirDecl),
     MemoizedField(TypeMemoFieldHirDecl),
 }
 
@@ -75,7 +75,7 @@ pub(crate) fn ty_item_hir_decl(db: &::salsa::Db, path: TypeItemPath) -> Option<T
             Some(TypeAssocFnHirDecl::from_syn(path, syn_decl, db).into())
         }
         TypeItemSynDecl::MethodFn(syn_decl) => {
-            Some(TypeMethodFnHirDecl::from_syn(path, syn_decl, db).into())
+            Some(TypeMethodRitchieHirDecl::from_syn(path, syn_decl, db).into())
         }
         TypeItemSynDecl::AssocType(syn_decl) => {
             Some(TypeAssocTypeHirDecl::from_syn(path, syn_decl, db).into())
@@ -92,7 +92,7 @@ pub(crate) fn ty_item_hir_decl(db: &::salsa::Db, path: TypeItemPath) -> Option<T
 //     Some(TypeAssocFnHirDecl::from_syn(path, eth_template, db).into())
 // }
 // TypeItemEthTemplate::MethodFn(syn_decl) => {
-//     Some(TypeMethodFnHirDecl::from_syn(path, syn_decl, db).into())
+//     Some(TypeMethodRitchieHirDecl::from_syn(path, syn_decl, db).into())
 // }
 // TypeItemEthTemplate::MethodFunction(_) => None,
 // TypeItemEthTemplate::MemoizedField(eth_template) => {
@@ -103,7 +103,7 @@ pub(crate) fn ty_item_hir_decl(db: &::salsa::Db, path: TypeItemPath) -> Option<T
 //     TypeAssocFnHirDecl::from_dec(db, path, template)?.into()
 // }
 // TypeItemDecTemplate::MethodFn(template) => {
-//     TypeMethodFnHirDecl::from_dec(db, template)?.into()
+//     TypeMethodRitchieHirDecl::from_dec(db, template)?.into()
 // }
 // TypeItemDecTemplate::AssocType(_) => todo!(),
 // TypeItemDecTemplate::AssocVal(_) => todo!(),

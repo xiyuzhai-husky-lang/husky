@@ -1184,13 +1184,14 @@ SynDeclSheet {
             SynDecl::AssocItem(
                 AssocItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::AssocFn(
-                        TraitForTypeAssocFnSynDecl {
+                        TraitForTypeAssocRitchieSynDecl {
                             path: TraitForTypeItemPath(
                                 `<core::result::Result as core::ops::Unveil(0)>::unveil`,
                                 TraitItemKind::AssocRitchie(
                                     RitchieItemKind::Fn,
                                 ),
                             ),
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameters: [],
                             parenate_parameters: [
                                 ParenateParameterSyndicate::Simple {

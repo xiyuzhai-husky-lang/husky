@@ -1,4 +1,4 @@
-use husky_hir_decl::decl::{TypeMemoFieldHirDecl, TypeMethodFnHirDecl};
+use husky_hir_decl::decl::{TypeMemoFieldHirDecl, TypeMethodRitchieHirDecl};
 
 use super::*;
 
@@ -34,7 +34,7 @@ impl TranspileToRustWith for TypeAssocFnHirDefn {
     }
 }
 
-impl TranspileToRustWith for TypeMethodFnHirDefn {
+impl TranspileToRustWith for TypeMethodRitchieHirDefn {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
         self.hir_decl(db).transpile_to_rust(builder);
@@ -47,7 +47,7 @@ impl TranspileToRustWith for TypeMethodFnHirDefn {
     }
 }
 
-impl TranspileToRustWith for TypeMethodFnHirDecl {
+impl TranspileToRustWith for TypeMethodRitchieHirDecl {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
         let hir_eager_expr_region = self.hir_eager_expr_region(db);

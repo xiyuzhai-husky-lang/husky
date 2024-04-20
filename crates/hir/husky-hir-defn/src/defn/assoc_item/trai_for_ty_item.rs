@@ -1,14 +1,14 @@
 mod assoc_fn;
 mod assoc_ty;
 mod assoc_val;
-mod method_fn;
+mod method_ritchie;
 
 use husky_hir_decl::decl::TraitForTypeItemHirDecl;
 
 pub use self::assoc_fn::*;
 pub use self::assoc_ty::*;
 pub use self::assoc_val::*;
-pub use self::method_fn::*;
+pub use self::method_ritchie::*;
 
 use super::*;
 
@@ -16,7 +16,7 @@ use super::*;
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum TraitForTypeItemHirDefn {
-    AssocFn(TraitForTypeAssocFnHirDefn),
+    AssocFn(TraitForTypeAssocRitchieHirDefn),
     MethodFn(TraitForTypeMethodRitchieHirDefn),
     AssocType(TraitForTypeAssocTypeHirDefn),
     AssocVal(TraitForTypeAssocValHirDefn),
@@ -106,7 +106,7 @@ pub(crate) fn trai_for_ty_item_hir_defn(
 ) -> Option<TraitForTypeItemHirDefn> {
     match path.hir_decl(db)? {
         TraitForTypeItemHirDecl::AssocFn(hir_decl) => {
-            Some(TraitForTypeAssocFnHirDefn::new(db, path, hir_decl).into())
+            Some(TraitForTypeAssocRitchieHirDefn::new(db, path, hir_decl).into())
         }
         TraitForTypeItemHirDecl::MethodFn(hir_decl) => {
             Some(TraitForTypeMethodRitchieHirDefn::new(db, path, hir_decl).into())

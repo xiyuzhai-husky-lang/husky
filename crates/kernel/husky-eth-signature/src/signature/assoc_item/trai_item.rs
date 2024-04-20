@@ -1,11 +1,11 @@
-mod assoc_fn;
+mod assoc_ritchie;
 mod assoc_val;
-mod method_fn;
-mod method_function;
+mod method_curry;
+mod method_ritchie;
 
-pub use self::assoc_fn::*;
+pub use self::assoc_ritchie::*;
 
-pub use self::method_fn::*;
+pub use self::method_ritchie::*;
 
 use super::*;
 
