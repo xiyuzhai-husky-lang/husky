@@ -72,7 +72,7 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
                     ..
                 } => self.add_item_path(unveil_assoc_fn_path),
                 HirEagerExprData::Unwrap { .. } => (),
-                HirEagerExprData::TypeConstructorFnCall { path, .. } => self.add_item_path(path),
+                HirEagerExprData::TypeConstructorCall { path, .. } => self.add_item_path(path),
                 HirEagerExprData::TypeVariantConstructorCall { path, .. } => {
                     self.add_item_path(path.parent_ty_path(db))
                 }
@@ -80,7 +80,7 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
                 HirEagerExprData::AssocFunctionRitchieCall { path, .. } => self.add_item_path(path),
                 HirEagerExprData::PropsStructField { .. } => (),
                 HirEagerExprData::MemoizedField { path, .. } => self.add_item_path(path),
-                HirEagerExprData::MethodFnCall {
+                HirEagerExprData::MethodRitchieCall {
                     path,
                     ref instantiation,
                     ..
@@ -151,7 +151,7 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
                     self.add_indirections(indirections);
                     self.add_instantiation(instantiation)
                 }
-                HirLazyExprData::MethodFnCall { path, .. } => {
+                HirLazyExprData::MethodRitchieCall { path, .. } => {
                     // todo!();
                     self.add_item_path(path)
                 }

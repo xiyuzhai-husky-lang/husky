@@ -729,7 +729,7 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::MethodFnCall {
+                                            data: HirEagerExprData::MethodRitchieCall {
                                                 self_argument: 1,
                                                 self_contract: Pure,
                                                 ident: `visualize`,
@@ -1180,7 +1180,7 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::MethodFnCall {
+                                            data: HirEagerExprData::MethodRitchieCall {
                                                 self_argument: 1,
                                                 self_contract: Leash,
                                                 ident: `collect_leashes`,
@@ -1315,7 +1315,7 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::MethodFnCall {
+                                            data: HirEagerExprData::MethodRitchieCall {
                                                 self_argument: 4,
                                                 self_contract: BorrowMut,
                                                 ident: `pop_with_largest_opt_f32`,
@@ -1471,7 +1471,7 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::MethodFnCall {
+                                            data: HirEagerExprData::MethodRitchieCall {
                                                 self_argument: 8,
                                                 self_contract: BorrowMut,
                                                 ident: `pop_with_largest_opt_f32`,
@@ -1556,7 +1556,7 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::MethodFnCall {
+                                            data: HirEagerExprData::MethodRitchieCall {
                                                 self_argument: 7,
                                                 self_contract: BorrowMut,
                                                 ident: `push`,
@@ -1722,7 +1722,7 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::MethodFnCall {
+                                            data: HirEagerExprData::MethodRitchieCall {
                                                 self_argument: 13,
                                                 self_contract: BorrowMut,
                                                 ident: `pop_with_largest_opt_f32`,
@@ -1807,7 +1807,7 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::MethodFnCall {
+                                            data: HirEagerExprData::MethodRitchieCall {
                                                 self_argument: 12,
                                                 self_contract: BorrowMut,
                                                 ident: `push`,
@@ -1928,7 +1928,7 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::TypeConstructorFnCall {
+                                            data: HirEagerExprData::TypeConstructorCall {
                                                 path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -2278,7 +2278,7 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::MethodFnCall {
+                                            data: HirEagerExprData::MethodRitchieCall {
                                                 self_argument: 4,
                                                 self_contract: Pure,
                                                 ident: `ilen`,
@@ -2433,7 +2433,7 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::MethodFnCall {
+                                            data: HirEagerExprData::MethodRitchieCall {
                                                 self_argument: 9,
                                                 self_contract: Pure,
                                                 ident: `ilen`,
@@ -3108,7 +3108,7 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::MethodFnCall {
+                                            data: HirEagerExprData::MethodRitchieCall {
                                                 self_argument: 8,
                                                 self_contract: Pure,
                                                 ident: `span`,
@@ -3135,7 +3135,7 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::MethodFnCall {
+                                            data: HirEagerExprData::MethodRitchieCall {
                                                 self_argument: 4,
                                                 self_contract: Pure,
                                                 ident: `max`,
@@ -3616,7 +3616,7 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::MethodFnCall {
+                                            data: HirEagerExprData::MethodRitchieCall {
                                                 self_argument: 7,
                                                 self_contract: Pure,
                                                 ident: `span`,
@@ -4617,7 +4617,7 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::MethodFnCall {
+                                            data: HirEagerExprData::MethodRitchieCall {
                                                 self_argument: 30,
                                                 self_contract: Pure,
                                                 ident: `co`,
@@ -4905,7 +4905,7 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::MethodFnCall {
+                                            data: HirEagerExprData::MethodRitchieCall {
                                                 self_argument: 42,
                                                 self_contract: Pure,
                                                 ident: `co`,
@@ -5053,7 +5053,7 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::TypeConstructorFnCall {
+                                            data: HirEagerExprData::TypeConstructorCall {
                                                 path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -6552,7 +6552,7 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::MethodFnCall {
+                                            data: HirEagerExprData::MethodRitchieCall {
                                                 self_argument: 18,
                                                 self_contract: Pure,
                                                 ident: `span`,
@@ -7422,7 +7422,7 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::MethodFnCall {
+                                            data: HirEagerExprData::MethodRitchieCall {
                                                 self_argument: 18,
                                                 self_contract: Pure,
                                                 ident: `right_mass`,

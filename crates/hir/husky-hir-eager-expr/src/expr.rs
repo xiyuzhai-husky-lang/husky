@@ -106,7 +106,7 @@ pub enum HirEagerExprData {
         opd: HirEagerExprIdx,
         ty: HirType,
     },
-    TypeConstructorFnCall {
+    TypeConstructorCall {
         path: TypePath,
         instantiation: HirInstantiation,
         arguments: SmallVec<[HirEagerRitchieArgument; 4]>,
@@ -139,7 +139,7 @@ pub enum HirEagerExprData {
         path: AssocItemPath,
         instantiation: HirInstantiation,
     },
-    MethodFnCall {
+    MethodRitchieCall {
         self_argument: HirEagerExprIdx,
         self_contract: HirContract,
         ident: Ident,
@@ -339,7 +339,7 @@ impl ToHirEager for SemaExprIdx {
                     } => match path {
                         PrincipalEntityPath::Module(_) => unreachable!(),
                         PrincipalEntityPath::MajorItem(path) => match path {
-                            MajorItemPath::Type(path) => HirEagerExprData::TypeConstructorFnCall {
+                            MajorItemPath::Type(path) => HirEagerExprData::TypeConstructorCall {
                                 path,
                                 instantiation: HirInstantiation::from_fly(
                                     instantiation.as_ref().unwrap(),
@@ -447,7 +447,7 @@ impl ToHirEager for SemaExprIdx {
                 let MethodFlySignature::MethodFn(signature) = dispatch.signature() else {
                     unreachable!()
                 };
-                HirEagerExprData::MethodFnCall {
+                HirEagerExprData::MethodRitchieCall {
                     self_argument: self_argument_sem_expr_idx.to_hir_eager(builder),
                     self_contract: HirContract::from_contract(self_contract),
                     ident: ident_token.ident(),

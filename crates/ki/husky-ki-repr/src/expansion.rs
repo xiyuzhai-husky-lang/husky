@@ -580,7 +580,7 @@ impl<'a> KiReprExpansionBuilder<'a> {
                     self.build_expr(ki_domain_repr_guard, owner)
                 )],
             ),
-            HirLazyExprData::MethodFnCall {
+            HirLazyExprData::MethodRitchieCall {
                 self_argument,
                 path,
 

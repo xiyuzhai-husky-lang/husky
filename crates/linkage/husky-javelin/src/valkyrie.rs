@@ -145,7 +145,7 @@ impl ValkyrieRides {
                     PrincipalEntityPath::TypeVariant(_path) => (),
                 },
                 HirEagerExprData::Be { src: _, pattern: _ } => (),
-                HirEagerExprData::TypeConstructorFnCall {
+                HirEagerExprData::TypeConstructorCall {
                     path,
                     ref instantiation,
                     ..
@@ -175,7 +175,7 @@ impl ValkyrieRides {
                 {
                     ()
                 }
-                HirEagerExprData::MethodFnCall {
+                HirEagerExprData::MethodRitchieCall {
                     path,
                     ref instantiation,
                     ..
@@ -279,7 +279,7 @@ impl ValkyrieRides {
                         self.try_add_path_leading_ride(javelin_path, instantiation)
                     }
                 }
-                HirLazyExprData::MethodFnCall {
+                HirLazyExprData::MethodRitchieCall {
                     path,
                     ref instantiation,
                     ..

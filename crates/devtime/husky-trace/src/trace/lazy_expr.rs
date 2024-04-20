@@ -99,9 +99,8 @@ impl LazyExprTraceData {
         match self.hir_lazy_expr_region.hir_lazy_expr_arena(db)[hir_eager_expr_idx] {
             HirLazyExprData::FunctionRitchieItemCall { path, .. } => path.hir_defn(db).is_some(),
             HirLazyExprData::AssocFunctionRitchieCall { path, .. } => path.hir_defn(db).is_some(),
-            HirLazyExprData::MethodFnCall { path, .. } => path.hir_defn(db).is_some(),
+            HirLazyExprData::MethodRitchieCall { path, .. } => path.hir_defn(db).is_some(),
             HirLazyExprData::AssocRitchie { path } => path.hir_defn(db).is_some(),
-            HirLazyExprData::FunctionRitchieItemCall { path, .. } => path.hir_defn(db).is_some(),
             HirLazyExprData::Block { stmts: _ } => unreachable!(),
             _ => false,
         }
@@ -169,7 +168,7 @@ impl LazyExprTraceData {
                 );
                 subtraces
             }
-            HirLazyExprData::MethodFnCall { path, .. } => {
+            HirLazyExprData::MethodRitchieCall { path, .. } => {
                 let SemaExprData::FunctionRitchieCall {
                     ref ritchie_parameter_argument_matches,
                     ..
