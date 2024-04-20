@@ -17,8 +17,8 @@ impl MemberSignature for MethodFlySignature {
     }
 }
 
-// impl From<&TraitForTypeMethodFnEtherealSignature> for MethodFlySignature {
-//     fn from(sig: &TraitForTypeMethodFnEtherealSignature) -> Self {
+// impl From<&TraitForTypeMethodRitchieEtherealSignature> for MethodFlySignature {
+//     fn from(sig: &TraitForTypeMethodRitchieEtherealSignature) -> Self {
 //         MethodFlySignature::MethodFn(sig.into())
 //     }
 // }

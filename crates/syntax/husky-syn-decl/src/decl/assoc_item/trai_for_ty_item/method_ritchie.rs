@@ -1,11 +1,12 @@
+use super::*;
+use husky_entity_kind::ritchie::RitchieItemKind;
 use husky_entity_path::trai_for_ty_impl_block::TraitForTypeImplBlockPath;
 
-use super::*;
-
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
-pub struct TraitForTypeMethodFnSynNodeDecl {
+pub struct TraitForTypeMethodRitchieSynNodeDecl {
     #[id]
     pub syn_node_path: TraitForTypeItemSynNodePath,
+    pub ritchie_item_kind: RitchieItemKind,
     #[return_ref]
     pub template_parameter_decl_list: SynNodeDeclResult<Option<SynTemplateParameterSyndicateList>>,
     #[return_ref]
@@ -19,7 +20,7 @@ pub struct TraitForTypeMethodFnSynNodeDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl TraitForTypeMethodFnSynNodeDecl {
+impl TraitForTypeMethodRitchieSynNodeDecl {
     pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         SmallVec::from_iter(
             self.template_parameter_decl_list(db)
@@ -39,10 +40,11 @@ impl TraitForTypeMethodFnSynNodeDecl {
 }
 
 impl<'a> DeclParser<'a> {
-    pub(super) fn parse_trai_for_ty_method_fn_node_decl(
+    pub(super) fn parse_trai_for_ty_method_ritchie_node_decl(
         &self,
         syn_node_path: TraitForTypeItemSynNodePath,
-    ) -> TraitForTypeMethodFnSynNodeDecl {
+        ritchie_item_kind: RitchieItemKind,
+    ) -> TraitForTypeMethodRitchieSynNodeDecl {
         let db = self.db();
         let impl_block_syn_node_decl = syn_node_path.data(db).impl_block(db).syn_node_decl(db);
         let mut parser = self.expr_parser(
@@ -63,9 +65,10 @@ impl<'a> DeclParser<'a> {
             Ok(None)
         };
         let eol_colon = parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEolColon);
-        TraitForTypeMethodFnSynNodeDecl::new(
+        TraitForTypeMethodRitchieSynNodeDecl::new(
             db,
             syn_node_path,
+            ritchie_item_kind,
             template_parameter_decl_list,
             parenate_parameter_decl_list,
             light_arrow_token,
@@ -77,9 +80,10 @@ impl<'a> DeclParser<'a> {
 }
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
-pub struct TraitForTypeMethodFnSynDecl {
+pub struct TraitForTypeMethodRitchieSynDecl {
     #[id]
     pub path: TraitForTypeItemPath,
+    pub ritchie_item_kind: RitchieItemKind,
     #[return_ref]
     pub template_parameters: TemplateSynParametersData,
     pub self_value_parameter: Option<SelfValueParameterSyndicate>,
@@ -89,12 +93,13 @@ pub struct TraitForTypeMethodFnSynDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl TraitForTypeMethodFnSynDecl {
+impl TraitForTypeMethodRitchieSynDecl {
     pub(super) fn from_node_decl(
         db: &::salsa::Db,
         path: TraitForTypeItemPath,
-        syn_node_decl: TraitForTypeMethodFnSynNodeDecl,
+        syn_node_decl: TraitForTypeMethodRitchieSynNodeDecl,
     ) -> SynDeclResult<Self> {
+        let ritchie_item_kind = syn_node_decl.ritchie_item_kind(db);
         let template_parameters = syn_node_decl
             .template_parameter_decl_list(db)
             .as_ref()?
@@ -116,9 +121,10 @@ impl TraitForTypeMethodFnSynDecl {
             .collect();
         let return_ty = *syn_node_decl.return_ty(db).as_ref()?;
         let syn_expr_region = syn_node_decl.syn_expr_region(db);
-        Ok(TraitForTypeMethodFnSynDecl::new(
+        Ok(TraitForTypeMethodRitchieSynDecl::new(
             db,
             path,
+            ritchie_item_kind,
             template_parameters,
             self_value_parameter,
             parenate_parameters,

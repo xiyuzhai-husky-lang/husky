@@ -767,7 +767,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TraitForTypeItem(
             TraitForTypeItemHirDecl::MethodFn(
-                TraitForTypeMethodFnHirDecl {
+                TraitForTypeMethodRitchieHirDecl {
                     path: TraitForTypeItemPath(
                         `<mnist_classifier::raw_contour::RawContour as core::visual::Visualize(0)>::visualize`,
                         TraitItemKind::MethodRitchie(

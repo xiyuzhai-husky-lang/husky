@@ -2117,7 +2117,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::AssocItem(
                 AssocItemSynNodeDecl::TraitForTypeItem(
                     TraitForTypeItemSynNodeDecl::MethodFn(
-                        TraitForTypeMethodFnSynNodeDecl {
+                        TraitForTypeMethodRitchieSynNodeDecl {
                             syn_node_path: TraitForTypeItemSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::AssocItem(
@@ -2137,6 +2137,7 @@ SynNodeDeclSheet {
                                     ),
                                 },
                             ),
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameter_decl_list: Ok(
                                 None,
                             ),

@@ -1,7 +1,7 @@
 use crate::*;
 
 #[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
-pub struct TraitForTypeMethodFnDecTemplate {
+pub struct TraitForTypeMethodRitchieDecTemplate {
     pub self_ty: DecTerm,
     #[return_ref]
     pub template_parameters: DecTemplateParameters,
@@ -11,10 +11,10 @@ pub struct TraitForTypeMethodFnDecTemplate {
     pub return_ty: DecTerm,
 }
 
-impl TraitForTypeMethodFnDecTemplate {
+impl TraitForTypeMethodRitchieDecTemplate {
     pub(super) fn from_decl(
         db: &::salsa::Db,
-        decl: TraitForTypeMethodFnSynDecl,
+        decl: TraitForTypeMethodRitchieSynDecl,
     ) -> DecSignatureResult<Self> {
         let self_ty = decl
             .path(db)
@@ -47,7 +47,7 @@ impl TraitForTypeMethodFnDecTemplate {
             Some(return_ty) => dec_term_region.expr_term(return_ty.syn_expr_idx())?,
             None => dec_term_menu.unit(),
         };
-        Ok(TraitForTypeMethodFnDecTemplate::new(
+        Ok(TraitForTypeMethodRitchieDecTemplate::new(
             db,
             self_ty,
             template_parameters,

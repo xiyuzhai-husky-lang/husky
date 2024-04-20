@@ -19,7 +19,7 @@ pub enum TraitForTypeItemHirDecl {
     AssocFn(TraitForTypeAssocFnHirDecl),
     AssocType(TraitForTypeAssocTypeHirDecl),
     AssocVal(TraitForTypeAssocValHirDecl),
-    MethodFn(TraitForTypeMethodFnHirDecl),
+    MethodFn(TraitForTypeMethodRitchieHirDecl),
 }
 
 impl TraitForTypeItemHirDecl {
@@ -69,7 +69,7 @@ fn trai_for_ty_item_hir_decl(
             Some(TraitForTypeAssocFnHirDecl::from_syn(path, syn_decl, db).into())
         }
         TraitForTypeItemSynDecl::MethodFn(method_decl) => {
-            Some(TraitForTypeMethodFnHirDecl::from_syn(path, method_decl, db).into())
+            Some(TraitForTypeMethodRitchieHirDecl::from_syn(path, method_decl, db).into())
         }
         TraitForTypeItemSynDecl::AssocType(assoc_type_decl) => {
             Some(TraitForTypeAssocTypeHirDecl::from_syn(path, assoc_type_decl, db).into())

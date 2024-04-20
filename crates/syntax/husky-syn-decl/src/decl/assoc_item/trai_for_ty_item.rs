@@ -2,24 +2,22 @@ mod assoc_fn;
 mod assoc_ty;
 mod assoc_val;
 mod memo_field;
-mod method_fn;
-
-use husky_entity_kind::TraitItemKind;
+mod method_ritchie;
 
 pub use self::assoc_fn::*;
 pub use self::assoc_ty::*;
 pub use self::assoc_val::*;
-
-pub use self::method_fn::*;
+pub use self::method_ritchie::*;
 
 use super::*;
+use husky_entity_kind::TraitItemKind;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum TraitForTypeItemSynNodeDecl {
     AssocFn(TraitForTypeAssocFnSynNodeDecl),
-    MethodFn(TraitForTypeMethodFnSynNodeDecl),
+    MethodFn(TraitForTypeMethodRitchieSynNodeDecl),
     AssocType(TraitForTypeAssocTypeSynNodeDecl),
     AssocVal(TraitForTypeAssocValSynNodeDecl),
 }
@@ -77,8 +75,8 @@ impl<'a> DeclParser<'a> {
         };
         match syn_node_path.data(db).item_kind(db) {
             TraitItemKind::MemoizedField => todo!(),
-            TraitItemKind::MethodRitchie(_) => self
-                .parse_trai_for_ty_method_fn_node_decl(syn_node_path)
+            TraitItemKind::MethodRitchie(ritchie_item_kind) => self
+                .parse_trai_for_ty_method_ritchie_node_decl(syn_node_path, ritchie_item_kind)
                 .into(),
             TraitItemKind::AssocType => self
                 .parse_trai_for_ty_assoc_ty_node_decl(syn_node_path)
@@ -98,7 +96,7 @@ impl<'a> DeclParser<'a> {
 #[enum_class::from_variants]
 pub enum TraitForTypeItemSynDecl {
     AssocFn(TraitForTypeAssocFnSynDecl),
-    MethodFn(TraitForTypeMethodFnSynDecl),
+    MethodFn(TraitForTypeMethodRitchieSynDecl),
     AssocType(TraitForTypeAssocTypeSynDecl),
     AssocVal(TraitForTypeAssocValSynDecl),
 }
@@ -121,7 +119,7 @@ impl TraitForTypeItemSynDecl {
                 TraitForTypeAssocFnSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
             TraitForTypeItemSynNodeDecl::MethodFn(syn_node_decl) => {
-                TraitForTypeMethodFnSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                TraitForTypeMethodRitchieSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
             TraitForTypeItemSynNodeDecl::AssocType(syn_node_decl) => {
                 TraitForTypeAssocTypeSynDecl::from_node_decl(db, path, syn_node_decl)?.into()

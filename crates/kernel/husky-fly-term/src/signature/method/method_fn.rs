@@ -21,7 +21,7 @@ impl MemberSignature for MethodFnFlySignature {
 impl MethodFnFlySignature {
     pub(crate) fn from_eth(
         self_place: FlyQuary,
-        eth_sig: &TraitForTypeMethodFnEtherealSignature,
+        eth_sig: &TraitForTypeMethodRitchieEtherealSignature,
     ) -> Self {
         Self {
             path: eth_sig.path().into(),

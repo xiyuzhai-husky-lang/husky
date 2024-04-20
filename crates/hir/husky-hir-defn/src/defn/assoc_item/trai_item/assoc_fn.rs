@@ -43,7 +43,7 @@ impl TraitAssocFnHirDefn {
         //     } => body.map(|body| parser.parse_block_expr(body)),
         //     _ => unreachable!(),
         // };
-        // TraitForTypeMethodFnDefn::new(db, syn_node_path, hir_decl, body, parser.finish())
+        // TraitForTypeMethodRitchieDefn::new(db, syn_node_path, hir_decl, body, parser.finish())
     }
 
     pub fn hir_eager_expr_region(self, db: &::salsa::Db) -> Option<HirEagerExprRegion> {
