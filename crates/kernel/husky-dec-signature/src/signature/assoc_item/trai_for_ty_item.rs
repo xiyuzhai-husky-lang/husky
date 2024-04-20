@@ -15,7 +15,7 @@ use super::*;
 #[enum_class::from_variants]
 pub enum TraitForTypeItemDecTemplate {
     AssocRitchie(TraitForTypeAssocRitchieDecTemplate),
-    MethodFn(TraitForTypeMethodRitchieDecTemplate),
+    MethodRitchie(TraitForTypeMethodRitchieDecTemplate),
     AssocType(TraitForTypeAssocTypeDecTemplate),
     AssocVal(TraitForTypeAssocValDecTemplate),
 }
@@ -54,7 +54,7 @@ impl TraitForTypeItemDecTemplate {
     pub fn template_parameters(self, db: &::salsa::Db) -> &[DeclarativeTemplateParameter] {
         match self {
             TraitForTypeItemDecTemplate::AssocRitchie(tmpl) => tmpl.template_parameters(db),
-            TraitForTypeItemDecTemplate::MethodFn(tmpl) => tmpl.template_parameters(db),
+            TraitForTypeItemDecTemplate::MethodRitchie(tmpl) => tmpl.template_parameters(db),
             TraitForTypeItemDecTemplate::AssocType(tmpl) => tmpl.template_parameters(db),
             TraitForTypeItemDecTemplate::AssocVal(tmpl) => &[],
         }

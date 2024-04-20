@@ -47,7 +47,7 @@ fn form_eth_template(
         MajorFormDecTemplate::TypeAlias(dec_template) => {
             MajorTypeAliasEthTemplate::from_dec(db, path, dec_template)?.into()
         }
-        MajorFormDecTemplate::Ki(dec_template) => {
+        MajorFormDecTemplate::Val(dec_template) => {
             MajorValEthTemplate::from_dec(db, path, dec_template)?.into()
         }
     })

@@ -116,7 +116,7 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodFn(
+                    TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<core::slice::Slice(0)>::len`, `MethodRitchie(
                                 Fn,
@@ -194,7 +194,7 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodFn(
+                    TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<core::slice::Slice(0)>::swap`, `MethodRitchie(
                                 Fn,
@@ -438,7 +438,7 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodFn(
+                    TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<core::slice::CyclicSlice(0)>::ilen`, `MethodRitchie(
                                 Fn,
@@ -516,7 +516,7 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodFn(
+                    TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
                                 Fn,
@@ -594,7 +594,7 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodFn(
+                    TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
                                 Fn,
@@ -672,7 +672,7 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodFn(
+                    TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
                                 Fn,
@@ -746,7 +746,7 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodFn(
+                    TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<core::slice::CyclicSlice(0)>::last`, `MethodRitchie(
                                 Fn,

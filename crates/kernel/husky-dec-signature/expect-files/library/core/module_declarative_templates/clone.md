@@ -106,7 +106,7 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TraitForTypeItem(
-                    TraitForTypeItemDecTemplate::MethodFn(
+                    TraitForTypeItemDecTemplate::MethodRitchie(
                         TraitForTypeMethodRitchieDecTemplate {
                             self_ty: SymbolicVariable(
                                 DecSymbolicVariable(

@@ -59,7 +59,7 @@ pub struct DecSignatureJar(
     // trait item
     // trai_item_syn_dec_template,
     TraitAssocRitchieDecTemplate,
-    TraitMethodFnDecTemplate,
+    TraitMethodRitchieDecTemplate,
     TraitAssocTypeDecTemplate,
     TraitAssocValDecTemplate,
     // type as trait item

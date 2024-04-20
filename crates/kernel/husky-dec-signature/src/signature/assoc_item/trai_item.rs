@@ -16,7 +16,7 @@ use super::*;
 #[enum_class::from_variants]
 pub enum TraitItemDecTemplate {
     AssocRitchie(TraitAssocRitchieDecTemplate),
-    MethodFn(TraitMethodFnDecTemplate),
+    MethodRitchie(TraitMethodRitchieDecTemplate),
     AssocType(TraitAssocTypeDecTemplate),
     AssocVal(TraitAssocValDecTemplate),
 }
@@ -26,7 +26,7 @@ pub enum TraitItemDecTemplate {
 #[enum_class::from_variants]
 pub enum TraitItemDecTemplates {
     AssocRitchie(SmallVecImpl<TraitAssocRitchieDecTemplate>),
-    MethodFn(SmallVecImpl<TraitMethodFnDecTemplate>),
+    MethodFn(SmallVecImpl<TraitMethodRitchieDecTemplate>),
     AssocType(SmallVecImpl<TraitAssocTypeDecTemplate>),
     AssocVal(SmallVecImpl<TraitAssocValDecTemplate>),
     // MemoizedField(SmallVecImpl<TraitMemoizedFieldDecTemplate>),
@@ -51,7 +51,7 @@ pub(crate) fn trai_item_syn_dec_template(
             TraitAssocRitchieDecTemplate::from_decl(db, decl).map(Into::into)
         }
         TraitItemSynDecl::MethodFn(decl) => {
-            TraitMethodFnDecTemplate::from_decl(db, decl).map(Into::into)
+            TraitMethodRitchieDecTemplate::from_decl(db, decl).map(Into::into)
         }
         TraitItemSynDecl::AssocType(decl) => {
             TraitAssocTypeDecTemplate::from_decl(db, path, decl).map(Into::into)
@@ -66,7 +66,7 @@ impl TraitItemDecTemplate {
     pub fn template_parameters(self, db: &::salsa::Db) -> &[DeclarativeTemplateParameter] {
         match self {
             TraitItemDecTemplate::AssocRitchie(slf) => slf.template_parameters(db),
-            TraitItemDecTemplate::MethodFn(slf) => slf.template_parameters(db),
+            TraitItemDecTemplate::MethodRitchie(slf) => slf.template_parameters(db),
             TraitItemDecTemplate::AssocType(slf) => {
                 // slf.template_parameters(db)
                 &[]

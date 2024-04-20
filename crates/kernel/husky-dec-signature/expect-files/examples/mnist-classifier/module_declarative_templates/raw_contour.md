@@ -865,7 +865,7 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TraitForTypeItem(
-                    TraitForTypeItemDecTemplate::MethodFn(
+                    TraitForTypeItemDecTemplate::MethodRitchie(
                         TraitForTypeMethodRitchieDecTemplate {
                             self_ty: EntityPath(
                                 Type(
@@ -1141,7 +1141,7 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodFn(
+                    TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
                                 Fn,

@@ -2,13 +2,13 @@ mod assoc_ritchie;
 mod assoc_ty;
 mod assoc_val;
 mod memo_field;
-mod method_function;
+mod method_curry;
 mod method_ritchie;
 
 pub use self::assoc_ritchie::*;
 pub use self::assoc_ty::*;
 pub use self::memo_field::*;
-pub use self::method_function::*;
+pub use self::method_curry::*;
 pub use self::method_ritchie::*;
 
 use super::*;
@@ -19,8 +19,8 @@ use husky_entity_tree::HasItemPathsMap;
 #[enum_class::from_variants]
 pub enum TypeItemEthTemplate {
     AssocRitchie(TypeAssocRitchieEthTemplate),
-    MethodFn(TypeMethodRitchieEthTemplate),
-    MethodFunction(TypeMethodCurryEthTemplate),
+    MethodRitchie(TypeMethodRitchieEthTemplate),
+    MethodCurry(TypeMethodCurryEthTemplate),
     MemoizedField(TypeMemoizedFieldEthTemplate),
 }
 
@@ -28,8 +28,8 @@ impl TypeItemEthTemplate {
     pub fn self_ty(self, db: &::salsa::Db) -> Option<EthTerm> {
         match self {
             TypeItemEthTemplate::AssocRitchie(_) => None,
-            TypeItemEthTemplate::MethodFn(template) => Some(template.self_ty(db)),
-            TypeItemEthTemplate::MethodFunction(_) => todo!(),
+            TypeItemEthTemplate::MethodRitchie(template) => Some(template.self_ty(db)),
+            TypeItemEthTemplate::MethodCurry(_) => todo!(),
             TypeItemEthTemplate::MemoizedField(template) => Some(template.self_ty(db)),
         }
     }
@@ -52,7 +52,7 @@ pub(crate) fn ty_item_eth_template(
         TypeItemDecTemplate::AssocRitchie(template) => {
             TypeAssocRitchieEthTemplate::from_dec(db, path, template)?.into()
         }
-        TypeItemDecTemplate::MethodFn(template) => {
+        TypeItemDecTemplate::MethodRitchie(template) => {
             TypeMethodRitchieEthTemplate::from_dec(db, path, template)?.into()
         }
         TypeItemDecTemplate::AssocType(_) => todo!(),
@@ -120,7 +120,7 @@ pub(crate) fn ty_item_eth_templates_map(
                             .iter()
                             .copied()
                             .map(|path| match path.eth_template(db) {
-                                Ok(TypeItemEthTemplate::MethodFn(template)) => {
+                                Ok(TypeItemEthTemplate::MethodRitchie(template)) => {
                                     Ok(template)
                                 }
                                 Err(e) => Err(e),

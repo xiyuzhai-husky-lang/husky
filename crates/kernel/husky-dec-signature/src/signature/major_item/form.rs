@@ -14,14 +14,14 @@ use crate::*;
 pub enum MajorFormDecTemplate {
     Ritchie(MajorRitchieDecTemplate),
     TypeAlias(TypeAliasDecTemplate),
-    Ki(MajorValDecTemplate),
+    Val(MajorValDecTemplate),
 }
 
 impl MajorFormDecTemplate {
     pub fn template_parameters(self, db: &::salsa::Db) -> &[DeclarativeTemplateParameter] {
         match self {
             MajorFormDecTemplate::Ritchie(slf) => slf.template_parameters(db),
-            MajorFormDecTemplate::Ki(slf) => slf.template_parameters(db),
+            MajorFormDecTemplate::Val(slf) => slf.template_parameters(db),
             MajorFormDecTemplate::TypeAlias(slf) => slf.template_parameters(db),
         }
     }

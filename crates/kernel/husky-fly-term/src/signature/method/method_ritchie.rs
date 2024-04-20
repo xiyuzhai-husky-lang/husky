@@ -89,7 +89,7 @@ pub(crate) fn ty_method_fly_signature<Term: Copy + Into<FlyTerm>>(
         }
         TypeItemEthTemplates::MethodFunction(templates) => {
             for template in templates {
-                if let JustOk(signature) = ty_method_function_fly_signature(
+                if let JustOk(signature) = ty_method_curry_fly_signature(
                     engine,
                     template,
                     ty_template_arguments,
@@ -196,7 +196,7 @@ fn ty_method_ritchie_fly_signature<Term: Copy + Into<FlyTerm>>(
     })
 }
 
-fn ty_method_function_fly_signature<Term: Copy + Into<FlyTerm>>(
+fn ty_method_curry_fly_signature<Term: Copy + Into<FlyTerm>>(
     engine: &mut impl FlyTermEngineMut,
     template: &TypeMethodCurryEthTemplate,
     ty_template_arguments: &[Term],

@@ -559,7 +559,7 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TraitForTypeItem(
-                    TraitForTypeItemDecTemplate::MethodFn(
+                    TraitForTypeItemDecTemplate::MethodRitchie(
                         TraitForTypeMethodRitchieDecTemplate {
                             self_ty: EntityPath(
                                 Type(
@@ -1011,7 +1011,7 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodFn(
+                    TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::top_k_row_span_sum`, `MethodRitchie(
                                 Fn,
@@ -1108,7 +1108,7 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodFn(
+                    TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::top_k_row_right_mass_sum`, `MethodRitchie(
                                 Fn,

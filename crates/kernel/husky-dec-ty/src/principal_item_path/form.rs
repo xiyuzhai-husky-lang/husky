@@ -23,7 +23,9 @@ pub fn form_path_declarative_ty(
         MajorFormDecTemplate::Ritchie(signature) => {
             ritchie_path_declarative_ty(db, path.toolchain(db), variances, signature)
         }
-        MajorFormDecTemplate::Ki(signature) => ki_path_declarative_ty(db, signature, dec_term_menu),
+        MajorFormDecTemplate::Val(signature) => {
+            ki_path_declarative_ty(db, signature, dec_term_menu)
+        }
         MajorFormDecTemplate::TypeAlias(_) => todo!(),
     }
 }

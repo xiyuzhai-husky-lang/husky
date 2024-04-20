@@ -80,7 +80,7 @@
         Ok(
             DecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(
-                    MajorFormDecTemplate::Ki(
+                    MajorFormDecTemplate::Val(
                         MajorValDecTemplate {
                             return_ty: EntityPath(
                                 Type(
@@ -155,7 +155,7 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TraitForTypeItem(
-                    TraitForTypeItemDecTemplate::MethodFn(
+                    TraitForTypeItemDecTemplate::MethodRitchie(
                         TraitForTypeMethodRitchieDecTemplate {
                             self_ty: EntityPath(
                                 Type(
@@ -426,7 +426,7 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TraitForTypeItem(
-                    TraitForTypeItemDecTemplate::MethodFn(
+                    TraitForTypeItemDecTemplate::MethodRitchie(
                         TraitForTypeMethodRitchieDecTemplate {
                             self_ty: EntityPath(
                                 Type(
