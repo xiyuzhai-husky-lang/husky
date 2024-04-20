@@ -87,7 +87,7 @@ pub enum HirLazyExprData {
         indirections: HirIndirections,
         instantiation: HirInstantiation,
     },
-    MethodFnCall {
+    MethodRitchieCall {
         self_argument: HirLazyExprIdx,
         ident: Ident,
         path: AssocItemPath,
@@ -374,7 +374,7 @@ impl ToHirLazy for SemaExprIdx {
                 let MethodFlySignature::MethodFn(signature) = dispatch.signature() else {
                     unreachable!()
                 };
-                HirLazyExprData::MethodFnCall {
+                HirLazyExprData::MethodRitchieCall {
                     self_argument: self_argument_sem_expr_idx.to_hir_lazy(builder),
                     ident: ident_token.ident(),
                     path: signature.path(),

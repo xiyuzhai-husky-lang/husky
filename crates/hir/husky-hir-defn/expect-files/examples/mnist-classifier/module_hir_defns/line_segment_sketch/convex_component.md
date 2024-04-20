@@ -351,7 +351,7 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::MethodFnCall {
+                                            data: HirEagerExprData::MethodRitchieCall {
                                                 self_argument: 1,
                                                 self_contract: Pure,
                                                 ident: `visualize`,

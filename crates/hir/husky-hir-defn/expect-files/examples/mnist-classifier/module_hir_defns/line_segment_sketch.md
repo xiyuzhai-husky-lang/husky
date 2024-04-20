@@ -162,7 +162,7 @@
                                         },
                                     },
                                     HirEagerExprEntry {
-                                        data: HirEagerExprData::MethodFnCall {
+                                        data: HirEagerExprData::MethodRitchieCall {
                                             self_argument: 0,
                                             self_contract: Pure,
                                             ident: `first`,
@@ -225,7 +225,7 @@
                                         },
                                     },
                                     HirEagerExprEntry {
-                                        data: HirEagerExprData::MethodFnCall {
+                                        data: HirEagerExprData::MethodRitchieCall {
                                             self_argument: 2,
                                             self_contract: Pure,
                                             ident: `clone`,
@@ -298,7 +298,7 @@
                                         },
                                     },
                                     HirEagerExprEntry {
-                                        data: HirEagerExprData::MethodFnCall {
+                                        data: HirEagerExprData::MethodRitchieCall {
                                             self_argument: 4,
                                             self_contract: Pure,
                                             ident: `last`,
@@ -361,7 +361,7 @@
                                         },
                                     },
                                     HirEagerExprEntry {
-                                        data: HirEagerExprData::MethodFnCall {
+                                        data: HirEagerExprData::MethodRitchieCall {
                                             self_argument: 6,
                                             self_contract: Pure,
                                             ident: `clone`,
@@ -1838,7 +1838,7 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::MethodFnCall {
+                                            data: HirEagerExprData::MethodRitchieCall {
                                                 self_argument: 4,
                                                 self_contract: Leash,
                                                 ident: `cyclic_slice_leashed`,
@@ -1929,7 +1929,7 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::TypeConstructorFnCall {
+                                            data: HirEagerExprData::TypeConstructorCall {
                                                 path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -2266,7 +2266,7 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::MethodFnCall {
+                                            data: HirEagerExprData::MethodRitchieCall {
                                                 self_argument: 1,
                                                 self_contract: Pure,
                                                 ident: `to`,
@@ -2605,7 +2605,7 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::MethodFnCall {
+                                            data: HirEagerExprData::MethodRitchieCall {
                                                 self_argument: 1,
                                                 self_contract: Pure,
                                                 ident: `visualize`,
@@ -3415,7 +3415,7 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::MethodFnCall {
+                                            data: HirEagerExprData::MethodRitchieCall {
                                                 self_argument: 14,
                                                 self_contract: Pure,
                                                 ident: `ilen`,
@@ -3703,7 +3703,7 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::MethodFnCall {
+                                            data: HirEagerExprData::MethodRitchieCall {
                                                 self_argument: 22,
                                                 self_contract: Pure,
                                                 ident: `min`,
@@ -3869,7 +3869,7 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::MethodFnCall {
+                                            data: HirEagerExprData::MethodRitchieCall {
                                                 self_argument: 28,
                                                 self_contract: Pure,
                                                 ident: `max`,
@@ -4035,7 +4035,7 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::MethodFnCall {
+                                            data: HirEagerExprData::MethodRitchieCall {
                                                 self_argument: 34,
                                                 self_contract: Pure,
                                                 ident: `min`,
@@ -4201,7 +4201,7 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::MethodFnCall {
+                                            data: HirEagerExprData::MethodRitchieCall {
                                                 self_argument: 40,
                                                 self_contract: Pure,
                                                 ident: `max`,
@@ -4318,7 +4318,7 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::TypeConstructorFnCall {
+                                            data: HirEagerExprData::TypeConstructorCall {
                                                 path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -4433,7 +4433,7 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::TypeConstructorFnCall {
+                                            data: HirEagerExprData::TypeConstructorCall {
                                                 path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -4496,7 +4496,7 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::TypeConstructorFnCall {
+                                            data: HirEagerExprData::TypeConstructorCall {
                                                 path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -5109,7 +5109,7 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::TypeConstructorFnCall {
+                                            data: HirEagerExprData::TypeConstructorCall {
                                                 path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],

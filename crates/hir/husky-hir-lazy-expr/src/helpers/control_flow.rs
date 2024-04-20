@@ -160,7 +160,7 @@ impl<'a> HirLazyExprControlFlowRegionBuilder<'a> {
             } => self.infer_new_item_groups(item_groups)?,
             HirLazyExprData::PropsStructField { owner, .. }
             | HirLazyExprData::MemoizedField { owner, .. } => self.expr_has_control_flow(owner)?,
-            HirLazyExprData::MethodFnCall {
+            HirLazyExprData::MethodRitchieCall {
                 self_argument,
                 ref item_groups,
                 ..

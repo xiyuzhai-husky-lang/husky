@@ -174,7 +174,7 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
             HirEagerExprData::As { opd, ty } => VmirExprData::As {
                 opd: opd.to_vmir(self),
             },
-            HirEagerExprData::TypeConstructorFnCall {
+            HirEagerExprData::TypeConstructorCall {
                 path,
                 ref instantiation,
                 arguments: ref item_groups,
@@ -289,7 +289,7 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
                     arguments,
                 }
             }
-            HirEagerExprData::MethodFnCall {
+            HirEagerExprData::MethodRitchieCall {
                 self_argument,
                 self_contract,
                 ident,

@@ -216,7 +216,7 @@ fn transpile_hir_eager_expr_to_rust(
             (opd, HirEagerExprSite::self_expr_on_site(false)).transpile_to_rust(builder);
             builder.call_unwrap()
         }
-        HirEagerExprData::TypeConstructorFnCall {
+        HirEagerExprData::TypeConstructorCall {
             path,
             instantiation: _,
             arguments: ref item_groups,
@@ -271,7 +271,7 @@ fn transpile_hir_eager_expr_to_rust(
             ident.transpile_to_rust(builder);
             builder.delimited(RustDelimiter::Par, |_| ())
         }
-        HirEagerExprData::MethodFnCall {
+        HirEagerExprData::MethodRitchieCall {
             self_argument,
             self_contract,
             ident,
@@ -411,7 +411,7 @@ impl HirEagerExprSite {
             | HirEagerExprData::FunctionRitchieCall { .. }
             | HirEagerExprData::AssocFunctionRitchieCall { .. }
             | HirEagerExprData::MemoizedField { .. }
-            | HirEagerExprData::MethodFnCall { .. }
+            | HirEagerExprData::MethodRitchieCall { .. }
             | HirEagerExprData::Suffix { .. }
             | HirEagerExprData::Unveil { .. }
             | HirEagerExprData::Unwrap { .. } => match entry.quary() {

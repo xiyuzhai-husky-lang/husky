@@ -101,7 +101,7 @@ impl EagerExprTraceData {
         match *self.hir_eager_expr_region.expr_arena(db)[hir_eager_expr_idx].data() {
             HirEagerExprData::FunctionRitchieCall { path, .. } => path.hir_defn(db).is_some(),
             HirEagerExprData::AssocFunctionRitchieCall { path, .. } => path.hir_defn(db).is_some(),
-            HirEagerExprData::MethodFnCall { path, .. } => path.hir_defn(db).is_some(),
+            HirEagerExprData::MethodRitchieCall { path, .. } => path.hir_defn(db).is_some(),
             HirEagerExprData::Block { stmts: _ } => unreachable!(),
             HirEagerExprData::AssocRitchie { assoc_item_path } => {
                 assoc_item_path.hir_defn(db).is_some()
@@ -179,7 +179,7 @@ impl EagerExprTraceData {
                 );
                 subtraces
             }
-            HirEagerExprData::MethodFnCall { path, .. } => {
+            HirEagerExprData::MethodRitchieCall { path, .. } => {
                 let SemaExprData::MethodFnCall {
                     ref ritchie_parameter_argument_matches,
                     ..
