@@ -4,7 +4,6 @@ use crate::{
 };
 use husky_entity_kind::MajorFormKind;
 use husky_entity_path::{MajorItemPath, PrincipalEntityPath};
-
 use husky_hir_defn::{HasHirDefn, MajorFormHirDefn};
 use husky_hir_expr::{HirExprIdx, HirExprRegion};
 use husky_hir_lazy_expr::{
@@ -14,14 +13,12 @@ use husky_hir_lazy_expr::{
     HirLazyExprIdx, HirLazyExprMap, HirLazyExprRegion, HirLazyExprRegionData, HirLazyPatternExpr,
     HirLazyStmtData, HirLazyStmtIdx, HirLazyStmtIdxRange, HirLazyStmtMap,
 };
-
 use husky_hir_ty::{
     instantiation::{HirInstantiation, HirTermSymbolicVariableResolution},
     HirConstant, HirTemplateArgument, HirTemplateVariable, HirTemplateVariableClass,
 };
-use husky_linkage::{instantiation::LinInstantiation, linkage::Linkage};
-
 use husky_ki::{KiOpn, KiPatternData, KiRuntimeConstant, KiRuntimeConstantData};
+use husky_linkage::{instantiation::LinInstantiation, linkage::Linkage};
 use smallvec::{smallvec, SmallVec};
 
 #[salsa::tracked(db = KiReprDb, jar = KiReprJar)]
