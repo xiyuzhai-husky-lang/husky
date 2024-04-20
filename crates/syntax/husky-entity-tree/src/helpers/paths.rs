@@ -96,6 +96,26 @@ fn module_item_paths_works() {
 }
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
+pub fn module_test_paths(db: &::salsa::Db, crate_path: CratePath) -> Vec<MajorFormPath> {
+    crate_item_paths(db, crate_path)
+        .iter()
+        .filter_map(|&item_path| to_test_path(db, *item_path))
+        .collect()
+}
+
+#[test]
+fn module_test_paths_works() {
+    DB::ast_expect_test_debug_with_db(
+        |db, crate_path| module_test_paths(db, crate_path),
+        &AstTestConfig::new(
+            "module_test_paths",
+            FileExtensionConfig::Markdown,
+            TestDomainsConfig::SYNTAX,
+        ),
+    )
+}
+
+#[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub fn crate_item_paths(db: &::salsa::Db, crate_path: CratePath) -> Vec<ItemPath> {
     crate_path
         .module_paths(db)
@@ -118,20 +138,9 @@ fn crate_item_paths_works() {
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub fn crate_test_paths(db: &::salsa::Db, crate_path: CratePath) -> Vec<MajorFormPath> {
-    let test_ident = coword_menu(db).test_ident();
     crate_item_paths(db, crate_path)
         .iter()
-        .filter_map(|&item_path| match item_path {
-            ItemPath::MajorItem(MajorItemPath::Form(path)) => match path.major_form_kind(db) {
-                MajorFormKind::Ritchie(_) | MajorFormKind::Val => path
-                    .attr_paths(db)
-                    .iter()
-                    .any(|attr_path| attr_path.ident(db) == test_ident)
-                    .then_some(path),
-                _ => None,
-            },
-            _ => None,
-        })
+        .filter_map(|&item_path| to_test_path(db, *item_path))
         .collect()
 }
 
@@ -145,6 +154,23 @@ fn crate_test_paths_works() {
             TestDomainsConfig::SYNTAX,
         ),
     )
+}
+
+#[salsa::tracked(jar = EntityTreeJar)]
+fn to_test_path(db: &::salsa::Db, path_id: ItemPathId) -> Option<MajorFormPath> {
+    match path_id.item_path(db) {
+        ItemPath::MajorItem(MajorItemPath::Form(path)) => match path.major_form_kind(db) {
+            MajorFormKind::Ritchie(_) | MajorFormKind::Val => {
+                let test_ident = coword_menu(db).test_ident();
+                path.attr_paths(db)
+                    .iter()
+                    .any(|attr_path| attr_path.ident(db) == test_ident)
+                    .then_some(path)
+            }
+            _ => None,
+        },
+        _ => None,
+    }
 }
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
