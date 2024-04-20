@@ -2,14 +2,14 @@ mod assoc_ritchie;
 mod assoc_ty;
 mod assoc_val;
 mod memo_field;
-mod method_fn;
+mod method_ritchie;
 
 use husky_entity_kind::TraitItemKind;
 
 pub use self::assoc_ritchie::*;
 pub use self::assoc_ty::*;
 pub use self::assoc_val::*;
-pub use self::method_fn::*;
+pub use self::method_ritchie::*;
 
 use super::*;
 
@@ -80,9 +80,9 @@ impl<'a> DeclParser<'a> {
     ) -> TraitItemSynNodeDecl {
         match syn_node_path.item_kind(self.db()) {
             TraitItemKind::MemoizedField => todo!(),
-            TraitItemKind::MethodRitchie(_) => {
-                self.parse_trai_method_fn_node_decl(syn_node_path).into()
-            }
+            TraitItemKind::MethodRitchie(_) => self
+                .parse_trai_method_ritchie_node_decl(syn_node_path)
+                .into(),
             TraitItemKind::AssocType => self.parse_trai_assoc_ty_node_decl(syn_node_path).into(),
             TraitItemKind::AssocVal => self.parse_trai_assoc_val_node_decl(syn_node_path).into(),
             TraitItemKind::AssocRitchie(_) => self

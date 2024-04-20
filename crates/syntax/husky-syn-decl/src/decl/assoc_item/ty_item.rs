@@ -1,14 +1,14 @@
-mod assoc_fn;
+mod assoc_ritchie;
 mod assoc_ty;
 mod assoc_val;
 mod memo_field;
-mod method_fn;
+mod method_ritchie;
 
-pub use self::assoc_fn::*;
+pub use self::assoc_ritchie::*;
 pub use self::assoc_ty::*;
 pub use self::assoc_val::*;
 pub use self::memo_field::*;
-pub use self::method_fn::*;
+pub use self::method_ritchie::*;
 
 use super::*;
 
@@ -19,7 +19,7 @@ use husky_entity_kind::TypeItemKind;
 #[enum_class::from_variants]
 pub enum TypeItemSynNodeDecl {
     AssocFn(TypeAssocFnSynNodeDecl),
-    MethodFn(TypeMethodFnSynNodeDecl),
+    MethodFn(TypeMethodRitchieSynNodeDecl),
     AssocType(TypeAssocTypeSynNodeDecl),
     AssocVal(TypeAssocValSynNodeDecl),
     MemoizedField(TypeMemoizedFieldSynNodeDecl),
@@ -103,8 +103,8 @@ impl<'a> DeclParser<'a> {
 #[enum_class::from_variants]
 pub enum TypeItemSynDecl {
     AssocFn(TypeAssocFnSynDecl),
-    MethodFn(TypeMethodFnSynDecl),
-    // MethodFunction(TypeMethodFunctionSynDecl),
+    MethodFn(TypeMethodRitchieSynDecl),
+    // MethodFunction(TypeMethodCurrySynDecl),
     AssocType(TypeAssocTypeSynDecl),
     AssocVal(TypeAssocValSynDecl),
     MemoizedField(TypeMemoizedFieldSynDecl),
@@ -168,7 +168,7 @@ impl TypeItemSynDecl {
 #[enum_class::from_variants]
 pub enum TypeItemDecls {
     AssocFn(SmallVecImpl<TypeAssocFnSynDecl>),
-    MethodFn(SmallVecImpl<TypeMethodFnSynDecl>),
+    MethodFn(SmallVecImpl<TypeMethodRitchieSynDecl>),
     MethodFunction(/* adhoc */),
     AssocType(SmallVecImpl<TypeAssocTypeSynDecl>),
     AssocVal(SmallVecImpl<TypeAssocValSynDecl>),
@@ -193,7 +193,7 @@ pub(crate) fn ty_item_syn_decl(
             TypeAssocFnSynDecl::from_node_decl(db, path, syn_node_decl).map(Into::into)
         }
         TypeItemSynNodeDecl::MethodFn(syn_node_decl) => {
-            TypeMethodFnSynDecl::from_node_decl(db, path, syn_node_decl).map(Into::into)
+            TypeMethodRitchieSynDecl::from_node_decl(db, path, syn_node_decl).map(Into::into)
         }
         TypeItemSynNodeDecl::AssocType(_) => todo!(),
         TypeItemSynNodeDecl::AssocVal(syn_node_decl) => {

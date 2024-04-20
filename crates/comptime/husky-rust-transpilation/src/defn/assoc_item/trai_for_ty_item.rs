@@ -18,7 +18,7 @@ impl TranspileToRustWith for TraitForTypeItemHirDefn {
     }
 }
 
-impl TranspileToRustWith for TraitForTypeAssocFnHirDefn {
+impl TranspileToRustWith for TraitForTypeAssocRitchieHirDefn {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
         let Some((body, hir_eager_expr_region)) = self.eager_body_with_hir_eager_expr_region(db)

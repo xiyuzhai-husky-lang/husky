@@ -224,7 +224,7 @@ SynDeclSheet {
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
-                        TypeMethodFnSynDecl {
+                        TypeMethodRitchieSynDecl {
                             path: TypeItemPath(`<core::raw_bits::r32(0)>::last_bits`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -555,7 +555,7 @@ SynDeclSheet {
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
-                        TypeMethodFnSynDecl {
+                        TypeMethodRitchieSynDecl {
                             path: TypeItemPath(`<core::raw_bits::r32(0)>::ctz`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -783,7 +783,7 @@ SynDeclSheet {
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
-                        TypeMethodFnSynDecl {
+                        TypeMethodRitchieSynDecl {
                             path: TypeItemPath(`<core::raw_bits::r32(0)>::co`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -1011,7 +1011,7 @@ SynDeclSheet {
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
-                        TypeMethodFnSynDecl {
+                        TypeMethodRitchieSynDecl {
                             path: TypeItemPath(`<core::raw_bits::r32(0)>::span`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -1239,7 +1239,7 @@ SynDeclSheet {
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
-                        TypeMethodFnSynDecl {
+                        TypeMethodRitchieSynDecl {
                             path: TypeItemPath(`<core::raw_bits::r32(0)>::right_mass`, `MethodRitchie(
                                 Fn,
                             )`),

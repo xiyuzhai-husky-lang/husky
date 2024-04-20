@@ -186,7 +186,7 @@ fn calc_self_value_ty(
     db: &salsa::Db,
     registry: &mut PlaceRegistry,
 ) -> Option<FlyTerm> {
-    fn method_fn_self_value_modifier_from_self_value_parameter(
+    fn method_ritchie_self_value_modifier_from_self_value_parameter(
         self_value_parameter: &Option<SelfValueParameterSyndicate>,
     ) -> VariableModifier {
         let Some(self_value_parameter) = self_value_parameter else {
@@ -201,41 +201,41 @@ fn calc_self_value_ty(
             match syn_node_path.syn_node_decl(db) {
                 ItemSynNodeDecl::AssocItem(syn_node_decl) => match syn_node_decl {
                     AssocItemSynNodeDecl::TypeItem(syn_node_decl) => match syn_node_decl {
-                        TypeItemSynNodeDecl::MethodFn(syn_node_decl) => {
-                            Some(method_fn_self_value_modifier_from_self_value_parameter(
+                        TypeItemSynNodeDecl::MethodFn(syn_node_decl) => Some(
+                            method_ritchie_self_value_modifier_from_self_value_parameter(
                                 syn_node_decl
                                     .parenate_parameters(db)
                                     .as_ref()
                                     .ok()?
                                     .self_value_parameter(),
-                            ))
-                        }
+                            ),
+                        ),
                         TypeItemSynNodeDecl::MemoizedField(_) => Some(VariableModifier::Le),
                         _ => None,
                     },
                     AssocItemSynNodeDecl::TraitItem(syn_node_decl) => match syn_node_decl {
-                        TraitItemSynNodeDecl::MethodRitchie(syn_node_decl) => {
-                            Some(method_fn_self_value_modifier_from_self_value_parameter(
+                        TraitItemSynNodeDecl::MethodRitchie(syn_node_decl) => Some(
+                            method_ritchie_self_value_modifier_from_self_value_parameter(
                                 syn_node_decl
                                     .parenate_parameter_decl_list(db)
                                     .as_ref()
                                     .ok()?
                                     .self_value_parameter(),
-                            ))
-                        }
+                            ),
+                        ),
                         TraitItemSynNodeDecl::MemoizedField(_) => Some(VariableModifier::Le),
                         _ => None,
                     },
                     AssocItemSynNodeDecl::TraitForTypeItem(syn_node_decl) => match syn_node_decl {
-                        TraitForTypeItemSynNodeDecl::MethodFn(syn_node_decl) => {
-                            Some(method_fn_self_value_modifier_from_self_value_parameter(
+                        TraitForTypeItemSynNodeDecl::MethodFn(syn_node_decl) => Some(
+                            method_ritchie_self_value_modifier_from_self_value_parameter(
                                 syn_node_decl
                                     .parenate_parameter_decl_list(db)
                                     .as_ref()
                                     .ok()?
                                     .self_value_parameter(),
-                            ))
-                        }
+                            ),
+                        ),
                         _ => None,
                     },
                     AssocItemSynNodeDecl::IllFormedItem(_) => None,

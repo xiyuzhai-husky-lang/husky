@@ -2,14 +2,14 @@ mod assoc_fn;
 mod assoc_ty;
 mod assoc_val;
 mod memo_field;
-mod method_fn;
 mod method_function;
+mod method_ritchie;
 
 pub use self::assoc_fn::*;
 pub use self::assoc_ty::*;
 pub use self::memo_field::*;
-pub use self::method_fn::*;
 pub use self::method_function::*;
+pub use self::method_ritchie::*;
 
 use super::*;
 use husky_entity_kind::TypeItemKind;
@@ -19,8 +19,8 @@ use husky_entity_tree::HasItemPathsMap;
 #[enum_class::from_variants]
 pub enum TypeItemEthTemplate {
     AssocFn(TypeAssocFnEthTemplate),
-    MethodFn(TypeMethodFnEthTemplate),
-    MethodFunction(TypeMethodFunctionEthTemplate),
+    MethodFn(TypeMethodRitchieEthTemplate),
+    MethodFunction(TypeMethodCurryEthTemplate),
     MemoizedField(TypeMemoizedFieldEthTemplate),
 }
 
@@ -53,7 +53,7 @@ pub(crate) fn ty_item_eth_template(
             TypeAssocFnEthTemplate::from_dec(db, path, template)?.into()
         }
         TypeItemDecTemplate::MethodFn(template) => {
-            TypeMethodFnEthTemplate::from_dec(db, path, template)?.into()
+            TypeMethodRitchieEthTemplate::from_dec(db, path, template)?.into()
         }
         TypeItemDecTemplate::AssocType(_) => todo!(),
         TypeItemDecTemplate::AssocVal(_) => todo!(),
@@ -86,8 +86,8 @@ pub trait HasTypeItemTemplates: Copy {
 #[derive(Debug, PartialEq, Eq)]
 pub enum TypeItemEthTemplates {
     AssocFn(SmallVecImpl<TypeAssocFnEthTemplate>),
-    MethodFn(SmallVecImpl<TypeMethodFnEthTemplate>),
-    MethodFunction(SmallVecImpl<TypeMethodFunctionEthTemplate>),
+    MethodFn(SmallVecImpl<TypeMethodRitchieEthTemplate>),
+    MethodFunction(SmallVecImpl<TypeMethodCurryEthTemplate>),
     MemoizedField(SmallVecImpl<TypeMemoizedFieldEthTemplate>),
 }
 

@@ -451,7 +451,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TraitForTypeItem(
             TraitForTypeItemHirDecl::AssocFn(
-                TraitForTypeAssocFnHirDecl {
+                TraitForTypeAssocRitchieHirDecl {
                     path: TraitForTypeItemPath(
                         `<core::result::Result as core::ops::Unveil(0)>::unveil`,
                         TraitItemKind::AssocRitchie(

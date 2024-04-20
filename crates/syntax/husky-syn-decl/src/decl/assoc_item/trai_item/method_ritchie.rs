@@ -1,15 +1,14 @@
-use husky_entity_path::ty_impl_block::TypeImplBlockPath;
-
 use super::*;
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
-pub struct TypeMethodFnSynNodeDecl {
+pub struct TraitMethodRitchieSynNodeDecl {
     #[id]
-    pub syn_node_path: TypeItemSynNodePath,
+    pub syn_node_path: TraitItemSynNodePath,
     #[return_ref]
-    template_parameters: SynNodeDeclResult<Option<SynTemplateParameterSyndicateList>>,
+    pub template_parameter_decl_list: SynNodeDeclResult<Option<SynTemplateParameterSyndicateList>>,
     #[return_ref]
-    pub parenate_parameters: SynNodeDeclResult<ParenateParameterSyndicateList<true>>,
+    pub parenate_parameter_decl_list: SynNodeDeclResult<ParenateParameterSyndicateList<true>>,
+    #[return_ref]
     pub light_arrow_token: TokenDataResult<Option<LightArrowRegionalToken>>,
     #[return_ref]
     pub return_ty: SynNodeDeclResult<Option<ReturnTypeBeforeColonSyndicate>>,
@@ -18,14 +17,25 @@ pub struct TypeMethodFnSynNodeDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl TypeMethodFnSynNodeDecl {
+impl From<TraitMethodRitchieSynNodeDecl> for ItemSynNodeDecl {
+    fn from(_syn_node_decl: TraitMethodRitchieSynNodeDecl) -> Self {
+        todo!()
+    }
+}
+
+impl TraitMethodRitchieSynNodeDecl {
     pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         SmallVec::from_iter(
-            self.template_parameters(db)
+            self.template_parameter_decl_list(db)
                 .as_ref()
                 .err()
                 .into_iter()
-                .chain(self.parenate_parameters(db).as_ref().err().into_iter())
+                .chain(
+                    self.parenate_parameter_decl_list(db)
+                        .as_ref()
+                        .err()
+                        .into_iter(),
+                )
                 .chain(self.return_ty(db).as_ref().err().into_iter())
                 .chain(self.eol_colon(db).as_ref().err().into_iter()),
         )
@@ -33,20 +43,22 @@ impl TypeMethodFnSynNodeDecl {
 }
 
 impl<'a> DeclParser<'a> {
-    pub(super) fn parse_ty_method_node_decl(
+    pub(super) fn parse_trai_method_ritchie_node_decl(
         &self,
-        syn_node_path: TypeItemSynNodePath,
-    ) -> TypeMethodFnSynNodeDecl {
+        syn_node_path: TraitItemSynNodePath,
+    ) -> TraitMethodRitchieSynNodeDecl {
         let db = self.db();
-        let impl_block_syn_node_decl = syn_node_path.data(db).impl_block(db).syn_node_decl(db);
+        let parent_trai_syn_node_decl = syn_node_path
+            .parent_trai_syn_node_path(db)
+            .syn_node_decl(db);
         let mut parser = self.expr_parser(
-            Some(impl_block_syn_node_decl.syn_expr_region(db)),
+            Some(parent_trai_syn_node_decl.syn_expr_region(db)),
             AllowSelfType::True,
             AllowSelfValue::True,
             None,
         );
         let template_parameter_decl_list = parser.try_parse_option();
-        let parameter_decl_list =
+        let parenate_parameter_decl_list =
             parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedParameterDeclList);
         let light_arrow_token = parser.try_parse_option();
         let return_ty = if let Ok(Some(_)) = light_arrow_token {
@@ -57,11 +69,11 @@ impl<'a> DeclParser<'a> {
             Ok(None)
         };
         let eol_colon = parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEolColon);
-        TypeMethodFnSynNodeDecl::new(
+        TraitMethodRitchieSynNodeDecl::new(
             db,
             syn_node_path,
             template_parameter_decl_list,
-            parameter_decl_list,
+            parenate_parameter_decl_list,
             light_arrow_token,
             return_ty,
             eol_colon,
@@ -70,10 +82,10 @@ impl<'a> DeclParser<'a> {
     }
 }
 
-#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar, constructor = new)]
-pub struct TypeMethodFnSynDecl {
+#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
+pub struct TraitMethodFnSynDecl {
     #[id]
-    pub path: TypeItemPath,
+    pub path: TraitItemPath,
     #[return_ref]
     pub template_parameters: TemplateSynParametersData,
     pub self_value_parameter: Option<SelfValueParameterSyndicate>,
@@ -83,14 +95,15 @@ pub struct TypeMethodFnSynDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl TypeMethodFnSynDecl {
+impl TraitMethodFnSynDecl {
+    /// constructor
     pub(super) fn from_node_decl(
         db: &::salsa::Db,
-        path: TypeItemPath,
-        syn_node_decl: TypeMethodFnSynNodeDecl,
+        path: TraitItemPath,
+        syn_node_decl: TraitMethodRitchieSynNodeDecl,
     ) -> SynDeclResult<Self> {
         let template_parameters = syn_node_decl
-            .template_parameters(db)
+            .template_parameter_decl_list(db)
             .as_ref()?
             .as_ref()
             .map(|list| {
@@ -100,16 +113,17 @@ impl TypeMethodFnSynDecl {
                     .collect()
             })
             .unwrap_or_default();
-        let parenate_parameters = syn_node_decl.parenate_parameters(db).as_ref()?;
-        let self_value_parameter = *parenate_parameters.self_value_parameter();
-        let parenate_parameters: ParenateSynParametersData = parenate_parameters
+        let parenate_parameter_decl_list =
+            syn_node_decl.parenate_parameter_decl_list(db).as_ref()?;
+        let self_value_parameter = *parenate_parameter_decl_list.self_value_parameter();
+        let parenate_parameters: ParenateSynParametersData = parenate_parameter_decl_list
             .parenate_parameters()
             .iter()
             .map(Clone::clone)
             .collect();
         let return_ty = *syn_node_decl.return_ty(db).as_ref()?;
         let syn_expr_region = syn_node_decl.syn_expr_region(db);
-        Ok(TypeMethodFnSynDecl::new(
+        Ok(TraitMethodFnSynDecl::new(
             db,
             path,
             template_parameters,
@@ -118,9 +132,5 @@ impl TypeMethodFnSynDecl {
             return_ty,
             syn_expr_region,
         ))
-    }
-
-    pub fn impl_block_path(self, db: &::salsa::Db) -> TypeImplBlockPath {
-        self.path(db).impl_block(db)
     }
 }

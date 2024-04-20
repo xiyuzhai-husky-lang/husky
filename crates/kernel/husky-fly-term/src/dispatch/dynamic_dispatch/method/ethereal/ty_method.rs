@@ -1,7 +1,7 @@
 use husky_eth_term::term::application::{EthApplication, TermFunctionReduced};
 
 use super::*;
-use crate::signature::method::method_fn::ty_method_fly_signature;
+use crate::signature::method::method_ritchie::ty_method_fly_signature;
 
 impl HasFlyTypeMethodDispatch for EthTerm {
     fn ty_method_dispatch(

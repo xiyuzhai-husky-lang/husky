@@ -1,14 +1,14 @@
 mod assoc_fn;
 mod assoc_ty;
 mod assoc_val;
-mod method_fn;
+mod method_ritchie;
 
 use husky_syn_decl::decl::TraitForTypeItemSynDecl;
 
 pub use self::assoc_fn::*;
 pub use self::assoc_ty::*;
 pub use self::assoc_val::*;
-pub use self::method_fn::*;
+pub use self::method_ritchie::*;
 
 use super::*;
 
@@ -16,7 +16,7 @@ use super::*;
 #[enum_class::from_variants]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum TraitForTypeItemHirDecl {
-    AssocFn(TraitForTypeAssocFnHirDecl),
+    AssocFn(TraitForTypeAssocRitchieHirDecl),
     AssocType(TraitForTypeAssocTypeHirDecl),
     AssocVal(TraitForTypeAssocValHirDecl),
     MethodFn(TraitForTypeMethodRitchieHirDecl),
@@ -66,7 +66,7 @@ fn trai_for_ty_item_hir_decl(
 ) -> Option<TraitForTypeItemHirDecl> {
     match path.syn_decl(db).expect("ok") {
         TraitForTypeItemSynDecl::AssocFn(syn_decl) => {
-            Some(TraitForTypeAssocFnHirDecl::from_syn(path, syn_decl, db).into())
+            Some(TraitForTypeAssocRitchieHirDecl::from_syn(path, syn_decl, db).into())
         }
         TraitForTypeItemSynDecl::MethodFn(method_decl) => {
             Some(TraitForTypeMethodRitchieHirDecl::from_syn(path, method_decl, db).into())

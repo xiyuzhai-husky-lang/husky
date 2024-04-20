@@ -62,13 +62,13 @@ impl TraitForTypeMethodRitchieEtherealSignatureBuilder {
         self,
         db: &::salsa::Db,
     ) -> Option<&TraitForTypeMethodRitchieEtherealSignature> {
-        trai_for_ty_method_fn_ethereal_signature_signature_builder_try_into_signature(db, self)
+        trai_for_ty_method_ritchie_ethereal_signature_signature_builder_try_into_signature(db, self)
             .as_ref()
     }
 }
 
 #[salsa::tracked(jar = EtherealSignatureJar, return_ref)]
-fn trai_for_ty_method_fn_ethereal_signature_signature_builder_try_into_signature(
+fn trai_for_ty_method_ritchie_ethereal_signature_signature_builder_try_into_signature(
     db: &::salsa::Db,
     signature_builder: TraitForTypeMethodRitchieEtherealSignatureBuilder,
 ) -> Option<TraitForTypeMethodRitchieEtherealSignature> {

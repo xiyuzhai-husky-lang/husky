@@ -2,7 +2,7 @@ mod assoc_fn;
 mod assoc_ty;
 mod assoc_val;
 mod memo_field;
-mod method_fn;
+mod method_ritchie;
 
 use husky_hir_decl::decl::TypeItemHirDecl;
 
@@ -10,7 +10,7 @@ pub use self::assoc_fn::*;
 pub use self::assoc_ty::*;
 pub use self::assoc_val::*;
 pub use self::memo_field::*;
-pub use self::method_fn::*;
+pub use self::method_ritchie::*;
 
 use super::*;
 
@@ -19,7 +19,7 @@ use super::*;
 #[enum_class::from_variants]
 pub enum TypeItemHirDefn {
     AssocFn(TypeAssocFnHirDefn),
-    MethodFn(TypeMethodFnHirDefn),
+    MethodFn(TypeMethodRitchieHirDefn),
     AssocType(TypeAssocTypeHirDefn),
     AssocVal(TypeAssocValHirDefn),
     MemoizedField(TypeMemoizedFieldHirDefn),
@@ -122,7 +122,7 @@ pub(crate) fn ty_item_hir_defn(db: &::salsa::Db, path: TypeItemPath) -> Option<T
             Some(TypeAssocFnHirDefn::new(db, path, hir_decl).into())
         }
         TypeItemHirDecl::MethodFn(hir_decl) => {
-            Some(TypeMethodFnHirDefn::new(db, path, hir_decl).into())
+            Some(TypeMethodRitchieHirDefn::new(db, path, hir_decl).into())
         }
         TypeItemHirDecl::AssocType(_) => todo!(),
         TypeItemHirDecl::AssocVal(_) => todo!(),

@@ -5,8 +5,8 @@ pub struct EtherealSignatureJar(
     // assoc_items
     // - type items
     ty_item_eth_templates_map,
-    TypeMethodFnEthTemplate,
-    TypeMethodFunctionEthTemplate,
+    TypeMethodRitchieEthTemplate,
+    TypeMethodCurryEthTemplate,
     TypeMemoizedFieldEthTemplate,
     TypeAssocFnEthTemplate,
     TypeAssocTypeEthTemplate,
@@ -15,7 +15,7 @@ pub struct EtherealSignatureJar(
     TraitAssocFnEthTemplate,
     TraitMethodFnEthTemplate,
     // - trait for type items
-    TraitForTypeAssocFnEthTemplate,
+    TraitForTypeAssocRitchieEthTemplate,
     TraitForTypeAssocValEthTemplate,
     TraitForTypeAssocTypeEthTemplate,
     TraitForTypeAssocTypeEtherealSignatureBuilder,
@@ -23,7 +23,7 @@ pub struct EtherealSignatureJar(
     trai_for_ty_assoc_ty_ethereal_signature_signature_builder_try_into_signature,
     TraitForTypeMethodRitchieEthTemplate,
     TraitForTypeMethodRitchieEtherealSignatureBuilder,
-    trai_for_ty_method_fn_ethereal_signature_signature_builder_try_into_signature,
+    trai_for_ty_method_ritchie_ethereal_signature_signature_builder_try_into_signature,
     // trai
     TraitEthTemplate,
     trai_eth_template,

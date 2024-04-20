@@ -2,7 +2,7 @@ use super::*;
 use husky_eth_term::term::ritchie::EthRitchieSimpleParameter;
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
-pub struct TypeMethodFnEthTemplate {
+pub struct TypeMethodRitchieEthTemplate {
     pub path: TypeItemPath,
     pub self_ty: EthTerm,
     #[return_ref]
@@ -13,11 +13,11 @@ pub struct TypeMethodFnEthTemplate {
     pub return_ty: EthTerm,
 }
 
-impl TypeMethodFnEthTemplate {
+impl TypeMethodRitchieEthTemplate {
     pub(super) fn from_dec(
         db: &::salsa::Db,
         path: TypeItemPath,
-        tmpl: TypeMethodFnDecTemplate,
+        tmpl: TypeMethodRitchieDecTemplate,
     ) -> EtherealSignatureResult<Self> {
         let self_ty = EthTerm::ty_from_dec(db, tmpl.self_ty(db))?;
         let template_parameters =

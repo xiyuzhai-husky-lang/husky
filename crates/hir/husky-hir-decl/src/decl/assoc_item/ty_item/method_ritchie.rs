@@ -1,9 +1,9 @@
 use super::*;
 
-use husky_syn_decl::decl::TypeMethodFnSynDecl;
+use husky_syn_decl::decl::TypeMethodRitchieSynDecl;
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
-pub struct TypeMethodFnHirDecl {
+pub struct TypeMethodRitchieHirDecl {
     pub path: TypeItemPath,
     #[return_ref]
     pub template_parameters: HirTemplateParameters,
@@ -14,10 +14,10 @@ pub struct TypeMethodFnHirDecl {
     pub hir_eager_expr_region: HirEagerExprRegion,
 }
 
-impl TypeMethodFnHirDecl {
+impl TypeMethodRitchieHirDecl {
     pub(super) fn from_syn(
         path: TypeItemPath,
-        syn_decl: TypeMethodFnSynDecl,
+        syn_decl: TypeMethodRitchieSynDecl,
         db: &::salsa::Db,
     ) -> Self {
         let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
@@ -30,7 +30,7 @@ impl TypeMethodFnHirDecl {
         let parenate_parameters =
             HirEagerParenateParameters::from_syn(syn_decl.parenate_parameters(db), &builder);
         let return_ty = builder.return_ty_before_colon(syn_decl.return_ty(db));
-        TypeMethodFnHirDecl::new(
+        TypeMethodRitchieHirDecl::new(
             db,
             path,
             template_parameters,

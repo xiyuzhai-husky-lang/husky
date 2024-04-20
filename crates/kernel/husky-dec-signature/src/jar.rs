@@ -51,8 +51,8 @@ pub struct DecSignatureJar(
     // type item
     ty_item_syn_dec_template,
     TypeAssocFnDecTemplate,
-    TypeMethodFnDecTemplate,
-    TypeMethodFunctionDecTemplate,
+    TypeMethodRitchieDecTemplate,
+    TypeMethodCurryDecTemplate,
     TypeAssocTypeDecTemplate,
     TypeAssocValDecTemplate,
     TypeMemoizedFieldDecTemplate,
@@ -64,7 +64,7 @@ pub struct DecSignatureJar(
     TraitAssocValDecTemplate,
     // type as trait item
     // trai_for_ty_item_syn_declarative_signature_from_decl,
-    TraitForTypeAssocFnDecTemplate,
+    TraitForTypeAssocRitchieDecTemplate,
     TraitForTypeMethodRitchieDecTemplate,
     TraitForTypeAssocTypeDecTemplate,
     TraitForTypeAssocValDecTemplate,

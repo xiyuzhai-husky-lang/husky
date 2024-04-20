@@ -1,12 +1,12 @@
-mod assoc_fn;
+mod assoc_ritchie;
 mod assoc_ty;
 mod assoc_val;
-mod method_fn;
+mod method_ritchie;
 
-pub use self::assoc_fn::*;
+pub use self::assoc_ritchie::*;
 pub use self::assoc_ty::*;
 pub use self::assoc_val::*;
-pub use self::method_fn::*;
+pub use self::method_ritchie::*;
 
 use super::*;
 
@@ -14,7 +14,7 @@ use super::*;
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum TraitForTypeItemDecTemplate {
-    AssocFn(TraitForTypeAssocFnDecTemplate),
+    AssocFn(TraitForTypeAssocRitchieDecTemplate),
     MethodFn(TraitForTypeMethodRitchieDecTemplate),
     AssocType(TraitForTypeAssocTypeDecTemplate),
     AssocVal(TraitForTypeAssocValDecTemplate),
@@ -36,7 +36,7 @@ pub(crate) fn trai_for_ty_item_syn_declarative_signature_from_decl(
     let decl = path.syn_decl(db)?;
     match decl {
         TraitForTypeItemSynDecl::AssocFn(decl) => {
-            TraitForTypeAssocFnDecTemplate::from_decl(db, decl).map(Into::into)
+            TraitForTypeAssocRitchieDecTemplate::from_decl(db, decl).map(Into::into)
         }
         TraitForTypeItemSynDecl::MethodFn(decl) => {
             TraitForTypeMethodRitchieDecTemplate::from_decl(db, decl).map(Into::into)
