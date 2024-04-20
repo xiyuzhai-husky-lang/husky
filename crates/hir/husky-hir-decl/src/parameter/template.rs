@@ -205,6 +205,10 @@ pub fn item_hir_template_parameter_stats(
                         .unwrap()
             }
         },
+        ItemPath::TypeVariant(_, ty_variant_path) => {
+            stats +=
+                item_hir_template_parameter_stats(db, *ty_variant_path.parent_ty_path(db)).unwrap()
+        }
         _ => (),
     }
     Some(stats)

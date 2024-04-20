@@ -76,11 +76,20 @@ impl TypeVariantSynNodePathData {
 }
 
 impl TypeSynNodePath {
-    fn ty_variant_syn_nodes<'a>(
+    pub fn ty_variant_syn_nodes<'a>(
         self,
         db: &'a ::salsa::Db,
     ) -> &'a [(Ident, TypeVariantSynNodePath, TypeVariantSynNode)] {
         ty_variant_syn_nodes(db, self)
+    }
+
+    pub fn ty_variant_syn_node_paths<'a>(
+        self,
+        db: &'a ::salsa::Db,
+    ) -> impl Iterator<Item = TypeVariantSynNodePath> + 'a {
+        self.ty_variant_syn_nodes(db)
+            .iter()
+            .map(|&(_, syn_node_path, _)| syn_node_path)
     }
 }
 

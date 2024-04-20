@@ -101,10 +101,6 @@ fn ty_variant_path_declarative_ty_works() {
                             })
                             .collect::<Vec<_>>(),
                     )),
-                    ItemPath::TypeVariant(_, _path) => {
-                        todo!()
-                        // Some((path, ty_variant_path_declarative_ty(db, path)))
-                    }
                     _ => None,
                 })
                 .collect::<Vec<_>>()
