@@ -170,26 +170,25 @@ pub fn item_hir_template_parameter_stats(
     db: &::salsa::Db,
     item_path_id: ItemPathId,
 ) -> Option<HirTemplateParameterStats> {
-    let item_path = item_path_id.item_path(db);
+    let path = item_path_id.item_path(db);
     let mut stats = HirTemplateParameterStats {
         tys: 0,
         constants: 0,
         lifetimes: 0,
         places: 0,
     };
-    let hir_decl = item_path.hir_decl(db)?;
-    let Some(template_parameters) = hir_decl.template_parameters(db) else {
-        return Some(HirTemplateParameterStats::default());
-    };
-    for param in template_parameters {
-        match param.data {
-            HirTemplateParameterData::Type { .. } => stats.tys += 1,
-            HirTemplateParameterData::Constant { .. } => stats.constants += 1,
-            HirTemplateParameterData::Lifetime { .. } => stats.lifetimes += 1,
-            HirTemplateParameterData::Place { .. } => stats.places += 1,
+    let hir_decl = path.hir_decl(db)?;
+    if let Some(template_parameters) = hir_decl.template_parameters(db) {
+        for param in template_parameters {
+            match param.data {
+                HirTemplateParameterData::Type { .. } => stats.tys += 1,
+                HirTemplateParameterData::Constant { .. } => stats.constants += 1,
+                HirTemplateParameterData::Lifetime { .. } => stats.lifetimes += 1,
+                HirTemplateParameterData::Place { .. } => stats.places += 1,
+            }
         }
     }
-    match item_path {
+    match path {
         ItemPath::AssocItem(assoc_item_path) => match assoc_item_path {
             AssocItemPath::TypeItem(ty_item_path) => {
                 stats +=
