@@ -5,6 +5,12 @@ use malamute::*;
 
 #[rustfmt::skip]
 linkage_impls![
+    enum_variant_constructor_linkage_impl!(malamute::Class, malamute::Class::Known, (v0)),
+    enum_variant_discriminator_linkage_impl!(malamute::Class, malamute::Class::Known, ()),
+    enum_variant_destructor_linkage_impl!(malamute::Class, malamute::Class::Known, (v0)),
+    enum_variant_field_linkage_impl!(malamute::Class, malamute::Class::Known, (v0)),
+    enum_variant_constructor_linkage_impl!(malamute::Class, malamute::Class::Unknown),
+    enum_variant_discriminator_linkage_impl!(malamute::Class, malamute::Class::Unknown),
     enum_u8_presenter_linkage_impl!(malamute::OneVsAll),
     enum_variant_constructor_linkage_impl!(malamute::OneVsAll, malamute::OneVsAll::Yes),
     enum_variant_discriminator_linkage_impl!(malamute::OneVsAll, malamute::OneVsAll::Yes),

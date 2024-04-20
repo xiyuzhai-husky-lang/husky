@@ -40,7 +40,7 @@ impl ValkyrieJavelin {
 #[derive(Debug, PartialEq, Eq)]
 pub enum ValkyrieRide {
     PathLeading {
-        javelin_item_path: JavPath,
+        path: JavPath,
         hir_instantiation: HirInstantiation,
     },
     VecConstructor {
@@ -59,19 +59,17 @@ impl ValkyrieRide {
     ) -> ValkyrieJavelin {
         match *self {
             ValkyrieRide::PathLeading {
-                javelin_item_path,
+                path,
                 ref hir_instantiation,
             } => {
                 debug_assert!(!hir_instantiation.is_univalent_for_javelin());
+                let instantiation =
+                    JavInstantiation::from_hir(hir_instantiation, javelin_instantiation, db);
                 ValkyrieJavelin(Javelin::new(
                     db,
                     JavelinData::PathLeading {
-                        path: javelin_item_path,
-                        instantiation: JavInstantiation::from_hir(
-                            hir_instantiation,
-                            javelin_instantiation,
-                            db,
-                        ),
+                        path,
+                        instantiation,
                     },
                 ))
             }
@@ -98,23 +96,30 @@ pub struct ValkyrieRides {
     rides: VecSet<ValkyrieRide>,
 }
 
-#[salsa::tracked(jar = JavelinJar, return_ref)]
+#[salsa::tracked(return_ref)]
 fn item_valkyrie_rides(db: &::salsa::Db, id: ItemPathId) -> Option<ValkyrieRides> {
     let item_path = id.item_path(db);
     let hir_decl = item_path.hir_decl(db)?;
     let hir_template_parameters = hir_decl.template_parameters(db).map(Clone::clone);
-    let mut valkyrie_ride = ValkyrieRides {
+    let mut builder = ValkyrieRidesBuilder {
+        db,
         hir_template_parameters,
         rides: Default::default(),
     };
-    valkyrie_ride.add_hir_expr_region(hir_decl.hir_expr_region(db)?, db);
+    builder.add_hir_expr_region(hir_decl.hir_expr_region(db)?, db);
     if let Some(hir_expr_region) = item_path.hir_defn(db)?.hir_expr_region(db) {
-        valkyrie_ride.add_hir_expr_region(hir_expr_region, db);
+        builder.add_hir_expr_region(hir_expr_region, db);
     }
-    Some(valkyrie_ride)
+    Some(builder.finish())
 }
 
-impl ValkyrieRides {
+struct ValkyrieRidesBuilder<'db> {
+    db: &'db ::salsa::Db,
+    hir_template_parameters: Option<HirTemplateParameters>,
+    rides: VecSet<ValkyrieRide>,
+}
+
+impl<'db> ValkyrieRidesBuilder<'db> {
     fn add_hir_expr_region(&mut self, hir_expr_region: HirExprRegion, db: &::salsa::Db) {
         match hir_expr_region {
             HirExprRegion::Eager(hir_eager_expr_region) => {
@@ -322,13 +327,13 @@ impl ValkyrieRides {
 
     fn try_add_path_leading_ride(
         &mut self,
-        javelin_path: JavPath,
-        instantiation: &HirInstantiation,
+        jav_path: JavPath,
+        hir_instantiation: &HirInstantiation,
     ) {
-        if !instantiation.is_univalent_for_javelin() {
+        if !hir_instantiation.is_univalent_for_javelin() {
             self.rides.insert_move(ValkyrieRide::PathLeading {
-                javelin_item_path: javelin_path,
-                hir_instantiation: instantiation.clone(),
+                path: jav_path,
+                hir_instantiation: hir_instantiation.clone(),
             })
         }
     }
@@ -340,6 +345,13 @@ impl ValkyrieRides {
 
     fn add_ty_default_ride(&mut self, ty: HirType) {
         self.rides.insert_move(ValkyrieRide::TypeDefault { ty })
+    }
+
+    fn finish(self) -> ValkyrieRides {
+        ValkyrieRides {
+            hir_template_parameters: self.hir_template_parameters,
+            rides: self.rides,
+        }
     }
 }
 
@@ -362,7 +374,7 @@ fn item_valkyrie_rides_works() {
     )
 }
 
-#[salsa::tracked(jar = JavelinJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub(crate) fn javelin_generated_valkyrie_javelins(
     db: &::salsa::Db,
     javelin: Javelin,
@@ -395,7 +407,7 @@ pub struct ValkyrieJavelinPantheon {
     package_valkyrie_javelins: Vec<ValkyrieJavelin>,
 }
 
-#[salsa::tracked(jar = JavelinJar, return_ref)]
+#[salsa::tracked(return_ref)]
 fn package_valkyrie_javelin_pantheon(
     db: &::salsa::Db,
     package_path: PackagePath,

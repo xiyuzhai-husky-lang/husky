@@ -184,14 +184,16 @@ impl TranspileToRustWith<()> for Linkage {
                 field,
             } => builder.macro_call(RustMacroName::EnumVariantFieldLinkageImpl, |builder| {
                 path.parent_ty_path(db).transpile_to_rust(builder);
-                builder.delimited_comma_list(
-                    RustDelimiter::Angle,
-                    instantiation.iter().map(|(_, res)| match res {
-                        LinTermSymbolResolution::Explicit(arg) => arg,
-                        LinTermSymbolResolution::SelfLifetime
-                        | LinTermSymbolResolution::SelfQual(_) => unreachable!(),
-                    }),
-                );
+                if !instantiation.is_empty() {
+                    builder.delimited_comma_list(
+                        RustDelimiter::Angle,
+                        instantiation.iter().map(|(_, res)| match res {
+                            LinTermSymbolResolution::Explicit(arg) => arg,
+                            LinTermSymbolResolution::SelfLifetime
+                            | LinTermSymbolResolution::SelfQual(_) => unreachable!(),
+                        }),
+                    );
+                }
                 builder.punctuation(RustPunctuation::CommaSpaced);
                 path.transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::CommaSpaced);

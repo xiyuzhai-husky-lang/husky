@@ -19,7 +19,7 @@ mod tests;
 pub mod valkyrie;
 pub mod version_stamp;
 
-use self::jar::JavelinJar;
+use self::jar::JavelinJar as Jar;
 use self::javelin::Javelin;
 #[cfg(test)]
 use self::tests::*;

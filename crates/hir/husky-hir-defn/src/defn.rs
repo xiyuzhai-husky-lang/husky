@@ -130,7 +130,7 @@ impl HasHirDefn for ItemPath {
             ItemPath::ImplBlock(path) => path.hir_defn(db)?.into(),
             ItemPath::AssocItem(path) => path.hir_defn(db)?.into(),
             ItemPath::TypeVariant(_, path) => path.hir_defn(db)?.into(),
-            ItemPath::Attr(_, _) => todo!(),
+            ItemPath::Attr(_, _) => return None,
         })
     }
 }
