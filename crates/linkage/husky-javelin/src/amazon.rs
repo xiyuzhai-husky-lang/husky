@@ -1,7 +1,5 @@
 use super::*;
-use crate::{
-    instantiation::JavInstantiation, jar::JavelinJar, javelin::JavelinData, path::JavPath,
-};
+use crate::{instantiation::JavInstantiation, javelin::JavelinData, path::JavPath};
 use husky_entity_path::ItemPath;
 use husky_entity_tree::helpers::paths::{crate_module_paths, module_item_paths};
 use husky_hir_decl::parameter::template::item_hir_template_parameter_stats;
