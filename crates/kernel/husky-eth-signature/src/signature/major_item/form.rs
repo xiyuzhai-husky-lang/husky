@@ -1,8 +1,8 @@
-mod ritchie;
+mod function_ritchie;
 mod ty_alias;
 mod val;
 
-pub use self::ritchie::*;
+pub use self::function_ritchie::*;
 pub use self::ty_alias::*;
 pub use self::val::*;
 
@@ -12,7 +12,7 @@ use super::*;
 #[enum_class::from_variants]
 #[salsa::derive_debug_with_db]
 pub enum FormEthTemplate {
-    Ritchie(MajorRitchieEthTemplate),
+    Ritchie(MajorFunctionRitchieEthTemplate),
     TypeAlias(MajorTypeAliasEthTemplate),
     Val(MajorValEthTemplate),
 }
@@ -42,7 +42,7 @@ fn form_eth_template(
 ) -> EtherealSignatureResult<FormEthTemplate> {
     Ok(match path.dec_template(db)? {
         MajorFormDecTemplate::Ritchie(dec_template) => {
-            MajorRitchieEthTemplate::from_dec(db, path, dec_template)?.into()
+            MajorFunctionRitchieEthTemplate::from_dec(db, path, dec_template)?.into()
         }
         MajorFormDecTemplate::TypeAlias(dec_template) => {
             MajorTypeAliasEthTemplate::from_dec(db, path, dec_template)?.into()

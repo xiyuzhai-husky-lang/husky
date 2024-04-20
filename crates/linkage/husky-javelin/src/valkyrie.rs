@@ -155,12 +155,12 @@ impl ValkyrieRides {
                     ref instantiation,
                     ..
                 } => self.try_add_path_leading_ride(path.parent_ty_path(db).into(), instantiation),
-                HirEagerExprData::FunctionFnCall {
+                HirEagerExprData::FunctionRitchieCall {
                     path,
                     ref instantiation,
                     ..
                 } => self.try_add_path_leading_ride(path.into(), instantiation),
-                HirEagerExprData::AssocFunctionFnCall {
+                HirEagerExprData::AssocFunctionRitchieCall {
                     path,
                     ref instantiation,
                     ..
@@ -243,29 +243,22 @@ impl ValkyrieRides {
                 {
                     ()
                 }
-                HirLazyExprData::TypeConstructorFnCall {
+                HirLazyExprData::TypeConstructorCall {
                     path,
                     ref instantiation,
                     ..
                 } => self.try_add_path_leading_ride(path.into(), instantiation),
-                HirLazyExprData::TypeVariantConstructorFnCall {
+                HirLazyExprData::TypeVariantConstructorCall {
                     path,
                     ref instantiation,
                     ..
                 } => self.try_add_path_leading_ride(path.parent_ty_path(db).into(), instantiation),
-                HirLazyExprData::FunctionFnItemCall {
+                HirLazyExprData::FunctionRitchieItemCall {
                     path,
                     ref instantiation,
                     ..
                 } => self.try_add_path_leading_ride(path.into(), instantiation),
-                HirLazyExprData::FunctionGnItemCall {
-                    path,
-                    ref instantiation,
-                    ..
-                } => {
-                    self.try_add_path_leading_ride(path.into(), instantiation);
-                }
-                HirLazyExprData::AssocFunctionFnCall {
+                HirLazyExprData::AssocFunctionRitchieCall {
                     path,
                     ref instantiation,
                     ..

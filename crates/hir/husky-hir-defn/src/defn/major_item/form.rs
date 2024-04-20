@@ -1,10 +1,10 @@
-mod ritchie;
+mod function_ritchie;
 mod type_alias;
 mod val;
 
 use husky_hir_decl::decl::MajorFormHirDecl;
 
-pub use self::ritchie::*;
+pub use self::function_ritchie::*;
 pub use self::type_alias::*;
 pub use self::val::*;
 
@@ -14,7 +14,7 @@ use super::*;
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum MajorFormHirDefn {
-    Ritchie(MajorRitchieHirDefn),
+    Ritchie(MajorFunctionRitchieHirDefn),
     Val(ValHirDefn),
     TypeAlias(TypeAliasHirDefn),
 }
@@ -93,7 +93,7 @@ impl HasHirDefn for MajorFormPath {
 pub(crate) fn form_hir_defn(db: &::salsa::Db, path: MajorFormPath) -> Option<MajorFormHirDefn> {
     match path.hir_decl(db)? {
         MajorFormHirDecl::Ritchie(hir_decl) => {
-            Some(MajorRitchieHirDefn::new(db, path, hir_decl).into())
+            Some(MajorFunctionRitchieHirDefn::new(db, path, hir_decl).into())
         }
         MajorFormHirDecl::Val(hir_decl) => Some(ValHirDefn::new(db, path, hir_decl).into()),
         MajorFormHirDecl::TypeAlias(_) => todo!(),

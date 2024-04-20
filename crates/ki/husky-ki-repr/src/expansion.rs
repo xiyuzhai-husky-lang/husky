@@ -2,7 +2,7 @@ use crate::{
     repr::source::{KiReprExpansionSource, KiReprSource},
     *,
 };
-use husky_entity_kind::MajorFormKind;
+use husky_entity_kind::{ritchie::RitchieItemKind, MajorFormKind};
 use husky_entity_path::{MajorItemPath, PrincipalEntityPath};
 use husky_hir_defn::{HasHirDefn, MajorFormHirDefn};
 use husky_hir_expr::{HirExprIdx, HirExprRegion};
@@ -61,7 +61,7 @@ fn ki_repr_expansion(db: &::salsa::Db, ki_repr: KiRepr) -> Option<KiReprExpansio
                 db,
             ))
         }
-        KiOpn::FunctionGn(_) => todo!(),
+        KiOpn::FunctionRitchie(_) => todo!(),
         _ => None,
     }
 }
@@ -357,6 +357,7 @@ impl<'a> KiReprExpansionBuilder<'a> {
         ki_domain_repr_guard: &mut KiDomainReprGuard<'a>,
         expr: HirLazyExprIdx,
     ) -> KiRepr {
+        let db = self.db;
         let hir_lazy_expr_arena = self.hir_lazy_expr_region_data.hir_lazy_expr_arena();
         let (opn, arguments) = match hir_lazy_expr_arena[expr] {
             HirLazyExprData::Literal(lit) => (KiOpn::Literal(lit), smallvec![]),
@@ -365,10 +366,10 @@ impl<'a> KiReprExpansionBuilder<'a> {
                 PrincipalEntityPath::MajorItem(path) => match path {
                     MajorItemPath::Type(_) => todo!(),
                     MajorItemPath::Trait(_) => todo!(),
-                    MajorItemPath::Form(path) => match path.major_form_kind(self.db) {
+                    MajorItemPath::Form(path) => match path.major_form_kind(db) {
                         MajorFormKind::Ritchie(_) => todo!(),
                         MajorFormKind::Const => todo!(),
-                        MajorFormKind::Val => return KiRepr::new_val_item(path, self.db),
+                        MajorFormKind::Val => return KiRepr::new_val_item(path, db),
                         MajorFormKind::TypeAlias | MajorFormKind::Formal => unreachable!(),
                     },
                 },
@@ -440,7 +441,7 @@ impl<'a> KiReprExpansionBuilder<'a> {
                 )];
                 (opn, arguments)
             }
-            HirLazyExprData::TypeConstructorFnCall {
+            HirLazyExprData::TypeConstructorCall {
                 path,
                 ref instantiation,
                 ref item_groups,
@@ -461,7 +462,7 @@ impl<'a> KiReprExpansionBuilder<'a> {
                 );
                 (opn, arguments)
             }
-            HirLazyExprData::TypeVariantConstructorFnCall {
+            HirLazyExprData::TypeVariantConstructorCall {
                 path,
                 ref instantiation,
                 ref item_groups,
@@ -482,18 +483,40 @@ impl<'a> KiReprExpansionBuilder<'a> {
                 );
                 (opn, arguments)
             }
-            HirLazyExprData::FunctionFnItemCall {
+            HirLazyExprData::FunctionRitchieItemCall {
                 path,
                 ref instantiation,
                 ref item_groups,
                 ..
             } => {
-                let opn = KiOpn::Linkage(Linkage::new_function_fn_item(
-                    path,
-                    instantiation,
-                    &self.lin_instantiation,
-                    self.db,
-                ));
+                let opn = match path.major_form_kind(db).ritchie() {
+                    RitchieItemKind::Fn => {
+                        KiOpn::Linkage(Linkage::new_major_function_ritchie_item(
+                            path,
+                            instantiation,
+                            &self.lin_instantiation,
+                            self.db,
+                        ))
+                    }
+                    RitchieItemKind::Gn => {
+                        let Some(MajorFormHirDefn::Ritchie(hir_defn)) = path.hir_defn(db) else {
+                            unreachable!()
+                        };
+                        match hir_defn.body_with_hir_expr_region(db) {
+                            Some((body, _)) => todo!(),
+                            None => KiOpn::Linkage(Linkage::new_major_function_ritchie_item(
+                                path,
+                                instantiation,
+                                &self.lin_instantiation,
+                                self.db,
+                            )),
+                        }
+                    }
+                    RitchieItemKind::Vn => todo!(),
+                    RitchieItemKind::Pn => todo!(),
+                    RitchieItemKind::Qn => todo!(),
+                    RitchieItemKind::Tn => todo!(),
+                };
                 let mut arguments: SmallVec<[KiArgumentRepr; 4]> = smallvec![];
                 self.build_item_groups(
                     instantiation,
@@ -503,46 +526,18 @@ impl<'a> KiReprExpansionBuilder<'a> {
                 );
                 (opn, arguments)
             }
-            HirLazyExprData::AssocFunctionFnCall {
+            HirLazyExprData::AssocFunctionRitchieCall {
                 path,
                 ref instantiation,
                 ref item_groups,
                 ..
             } => {
-                let opn = KiOpn::Linkage(Linkage::new_assoc_function_fn_item(
+                let opn = KiOpn::Linkage(Linkage::new_assoc_function_ritchie_item(
                     path,
                     instantiation,
                     &self.lin_instantiation,
                     self.db,
                 ));
-                let mut arguments: SmallVec<[KiArgumentRepr; 4]> = smallvec![];
-                self.build_item_groups(
-                    instantiation,
-                    item_groups,
-                    ki_domain_repr_guard,
-                    &mut arguments,
-                );
-                (opn, arguments)
-            }
-            HirLazyExprData::FunctionGnItemCall {
-                path,
-                ref instantiation,
-                ref item_groups,
-                ..
-            } => {
-                let db = self.db;
-                let Some(MajorFormHirDefn::Ritchie(hir_defn)) = path.hir_defn(db) else {
-                    unreachable!()
-                };
-                let opn = match hir_defn.body_with_hir_expr_region(db) {
-                    Some((body, _)) => todo!(),
-                    None => KiOpn::Linkage(Linkage::new_function_gn_item(
-                        path,
-                        instantiation,
-                        &self.lin_instantiation,
-                        self.db,
-                    )),
-                };
                 let mut arguments: SmallVec<[KiArgumentRepr; 4]> = smallvec![];
                 self.build_item_groups(
                     instantiation,

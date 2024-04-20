@@ -155,7 +155,7 @@ impl<Task: IsTask> DevRuntime<Task> {
                 );
                 control_flow
             }
-            KiOpn::FunctionGn(_) => todo!(),
+            KiOpn::FunctionRitchie(_) => todo!(),
             KiOpn::Prefix(_) => todo!(),
             KiOpn::Suffix(_) => todo!(),
             KiOpn::Binary(opr) => {

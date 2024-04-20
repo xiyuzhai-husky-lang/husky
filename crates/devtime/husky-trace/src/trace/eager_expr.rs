@@ -99,8 +99,8 @@ impl EagerExprTraceData {
             return false;
         };
         match *self.hir_eager_expr_region.expr_arena(db)[hir_eager_expr_idx].data() {
-            HirEagerExprData::FunctionFnCall { path, .. } => path.hir_defn(db).is_some(),
-            HirEagerExprData::AssocFunctionFnCall { path, .. } => path.hir_defn(db).is_some(),
+            HirEagerExprData::FunctionRitchieCall { path, .. } => path.hir_defn(db).is_some(),
+            HirEagerExprData::AssocFunctionRitchieCall { path, .. } => path.hir_defn(db).is_some(),
             HirEagerExprData::MethodFnCall { path, .. } => path.hir_defn(db).is_some(),
             HirEagerExprData::Block { stmts: _ } => unreachable!(),
             HirEagerExprData::AssocRitchie { assoc_item_path } => {
@@ -121,7 +121,7 @@ impl EagerExprTraceData {
         let caller_sem_expr_region_data = caller_sem_expr_region.data(db);
         let hir_eager_expr_source_map_data = self.hir_eager_expr_source_map.data(db);
         match *self.hir_eager_expr_region.expr_arena(db)[hir_eager_expr_idx].data() {
-            HirEagerExprData::FunctionFnCall { path, .. } => {
+            HirEagerExprData::FunctionRitchieCall { path, .. } => {
                 let SemaExprData::FunctionRitchieCall {
                     ref ritchie_parameter_argument_matches,
                     ..
@@ -150,7 +150,7 @@ impl EagerExprTraceData {
                 );
                 subtraces
             }
-            HirEagerExprData::AssocFunctionFnCall { path, .. } => {
+            HirEagerExprData::AssocFunctionRitchieCall { path, .. } => {
                 let SemaExprData::FunctionRitchieCall {
                     ref ritchie_parameter_argument_matches,
                     ..

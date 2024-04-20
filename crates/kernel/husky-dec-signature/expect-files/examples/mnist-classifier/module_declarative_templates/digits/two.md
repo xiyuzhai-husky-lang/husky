@@ -40,7 +40,7 @@
             DecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(
                     MajorFormDecTemplate::Ritchie(
-                        MajorRitchieDecTemplate {
+                        MajorFunctionRitchieDecTemplate {
                             ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameters: DecTemplateParameters {
                                 data: [],
@@ -86,7 +86,7 @@
             DecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(
                     MajorFormDecTemplate::Ritchie(
-                        MajorRitchieDecTemplate {
+                        MajorFunctionRitchieDecTemplate {
                             ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameters: DecTemplateParameters {
                                 data: [],
@@ -132,7 +132,7 @@
             DecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(
                     MajorFormDecTemplate::Ritchie(
-                        MajorRitchieDecTemplate {
+                        MajorFunctionRitchieDecTemplate {
                             ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameters: DecTemplateParameters {
                                 data: [],

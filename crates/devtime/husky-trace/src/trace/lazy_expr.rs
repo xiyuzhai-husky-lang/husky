@@ -97,11 +97,11 @@ impl LazyExprTraceData {
             return false;
         };
         match self.hir_lazy_expr_region.hir_lazy_expr_arena(db)[hir_eager_expr_idx] {
-            HirLazyExprData::FunctionFnItemCall { path, .. } => path.hir_defn(db).is_some(),
-            HirLazyExprData::AssocFunctionFnCall { path, .. } => path.hir_defn(db).is_some(),
+            HirLazyExprData::FunctionRitchieItemCall { path, .. } => path.hir_defn(db).is_some(),
+            HirLazyExprData::AssocFunctionRitchieCall { path, .. } => path.hir_defn(db).is_some(),
             HirLazyExprData::MethodFnCall { path, .. } => path.hir_defn(db).is_some(),
             HirLazyExprData::AssocRitchie { path } => path.hir_defn(db).is_some(),
-            HirLazyExprData::FunctionGnItemCall { path, .. } => path.hir_defn(db).is_some(),
+            HirLazyExprData::FunctionRitchieItemCall { path, .. } => path.hir_defn(db).is_some(),
             HirLazyExprData::Block { stmts: _ } => unreachable!(),
             _ => false,
         }
@@ -117,7 +117,7 @@ impl LazyExprTraceData {
         let sem_expr_region_data = self.sem_expr_region.data(db);
         let hir_lazy_expr_source_map_data = self.hir_lazy_expr_source_map.data(db);
         match self.hir_lazy_expr_region.hir_lazy_expr_arena(db)[hir_eager_expr_idx] {
-            HirLazyExprData::FunctionFnItemCall { path, .. } => {
+            HirLazyExprData::FunctionRitchieItemCall { path, .. } => {
                 let SemaExprData::FunctionRitchieCall {
                     ref ritchie_parameter_argument_matches,
                     ..
@@ -143,7 +143,7 @@ impl LazyExprTraceData {
                 );
                 subtraces
             }
-            HirLazyExprData::AssocFunctionFnCall { path, .. } => {
+            HirLazyExprData::AssocFunctionRitchieCall { path, .. } => {
                 let SemaExprData::FunctionRitchieCall {
                     ref ritchie_parameter_argument_matches,
                     ..
@@ -196,7 +196,7 @@ impl LazyExprTraceData {
                 subtraces
             }
             HirLazyExprData::Block { .. } => unreachable!(),
-            HirLazyExprData::FunctionGnItemCall { path, .. } => {
+            HirLazyExprData::FunctionRitchieItemCall { path, .. } => {
                 let SemaExprData::FunctionRitchieCall {
                     ref ritchie_parameter_argument_matches,
                     ..

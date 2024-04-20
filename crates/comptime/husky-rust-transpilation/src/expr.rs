@@ -232,7 +232,7 @@ fn transpile_hir_eager_expr_to_rust(
             path.transpile_to_rust(builder);
             builder.delimited_comma_list(RustDelimiter::Par, item_groups)
         }
-        HirEagerExprData::FunctionFnCall {
+        HirEagerExprData::FunctionRitchieCall {
             path,
             instantiation: _,
             arguments: ref item_groups,
@@ -240,7 +240,7 @@ fn transpile_hir_eager_expr_to_rust(
             path.transpile_to_rust(builder);
             builder.delimited_comma_list(RustDelimiter::Par, item_groups)
         }
-        HirEagerExprData::AssocFunctionFnCall {
+        HirEagerExprData::AssocFunctionRitchieCall {
             path,
             arguments: ref item_groups,
             ..
@@ -408,8 +408,8 @@ impl HirEagerExprSite {
                 _ => false,
             },
             HirEagerExprData::ConstVariable { .. }
-            | HirEagerExprData::FunctionFnCall { .. }
-            | HirEagerExprData::AssocFunctionFnCall { .. }
+            | HirEagerExprData::FunctionRitchieCall { .. }
+            | HirEagerExprData::AssocFunctionRitchieCall { .. }
             | HirEagerExprData::MemoizedField { .. }
             | HirEagerExprData::MethodFnCall { .. }
             | HirEagerExprData::Suffix { .. }

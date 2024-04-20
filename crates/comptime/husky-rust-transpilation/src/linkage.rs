@@ -1,6 +1,7 @@
 use crate::*;
 use either::*;
 use husky_corgi_config::transpilation_setup::TranspilationSetup;
+use husky_entity_kind::ritchie::RitchieItemKind;
 use husky_entity_path::{
     AssocItemPath, MajorFormPath, PreludeTypePath, TraitForTypeItemPath, TraitItemPath,
     TypeItemPath, TypeVariantPath,
@@ -62,18 +63,23 @@ impl TranspileToRustWith<()> for Linkage {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<()>) {
         let db = builder.db;
         match *self.data(db) {
-            LinkageData::MajorRitchieEager {
+            LinkageData::MajorFunctionRitchie {
                 path,
                 ref instantiation,
-            } => builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {
-                (path, instantiation).transpile_to_rust(builder)
-            }),
-            LinkageData::MajorRitchieLazy {
-                path,
-                ref instantiation,
-            } => builder.macro_call(RustMacroName::GnLinkageImpl, |builder| {
-                (path, instantiation).transpile_to_rust(builder)
-            }),
+            } => match path.major_form_kind(db).ritchie() {
+                RitchieItemKind::Fn => builder
+                    .macro_call(RustMacroName::FnLinkageImpl, |builder| {
+                        (path, instantiation).transpile_to_rust(builder)
+                    }),
+                RitchieItemKind::Gn => builder
+                    .macro_call(RustMacroName::GnLinkageImpl, |builder| {
+                        (path, instantiation).transpile_to_rust(builder)
+                    }),
+                RitchieItemKind::Vn => todo!(),
+                RitchieItemKind::Pn => todo!(),
+                RitchieItemKind::Qn => todo!(),
+                RitchieItemKind::Tn => todo!(),
+            },
             LinkageData::MajorVal {
                 path,
                 instantiation: _,

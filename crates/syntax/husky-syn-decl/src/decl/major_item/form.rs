@@ -1,8 +1,8 @@
-mod ritchie;
+mod function_ritchie;
 mod ty_alias;
 mod val;
 
-pub use self::ritchie::*;
+pub use self::function_ritchie::*;
 pub use self::ty_alias::*;
 pub use self::val::*;
 
@@ -13,7 +13,7 @@ use husky_entity_kind::MajorFormKind;
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum FormSynNodeDecl {
-    Ritchie(MajorRitchieSynNodeDecl),
+    Ritchie(MajorFunctionRitchieSynNodeDecl),
     Ki(MajorValSynNodeDecl),
     TypeAlias(TypeAliasSynNodeDecl),
 }
@@ -72,7 +72,7 @@ impl<'a> DeclParser<'a> {
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum FormSynDecl {
-    Ritchie(MajorRitchieSynDecl),
+    Ritchie(MajorFunctionRitchieSynDecl),
     Val(MajorValSynDecl),
     TypeAlias(TypeAliasSynDecl),
 }
@@ -85,7 +85,7 @@ impl FormSynDecl {
     ) -> SynDeclResult<Self> {
         Ok(match syn_node_decl {
             FormSynNodeDecl::Ritchie(syn_node_decl) => {
-                MajorRitchieSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                MajorFunctionRitchieSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
             FormSynNodeDecl::Ki(syn_node_decl) => {
                 MajorValSynDecl::from_node_decl(db, path, syn_node_decl)?.into()

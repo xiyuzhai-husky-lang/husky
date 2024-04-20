@@ -864,7 +864,7 @@
                         ),
                         opn: KiOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MajorRitchieLazy {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
@@ -2225,7 +2225,7 @@
                         ),
                         opn: KiOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MajorRitchieLazy {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
@@ -2932,7 +2932,7 @@
                         ),
                         opn: KiOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MajorRitchieLazy {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
@@ -3467,7 +3467,7 @@
                         ),
                         opn: KiOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MajorRitchieLazy {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),

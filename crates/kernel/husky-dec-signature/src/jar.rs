@@ -35,7 +35,7 @@ pub struct DecSignatureJar(
     // form_signature,
     form_syn_dec_template,
     MajorValDecTemplate,
-    MajorRitchieDecTemplate,
+    MajorFunctionRitchieDecTemplate,
     TypeAliasDecTemplate,
     // impl block
     TypeImplBlockDecTemplate,

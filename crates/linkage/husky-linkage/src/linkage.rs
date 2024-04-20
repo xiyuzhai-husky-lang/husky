@@ -33,11 +33,7 @@ pub struct Linkage {
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum LinkageData {
-    MajorRitchieEager {
-        path: MajorFormPath,
-        instantiation: LinInstantiation,
-    },
-    MajorRitchieLazy {
+    MajorFunctionRitchie {
         path: MajorFormPath,
         instantiation: LinInstantiation,
     },
@@ -236,39 +232,22 @@ impl Linkage {
         )
     }
 
-    pub fn new_function_fn_item(
+    pub fn new_major_function_ritchie_item(
         path: MajorFormPath,
         hir_instantiation: &HirInstantiation,
         lin_instantiation: &LinInstantiation,
         db: &::salsa::Db,
     ) -> Self {
-        debug_assert_eq!(path.major_form_kind(db), MajorFormKind::FN);
         Self::new(
             db,
-            LinkageData::MajorRitchieEager {
+            LinkageData::MajorFunctionRitchie {
                 path,
                 instantiation: LinInstantiation::from_hir(hir_instantiation, lin_instantiation, db),
             },
         )
     }
 
-    pub fn new_function_gn_item(
-        path: MajorFormPath,
-        hir_instantiation: &HirInstantiation,
-        lin_instantiation: &LinInstantiation,
-        db: &::salsa::Db,
-    ) -> Self {
-        debug_assert_eq!(path.major_form_kind(db), MajorFormKind::GN);
-        Self::new(
-            db,
-            LinkageData::MajorRitchieLazy {
-                path,
-                instantiation: LinInstantiation::from_hir(hir_instantiation, lin_instantiation, db),
-            },
-        )
-    }
-
-    pub fn new_assoc_function_fn_item(
+    pub fn new_assoc_function_ritchie_item(
         path: AssocItemPath,
         hir_instantiation: &HirInstantiation,
         lin_instantiation: &LinInstantiation,
@@ -348,7 +327,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                                         |instantiation| {
                                             Linkage::new(
                                                 db,
-                                                LinkageData::MajorRitchieLazy {
+                                                LinkageData::MajorFunctionRitchie {
                                                     path,
                                                     instantiation,
                                                 },
@@ -363,7 +342,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                                 |instantiation| {
                                     Linkage::new(
                                         db,
-                                        LinkageData::MajorRitchieEager {
+                                        LinkageData::MajorFunctionRitchie {
                                             path,
                                             instantiation,
                                         },

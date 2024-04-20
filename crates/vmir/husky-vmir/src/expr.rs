@@ -210,12 +210,12 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
                     arguments,
                 }
             }
-            HirEagerExprData::FunctionFnCall {
+            HirEagerExprData::FunctionRitchieCall {
                 path,
                 ref instantiation,
                 ref arguments,
             } => {
-                let linkage = Linkage::new_function_fn_item(
+                let linkage = Linkage::new_major_function_ritchie_item(
                     path,
                     instantiation,
                     self.lin_instantiation(),
@@ -228,12 +228,12 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
                     arguments,
                 }
             }
-            HirEagerExprData::AssocFunctionFnCall {
+            HirEagerExprData::AssocFunctionRitchieCall {
                 path,
                 ref instantiation,
                 ref arguments,
             } => {
-                let linkage = Linkage::new_assoc_function_fn_item(
+                let linkage = Linkage::new_assoc_function_ritchie_item(
                     path,
                     instantiation,
                     self.lin_instantiation(),

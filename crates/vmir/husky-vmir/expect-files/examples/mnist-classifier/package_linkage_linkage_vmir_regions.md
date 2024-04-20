@@ -689,7 +689,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::MajorRitchieEager {
+            data: LinkageData::MajorFunctionRitchie {
                 path: FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                     Fn,
                 )`),
@@ -702,7 +702,7 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::MajorRitchieEager {
+                    data: LinkageData::MajorFunctionRitchie {
                         path: FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                             Fn,
                         )`),
@@ -880,7 +880,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::MajorRitchieEager {
+            data: LinkageData::MajorFunctionRitchie {
                 path: FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                     Fn,
                 )`),
@@ -893,7 +893,7 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::MajorRitchieEager {
+                    data: LinkageData::MajorFunctionRitchie {
                         path: FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                             Fn,
                         )`),
@@ -1294,7 +1294,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::MajorRitchieEager {
+            data: LinkageData::MajorFunctionRitchie {
                 path: FormPath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
                     Fn,
                 )`),
@@ -1307,7 +1307,7 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::MajorRitchieEager {
+                    data: LinkageData::MajorFunctionRitchie {
                         path: FormPath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
                             Fn,
                         )`),
@@ -1464,7 +1464,7 @@
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                                         Fn,
                                     )`),
@@ -1544,7 +1544,7 @@
                         VmirExprData::Index,
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                                         Fn,
                                     )`),
@@ -1650,7 +1650,7 @@
                         VmirExprData::Index,
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                                         Fn,
                                     )`),
@@ -2243,7 +2243,7 @@
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
                                         Fn,
                                     )`),
@@ -4844,7 +4844,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::MajorRitchieEager {
+            data: LinkageData::MajorFunctionRitchie {
                 path: FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                     Fn,
                 )`),
@@ -4857,7 +4857,7 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::MajorRitchieEager {
+                    data: LinkageData::MajorFunctionRitchie {
                         path: FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                             Fn,
                         )`),
@@ -4953,7 +4953,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::MajorRitchieEager {
+            data: LinkageData::MajorFunctionRitchie {
                 path: FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Ritchie(
                     Fn,
                 )`),
@@ -4966,7 +4966,7 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::MajorRitchieEager {
+                    data: LinkageData::MajorFunctionRitchie {
                         path: FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Ritchie(
                             Fn,
                         )`),
@@ -5046,7 +5046,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::MajorRitchieEager {
+            data: LinkageData::MajorFunctionRitchie {
                 path: FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Ritchie(
                     Fn,
                 )`),
@@ -5059,7 +5059,7 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::MajorRitchieEager {
+                    data: LinkageData::MajorFunctionRitchie {
                         path: FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Ritchie(
                             Fn,
                         )`),
@@ -5155,7 +5155,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::MajorRitchieEager {
+            data: LinkageData::MajorFunctionRitchie {
                 path: FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
                     Fn,
                 )`),
@@ -5168,7 +5168,7 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::MajorRitchieEager {
+                    data: LinkageData::MajorFunctionRitchie {
                         path: FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
                             Fn,
                         )`),
@@ -5193,7 +5193,7 @@
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                                         Fn,
                                     )`),
@@ -5228,7 +5228,7 @@
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                                         Fn,
                                     )`),
@@ -5647,7 +5647,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::MajorRitchieEager {
+            data: LinkageData::MajorFunctionRitchie {
                 path: FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
                     Fn,
                 )`),
@@ -5660,7 +5660,7 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::MajorRitchieEager {
+                    data: LinkageData::MajorFunctionRitchie {
                         path: FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
                             Fn,
                         )`),
@@ -5875,7 +5875,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::MajorRitchieEager {
+            data: LinkageData::MajorFunctionRitchie {
                 path: FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
                     Fn,
                 )`),
@@ -5888,7 +5888,7 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::MajorRitchieEager {
+                    data: LinkageData::MajorFunctionRitchie {
                         path: FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
                             Fn,
                         )`),
@@ -5913,7 +5913,7 @@
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                                         Fn,
                                     )`),
@@ -5948,7 +5948,7 @@
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                                         Fn,
                                     )`),
@@ -6649,7 +6649,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::MajorRitchieEager {
+            data: LinkageData::MajorFunctionRitchie {
                 path: FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
                     Fn,
                 )`),
@@ -6662,7 +6662,7 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::MajorRitchieEager {
+                    data: LinkageData::MajorFunctionRitchie {
                         path: FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
                             Fn,
                         )`),
@@ -6999,7 +6999,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::MajorRitchieEager {
+            data: LinkageData::MajorFunctionRitchie {
                 path: FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
                     Fn,
                 )`),
@@ -7012,7 +7012,7 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::MajorRitchieEager {
+                    data: LinkageData::MajorFunctionRitchie {
                         path: FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
                             Fn,
                         )`),
@@ -7296,7 +7296,7 @@
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
                                         Fn,
                                     )`),
@@ -7490,7 +7490,7 @@
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
                                         Fn,
                                     )`),
@@ -7537,7 +7537,7 @@
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
                                         Fn,
                                     )`),
@@ -7846,7 +7846,7 @@
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
                                         Fn,
                                     )`),
@@ -17652,7 +17652,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::MajorRitchieEager {
+            data: LinkageData::MajorFunctionRitchie {
                 path: FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                     Fn,
                 )`),
@@ -17665,7 +17665,7 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::MajorRitchieEager {
+                    data: LinkageData::MajorFunctionRitchie {
                         path: FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                             Fn,
                         )`),
@@ -18306,7 +18306,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::MajorRitchieEager {
+            data: LinkageData::MajorFunctionRitchie {
                 path: FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                     Fn,
                 )`),
@@ -18319,7 +18319,7 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::MajorRitchieEager {
+                    data: LinkageData::MajorFunctionRitchie {
                         path: FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                             Fn,
                         )`),
@@ -18960,7 +18960,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::MajorRitchieEager {
+            data: LinkageData::MajorFunctionRitchie {
                 path: FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
                     Fn,
                 )`),
@@ -18973,7 +18973,7 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::MajorRitchieEager {
+                    data: LinkageData::MajorFunctionRitchie {
                         path: FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
                             Fn,
                         )`),
@@ -19378,7 +19378,7 @@
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                         Fn,
                                     )`),
@@ -19413,7 +19413,7 @@
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                         Fn,
                                     )`),
@@ -19721,7 +19721,7 @@
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                         Fn,
                                     )`),
@@ -19756,7 +19756,7 @@
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                         Fn,
                                     )`),
@@ -20403,7 +20403,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::MajorRitchieEager {
+            data: LinkageData::MajorFunctionRitchie {
                 path: FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
                     Fn,
                 )`),
@@ -20416,7 +20416,7 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::MajorRitchieEager {
+                    data: LinkageData::MajorFunctionRitchie {
                         path: FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
                             Fn,
                         )`),
@@ -20851,7 +20851,7 @@
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                         Fn,
                                     )`),
@@ -20886,7 +20886,7 @@
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                         Fn,
                                     )`),
@@ -21128,7 +21128,7 @@
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                         Fn,
                                     )`),
@@ -21163,7 +21163,7 @@
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                         Fn,
                                     )`),
@@ -22004,7 +22004,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::MajorRitchieEager {
+            data: LinkageData::MajorFunctionRitchie {
                 path: FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
                     Fn,
                 )`),
@@ -22017,7 +22017,7 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::MajorRitchieEager {
+                    data: LinkageData::MajorFunctionRitchie {
                         path: FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
                             Fn,
                         )`),
@@ -22184,7 +22184,7 @@
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
                                         Fn,
                                     )`),
@@ -22993,7 +22993,7 @@
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
                                         Fn,
                                     )`),
@@ -25915,7 +25915,7 @@
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
                                         Fn,
                                     )`),
@@ -26777,7 +26777,7 @@
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
                                         Fn,
                                     )`),
@@ -26920,7 +26920,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::MajorRitchieEager {
+            data: LinkageData::MajorFunctionRitchie {
                 path: FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
                     Fn,
                 )`),
@@ -26933,7 +26933,7 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::MajorRitchieEager {
+                    data: LinkageData::MajorFunctionRitchie {
                         path: FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
                             Fn,
                         )`),
@@ -27098,7 +27098,7 @@
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
                                         Fn,
                                     )`),
@@ -27232,7 +27232,7 @@
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
                                         Fn,
                                     )`),
@@ -31174,7 +31174,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::MajorRitchieEager {
+            data: LinkageData::MajorFunctionRitchie {
                 path: FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
                     Fn,
                 )`),
@@ -31187,7 +31187,7 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::MajorRitchieEager {
+                    data: LinkageData::MajorFunctionRitchie {
                         path: FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
                             Fn,
                         )`),
@@ -33013,7 +33013,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::MajorRitchieEager {
+            data: LinkageData::MajorFunctionRitchie {
                 path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                     Fn,
                 )`),
@@ -33026,7 +33026,7 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::MajorRitchieEager {
+                    data: LinkageData::MajorFunctionRitchie {
                         path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                             Fn,
                         )`),
@@ -34000,7 +34000,7 @@
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                         Fn,
                                     )`),
@@ -34055,7 +34055,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::MajorRitchieEager {
+            data: LinkageData::MajorFunctionRitchie {
                 path: FormPath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
                     Fn,
                 )`),
@@ -34068,7 +34068,7 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::MajorRitchieEager {
+                    data: LinkageData::MajorFunctionRitchie {
                         path: FormPath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
                             Fn,
                         )`),
@@ -34325,7 +34325,7 @@
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                         Fn,
                                     )`),
@@ -34392,7 +34392,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::MajorRitchieEager {
+            data: LinkageData::MajorFunctionRitchie {
                 path: FormPath(`mnist_classifier::digits::one::upmost`, `Ritchie(
                     Fn,
                 )`),
@@ -34405,7 +34405,7 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::MajorRitchieEager {
+                    data: LinkageData::MajorFunctionRitchie {
                         path: FormPath(`mnist_classifier::digits::one::upmost`, `Ritchie(
                             Fn,
                         )`),
@@ -34576,7 +34576,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::MajorRitchieEager {
+            data: LinkageData::MajorFunctionRitchie {
                 path: FormPath(`mnist_classifier::digits::one::downmost`, `Ritchie(
                     Fn,
                 )`),
@@ -34589,7 +34589,7 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::MajorRitchieEager {
+                    data: LinkageData::MajorFunctionRitchie {
                         path: FormPath(`mnist_classifier::digits::one::downmost`, `Ritchie(
                             Fn,
                         )`),
@@ -34790,7 +34790,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::MajorRitchieEager {
+            data: LinkageData::MajorFunctionRitchie {
                 path: FormPath(`mnist_classifier::digits::one::hat`, `Ritchie(
                     Fn,
                 )`),
@@ -34803,7 +34803,7 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::MajorRitchieEager {
+                    data: LinkageData::MajorFunctionRitchie {
                         path: FormPath(`mnist_classifier::digits::one::hat`, `Ritchie(
                             Fn,
                         )`),
@@ -35149,7 +35149,7 @@
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                         Fn,
                                     )`),
@@ -35277,7 +35277,7 @@
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                         Fn,
                                     )`),
@@ -35344,7 +35344,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::MajorRitchieEager {
+            data: LinkageData::MajorFunctionRitchie {
                 path: FormPath(`mnist_classifier::digits::six::upmost`, `Ritchie(
                     Fn,
                 )`),
@@ -35357,7 +35357,7 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::MajorRitchieEager {
+                    data: LinkageData::MajorFunctionRitchie {
                         path: FormPath(`mnist_classifier::digits::six::upmost`, `Ritchie(
                             Fn,
                         )`),
@@ -35528,7 +35528,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::MajorRitchieEager {
+            data: LinkageData::MajorFunctionRitchie {
                 path: FormPath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
                     Fn,
                 )`),
@@ -35541,7 +35541,7 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::MajorRitchieEager {
+                    data: LinkageData::MajorFunctionRitchie {
                         path: FormPath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
                             Fn,
                         )`),
@@ -36215,7 +36215,7 @@
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                         Fn,
                                     )`),
@@ -37030,7 +37030,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::MajorRitchieEager {
+            data: LinkageData::MajorFunctionRitchie {
                 path: FormPath(`mnist_classifier::digits::three::uparc`, `Ritchie(
                     Fn,
                 )`),
@@ -37043,7 +37043,7 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::MajorRitchieEager {
+                    data: LinkageData::MajorFunctionRitchie {
                         path: FormPath(`mnist_classifier::digits::three::uparc`, `Ritchie(
                             Fn,
                         )`),
@@ -37301,7 +37301,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::MajorRitchieEager {
+            data: LinkageData::MajorFunctionRitchie {
                 path: FormPath(`mnist_classifier::digits::three::downarc`, `Ritchie(
                     Fn,
                 )`),
@@ -37314,7 +37314,7 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::MajorRitchieEager {
+                    data: LinkageData::MajorFunctionRitchie {
                         path: FormPath(`mnist_classifier::digits::three::downarc`, `Ritchie(
                             Fn,
                         )`),
@@ -37572,7 +37572,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::MajorRitchieEager {
+            data: LinkageData::MajorFunctionRitchie {
                 path: FormPath(`mnist_classifier::digits::three::back`, `Ritchie(
                     Fn,
                 )`),
@@ -37585,7 +37585,7 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::MajorRitchieEager {
+                    data: LinkageData::MajorFunctionRitchie {
                         path: FormPath(`mnist_classifier::digits::three::back`, `Ritchie(
                             Fn,
                         )`),
@@ -37916,7 +37916,7 @@
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                         Fn,
                                     )`),
@@ -37971,7 +37971,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::MajorRitchieEager {
+            data: LinkageData::MajorFunctionRitchie {
                 path: FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Ritchie(
                     Fn,
                 )`),
@@ -37984,7 +37984,7 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::MajorRitchieEager {
+                    data: LinkageData::MajorFunctionRitchie {
                         path: FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Ritchie(
                             Fn,
                         )`),
@@ -38151,7 +38151,7 @@
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                         Fn,
                                     )`),
@@ -38278,7 +38278,7 @@
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                         Fn,
                                     )`),
@@ -39246,7 +39246,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::MajorRitchieEager {
+            data: LinkageData::MajorFunctionRitchie {
                 path: FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Ritchie(
                     Fn,
                 )`),
@@ -39259,7 +39259,7 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::MajorRitchieEager {
+                    data: LinkageData::MajorFunctionRitchie {
                         path: FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Ritchie(
                             Fn,
                         )`),
@@ -39430,7 +39430,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::MajorRitchieEager {
+            data: LinkageData::MajorFunctionRitchie {
                 path: FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Ritchie(
                     Fn,
                 )`),
@@ -39443,7 +39443,7 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::MajorRitchieEager {
+                    data: LinkageData::MajorFunctionRitchie {
                         path: FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Ritchie(
                             Fn,
                         )`),
@@ -39837,7 +39837,7 @@
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                         Fn,
                                     )`),
@@ -39892,7 +39892,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::MajorRitchieEager {
+            data: LinkageData::MajorFunctionRitchie {
                 path: FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
                     Fn,
                 )`),
@@ -39905,7 +39905,7 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::MajorRitchieEager {
+                    data: LinkageData::MajorFunctionRitchie {
                         path: FormPath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
                             Fn,
                         )`),
@@ -40155,7 +40155,7 @@
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                         Fn,
                                     )`),
@@ -40210,7 +40210,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::MajorRitchieEager {
+            data: LinkageData::MajorFunctionRitchie {
                 path: FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
                     Fn,
                 )`),
@@ -40223,7 +40223,7 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::MajorRitchieEager {
+                    data: LinkageData::MajorFunctionRitchie {
                         path: FormPath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
                             Fn,
                         )`),
@@ -40494,7 +40494,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::MajorRitchieEager {
+            data: LinkageData::MajorFunctionRitchie {
                 path: FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
                     Fn,
                 )`),
@@ -40507,7 +40507,7 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::MajorRitchieEager {
+                    data: LinkageData::MajorFunctionRitchie {
                         path: FormPath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
                             Fn,
                         )`),
@@ -41543,7 +41543,7 @@
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                         Fn,
                                     )`),
@@ -41790,7 +41790,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::MajorRitchieEager {
+            data: LinkageData::MajorFunctionRitchie {
                 path: FormPath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
                     Fn,
                 )`),
@@ -41803,7 +41803,7 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::MajorRitchieEager {
+                    data: LinkageData::MajorFunctionRitchie {
                         path: FormPath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
                             Fn,
                         )`),
@@ -42378,7 +42378,7 @@
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                         Fn,
                                     )`),
@@ -42505,7 +42505,7 @@
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                         Fn,
                                     )`),
@@ -43445,7 +43445,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::MajorRitchieEager {
+            data: LinkageData::MajorFunctionRitchie {
                 path: FormPath(`mnist_classifier::digits::nine::downmost`, `Ritchie(
                     Fn,
                 )`),
@@ -43458,7 +43458,7 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::MajorRitchieEager {
+                    data: LinkageData::MajorFunctionRitchie {
                         path: FormPath(`mnist_classifier::digits::nine::downmost`, `Ritchie(
                             Fn,
                         )`),
@@ -43629,7 +43629,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::MajorRitchieEager {
+            data: LinkageData::MajorFunctionRitchie {
                 path: FormPath(`mnist_classifier::digits::nine::big_cc`, `Ritchie(
                     Fn,
                 )`),
@@ -43642,7 +43642,7 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::MajorRitchieEager {
+                    data: LinkageData::MajorFunctionRitchie {
                         path: FormPath(`mnist_classifier::digits::nine::big_cc`, `Ritchie(
                             Fn,
                         )`),
@@ -43983,7 +43983,7 @@
                         },
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                         Fn,
                                     )`),
@@ -44038,7 +44038,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::MajorRitchieEager {
+            data: LinkageData::MajorFunctionRitchie {
                 path: FormPath(`mnist_classifier::digits::two::left_cc_pattern`, `Ritchie(
                     Fn,
                 )`),
@@ -44051,7 +44051,7 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::MajorRitchieEager {
+                    data: LinkageData::MajorFunctionRitchie {
                         path: FormPath(`mnist_classifier::digits::two::left_cc_pattern`, `Ritchie(
                             Fn,
                         )`),
@@ -44222,7 +44222,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::MajorRitchieEager {
+            data: LinkageData::MajorFunctionRitchie {
                 path: FormPath(`mnist_classifier::digits::two::right_cc_pattern`, `Ritchie(
                     Fn,
                 )`),
@@ -44235,7 +44235,7 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::MajorRitchieEager {
+                    data: LinkageData::MajorFunctionRitchie {
                         path: FormPath(`mnist_classifier::digits::two::right_cc_pattern`, `Ritchie(
                             Fn,
                         )`),
@@ -44406,7 +44406,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::MajorRitchieEager {
+            data: LinkageData::MajorFunctionRitchie {
                 path: FormPath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
                     Fn,
                 )`),
@@ -44419,7 +44419,7 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::MajorRitchieEager {
+                    data: LinkageData::MajorFunctionRitchie {
                         path: FormPath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
                             Fn,
                         )`),
@@ -45922,7 +45922,7 @@
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Linkage {
                             linkage_impl: Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
                                         Fn,
                                     )`),
@@ -49289,7 +49289,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::MajorRitchieLazy {
+            data: LinkageData::MajorFunctionRitchie {
                 path: FormPath(`malamute::narrow_down`, `Ritchie(
                     Gn,
                 )`),

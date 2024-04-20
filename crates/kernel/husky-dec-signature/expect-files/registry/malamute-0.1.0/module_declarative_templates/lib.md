@@ -141,7 +141,7 @@
             DecTemplate::MajorItem(
                 MajorItemDecTemplate::Form(
                     MajorFormDecTemplate::Ritchie(
-                        MajorRitchieDecTemplate {
+                        MajorFunctionRitchieDecTemplate {
                             ritchie_item_kind: RitchieItemKind::Gn,
                             template_parameters: DecTemplateParameters {
                                 data: [

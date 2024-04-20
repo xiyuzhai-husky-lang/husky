@@ -7,11 +7,7 @@ impl Linkage {
         db: &'db salsa::Db,
     ) -> Option<(ItemPath, &LinInstantiation)> {
         Some(match *self.data(db) {
-            LinkageData::MajorRitchieEager {
-                path,
-                ref instantiation,
-            } => (path.into(), instantiation),
-            LinkageData::MajorRitchieLazy {
+            LinkageData::MajorFunctionRitchie {
                 path,
                 ref instantiation,
             } => (path.into(), instantiation),
