@@ -13,15 +13,18 @@ pub struct Javelin {
 
 impl Javelin {
     pub(crate) fn new(db: &::salsa::Db, data: JavelinData) -> Self {
-        #[cfg(test)]
         match data {
             JavelinData::PathLeading {
                 path,
                 ref instantiation,
             } => {
                 if let Some(ident) = path.ident(db) {
-                    if ident.data(db) == "Class" && (instantiation.is_empty()) {
-                        todo!()
+                    if ident.data(db) == "Class" {
+                        if (instantiation.is_empty()) {
+                            todo!()
+                        } else {
+                            eprintln!("haha")
+                        }
                     }
                 }
             }

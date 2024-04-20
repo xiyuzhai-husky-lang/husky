@@ -70,7 +70,7 @@ impl JavPath {
                 AssocItemPath::TypeItem(path) => Some(JavPath::TypeItem(path)),
                 AssocItemPath::TraitItem(path) => Some(JavPath::TraitItem(path)),
             },
-            ItemPath::TypeVariant(_, path) => Some(path.parent_ty_path(db).into()),
+            ItemPath::TypeVariant(_, path) => None,
             ItemPath::ImplBlock(_) => None,
             ItemPath::Attr(_, _) => None,
         }
