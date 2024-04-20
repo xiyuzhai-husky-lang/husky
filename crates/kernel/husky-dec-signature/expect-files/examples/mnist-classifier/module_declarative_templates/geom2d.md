@@ -736,8 +736,8 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::AssocFn(
-                        TypeAssocFnDecTemplate {
+                    TypeItemDecTemplate::AssocRitchie(
+                        TypeAssocRitchieDecTemplate {
                             path: TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::from_i_shift28`, `AssocRitchie(
                                 Fn,
                             )`),

@@ -251,8 +251,8 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::AssocFn(
-                        TypeAssocFnDecTemplate {
+                    TypeItemDecTemplate::AssocRitchie(
+                        TypeAssocRitchieDecTemplate {
                             path: TypeItemPath(`<mnist::BinaryImage28(0)>::new_zeros`, `AssocRitchie(
                                 Fn,
                             )`),
@@ -522,8 +522,8 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::AssocFn(
-                        TypeAssocFnDecTemplate {
+                    TypeItemDecTemplate::AssocRitchie(
+                        TypeAssocRitchieDecTemplate {
                             path: TypeItemPath(`<mnist::BinaryGrid28(0)>::new_zeros`, `AssocRitchie(
                                 Fn,
                             )`),

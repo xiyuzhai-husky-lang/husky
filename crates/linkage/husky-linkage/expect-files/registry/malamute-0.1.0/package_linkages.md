@@ -237,7 +237,7 @@
         },
     },
     Linkage {
-        data: LinkageData::UnveilAssocFn {
+        data: LinkageData::UnveilAssocRitchie {
             path: TraitForTypeItemPath(
                 `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
                 TraitItemKind::AssocRitchie(

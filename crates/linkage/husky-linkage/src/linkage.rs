@@ -57,7 +57,7 @@ pub enum LinkageData {
         path: AssocItemPath,
         instantiation: LinInstantiation,
     },
-    UnveilAssocFn {
+    UnveilAssocRitchie {
         path: TraitForTypeItemPath,
         instantiation: LinInstantiation,
     },
@@ -291,7 +291,7 @@ impl Linkage {
     ) -> Self {
         Self::new(
             db,
-            LinkageData::UnveilAssocFn {
+            LinkageData::UnveilAssocRitchie {
                 path,
                 instantiation: LinInstantiation::from_hir(hir_instantiation, lin_instantiation, db),
             },
@@ -471,7 +471,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                                             ),
                                             Linkage::new(
                                                 db,
-                                                LinkageData::UnveilAssocFn {
+                                                LinkageData::UnveilAssocRitchie {
                                                     path: path.into(),
                                                     instantiation,
                                                 },

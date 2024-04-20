@@ -5,7 +5,7 @@ use super::*;
 impl TranspileToRustWith for TypeItemHirDefn {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {
         match self {
-            TypeItemHirDefn::AssocFn(hir_defn) => hir_defn.transpile_to_rust(builder),
+            TypeItemHirDefn::AssocRitchie(hir_defn) => hir_defn.transpile_to_rust(builder),
             TypeItemHirDefn::MethodFn(hir_defn) => hir_defn.transpile_to_rust(builder),
             TypeItemHirDefn::AssocType(hir_defn) => hir_defn.transpile_to_rust(builder),
             TypeItemHirDefn::AssocVal(hir_defn) => hir_defn.transpile_to_rust(builder),
@@ -14,7 +14,7 @@ impl TranspileToRustWith for TypeItemHirDefn {
     }
 }
 
-impl TranspileToRustWith for TypeAssocFnHirDefn {
+impl TranspileToRustWith for TypeAssocRitchieHirDefn {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
         let Some((body, hir_eager_expr_region)) = self.eager_body_with_hir_eager_expr_region(db)

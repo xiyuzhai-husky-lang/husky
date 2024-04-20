@@ -1,11 +1,11 @@
-mod assoc_fn;
+mod assoc_ritchie;
 mod assoc_ty;
 mod assoc_val;
 mod method_ritchie;
 
 use husky_syn_decl::decl::TraitForTypeItemSynDecl;
 
-pub use self::assoc_fn::*;
+pub use self::assoc_ritchie::*;
 pub use self::assoc_ty::*;
 pub use self::assoc_val::*;
 pub use self::method_ritchie::*;
@@ -16,7 +16,7 @@ use super::*;
 #[enum_class::from_variants]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum TraitForTypeItemHirDecl {
-    AssocFn(TraitForTypeAssocRitchieHirDecl),
+    AssocRitchie(TraitForTypeAssocRitchieHirDecl),
     AssocType(TraitForTypeAssocTypeHirDecl),
     AssocVal(TraitForTypeAssocValHirDecl),
     MethodFn(TraitForTypeMethodRitchieHirDecl),
@@ -25,7 +25,7 @@ pub enum TraitForTypeItemHirDecl {
 impl TraitForTypeItemHirDecl {
     pub fn path(self, db: &::salsa::Db) -> TraitForTypeItemPath {
         match self {
-            TraitForTypeItemHirDecl::AssocFn(decl) => decl.path(db),
+            TraitForTypeItemHirDecl::AssocRitchie(decl) => decl.path(db),
             TraitForTypeItemHirDecl::MethodFn(decl) => decl.path(db),
             TraitForTypeItemHirDecl::AssocType(decl) => decl.path(db),
             TraitForTypeItemHirDecl::AssocVal(decl) => decl.path(db),
@@ -34,7 +34,7 @@ impl TraitForTypeItemHirDecl {
 
     pub fn template_parameters<'a>(self, db: &'a ::salsa::Db) -> Option<&'a HirTemplateParameters> {
         match self {
-            TraitForTypeItemHirDecl::AssocFn(decl) => Some(decl.template_parameters(db)),
+            TraitForTypeItemHirDecl::AssocRitchie(decl) => Some(decl.template_parameters(db)),
             TraitForTypeItemHirDecl::MethodFn(decl) => Some(decl.template_parameters(db)),
             TraitForTypeItemHirDecl::AssocType(decl) => Some(decl.template_parameters(db)),
             TraitForTypeItemHirDecl::AssocVal(_) => None,
@@ -43,7 +43,7 @@ impl TraitForTypeItemHirDecl {
 
     pub fn hir_expr_region(self, db: &::salsa::Db) -> HirExprRegion {
         match self {
-            TraitForTypeItemHirDecl::AssocFn(decl) => decl.hir_eager_expr_region(db).into(),
+            TraitForTypeItemHirDecl::AssocRitchie(decl) => decl.hir_eager_expr_region(db).into(),
             TraitForTypeItemHirDecl::MethodFn(decl) => decl.hir_eager_expr_region(db).into(),
             TraitForTypeItemHirDecl::AssocType(decl) => decl.hir_eager_expr_region(db).into(),
             TraitForTypeItemHirDecl::AssocVal(decl) => decl.hir_expr_region(db),
@@ -65,7 +65,7 @@ fn trai_for_ty_item_hir_decl(
     path: TraitForTypeItemPath,
 ) -> Option<TraitForTypeItemHirDecl> {
     match path.syn_decl(db).expect("ok") {
-        TraitForTypeItemSynDecl::AssocFn(syn_decl) => {
+        TraitForTypeItemSynDecl::AssocRitchie(syn_decl) => {
             Some(TraitForTypeAssocRitchieHirDecl::from_syn(path, syn_decl, db).into())
         }
         TraitForTypeItemSynDecl::MethodFn(method_decl) => {

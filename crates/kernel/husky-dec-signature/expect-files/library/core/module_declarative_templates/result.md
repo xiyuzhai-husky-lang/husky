@@ -165,7 +165,7 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TraitForTypeItem(
-                    TraitForTypeItemDecTemplate::AssocFn(
+                    TraitForTypeItemDecTemplate::AssocRitchie(
                         TraitForTypeAssocRitchieDecTemplate {
                             self_ty: Application(
                                 DecApplication(

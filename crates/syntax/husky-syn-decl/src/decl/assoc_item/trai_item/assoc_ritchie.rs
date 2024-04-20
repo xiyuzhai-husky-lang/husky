@@ -76,7 +76,7 @@ impl<'a> DeclParser<'a> {
 }
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
-pub struct TraitAssocFnSynDecl {
+pub struct TraitAssocRitchieSynDecl {
     #[id]
     pub path: TraitItemPath,
     #[return_ref]
@@ -87,7 +87,7 @@ pub struct TraitAssocFnSynDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl TraitAssocFnSynDecl {
+impl TraitAssocRitchieSynDecl {
     pub(super) fn from_node_decl(
         db: &::salsa::Db,
         path: TraitItemPath,
@@ -113,7 +113,7 @@ impl TraitAssocFnSynDecl {
             .collect();
         let return_ty = *syn_node_decl.return_ty(db).as_ref()?;
         let syn_expr_region = syn_node_decl.syn_expr_region(db);
-        Ok(TraitAssocFnSynDecl::new(
+        Ok(TraitAssocRitchieSynDecl::new(
             db,
             path,
             template_parameters,

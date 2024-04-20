@@ -799,8 +799,8 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::AssocFn(
-                        TypeAssocFnDecTemplate {
+                    TypeItemDecTemplate::AssocRitchie(
+                        TypeAssocRitchieDecTemplate {
                             path: TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::new`, `AssocRitchie(
                                 Fn,
                             )`),
@@ -1201,8 +1201,8 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::AssocFn(
-                        TypeAssocFnDecTemplate {
+                    TypeItemDecTemplate::AssocRitchie(
+                        TypeAssocRitchieDecTemplate {
                             path: TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::new`, `AssocRitchie(
                                 Fn,
                             )`),

@@ -1,4 +1,4 @@
-mod assoc_fn;
+mod assoc_ritchie;
 mod assoc_ty;
 mod assoc_val;
 mod memo_field;
@@ -6,7 +6,7 @@ mod method_ritchie;
 
 use husky_hir_decl::decl::TypeItemHirDecl;
 
-pub use self::assoc_fn::*;
+pub use self::assoc_ritchie::*;
 pub use self::assoc_ty::*;
 pub use self::assoc_val::*;
 pub use self::memo_field::*;
@@ -18,7 +18,7 @@ use super::*;
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum TypeItemHirDefn {
-    AssocFn(TypeAssocFnHirDefn),
+    AssocRitchie(TypeAssocRitchieHirDefn),
     MethodFn(TypeMethodRitchieHirDefn),
     AssocType(TypeAssocTypeHirDefn),
     AssocVal(TypeAssocValHirDefn),
@@ -34,7 +34,7 @@ impl From<TypeItemHirDefn> for HirDefn {
 impl TypeItemHirDefn {
     pub fn path(self, db: &::salsa::Db) -> TypeItemPath {
         match self {
-            TypeItemHirDefn::AssocFn(hir_defn) => hir_defn.path(db),
+            TypeItemHirDefn::AssocRitchie(hir_defn) => hir_defn.path(db),
             TypeItemHirDefn::MethodFn(hir_defn) => hir_defn.path(db),
             TypeItemHirDefn::AssocType(hir_defn) => hir_defn.path(db),
             TypeItemHirDefn::AssocVal(hir_defn) => hir_defn.path(db),
@@ -44,7 +44,7 @@ impl TypeItemHirDefn {
 
     pub fn hir_decl(self, db: &::salsa::Db) -> TypeItemHirDecl {
         match self {
-            TypeItemHirDefn::AssocFn(hir_defn) => hir_defn.hir_decl(db).into(),
+            TypeItemHirDefn::AssocRitchie(hir_defn) => hir_defn.hir_decl(db).into(),
             TypeItemHirDefn::MethodFn(hir_defn) => hir_defn.hir_decl(db).into(),
             TypeItemHirDefn::AssocType(hir_defn) => hir_defn.hir_decl(db).into(),
             TypeItemHirDefn::AssocVal(hir_defn) => hir_defn.hir_decl(db).into(),
@@ -54,7 +54,7 @@ impl TypeItemHirDefn {
 
     pub fn hir_expr_region(self, db: &::salsa::Db) -> Option<HirExprRegion> {
         match self {
-            TypeItemHirDefn::AssocFn(hir_defn) => {
+            TypeItemHirDefn::AssocRitchie(hir_defn) => {
                 hir_defn.hir_eager_expr_region(db).map(Into::into)
             }
             TypeItemHirDefn::MethodFn(hir_defn) => {
@@ -72,7 +72,7 @@ impl TypeItemHirDefn {
 
     pub fn hir_expr_body_and_region(self, db: &::salsa::Db) -> Option<(HirExprIdx, HirExprRegion)> {
         match self {
-            TypeItemHirDefn::AssocFn(hir_defn) => hir_defn
+            TypeItemHirDefn::AssocRitchie(hir_defn) => hir_defn
                 .eager_body_with_hir_eager_expr_region(db)
                 .map(|(body, region)| (body.into(), region.into())),
             TypeItemHirDefn::MethodFn(hir_defn) => hir_defn
@@ -88,7 +88,7 @@ impl TypeItemHirDefn {
 
     pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
         match self {
-            TypeItemHirDefn::AssocFn(hir_defn) => hir_defn.dependencies(db),
+            TypeItemHirDefn::AssocRitchie(hir_defn) => hir_defn.dependencies(db),
             TypeItemHirDefn::MethodFn(hir_defn) => hir_defn.dependencies(db),
             TypeItemHirDefn::AssocType(hir_defn) => hir_defn.dependencies(db),
             TypeItemHirDefn::AssocVal(hir_defn) => hir_defn.dependencies(db),
@@ -98,7 +98,7 @@ impl TypeItemHirDefn {
 
     pub(super) fn version_stamp(self, db: &::salsa::Db) -> HirDefnVersionStamp {
         match self {
-            TypeItemHirDefn::AssocFn(hir_defn) => hir_defn.version_stamp(db),
+            TypeItemHirDefn::AssocRitchie(hir_defn) => hir_defn.version_stamp(db),
             TypeItemHirDefn::MethodFn(hir_defn) => hir_defn.version_stamp(db),
             TypeItemHirDefn::AssocType(hir_defn) => hir_defn.version_stamp(db),
             TypeItemHirDefn::AssocVal(hir_defn) => hir_defn.version_stamp(db),
@@ -118,8 +118,8 @@ impl HasHirDefn for TypeItemPath {
 #[salsa::tracked(jar = HirDefnJar)]
 pub(crate) fn ty_item_hir_defn(db: &::salsa::Db, path: TypeItemPath) -> Option<TypeItemHirDefn> {
     match path.hir_decl(db)? {
-        TypeItemHirDecl::AssocFn(hir_decl) => {
-            Some(TypeAssocFnHirDefn::new(db, path, hir_decl).into())
+        TypeItemHirDecl::AssocRitchie(hir_decl) => {
+            Some(TypeAssocRitchieHirDefn::new(db, path, hir_decl).into())
         }
         TypeItemHirDecl::MethodFn(hir_decl) => {
             Some(TypeMethodRitchieHirDefn::new(db, path, hir_decl).into())

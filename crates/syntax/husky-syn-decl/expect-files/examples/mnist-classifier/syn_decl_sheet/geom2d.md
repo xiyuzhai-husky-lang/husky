@@ -1759,8 +1759,8 @@ SynDeclSheet {
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
-                    TypeItemSynDecl::AssocFn(
-                        TypeAssocFnSynDecl {
+                    TypeItemSynDecl::AssocRitchie(
+                        TypeAssocRitchieSynDecl {
                             path: TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::from_i_shift28`, `AssocRitchie(
                                 Fn,
                             )`),

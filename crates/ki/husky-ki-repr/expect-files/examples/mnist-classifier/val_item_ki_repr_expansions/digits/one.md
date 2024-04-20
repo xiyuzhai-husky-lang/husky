@@ -320,7 +320,7 @@
                         ki_domain_repr: Omni,
                         opn: KiOpn::Linkage(
                             Linkage {
-                                data: LinkageData::UnveilAssocFn {
+                                data: LinkageData::UnveilAssocRitchie {
                                     path: TraitForTypeItemPath(
                                         `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
                                         TraitItemKind::AssocRitchie(
@@ -905,7 +905,7 @@
                         ),
                         opn: KiOpn::Linkage(
                             Linkage {
-                                data: LinkageData::UnveilAssocFn {
+                                data: LinkageData::UnveilAssocRitchie {
                                     path: TraitForTypeItemPath(
                                         `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
                                         TraitItemKind::AssocRitchie(
@@ -2530,7 +2530,7 @@
                         ),
                         opn: KiOpn::Linkage(
                             Linkage {
-                                data: LinkageData::UnveilAssocFn {
+                                data: LinkageData::UnveilAssocRitchie {
                                     path: TraitForTypeItemPath(
                                         `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
                                         TraitItemKind::AssocRitchie(
@@ -4073,7 +4073,7 @@
                         ),
                         opn: KiOpn::Linkage(
                             Linkage {
-                                data: LinkageData::UnveilAssocFn {
+                                data: LinkageData::UnveilAssocRitchie {
                                     path: TraitForTypeItemPath(
                                         `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
                                         TraitItemKind::AssocRitchie(
@@ -4784,7 +4784,7 @@
                         ),
                         opn: KiOpn::Linkage(
                             Linkage {
-                                data: LinkageData::UnveilAssocFn {
+                                data: LinkageData::UnveilAssocRitchie {
                                     path: TraitForTypeItemPath(
                                         `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
                                         TraitItemKind::AssocRitchie(
@@ -6799,7 +6799,7 @@
                         ),
                         opn: KiOpn::Linkage(
                             Linkage {
-                                data: LinkageData::UnveilAssocFn {
+                                data: LinkageData::UnveilAssocRitchie {
                                     path: TraitForTypeItemPath(
                                         `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
                                         TraitItemKind::AssocRitchie(
@@ -7358,7 +7358,7 @@
                         ),
                         opn: KiOpn::Linkage(
                             Linkage {
-                                data: LinkageData::UnveilAssocFn {
+                                data: LinkageData::UnveilAssocRitchie {
                                     path: TraitForTypeItemPath(
                                         `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
                                         TraitItemKind::AssocRitchie(
@@ -8353,7 +8353,7 @@
                         ),
                         opn: KiOpn::Linkage(
                             Linkage {
-                                data: LinkageData::UnveilAssocFn {
+                                data: LinkageData::UnveilAssocRitchie {
                                     path: TraitForTypeItemPath(
                                         `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
                                         TraitItemKind::AssocRitchie(
@@ -9966,7 +9966,7 @@
                         ),
                         opn: KiOpn::Linkage(
                             Linkage {
-                                data: LinkageData::UnveilAssocFn {
+                                data: LinkageData::UnveilAssocRitchie {
                                     path: TraitForTypeItemPath(
                                         `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
                                         TraitItemKind::AssocRitchie(
@@ -11803,7 +11803,7 @@
                         ki_domain_repr: Omni,
                         opn: KiOpn::Linkage(
                             Linkage {
-                                data: LinkageData::UnveilAssocFn {
+                                data: LinkageData::UnveilAssocRitchie {
                                     path: TraitForTypeItemPath(
                                         `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
                                         TraitItemKind::AssocRitchie(

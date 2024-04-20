@@ -134,7 +134,7 @@ impl ValkyrieRides {
         for entry in hir_eager_expr_region.expr_arena(db) {
             #[deprecated(note = "incomplete")]
             match *entry.data() {
-                HirEagerExprData::AssocFn { assoc_item_path: _ } => (), // ad hoc
+                HirEagerExprData::AssocRitchie { assoc_item_path: _ } => (), // ad hoc
                 HirEagerExprData::PrincipalEntityPath(path) => match path {
                     PrincipalEntityPath::Module(_) => unreachable!(),
                     PrincipalEntityPath::MajorItem(path) => match path {
@@ -233,7 +233,7 @@ impl ValkyrieRides {
     ) {
         for data in hir_lazy_expr_region.hir_lazy_expr_arena(db) {
             match *data {
-                HirLazyExprData::AssocFn { path: _ } => (),
+                HirLazyExprData::AssocRitchie { path: _ } => (),
                 HirLazyExprData::PrincipalEntityPath(_) => (),
                 HirLazyExprData::Be {
                     src: _,

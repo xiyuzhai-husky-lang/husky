@@ -100,7 +100,7 @@ pub(crate) fn ty_method_fly_signature<Term: Copy + Into<FlyTerm>>(
             }
             Nothing
         }
-        TypeItemEthTemplates::AssocFn(_) => todo!(),
+        TypeItemEthTemplates::AssocRitchie(_) => todo!(),
         TypeItemEthTemplates::MemoizedField(_) => todo!(),
     }
 }

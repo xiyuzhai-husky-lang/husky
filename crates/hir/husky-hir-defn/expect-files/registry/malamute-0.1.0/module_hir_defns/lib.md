@@ -334,7 +334,7 @@
     ),
     HirDefn::AssocItem(
         AssocItemHirDefn::TraitForTypeItem(
-            TraitForTypeItemHirDefn::AssocFn(
+            TraitForTypeItemHirDefn::AssocRitchie(
                 TraitForTypeAssocRitchieHirDefn {
                     path: TraitForTypeItemPath(
                         `<malamute::OneVsAll as core::default::Default(0)>::default`,
@@ -763,7 +763,7 @@
     ),
     HirDefn::AssocItem(
         AssocItemHirDefn::TraitForTypeItem(
-            TraitForTypeItemHirDefn::AssocFn(
+            TraitForTypeItemHirDefn::AssocRitchie(
                 TraitForTypeAssocRitchieHirDefn {
                     path: TraitForTypeItemPath(
                         `<malamute::Class as core::ops::Unveil(0)>::unveil`,
@@ -1555,7 +1555,7 @@
     ),
     HirDefn::AssocItem(
         AssocItemHirDefn::TraitForTypeItem(
-            TraitForTypeItemHirDefn::AssocFn(
+            TraitForTypeItemHirDefn::AssocRitchie(
                 TraitForTypeAssocRitchieHirDefn {
                     path: TraitForTypeItemPath(
                         `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,

@@ -356,7 +356,9 @@ fn transpile_hir_eager_expr_to_rust(
             builder.macro_name(RustMacroName::Unreachable);
             builder.delimited(RustDelimiter::Par, |_| ())
         }
-        HirEagerExprData::AssocFn { assoc_item_path } => assoc_item_path.transpile_to_rust(builder),
+        HirEagerExprData::AssocRitchie { assoc_item_path } => {
+            assoc_item_path.transpile_to_rust(builder)
+        }
         HirEagerExprData::As { opd, ty } => {
             (
                 opd,

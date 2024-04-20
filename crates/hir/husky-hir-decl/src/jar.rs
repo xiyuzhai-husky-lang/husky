@@ -11,11 +11,11 @@ pub struct HirDeclJar(
     // ty_item_hir_decl,
     crate::decl::TypeMethodRitchieHirDecl,
     crate::decl::TypeMemoFieldHirDecl,
-    crate::decl::TypeAssocFnHirDecl,
+    crate::decl::TypeAssocRitchieHirDecl,
     crate::decl::TypeAssocValHirDecl,
     crate::decl::TypeAssocTypeHirDecl,
     // - trait items
-    crate::decl::TraitAssocFnHirDecl,
+    crate::decl::TraitAssocRitchieHirDecl,
     crate::decl::TraitAssocTypeHirDecl,
     crate::decl::TraitAssocValHirDecl,
     crate::decl::TraitMethodFnHirDecl,

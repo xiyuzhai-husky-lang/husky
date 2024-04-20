@@ -652,7 +652,7 @@ impl<'a> KiReprExpansionBuilder<'a> {
             } => todo!(),
             HirLazyExprData::Todo => todo!(),
             HirLazyExprData::Unreachable => todo!(),
-            HirLazyExprData::AssocFn { .. } => todo!(),
+            HirLazyExprData::AssocRitchie { .. } => todo!(),
             HirLazyExprData::As { opd, ty } => todo!(),
         };
         ki_domain_repr_guard.new_expr_ki_repr(

@@ -18,7 +18,7 @@ use crate::*;
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum TypeItemDecTemplate {
-    AssocFn(TypeAssocFnDecTemplate),
+    AssocRitchie(TypeAssocRitchieDecTemplate),
     MethodFn(TypeMethodRitchieDecTemplate),
     AssocType(TypeAssocTypeDecTemplate),
     AssocVal(TypeAssocValDecTemplate),
@@ -29,7 +29,7 @@ pub enum TypeItemDecTemplate {
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum TypeItemDecTemplates {
-    AssocFn(SmallVecImpl<TypeAssocFnDecTemplate>),
+    AssocRitchie(SmallVecImpl<TypeAssocRitchieDecTemplate>),
     MethodFn(SmallVecImpl<TypeMethodRitchieDecTemplate>),
     AssocType(SmallVecImpl<TypeAssocTypeDecTemplate>),
     AssocVal(SmallVecImpl<TypeAssocValDecTemplate>),
@@ -39,7 +39,7 @@ pub enum TypeItemDecTemplates {
 impl TypeItemDecTemplate {
     pub fn template_parameters(self, db: &::salsa::Db) -> &[DeclarativeTemplateParameter] {
         match self {
-            TypeItemDecTemplate::AssocFn(signature) => signature.template_parameters(db),
+            TypeItemDecTemplate::AssocRitchie(signature) => signature.template_parameters(db),
             TypeItemDecTemplate::MethodFn(signature) => signature.template_parameters(db),
             TypeItemDecTemplate::AssocType(signature) => signature.template_parameters(db),
             TypeItemDecTemplate::AssocVal(_) => &[],
@@ -63,8 +63,8 @@ pub(crate) fn ty_item_syn_dec_template(
 ) -> DecSignatureResult<TypeItemDecTemplate> {
     let decl = path.syn_decl(db)?;
     match decl {
-        TypeItemSynDecl::AssocFn(decl) => {
-            TypeAssocFnDecTemplate::from_decl(db, path, decl).map(Into::into)
+        TypeItemSynDecl::AssocRitchie(decl) => {
+            TypeAssocRitchieDecTemplate::from_decl(db, path, decl).map(Into::into)
         }
         TypeItemSynDecl::MethodFn(decl) => {
             TypeMethodRitchieDecTemplate::from_decl(db, path, decl).map(Into::into)

@@ -8,11 +8,11 @@ pub struct EtherealSignatureJar(
     TypeMethodRitchieEthTemplate,
     TypeMethodCurryEthTemplate,
     TypeMemoizedFieldEthTemplate,
-    TypeAssocFnEthTemplate,
+    TypeAssocRitchieEthTemplate,
     TypeAssocTypeEthTemplate,
     // ty_item_eth_template,
     // - trait items
-    TraitAssocFnEthTemplate,
+    TraitAssocRitchieEthTemplate,
     TraitMethodFnEthTemplate,
     // - trait for type items
     TraitForTypeAssocRitchieEthTemplate,

@@ -898,8 +898,8 @@ SynDeclSheet {
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
-                    TypeItemSynDecl::AssocFn(
-                        TypeAssocFnSynDecl {
+                    TypeItemSynDecl::AssocRitchie(
+                        TypeAssocRitchieSynDecl {
                             path: TypeItemPath(`<mnist::BinaryImage28(0)>::new_zeros`, `AssocRitchie(
                                 Fn,
                             )`),
@@ -2119,8 +2119,8 @@ SynDeclSheet {
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
-                    TypeItemSynDecl::AssocFn(
-                        TypeAssocFnSynDecl {
+                    TypeItemSynDecl::AssocRitchie(
+                        TypeAssocRitchieSynDecl {
                             path: TypeItemPath(`<mnist::BinaryGrid28(0)>::new_zeros`, `AssocRitchie(
                                 Fn,
                             )`),

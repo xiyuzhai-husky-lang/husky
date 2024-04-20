@@ -31,7 +31,7 @@ impl Linkage {
                 path,
                 ref instantiation,
             } => (path.into(), instantiation),
-            LinkageData::UnveilAssocFn {
+            LinkageData::UnveilAssocRitchie {
                 path,
                 ref instantiation,
             } => (path.into(), instantiation),

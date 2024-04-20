@@ -38744,8 +38744,8 @@
                                             52,
                                         ),
                                     },
-                                    static_dispatch: AssocFn(
-                                        AssocFnFlySignature {
+                                    static_dispatch: AssocRitchie(
+                                        AssocRitchieFlySignature {
                                             path: TypeItem(
                                                 TypeItemPath(
                                                     ItemPathId(
@@ -38856,7 +38856,7 @@
                                                         ),
                                                     ),
                                                 ),
-                                                env: AssocFn,
+                                                env: AssocRitchie,
                                                 symbol_map: [],
                                                 separator: Some(
                                                     0,
@@ -41209,8 +41209,8 @@
                                             137,
                                         ),
                                     },
-                                    static_dispatch: AssocFn(
-                                        AssocFnFlySignature {
+                                    static_dispatch: AssocRitchie(
+                                        AssocRitchieFlySignature {
                                             path: TypeItem(
                                                 TypeItemPath(
                                                     ItemPathId(
@@ -41321,7 +41321,7 @@
                                                         ),
                                                     ),
                                                 ),
-                                                env: AssocFn,
+                                                env: AssocRitchie,
                                                 symbol_map: [],
                                                 separator: Some(
                                                     0,
@@ -42747,8 +42747,8 @@
                                             180,
                                         ),
                                     },
-                                    static_dispatch: AssocFn(
-                                        AssocFnFlySignature {
+                                    static_dispatch: AssocRitchie(
+                                        AssocRitchieFlySignature {
                                             path: TypeItem(
                                                 TypeItemPath(
                                                     ItemPathId(
@@ -42859,7 +42859,7 @@
                                                         ),
                                                     ),
                                                 ),
-                                                env: AssocFn,
+                                                env: AssocRitchie,
                                                 symbol_map: [],
                                                 separator: Some(
                                                     0,
@@ -46278,8 +46278,8 @@
                                             293,
                                         ),
                                     },
-                                    static_dispatch: AssocFn(
-                                        AssocFnFlySignature {
+                                    static_dispatch: AssocRitchie(
+                                        AssocRitchieFlySignature {
                                             path: TypeItem(
                                                 TypeItemPath(
                                                     ItemPathId(
@@ -46390,7 +46390,7 @@
                                                         ),
                                                     ),
                                                 ),
-                                                env: AssocFn,
+                                                env: AssocRitchie,
                                                 symbol_map: [],
                                                 separator: Some(
                                                     0,
@@ -49948,8 +49948,8 @@
                                             405,
                                         ),
                                     },
-                                    static_dispatch: AssocFn(
-                                        AssocFnFlySignature {
+                                    static_dispatch: AssocRitchie(
+                                        AssocRitchieFlySignature {
                                             path: TypeItem(
                                                 TypeItemPath(
                                                     ItemPathId(
@@ -50060,7 +50060,7 @@
                                                         ),
                                                     ),
                                                 ),
-                                                env: AssocFn,
+                                                env: AssocRitchie,
                                                 symbol_map: [],
                                                 separator: Some(
                                                     0,

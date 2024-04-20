@@ -3336,8 +3336,8 @@ SynDeclSheet {
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
-                    TypeItemSynDecl::AssocFn(
-                        TypeAssocFnSynDecl {
+                    TypeItemSynDecl::AssocRitchie(
+                        TypeAssocRitchieSynDecl {
                             path: TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::new`, `AssocRitchie(
                                 Fn,
                             )`),
@@ -5077,8 +5077,8 @@ SynDeclSheet {
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
-                    TypeItemSynDecl::AssocFn(
-                        TypeAssocFnSynDecl {
+                    TypeItemSynDecl::AssocRitchie(
+                        TypeAssocRitchieSynDecl {
                             path: TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::new`, `AssocRitchie(
                                 Fn,
                             )`),

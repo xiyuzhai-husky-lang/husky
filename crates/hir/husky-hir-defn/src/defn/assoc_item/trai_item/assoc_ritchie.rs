@@ -1,31 +1,31 @@
 use super::*;
-use husky_hir_decl::decl::TraitAssocFnHirDecl;
+use husky_hir_decl::decl::TraitAssocRitchieHirDecl;
 
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
-pub struct TraitAssocFnHirDefn {
+pub struct TraitAssocRitchieHirDefn {
     pub path: TraitItemPath,
-    pub hir_decl: TraitAssocFnHirDecl,
+    pub hir_decl: TraitAssocRitchieHirDecl,
     pub eager_body_with_hir_eager_expr_region: Option<(HirEagerExprIdx, HirEagerExprRegion)>,
 }
 
-impl From<TraitAssocFnHirDefn> for AssocItemHirDefn {
-    fn from(hir_defn: TraitAssocFnHirDefn) -> Self {
+impl From<TraitAssocRitchieHirDefn> for AssocItemHirDefn {
+    fn from(hir_defn: TraitAssocRitchieHirDefn) -> Self {
         AssocItemHirDefn::TraitItem(hir_defn.into())
     }
 }
 
-impl From<TraitAssocFnHirDefn> for HirDefn {
-    fn from(hir_defn: TraitAssocFnHirDefn) -> Self {
+impl From<TraitAssocRitchieHirDefn> for HirDefn {
+    fn from(hir_defn: TraitAssocRitchieHirDefn) -> Self {
         HirDefn::AssocItem(hir_defn.into())
     }
 }
 
-impl TraitAssocFnHirDefn {
+impl TraitAssocRitchieHirDefn {
     pub(super) fn new(
         _db: &::salsa::Db,
         _path: TraitItemPath,
-        _hir_decl: TraitAssocFnHirDecl,
-    ) -> TraitAssocFnHirDefn {
+        _hir_decl: TraitAssocRitchieHirDecl,
+    ) -> TraitAssocRitchieHirDefn {
         todo!()
         // let syn_node_path = hir_decl.syn_node_path(db);
         // let mut parser = expr_parser(
@@ -63,7 +63,7 @@ impl TraitAssocFnHirDefn {
 #[salsa::tracked(jar = HirDefnJar)]
 fn trai_assoc_fn_hir_defn_dependencies(
     db: &::salsa::Db,
-    hir_defn: TraitAssocFnHirDefn,
+    hir_defn: TraitAssocRitchieHirDefn,
 ) -> HirDefnDependencies {
     let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
     let hir_decl = hir_defn.hir_decl(db);
@@ -86,7 +86,7 @@ fn trai_assoc_fn_hir_defn_dependencies(
 #[salsa::tracked(jar = HirDefnJar)]
 fn trai_assoc_fn_hir_defn_version_stamp(
     db: &::salsa::Db,
-    hir_defn: TraitAssocFnHirDefn,
+    hir_defn: TraitAssocRitchieHirDefn,
 ) -> HirDefnVersionStamp {
     HirDefnVersionStamp::new(hir_defn, db)
 }
