@@ -662,7 +662,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
-                        MajorRitchieSynDecl {
+                        MajorFunctionRitchieSynDecl {
                             path: FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                                 Fn,
                             )`),
@@ -1071,7 +1071,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
-                        MajorRitchieSynDecl {
+                        MajorFunctionRitchieSynDecl {
                             path: FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                                 Fn,
                             )`),
@@ -1381,7 +1381,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
-                        MajorRitchieSynDecl {
+                        MajorFunctionRitchieSynDecl {
                             path: FormPath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
                                 Fn,
                             )`),

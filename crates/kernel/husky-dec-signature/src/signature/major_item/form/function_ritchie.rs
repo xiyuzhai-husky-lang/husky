@@ -2,7 +2,7 @@ use crate::*;
 use husky_entity_kind::ritchie::RitchieItemKind;
 
 #[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
-pub struct MajorRitchieDecTemplate {
+pub struct MajorFunctionRitchieDecTemplate {
     pub ritchie_item_kind: RitchieItemKind,
     #[return_ref]
     pub template_parameters: DecTemplateParameters,
@@ -11,10 +11,10 @@ pub struct MajorRitchieDecTemplate {
     pub return_ty: DecTerm,
 }
 
-impl MajorRitchieDecTemplate {
+impl MajorFunctionRitchieDecTemplate {
     pub(super) fn from_decl(
         db: &::salsa::Db,
-        decl: MajorRitchieSynDecl,
+        decl: MajorFunctionRitchieSynDecl,
     ) -> DecSignatureResult<Self> {
         let ritchie_item_kind = decl.ritchie_item_kind(db);
         let syn_expr_region = decl.syn_expr_region(db);
@@ -35,7 +35,7 @@ impl MajorRitchieDecTemplate {
             Some(return_ty) => dec_term_region.expr_term(return_ty.syn_expr_idx())?,
             None => dec_term_menu.unit(),
         };
-        Ok(MajorRitchieDecTemplate::new(
+        Ok(MajorFunctionRitchieDecTemplate::new(
             db,
             ritchie_item_kind,
             template_parameters,

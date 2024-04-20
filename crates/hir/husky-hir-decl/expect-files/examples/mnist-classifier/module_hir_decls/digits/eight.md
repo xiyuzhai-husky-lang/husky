@@ -93,7 +93,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Ritchie(
-                MajorRitchieHirDecl {
+                MajorFunctionRitchieHirDecl {
                     path: FormPath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
                         Fn,
                     )`),

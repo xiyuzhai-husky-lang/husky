@@ -93,7 +93,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Ritchie(
-                MajorRitchieHirDecl {
+                MajorFunctionRitchieHirDecl {
                     path: FormPath(`mnist_classifier::digits::three::uparc`, `Ritchie(
                         Fn,
                     )`),
@@ -159,7 +159,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Ritchie(
-                MajorRitchieHirDecl {
+                MajorFunctionRitchieHirDecl {
                     path: FormPath(`mnist_classifier::digits::three::downarc`, `Ritchie(
                         Fn,
                     )`),
@@ -225,7 +225,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Ritchie(
-                MajorRitchieHirDecl {
+                MajorFunctionRitchieHirDecl {
                     path: FormPath(`mnist_classifier::digits::three::back`, `Ritchie(
                         Fn,
                     )`),

@@ -55,27 +55,22 @@ pub enum HirLazyExprData {
         opd: HirLazyExprIdx,
         ty: HirType,
     },
-    TypeConstructorFnCall {
+    TypeConstructorCall {
         path: TypePath,
         instantiation: HirInstantiation,
         item_groups: SmallVec<[HirLazyCallListArgument; 4]>,
     },
-    TypeVariantConstructorFnCall {
+    TypeVariantConstructorCall {
         path: TypeVariantPath,
         instantiation: HirInstantiation,
         item_groups: SmallVec<[HirLazyCallListArgument; 4]>,
     },
-    FunctionFnItemCall {
+    FunctionRitchieItemCall {
         path: MajorFormPath,
         instantiation: HirInstantiation,
         item_groups: SmallVec<[HirLazyCallListArgument; 4]>,
     },
-    FunctionGnItemCall {
-        path: MajorFormPath,
-        instantiation: HirInstantiation,
-        item_groups: SmallVec<[HirLazyCallListArgument; 4]>,
-    },
-    AssocFunctionFnCall {
+    AssocFunctionRitchieCall {
         path: AssocItemPath,
         instantiation: HirInstantiation,
         item_groups: SmallVec<[HirLazyCallListArgument; 4]>,
@@ -273,26 +268,28 @@ impl ToHirLazy for SemaExprIdx {
                         match path {
                             PrincipalEntityPath::Module(_) => unreachable!(),
                             PrincipalEntityPath::MajorItem(path) => match path {
-                                MajorItemPath::Type(path) => {
-                                    HirLazyExprData::TypeConstructorFnCall {
-                                        path,
-                                        instantiation,
-                                        item_groups,
-                                    }
-                                }
+                                MajorItemPath::Type(path) => HirLazyExprData::TypeConstructorCall {
+                                    path,
+                                    instantiation,
+                                    item_groups,
+                                },
                                 MajorItemPath::Trait(_) => unreachable!(),
                                 MajorItemPath::Form(path) => {
                                     match path.major_form_kind(builder.db()) {
-                                        MajorFormKind::FN => HirLazyExprData::FunctionFnItemCall {
-                                            path,
-                                            instantiation,
-                                            item_groups,
-                                        },
-                                        MajorFormKind::GN => HirLazyExprData::FunctionGnItemCall {
-                                            path,
-                                            instantiation,
-                                            item_groups,
-                                        },
+                                        MajorFormKind::FN => {
+                                            HirLazyExprData::FunctionRitchieItemCall {
+                                                path,
+                                                instantiation,
+                                                item_groups,
+                                            }
+                                        }
+                                        MajorFormKind::GN => {
+                                            HirLazyExprData::FunctionRitchieItemCall {
+                                                path,
+                                                instantiation,
+                                                item_groups,
+                                            }
+                                        }
                                         MajorFormKind::Ritchie(_) => todo!(),
                                         MajorFormKind::TypeAlias
                                         | MajorFormKind::Val
@@ -302,7 +299,7 @@ impl ToHirLazy for SemaExprIdx {
                                 }
                             },
                             PrincipalEntityPath::TypeVariant(path) => {
-                                HirLazyExprData::TypeVariantConstructorFnCall {
+                                HirLazyExprData::TypeVariantConstructorCall {
                                     path,
                                     instantiation,
                                     item_groups,

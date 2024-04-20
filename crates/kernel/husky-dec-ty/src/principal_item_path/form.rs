@@ -34,7 +34,7 @@ pub(crate) fn ritchie_path_declarative_ty(
     db: &::salsa::Db,
     toolchain: Toolchain,
     variances: &[Variance],
-    signature: MajorRitchieDecTemplate,
+    signature: MajorFunctionRitchieDecTemplate,
 ) -> DeclarativeTypeResult<DecTerm> {
     let parenate_parameters = signature.parenate_parameters(db).data().to_smallvec();
     let return_declarative_ty = signature.return_ty(db);

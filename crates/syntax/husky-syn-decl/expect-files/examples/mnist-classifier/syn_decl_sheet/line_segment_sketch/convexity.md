@@ -12,7 +12,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
-                        MajorRitchieSynDecl {
+                        MajorFunctionRitchieSynDecl {
                             path: FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
                                 Fn,
                             )`),

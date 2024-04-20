@@ -413,7 +413,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
-                        MajorRitchieSynDecl {
+                        MajorFunctionRitchieSynDecl {
                             path: FormPath(`mnist_classifier::digits::nine::downmost`, `Ritchie(
                                 Fn,
                             )`),
@@ -644,7 +644,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
-                        MajorRitchieSynDecl {
+                        MajorFunctionRitchieSynDecl {
                             path: FormPath(`mnist_classifier::digits::nine::big_cc`, `Ritchie(
                                 Fn,
                             )`),

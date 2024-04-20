@@ -68,7 +68,7 @@ impl KiReprSource {
                         KiReprExpansionSource::Stmt { stmt } => todo!(),
                     }
                 }
-                KiOpn::FunctionGn(_) => todo!(),
+                KiOpn::FunctionRitchie(_) => todo!(),
                 KiOpn::Linkage(linkage) => todo!(),
                 _ => unreachable!(),
             },

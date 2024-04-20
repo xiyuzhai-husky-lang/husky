@@ -116,7 +116,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
-                        MajorRitchieSynDecl {
+                        MajorFunctionRitchieSynDecl {
                             path: FormPath(`mnist_classifier::digits::four::left_coordinate_max`, `Ritchie(
                                 Fn,
                             )`),
@@ -748,7 +748,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
-                        MajorRitchieSynDecl {
+                        MajorFunctionRitchieSynDecl {
                             path: FormPath(`mnist_classifier::digits::four::displacement_downwards`, `Ritchie(
                                 Fn,
                             )`),
@@ -979,7 +979,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
-                        MajorRitchieSynDecl {
+                        MajorFunctionRitchieSynDecl {
                             path: FormPath(`mnist_classifier::digits::four::cc_box_heights`, `Ritchie(
                                 Fn,
                             )`),

@@ -116,12 +116,12 @@ pub enum HirEagerExprData {
         instantiation: HirInstantiation,
         arguments: SmallVec<[HirEagerRitchieArgument; 4]>,
     },
-    FunctionFnCall {
+    FunctionRitchieCall {
         path: MajorFormPath,
         instantiation: HirInstantiation,
         arguments: SmallVec<[HirEagerRitchieArgument; 4]>,
     },
-    AssocFunctionFnCall {
+    AssocFunctionRitchieCall {
         path: AssocItemPath,
         instantiation: HirInstantiation,
         arguments: SmallVec<[HirEagerRitchieArgument; 4]>,
@@ -350,7 +350,7 @@ impl ToHirEager for SemaExprIdx {
                                 arguments: item_groups,
                             },
                             MajorItemPath::Trait(_) => unreachable!(),
-                            MajorItemPath::Form(path) => HirEagerExprData::FunctionFnCall {
+                            MajorItemPath::Form(path) => HirEagerExprData::FunctionRitchieCall {
                                 path,
                                 instantiation: HirInstantiation::from_fly(
                                     instantiation.as_ref().unwrap(),
@@ -379,7 +379,7 @@ impl ToHirEager for SemaExprIdx {
                         ..
                     } => match static_dispatch {
                         StaticDispatch::AssocRitchie(signature) => {
-                            HirEagerExprData::AssocFunctionFnCall {
+                            HirEagerExprData::AssocFunctionRitchieCall {
                                 path: signature.path(),
                                 instantiation: HirInstantiation::from_fly(
                                     signature.instantiation(),

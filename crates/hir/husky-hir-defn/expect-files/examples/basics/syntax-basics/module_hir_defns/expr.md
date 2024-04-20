@@ -3,11 +3,11 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Ritchie(
-                MajorRitchieHirDefn {
+                MajorFunctionRitchieHirDefn {
                     path: FormPath(`syntax_basics::expr::nested`, `Ritchie(
                         Fn,
                     )`),
-                    hir_decl: MajorRitchieHirDecl {
+                    hir_decl: MajorFunctionRitchieHirDecl {
                         path: FormPath(`syntax_basics::expr::nested`, `Ritchie(
                             Fn,
                         )`),
@@ -56,11 +56,11 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Ritchie(
-                MajorRitchieHirDefn {
+                MajorFunctionRitchieHirDefn {
                     path: FormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
                         Fn,
                     )`),
-                    hir_decl: MajorRitchieHirDecl {
+                    hir_decl: MajorFunctionRitchieHirDecl {
                         path: FormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
                             Fn,
                         )`),
@@ -109,11 +109,11 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Ritchie(
-                MajorRitchieHirDefn {
+                MajorFunctionRitchieHirDefn {
                     path: FormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
                         Fn,
                     )`),
-                    hir_decl: MajorRitchieHirDecl {
+                    hir_decl: MajorFunctionRitchieHirDecl {
                         path: FormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
                             Fn,
                         )`),

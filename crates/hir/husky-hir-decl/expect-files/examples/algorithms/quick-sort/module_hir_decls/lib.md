@@ -3,7 +3,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Ritchie(
-                MajorRitchieHirDecl {
+                MajorFunctionRitchieHirDecl {
                     path: FormPath(`quick_sort::quick_sort`, `Ritchie(
                         Fn,
                     )`),
@@ -82,7 +82,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Ritchie(
-                MajorRitchieHirDecl {
+                MajorFunctionRitchieHirDecl {
                     path: FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                         Fn,
                     )`),
@@ -183,7 +183,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Ritchie(
-                MajorRitchieHirDecl {
+                MajorFunctionRitchieHirDecl {
                     path: FormPath(`quick_sort::partition`, `Ritchie(
                         Fn,
                     )`),
@@ -284,7 +284,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Ritchie(
-                MajorRitchieHirDecl {
+                MajorFunctionRitchieHirDecl {
                     path: FormPath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                         Fn,
                     )`),
@@ -318,7 +318,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Ritchie(
-                MajorRitchieHirDecl {
+                MajorFunctionRitchieHirDecl {
                     path: FormPath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                         Fn,
                     )`),

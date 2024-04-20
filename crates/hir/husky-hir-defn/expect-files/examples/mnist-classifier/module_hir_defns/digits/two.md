@@ -65,11 +65,11 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Ritchie(
-                MajorRitchieHirDefn {
+                MajorFunctionRitchieHirDefn {
                     path: FormPath(`mnist_classifier::digits::two::left_cc_pattern`, `Ritchie(
                         Fn,
                     )`),
-                    hir_decl: MajorRitchieHirDecl {
+                    hir_decl: MajorFunctionRitchieHirDecl {
                         path: FormPath(`mnist_classifier::digits::two::left_cc_pattern`, `Ritchie(
                             Fn,
                         )`),
@@ -150,11 +150,11 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Ritchie(
-                MajorRitchieHirDefn {
+                MajorFunctionRitchieHirDefn {
                     path: FormPath(`mnist_classifier::digits::two::right_cc_pattern`, `Ritchie(
                         Fn,
                     )`),
-                    hir_decl: MajorRitchieHirDecl {
+                    hir_decl: MajorFunctionRitchieHirDecl {
                         path: FormPath(`mnist_classifier::digits::two::right_cc_pattern`, `Ritchie(
                             Fn,
                         )`),
@@ -235,11 +235,11 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Ritchie(
-                MajorRitchieHirDefn {
+                MajorFunctionRitchieHirDefn {
                     path: FormPath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
                         Fn,
                     )`),
-                    hir_decl: MajorRitchieHirDecl {
+                    hir_decl: MajorFunctionRitchieHirDecl {
                         path: FormPath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
                             Fn,
                         )`),

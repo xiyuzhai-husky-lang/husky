@@ -12,7 +12,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
-                        MajorRitchieSynDecl {
+                        MajorFunctionRitchieSynDecl {
                             path: FormPath(`syntax_basics::expr::nested`, `Ritchie(
                                 Fn,
                             )`),
@@ -90,7 +90,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
-                        MajorRitchieSynDecl {
+                        MajorFunctionRitchieSynDecl {
                             path: FormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
                                 Fn,
                             )`),
@@ -168,7 +168,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
-                        MajorRitchieSynDecl {
+                        MajorFunctionRitchieSynDecl {
                             path: FormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
                                 Fn,
                             )`),

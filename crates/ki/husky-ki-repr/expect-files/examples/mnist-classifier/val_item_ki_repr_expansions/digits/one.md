@@ -230,7 +230,7 @@
                         ki_domain_repr: Omni,
                         opn: KiOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MajorRitchieLazy {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
@@ -463,7 +463,7 @@
                         ),
                         opn: KiOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                         Fn,
                                     )`),
@@ -521,7 +521,7 @@
                         ),
                         opn: KiOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                         Fn,
                                     )`),
@@ -814,7 +814,7 @@
                         ),
                         opn: KiOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MajorRitchieLazy {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
@@ -2052,7 +2052,7 @@
                         ),
                         opn: KiOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                         Fn,
                                     )`),
@@ -2244,7 +2244,7 @@
                         ),
                         opn: KiOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MajorRitchieEager {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                         Fn,
                                     )`),
@@ -2439,7 +2439,7 @@
                         ),
                         opn: KiOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MajorRitchieLazy {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
@@ -3967,7 +3967,7 @@
                         ),
                         opn: KiOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MajorRitchieLazy {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
@@ -4688,7 +4688,7 @@
                         ),
                         opn: KiOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MajorRitchieLazy {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
@@ -6698,7 +6698,7 @@
                         ),
                         opn: KiOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MajorRitchieLazy {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
@@ -7262,7 +7262,7 @@
                         ),
                         opn: KiOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MajorRitchieLazy {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
@@ -8252,7 +8252,7 @@
                         ),
                         opn: KiOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MajorRitchieLazy {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),
@@ -9870,7 +9870,7 @@
                         ),
                         opn: KiOpn::Linkage(
                             Linkage {
-                                data: LinkageData::MajorRitchieLazy {
+                                data: LinkageData::MajorFunctionRitchie {
                                     path: FormPath(`malamute::narrow_down`, `Ritchie(
                                         Gn,
                                     )`),

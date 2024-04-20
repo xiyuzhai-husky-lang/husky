@@ -3,7 +3,7 @@ use husky_hir_lazy_expr::HirLazyExprRegion;
 use husky_syn_decl::decl::MajorGnSynDecl;
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
-pub struct FunctionGnFormHirDecl {
+pub struct FunctionRitchieFormHirDecl {
     pub path: FormPath,
     #[return_ref]
     pub template_parameters: HirTemplateParameters,
@@ -13,7 +13,7 @@ pub struct FunctionGnFormHirDecl {
     pub hir_lazy_expr_region: HirLazyExprRegion,
 }
 
-impl FunctionGnFormHirDecl {
+impl FunctionRitchieFormHirDecl {
     pub(super) fn from_syn(path: FormPath, syn_decl: MajorGnSynDecl, db: &::salsa::Db) -> Self {
         let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);
         let template_parameters =

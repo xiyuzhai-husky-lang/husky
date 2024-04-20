@@ -142,7 +142,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Ritchie(
-                MajorRitchieHirDecl {
+                MajorFunctionRitchieHirDecl {
                     path: FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                         Fn,
                     )`),
@@ -199,7 +199,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Ritchie(
-                MajorRitchieHirDecl {
+                MajorFunctionRitchieHirDecl {
                     path: FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Ritchie(
                         Fn,
                     )`),
@@ -256,7 +256,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Ritchie(
-                MajorRitchieHirDecl {
+                MajorFunctionRitchieHirDecl {
                     path: FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Ritchie(
                         Fn,
                     )`),
@@ -313,7 +313,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Ritchie(
-                MajorRitchieHirDecl {
+                MajorFunctionRitchieHirDecl {
                     path: FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
                         Fn,
                     )`),
@@ -381,7 +381,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Ritchie(
-                MajorRitchieHirDecl {
+                MajorFunctionRitchieHirDecl {
                     path: FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
                         Fn,
                     )`),
@@ -438,7 +438,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Ritchie(
-                MajorRitchieHirDecl {
+                MajorFunctionRitchieHirDecl {
                     path: FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
                         Fn,
                     )`),
@@ -595,7 +595,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Ritchie(
-                MajorRitchieHirDecl {
+                MajorFunctionRitchieHirDecl {
                     path: FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
                         Fn,
                     )`),
@@ -651,7 +651,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Ritchie(
-                MajorRitchieHirDecl {
+                MajorFunctionRitchieHirDecl {
                     path: FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
                         Fn,
                     )`),

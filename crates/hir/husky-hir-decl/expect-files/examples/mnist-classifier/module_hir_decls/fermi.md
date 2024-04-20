@@ -131,7 +131,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Ritchie(
-                MajorRitchieHirDecl {
+                MajorFunctionRitchieHirDecl {
                     path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                         Fn,
                     )`),

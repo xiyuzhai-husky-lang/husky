@@ -189,11 +189,11 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Ritchie(
-                MajorRitchieHirDefn {
+                MajorFunctionRitchieHirDefn {
                     path: FormPath(`mnist_classifier::digits::six::upmost`, `Ritchie(
                         Fn,
                     )`),
-                    hir_decl: MajorRitchieHirDecl {
+                    hir_decl: MajorFunctionRitchieHirDecl {
                         path: FormPath(`mnist_classifier::digits::six::upmost`, `Ritchie(
                             Fn,
                         )`),
@@ -274,11 +274,11 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Ritchie(
-                MajorRitchieHirDefn {
+                MajorFunctionRitchieHirDefn {
                     path: FormPath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
                         Fn,
                     )`),
-                    hir_decl: MajorRitchieHirDecl {
+                    hir_decl: MajorFunctionRitchieHirDecl {
                         path: FormPath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
                             Fn,
                         )`),

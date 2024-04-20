@@ -1,9 +1,9 @@
 use super::*;
 use husky_entity_kind::ritchie::RitchieItemKind;
-use husky_syn_decl::decl::MajorRitchieSynDecl;
+use husky_syn_decl::decl::MajorFunctionRitchieSynDecl;
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
-pub struct MajorRitchieHirDecl {
+pub struct MajorFunctionRitchieHirDecl {
     pub path: MajorFormPath,
     pub ritchie_item_kind: RitchieItemKind,
     #[return_ref]
@@ -14,10 +14,10 @@ pub struct MajorRitchieHirDecl {
     pub hir_expr_region: HirExprRegion,
 }
 
-impl MajorRitchieHirDecl {
+impl MajorFunctionRitchieHirDecl {
     pub(super) fn from_syn(
         path: MajorFormPath,
-        syn_decl: MajorRitchieSynDecl,
+        syn_decl: MajorFunctionRitchieSynDecl,
         db: &::salsa::Db,
     ) -> Self {
         let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);

@@ -2,7 +2,7 @@ use super::*;
 use husky_entity_kind::ritchie::RitchieItemKind;
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
-pub struct MajorRitchieSynNodeDecl {
+pub struct MajorFunctionRitchieSynNodeDecl {
     #[id]
     pub syn_node_path: FormSynNodePath,
     /// it can be derived equally from syn_node_path
@@ -22,7 +22,7 @@ pub struct MajorRitchieSynNodeDecl {
 }
 
 /// # getters
-impl MajorRitchieSynNodeDecl {
+impl MajorFunctionRitchieSynNodeDecl {
     pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         SmallVec::from_iter(
             self.template_parameter_obelisk_list(db)
@@ -46,7 +46,7 @@ impl<'a> DeclParser<'a> {
         &self,
         syn_node_path: FormSynNodePath,
         ritchie_item_kind: RitchieItemKind,
-    ) -> MajorRitchieSynNodeDecl {
+    ) -> MajorFunctionRitchieSynNodeDecl {
         let mut parser = self.expr_parser(None, AllowSelfType::False, AllowSelfValue::False, None);
         let template_parameter_decl_list = parser.try_parse_option();
         let parameter_decl_list =
@@ -60,7 +60,7 @@ impl<'a> DeclParser<'a> {
             Ok(None)
         };
         let eol_colon = parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEolColon);
-        MajorRitchieSynNodeDecl::new(
+        MajorFunctionRitchieSynNodeDecl::new(
             self.db(),
             syn_node_path,
             ritchie_item_kind,
@@ -75,7 +75,7 @@ impl<'a> DeclParser<'a> {
 }
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
-pub struct MajorRitchieSynDecl {
+pub struct MajorFunctionRitchieSynDecl {
     #[id]
     pub path: MajorFormPath,
     /// it can be derived equally from path
@@ -88,11 +88,11 @@ pub struct MajorRitchieSynDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl MajorRitchieSynDecl {
+impl MajorFunctionRitchieSynDecl {
     pub(super) fn from_node_decl(
         db: &::salsa::Db,
         path: MajorFormPath,
-        syn_node_decl: MajorRitchieSynNodeDecl,
+        syn_node_decl: MajorFunctionRitchieSynNodeDecl,
     ) -> SynDeclResult<Self> {
         let ritchie_item_kind = syn_node_decl.ritchie_item_kind(db);
         debug_assert_eq!(path.major_form_kind(db), ritchie_item_kind.into());
@@ -116,7 +116,7 @@ impl MajorRitchieSynDecl {
             .collect();
         let return_ty = *syn_node_decl.return_ty(db).as_ref()?;
         let syn_expr_region = syn_node_decl.syn_expr_region(db);
-        Ok(MajorRitchieSynDecl::new(
+        Ok(MajorFunctionRitchieSynDecl::new(
             db,
             path,
             ritchie_item_kind,

@@ -53,8 +53,8 @@ pub struct SynDeclJar(
     crate::decl::major_item::form_syn_decl,
     crate::decl::major_item::MajorValSynNodeDecl,
     crate::decl::major_item::MajorValSynDecl,
-    crate::decl::major_item::MajorRitchieSynNodeDecl,
-    crate::decl::major_item::MajorRitchieSynDecl,
+    crate::decl::major_item::MajorFunctionRitchieSynNodeDecl,
+    crate::decl::major_item::MajorFunctionRitchieSynDecl,
     crate::decl::major_item::TypeAliasSynNodeDecl,
     crate::decl::major_item::TypeAliasSynDecl,
     // - impl block

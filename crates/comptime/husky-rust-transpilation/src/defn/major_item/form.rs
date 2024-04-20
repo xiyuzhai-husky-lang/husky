@@ -1,6 +1,6 @@
 use super::*;
 use crate::builder::keyword::RustKeyword;
-use husky_hir_decl::decl::{MajorRitchieHirDecl, MajorValHirDecl};
+use husky_hir_decl::decl::{MajorFunctionRitchieHirDecl, MajorValHirDecl};
 use husky_hir_expr::{HirExprIdx, HirExprRegion};
 
 impl TranspileToRustWith for MajorFormHirDefn {
@@ -13,7 +13,7 @@ impl TranspileToRustWith for MajorFormHirDefn {
     }
 }
 
-impl TranspileToRustWith for MajorRitchieHirDefn {
+impl TranspileToRustWith for MajorFunctionRitchieHirDefn {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
         let Some((HirExprIdx::Eager(body), HirExprRegion::Eager(body_hir_eager_expr_region))) =
@@ -26,7 +26,7 @@ impl TranspileToRustWith for MajorRitchieHirDefn {
     }
 }
 
-impl TranspileToRustWith for MajorRitchieHirDecl {
+impl TranspileToRustWith for MajorFunctionRitchieHirDecl {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
         let HirExprRegion::Eager(hir_eager_expr_region) = self.hir_expr_region(db) else {

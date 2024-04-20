@@ -132,7 +132,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
                     FormSynNodeDecl::Ritchie(
-                        MajorRitchieSynNodeDecl {
+                        MajorFunctionRitchieSynNodeDecl {
                             syn_node_path: FormSynNodePath(`mnist_classifier::digits::four::left_coordinate_max`, `Ritchie(
                                 Fn,
                             )`, (0)),
@@ -851,7 +851,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
                     FormSynNodeDecl::Ritchie(
-                        MajorRitchieSynNodeDecl {
+                        MajorFunctionRitchieSynNodeDecl {
                             syn_node_path: FormSynNodePath(`mnist_classifier::digits::four::displacement_downwards`, `Ritchie(
                                 Fn,
                             )`, (0)),
@@ -1121,7 +1121,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
                     FormSynNodeDecl::Ritchie(
-                        MajorRitchieSynNodeDecl {
+                        MajorFunctionRitchieSynNodeDecl {
                             syn_node_path: FormSynNodePath(`mnist_classifier::digits::four::cc_box_heights`, `Ritchie(
                                 Fn,
                             )`, (0)),

@@ -393,7 +393,7 @@
         },
     },
     Linkage {
-        data: LinkageData::MajorRitchieEager {
+        data: LinkageData::MajorFunctionRitchie {
             path: FormPath(`syntax_basics::expr::nested`, `Ritchie(
                 Fn,
             )`),
@@ -404,7 +404,7 @@
         },
     },
     Linkage {
-        data: LinkageData::MajorRitchieEager {
+        data: LinkageData::MajorFunctionRitchie {
             path: FormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
                 Fn,
             )`),
@@ -415,7 +415,7 @@
         },
     },
     Linkage {
-        data: LinkageData::MajorRitchieEager {
+        data: LinkageData::MajorFunctionRitchie {
             path: FormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
                 Fn,
             )`),

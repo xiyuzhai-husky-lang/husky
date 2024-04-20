@@ -76,8 +76,8 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
                 HirEagerExprData::TypeVariantConstructorCall { path, .. } => {
                     self.add_item_path(path.parent_ty_path(db))
                 }
-                HirEagerExprData::FunctionFnCall { path, .. } => self.add_item_path(path),
-                HirEagerExprData::AssocFunctionFnCall { path, .. } => self.add_item_path(path),
+                HirEagerExprData::FunctionRitchieCall { path, .. } => self.add_item_path(path),
+                HirEagerExprData::AssocFunctionRitchieCall { path, .. } => self.add_item_path(path),
                 HirEagerExprData::PropsStructField { .. } => (),
                 HirEagerExprData::MemoizedField { path, .. } => self.add_item_path(path),
                 HirEagerExprData::MethodFnCall {
@@ -133,13 +133,13 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
                     ..
                 } => self.add_item_path(unveil_assoc_fn_path),
                 HirLazyExprData::Unwrap { .. } => (),
-                HirLazyExprData::TypeConstructorFnCall { path, .. } => self.add_item_path(path),
-                HirLazyExprData::TypeVariantConstructorFnCall { path, .. } => {
+                HirLazyExprData::TypeConstructorCall { path, .. } => self.add_item_path(path),
+                HirLazyExprData::TypeVariantConstructorCall { path, .. } => {
                     self.add_item_path(path.parent_ty_path(db))
                 }
-                HirLazyExprData::FunctionFnItemCall { path, .. } => self.add_item_path(path),
-                HirLazyExprData::FunctionGnItemCall { path, .. } => self.add_item_path(path),
-                HirLazyExprData::AssocFunctionFnCall { path, .. } => self.add_item_path(path),
+                HirLazyExprData::FunctionRitchieItemCall { path, .. } => self.add_item_path(path),
+                HirLazyExprData::FunctionRitchieItemCall { path, .. } => self.add_item_path(path),
+                HirLazyExprData::AssocFunctionRitchieCall { path, .. } => self.add_item_path(path),
                 HirLazyExprData::PropsStructField { .. } => (),
                 HirLazyExprData::MemoizedField {
                     path,

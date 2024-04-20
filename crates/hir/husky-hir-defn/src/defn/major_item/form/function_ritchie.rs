@@ -1,6 +1,6 @@
 use super::*;
 use husky_hir_decl::{
-    decl::MajorRitchieHirDecl,
+    decl::MajorFunctionRitchieHirDecl,
     parameter::parenate::{
         eager::HirEagerParenateParameter, lazy::HirLazyParenateParameter, HirParenateParameters,
     },
@@ -8,31 +8,31 @@ use husky_hir_decl::{
 use husky_hir_expr::helpers::hir_body_with_expr_region;
 
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
-pub struct MajorRitchieHirDefn {
+pub struct MajorFunctionRitchieHirDefn {
     pub path: MajorFormPath,
-    pub hir_decl: MajorRitchieHirDecl,
+    pub hir_decl: MajorFunctionRitchieHirDecl,
     pub body_with_hir_expr_region: Option<(HirExprIdx, HirExprRegion)>,
 }
 
-impl From<MajorRitchieHirDefn> for MajorItemHirDefn {
-    fn from(hir_defn: MajorRitchieHirDefn) -> Self {
+impl From<MajorFunctionRitchieHirDefn> for MajorItemHirDefn {
+    fn from(hir_defn: MajorFunctionRitchieHirDefn) -> Self {
         MajorItemHirDefn::Form(hir_defn.into())
     }
 }
 
-impl From<MajorRitchieHirDefn> for HirDefn {
-    fn from(hir_defn: MajorRitchieHirDefn) -> Self {
+impl From<MajorFunctionRitchieHirDefn> for HirDefn {
+    fn from(hir_defn: MajorFunctionRitchieHirDefn) -> Self {
         HirDefn::MajorItem(hir_defn.into())
     }
 }
 
-impl MajorRitchieHirDefn {
+impl MajorFunctionRitchieHirDefn {
     pub(super) fn new(
         db: &::salsa::Db,
         path: MajorFormPath,
-        hir_decl: MajorRitchieHirDecl,
+        hir_decl: MajorFunctionRitchieHirDecl,
     ) -> Self {
-        MajorRitchieHirDefn::new_inner(
+        MajorFunctionRitchieHirDefn::new_inner(
             db,
             path,
             hir_decl,
@@ -45,18 +45,18 @@ impl MajorRitchieHirDefn {
     }
 
     pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
-        major_ritchie_hir_defn_dependencies(db, self)
+        major_function_ritchie_hir_defn_dependencies(db, self)
     }
 
     pub(super) fn version_stamp(self, db: &::salsa::Db) -> HirDefnVersionStamp {
-        function_fn_hir_defn_version_stamp(db, self)
+        major_function_ritchie_hir_defn_version_stamp(db, self)
     }
 }
 
 #[salsa::tracked(jar = HirDefnJar)]
-fn major_ritchie_hir_defn_dependencies(
+fn major_function_ritchie_hir_defn_dependencies(
     db: &::salsa::Db,
-    hir_defn: MajorRitchieHirDefn,
+    hir_defn: MajorFunctionRitchieHirDefn,
 ) -> HirDefnDependencies {
     let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
     let hir_decl = hir_defn.hir_decl(db);
@@ -90,9 +90,9 @@ fn major_ritchie_hir_defn_dependencies(
 }
 
 #[salsa::tracked(jar = HirDefnJar)]
-fn function_fn_hir_defn_version_stamp(
+fn major_function_ritchie_hir_defn_version_stamp(
     db: &::salsa::Db,
-    hir_defn: MajorRitchieHirDefn,
+    hir_defn: MajorFunctionRitchieHirDefn,
 ) -> HirDefnVersionStamp {
     HirDefnVersionStamp::new(hir_defn, db)
 }

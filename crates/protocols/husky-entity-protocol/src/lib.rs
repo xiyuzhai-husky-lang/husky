@@ -2,7 +2,7 @@
 pub enum EntityClass {
     Module,
     Type,
-    MajorRitchie,
+    MajorFunctionRitchie,
     TypeAlias,
     Val,
     Trait,

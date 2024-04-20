@@ -471,7 +471,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
                     FormSynNodeDecl::Ritchie(
-                        MajorRitchieSynNodeDecl {
+                        MajorFunctionRitchieSynNodeDecl {
                             syn_node_path: FormSynNodePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                                 Fn,
                             )`, (0)),
@@ -826,7 +826,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
                     FormSynNodeDecl::Ritchie(
-                        MajorRitchieSynNodeDecl {
+                        MajorFunctionRitchieSynNodeDecl {
                             syn_node_path: FormSynNodePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Ritchie(
                                 Fn,
                             )`, (0)),
@@ -1181,7 +1181,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
                     FormSynNodeDecl::Ritchie(
-                        MajorRitchieSynNodeDecl {
+                        MajorFunctionRitchieSynNodeDecl {
                             syn_node_path: FormSynNodePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Ritchie(
                                 Fn,
                             )`, (0)),
@@ -1536,7 +1536,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
                     FormSynNodeDecl::Ritchie(
-                        MajorRitchieSynNodeDecl {
+                        MajorFunctionRitchieSynNodeDecl {
                             syn_node_path: FormSynNodePath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
                                 Fn,
                             )`, (0)),
@@ -1994,7 +1994,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
                     FormSynNodeDecl::Ritchie(
-                        MajorRitchieSynNodeDecl {
+                        MajorFunctionRitchieSynNodeDecl {
                             syn_node_path: FormSynNodePath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
                                 Fn,
                             )`, (0)),
@@ -2349,7 +2349,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
                     FormSynNodeDecl::Ritchie(
-                        MajorRitchieSynNodeDecl {
+                        MajorFunctionRitchieSynNodeDecl {
                             syn_node_path: FormSynNodePath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
                                 Fn,
                             )`, (0)),
@@ -3234,7 +3234,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
                     FormSynNodeDecl::Ritchie(
-                        MajorRitchieSynNodeDecl {
+                        MajorFunctionRitchieSynNodeDecl {
                             syn_node_path: FormSynNodePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
                                 Fn,
                             )`, (0)),
@@ -3503,7 +3503,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
                     FormSynNodeDecl::Ritchie(
-                        MajorRitchieSynNodeDecl {
+                        MajorFunctionRitchieSynNodeDecl {
                             syn_node_path: FormSynNodePath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
                                 Fn,
                             )`, (0)),

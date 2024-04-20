@@ -212,11 +212,11 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Ritchie(
-                MajorRitchieHirDefn {
+                MajorFunctionRitchieHirDefn {
                     path: FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                         Fn,
                     )`),
-                    hir_decl: MajorRitchieHirDecl {
+                    hir_decl: MajorFunctionRitchieHirDecl {
                         path: FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                             Fn,
                         )`),
@@ -361,11 +361,11 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Ritchie(
-                MajorRitchieHirDefn {
+                MajorFunctionRitchieHirDefn {
                     path: FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                         Fn,
                     )`),
-                    hir_decl: MajorRitchieHirDecl {
+                    hir_decl: MajorFunctionRitchieHirDecl {
                         path: FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                             Fn,
                         )`),
@@ -437,11 +437,11 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Ritchie(
-                MajorRitchieHirDefn {
+                MajorFunctionRitchieHirDefn {
                     path: FormPath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
                         Fn,
                     )`),
-                    hir_decl: MajorRitchieHirDecl {
+                    hir_decl: MajorFunctionRitchieHirDecl {
                         path: FormPath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
                             Fn,
                         )`),
@@ -970,7 +970,7 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::FunctionFnCall {
+                                            data: HirEagerExprData::FunctionRitchieCall {
                                                 path: FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
                                                     Fn,
                                                 )`),

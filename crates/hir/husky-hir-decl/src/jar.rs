@@ -38,7 +38,7 @@ pub struct HirDeclJar(
     crate::decl::TraitHirDecl,
     // major form
     crate::decl::major_form_hir_decl,
-    crate::decl::MajorRitchieHirDecl,
+    crate::decl::MajorFunctionRitchieHirDecl,
     crate::decl::MajorTypeAliasHirDecl,
     crate::decl::MajorValHirDecl,
     // ty variant

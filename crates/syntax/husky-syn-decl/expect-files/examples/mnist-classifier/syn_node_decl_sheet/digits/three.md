@@ -341,7 +341,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
                     FormSynNodeDecl::Ritchie(
-                        MajorRitchieSynNodeDecl {
+                        MajorFunctionRitchieSynNodeDecl {
                             syn_node_path: FormSynNodePath(`mnist_classifier::digits::three::uparc`, `Ritchie(
                                 Fn,
                             )`, (0)),
@@ -611,7 +611,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
                     FormSynNodeDecl::Ritchie(
-                        MajorRitchieSynNodeDecl {
+                        MajorFunctionRitchieSynNodeDecl {
                             syn_node_path: FormSynNodePath(`mnist_classifier::digits::three::downarc`, `Ritchie(
                                 Fn,
                             )`, (0)),
@@ -881,7 +881,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
                     FormSynNodeDecl::Ritchie(
-                        MajorRitchieSynNodeDecl {
+                        MajorFunctionRitchieSynNodeDecl {
                             syn_node_path: FormSynNodePath(`mnist_classifier::digits::three::back`, `Ritchie(
                                 Fn,
                             )`, (0)),

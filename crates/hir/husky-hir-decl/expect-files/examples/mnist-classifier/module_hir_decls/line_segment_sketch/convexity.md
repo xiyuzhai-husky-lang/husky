@@ -3,7 +3,7 @@
     HirDecl::MajorItem(
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Ritchie(
-                MajorRitchieHirDecl {
+                MajorFunctionRitchieHirDecl {
                     path: FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
                         Fn,
                     )`),

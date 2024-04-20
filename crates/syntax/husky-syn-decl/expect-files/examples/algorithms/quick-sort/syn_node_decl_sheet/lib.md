@@ -12,7 +12,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
                     FormSynNodeDecl::Ritchie(
-                        MajorRitchieSynNodeDecl {
+                        MajorFunctionRitchieSynNodeDecl {
                             syn_node_path: FormSynNodePath(`quick_sort::quick_sort`, `Ritchie(
                                 Fn,
                             )`, (0)),
@@ -353,7 +353,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
                     FormSynNodeDecl::Ritchie(
-                        MajorRitchieSynNodeDecl {
+                        MajorFunctionRitchieSynNodeDecl {
                             syn_node_path: FormSynNodePath(`quick_sort::quick_sort_aux`, `Ritchie(
                                 Fn,
                             )`, (0)),
@@ -891,7 +891,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
                     FormSynNodeDecl::Ritchie(
-                        MajorRitchieSynNodeDecl {
+                        MajorFunctionRitchieSynNodeDecl {
                             syn_node_path: FormSynNodePath(`quick_sort::partition`, `Ritchie(
                                 Fn,
                             )`, (0)),
@@ -1468,7 +1468,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
                     FormSynNodeDecl::Ritchie(
-                        MajorRitchieSynNodeDecl {
+                        MajorFunctionRitchieSynNodeDecl {
                             syn_node_path: FormSynNodePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                                 Fn,
                             )`, (0)),
@@ -1579,7 +1579,7 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
                     FormSynNodeDecl::Ritchie(
-                        MajorRitchieSynNodeDecl {
+                        MajorFunctionRitchieSynNodeDecl {
                             syn_node_path: FormSynNodePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                                 Fn,
                             )`, (0)),

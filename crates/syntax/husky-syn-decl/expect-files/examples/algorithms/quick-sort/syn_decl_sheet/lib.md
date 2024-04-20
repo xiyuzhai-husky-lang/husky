@@ -12,7 +12,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
-                        MajorRitchieSynDecl {
+                        MajorFunctionRitchieSynDecl {
                             path: FormPath(`quick_sort::quick_sort`, `Ritchie(
                                 Fn,
                             )`),
@@ -302,7 +302,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
-                        MajorRitchieSynDecl {
+                        MajorFunctionRitchieSynDecl {
                             path: FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                 Fn,
                             )`),
@@ -778,7 +778,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
-                        MajorRitchieSynDecl {
+                        MajorFunctionRitchieSynDecl {
                             path: FormPath(`quick_sort::partition`, `Ritchie(
                                 Fn,
                             )`),
@@ -1287,7 +1287,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
-                        MajorRitchieSynDecl {
+                        MajorFunctionRitchieSynDecl {
                             path: FormPath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                                 Fn,
                             )`),
@@ -1365,7 +1365,7 @@ SynDeclSheet {
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::Ritchie(
-                        MajorRitchieSynDecl {
+                        MajorFunctionRitchieSynDecl {
                             path: FormPath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                                 Fn,
                             )`),

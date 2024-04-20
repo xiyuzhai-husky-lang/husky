@@ -113,8 +113,8 @@ pub(super) fn hir_eager_expr_precedence(data: &HirEagerExprData) -> RustPreceden
         | HirEagerExprData::Suffix { .. }
         | HirEagerExprData::TypeConstructorFnCall { .. }
         | HirEagerExprData::TypeVariantConstructorCall { .. }
-        | HirEagerExprData::FunctionFnCall { .. }
-        | HirEagerExprData::AssocFunctionFnCall { .. }
+        | HirEagerExprData::FunctionRitchieCall { .. }
+        | HirEagerExprData::AssocFunctionRitchieCall { .. }
         | HirEagerExprData::PropsStructField { .. }
         | HirEagerExprData::MemoizedField { .. }
         | HirEagerExprData::MethodFnCall { .. }

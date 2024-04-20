@@ -1,8 +1,8 @@
-mod ritchie;
+mod function_ritchie;
 mod ty_alias;
 mod val;
 
-pub use self::ritchie::*;
+pub use self::function_ritchie::*;
 pub use self::ty_alias::*;
 pub use self::val::*;
 
@@ -12,7 +12,7 @@ use crate::*;
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum MajorFormDecTemplate {
-    Ritchie(MajorRitchieDecTemplate),
+    Ritchie(MajorFunctionRitchieDecTemplate),
     TypeAlias(TypeAliasDecTemplate),
     Val(MajorValDecTemplate),
 }
@@ -42,7 +42,9 @@ pub(crate) fn form_syn_dec_template(
 ) -> DecSignatureResult<MajorFormDecTemplate> {
     let decl = path.syn_decl(db)?;
     match decl {
-        FormSynDecl::Ritchie(decl) => MajorRitchieDecTemplate::from_decl(db, decl).map(Into::into),
+        FormSynDecl::Ritchie(decl) => {
+            MajorFunctionRitchieDecTemplate::from_decl(db, decl).map(Into::into)
+        }
         FormSynDecl::Val(decl) => MajorValDecTemplate::from_decl(db, decl).map(Into::into),
         FormSynDecl::TypeAlias(decl) => TypeAliasDecTemplate::from_decl(db, decl).map(Into::into),
     }

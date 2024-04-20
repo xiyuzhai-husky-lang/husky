@@ -36,6 +36,16 @@ impl MajorFormKind {
     pub const TN: Self = MajorFormKind::Ritchie(RitchieItemKind::Tn);
 }
 
+impl MajorFormKind {
+    #[track_caller]
+    pub fn ritchie(self) -> RitchieItemKind {
+        match self {
+            MajorFormKind::Ritchie(slf) => slf,
+            _ => unreachable!(),
+        }
+    }
+}
+
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum EntityKind {
@@ -62,7 +72,7 @@ impl EntityKind {
             } => match module_item_kind {
                 MajorItemKind::Type(_) => EntityClass::Type,
                 MajorItemKind::Form(major_form_kind) => match major_form_kind {
-                    MajorFormKind::Ritchie(_) => EntityClass::MajorRitchie,
+                    MajorFormKind::Ritchie(_) => EntityClass::MajorFunctionRitchie,
                     MajorFormKind::TypeAlias => EntityClass::TypeAlias,
                     MajorFormKind::Val => EntityClass::Val,
                     MajorFormKind::Formal => EntityClass::Formal,

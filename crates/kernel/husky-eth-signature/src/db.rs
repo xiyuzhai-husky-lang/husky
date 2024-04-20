@@ -29,7 +29,7 @@ pub struct EtherealSignatureJar(
     trai_eth_template,
     // Form
     form_eth_template,
-    MajorRitchieEthTemplate,
+    MajorFunctionRitchieEthTemplate,
     MajorTypeAliasEthTemplate,
     MajorValEthTemplate,
     // ty
