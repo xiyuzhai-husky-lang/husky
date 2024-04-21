@@ -1,5 +1,11 @@
+#[cfg(test)]
+mod tests;
+
+#[cfg(test)]
+use self::tests::*;
 use husky_linkage::linkage::Linkage;
 use husky_linkage::template_argument::qual::LinQual;
+use husky_linkage::test_utils::TestLinkage;
 use husky_place::place::idx::PlaceIdx;
 use husky_place::PlaceRegistry;
 use husky_task::linktime::IsLinktime;
@@ -117,4 +123,17 @@ impl<'a, Linktime: IsLinktime> EvalVmir<'a, Linktime::LinkageImpl> for StandardV
 }
 
 #[test]
-fn vm_works_on_all_tests() {}
+fn vm_works_on_all_tests() {
+    DB::vfs_expect_test_debug_with_db(
+        |db, test_linkage: TestLinkage| run_test_linkage(test_linkage),
+        &VfsTestConfig::new(
+            "package_manifest_ast_sheet_sheet",
+            FileExtensionConfig::Markdown,
+            TestDomainsConfig::TOML,
+        ),
+    );
+}
+
+fn run_test_linkage(test_linkage: TestLinkage) {
+    todo!()
+}
