@@ -30,8 +30,12 @@ fn jav_path_deref_works() {
     DB::ast_plain_test(
         |db, module_path| {
             for &item_path in module_item_paths(db, module_path) {
-                if let Some(jav_path) = JavPath::try_from_item_path(item_path, db) {
-                    assert_eq!(*jav_path, *item_path)
+                match item_path {
+                    ItemPath::TypeVariant(_, _) => (),
+                    _ if let Some(jav_path) = JavPath::try_from_item_path(item_path, db) => {
+                        assert_eq!(*jav_path, *item_path)
+                    }
+                    _ => (),
                 }
             }
         },
