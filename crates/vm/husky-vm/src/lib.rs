@@ -1,7 +1,10 @@
+use husky_linkage::linkage::Linkage;
 use husky_linkage::template_argument::qual::LinQual;
 use husky_place::place::idx::PlaceIdx;
 use husky_place::PlaceRegistry;
+use husky_task::linktime::IsLinktime;
 use husky_task_interface::{vm_control_flow::LinkageImplVmControlFlow, IsLinkageImpl};
+use husky_vmir::storage::VmirStorage;
 use husky_vmir::{
     eval::EvalVmir,
     expr::VmirExprIdx,
@@ -9,65 +12,94 @@ use husky_vmir::{
     stmt::{VmirStmtIdx, VmirStmtIdxRange},
 };
 
-pub struct StandardVm<'comptime, LinkageImpl: IsLinkageImpl> {
-    vmir_region: &'comptime VmirRegion<LinkageImpl>,
-    place_registry: &'comptime PlaceRegistry,
-    place_values: Vec<LinkageImpl::Value>,
+struct StandardVm<'a, Linktime: IsLinktime> {
+    vmir_region: &'a VmirRegion<Linktime::LinkageImpl>,
+    place_registry: &'a PlaceRegistry,
+    place_values: Vec<<Linktime::LinkageImpl as IsLinkageImpl>::Value>,
+    db: &'a ::salsa::Db,
+    linktime: &'a Linktime,
+    vmir_storage: &'a VmirStorage<Linktime::LinkageImpl>,
 }
 
-impl<'comptime, LinkageImpl: IsLinkageImpl> StandardVm<'comptime, LinkageImpl> {
+pub fn eval_linkage_on_arguments<
+    LinkageImpl: IsLinkageImpl,
+    Linktime: IsLinktime<LinkageImpl = LinkageImpl>,
+>(
+    linkage: Linkage,
+    arguments: Vec<LinkageImpl::Value>,
+    db: &::salsa::Db,
+    linktime: &Linktime,
+    vmir_storage: &VmirStorage<LinkageImpl>,
+) -> Option<LinkageImplVmControlFlow<LinkageImpl>> {
+    let vmir_region = vmir_storage.linkage_vmir_region(linkage, db, linktime)?;
+    let mut vm = StandardVm::new(linkage, arguments, &vmir_region, db, linktime, vmir_storage);
+    Some(vmir_region.root_expr().eval(None, &mut vm))
+}
+
+impl<'a, Linktime: IsLinktime> StandardVm<'a, Linktime> {
     fn new(
-        vmir_region: &'comptime VmirRegion<LinkageImpl>,
-        place_registry: &'comptime PlaceRegistry,
+        linkage: Linkage,
+        arguments: Vec<<Linktime::LinkageImpl as IsLinkageImpl>::Value>,
+        vmir_region: &'a VmirRegion<Linktime::LinkageImpl>,
+        db: &'a ::salsa::Db,
+        linktime: &'a Linktime,
+        vmir_storage: &'a VmirStorage<Linktime::LinkageImpl>,
     ) -> Self {
         use husky_value_interface::IsValue;
 
+        let place_registry = linkage
+            .place_registry(db)
+            .expect("has vmir_region implies that this is some");
+        let mut place_values = vec![];
+
+        for _ in place_values.len()..place_registry.len() {
+            place_values.push(<Linktime::LinkageImpl as IsLinkageImpl>::Value::new_uninit())
+        }
         Self {
             vmir_region,
             place_registry,
-            place_values: (0..place_registry.len())
-                .map(|_| LinkageImpl::Value::new_uninit())
-                .collect(),
+            place_values,
+            db,
+            linktime,
+            vmir_storage,
         }
     }
 }
 
-impl<'comptime, LinkageImpl: IsLinkageImpl> EvalVmir<'comptime, LinkageImpl>
-    for StandardVm<'comptime, LinkageImpl>
-{
-    fn vmir_region(&self) -> &'comptime VmirRegion<LinkageImpl> {
-        &self.vmir_region
+impl<'a, Linktime: IsLinktime> EvalVmir<'a, Linktime::LinkageImpl> for StandardVm<'a, Linktime> {
+    fn vmir_region(&self) -> &'a VmirRegion<Linktime::LinkageImpl> {
+        self.vmir_region
     }
 
     fn eval_expr(
         &mut self,
-        expr: VmirExprIdx<LinkageImpl>,
-        f: impl FnOnce(&mut Self) -> LinkageImplVmControlFlow<LinkageImpl>,
-    ) -> LinkageImplVmControlFlow<LinkageImpl> {
+        expr: VmirExprIdx<Linktime::LinkageImpl>,
+        f: impl FnOnce(&mut Self) -> LinkageImplVmControlFlow<Linktime::LinkageImpl>,
+    ) -> LinkageImplVmControlFlow<Linktime::LinkageImpl> {
         f(self)
     }
 
     fn eval_expr_inner(
         &mut self,
-        expr: VmirExprIdx<LinkageImpl>,
-        f: impl FnOnce(&mut Self) -> LinkageImplVmControlFlow<LinkageImpl>,
-    ) -> LinkageImplVmControlFlow<LinkageImpl> {
+        expr: VmirExprIdx<Linktime::LinkageImpl>,
+        f: impl FnOnce(&mut Self) -> LinkageImplVmControlFlow<Linktime::LinkageImpl>,
+    ) -> LinkageImplVmControlFlow<Linktime::LinkageImpl> {
         f(self)
     }
 
     fn eval_stmts(
         &mut self,
-        stmts: VmirStmtIdxRange<LinkageImpl>,
-        f: impl FnOnce(&mut Self) -> LinkageImplVmControlFlow<LinkageImpl>,
-    ) -> LinkageImplVmControlFlow<LinkageImpl> {
+        stmts: VmirStmtIdxRange<Linktime::LinkageImpl>,
+        f: impl FnOnce(&mut Self) -> LinkageImplVmControlFlow<Linktime::LinkageImpl>,
+    ) -> LinkageImplVmControlFlow<Linktime::LinkageImpl> {
         f(self)
     }
 
     fn eval_stmt(
         &mut self,
-        stmt: VmirStmtIdx<LinkageImpl>,
-        f: impl FnOnce(&mut Self) -> LinkageImplVmControlFlow<LinkageImpl>,
-    ) -> LinkageImplVmControlFlow<LinkageImpl> {
+        stmt: VmirStmtIdx<Linktime::LinkageImpl>,
+        f: impl FnOnce(&mut Self) -> LinkageImplVmControlFlow<Linktime::LinkageImpl>,
+    ) -> LinkageImplVmControlFlow<Linktime::LinkageImpl> {
         f(self)
     }
 
@@ -75,7 +107,7 @@ impl<'comptime, LinkageImpl: IsLinkageImpl> EvalVmir<'comptime, LinkageImpl>
         &mut self,
         place_idx: PlaceIdx,
         qual: LinQual,
-    ) -> <LinkageImpl as IsLinkageImpl>::Value {
+    ) -> <Linktime::LinkageImpl as IsLinkageImpl>::Value {
         match qual {
             LinQual::Ref => todo!(),
             LinQual::RefMut => todo!(),
