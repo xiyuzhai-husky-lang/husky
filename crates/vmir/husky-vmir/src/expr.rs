@@ -407,7 +407,7 @@ impl<LinkageImpl: IsLinkageImpl> VmirExprIdx<LinkageImpl> {
         match *self.entry(ctx.vmir_expr_arena()) {
             VmirExprData::Literal { ref value } => Continue(value.into_value()),
             VmirExprData::Variable { place_idx, qual } => {
-                Continue(ctx.access_variable(place_idx, qual))
+                Continue(ctx.access_place(place_idx, qual))
             }
             VmirExprData::Binary { lopd, opr, ropd } => {
                 let lopd = lopd.eval(None, ctx)?;
