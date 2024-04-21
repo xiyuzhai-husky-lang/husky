@@ -1,3 +1,4 @@
+#![feature(if_let_guard)]
 //! a javelin is a group of linkages, the name inspired by Diablo 2. For instance, the type constructor javelin will contains the type constructor linkage and also the (pattern) field access linkages.
 //!
 //! It's easier to collect javelins. We first collect javelins and then flatten them to get linkages.
