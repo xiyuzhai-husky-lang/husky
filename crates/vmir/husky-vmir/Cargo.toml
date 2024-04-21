@@ -17,6 +17,7 @@ idx-arena.workspace = true
 enum-class.workspace = true
 salsa.workspace = true
 shifted-unsigned-int.workspace = true
+version-stamp.workspace = true
 # hir
 husky-hir-opr.workspace = true
 husky-hir-eager-expr.workspace = true

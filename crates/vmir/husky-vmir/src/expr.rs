@@ -443,7 +443,7 @@ impl<LinkageImpl: IsLinkageImpl> VmirExprIdx<LinkageImpl> {
                 linkage_impl,
                 ref arguments,
             } => todo!(),
-            VmirExprData::Block { stmts, destroyers } => todo!(),
+            VmirExprData::Block { stmts, destroyers } => stmts.eval(ctx),
             VmirExprData::Closure => todo!(),
             VmirExprData::Todo => todo!(),
             VmirExprData::Unreachable => todo!(),

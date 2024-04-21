@@ -1,5 +1,6 @@
 use crate::*;
-use husky_entity_path::ItemPath;
+use husky_entity_path::{region::RegionPath, ItemPath};
+use husky_hir_defn::HasHirDefn;
 use husky_place::PlaceRegistry;
 
 impl Linkage {
@@ -47,8 +48,13 @@ impl Linkage {
     }
 
     pub fn place_registry(self, db: &::salsa::Db) -> Option<&PlaceRegistry> {
+        use husky_sem_expr::helpers::region::sem_expr_region_from_region_path;
+
         let (path, _) = self.path_and_instantiation_for_definition(db)?;
-        // path
-        todo!()
+        Some(
+            sem_expr_region_from_region_path(RegionPath::Defn(path), db)
+                .data(db)
+                .place_registry(),
+        )
     }
 }

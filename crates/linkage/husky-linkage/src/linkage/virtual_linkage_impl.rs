@@ -3,7 +3,25 @@ use husky_task_interface::IsLinkageImpl;
 use husky_value_protocol::presentation::EnumU8ValuePresenter;
 use husky_virtual_value::value::Value;
 
-impl IsLinkageImpl for Linkage {
+#[salsa::derive_debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
+pub struct VirtualLinkageImpl(Linkage);
+
+impl std::ops::Deref for VirtualLinkageImpl {
+    type Target = Linkage;
+
+    fn deref(&self) -> &Self::Target {
+        &self.0
+    }
+}
+
+impl From<Linkage> for VirtualLinkageImpl {
+    fn from(linkage: Linkage) -> Self {
+        Self(linkage)
+    }
+}
+
+impl IsLinkageImpl for VirtualLinkageImpl {
     type Pedestal = ();
 
     type Value = Value;

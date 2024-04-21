@@ -6,7 +6,7 @@ edition = "2021"
 [dependencies]
 # abstractions
 salsa.workspace = true
-version-stamp = { path = "../../abstractions/version-stamp" }
+version-stamp.workspace = true
 enum-class.workspace = true
 vec-like.workspace = true
 # comptime
