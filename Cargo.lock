@@ -6668,6 +6668,7 @@ dependencies = [
  "husky-linkage",
  "husky-place",
  "husky-task-interface",
+ "husky-value-interface",
  "husky-vmir",
 ]
 

@@ -14,6 +14,7 @@ use std::cmp::Ordering;
 
 #[derive(Debug)]
 pub enum Value {
+    Uninit,
     Invalid,
     Moved,
     Unit(()),
@@ -46,6 +47,10 @@ pub enum Value {
 }
 
 impl IsValue for Value {
+    fn new_uninit() -> Self {
+        Value::Uninit
+    }
+
     fn from_enum_u8(index: u8, presenter: EnumU8ValuePresenter) -> Self {
         todo!()
     }

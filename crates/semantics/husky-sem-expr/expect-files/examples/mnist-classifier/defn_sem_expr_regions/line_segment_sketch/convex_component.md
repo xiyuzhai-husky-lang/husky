@@ -30,7 +30,6 @@
                 infos: [
                     SelfValue,
                 ],
-                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {

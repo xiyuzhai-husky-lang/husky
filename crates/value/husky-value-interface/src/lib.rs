@@ -61,6 +61,7 @@ pub trait IsValue:
     + Into<f64>
     + 'static
 {
+    fn new_uninit() -> Self;
     // the followings are methods that should be implemented.
     // they are commented out because they would probably be done in a way outside of rust trait system
     // fn from_owned<T>(t: T) -> Self;

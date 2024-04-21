@@ -9,6 +9,14 @@ impl std::fmt::Debug for PlaceIdx {
     }
 }
 
+/// # getters
+
+impl PlaceRegistry {
+    pub fn len(&self) -> usize {
+        self.infos.len()
+    }
+}
+
 impl std::ops::Index<PlaceIdx> for PlaceRegistry {
     type Output = PlaceInfo;
 
@@ -17,12 +25,12 @@ impl std::ops::Index<PlaceIdx> for PlaceRegistry {
     }
 }
 
+/// # actions
+
 impl PlaceRegistry {
     pub fn issue_new(&mut self, info: PlaceInfo) -> PlaceIdx {
-        debug_assert_eq!(self.infos.len(), self.next.index());
-        let next = self.next;
+        let next = self.infos.len();
         self.infos.push(info);
-        self.next += 1;
-        PlaceIdx(next)
+        PlaceIdx(next.into())
     }
 }

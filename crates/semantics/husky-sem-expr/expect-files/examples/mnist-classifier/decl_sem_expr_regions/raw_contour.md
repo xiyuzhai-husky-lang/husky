@@ -39,7 +39,6 @@
                         ),
                     },
                 ],
-                next: 2,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -560,7 +559,6 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [],
-                next: 0,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -652,7 +650,6 @@
                         ),
                     },
                 ],
-                next: 2,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -1036,7 +1033,6 @@
                         ),
                     },
                 ],
-                next: 2,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -1420,7 +1416,6 @@
                         ),
                     },
                 ],
-                next: 2,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -1814,7 +1809,6 @@
                         ),
                     },
                 ],
-                next: 3,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -2299,7 +2293,6 @@
                         ),
                     },
                 ],
-                next: 2,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -2703,7 +2696,6 @@
                         ),
                     },
                 ],
-                next: 4,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -3285,7 +3277,6 @@
                         ),
                     },
                 ],
-                next: 2,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -3586,7 +3577,6 @@
                         ),
                     },
                 ],
-                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -4023,7 +4013,6 @@
                         ),
                     },
                 ],
-                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -4516,7 +4505,6 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [],
-                next: 0,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -4765,7 +4753,6 @@
                 infos: [
                     SelfValue,
                 ],
-                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -4934,7 +4921,6 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [],
-                next: 0,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -5093,7 +5079,6 @@
                 infos: [
                     SelfValue,
                 ],
-                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -5252,7 +5237,6 @@
                 infos: [
                     SelfValue,
                 ],
-                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -5411,7 +5395,6 @@
                 infos: [
                     SelfValue,
                 ],
-                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -5570,7 +5553,6 @@
                 infos: [
                     SelfValue,
                 ],
-                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -5753,7 +5735,6 @@
                         ),
                     },
                 ],
-                next: 3,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
