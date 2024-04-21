@@ -1,0 +1,88 @@
+use super::*;
+use husky_entity_path::{MajorFormPath, MajorItemConnection};
+use husky_entity_tree::helpers::paths::module_test_paths;
+use husky_hir_decl::decl::HasHirDecl;
+use husky_vfs::*;
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub struct TestLinkage {
+    path: MajorFormPath,
+    linkage: Linkage,
+}
+
+impl TestLinkage {
+    pub fn path(self, db: &salsa::Db) -> MajorFormPath {
+        self.path
+    }
+
+    pub fn linkage(self, db: &::salsa::Db) -> Linkage {
+        self.linkage
+    }
+}
+
+impl IsVfsTestUnit for TestLinkage {
+    fn collect_from_package_path(
+        db: &salsa::Db,
+        package_path: husky_vfs::PackagePath,
+    ) -> Vec<Self> {
+        db.collect_probable_modules(package_path)
+            .into_iter()
+            .flat_map(|module_path| module_test_paths(db, module_path).iter().copied())
+            .map(|path| {
+                assert!(path
+                    .hir_decl(db)
+                    .unwrap()
+                    .template_parameters(db)
+                    .unwrap()
+                    .is_empty());
+                TestLinkage {
+                    path,
+                    linkage: Linkage::new(
+                        db,
+                        LinkageData::MajorFunctionRitchie {
+                            path,
+                            instantiation: LinInstantiation::new_empty(false),
+                        },
+                    ),
+                }
+            })
+            .collect()
+    }
+
+    fn determine_expect_file_path(
+        &self,
+        db: &salsa::Db,
+        package_expect_files_dir: &std::path::Path,
+        config: &VfsTestConfig,
+    ) -> std::path::PathBuf {
+        let path = self.path;
+        let file_path_without_extension = &determine_expect_file_path_without_extension(
+            db,
+            path.module_path(db),
+            package_expect_files_dir,
+            config,
+        );
+        match path.data(db).connection() {
+            MajorItemConnection::Connected => file_path_without_extension.join(format!(
+                "{}.{}",
+                path.ident(db).data(db),
+                config.expect_file_extension().str()
+            )),
+            MajorItemConnection::Disconnected(_) => todo!(),
+        }
+    }
+
+    fn determine_adversarial_path(
+        self,
+        db: &salsa::Db,
+        adversarial_kind: AdversarialKind,
+        package_adversarials_dir: &std::path::Path,
+        config: &VfsTestConfig,
+    ) -> Option<std::path::PathBuf> {
+        todo!()
+    }
+
+    fn vfs_test_unit_downcast_as_module_path(self) -> Option<husky_vfs::ModulePath> {
+        todo!()
+    }
+}

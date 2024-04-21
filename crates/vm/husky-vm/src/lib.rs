@@ -115,3 +115,6 @@ impl<'a, Linktime: IsLinktime> EvalVmir<'a, Linktime::LinkageImpl> for StandardV
         }
     }
 }
+
+#[test]
+fn vm_works_on_all_tests() {}

@@ -1,6 +1,6 @@
 use super::*;
 
-pub trait VfsTestUnit: Copy {
+pub trait IsVfsTestUnit: Copy {
     fn collect_from_package_path(db: &::salsa::Db, package_path: PackagePath) -> Vec<Self>;
     fn determine_expect_file_path(
         &self,
@@ -19,7 +19,7 @@ pub trait VfsTestUnit: Copy {
     fn vfs_test_unit_downcast_as_module_path(self) -> Option<ModulePath>;
 }
 
-impl VfsTestUnit for PackagePath {
+impl IsVfsTestUnit for PackagePath {
     fn collect_from_package_path(_db: &::salsa::Db, package_path: PackagePath) -> Vec<Self> {
         vec![package_path]
     }
@@ -50,7 +50,7 @@ impl VfsTestUnit for PackagePath {
     }
 }
 
-impl VfsTestUnit for CratePath {
+impl IsVfsTestUnit for CratePath {
     fn collect_from_package_path(db: &::salsa::Db, package_path: PackagePath) -> Vec<Self> {
         db.collect_crates(package_path).unwrap_or_default()
     }
@@ -90,7 +90,7 @@ impl VfsTestUnit for CratePath {
     }
 }
 
-impl VfsTestUnit for ModulePath {
+impl IsVfsTestUnit for ModulePath {
     fn collect_from_package_path(db: &::salsa::Db, package_path: PackagePath) -> Vec<Self> {
         db.collect_probable_modules(package_path)
     }
@@ -101,24 +101,10 @@ impl VfsTestUnit for ModulePath {
         package_expect_files_dir: &Path,
         config: &VfsTestConfig,
     ) -> PathBuf {
-        fn determine_expect_file_aux_path(
-            db: &::salsa::Db,
-            module_path: ModulePath,
-            package_expect_files_dir: &Path,
-            config: &VfsTestConfig,
-        ) -> PathBuf {
-            match module_path.data(db) {
-                ModulePathData::Root(_) => package_expect_files_dir.join(config.test_name()),
-                ModulePathData::Child { parent, ident } => {
-                    determine_expect_file_aux_path(db, parent, package_expect_files_dir, config)
-                        .join(ident.data(db))
-                }
-                ModulePathData::Snippet { .. } => unreachable!(),
-            }
-        }
-        let aux_path = determine_expect_file_aux_path(db, *self, package_expect_files_dir, config);
+        let path_parent_dir =
+            determine_expect_file_path_parent_dir(db, *self, package_expect_files_dir, config);
         match self.data(db) {
-            ModulePathData::Root(crate_path) => aux_path.join(format!(
+            ModulePathData::Root(crate_path) => path_parent_dir.join(format!(
                 "{}.{}",
                 match crate_path.crate_kind(db) {
                     CrateKind::Lib => "lib",
@@ -130,7 +116,7 @@ impl VfsTestUnit for ModulePath {
                 config.expect_file_extension().str()
             )),
             ModulePathData::Child { .. } => {
-                aux_path.with_extension(config.expect_file_extension().str())
+                path_parent_dir.with_extension(config.expect_file_extension().str())
             }
             ModulePathData::Snippet { .. } => unreachable!(),
         }
@@ -143,52 +129,60 @@ impl VfsTestUnit for ModulePath {
         package_adversarials_dir: &Path,
         config: &VfsTestConfig,
     ) -> Option<PathBuf> {
-        fn determine_adversarial_aux_path(
-            db: &::salsa::Db,
-            adversarial_kind: AdversarialKind,
-            module_path: ModulePath,
-            package_adversarials_dir: &Path,
-            config: &VfsTestConfig,
-        ) -> PathBuf {
-            match module_path.data(db) {
-                ModulePathData::Root(_) => package_adversarials_dir.join(config.test_name()),
-                ModulePathData::Child { parent, ident } => determine_adversarial_aux_path(
-                    db,
-                    adversarial_kind,
-                    parent,
-                    package_adversarials_dir,
-                    config,
-                )
-                .join(ident.data(db)),
-                ModulePathData::Snippet { .. } => unreachable!(),
-            }
-        }
-        let aux_path = determine_adversarial_aux_path(
-            db,
-            adversarial_kind,
-            self,
-            package_adversarials_dir,
-            config,
-        );
-        Some(match self.data(db) {
-            ModulePathData::Root(crate_path) => aux_path.join(format!(
-                "{}.{adversarial_kind}.{ADVERSARIAL_EXTENSION}",
-                match crate_path.crate_kind(db) {
-                    CrateKind::Lib => "lib",
-                    CrateKind::Main => "main",
-                    CrateKind::Bin(_) => todo!(),
-                    CrateKind::IntegratedTest(_) => todo!(),
-                    CrateKind::Example => todo!(),
-                }
-            )),
-            ModulePathData::Child { .. } => aux_path
-                .with_extension(adversarial_kind.as_str())
-                .with_extension(ADVERSARIAL_EXTENSION),
-            ModulePathData::Snippet { .. } => unreachable!(),
-        })
+        Some(
+            determine_expect_file_path_without_extension(
+                db,
+                self,
+                package_adversarials_dir,
+                config,
+            )
+            .with_extension(adversarial_kind.as_str())
+            .with_extension(config.adversarial_extension()),
+        )
     }
 
     fn vfs_test_unit_downcast_as_module_path(self) -> Option<ModulePath> {
         Some(self)
+    }
+}
+
+pub fn determine_expect_file_path_without_extension(
+    db: &::salsa::Db,
+    module_path: ModulePath,
+    root_dir: &Path,
+    config: &VfsTestConfig,
+) -> PathBuf {
+    let path_parent_dir = determine_expect_file_path_parent_dir(db, module_path, root_dir, config);
+    match module_path.data(db) {
+        ModulePathData::Root(crate_path) => path_parent_dir.join(format!(
+            "{}.{}",
+            match crate_path.crate_kind(db) {
+                CrateKind::Lib => "lib",
+                CrateKind::Main => "main",
+                CrateKind::Bin(_) => todo!(),
+                CrateKind::IntegratedTest(_) => todo!(),
+                CrateKind::Example => todo!(),
+            },
+            config.expect_file_extension().str()
+        )),
+        ModulePathData::Child { .. } => {
+            path_parent_dir.with_extension(config.expect_file_extension().str())
+        }
+        ModulePathData::Snippet { .. } => unreachable!(),
+    }
+}
+
+fn determine_expect_file_path_parent_dir(
+    db: &::salsa::Db,
+    module_path: ModulePath,
+    root_dir: &Path,
+    config: &VfsTestConfig,
+) -> PathBuf {
+    match module_path.data(db) {
+        ModulePathData::Root(_) => root_dir.join(config.test_name()),
+        ModulePathData::Child { parent, ident } => {
+            determine_expect_file_path_parent_dir(db, parent, root_dir, config).join(ident.data(db))
+        }
+        ModulePathData::Snippet { .. } => unreachable!(),
     }
 }
