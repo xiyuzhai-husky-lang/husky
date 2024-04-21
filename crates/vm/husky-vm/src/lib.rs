@@ -5,12 +5,11 @@ mod tests;
 use self::tests::*;
 use husky_linkage::linkage::Linkage;
 use husky_linkage::template_argument::qual::LinQual;
-use husky_linkage::test_utils::TestLinkage;
 use husky_place::place::idx::PlaceIdx;
 use husky_place::PlaceRegistry;
 use husky_task::linktime::IsLinktime;
 use husky_task_interface::{vm_control_flow::LinkageImplVmControlFlow, IsLinkageImpl};
-use husky_vmir::storage::VmirStorage;
+use husky_vmir::storage::IsVmirStorage;
 use husky_vmir::{
     eval::EvalVmir,
     expr::VmirExprIdx,
@@ -18,13 +17,13 @@ use husky_vmir::{
     stmt::{VmirStmtIdx, VmirStmtIdxRange},
 };
 
-struct StandardVm<'a, Linktime: IsLinktime> {
+struct StandardVm<'a, Linktime: IsLinktime, VmirStorage: IsVmirStorage<Linktime::LinkageImpl>> {
     vmir_region: &'a VmirRegion<Linktime::LinkageImpl>,
     place_registry: &'a PlaceRegistry,
     place_values: Vec<<Linktime::LinkageImpl as IsLinkageImpl>::Value>,
     db: &'a ::salsa::Db,
     linktime: &'a Linktime,
-    vmir_storage: &'a VmirStorage<Linktime::LinkageImpl>,
+    vmir_storage: &'a VmirStorage,
 }
 
 pub fn eval_linkage_on_arguments<
@@ -35,21 +34,25 @@ pub fn eval_linkage_on_arguments<
     arguments: Vec<LinkageImpl::Value>,
     db: &::salsa::Db,
     linktime: &Linktime,
-    vmir_storage: &VmirStorage<LinkageImpl>,
+    vmir_storage: &impl IsVmirStorage<LinkageImpl>,
 ) -> Option<LinkageImplVmControlFlow<LinkageImpl>> {
     let vmir_region = vmir_storage.linkage_vmir_region(linkage, db, linktime)?;
     let mut vm = StandardVm::new(linkage, arguments, &vmir_region, db, linktime, vmir_storage);
     Some(vmir_region.root_expr().eval(None, &mut vm))
 }
 
-impl<'a, Linktime: IsLinktime> StandardVm<'a, Linktime> {
+impl<'a, Linktime, VmirStorage> StandardVm<'a, Linktime, VmirStorage>
+where
+    Linktime: IsLinktime,
+    VmirStorage: IsVmirStorage<Linktime::LinkageImpl>,
+{
     fn new(
         linkage: Linkage,
         arguments: Vec<<Linktime::LinkageImpl as IsLinkageImpl>::Value>,
         vmir_region: &'a VmirRegion<Linktime::LinkageImpl>,
         db: &'a ::salsa::Db,
         linktime: &'a Linktime,
-        vmir_storage: &'a VmirStorage<Linktime::LinkageImpl>,
+        vmir_storage: &'a VmirStorage,
     ) -> Self {
         use husky_value_interface::IsValue;
 
@@ -72,7 +75,12 @@ impl<'a, Linktime: IsLinktime> StandardVm<'a, Linktime> {
     }
 }
 
-impl<'a, Linktime: IsLinktime> EvalVmir<'a, Linktime::LinkageImpl> for StandardVm<'a, Linktime> {
+impl<'a, Linktime, VmirStorage> EvalVmir<'a, Linktime::LinkageImpl>
+    for StandardVm<'a, Linktime, VmirStorage>
+where
+    Linktime: IsLinktime,
+    VmirStorage: IsVmirStorage<Linktime::LinkageImpl>,
+{
     fn vmir_region(&self) -> &'a VmirRegion<Linktime::LinkageImpl> {
         self.vmir_region
     }
@@ -123,17 +131,23 @@ impl<'a, Linktime: IsLinktime> EvalVmir<'a, Linktime::LinkageImpl> for StandardV
 }
 
 #[test]
-fn vm_works_on_all_tests() {
-    DB::vfs_expect_test_debug_with_db(
-        |db, test_linkage: TestLinkage| run_test_linkage(test_linkage),
+fn run_test_linkage_works() {
+    DB::vfs_plain_test(
+        |db, test_linkage: TestLinkage| run_test_linkage(test_linkage, db),
         &VfsTestConfig::new(
-            "package_manifest_ast_sheet_sheet",
+            "run_test_linkage_works",
             FileExtensionConfig::Markdown,
             TestDomainsConfig::TOML,
         ),
     );
 }
 
-fn run_test_linkage(test_linkage: TestLinkage) {
-    todo!()
+#[cfg(test)]
+fn run_test_linkage(test_linkage: TestLinkage, db: &::salsa::Db) {
+    use husky_task::linktime::VirtualLinktime;
+    use husky_vmir::storage::VirtualVmirStorage;
+
+    let linktime = VirtualLinktime;
+    let vmir_storage = VirtualVmirStorage;
+    eval_linkage_on_arguments(*test_linkage, vec![], db, &linktime, &vmir_storage);
 }

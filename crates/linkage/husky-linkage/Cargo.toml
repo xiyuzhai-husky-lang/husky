@@ -12,7 +12,7 @@ salsa.workspace = true
 vec-like.workspace = true
 enum-class.workspace = true
 is.workspace = true
-version-stamp = { path = "../../abstractions/version-stamp" }
+version-stamp.workspace = true
 # fs
 husky-manifest.workspace = true
 husky-vfs.workspace = true
@@ -32,6 +32,8 @@ husky-place.workspace = true
 husky-javelin.workspace = true
 # protocols
 husky-value-protocol.workspace = true
+# semantics
+husky-sem-expr.workspace = true
 # syntax
 husky-entity-tree.workspace = true
 # task

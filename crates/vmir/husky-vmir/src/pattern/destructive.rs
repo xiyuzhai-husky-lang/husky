@@ -27,11 +27,11 @@ pub enum VmirDestructivePattern<LinkageImpl: IsLinkageImpl> {
 
 #[test]
 fn vmir_destructive_pattern_size_works() {
-    use husky_linkage::linkage::Linkage;
+    use husky_linkage::linkage::virtual_linkage_impl::VirtualLinkageImpl;
 
     assert_eq!(
-        std::mem::size_of::<VmirDestructivePattern<Linkage>>(),
-        std::mem::size_of::<Option<VmirDestructivePattern<Linkage>>>(),
+        std::mem::size_of::<VmirDestructivePattern<VirtualLinkageImpl>>(),
+        std::mem::size_of::<Option<VmirDestructivePattern<VirtualLinkageImpl>>>(),
     )
 }
 

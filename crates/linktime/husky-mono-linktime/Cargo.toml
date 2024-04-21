@@ -10,7 +10,7 @@ libloading.workspace = true
 fxhash.workspace = true
 # abstractions
 salsa.workspace = true
-version-stamp = { path = "../../abstractions/version-stamp" }
+version-stamp.workspace = true
 vec-like.workspace = true
 # comptime
 husky-rust-transpilation.workspace = true

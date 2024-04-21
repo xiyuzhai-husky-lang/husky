@@ -11,6 +11,14 @@ pub struct TestLinkage {
     linkage: Linkage,
 }
 
+impl std::ops::Deref for TestLinkage {
+    type Target = Linkage;
+
+    fn deref(&self) -> &Self::Target {
+        &self.linkage
+    }
+}
+
 impl TestLinkage {
     pub fn path(self, db: &salsa::Db) -> MajorFormPath {
         self.path

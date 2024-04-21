@@ -6766,6 +6766,7 @@ dependencies = [
  "salsa",
  "shifted-unsigned-int",
  "smallvec",
+ "version-stamp",
 ]
 
 [[package]]

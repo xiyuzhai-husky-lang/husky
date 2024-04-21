@@ -188,6 +188,7 @@ snapshot = { path = "crates/abstractions/snapshot" }
 time-capsule = { path = "crates/abstractions/time-capsule" }
 ui = { path = "crates/abstractions/ui" }
 vec-like = { path = "crates/abstractions/vec-like" }
+version-stamp = { path = "crates/abstractions/version-stamp" }
 with-db = { path = "crates/abstractions/with-db" }
 # comptime
 husky-dev-comptime = { path = "crates/comptime/husky-dev-comptime" }

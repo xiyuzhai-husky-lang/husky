@@ -11,7 +11,7 @@ either.workspace = true
 salsa.workspace = true
 vec-like.workspace = true
 enum-class.workspace = true
-version-stamp = { path = "../../abstractions/version-stamp" }
+version-stamp.workspace = true
 # fs
 husky-vfs.workspace = true
 # hir

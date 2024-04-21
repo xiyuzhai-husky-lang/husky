@@ -1,5 +1,5 @@
-mod linkage_impl;
 mod ty;
+pub mod virtual_linkage_impl;
 
 use crate::{
     linkage::ty::ty_linkages_emancipated_by_javelin,
