@@ -12,12 +12,17 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+# abstractions
+salsa.workspace = true
 # linkage
 husky-linkage.workspace = true
 # kernel
 husky-place.workspace = true
 # task
 husky-task-interface.workspace = true
+husky-task.workspace = true
+# semantics
+husky-sem-expr.workspace = true
 # value
 husky-value-interface.workspace = true
 # vm

@@ -55,10 +55,10 @@ impl<LinkageImpl: IsLinkageImpl> VmirRegion<LinkageImpl> {
     }
 }
 
-pub fn linkage_vmir_region<'a, Linktime: IsLinktime>(
-    db: &'a ::salsa::Db,
+pub(crate) fn linkage_vmir_region<'comptime, Linktime: IsLinktime>(
+    db: &'comptime ::salsa::Db,
     linkage: Linkage,
-    linktime: &'a Linktime,
+    linktime: &'comptime Linktime,
 ) -> Option<VmirRegion<Linktime::LinkageImpl>> {
     let (root_hir_eager_expr_idx, mut builder) = VmirBuilder::new(linkage, db, linktime)?;
     let root_expr = root_hir_eager_expr_idx.to_vmir(&mut builder);

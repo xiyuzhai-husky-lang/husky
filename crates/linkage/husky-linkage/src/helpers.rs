@@ -1,5 +1,6 @@
 use crate::*;
 use husky_entity_path::ItemPath;
+use husky_place::PlaceRegistry;
 
 impl Linkage {
     pub fn path_and_instantiation_for_definition<'db>(
@@ -43,5 +44,11 @@ impl Linkage {
             | LinkageData::TypeDefault { .. }
             | LinkageData::EnumU8ToJsonValue { .. } => return None,
         })
+    }
+
+    pub fn place_registry(self, db: &::salsa::Db) -> Option<&PlaceRegistry> {
+        let (path, _) = self.path_and_instantiation_for_definition(db)?;
+        // path
+        todo!()
     }
 }

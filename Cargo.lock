@@ -5304,6 +5304,7 @@ dependencies = [
  "husky-javelin",
  "husky-manifest",
  "husky-manifest-ast",
+ "husky-place",
  "husky-print-utils",
  "husky-sem-expr",
  "husky-sem-place-contract",
@@ -6667,9 +6668,12 @@ version = "0.1.0"
 dependencies = [
  "husky-linkage",
  "husky-place",
+ "husky-sem-expr",
+ "husky-task",
  "husky-task-interface",
  "husky-value-interface",
  "husky-vmir",
+ "salsa",
 ]
 
 [[package]]
