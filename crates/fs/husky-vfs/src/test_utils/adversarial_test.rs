@@ -42,7 +42,7 @@ pub(super) fn vfs_adversarial_test<U, R>(
     f: &impl Fn(&::salsa::Db, U) -> R,
     config: &VfsTestConfig,
 ) where
-    U: VfsTestUnit,
+    U: IsVfsTestUnit,
 {
     let Some(adversarial_path) =
         unit.determine_adversarial_path(db, AdversarialKind::Vfs, package_adversarials_dir, config)

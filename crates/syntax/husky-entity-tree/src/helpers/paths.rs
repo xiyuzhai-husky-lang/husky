@@ -96,8 +96,8 @@ fn module_item_paths_works() {
 }
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
-pub fn module_test_paths(db: &::salsa::Db, crate_path: CratePath) -> Vec<MajorFormPath> {
-    crate_item_paths(db, crate_path)
+pub fn module_test_paths(db: &::salsa::Db, module_path: ModulePath) -> Vec<MajorFormPath> {
+    module_item_paths(db, module_path)
         .iter()
         .filter_map(|&item_path| to_test_path(db, *item_path))
         .collect()
@@ -106,7 +106,7 @@ pub fn module_test_paths(db: &::salsa::Db, crate_path: CratePath) -> Vec<MajorFo
 #[test]
 fn module_test_paths_works() {
     DB::ast_expect_test_debug_with_db(
-        |db, crate_path| module_test_paths(db, crate_path),
+        |db, module_path| module_test_paths(db, module_path),
         &AstTestConfig::new(
             "module_test_paths",
             FileExtensionConfig::Markdown,
