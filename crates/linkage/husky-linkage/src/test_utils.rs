@@ -4,6 +4,7 @@ use husky_entity_tree::helpers::paths::module_test_paths;
 use husky_hir_decl::decl::HasHirDecl;
 use husky_vfs::*;
 
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct TestLinkage {
     path: MajorFormPath,
