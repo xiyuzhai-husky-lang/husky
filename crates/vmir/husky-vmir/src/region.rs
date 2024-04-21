@@ -17,6 +17,8 @@ pub struct VmirRegion<LinkageImpl: IsLinkageImpl> {
 
 pub type VirtualVmirRegion = VmirRegion<Linkage>;
 
+/// # constructors
+
 impl<LinkageImpl: IsLinkageImpl> VmirRegion<LinkageImpl> {
     pub fn new(
         linkage: Linkage,
@@ -30,6 +32,26 @@ impl<LinkageImpl: IsLinkageImpl> VmirRegion<LinkageImpl> {
             vmir_expr_arena,
             vmir_stmt_arena,
         }
+    }
+}
+
+/// # getters
+
+impl<LinkageImpl: IsLinkageImpl> VmirRegion<LinkageImpl> {
+    pub fn linkage(&self) -> Linkage {
+        self.linkage
+    }
+
+    pub fn root_expr(&self) -> VmirExprIdx<LinkageImpl> {
+        self.root_expr
+    }
+
+    pub fn vmir_expr_arena(&self) -> &VmirExprArena<LinkageImpl> {
+        &self.vmir_expr_arena
+    }
+
+    pub fn vmir_stmt_arena(&self) -> &VmirStmtArena<LinkageImpl> {
+        &self.vmir_stmt_arena
     }
 }
 

@@ -6664,6 +6664,12 @@ dependencies = [
 [[package]]
 name = "husky-vm"
 version = "0.1.0"
+dependencies = [
+ "husky-linkage",
+ "husky-place",
+ "husky-task-interface",
+ "husky-vmir",
+]
 
 [[package]]
 name = "husky-vmir"
