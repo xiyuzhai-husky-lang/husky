@@ -24,7 +24,6 @@
                 infos: [
                     SelfValue,
                 ],
-                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -820,7 +819,6 @@
                         ),
                     },
                 ],
-                next: 4,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {

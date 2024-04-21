@@ -8,7 +8,6 @@ use shifted_unsigned_int::ShiftedU32;
 #[derive(Default, Debug, PartialEq, Eq)]
 pub struct PlaceRegistry {
     infos: Vec<PlaceInfo>,
-    next: ShiftedU32,
 }
 
 #[salsa::derive_debug_with_db]

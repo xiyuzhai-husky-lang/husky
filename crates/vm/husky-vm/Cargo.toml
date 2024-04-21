@@ -18,6 +18,8 @@ husky-linkage.workspace = true
 husky-place.workspace = true
 # task
 husky-task-interface.workspace = true
+# value
+husky-value-interface.workspace = true
 # vm
 husky-vmir.workspace = true
 

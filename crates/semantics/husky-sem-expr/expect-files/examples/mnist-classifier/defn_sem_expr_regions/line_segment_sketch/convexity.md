@@ -143,7 +143,6 @@
                         ),
                     },
                 ],
-                next: 12,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {

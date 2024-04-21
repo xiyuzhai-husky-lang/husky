@@ -1,4 +1,6 @@
+use husky_linkage::template_argument::qual::LinQual;
 use husky_place::place::idx::PlaceIdx;
+use husky_place::PlaceRegistry;
 use husky_task_interface::{vm_control_flow::LinkageImplVmControlFlow, IsLinkageImpl};
 use husky_vmir::{
     eval::EvalVmir,
@@ -9,6 +11,25 @@ use husky_vmir::{
 
 pub struct StandardVm<'comptime, LinkageImpl: IsLinkageImpl> {
     vmir_region: &'comptime VmirRegion<LinkageImpl>,
+    place_registry: &'comptime PlaceRegistry,
+    place_values: Vec<LinkageImpl::Value>,
+}
+
+impl<'comptime, LinkageImpl: IsLinkageImpl> StandardVm<'comptime, LinkageImpl> {
+    fn new(
+        vmir_region: &'comptime VmirRegion<LinkageImpl>,
+        place_registry: &'comptime PlaceRegistry,
+    ) -> Self {
+        use husky_value_interface::IsValue;
+
+        Self {
+            vmir_region,
+            place_registry,
+            place_values: (0..place_registry.len())
+                .map(|_| LinkageImpl::Value::new_uninit())
+                .collect(),
+        }
+    }
 }
 
 impl<'comptime, LinkageImpl: IsLinkageImpl> EvalVmir<'comptime, LinkageImpl>
@@ -53,8 +74,12 @@ impl<'comptime, LinkageImpl: IsLinkageImpl> EvalVmir<'comptime, LinkageImpl>
     fn access_place(
         &mut self,
         place_idx: PlaceIdx,
-        qual: husky_linkage::template_argument::qual::LinQual,
+        qual: LinQual,
     ) -> <LinkageImpl as IsLinkageImpl>::Value {
-        todo!()
+        match qual {
+            LinQual::Ref => todo!(),
+            LinQual::RefMut => todo!(),
+            LinQual::Transient => todo!(),
+        }
     }
 }

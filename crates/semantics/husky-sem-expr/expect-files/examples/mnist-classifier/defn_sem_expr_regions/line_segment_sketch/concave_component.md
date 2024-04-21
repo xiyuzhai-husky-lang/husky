@@ -73,7 +73,6 @@
                         ),
                     },
                 ],
-                next: 5,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -7150,7 +7149,6 @@
                 infos: [
                     SelfValue,
                 ],
-                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -7675,7 +7673,6 @@
                 infos: [
                     SelfValue,
                 ],
-                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -8109,7 +8106,6 @@
                 infos: [
                     SelfValue,
                 ],
-                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -8988,7 +8984,6 @@
                         ),
                     },
                 ],
-                next: 8,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -13293,7 +13288,6 @@
                         ),
                     },
                 ],
-                next: 5,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -17112,7 +17106,6 @@
                         ),
                     },
                 ],
-                next: 8,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -24287,7 +24280,6 @@
                 infos: [
                     SelfValue,
                 ],
-                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -25187,7 +25179,6 @@
                 infos: [
                     SelfValue,
                 ],
-                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -26887,7 +26878,6 @@
                 infos: [
                     SelfValue,
                 ],
-                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -27709,7 +27699,6 @@
                 infos: [
                     SelfValue,
                 ],
-                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -28531,7 +28520,6 @@
                 infos: [
                     SelfValue,
                 ],
-                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -29052,7 +29040,6 @@
                 infos: [
                     SelfValue,
                 ],
-                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -29761,7 +29748,6 @@
                 infos: [
                     SelfValue,
                 ],
-                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {

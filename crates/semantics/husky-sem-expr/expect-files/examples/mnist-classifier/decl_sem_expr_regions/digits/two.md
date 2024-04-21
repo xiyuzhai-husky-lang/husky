@@ -18,7 +18,6 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [],
-                next: 0,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -188,7 +187,6 @@
                         ),
                     },
                 ],
-                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -609,7 +607,6 @@
                         ),
                     },
                 ],
-                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -1030,7 +1027,6 @@
                         ),
                     },
                 ],
-                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -1436,7 +1432,6 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [],
-                next: 0,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {

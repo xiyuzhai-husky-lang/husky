@@ -33,7 +33,6 @@
                         ),
                     },
                 ],
-                next: 1,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -486,7 +485,6 @@
                         ),
                     },
                 ],
-                next: 2,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
@@ -1282,7 +1280,6 @@
                         ),
                     },
                 ],
-                next: 2,
             },
             sem_expr_arena: SemaExprArena(
                 Arena {
