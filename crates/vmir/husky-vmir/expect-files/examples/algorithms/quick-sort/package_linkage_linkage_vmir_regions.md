@@ -87,20 +87,24 @@
                             ),
                         },
                         VmirExprData::Linkage {
-                            linkage_impl: Linkage {
-                                data: LinkageData::VecConstructor {
-                                    element_ty: LinType::PathLeading(
-                                        LinTypePathLeading {
-                                            ty_path: TypePath(`core::num::i32`, `Extern`),
-                                            template_arguments: [],
-                                        },
-                                    ),
+                            linkage_impl: VirtualLinkageImpl(
+                                Linkage {
+                                    data: LinkageData::VecConstructor {
+                                        element_ty: LinType::PathLeading(
+                                            LinTypePathLeading {
+                                                ty_path: TypePath(`core::num::i32`, `Extern`),
+                                                template_arguments: [],
+                                            },
+                                        ),
+                                    },
                                 },
-                            },
+                            ),
                             arguments: [
                                 VmirArgument::Variadic {
-                                    exprs: ArenaIdxRange(
-                                        1..11,
+                                    exprs: VmirExprIdxRange(
+                                        ArenaIdxRange(
+                                            1..11,
+                                        ),
                                     ),
                                 },
                             ],
@@ -203,34 +207,38 @@
                             ),
                         },
                         VmirExprData::Linkage {
-                            linkage_impl: Linkage {
-                                data: LinkageData::VecConstructor {
-                                    element_ty: LinType::PathLeading(
-                                        LinTypePathLeading {
-                                            ty_path: TypePath(`core::mem::Ref`, `Extern`),
-                                            template_arguments: [
-                                                LinTemplateArgument::Constant(
-                                                    LinConstant(
-                                                        StaticLifetime,
+                            linkage_impl: VirtualLinkageImpl(
+                                Linkage {
+                                    data: LinkageData::VecConstructor {
+                                        element_ty: LinType::PathLeading(
+                                            LinTypePathLeading {
+                                                ty_path: TypePath(`core::mem::Ref`, `Extern`),
+                                                template_arguments: [
+                                                    LinTemplateArgument::Constant(
+                                                        LinConstant(
+                                                            StaticLifetime,
+                                                        ),
                                                     ),
-                                                ),
-                                                LinTemplateArgument::Type(
-                                                    LinType::PathLeading(
-                                                        LinTypePathLeading {
-                                                            ty_path: TypePath(`core::str::str`, `Extern`),
-                                                            template_arguments: [],
-                                                        },
+                                                    LinTemplateArgument::Type(
+                                                        LinType::PathLeading(
+                                                            LinTypePathLeading {
+                                                                ty_path: TypePath(`core::str::str`, `Extern`),
+                                                                template_arguments: [],
+                                                            },
+                                                        ),
                                                     ),
-                                                ),
-                                            ],
-                                        },
-                                    ),
+                                                ],
+                                            },
+                                        ),
+                                    },
                                 },
-                            },
+                            ),
                             arguments: [
                                 VmirArgument::Variadic {
-                                    exprs: ArenaIdxRange(
-                                        0..6,
+                                    exprs: VmirExprIdxRange(
+                                        ArenaIdxRange(
+                                            0..6,
+                                        ),
                                     ),
                                 },
                             ],

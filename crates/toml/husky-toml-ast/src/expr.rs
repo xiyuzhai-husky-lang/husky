@@ -10,7 +10,7 @@ use std::sync::Arc;
 #[salsa::derive_debug_with_db]
 pub enum TomlExpr {
     /// Represents a TOML string
-    String(Arc<String>),
+    String(Arc<str>),
     /// Represents a TOML integer
     Integer(i64),
     /// Represents a TOML float

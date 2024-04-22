@@ -48,4 +48,6 @@ pub trait EvalVmir<'comptime, LinkageImpl: IsLinkageImpl> {
 
     /// access place
     fn access_place(&mut self, place_idx: PlaceIdx, qual: LinQual) -> LinkageImpl::Value;
+
+    fn init_place(&mut self, place_idx: PlaceIdx, value: LinkageImpl::Value);
 }

@@ -359,87 +359,89 @@
                         },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Linkage {
-                            linkage_impl: Linkage {
-                                data: LinkageData::EnumVariantConstructor {
-                                    self_ty: LinTypePathLeading {
-                                        ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
-                                        template_arguments: [
-                                            LinTemplateArgument::Type(
-                                                LinType::PathLeading(
-                                                    LinTypePathLeading {
-                                                        ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                                        template_arguments: [],
-                                                    },
+                            linkage_impl: VirtualLinkageImpl(
+                                Linkage {
+                                    data: LinkageData::EnumVariantConstructor {
+                                        self_ty: LinTypePathLeading {
+                                            ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
+                                            template_arguments: [
+                                                LinTemplateArgument::Type(
+                                                    LinType::PathLeading(
+                                                        LinTypePathLeading {
+                                                            ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                            template_arguments: [],
+                                                        },
+                                                    ),
                                                 ),
-                                            ),
-                                            LinTemplateArgument::Type(
-                                                LinType::PathLeading(
-                                                    LinTypePathLeading {
-                                                        ty_path: TypePath(`core::basic::unit`, `Extern`),
-                                                        template_arguments: [],
-                                                    },
+                                                LinTemplateArgument::Type(
+                                                    LinType::PathLeading(
+                                                        LinTypePathLeading {
+                                                            ty_path: TypePath(`core::basic::unit`, `Extern`),
+                                                            template_arguments: [],
+                                                        },
+                                                    ),
                                                 ),
+                                            ],
+                                        },
+                                        path: TypeVariantPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 101,
+                                                },
                                             ),
-                                        ],
-                                    },
-                                    path: TypeVariantPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 101,
-                                            },
                                         ),
-                                    ),
-                                    instantiation: LinInstantiation {
-                                        symbol_resolutions: [
-                                            (
-                                                Type(
-                                                    Type {
-                                                        attrs: HirTemplateVariableAttrs {
-                                                            class: Comptime,
-                                                        },
-                                                        variance: None,
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                                Explicit(
+                                        instantiation: LinInstantiation {
+                                            symbol_resolutions: [
+                                                (
                                                     Type(
-                                                        PathLeading(
-                                                            LinTypePathLeading(
-                                                                Id {
-                                                                    value: 1,
-                                                                },
+                                                        Type {
+                                                            attrs: HirTemplateVariableAttrs {
+                                                                class: Comptime,
+                                                            },
+                                                            variance: None,
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                    Explicit(
+                                                        Type(
+                                                            PathLeading(
+                                                                LinTypePathLeading(
+                                                                    Id {
+                                                                        value: 1,
+                                                                    },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
                                                 ),
-                                            ),
-                                            (
-                                                Type(
-                                                    Type {
-                                                        attrs: HirTemplateVariableAttrs {
-                                                            class: Comptime,
-                                                        },
-                                                        variance: None,
-                                                        disambiguator: 1,
-                                                    },
-                                                ),
-                                                Explicit(
+                                                (
                                                     Type(
-                                                        PathLeading(
-                                                            LinTypePathLeading(
-                                                                Id {
-                                                                    value: 3,
-                                                                },
+                                                        Type {
+                                                            attrs: HirTemplateVariableAttrs {
+                                                                class: Comptime,
+                                                            },
+                                                            variance: None,
+                                                            disambiguator: 1,
+                                                        },
+                                                    ),
+                                                    Explicit(
+                                                        Type(
+                                                            PathLeading(
+                                                                LinTypePathLeading(
+                                                                    Id {
+                                                                        value: 3,
+                                                                    },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
                                                 ),
-                                            ),
-                                        ],
-                                        separator: None,
+                                            ],
+                                            separator: None,
+                                        },
                                     },
                                 },
-                            },
+                            ),
                             arguments: [
                                 VmirArgument::Simple {
                                     expr: VmirExprIdx(
@@ -451,87 +453,89 @@
                         },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Linkage {
-                            linkage_impl: Linkage {
-                                data: LinkageData::EnumVariantConstructor {
-                                    self_ty: LinTypePathLeading {
-                                        ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
-                                        template_arguments: [
-                                            LinTemplateArgument::Type(
-                                                LinType::PathLeading(
-                                                    LinTypePathLeading {
-                                                        ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                                        template_arguments: [],
-                                                    },
+                            linkage_impl: VirtualLinkageImpl(
+                                Linkage {
+                                    data: LinkageData::EnumVariantConstructor {
+                                        self_ty: LinTypePathLeading {
+                                            ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
+                                            template_arguments: [
+                                                LinTemplateArgument::Type(
+                                                    LinType::PathLeading(
+                                                        LinTypePathLeading {
+                                                            ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                            template_arguments: [],
+                                                        },
+                                                    ),
                                                 ),
-                                            ),
-                                            LinTemplateArgument::Type(
-                                                LinType::PathLeading(
-                                                    LinTypePathLeading {
-                                                        ty_path: TypePath(`core::basic::unit`, `Extern`),
-                                                        template_arguments: [],
-                                                    },
+                                                LinTemplateArgument::Type(
+                                                    LinType::PathLeading(
+                                                        LinTypePathLeading {
+                                                            ty_path: TypePath(`core::basic::unit`, `Extern`),
+                                                            template_arguments: [],
+                                                        },
+                                                    ),
                                                 ),
+                                            ],
+                                        },
+                                        path: TypeVariantPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 101,
+                                                },
                                             ),
-                                        ],
-                                    },
-                                    path: TypeVariantPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 101,
-                                            },
                                         ),
-                                    ),
-                                    instantiation: LinInstantiation {
-                                        symbol_resolutions: [
-                                            (
-                                                Type(
-                                                    Type {
-                                                        attrs: HirTemplateVariableAttrs {
-                                                            class: Comptime,
-                                                        },
-                                                        variance: None,
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                                Explicit(
+                                        instantiation: LinInstantiation {
+                                            symbol_resolutions: [
+                                                (
                                                     Type(
-                                                        PathLeading(
-                                                            LinTypePathLeading(
-                                                                Id {
-                                                                    value: 1,
-                                                                },
+                                                        Type {
+                                                            attrs: HirTemplateVariableAttrs {
+                                                                class: Comptime,
+                                                            },
+                                                            variance: None,
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                    Explicit(
+                                                        Type(
+                                                            PathLeading(
+                                                                LinTypePathLeading(
+                                                                    Id {
+                                                                        value: 1,
+                                                                    },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
                                                 ),
-                                            ),
-                                            (
-                                                Type(
-                                                    Type {
-                                                        attrs: HirTemplateVariableAttrs {
-                                                            class: Comptime,
-                                                        },
-                                                        variance: None,
-                                                        disambiguator: 1,
-                                                    },
-                                                ),
-                                                Explicit(
+                                                (
                                                     Type(
-                                                        PathLeading(
-                                                            LinTypePathLeading(
-                                                                Id {
-                                                                    value: 3,
-                                                                },
+                                                        Type {
+                                                            attrs: HirTemplateVariableAttrs {
+                                                                class: Comptime,
+                                                            },
+                                                            variance: None,
+                                                            disambiguator: 1,
+                                                        },
+                                                    ),
+                                                    Explicit(
+                                                        Type(
+                                                            PathLeading(
+                                                                LinTypePathLeading(
+                                                                    Id {
+                                                                        value: 3,
+                                                                    },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
                                                 ),
-                                            ),
-                                        ],
-                                        separator: None,
+                                            ],
+                                            separator: None,
+                                        },
                                     },
                                 },
-                            },
+                            ),
                             arguments: [
                                 VmirArgument::Simple {
                                     expr: VmirExprIdx(
@@ -547,87 +551,89 @@
                             ),
                         },
                         VmirExprData::Linkage {
-                            linkage_impl: Linkage {
-                                data: LinkageData::EnumVariantConstructor {
-                                    self_ty: LinTypePathLeading {
-                                        ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
-                                        template_arguments: [
-                                            LinTemplateArgument::Type(
-                                                LinType::PathLeading(
-                                                    LinTypePathLeading {
-                                                        ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                                        template_arguments: [],
-                                                    },
+                            linkage_impl: VirtualLinkageImpl(
+                                Linkage {
+                                    data: LinkageData::EnumVariantConstructor {
+                                        self_ty: LinTypePathLeading {
+                                            ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
+                                            template_arguments: [
+                                                LinTemplateArgument::Type(
+                                                    LinType::PathLeading(
+                                                        LinTypePathLeading {
+                                                            ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                            template_arguments: [],
+                                                        },
+                                                    ),
                                                 ),
-                                            ),
-                                            LinTemplateArgument::Type(
-                                                LinType::PathLeading(
-                                                    LinTypePathLeading {
-                                                        ty_path: TypePath(`core::basic::unit`, `Extern`),
-                                                        template_arguments: [],
-                                                    },
+                                                LinTemplateArgument::Type(
+                                                    LinType::PathLeading(
+                                                        LinTypePathLeading {
+                                                            ty_path: TypePath(`core::basic::unit`, `Extern`),
+                                                            template_arguments: [],
+                                                        },
+                                                    ),
                                                 ),
+                                            ],
+                                        },
+                                        path: TypeVariantPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 100,
+                                                },
                                             ),
-                                        ],
-                                    },
-                                    path: TypeVariantPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 100,
-                                            },
                                         ),
-                                    ),
-                                    instantiation: LinInstantiation {
-                                        symbol_resolutions: [
-                                            (
-                                                Type(
-                                                    Type {
-                                                        attrs: HirTemplateVariableAttrs {
-                                                            class: Comptime,
-                                                        },
-                                                        variance: None,
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                                Explicit(
+                                        instantiation: LinInstantiation {
+                                            symbol_resolutions: [
+                                                (
                                                     Type(
-                                                        PathLeading(
-                                                            LinTypePathLeading(
-                                                                Id {
-                                                                    value: 1,
-                                                                },
+                                                        Type {
+                                                            attrs: HirTemplateVariableAttrs {
+                                                                class: Comptime,
+                                                            },
+                                                            variance: None,
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                    Explicit(
+                                                        Type(
+                                                            PathLeading(
+                                                                LinTypePathLeading(
+                                                                    Id {
+                                                                        value: 1,
+                                                                    },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
                                                 ),
-                                            ),
-                                            (
-                                                Type(
-                                                    Type {
-                                                        attrs: HirTemplateVariableAttrs {
-                                                            class: Comptime,
-                                                        },
-                                                        variance: None,
-                                                        disambiguator: 1,
-                                                    },
-                                                ),
-                                                Explicit(
+                                                (
                                                     Type(
-                                                        PathLeading(
-                                                            LinTypePathLeading(
-                                                                Id {
-                                                                    value: 3,
-                                                                },
+                                                        Type {
+                                                            attrs: HirTemplateVariableAttrs {
+                                                                class: Comptime,
+                                                            },
+                                                            variance: None,
+                                                            disambiguator: 1,
+                                                        },
+                                                    ),
+                                                    Explicit(
+                                                        Type(
+                                                            PathLeading(
+                                                                LinTypePathLeading(
+                                                                    Id {
+                                                                        value: 3,
+                                                                    },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
                                                 ),
-                                            ),
-                                        ],
-                                        separator: None,
+                                            ],
+                                            separator: None,
+                                        },
                                     },
                                 },
-                            },
+                            ),
                             arguments: [
                                 VmirArgument::Simple {
                                     expr: VmirExprIdx(
@@ -769,87 +775,89 @@
                         },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Linkage {
-                            linkage_impl: Linkage {
-                                data: LinkageData::EnumVariantConstructor {
-                                    self_ty: LinTypePathLeading {
-                                        ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
-                                        template_arguments: [
-                                            LinTemplateArgument::Type(
-                                                LinType::PathLeading(
-                                                    LinTypePathLeading {
-                                                        ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                                        template_arguments: [],
-                                                    },
+                            linkage_impl: VirtualLinkageImpl(
+                                Linkage {
+                                    data: LinkageData::EnumVariantConstructor {
+                                        self_ty: LinTypePathLeading {
+                                            ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
+                                            template_arguments: [
+                                                LinTemplateArgument::Type(
+                                                    LinType::PathLeading(
+                                                        LinTypePathLeading {
+                                                            ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                            template_arguments: [],
+                                                        },
+                                                    ),
                                                 ),
-                                            ),
-                                            LinTemplateArgument::Type(
-                                                LinType::PathLeading(
-                                                    LinTypePathLeading {
-                                                        ty_path: TypePath(`core::basic::unit`, `Extern`),
-                                                        template_arguments: [],
-                                                    },
+                                                LinTemplateArgument::Type(
+                                                    LinType::PathLeading(
+                                                        LinTypePathLeading {
+                                                            ty_path: TypePath(`core::basic::unit`, `Extern`),
+                                                            template_arguments: [],
+                                                        },
+                                                    ),
                                                 ),
+                                            ],
+                                        },
+                                        path: TypeVariantPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 101,
+                                                },
                                             ),
-                                        ],
-                                    },
-                                    path: TypeVariantPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 101,
-                                            },
                                         ),
-                                    ),
-                                    instantiation: LinInstantiation {
-                                        symbol_resolutions: [
-                                            (
-                                                Type(
-                                                    Type {
-                                                        attrs: HirTemplateVariableAttrs {
-                                                            class: Comptime,
-                                                        },
-                                                        variance: None,
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                                Explicit(
+                                        instantiation: LinInstantiation {
+                                            symbol_resolutions: [
+                                                (
                                                     Type(
-                                                        PathLeading(
-                                                            LinTypePathLeading(
-                                                                Id {
-                                                                    value: 1,
-                                                                },
+                                                        Type {
+                                                            attrs: HirTemplateVariableAttrs {
+                                                                class: Comptime,
+                                                            },
+                                                            variance: None,
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                    Explicit(
+                                                        Type(
+                                                            PathLeading(
+                                                                LinTypePathLeading(
+                                                                    Id {
+                                                                        value: 1,
+                                                                    },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
                                                 ),
-                                            ),
-                                            (
-                                                Type(
-                                                    Type {
-                                                        attrs: HirTemplateVariableAttrs {
-                                                            class: Comptime,
-                                                        },
-                                                        variance: None,
-                                                        disambiguator: 1,
-                                                    },
-                                                ),
-                                                Explicit(
+                                                (
                                                     Type(
-                                                        PathLeading(
-                                                            LinTypePathLeading(
-                                                                Id {
-                                                                    value: 3,
-                                                                },
+                                                        Type {
+                                                            attrs: HirTemplateVariableAttrs {
+                                                                class: Comptime,
+                                                            },
+                                                            variance: None,
+                                                            disambiguator: 1,
+                                                        },
+                                                    ),
+                                                    Explicit(
+                                                        Type(
+                                                            PathLeading(
+                                                                LinTypePathLeading(
+                                                                    Id {
+                                                                        value: 3,
+                                                                    },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
                                                 ),
-                                            ),
-                                        ],
-                                        separator: None,
+                                            ],
+                                            separator: None,
+                                        },
                                     },
                                 },
-                            },
+                            ),
                             arguments: [
                                 VmirArgument::Simple {
                                     expr: VmirExprIdx(
@@ -861,87 +869,89 @@
                         },
                         VmirExprData::PrincipalEntityPath,
                         VmirExprData::Linkage {
-                            linkage_impl: Linkage {
-                                data: LinkageData::EnumVariantConstructor {
-                                    self_ty: LinTypePathLeading {
-                                        ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
-                                        template_arguments: [
-                                            LinTemplateArgument::Type(
-                                                LinType::PathLeading(
-                                                    LinTypePathLeading {
-                                                        ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                                        template_arguments: [],
-                                                    },
+                            linkage_impl: VirtualLinkageImpl(
+                                Linkage {
+                                    data: LinkageData::EnumVariantConstructor {
+                                        self_ty: LinTypePathLeading {
+                                            ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
+                                            template_arguments: [
+                                                LinTemplateArgument::Type(
+                                                    LinType::PathLeading(
+                                                        LinTypePathLeading {
+                                                            ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                            template_arguments: [],
+                                                        },
+                                                    ),
                                                 ),
-                                            ),
-                                            LinTemplateArgument::Type(
-                                                LinType::PathLeading(
-                                                    LinTypePathLeading {
-                                                        ty_path: TypePath(`core::basic::unit`, `Extern`),
-                                                        template_arguments: [],
-                                                    },
+                                                LinTemplateArgument::Type(
+                                                    LinType::PathLeading(
+                                                        LinTypePathLeading {
+                                                            ty_path: TypePath(`core::basic::unit`, `Extern`),
+                                                            template_arguments: [],
+                                                        },
+                                                    ),
                                                 ),
+                                            ],
+                                        },
+                                        path: TypeVariantPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 101,
+                                                },
                                             ),
-                                        ],
-                                    },
-                                    path: TypeVariantPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 101,
-                                            },
                                         ),
-                                    ),
-                                    instantiation: LinInstantiation {
-                                        symbol_resolutions: [
-                                            (
-                                                Type(
-                                                    Type {
-                                                        attrs: HirTemplateVariableAttrs {
-                                                            class: Comptime,
-                                                        },
-                                                        variance: None,
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                                Explicit(
+                                        instantiation: LinInstantiation {
+                                            symbol_resolutions: [
+                                                (
                                                     Type(
-                                                        PathLeading(
-                                                            LinTypePathLeading(
-                                                                Id {
-                                                                    value: 1,
-                                                                },
+                                                        Type {
+                                                            attrs: HirTemplateVariableAttrs {
+                                                                class: Comptime,
+                                                            },
+                                                            variance: None,
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                    Explicit(
+                                                        Type(
+                                                            PathLeading(
+                                                                LinTypePathLeading(
+                                                                    Id {
+                                                                        value: 1,
+                                                                    },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
                                                 ),
-                                            ),
-                                            (
-                                                Type(
-                                                    Type {
-                                                        attrs: HirTemplateVariableAttrs {
-                                                            class: Comptime,
-                                                        },
-                                                        variance: None,
-                                                        disambiguator: 1,
-                                                    },
-                                                ),
-                                                Explicit(
+                                                (
                                                     Type(
-                                                        PathLeading(
-                                                            LinTypePathLeading(
-                                                                Id {
-                                                                    value: 3,
-                                                                },
+                                                        Type {
+                                                            attrs: HirTemplateVariableAttrs {
+                                                                class: Comptime,
+                                                            },
+                                                            variance: None,
+                                                            disambiguator: 1,
+                                                        },
+                                                    ),
+                                                    Explicit(
+                                                        Type(
+                                                            PathLeading(
+                                                                LinTypePathLeading(
+                                                                    Id {
+                                                                        value: 3,
+                                                                    },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
                                                 ),
-                                            ),
-                                        ],
-                                        separator: None,
+                                            ],
+                                            separator: None,
+                                        },
                                     },
                                 },
-                            },
+                            ),
                             arguments: [
                                 VmirArgument::Simple {
                                     expr: VmirExprIdx(
@@ -957,87 +967,89 @@
                             ),
                         },
                         VmirExprData::Linkage {
-                            linkage_impl: Linkage {
-                                data: LinkageData::EnumVariantConstructor {
-                                    self_ty: LinTypePathLeading {
-                                        ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
-                                        template_arguments: [
-                                            LinTemplateArgument::Type(
-                                                LinType::PathLeading(
-                                                    LinTypePathLeading {
-                                                        ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
-                                                        template_arguments: [],
-                                                    },
+                            linkage_impl: VirtualLinkageImpl(
+                                Linkage {
+                                    data: LinkageData::EnumVariantConstructor {
+                                        self_ty: LinTypePathLeading {
+                                            ty_path: TypePath(`core::ops::ControlFlow`, `Enum`),
+                                            template_arguments: [
+                                                LinTemplateArgument::Type(
+                                                    LinType::PathLeading(
+                                                        LinTypePathLeading {
+                                                            ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                            template_arguments: [],
+                                                        },
+                                                    ),
                                                 ),
-                                            ),
-                                            LinTemplateArgument::Type(
-                                                LinType::PathLeading(
-                                                    LinTypePathLeading {
-                                                        ty_path: TypePath(`core::basic::unit`, `Extern`),
-                                                        template_arguments: [],
-                                                    },
+                                                LinTemplateArgument::Type(
+                                                    LinType::PathLeading(
+                                                        LinTypePathLeading {
+                                                            ty_path: TypePath(`core::basic::unit`, `Extern`),
+                                                            template_arguments: [],
+                                                        },
+                                                    ),
                                                 ),
+                                            ],
+                                        },
+                                        path: TypeVariantPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 100,
+                                                },
                                             ),
-                                        ],
-                                    },
-                                    path: TypeVariantPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 100,
-                                            },
                                         ),
-                                    ),
-                                    instantiation: LinInstantiation {
-                                        symbol_resolutions: [
-                                            (
-                                                Type(
-                                                    Type {
-                                                        attrs: HirTemplateVariableAttrs {
-                                                            class: Comptime,
-                                                        },
-                                                        variance: None,
-                                                        disambiguator: 0,
-                                                    },
-                                                ),
-                                                Explicit(
+                                        instantiation: LinInstantiation {
+                                            symbol_resolutions: [
+                                                (
                                                     Type(
-                                                        PathLeading(
-                                                            LinTypePathLeading(
-                                                                Id {
-                                                                    value: 1,
-                                                                },
+                                                        Type {
+                                                            attrs: HirTemplateVariableAttrs {
+                                                                class: Comptime,
+                                                            },
+                                                            variance: None,
+                                                            disambiguator: 0,
+                                                        },
+                                                    ),
+                                                    Explicit(
+                                                        Type(
+                                                            PathLeading(
+                                                                LinTypePathLeading(
+                                                                    Id {
+                                                                        value: 1,
+                                                                    },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
                                                 ),
-                                            ),
-                                            (
-                                                Type(
-                                                    Type {
-                                                        attrs: HirTemplateVariableAttrs {
-                                                            class: Comptime,
-                                                        },
-                                                        variance: None,
-                                                        disambiguator: 1,
-                                                    },
-                                                ),
-                                                Explicit(
+                                                (
                                                     Type(
-                                                        PathLeading(
-                                                            LinTypePathLeading(
-                                                                Id {
-                                                                    value: 3,
-                                                                },
+                                                        Type {
+                                                            attrs: HirTemplateVariableAttrs {
+                                                                class: Comptime,
+                                                            },
+                                                            variance: None,
+                                                            disambiguator: 1,
+                                                        },
+                                                    ),
+                                                    Explicit(
+                                                        Type(
+                                                            PathLeading(
+                                                                LinTypePathLeading(
+                                                                    Id {
+                                                                        value: 3,
+                                                                    },
+                                                                ),
                                                             ),
                                                         ),
                                                     ),
                                                 ),
-                                            ),
-                                        ],
-                                        separator: None,
+                                            ],
+                                            separator: None,
+                                        },
                                     },
                                 },
-                            },
+                            ),
                             arguments: [
                                 VmirArgument::Simple {
                                     expr: VmirExprIdx(

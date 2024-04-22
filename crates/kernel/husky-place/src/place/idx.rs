@@ -11,6 +11,12 @@ impl std::fmt::Debug for PlaceIdx {
 
 /// # getters
 
+impl PlaceIdx {
+    pub fn index(self) -> usize {
+        self.0.index()
+    }
+}
+
 impl PlaceRegistry {
     pub fn len(&self) -> usize {
         self.infos.len()

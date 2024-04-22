@@ -580,7 +580,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
             }
         }
         Ok(Pretoken::Literal(LiteralTokenData::String(
-            StringLiteralTokenData::new(self.db, Arc::new(s)),
+            StringLiteralTokenData::new(self.db, Arc::from(s)),
         )))
     }
 }
