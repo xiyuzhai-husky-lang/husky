@@ -8,7 +8,7 @@ pub use husky_standard_value::{
 
 use super::*;
 use husky_decl_macro_utils::for_all_ritchie_tys;
-use husky_task_interface::ki_repr::KiDomainReprInterface;
+use husky_task_interface::{ki_repr::KiDomainReprInterface, VmArgumentValue};
 use husky_value_protocol::presentation::EnumU8ValuePresenter;
 
 // ad hoc
@@ -126,6 +126,14 @@ where
                 StandardLinkageImplKiControlFlow::Continue(struct_field_wrapper(owner))
             }
         }
+    }
+
+    fn eval_vm(
+        self,
+        arguments: Vec<VmArgumentValue<Self>>,
+        db: &dyn std::any::Any,
+    ) -> husky_task_interface::vm_control_flow::LinkageImplVmControlFlow<Self> {
+        todo!()
     }
 
     fn enum_u8_value_presenter(self) -> EnumU8ValuePresenter {

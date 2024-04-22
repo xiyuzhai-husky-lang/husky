@@ -27,11 +27,12 @@ impl<C, B, E> VmControlFlow<C, B, E> {
 
 pub type ValuePresentationVmControlFlow =
     VmControlFlow<ValuePresentation, ValuePresentation, ValuePresentation>;
-pub type LinkageImplVmControlFlow<LinkageImpl> = VmControlFlow<
-    <LinkageImpl as IsLinkageImpl>::Value,
-    <LinkageImpl as IsLinkageImpl>::Value,
-    <LinkageImpl as IsLinkageImpl>::Exception,
->;
+pub type LinkageImplVmControlFlow<LinkageImpl, C = <LinkageImpl as IsLinkageImpl>::Value> =
+    VmControlFlow<
+        C,
+        <LinkageImpl as IsLinkageImpl>::Value,
+        <LinkageImpl as IsLinkageImpl>::Exception,
+    >;
 
 impl<C, B, E> Residual<C> for VmControlFlow<Infallible, B, E> {
     type TryType = VmControlFlow<C, B, E>;
@@ -76,6 +77,24 @@ impl<C, B, E> FromResidual<Result<Infallible, E>> for VmControlFlow<C, B, E> {
         match residual {
             Ok(_) => unreachable!(),
             Err(e) => VmControlFlow::Throw(e),
+        }
+    }
+}
+
+impl<C1, C2: FromIterator<C1>, B, E> std::iter::FromIterator<VmControlFlow<C1, B, E>>
+    for VmControlFlow<C2, B, E>
+{
+    fn from_iter<T: IntoIterator<Item = VmControlFlow<C1, B, E>>>(iter: T) -> Self {
+        match iter
+            .into_iter()
+            .map(|item| match item.branch() {
+                std::ops::ControlFlow::Continue(c1) => Ok(c1),
+                std::ops::ControlFlow::Break(residual) => Err(residual),
+            })
+            .collect::<Result<C2, VmControlFlow<Infallible, B, E>>>()
+        {
+            Ok(c2) => VmControlFlow::Continue(c2),
+            Err(residual) => VmControlFlow::from_residual(residual),
         }
     }
 }

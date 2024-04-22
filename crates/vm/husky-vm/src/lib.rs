@@ -81,6 +81,10 @@ where
     Linktime: IsLinktime,
     VmirStorage: IsVmirStorage<Linktime::LinkageImpl>,
 {
+    fn db(&self) -> &'a ::salsa::Db {
+        self.db
+    }
+
     fn vmir_region(&self) -> &'a VmirRegion<Linktime::LinkageImpl> {
         self.vmir_region
     }
