@@ -297,6 +297,7 @@ impl<LinkageImpl: IsLinkageImpl> VmirStmtIdx<LinkageImpl> {
                 initial_value,
                 coersion,
             } => {
+                let initial_value = initial_value.eval(coersion, ctx);
                 todo!("init pattern");
                 Continue(().into())
             }

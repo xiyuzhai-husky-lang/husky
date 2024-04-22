@@ -16,12 +16,12 @@ pub struct VmirPattern<LinkageImpl: IsLinkageImpl> {
 
 impl<LinkageImpl: IsLinkageImpl> VmirPattern<LinkageImpl> {
     /// a restructive version is always needed to tell if pattern is satisfied
-    pub fn restructive_pattern(&self) -> VmirRestructivePattern<LinkageImpl> {
+    pub fn restructive_pattern(self) -> VmirRestructivePattern<LinkageImpl> {
         self.restructive_pattern
     }
 
     /// only need this for destructive pattern
-    pub fn destructive_pattern(&self) -> Option<VmirDestructivePattern<LinkageImpl>> {
+    pub fn destructive_pattern(self) -> Option<VmirDestructivePattern<LinkageImpl>> {
         self.destructive_pattern
     }
 }
