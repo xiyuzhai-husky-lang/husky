@@ -479,7 +479,7 @@ impl IsValue for Value {
         }
     }
 
-    fn from_str_literal(str_value: Arc<String>) -> Self {
+    fn from_str_literal(str_value: Arc<str>) -> Self {
         todo!()
     }
 }

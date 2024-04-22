@@ -78,8 +78,8 @@ pub trait IsValue:
     // fn into_option_ref<'a, T>(self) -> Option<&'a T>;
     // fn from_option_mut<'a, T>(t: Option<&'a mut T>) -> Self;
     // fn into_option_mut<'a, T>(self) -> Option<&'a mut T>;
-    /// `Arc<String>` should be replaced with something better
-    fn from_str_literal(str_value: Arc<String>) -> Self;
+    /// `Arc<str>` should be replaced with something better
+    fn from_str_literal(str_value: Arc<str>) -> Self;
     fn from_enum_u8(index: u8, presenter: EnumU8ValuePresenter) -> Self;
     fn share(&'static self) -> Self;
     fn to_bool(self) -> bool;

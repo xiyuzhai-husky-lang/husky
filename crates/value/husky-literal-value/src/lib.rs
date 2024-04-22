@@ -50,7 +50,7 @@ pub enum LiteralValue {
     F32(OrderedFloat<f32>),
     /// 64-bit float literal
     F64(OrderedFloat<f64>),
-    String(Arc<String>),
+    String(Arc<str>),
 }
 
 impl LiteralValue {
@@ -78,7 +78,7 @@ impl LiteralValue {
             LiteralValue::RSize(_) => todo!(),
             LiteralValue::F32(_) => todo!(),
             LiteralValue::F64(_) => todo!(),
-            LiteralValue::String(_) => todo!(),
+            LiteralValue::String(ref str_value) => Value::from_str_literal(str_value.clone()),
         }
     }
 }

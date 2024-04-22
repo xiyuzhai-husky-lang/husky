@@ -132,6 +132,14 @@ where
             LinQual::Transient => todo!(),
         }
     }
+
+    fn init_place(
+        &mut self,
+        place_idx: PlaceIdx,
+        value: <Linktime::LinkageImpl as IsLinkageImpl>::Value,
+    ) {
+        self.place_values[place_idx.index()] = value
+    }
 }
 
 #[test]

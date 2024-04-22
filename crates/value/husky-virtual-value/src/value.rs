@@ -10,7 +10,7 @@ use husky_value_protocol::presentation::{
 };
 use husky_visual_protocol::synchrotron::VisualSynchrotron;
 use husky_visual_protocol::visual::Visual;
-use std::cmp::Ordering;
+use std::{cmp::Ordering, sync::Arc};
 
 #[derive(Debug)]
 pub enum Value {
@@ -45,6 +45,7 @@ pub enum Value {
         presenter: EnumU8ValuePresenter,
     },
     Vec(Vec<Value>),
+    StringLiteral(Arc<str>),
 }
 
 impl IsValue for Value {
@@ -96,8 +97,8 @@ impl IsValue for Value {
         todo!()
     }
 
-    fn from_str_literal(str_value: std::sync::Arc<String>) -> Self {
-        todo!()
+    fn from_str_literal(str_value: std::sync::Arc<str>) -> Self {
+        Value::StringLiteral(str_value)
     }
 }
 
@@ -353,6 +354,7 @@ impl std::ops::Neg for Value {
             Value::F64(_) => todo!(),
             Value::EnumU8 { index, presenter } => todo!(),
             Value::Vec(_) => todo!(),
+            Value::StringLiteral(_) => todo!(),
         }
     }
 }
