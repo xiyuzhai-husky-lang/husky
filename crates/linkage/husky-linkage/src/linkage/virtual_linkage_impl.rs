@@ -1,5 +1,7 @@
 use super::*;
-use husky_task_interface::IsLinkageImpl;
+use husky_task_interface::{
+    vm_control_flow::LinkageImplVmControlFlow, IsLinkageImpl, VmArgumentValue,
+};
 use husky_value_protocol::presentation::EnumU8ValuePresenter;
 use husky_virtual_value::value::Value;
 
@@ -36,6 +38,77 @@ impl IsLinkageImpl for VirtualLinkageImpl {
         arguments: &[husky_task_interface::ugly::__KiArgumentReprInterface],
     ) -> husky_task_interface::LinkageImplKiControlFlow<Self> {
         todo!()
+    }
+
+    fn eval_vm(
+        self,
+        mut arguments: Vec<VmArgumentValue<Self>>,
+        db: &dyn std::any::Any,
+    ) -> LinkageImplVmControlFlow<Self> {
+        use husky_task_interface::vm_control_flow::VmControlFlow::*;
+
+        let db: &::salsa::Db = db.downcast_ref().unwrap();
+        match self.data(db) {
+            LinkageData::MajorFunctionRitchie {
+                path,
+                instantiation,
+            } => todo!(),
+            LinkageData::MajorVal {
+                path,
+                instantiation,
+            } => todo!(),
+            LinkageData::MemoizedField {
+                path,
+                instantiation,
+            } => todo!(),
+            LinkageData::MethodRitchie {
+                path,
+                instantiation,
+            } => todo!(),
+            LinkageData::AssocRitchie {
+                path,
+                instantiation,
+            } => todo!(),
+            LinkageData::UnveilAssocRitchie {
+                path,
+                instantiation,
+            } => todo!(),
+            LinkageData::StructConstructor {
+                path,
+                instantiation,
+            } => todo!(),
+            LinkageData::StructDestructor { self_ty } => todo!(),
+            LinkageData::EnumVariantConstructor {
+                self_ty,
+                path,
+                instantiation,
+            } => todo!(),
+            LinkageData::EnumVariantDiscriminator {
+                self_ty,
+                path,
+                instantiation,
+            } => todo!(),
+            LinkageData::EnumVariantDestructor {
+                self_ty,
+                path,
+                instantiation,
+            } => todo!(),
+            LinkageData::StructField { self_ty, field } => todo!(),
+            LinkageData::EnumVariantField {
+                path,
+                instantiation,
+                field,
+            } => todo!(),
+            LinkageData::Index => todo!(),
+            LinkageData::VecConstructor { element_ty } => {
+                let VmArgumentValue::Variadic(elements) = arguments.pop().unwrap() else {
+                    unreachable!()
+                };
+                Continue(Value::Vec(elements))
+            }
+            LinkageData::TypeDefault { ty } => todo!(),
+            LinkageData::EnumU8ToJsonValue { ty_path } => todo!(),
+        }
     }
 
     fn enum_u8_value_presenter(self) -> EnumU8ValuePresenter {

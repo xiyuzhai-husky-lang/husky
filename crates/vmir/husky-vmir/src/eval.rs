@@ -9,6 +9,7 @@ use husky_task_interface::vm_control_flow::LinkageImplVmControlFlow;
 use husky_task_interface::IsLinkageImpl;
 
 pub trait EvalVmir<'comptime, LinkageImpl: IsLinkageImpl> {
+    fn db(&self) -> &'comptime ::salsa::Db;
     fn vmir_region(&self) -> &'comptime VmirRegion<LinkageImpl>;
     fn vmir_expr_arena(&self) -> &'comptime VmirExprArena<LinkageImpl> {
         self.vmir_region().vmir_expr_arena()

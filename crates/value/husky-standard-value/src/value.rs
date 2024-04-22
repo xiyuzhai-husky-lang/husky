@@ -478,6 +478,10 @@ impl IsValue for Value {
             Value::EnumU8 { .. } => Visual::Void,
         }
     }
+
+    fn from_str_literal(str_value: Arc<String>) -> Self {
+        todo!()
+    }
 }
 
 impl PartialEq for Value {

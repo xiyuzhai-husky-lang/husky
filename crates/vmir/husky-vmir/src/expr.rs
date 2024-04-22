@@ -10,7 +10,10 @@ use husky_linkage::{linkage::Linkage, template_argument::qual::LinQual};
 use husky_literal_value::LiteralValue;
 use husky_opr::{BinaryClosedOpr, BinaryShiftOpr};
 use husky_place::place::{idx::PlaceIdx, EthPlace};
-use husky_task_interface::vm_control_flow::{LinkageImplVmControlFlow, VmControlFlow};
+use husky_task_interface::{
+    vm_control_flow::{LinkageImplVmControlFlow, VmControlFlow},
+    VmArgumentValue,
+};
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 use smallvec::{smallvec, SmallVec};
 
@@ -80,7 +83,39 @@ impl<LinkageImpl: IsLinkageImpl> std::ops::Deref for VmirExprIdx<LinkageImpl> {
         &self.0
     }
 }
-pub type VmirExprIdxRange<LinkageImpl> = ArenaIdxRange<VmirExprData<LinkageImpl>>;
+
+#[salsa::derive_debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub struct VmirExprIdxRange<LinkageImpl: IsLinkageImpl>(ArenaIdxRange<VmirExprData<LinkageImpl>>);
+
+impl<'db, Linktime: IsLinktime> VmirBuilder<'db, Linktime> {
+    pub(crate) fn alloc_exprs(
+        &mut self,
+        exprs: Vec<VmirExprData<Linktime::LinkageImpl>>,
+    ) -> VmirExprIdxRange<Linktime::LinkageImpl> {
+        VmirExprIdxRange(self.alloc_exprs_aux(exprs))
+    }
+}
+
+impl<LinkageImpl: IsLinkageImpl> IntoIterator for VmirExprIdxRange<LinkageImpl> {
+    type Item = VmirExprIdx<LinkageImpl>;
+
+    type IntoIter = impl Iterator<Item = Self::Item>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.0.into_iter().map(VmirExprIdx)
+    }
+}
+
+impl<LinkageImpl: IsLinkageImpl> IntoIterator for &VmirExprIdxRange<LinkageImpl> {
+    type Item = VmirExprIdx<LinkageImpl>;
+
+    type IntoIter = impl Iterator<Item = Self::Item>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.0.into_iter().map(VmirExprIdx)
+    }
+}
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
@@ -387,7 +422,7 @@ impl<LinkageImpl: IsLinkageImpl> VmirExprIdx<LinkageImpl> {
         let value = ctx.eval_expr(self, |ctx| self.eval_aux(ctx))?;
         VmControlFlow::Continue(match coersion.into() {
             Some(coersion) => match coersion {
-                VmirCoersion::Trivial => todo!(),
+                VmirCoersion::Trivial => value,
                 VmirCoersion::Never => todo!(),
                 VmirCoersion::WrapInSome => todo!(),
                 VmirCoersion::PlaceToLeash => todo!(),
@@ -436,13 +471,48 @@ impl<LinkageImpl: IsLinkageImpl> VmirExprIdx<LinkageImpl> {
                 })
             }
             VmirExprData::Be { opd, pattern } => todo!(),
-            VmirExprData::Prefix { opr, opd } => todo!(),
+            VmirExprData::Prefix { opr, opd } => {
+                let opd = opd.eval(None, ctx)?;
+                ctx.eval_expr_inner(self, |_ctx| match opr {
+                    HirPrefixOpr::Minus => Continue(-opd),
+                    HirPrefixOpr::NotBool => todo!(),
+                    HirPrefixOpr::NotInt => todo!(),
+                    HirPrefixOpr::BitNot => todo!(),
+                    HirPrefixOpr::TakeRef => todo!(),
+                    HirPrefixOpr::Deref => todo!(),
+                })
+            }
             VmirExprData::Suffix { opd, opr } => todo!(),
             VmirExprData::Unveil { linkage_impl, opd } => todo!(),
             VmirExprData::Linkage {
                 linkage_impl,
                 ref arguments,
-            } => todo!(),
+            } => {
+                let arguments =
+                    arguments
+                        .iter()
+                        .map(
+                            |arg| -> LinkageImplVmControlFlow<
+                                LinkageImpl,
+                                VmArgumentValue<LinkageImpl>,
+                            > {
+                                match arg {
+                                    VmirArgument::SelfValue { expr } => todo!(),
+                                    VmirArgument::Simple { expr, coersion } => todo!(),
+                                    VmirArgument::Variadic { exprs } => {
+                                        VmControlFlow::Continue(VmArgumentValue::Variadic(
+                                            exprs
+                                                .into_iter()
+                                                .map(|expr| expr.eval(None, ctx))
+                                                .collect::<VmControlFlow<_, _, _>>()?,
+                                        ))
+                                    }
+                                }
+                            },
+                        )
+                        .collect::<VmControlFlow<_, _, _>>()?;
+                ctx.eval_expr_inner(self, |ctx| linkage_impl.eval_vm(arguments, ctx.db()))
+            }
             VmirExprData::Block { stmts, destroyers } => stmts.eval(ctx),
             VmirExprData::Closure => todo!(),
             VmirExprData::Todo => todo!(),
