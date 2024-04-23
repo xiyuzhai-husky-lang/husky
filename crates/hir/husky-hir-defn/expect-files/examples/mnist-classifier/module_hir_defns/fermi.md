@@ -792,7 +792,7 @@
                                                         },
                                                         10,
                                                         Trivial(
-                                                            TrivialHirEagerCoersion {
+                                                            TrivialHirEagerCoercion {
                                                                 expectee_quary: Leashed {
                                                                     place_idx: None,
                                                                 },
@@ -872,9 +872,9 @@
                                     data: [
                                         Eval {
                                             expr: 12,
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
-                                                    TrivialHirEagerCoersion {
+                                                    TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -896,9 +896,9 @@
                                             },
                                             contract: Move,
                                             initial_value: 0,
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
-                                                    TrivialHirEagerCoersion {
+                                                    TrivialHirEagerCoercion {
                                                         expectee_quary: Const,
                                                     },
                                                 ),
@@ -935,8 +935,8 @@
                                         },
                                         Return {
                                             result: 13,
-                                            coersion: Trivial(
-                                                TrivialHirEagerCoersion {
+                                            coercion: Trivial(
+                                                TrivialHirEagerCoercion {
                                                     expectee_quary: MutableOnStack {
                                                         place: Idx(
                                                             PlaceIdx(1),
@@ -1449,7 +1449,7 @@
                                                         },
                                                         10,
                                                         Trivial(
-                                                            TrivialHirEagerCoersion {
+                                                            TrivialHirEagerCoercion {
                                                                 expectee_quary: Leashed {
                                                                     place_idx: None,
                                                                 },
@@ -1529,9 +1529,9 @@
                                     data: [
                                         Eval {
                                             expr: 12,
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
-                                                    TrivialHirEagerCoersion {
+                                                    TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -1553,9 +1553,9 @@
                                             },
                                             contract: Move,
                                             initial_value: 0,
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
-                                                    TrivialHirEagerCoersion {
+                                                    TrivialHirEagerCoercion {
                                                         expectee_quary: Const,
                                                     },
                                                 ),
@@ -1592,8 +1592,8 @@
                                         },
                                         Return {
                                             result: 13,
-                                            coersion: Trivial(
-                                                TrivialHirEagerCoersion {
+                                            coercion: Trivial(
+                                                TrivialHirEagerCoercion {
                                                     expectee_quary: MutableOnStack {
                                                         place: Idx(
                                                             PlaceIdx(1),
@@ -2133,7 +2133,7 @@
                                                         },
                                                         11,
                                                         Trivial(
-                                                            TrivialHirEagerCoersion {
+                                                            TrivialHirEagerCoercion {
                                                                 expectee_quary: Transient,
                                                             },
                                                         ),
@@ -2211,9 +2211,9 @@
                                     data: [
                                         Eval {
                                             expr: 13,
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
-                                                    TrivialHirEagerCoersion {
+                                                    TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -2235,9 +2235,9 @@
                                             },
                                             contract: Move,
                                             initial_value: 0,
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
-                                                    TrivialHirEagerCoersion {
+                                                    TrivialHirEagerCoercion {
                                                         expectee_quary: Const,
                                                     },
                                                 ),
@@ -2274,8 +2274,8 @@
                                         },
                                         Return {
                                             result: 14,
-                                            coersion: Trivial(
-                                                TrivialHirEagerCoersion {
+                                            coercion: Trivial(
+                                                TrivialHirEagerCoercion {
                                                     expectee_quary: MutableOnStack {
                                                         place: Idx(
                                                             PlaceIdx(1),

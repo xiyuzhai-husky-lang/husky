@@ -1,6 +1,6 @@
 #![feature(let_chains)]
 pub mod builder;
-pub mod coersion;
+pub mod coercion;
 pub mod expr;
 pub mod helpers;
 pub mod jar;

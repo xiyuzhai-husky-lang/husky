@@ -42,17 +42,17 @@ impl<'a> SemaExprBuilder<'a> {
                 .syn_pattern_root()
                 .syn_pattern_expr_idx(),
         );
-        let ((initial_value_sem_expr_idx, pattern_ty), coersion_outcome) =
+        let ((initial_value_sem_expr_idx, pattern_ty), coercion_outcome) =
             match annotated_pattern_ty {
                 Some(pattern_ty) => {
-                    let (initial_value_sem_expr_idx, coersion_outcome) = self
+                    let (initial_value_sem_expr_idx, coercion_outcome) = self
                         .build_sem_expr_with_outcome(
                             initial_value,
-                            ExpectCoersion::new(contract, pattern_ty),
+                            ExpectCoercion::new(contract, pattern_ty),
                         );
                     (
                         (initial_value_sem_expr_idx, Some(pattern_ty)),
-                        coersion_outcome,
+                        coercion_outcome,
                     )
                 }
                 None => {
@@ -94,7 +94,7 @@ impl<'a> SemaExprBuilder<'a> {
                 contract,
                 eq_token,
                 initial_value_sem_expr_idx,
-                coersion_outcome,
+                coercion_outcome,
             }),
             ty_result,
         )

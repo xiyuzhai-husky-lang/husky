@@ -1,6 +1,6 @@
 use super::*;
 
-impl ExpectCoersion {
+impl ExpectCoercion {
     pub(super) fn resolve_wrap_in_some(
         &self,
         db: &::salsa::Db,
@@ -15,10 +15,10 @@ impl ExpectCoersion {
                 ..
             } => {
                 debug_assert_eq!(expected_ty_arguments.len(), 1);
-                self.try_finalize_coersion(
+                self.try_finalize_coercion(
                     state.expectee(),
                     expected_ty_arguments[0],
-                    FlyCoersion::WrapInSome,
+                    FlyCoercion::WrapInSome,
                     db,
                     terms,
                     state,

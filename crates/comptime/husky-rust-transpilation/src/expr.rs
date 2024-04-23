@@ -438,9 +438,9 @@ impl HirEagerExprSite {
 impl TranspileToRustWith<HirEagerExprRegion> for &HirEagerRitchieArgument {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         match *self {
-            HirEagerRitchieArgument::Simple(param, hir_eager_expr_idx, coersion) => (
+            HirEagerRitchieArgument::Simple(param, hir_eager_expr_idx, coercion) => (
                 hir_eager_expr_idx,
-                HirEagerExprSite::regular_call_item(param, coersion, builder.db()),
+                HirEagerExprSite::regular_call_item(param, coercion, builder.db()),
             )
                 .transpile_to_rust(builder),
             HirEagerRitchieArgument::Variadic => todo!(),

@@ -59,7 +59,7 @@ impl<'a> SemaExprBuilder<'a> {
             Some(bound_expr) => match expected_frame_var_ty {
                 Some(expected_frame_var_ty) => Some(self.build_sem_expr(
                     bound_expr,
-                    ExpectCoersion::new_pure(self, expected_frame_var_ty),
+                    ExpectCoercion::new_pure(self, expected_frame_var_ty),
                 )),
                 None => {
                     let (final_bound_sem_expr_idx, ty) =
@@ -90,7 +90,7 @@ impl<'a> SemaExprBuilder<'a> {
         self.add_symbol_ty(for_loop_var_symbol_idx, frame_var_symbol_ty);
         let for_between_loop_var_expr_idx = self.build_sem_expr(
             particulars.for_between_loop_var_expr_idx,
-            ExpectCoersion::new_pure(self, frame_var_symbol_ty.term()),
+            ExpectCoercion::new_pure(self, frame_var_symbol_ty.term()),
         );
         let range = SemaForBetweenRange {
             initial_boundary: SemaForBetweenLoopBoundary {
@@ -166,7 +166,7 @@ impl<'a> SemaExprBuilder<'a> {
     ) -> SemaForextParticulars {
         let bound_expr_sem_expr_idx = self.build_sem_expr(
             particulars.bound_expr,
-            ExpectCoersion::new_pure(self, forext_loop_var_ty),
+            ExpectCoercion::new_pure(self, forext_loop_var_ty),
         );
         SemaForextParticulars {
             forext_loop_var_regional_token_idx: particulars.forext_loop_var_regional_token_idx,

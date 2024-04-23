@@ -1,6 +1,6 @@
 use super::*;
 
-impl ExpectCoersion {
+impl ExpectCoercion {
     pub(super) fn resolve_holed(
         &self,
         db: &::salsa::Db,

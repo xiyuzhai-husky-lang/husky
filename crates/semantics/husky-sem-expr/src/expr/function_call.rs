@@ -75,7 +75,7 @@ impl<'a> SemaExprBuilder<'a> {
                     ),
                     1 => self.build_sem_expr(
                         items.first().expect("len is 1").syn_expr_idx(),
-                        ExpectCoersion::new_const(parameter_ty),
+                        ExpectCoercion::new_const(parameter_ty),
                     ),
                     // parameter_ty must be a tuple
                     // distribute the types for a tuple

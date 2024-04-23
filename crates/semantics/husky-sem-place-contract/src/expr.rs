@@ -1,5 +1,5 @@
 use crate::{engine::PlaceContractEngine, site::SemaPlaceContractSite};
-use husky_fly_term::{signature::FlyFieldSignature, ExpectationOutcome, FlyCoersion};
+use husky_fly_term::{signature::FlyFieldSignature, ExpectationOutcome, FlyCoercion};
 #[allow(unused_imports)]
 use husky_sem_expr::emit_note_on_sem_expr_codespan;
 use husky_sem_expr::{SemaExprData, SemaExprIdx, SemaRitchieArgument};
@@ -23,16 +23,16 @@ impl<'a> PlaceContractEngine<'a> {
         outer_contract: Contract,
         outer_site: SemaPlaceContractSite,
     ) {
-        let (contract, mut site) = if let ExpectationOutcome::Coersion(outcome) = expr
+        let (contract, mut site) = if let ExpectationOutcome::Coercion(outcome) = expr
             .expectation_outcome(self.sem_expr_region_data())
             .expect("no semantic expr error at this stage")
         {
-            match outcome.coersion() {
-                FlyCoersion::Trivial(_) => (outer_contract, outer_site),
-                FlyCoersion::Never | FlyCoersion::PlaceToLeash | FlyCoersion::Deref(_) => {
+            match outcome.coercion() {
+                FlyCoercion::Trivial(_) => (outer_contract, outer_site),
+                FlyCoercion::Never | FlyCoercion::PlaceToLeash | FlyCoercion::Deref(_) => {
                     (Contract::Pure, Default::default())
                 }
-                FlyCoersion::WrapInSome => (Contract::Move, Default::default()),
+                FlyCoercion::WrapInSome => (Contract::Move, Default::default()),
             }
         } else {
             (outer_contract, outer_site)
@@ -65,7 +65,7 @@ impl<'a> PlaceContractEngine<'a> {
             SemaExprData::Binary {
                 lopd, opr, ropd, ..
             } => {
-                // todo: coersion?
+                // todo: coercion?
                 let (lopd_contract, ropd_contract) = match opr {
                     SemaBinaryOpr::Assign => (Contract::BorrowMut, Contract::Move),
                     SemaBinaryOpr::AssignClosed(_) | SemaBinaryOpr::AssignShift(_) => {

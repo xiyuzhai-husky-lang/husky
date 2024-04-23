@@ -35,7 +35,7 @@ impl<'a> SemaExprBuilder<'a> {
                 }
                 self.build_sem_expr(
                     ropd,
-                    ExpectCoersion::new_move(lopd_ty.with_quary(FlyQuary::Transient)),
+                    ExpectCoercion::new_move(lopd_ty.with_quary(FlyQuary::Transient)),
                 )
             }
             None => self.build_sem_expr(ropd, ExpectAnyDerived),

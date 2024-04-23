@@ -110,7 +110,7 @@ pub enum SemaExprData {
     SelfType(RegionalTokenIdx),
     SelfValue(RegionalTokenIdx),
     Binary {
-        // todo: coersion?
+        // todo: coercion?
         lopd: SemaExprIdx,
         opr: SemaBinaryOpr,
         dispatch: SemaBinaryOprDynamicDispatch,
@@ -118,19 +118,19 @@ pub enum SemaExprData {
         ropd: SemaExprIdx,
     },
     Be {
-        // todo: coersion?
+        // todo: coercion?
         src: SemaExprIdx,
         be_regional_token_idx: RegionalTokenIdx,
         target: BePatternSyndicate,
     },
     Prefix {
-        // todo: coersion?
+        // todo: coercion?
         opr: SemaPrefixOpr,
         opr_regional_token_idx: RegionalTokenIdx,
         opd: SemaExprIdx,
     },
     Suffix {
-        // todo: coersion?
+        // todo: coercion?
         opd: SemaExprIdx,
         opr: SemaSuffixOpr,
         opr_regional_token_idx: RegionalTokenIdx,
@@ -550,7 +550,7 @@ impl<'a> SemaExprBuilder<'a> {
                 SynExprRootKind::BlockExpr => match self.return_ty() {
                     Some(return_ty) => self.build_sem_expr(
                         root.syn_expr_idx(),
-                        ExpectCoersion::new_move(return_ty.into()),
+                        ExpectCoercion::new_move(return_ty.into()),
                     ),
                     None => self.build_sem_expr(root.syn_expr_idx(), ExpectAnyDerived),
                 },
@@ -559,7 +559,7 @@ impl<'a> SemaExprBuilder<'a> {
                     let (ty_sem_expr_idx, _) = self.sem_expr_roots[ty_syn_expr_idx].1;
                     match self.infer_expr_term(ty_sem_expr_idx) {
                         Some(ty) => {
-                            self.build_sem_expr(root.syn_expr_idx(), ExpectCoersion::new_move(ty))
+                            self.build_sem_expr(root.syn_expr_idx(), ExpectCoercion::new_move(ty))
                         }
                         _ => todo!(),
                     }
@@ -1077,7 +1077,7 @@ impl<'a> SemaExprBuilder<'a> {
                                         .map(|&syn_comma_list_item| {
                                             self.build_sem_comma_list_item(
                                                 syn_comma_list_item,
-                                                ExpectCoersion::new_const(
+                                                ExpectCoercion::new_const(
                                                     self.term_menu().usize_ty_ontology().into(),
                                                 ),
                                             )
@@ -1151,7 +1151,7 @@ impl<'a> SemaExprBuilder<'a> {
                                     .map(|&syn_comma_list_item| {
                                         self.build_sem_comma_list_item(
                                             syn_comma_list_item,
-                                            ExpectCoersion::new_move(element_ty),
+                                            ExpectCoercion::new_move(element_ty),
                                         )
                                     })
                                     .collect(),

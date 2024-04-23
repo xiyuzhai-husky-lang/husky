@@ -1,4 +1,4 @@
-//! coersion rules are
+//! coercion rules are
 //!
 pub mod deref;
 pub mod holed;
@@ -7,27 +7,27 @@ pub mod reref;
 pub mod trival;
 pub mod wrap_in_some;
 
-use self::trival::TrivialFlyCoersion;
-use self::{deref::DerefFlyCoersion, quary::FlyQuary};
+use self::trival::TrivialFlyCoercion;
+use self::{deref::DerefFlyCoercion, quary::FlyQuary};
 
 use super::*;
 
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum FlyCoersion {
-    Trivial(TrivialFlyCoersion),
+pub enum FlyCoercion {
+    Trivial(TrivialFlyCoercion),
     Never,
     WrapInSome,
     PlaceToLeash,
-    Deref(DerefFlyCoersion),
+    Deref(DerefFlyCoercion),
 }
 
-impl FlyCoersion {
-    pub fn place_after_coersion(self) -> FlyQuary {
+impl FlyCoercion {
+    pub fn place_after_coercion(self) -> FlyQuary {
         match self {
-            FlyCoersion::Trivial(slf) => slf.place_after_coersion(),
-            FlyCoersion::Deref(slf) => slf.place_after_coersion(),
-            FlyCoersion::Never | FlyCoersion::WrapInSome | FlyCoersion::PlaceToLeash => {
+            FlyCoercion::Trivial(slf) => slf.place_after_coercion(),
+            FlyCoercion::Deref(slf) => slf.place_after_coercion(),
+            FlyCoercion::Never | FlyCoercion::WrapInSome | FlyCoercion::PlaceToLeash => {
                 FlyQuary::Transient
             }
         }
@@ -37,23 +37,23 @@ impl FlyCoersion {
 /// expect a type that is implicitly convertible to type under contract
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::derive_debug_with_db]
-pub struct ExpectCoersion {
+pub struct ExpectCoercion {
     contract: Contract,
     ty_expected: FlyTerm,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub struct ExpectCoersionOutcome {
-    coersion: FlyCoersion,
+pub struct ExpectCoercionOutcome {
+    coercion: FlyCoercion,
 }
 
-impl ExpectCoersionOutcome {
-    pub fn coersion(&self) -> FlyCoersion {
-        self.coersion
+impl ExpectCoercionOutcome {
+    pub fn coercion(&self) -> FlyCoercion {
+        self.coercion
     }
 }
 
-impl ExpectCoersion {
+impl ExpectCoercion {
     #[inline(always)]
     pub fn new(contract: Contract, ty_expected: FlyTerm) -> Self {
         Self {
@@ -120,12 +120,12 @@ impl ExpectCoersion {
     }
 }
 
-impl ExpectFlyTerm for ExpectCoersion {
-    type Outcome = ExpectCoersionOutcome;
+impl ExpectFlyTerm for ExpectCoercion {
+    type Outcome = ExpectCoercionOutcome;
 
     fn retrieve_outcome(outcome: &ExpectationOutcome) -> &Self::Outcome {
         match outcome {
-            ExpectationOutcome::Coersion(outcome) => outcome,
+            ExpectationOutcome::Coercion(outcome) => outcome,
             _ => unreachable!(),
         }
     }
@@ -153,7 +153,7 @@ impl ExpectFlyTerm for ExpectCoersion {
         self.resolve_reref(db, terms, state)?;
         match state.resolve_progress() {
             ExpectationProgress::Intact => state.set_err(
-                OriginalFlyTermExpectationError::ExpectedCoersion {
+                OriginalFlyTermExpectationError::ExpectedCoercion {
                     expectee: state.expectee(),
                     contract: self.contract,
                     expected: self.ty_expected,
@@ -166,24 +166,24 @@ impl ExpectFlyTerm for ExpectCoersion {
     }
 }
 
-impl ExpectCoersion {
-    fn try_finalize_coersion(
+impl ExpectCoercion {
+    fn try_finalize_coercion(
         &self,
         src: FlyTerm,
         dst: FlyTerm,
-        coersion: impl Into<FlyCoersion>,
+        coercion: impl Into<FlyCoercion>,
         db: &::salsa::Db,
         terms: &FlyTerms,
         state: &mut ExpectationState,
     ) -> AltOption<FlyTermEffect> {
-        let coersion = coersion.into();
-        Self::try_finalize_coersion_aux(
+        let coercion = coercion.into();
+        Self::try_finalize_coercion_aux(
             src,
             dst,
-            coersion
-                .place_after_coersion()
+            coercion
+                .place_after_coercion()
                 .bind(self.contract)
-                .map(|()| coersion)
+                .map(|()| coercion)
                 .map_err(Into::into),
             db,
             terms,
@@ -191,17 +191,17 @@ impl ExpectCoersion {
         )
     }
 
-    fn try_finalize_coersion_aux(
+    fn try_finalize_coercion_aux(
         src: FlyTerm,
         dst: FlyTerm,
-        coersion_result: FlyTermExpectationResult<FlyCoersion>,
+        coercion_result: FlyTermExpectationResult<FlyCoercion>,
         db: &::salsa::Db,
         terms: &FlyTerms,
         state: &mut ExpectationState,
     ) -> AltOption<FlyTermEffect> {
         let src_base_ty_data = src.base_ty_data_inner(db, terms);
         let dst_base_ty_data = dst.base_ty_data_inner(db, terms);
-        let outcome_result = coersion_result.map(|coersion| ExpectCoersionOutcome { coersion });
+        let outcome_result = coercion_result.map(|coercion| ExpectCoercionOutcome { coercion });
         if src_base_ty_data == dst_base_ty_data {
             return state.set_result(outcome_result, smallvec![]);
         }

@@ -282,15 +282,15 @@ impl Diagnose for (ExpectationSource, &'_ OriginalFlyTermExpectationError) {
             OriginalFlyTermExpectationError::ExpectedSubtype { expectee: _ } => {
                 format!("Term Error: expected subtype",)
             }
-            OriginalFlyTermExpectationError::ExpectedCoersion {  expectee, expected, contract } => {
+            OriginalFlyTermExpectationError::ExpectedCoercion {  expectee, expected, contract } => {
                 format!(
-                    "Term Error: expected coersion from `{}` to `{}` under contract `{}`",
+                    "Term Error: expected coercion from `{}` to `{}` under contract `{}`",
                     expectee.show(ctx.db(), ctx.fly_term_region().terms()),
                     expected.show(ctx.db(), ctx.fly_term_region().terms()),
                     contract.as_str(),
                 )
             }
-            OriginalFlyTermExpectationError::TypePathMismatchForCoersion { contract, ty_expected, expectee, expected_path, expectee_path } => format!(
+            OriginalFlyTermExpectationError::TypePathMismatchForCoercion { contract, ty_expected, expectee, expected_path, expectee_path } => format!(
                 "Type Error: type path mismatch in coersing `{}` into `{}` of contract `{}`, expected `{}`, but got `{}` instead",
                 expectee.show(ctx.db(), ctx.fly_term_region().terms()),
                 ty_expected.show(ctx.db(), ctx.fly_term_region().terms()),

@@ -1,6 +1,6 @@
 use super::*;
 
-impl ExpectCoersion {
+impl ExpectCoercion {
     pub(super) fn resolve_never(
         &self,
         db: &::salsa::Db,
@@ -13,8 +13,8 @@ impl ExpectCoersion {
                 refined_ty_path: Left(PreludeTypePath::NEVER),
                 ..
             } => state.set_ok(
-                ExpectCoersionOutcome {
-                    coersion: FlyCoersion::Never,
+                ExpectCoercionOutcome {
+                    coercion: FlyCoercion::Never,
                 },
                 smallvec![],
             ),

@@ -137,8 +137,8 @@
                             initial_value: VmirExprIdx(
                                 11,
                             ),
-                            coersion: Some(
-                                VmirCoersion::Trivial,
+                            coercion: Some(
+                                VmirCoercion::Trivial,
                             ),
                         },
                     ],
@@ -271,7 +271,7 @@
                             initial_value: VmirExprIdx(
                                 6,
                             ),
-                            coersion: None,
+                            coercion: None,
                         },
                     ],
                 },
