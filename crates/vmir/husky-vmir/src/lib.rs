@@ -1,6 +1,6 @@
 #![feature(impl_trait_in_assoc_type)]
 mod builder;
-mod coersion;
+mod coercion;
 pub mod destroyer;
 pub mod eval;
 pub mod expr;

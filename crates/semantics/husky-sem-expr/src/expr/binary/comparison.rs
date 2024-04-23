@@ -16,7 +16,7 @@ impl<'a> SemaExprBuilder<'a> {
         let (lopd_sem_expr_idx, lopd_ty) = self.build_sem_expr_with_ty(lopd, ExpectAnyOriginal);
         let ropd_sem_expr_idx = match lopd_ty {
             Some(destination) => {
-                self.build_sem_expr(ropd, ExpectCoersion::new_pure(self, destination))
+                self.build_sem_expr(ropd, ExpectCoercion::new_pure(self, destination))
             }
             None => self.build_sem_expr(ropd, ExpectAnyDerived),
         };

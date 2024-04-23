@@ -92,14 +92,14 @@ mod matcher {
                 FlyRitchieParameter::Simple(param) => match self.ritchie_call_items.next() {
                     Some(item) => match item {
                         SynCallListItem::SimpleOrVariadic(item) => {
-                            let (argument_sem_expr_idx, coersion) =
+                            let (argument_sem_expr_idx, coercion) =
                                 self.engine.build_sem_expr_with_outcome(
                                     item.argument_expr_idx(),
-                                    ExpectCoersion::new(param.contract(), param.ty()),
+                                    ExpectCoercion::new(param.contract(), param.ty()),
                                 );
                             let item = SemaSimpleArgument::new(
                                 argument_sem_expr_idx,
-                                coersion,
+                                coercion,
                                 item.separator(),
                             );
                             Ok(self
@@ -116,14 +116,14 @@ mod matcher {
                         .ritchie_call_items
                         .next_if(|item| matches!(item, SynCallListItem::SimpleOrVariadic(_)))
                     {
-                        let (argument_sem_expr_idx, coersion_outcome) =
+                        let (argument_sem_expr_idx, coercion_outcome) =
                             self.engine.build_sem_expr_with_outcome(
                                 item.argument_expr_idx(),
-                                ExpectCoersion::new(param.contract(), param.ty()),
+                                ExpectCoercion::new(param.contract(), param.ty()),
                             );
                         items.push(SemaVariadicCallListItem::new(
                             argument_sem_expr_idx,
-                            coersion_outcome,
+                            coercion_outcome,
                             item.separator(),
                         ));
                         match item.separator() {

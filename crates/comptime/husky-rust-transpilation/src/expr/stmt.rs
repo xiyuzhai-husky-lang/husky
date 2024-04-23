@@ -11,7 +11,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                 pattern,
                 initial_value,
                 contract,
-                coersion,
+                coercion,
             } => builder.on_fresh_semicolon_line(|builder| {
                 builder.keyword(RustKeyword::Let);
                 pattern.transpile_to_rust(builder);
@@ -22,15 +22,15 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
                     HirEagerExprSite::new_let_initial_value(
                         contract,
                         initial_value_entry,
-                        coersion,
+                        coercion,
                     ),
                 )
                     .transpile_to_rust(builder)
             }),
-            HirEagerStmtData::Return { result, coersion } => {
+            HirEagerStmtData::Return { result, coercion } => {
                 builder.on_fresh_semicolon_line(|builder| {
                     builder.keyword(RustKeyword::Return);
-                    (result, HirEagerExprSite::new_root(Some(coersion))).transpile_to_rust(builder)
+                    (result, HirEagerExprSite::new_root(Some(coercion))).transpile_to_rust(builder)
                 })
             }
             HirEagerStmtData::Require { ref condition } => {
@@ -65,14 +65,14 @@ impl TranspileToRustWith<HirEagerExprRegion> for (IsLastStmt, HirEagerStmtIdx) {
             }
             HirEagerStmtData::Eval {
                 expr,
-                coersion,
+                coercion,
                 discarded,
             } => match discarded || !is_last_stmt {
                 true => builder.on_fresh_semicolon_line(|builder| {
-                    (expr, HirEagerExprSite::new_root(coersion)).transpile_to_rust(builder);
+                    (expr, HirEagerExprSite::new_root(coercion)).transpile_to_rust(builder);
                 }),
                 false => builder.on_fresh_line(|builder| {
-                    (expr, HirEagerExprSite::new_root(coersion)).transpile_to_rust(builder);
+                    (expr, HirEagerExprSite::new_root(coercion)).transpile_to_rust(builder);
                 }),
             },
             HirEagerStmtData::ForBetween {

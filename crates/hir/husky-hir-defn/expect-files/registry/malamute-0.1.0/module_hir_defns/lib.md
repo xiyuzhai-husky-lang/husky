@@ -901,9 +901,9 @@
                                     data: [
                                         Eval {
                                             expr: 0,
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
-                                                    TrivialHirEagerCoersion {
+                                                    TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -1479,7 +1479,7 @@
                                                         },
                                                         1,
                                                         Trivial(
-                                                            TrivialHirEagerCoersion {
+                                                            TrivialHirEagerCoercion {
                                                                 expectee_quary: Const,
                                                             },
                                                         ),
@@ -1579,7 +1579,7 @@
                                                         },
                                                         2,
                                                         Trivial(
-                                                            TrivialHirEagerCoersion {
+                                                            TrivialHirEagerCoercion {
                                                                 expectee_quary: Transient,
                                                             },
                                                         ),
@@ -1694,7 +1694,7 @@
                                                         },
                                                         4,
                                                         Trivial(
-                                                            TrivialHirEagerCoersion {
+                                                            TrivialHirEagerCoercion {
                                                                 expectee_quary: Transient,
                                                             },
                                                         ),
@@ -1731,9 +1731,9 @@
                                     data: [
                                         Eval {
                                             expr: 3,
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
-                                                    TrivialHirEagerCoersion {
+                                                    TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -1742,9 +1742,9 @@
                                         },
                                         Eval {
                                             expr: 5,
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
-                                                    TrivialHirEagerCoersion {
+                                                    TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -2244,7 +2244,7 @@
                                                         },
                                                         1,
                                                         Trivial(
-                                                            TrivialHirEagerCoersion {
+                                                            TrivialHirEagerCoercion {
                                                                 expectee_quary: Transient,
                                                             },
                                                         ),
@@ -2353,7 +2353,7 @@
                                                         },
                                                         3,
                                                         Trivial(
-                                                            TrivialHirEagerCoersion {
+                                                            TrivialHirEagerCoercion {
                                                                 expectee_quary: Transient,
                                                             },
                                                         ),
@@ -2456,7 +2456,7 @@
                                                         },
                                                         5,
                                                         Trivial(
-                                                            TrivialHirEagerCoersion {
+                                                            TrivialHirEagerCoercion {
                                                                 expectee_quary: Transient,
                                                             },
                                                         ),
@@ -2493,9 +2493,9 @@
                                     data: [
                                         Eval {
                                             expr: 2,
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
-                                                    TrivialHirEagerCoersion {
+                                                    TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -2504,9 +2504,9 @@
                                         },
                                         Eval {
                                             expr: 4,
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
-                                                    TrivialHirEagerCoersion {
+                                                    TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -2515,9 +2515,9 @@
                                         },
                                         Eval {
                                             expr: 6,
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
-                                                    TrivialHirEagerCoersion {
+                                                    TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),

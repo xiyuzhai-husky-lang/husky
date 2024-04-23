@@ -2784,10 +2784,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     46,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: Transient,
                                                             },
                                                         ),
@@ -2814,10 +2814,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     50,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: Transient,
                                                             },
                                                         ),
@@ -2915,7 +2915,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         12,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -2979,7 +2979,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         28,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -3018,7 +3018,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         34,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -3057,7 +3057,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         41,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -3076,10 +3076,10 @@
                                         51,
                                     ),
                                     outcome: Some(
-                                        ExpectationOutcome::Coersion(
-                                            ExpectCoersionOutcome {
-                                                coersion: Trivial(
-                                                    TrivialFlyCoersion {
+                                        ExpectationOutcome::Coercion(
+                                            ExpectCoercionOutcome {
+                                                coercion: Trivial(
+                                                    TrivialFlyCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -3488,8 +3488,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -3525,10 +3525,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(0),
@@ -3661,8 +3661,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -3698,10 +3698,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(0),
@@ -3716,8 +3716,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -3741,10 +3741,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -3861,8 +3861,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -3898,10 +3898,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(1),
@@ -3974,8 +3974,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -4011,10 +4011,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(0),
@@ -4085,8 +4085,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -4122,10 +4122,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(0),
@@ -4196,8 +4196,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -4233,10 +4233,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(1),
@@ -4251,8 +4251,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -4276,10 +4276,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -4340,8 +4340,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -4365,10 +4365,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -4466,8 +4466,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -4503,10 +4503,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(0),
@@ -4546,8 +4546,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -4577,10 +4577,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(0),
@@ -4713,8 +4713,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -4750,10 +4750,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(0),
@@ -4793,8 +4793,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -4824,10 +4824,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(0),
@@ -4992,8 +4992,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -5029,10 +5029,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(2),
@@ -5047,8 +5047,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -5072,10 +5072,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -5148,8 +5148,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -5185,10 +5185,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(3),
@@ -5203,8 +5203,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -5228,10 +5228,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -5242,8 +5242,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -5267,10 +5267,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -5281,8 +5281,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -5306,10 +5306,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -8114,10 +8114,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     46,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: Transient,
                                                             },
                                                         ),
@@ -8144,10 +8144,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     50,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: Transient,
                                                             },
                                                         ),
@@ -8245,7 +8245,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         12,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -8309,7 +8309,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         28,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -8348,7 +8348,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         35,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -8387,7 +8387,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         41,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -8406,10 +8406,10 @@
                                         51,
                                     ),
                                     outcome: Some(
-                                        ExpectationOutcome::Coersion(
-                                            ExpectCoersionOutcome {
-                                                coersion: Trivial(
-                                                    TrivialFlyCoersion {
+                                        ExpectationOutcome::Coercion(
+                                            ExpectCoercionOutcome {
+                                                coercion: Trivial(
+                                                    TrivialFlyCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -8818,8 +8818,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -8855,10 +8855,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(0),
@@ -8991,8 +8991,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -9028,10 +9028,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(0),
@@ -9046,8 +9046,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -9071,10 +9071,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -9191,8 +9191,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -9228,10 +9228,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(1),
@@ -9304,8 +9304,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -9341,10 +9341,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(0),
@@ -9415,8 +9415,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -9452,10 +9452,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(0),
@@ -9526,8 +9526,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -9563,10 +9563,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(1),
@@ -9581,8 +9581,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -9606,10 +9606,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -9670,8 +9670,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -9695,10 +9695,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -9827,8 +9827,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -9864,10 +9864,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(0),
@@ -9907,8 +9907,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -9938,10 +9938,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(0),
@@ -10043,8 +10043,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -10080,10 +10080,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(0),
@@ -10123,8 +10123,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -10154,10 +10154,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(0),
@@ -10322,8 +10322,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -10359,10 +10359,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(2),
@@ -10377,8 +10377,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -10402,10 +10402,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -10478,8 +10478,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -10515,10 +10515,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(3),
@@ -10533,8 +10533,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -10558,10 +10558,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -10572,8 +10572,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -10597,10 +10597,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -10611,8 +10611,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -10636,10 +10636,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -11165,10 +11165,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     2,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: StackPure {
                                                                     place: Idx(
                                                                         PlaceIdx(1),
@@ -11199,10 +11199,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     5,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: Transient,
                                                             },
                                                         ),
@@ -12486,10 +12486,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     25,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: StackPure {
                                                                     place: Idx(
                                                                         PlaceIdx(1),
@@ -12520,10 +12520,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     28,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: Transient,
                                                             },
                                                         ),
@@ -13053,10 +13053,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     37,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(1),
@@ -13087,10 +13087,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     38,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: StackPure {
                                                                     place: Idx(
                                                                         PlaceIdx(2),
@@ -13295,10 +13295,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     41,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(1),
@@ -13329,10 +13329,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     42,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: StackPure {
                                                                     place: Idx(
                                                                         PlaceIdx(2),
@@ -13748,10 +13748,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     49,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(1),
@@ -14114,10 +14114,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     55,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(5),
@@ -15240,10 +15240,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     77,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(1),
@@ -15274,10 +15274,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     78,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: StackPure {
                                                                     place: Idx(
                                                                         PlaceIdx(2),
@@ -15482,10 +15482,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     81,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(1),
@@ -15516,10 +15516,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     82,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: StackPure {
                                                                     place: Idx(
                                                                         PlaceIdx(2),
@@ -15755,10 +15755,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     85,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: ImmutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(8),
@@ -16209,10 +16209,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     93,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(5),
@@ -16921,10 +16921,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     104,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: StackPure {
                                                                     place: Idx(
                                                                         PlaceIdx(1),
@@ -16955,10 +16955,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     107,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: Transient,
                                                             },
                                                         ),
@@ -17259,10 +17259,10 @@
                                         22,
                                     ),
                                     outcome: Some(
-                                        ExpectationOutcome::Coersion(
-                                            ExpectCoersionOutcome {
-                                                coersion: Trivial(
-                                                    TrivialFlyCoersion {
+                                        ExpectationOutcome::Coercion(
+                                            ExpectCoercionOutcome {
+                                                coercion: Trivial(
+                                                    TrivialFlyCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -17288,10 +17288,10 @@
                                         30,
                                     ),
                                     outcome: Some(
-                                        ExpectationOutcome::Coersion(
-                                            ExpectCoersionOutcome {
-                                                coersion: Trivial(
-                                                    TrivialFlyCoersion {
+                                        ExpectationOutcome::Coercion(
+                                            ExpectCoercionOutcome {
+                                                coercion: Trivial(
+                                                    TrivialFlyCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -17321,10 +17321,10 @@
                                     result: SemaExprIdx(
                                         35,
                                     ),
-                                    coersion_outcome: Some(
-                                        ExpectCoersionOutcome {
-                                            coersion: Trivial(
-                                                TrivialFlyCoersion {
+                                    coercion_outcome: Some(
+                                        ExpectCoercionOutcome {
+                                            coercion: Trivial(
+                                                TrivialFlyCoercion {
                                                     expectee_quary: MutableOnStack {
                                                         place: Idx(
                                                             PlaceIdx(0),
@@ -17371,10 +17371,10 @@
                                         72,
                                     ),
                                     outcome: Some(
-                                        ExpectationOutcome::Coersion(
-                                            ExpectCoersionOutcome {
-                                                coersion: Trivial(
-                                                    TrivialFlyCoersion {
+                                        ExpectationOutcome::Coercion(
+                                            ExpectCoercionOutcome {
+                                                coercion: Trivial(
+                                                    TrivialFlyCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -17400,10 +17400,10 @@
                                         91,
                                     ),
                                     outcome: Some(
-                                        ExpectationOutcome::Coersion(
-                                            ExpectCoersionOutcome {
-                                                coersion: Trivial(
-                                                    TrivialFlyCoersion {
+                                        ExpectationOutcome::Coercion(
+                                            ExpectCoercionOutcome {
+                                                coercion: Trivial(
+                                                    TrivialFlyCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -17429,10 +17429,10 @@
                                         99,
                                     ),
                                     outcome: Some(
-                                        ExpectationOutcome::Coersion(
-                                            ExpectCoersionOutcome {
-                                                coersion: Trivial(
-                                                    TrivialFlyCoersion {
+                                        ExpectationOutcome::Coercion(
+                                            ExpectCoercionOutcome {
+                                                coercion: Trivial(
+                                                    TrivialFlyCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -17478,7 +17478,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         79,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -17517,7 +17517,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         83,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -17634,7 +17634,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         61,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -17755,10 +17755,10 @@
                                         101,
                                     ),
                                     outcome: Some(
-                                        ExpectationOutcome::Coersion(
-                                            ExpectCoersionOutcome {
-                                                coersion: Trivial(
-                                                    TrivialFlyCoersion {
+                                        ExpectationOutcome::Coercion(
+                                            ExpectCoercionOutcome {
+                                                coercion: Trivial(
+                                                    TrivialFlyCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -17784,10 +17784,10 @@
                                         109,
                                     ),
                                     outcome: Some(
-                                        ExpectationOutcome::Coersion(
-                                            ExpectCoersionOutcome {
-                                                coersion: Trivial(
-                                                    TrivialFlyCoersion {
+                                        ExpectationOutcome::Coercion(
+                                            ExpectCoercionOutcome {
+                                                coercion: Trivial(
+                                                    TrivialFlyCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -17833,7 +17833,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         0,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -17872,7 +17872,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         6,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -17911,7 +17911,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         9,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -17950,7 +17950,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         12,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -18065,7 +18065,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         39,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -18104,7 +18104,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         43,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -18143,7 +18143,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         44,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -18228,10 +18228,10 @@
                                     result: SemaExprIdx(
                                         113,
                                     ),
-                                    coersion_outcome: Some(
-                                        ExpectCoersionOutcome {
-                                            coersion: Trivial(
-                                                TrivialFlyCoersion {
+                                    coercion_outcome: Some(
+                                        ExpectCoercionOutcome {
+                                            coercion: Trivial(
+                                                TrivialFlyCoercion {
                                                     expectee_quary: MutableOnStack {
                                                         place: Idx(
                                                             PlaceIdx(0),
@@ -19110,8 +19110,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -19141,10 +19141,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(1),
@@ -19190,8 +19190,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -19223,10 +19223,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Const,
                                                         },
                                                     ),
@@ -19237,8 +19237,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -19262,10 +19262,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -19417,8 +19417,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -19454,10 +19454,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(2),
@@ -19528,8 +19528,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -19565,10 +19565,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(3),
@@ -19583,8 +19583,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -19608,10 +19608,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -19678,8 +19678,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -19709,10 +19709,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(2),
@@ -19727,8 +19727,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -19752,10 +19752,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -19847,8 +19847,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -19872,10 +19872,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -19948,8 +19948,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -19979,10 +19979,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(1),
@@ -20028,8 +20028,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -20061,10 +20061,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Const,
                                                         },
                                                     ),
@@ -20075,8 +20075,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -20100,10 +20100,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -20114,8 +20114,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -20141,10 +20141,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -20155,8 +20155,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -20180,10 +20180,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -20250,8 +20250,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -20281,10 +20281,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(2),
@@ -20326,8 +20326,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -20357,10 +20357,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: MutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(0),
@@ -20438,8 +20438,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -20469,10 +20469,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: MutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(1),
@@ -20487,8 +20487,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -20518,10 +20518,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(2),
@@ -20624,8 +20624,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -20655,10 +20655,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: MutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(1),
@@ -20673,8 +20673,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -20704,10 +20704,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(2),
@@ -20807,8 +20807,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -20844,10 +20844,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(3),
@@ -20862,8 +20862,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -20887,10 +20887,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -20932,8 +20932,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -20963,10 +20963,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: MutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(1),
@@ -21006,8 +21006,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -21033,10 +21033,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Const,
                                                         },
                                                     ),
@@ -21047,8 +21047,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -21072,10 +21072,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -21086,8 +21086,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -21111,10 +21111,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -21156,8 +21156,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -21187,10 +21187,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: MutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(5),
@@ -21230,8 +21230,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -21257,10 +21257,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Const,
                                                         },
                                                     ),
@@ -21271,8 +21271,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -21296,10 +21296,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -21457,8 +21457,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -21496,10 +21496,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(2),
@@ -21514,8 +21514,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -21545,10 +21545,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -21617,8 +21617,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -21656,10 +21656,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: MutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(6),
@@ -21734,8 +21734,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -21769,10 +21769,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(7),
@@ -21787,8 +21787,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -21812,10 +21812,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -21857,8 +21857,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -21894,10 +21894,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(2),
@@ -22002,8 +22002,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -22033,10 +22033,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: MutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(1),
@@ -22051,8 +22051,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -22082,10 +22082,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(2),
@@ -22188,8 +22188,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -22219,10 +22219,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: MutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(1),
@@ -22237,8 +22237,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -22268,10 +22268,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(2),
@@ -22342,8 +22342,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -22373,10 +22373,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(8),
@@ -22416,8 +22416,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -22443,10 +22443,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Const,
                                                         },
                                                     ),
@@ -22515,8 +22515,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -22548,10 +22548,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(8),
@@ -22566,8 +22566,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -22591,10 +22591,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -22636,8 +22636,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -22667,10 +22667,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: MutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(5),
@@ -22710,8 +22710,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -22737,10 +22737,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Const,
                                                         },
                                                     ),
@@ -22809,8 +22809,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -22842,10 +22842,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(9),
@@ -22860,8 +22860,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -22885,10 +22885,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -22953,8 +22953,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -22978,10 +22978,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -23054,8 +23054,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -23085,10 +23085,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(1),
@@ -23134,8 +23134,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -23167,10 +23167,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Const,
                                                         },
                                                     ),
@@ -23181,8 +23181,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -23206,10 +23206,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -23220,8 +23220,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -23247,10 +23247,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -23261,8 +23261,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -23286,10 +23286,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -23331,8 +23331,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -23368,10 +23368,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(1),
@@ -23413,8 +23413,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -23444,10 +23444,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: MutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(0),
@@ -23462,8 +23462,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -23487,9 +23487,9 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Never,
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Never,
                                                 },
                                             ),
                                         ),
@@ -24012,10 +24012,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     2,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: StackPure {
                                                                     place: Idx(
                                                                         PlaceIdx(2),
@@ -24046,10 +24046,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     5,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: Transient,
                                                             },
                                                         ),
@@ -25288,10 +25288,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     24,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: StackPure {
                                                                     place: Idx(
                                                                         PlaceIdx(2),
@@ -25322,10 +25322,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     27,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: Transient,
                                                             },
                                                         ),
@@ -25841,10 +25841,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     35,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: StackPure {
                                                                     place: Idx(
                                                                         PlaceIdx(1),
@@ -26049,10 +26049,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     38,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(1),
@@ -26083,10 +26083,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     39,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: StackPure {
                                                                     place: Idx(
                                                                         PlaceIdx(3),
@@ -26291,10 +26291,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     42,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(1),
@@ -26325,10 +26325,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     43,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: StackPure {
                                                                     place: Idx(
                                                                         PlaceIdx(3),
@@ -26880,10 +26880,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     50,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: StackPure {
                                                                     place: Idx(
                                                                         PlaceIdx(2),
@@ -26914,10 +26914,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     53,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: Transient,
                                                             },
                                                         ),
@@ -27909,10 +27909,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     72,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: ImmutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(6),
@@ -27943,10 +27943,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     73,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: StackPure {
                                                                     place: Idx(
                                                                         PlaceIdx(3),
@@ -28151,10 +28151,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     76,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: ImmutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(6),
@@ -28185,10 +28185,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     77,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: StackPure {
                                                                     place: Idx(
                                                                         PlaceIdx(3),
@@ -28424,10 +28424,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     80,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: ImmutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(8),
@@ -28878,10 +28878,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     88,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(4),
@@ -29332,10 +29332,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     96,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(4),
@@ -29788,10 +29788,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     104,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: ImmutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(6),
@@ -30109,10 +30109,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     109,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(4),
@@ -30734,10 +30734,10 @@
                                         21,
                                     ),
                                     outcome: Some(
-                                        ExpectationOutcome::Coersion(
-                                            ExpectCoersionOutcome {
-                                                coersion: Trivial(
-                                                    TrivialFlyCoersion {
+                                        ExpectationOutcome::Coercion(
+                                            ExpectCoercionOutcome {
+                                                coercion: Trivial(
+                                                    TrivialFlyCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -30763,10 +30763,10 @@
                                         29,
                                     ),
                                     outcome: Some(
-                                        ExpectationOutcome::Coersion(
-                                            ExpectCoersionOutcome {
-                                                coersion: Trivial(
-                                                    TrivialFlyCoersion {
+                                        ExpectationOutcome::Coercion(
+                                            ExpectCoercionOutcome {
+                                                coercion: Trivial(
+                                                    TrivialFlyCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -30796,10 +30796,10 @@
                                     result: SemaExprIdx(
                                         36,
                                     ),
-                                    coersion_outcome: Some(
-                                        ExpectCoersionOutcome {
-                                            coersion: Trivial(
-                                                TrivialFlyCoersion {
+                                    coercion_outcome: Some(
+                                        ExpectCoercionOutcome {
+                                            coercion: Trivial(
+                                                TrivialFlyCoercion {
                                                     expectee_quary: Transient,
                                                 },
                                             ),
@@ -30842,10 +30842,10 @@
                                         67,
                                     ),
                                     outcome: Some(
-                                        ExpectationOutcome::Coersion(
-                                            ExpectCoersionOutcome {
-                                                coersion: Trivial(
-                                                    TrivialFlyCoersion {
+                                        ExpectationOutcome::Coercion(
+                                            ExpectCoercionOutcome {
+                                                coercion: Trivial(
+                                                    TrivialFlyCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -30871,10 +30871,10 @@
                                         86,
                                     ),
                                     outcome: Some(
-                                        ExpectationOutcome::Coersion(
-                                            ExpectCoersionOutcome {
-                                                coersion: Trivial(
-                                                    TrivialFlyCoersion {
+                                        ExpectationOutcome::Coercion(
+                                            ExpectCoercionOutcome {
+                                                coercion: Trivial(
+                                                    TrivialFlyCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -30900,10 +30900,10 @@
                                         94,
                                     ),
                                     outcome: Some(
-                                        ExpectationOutcome::Coersion(
-                                            ExpectCoersionOutcome {
-                                                coersion: Trivial(
-                                                    TrivialFlyCoersion {
+                                        ExpectationOutcome::Coercion(
+                                            ExpectCoercionOutcome {
+                                                coercion: Trivial(
+                                                    TrivialFlyCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -30949,7 +30949,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         74,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -30988,7 +30988,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         78,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -31143,10 +31143,10 @@
                                         118,
                                     ),
                                     outcome: Some(
-                                        ExpectationOutcome::Coersion(
-                                            ExpectCoersionOutcome {
-                                                coersion: Trivial(
-                                                    TrivialFlyCoersion {
+                                        ExpectationOutcome::Coercion(
+                                            ExpectCoercionOutcome {
+                                                coercion: Trivial(
+                                                    TrivialFlyCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -31211,7 +31211,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         54,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -31250,7 +31250,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         56,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -31432,10 +31432,10 @@
                                     result: SemaExprIdx(
                                         122,
                                     ),
-                                    coersion_outcome: Some(
-                                        ExpectCoersionOutcome {
-                                            coersion: Trivial(
-                                                TrivialFlyCoersion {
+                                    coercion_outcome: Some(
+                                        ExpectCoercionOutcome {
+                                            coercion: Trivial(
+                                                TrivialFlyCoercion {
                                                     expectee_quary: MutableOnStack {
                                                         place: Idx(
                                                             PlaceIdx(0),
@@ -31467,10 +31467,10 @@
                                     result: SemaExprIdx(
                                         123,
                                     ),
-                                    coersion_outcome: Some(
-                                        ExpectCoersionOutcome {
-                                            coersion: Trivial(
-                                                TrivialFlyCoersion {
+                                    coercion_outcome: Some(
+                                        ExpectCoercionOutcome {
+                                            coercion: Trivial(
+                                                TrivialFlyCoercion {
                                                     expectee_quary: StackPure {
                                                         place: Idx(
                                                             PlaceIdx(1),
@@ -31518,7 +31518,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         0,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -31557,7 +31557,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         6,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -31596,7 +31596,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         11,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -31711,7 +31711,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         40,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -31750,7 +31750,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         44,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -31789,7 +31789,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         45,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -32780,8 +32780,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -32811,10 +32811,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(2),
@@ -32860,8 +32860,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -32893,10 +32893,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Const,
                                                         },
                                                     ),
@@ -32907,8 +32907,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -32932,10 +32932,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -33062,8 +33062,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -33093,10 +33093,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -33163,8 +33163,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -33200,10 +33200,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(2),
@@ -33218,8 +33218,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -33243,10 +33243,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -33313,8 +33313,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -33344,10 +33344,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(3),
@@ -33362,8 +33362,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -33387,10 +33387,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -33482,8 +33482,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -33507,10 +33507,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -33583,8 +33583,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -33614,10 +33614,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(2),
@@ -33663,8 +33663,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -33696,10 +33696,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Const,
                                                         },
                                                     ),
@@ -33710,8 +33710,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -33735,10 +33735,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -33749,8 +33749,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -33776,10 +33776,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -33790,8 +33790,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -33815,10 +33815,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -33885,8 +33885,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -33916,10 +33916,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(3),
@@ -33992,8 +33992,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -34023,10 +34023,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(1),
@@ -34041,8 +34041,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -34066,10 +34066,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -34143,8 +34143,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -34174,10 +34174,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: MutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(1),
@@ -34192,8 +34192,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -34223,10 +34223,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(3),
@@ -34329,8 +34329,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -34360,10 +34360,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: MutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(1),
@@ -34378,8 +34378,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -34409,10 +34409,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(3),
@@ -34512,8 +34512,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -34549,10 +34549,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(2),
@@ -34625,8 +34625,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -34656,10 +34656,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(2),
@@ -34705,8 +34705,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -34738,10 +34738,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Const,
                                                         },
                                                     ),
@@ -34752,8 +34752,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -34777,10 +34777,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -34936,8 +34936,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -34975,10 +34975,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(3),
@@ -34993,8 +34993,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -35024,10 +35024,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -35096,8 +35096,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -35135,10 +35135,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: MutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(5),
@@ -35213,8 +35213,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -35248,10 +35248,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(7),
@@ -35266,8 +35266,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -35291,10 +35291,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -35336,8 +35336,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -35373,10 +35373,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(3),
@@ -35481,8 +35481,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -35512,10 +35512,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(6),
@@ -35530,8 +35530,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -35561,10 +35561,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(3),
@@ -35667,8 +35667,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -35698,10 +35698,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(6),
@@ -35716,8 +35716,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -35747,10 +35747,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(3),
@@ -35821,8 +35821,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -35852,10 +35852,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(8),
@@ -35895,8 +35895,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -35922,10 +35922,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Const,
                                                         },
                                                     ),
@@ -35994,8 +35994,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -36027,10 +36027,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(8),
@@ -36045,8 +36045,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -36070,10 +36070,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -36115,8 +36115,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -36146,10 +36146,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: MutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(4),
@@ -36189,8 +36189,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -36216,10 +36216,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Const,
                                                         },
                                                     ),
@@ -36288,8 +36288,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -36321,10 +36321,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(9),
@@ -36339,8 +36339,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -36364,10 +36364,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -36409,8 +36409,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -36440,10 +36440,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: MutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(4),
@@ -36483,8 +36483,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -36510,10 +36510,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Const,
                                                         },
                                                     ),
@@ -36582,8 +36582,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -36619,10 +36619,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(1),
@@ -36637,8 +36637,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -36662,10 +36662,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -36707,8 +36707,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -36738,10 +36738,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(6),
@@ -36781,8 +36781,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -36808,10 +36808,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Const,
                                                         },
                                                     ),
@@ -36822,8 +36822,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -36847,10 +36847,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -36892,8 +36892,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -36923,10 +36923,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: MutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(4),
@@ -36966,8 +36966,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -36993,10 +36993,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Const,
                                                         },
                                                     ),
@@ -37007,8 +37007,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -37032,10 +37032,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -37100,8 +37100,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -37125,10 +37125,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -37220,8 +37220,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -37245,10 +37245,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -37290,8 +37290,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -37327,10 +37327,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(1),
@@ -37372,8 +37372,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -37403,10 +37403,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: MutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(0),
@@ -37421,8 +37421,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -37452,10 +37452,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(1),
@@ -37470,8 +37470,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -37495,9 +37495,9 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Never,
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Never,
                                                 },
                                             ),
                                         ),
@@ -38568,10 +38568,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     14,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: StackPure {
                                                                     place: Idx(
                                                                         PlaceIdx(0),
@@ -38602,10 +38602,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     15,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(1),
@@ -38636,10 +38636,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     16,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: StackPure {
                                                                     place: Idx(
                                                                         PlaceIdx(1),
@@ -39068,10 +39068,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     20,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: StackPure {
                                                                     place: Idx(
                                                                         PlaceIdx(0),
@@ -39102,10 +39102,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     21,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(1),
@@ -39136,10 +39136,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     22,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(2),
@@ -40134,10 +40134,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     36,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: ImmutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(7),
@@ -40553,10 +40553,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     42,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: ImmutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(7),
@@ -41907,10 +41907,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     54,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: StackPure {
                                                                     place: Idx(
                                                                         PlaceIdx(0),
@@ -41941,10 +41941,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     59,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: Transient,
                                                             },
                                                         ),
@@ -41971,10 +41971,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     60,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(2),
@@ -42537,10 +42537,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     69,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: StackPure {
                                                                     place: Idx(
                                                                         PlaceIdx(0),
@@ -42571,10 +42571,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     70,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(1),
@@ -42605,10 +42605,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     71,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(2),
@@ -42639,10 +42639,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     72,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: StackPure {
                                                                     place: Idx(
                                                                         PlaceIdx(1),
@@ -43071,10 +43071,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     76,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: StackPure {
                                                                     place: Idx(
                                                                         PlaceIdx(0),
@@ -43105,10 +43105,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     77,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(1),
@@ -43139,10 +43139,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     78,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(2),
@@ -44347,10 +44347,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     94,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(9),
@@ -44586,10 +44586,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     97,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: ImmutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(10),
@@ -45005,10 +45005,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     103,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: ImmutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(10),
@@ -45375,10 +45375,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     109,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: ImmutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(12),
@@ -45839,10 +45839,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     116,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: ImmutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(12),
@@ -46996,10 +46996,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     126,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: StackPure {
                                                                     place: Idx(
                                                                         PlaceIdx(0),
@@ -47030,10 +47030,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     129,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: Transient,
                                                             },
                                                         ),
@@ -47060,10 +47060,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     132,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: Transient,
                                                             },
                                                         ),
@@ -47774,10 +47774,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     143,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(9),
@@ -51015,10 +51015,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     178,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: StackPure {
                                                                     place: Idx(
                                                                         PlaceIdx(0),
@@ -51049,10 +51049,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     183,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: Transient,
                                                             },
                                                         ),
@@ -51079,10 +51079,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     190,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: Transient,
                                                             },
                                                         ),
@@ -51280,7 +51280,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         49,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -51299,10 +51299,10 @@
                                         62,
                                     ),
                                     outcome: Some(
-                                        ExpectationOutcome::Coersion(
-                                            ExpectCoersionOutcome {
-                                                coersion: Trivial(
-                                                    TrivialFlyCoersion {
+                                        ExpectationOutcome::Coercion(
+                                            ExpectCoercionOutcome {
+                                                coercion: Trivial(
+                                                    TrivialFlyCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -51328,10 +51328,10 @@
                                         65,
                                     ),
                                     outcome: Some(
-                                        ExpectationOutcome::Coersion(
-                                            ExpectCoersionOutcome {
-                                                coersion: Trivial(
-                                                    TrivialFlyCoersion {
+                                        ExpectationOutcome::Coercion(
+                                            ExpectCoercionOutcome {
+                                                coercion: Trivial(
+                                                    TrivialFlyCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -51377,7 +51377,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         30,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -51416,7 +51416,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         34,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -51494,7 +51494,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         123,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -51513,10 +51513,10 @@
                                         134,
                                     ),
                                     outcome: Some(
-                                        ExpectationOutcome::Coersion(
-                                            ExpectCoersionOutcome {
-                                                coersion: Trivial(
-                                                    TrivialFlyCoersion {
+                                        ExpectationOutcome::Coercion(
+                                            ExpectCoercionOutcome {
+                                                coercion: Trivial(
+                                                    TrivialFlyCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -51562,7 +51562,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         86,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -51601,7 +51601,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         88,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -51640,7 +51640,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         90,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -51679,7 +51679,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         95,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -51737,10 +51737,10 @@
                                         141,
                                     ),
                                     outcome: Some(
-                                        ExpectationOutcome::Coersion(
-                                            ExpectCoersionOutcome {
-                                                coersion: Trivial(
-                                                    TrivialFlyCoersion {
+                                        ExpectationOutcome::Coercion(
+                                            ExpectCoercionOutcome {
+                                                coercion: Trivial(
+                                                    TrivialFlyCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -51766,10 +51766,10 @@
                                         74,
                                     ),
                                     outcome: Some(
-                                        ExpectationOutcome::Coersion(
-                                            ExpectCoersionOutcome {
-                                                coersion: Trivial(
-                                                    TrivialFlyCoersion {
+                                        ExpectationOutcome::Coercion(
+                                            ExpectCoercionOutcome {
+                                                coercion: Trivial(
+                                                    TrivialFlyCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -51815,7 +51815,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         79,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -51891,10 +51891,10 @@
                                         144,
                                     ),
                                     outcome: Some(
-                                        ExpectationOutcome::Coersion(
-                                            ExpectCoersionOutcome {
-                                                coersion: Trivial(
-                                                    TrivialFlyCoersion {
+                                        ExpectationOutcome::Coercion(
+                                            ExpectCoercionOutcome {
+                                                coercion: Trivial(
+                                                    TrivialFlyCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -51920,10 +51920,10 @@
                                         18,
                                     ),
                                     outcome: Some(
-                                        ExpectationOutcome::Coersion(
-                                            ExpectCoersionOutcome {
-                                                coersion: Trivial(
-                                                    TrivialFlyCoersion {
+                                        ExpectationOutcome::Coercion(
+                                            ExpectCoercionOutcome {
+                                                coercion: Trivial(
+                                                    TrivialFlyCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -51969,7 +51969,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         23,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -52008,7 +52008,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         24,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -52105,10 +52105,10 @@
                                         147,
                                     ),
                                     outcome: Some(
-                                        ExpectationOutcome::Coersion(
-                                            ExpectCoersionOutcome {
-                                                coersion: Trivial(
-                                                    TrivialFlyCoersion {
+                                        ExpectationOutcome::Coercion(
+                                            ExpectCoercionOutcome {
+                                                coercion: Trivial(
+                                                    TrivialFlyCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -52134,10 +52134,10 @@
                                         152,
                                     ),
                                     outcome: Some(
-                                        ExpectationOutcome::Coersion(
-                                            ExpectCoersionOutcome {
-                                                coersion: Trivial(
-                                                    TrivialFlyCoersion {
+                                        ExpectationOutcome::Coercion(
+                                            ExpectCoercionOutcome {
+                                                coercion: Trivial(
+                                                    TrivialFlyCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -52183,7 +52183,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         173,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -52202,10 +52202,10 @@
                                         192,
                                     ),
                                     outcome: Some(
-                                        ExpectationOutcome::Coersion(
-                                            ExpectCoersionOutcome {
-                                                coersion: Trivial(
-                                                    TrivialFlyCoersion {
+                                        ExpectationOutcome::Coercion(
+                                            ExpectCoercionOutcome {
+                                                coercion: Trivial(
+                                                    TrivialFlyCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -52261,10 +52261,10 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         3,
                                     ),
-                                    coersion_outcome: Some(
-                                        ExpectCoersionOutcome {
-                                            coersion: Trivial(
-                                                TrivialFlyCoersion {
+                                    coercion_outcome: Some(
+                                        ExpectCoercionOutcome {
+                                            coercion: Trivial(
+                                                TrivialFlyCoercion {
                                                     expectee_quary: Transient,
                                                 },
                                             ),
@@ -52308,7 +52308,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         4,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -52347,7 +52347,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         5,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -52386,7 +52386,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         8,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -52462,7 +52462,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         155,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -52501,7 +52501,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         160,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -52540,7 +52540,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         163,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -52598,10 +52598,10 @@
                                         193,
                                     ),
                                     outcome: Some(
-                                        ExpectationOutcome::Coersion(
-                                            ExpectCoersionOutcome {
-                                                coersion: Trivial(
-                                                    TrivialFlyCoersion {
+                                        ExpectationOutcome::Coercion(
+                                            ExpectCoercionOutcome {
+                                                coercion: Trivial(
+                                                    TrivialFlyCoercion {
                                                         expectee_quary: MutableOnStack {
                                                             place: Idx(
                                                                 PlaceIdx(0),
@@ -54192,8 +54192,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -54217,10 +54217,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -54407,8 +54407,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -54446,10 +54446,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: MutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(3),
@@ -54598,8 +54598,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -54629,10 +54629,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(0),
@@ -54647,8 +54647,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -54680,10 +54680,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: MutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(1),
@@ -54698,8 +54698,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -54729,10 +54729,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(1),
@@ -54747,8 +54747,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -54776,10 +54776,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -54790,8 +54790,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -54815,10 +54815,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -54903,8 +54903,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -54934,10 +54934,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(0),
@@ -54952,8 +54952,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -54985,10 +54985,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: MutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(1),
@@ -55003,8 +55003,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -55036,10 +55036,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: MutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(2),
@@ -55162,8 +55162,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -55189,10 +55189,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Const,
                                                         },
                                                     ),
@@ -55431,8 +55431,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -55462,10 +55462,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(7),
@@ -55530,8 +55530,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -55557,10 +55557,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Const,
                                                         },
                                                     ),
@@ -55571,8 +55571,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -55596,10 +55596,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -55641,8 +55641,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -55672,10 +55672,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(7),
@@ -55715,8 +55715,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -55742,10 +55742,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Const,
                                                         },
                                                     ),
@@ -55756,8 +55756,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -55781,10 +55781,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -56070,8 +56070,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -56101,10 +56101,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(0),
@@ -56239,8 +56239,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -56264,10 +56264,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -56278,8 +56278,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -56311,10 +56311,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: MutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(2),
@@ -56329,8 +56329,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -56356,10 +56356,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -56370,8 +56370,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -56395,10 +56395,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -56440,8 +56440,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -56469,10 +56469,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Const,
                                                         },
                                                     ),
@@ -56483,8 +56483,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -56508,10 +56508,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -56673,8 +56673,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -56704,10 +56704,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(0),
@@ -56722,8 +56722,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -56755,10 +56755,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: MutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(1),
@@ -56773,8 +56773,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -56806,10 +56806,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: MutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(2),
@@ -56824,8 +56824,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -56855,10 +56855,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(1),
@@ -56873,8 +56873,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -56902,10 +56902,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -56916,8 +56916,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -56941,10 +56941,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -57029,8 +57029,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -57060,10 +57060,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(0),
@@ -57078,8 +57078,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -57111,10 +57111,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: MutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(1),
@@ -57129,8 +57129,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -57162,10 +57162,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: MutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(2),
@@ -57261,8 +57261,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -57288,10 +57288,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Const,
                                                         },
                                                     ),
@@ -57629,8 +57629,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -57660,10 +57660,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: MutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(9),
@@ -57734,8 +57734,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -57765,10 +57765,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(10),
@@ -57833,8 +57833,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -57860,10 +57860,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Const,
                                                         },
                                                     ),
@@ -57874,8 +57874,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -57899,10 +57899,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -57944,8 +57944,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -57975,10 +57975,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(10),
@@ -58018,8 +58018,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -58045,10 +58045,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Const,
                                                         },
                                                     ),
@@ -58059,8 +58059,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -58084,10 +58084,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -58098,8 +58098,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -58123,10 +58123,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -58168,8 +58168,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -58199,10 +58199,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(12),
@@ -58267,8 +58267,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -58294,10 +58294,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Const,
                                                         },
                                                     ),
@@ -58308,8 +58308,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -58333,10 +58333,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -58347,8 +58347,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -58372,10 +58372,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -58417,8 +58417,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -58448,10 +58448,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(12),
@@ -58491,8 +58491,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -58518,10 +58518,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Const,
                                                         },
                                                     ),
@@ -58532,8 +58532,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -58557,10 +58557,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -58784,8 +58784,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -58815,10 +58815,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(0),
@@ -58895,8 +58895,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -58920,10 +58920,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -58996,8 +58996,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -59021,10 +59021,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -59035,8 +59035,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -59062,10 +59062,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -59076,8 +59076,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -59101,10 +59101,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -59239,8 +59239,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -59272,10 +59272,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -59286,8 +59286,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -59313,10 +59313,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -59327,8 +59327,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -59352,10 +59352,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -59397,8 +59397,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -59428,10 +59428,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: MutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(9),
@@ -59446,8 +59446,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -59471,10 +59471,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -59518,8 +59518,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -59555,10 +59555,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: MutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(2),
@@ -59573,8 +59573,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -59598,10 +59598,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -59678,8 +59678,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -59713,10 +59713,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Const,
                                                         },
                                                     ),
@@ -59727,8 +59727,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -59756,10 +59756,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -59770,8 +59770,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -59795,10 +59795,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -60250,8 +60250,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -60287,10 +60287,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(14),
@@ -60305,8 +60305,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -60330,10 +60330,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -60615,8 +60615,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -60646,10 +60646,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(0),
@@ -60751,8 +60751,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -60782,10 +60782,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(14),
@@ -60800,8 +60800,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -60825,10 +60825,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -60984,8 +60984,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -61011,10 +61011,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Const,
                                                         },
                                                     ),
@@ -61025,8 +61025,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -61050,10 +61050,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -61064,8 +61064,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -61091,10 +61091,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -61105,8 +61105,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -61130,10 +61130,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -61144,8 +61144,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -61175,10 +61175,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: MutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(0),
@@ -61193,8 +61193,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -61224,10 +61224,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: MutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(0),
@@ -61684,10 +61684,10 @@
                                         4,
                                     ),
                                     outcome: Some(
-                                        ExpectationOutcome::Coersion(
-                                            ExpectCoersionOutcome {
-                                                coersion: Trivial(
-                                                    TrivialFlyCoersion {
+                                        ExpectationOutcome::Coercion(
+                                            ExpectCoercionOutcome {
+                                                coercion: Trivial(
+                                                    TrivialFlyCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -61871,8 +61871,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -61896,10 +61896,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -61910,8 +61910,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -61935,10 +61935,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -62588,10 +62588,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     6,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: StackPure {
                                                                     place: Idx(
                                                                         PlaceIdx(1),
@@ -62622,10 +62622,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     9,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: Transient,
                                                             },
                                                         ),
@@ -62688,10 +62688,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     10,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: Transient,
                                                             },
                                                         ),
@@ -62794,10 +62794,10 @@
                                         11,
                                     ),
                                     outcome: Some(
-                                        ExpectationOutcome::Coersion(
-                                            ExpectCoersionOutcome {
-                                                coersion: Trivial(
-                                                    TrivialFlyCoersion {
+                                        ExpectationOutcome::Coercion(
+                                            ExpectCoercionOutcome {
+                                                coercion: Trivial(
+                                                    TrivialFlyCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -62945,8 +62945,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -62982,10 +62982,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(2),
@@ -63139,8 +63139,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -63170,10 +63170,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(1),
@@ -63219,8 +63219,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -63252,10 +63252,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Const,
                                                         },
                                                     ),
@@ -63266,8 +63266,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -63291,10 +63291,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -63305,8 +63305,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -63330,10 +63330,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -63344,8 +63344,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -63369,10 +63369,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -63383,8 +63383,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -63408,10 +63408,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -63819,10 +63819,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     3,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: StackPure {
                                                                     place: Idx(
                                                                         PlaceIdx(0),
@@ -63904,10 +63904,10 @@
                                         4,
                                     ),
                                     outcome: Some(
-                                        ExpectationOutcome::Coersion(
-                                            ExpectCoersionOutcome {
-                                                coersion: Trivial(
-                                                    TrivialFlyCoersion {
+                                        ExpectationOutcome::Coercion(
+                                            ExpectCoercionOutcome {
+                                                coercion: Trivial(
+                                                    TrivialFlyCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -64060,8 +64060,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -64091,10 +64091,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(0),
@@ -64109,8 +64109,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -64134,10 +64134,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -64148,8 +64148,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -64173,10 +64173,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -64520,10 +64520,10 @@
                                         2,
                                     ),
                                     outcome: Some(
-                                        ExpectationOutcome::Coersion(
-                                            ExpectCoersionOutcome {
-                                                coersion: Trivial(
-                                                    TrivialFlyCoersion {
+                                        ExpectationOutcome::Coercion(
+                                            ExpectCoercionOutcome {
+                                                coercion: Trivial(
+                                                    TrivialFlyCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -64645,8 +64645,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -64670,10 +64670,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -64684,8 +64684,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -64709,10 +64709,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -64875,9 +64875,9 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     1,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: PlaceToLeash,
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: PlaceToLeash,
                                                     },
                                                 ),
                                                 separator: CallListSeparator::None,
@@ -64952,10 +64952,10 @@
                                         2,
                                     ),
                                     outcome: Some(
-                                        ExpectationOutcome::Coersion(
-                                            ExpectCoersionOutcome {
-                                                coersion: Trivial(
-                                                    TrivialFlyCoersion {
+                                        ExpectationOutcome::Coercion(
+                                            ExpectCoercionOutcome {
+                                                coercion: Trivial(
+                                                    TrivialFlyCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -65067,8 +65067,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -65098,9 +65098,9 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: PlaceToLeash,
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: PlaceToLeash,
                                                 },
                                             ),
                                         ),
@@ -65108,8 +65108,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -65133,10 +65133,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -65147,8 +65147,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -65172,10 +65172,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -67087,10 +67087,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     25,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: Leashed {
                                                                     place_idx: Some(
                                                                         PlaceIdx(7),
@@ -67499,10 +67499,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     31,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: Leashed {
                                                                     place_idx: Some(
                                                                         PlaceIdx(7),
@@ -67911,10 +67911,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     37,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: Leashed {
                                                                     place_idx: Some(
                                                                         PlaceIdx(7),
@@ -68323,10 +68323,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     43,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: Leashed {
                                                                     place_idx: Some(
                                                                         PlaceIdx(7),
@@ -68614,10 +68614,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     48,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(2),
@@ -68648,10 +68648,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     49,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(3),
@@ -68852,10 +68852,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     52,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(4),
@@ -68886,10 +68886,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     53,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(5),
@@ -68956,10 +68956,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     50,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: Transient,
                                                             },
                                                         ),
@@ -68986,10 +68986,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     54,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: Transient,
                                                             },
                                                         ),
@@ -69091,7 +69091,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         21,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -69110,10 +69110,10 @@
                                         27,
                                     ),
                                     outcome: Some(
-                                        ExpectationOutcome::Coersion(
-                                            ExpectCoersionOutcome {
-                                                coersion: Trivial(
-                                                    TrivialFlyCoersion {
+                                        ExpectationOutcome::Coercion(
+                                            ExpectCoercionOutcome {
+                                                coercion: Trivial(
+                                                    TrivialFlyCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -69139,10 +69139,10 @@
                                         33,
                                     ),
                                     outcome: Some(
-                                        ExpectationOutcome::Coersion(
-                                            ExpectCoersionOutcome {
-                                                coersion: Trivial(
-                                                    TrivialFlyCoersion {
+                                        ExpectationOutcome::Coercion(
+                                            ExpectCoercionOutcome {
+                                                coercion: Trivial(
+                                                    TrivialFlyCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -69168,10 +69168,10 @@
                                         39,
                                     ),
                                     outcome: Some(
-                                        ExpectationOutcome::Coersion(
-                                            ExpectCoersionOutcome {
-                                                coersion: Trivial(
-                                                    TrivialFlyCoersion {
+                                        ExpectationOutcome::Coercion(
+                                            ExpectCoercionOutcome {
+                                                coercion: Trivial(
+                                                    TrivialFlyCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -69197,10 +69197,10 @@
                                         45,
                                     ),
                                     outcome: Some(
-                                        ExpectationOutcome::Coersion(
-                                            ExpectCoersionOutcome {
-                                                coersion: Trivial(
-                                                    TrivialFlyCoersion {
+                                        ExpectationOutcome::Coercion(
+                                            ExpectCoercionOutcome {
+                                                coercion: Trivial(
+                                                    TrivialFlyCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -69246,7 +69246,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         4,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -69285,7 +69285,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         6,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -69324,7 +69324,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         8,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -69363,7 +69363,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         10,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -69402,7 +69402,7 @@
                                     initial_value_sem_expr_idx: SemaExprIdx(
                                         12,
                                     ),
-                                    coersion_outcome: None,
+                                    coercion_outcome: None,
                                 },
                             ),
                             ty_result: Ok(
@@ -69483,10 +69483,10 @@
                                     result: SemaExprIdx(
                                         55,
                                     ),
-                                    coersion_outcome: Some(
-                                        ExpectCoersionOutcome {
-                                            coersion: Trivial(
-                                                TrivialFlyCoersion {
+                                    coercion_outcome: Some(
+                                        ExpectCoercionOutcome {
+                                            coercion: Trivial(
+                                                TrivialFlyCoercion {
                                                     expectee_quary: Transient,
                                                 },
                                             ),
@@ -70104,8 +70104,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -70133,10 +70133,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Const,
                                                         },
                                                     ),
@@ -70544,8 +70544,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -70581,10 +70581,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: ImmutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(6),
@@ -70847,8 +70847,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -70878,10 +70878,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Leashed {
                                                                 place_idx: Some(
                                                                     PlaceIdx(7),
@@ -70896,8 +70896,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -70923,10 +70923,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -70937,8 +70937,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -70962,10 +70962,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -71069,8 +71069,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -71100,10 +71100,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Leashed {
                                                                 place_idx: Some(
                                                                     PlaceIdx(7),
@@ -71118,8 +71118,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -71145,10 +71145,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -71159,8 +71159,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -71184,10 +71184,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -71291,8 +71291,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -71322,10 +71322,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Leashed {
                                                                 place_idx: Some(
                                                                     PlaceIdx(7),
@@ -71340,8 +71340,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -71367,10 +71367,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -71381,8 +71381,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -71406,10 +71406,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -71513,8 +71513,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -71544,10 +71544,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Leashed {
                                                                 place_idx: Some(
                                                                     PlaceIdx(7),
@@ -71562,8 +71562,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: Some(
@@ -71589,10 +71589,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -71603,8 +71603,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -71628,10 +71628,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -71768,8 +71768,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -71799,10 +71799,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: MutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(2),
@@ -71817,8 +71817,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -71848,10 +71848,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: MutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(3),
@@ -71866,8 +71866,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -71891,10 +71891,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -71968,8 +71968,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -71999,10 +71999,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: MutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(4),
@@ -72017,8 +72017,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -72048,10 +72048,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: MutableOnStack {
                                                                 place: Idx(
                                                                     PlaceIdx(5),
@@ -72066,8 +72066,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -72091,10 +72091,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -72105,8 +72105,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -72130,10 +72130,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -72144,8 +72144,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -72169,9 +72169,9 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Never,
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Never,
                                                 },
                                             ),
                                         ),
@@ -72472,10 +72472,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     3,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: StackPure {
                                                                     place: Idx(
                                                                         PlaceIdx(0),
@@ -72506,10 +72506,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     4,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: StackPure {
                                                                     place: Idx(
                                                                         PlaceIdx(1),
@@ -72576,10 +72576,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     1,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: StackPure {
                                                                     place: Idx(
                                                                         PlaceIdx(0),
@@ -72610,10 +72610,10 @@
                                                 argument_expr_idx: SemaExprIdx(
                                                     5,
                                                 ),
-                                                coersion_outcome: Some(
-                                                    ExpectCoersionOutcome {
-                                                        coersion: Trivial(
-                                                            TrivialFlyCoersion {
+                                                coercion_outcome: Some(
+                                                    ExpectCoercionOutcome {
+                                                        coercion: Trivial(
+                                                            TrivialFlyCoercion {
                                                                 expectee_quary: Transient,
                                                             },
                                                         ),
@@ -72691,10 +72691,10 @@
                                         6,
                                     ),
                                     outcome: Some(
-                                        ExpectationOutcome::Coersion(
-                                            ExpectCoersionOutcome {
-                                                coersion: Trivial(
-                                                    TrivialFlyCoersion {
+                                        ExpectationOutcome::Coercion(
+                                            ExpectCoercionOutcome {
+                                                coercion: Trivial(
+                                                    TrivialFlyCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -72846,8 +72846,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -72877,10 +72877,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(0),
@@ -72958,8 +72958,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -72989,10 +72989,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(0),
@@ -73007,8 +73007,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Pure,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -73038,10 +73038,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: StackPure {
                                                                 place: Idx(
                                                                     PlaceIdx(1),
@@ -73056,8 +73056,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -73081,10 +73081,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -73095,8 +73095,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -73120,10 +73120,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -73134,8 +73134,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -73159,10 +73159,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),

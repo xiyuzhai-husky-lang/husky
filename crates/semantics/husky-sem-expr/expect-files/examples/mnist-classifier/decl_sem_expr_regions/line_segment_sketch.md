@@ -1342,8 +1342,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -1367,10 +1367,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),
@@ -1493,8 +1493,8 @@
                                 },
                             },
                             FlyTermExpectationEntry {
-                                expectation: Expectation::Coersion(
-                                    ExpectCoersion {
+                                expectation: Expectation::Coercion(
+                                    ExpectCoercion {
                                         contract: Move,
                                         ty_expected: FlyTerm {
                                             place: None,
@@ -1518,10 +1518,10 @@
                                     },
                                     resolve_progress: ExpectationProgress::Resolved(
                                         Ok(
-                                            ExpectationOutcome::Coersion(
-                                                ExpectCoersionOutcome {
-                                                    coersion: Trivial(
-                                                        TrivialFlyCoersion {
+                                            ExpectationOutcome::Coercion(
+                                                ExpectCoercionOutcome {
+                                                    coercion: Trivial(
+                                                        TrivialFlyCoercion {
                                                             expectee_quary: Transient,
                                                         },
                                                     ),

@@ -29,12 +29,12 @@ pub enum SemaStmtData {
         contract: Contract,
         eq_token: EqRegionalToken,
         initial_value_sem_expr_idx: SemaExprIdx,
-        coersion_outcome: Option<ExpectCoersionOutcome>,
+        coercion_outcome: Option<ExpectCoercionOutcome>,
     },
     Return {
         return_token: ReturnRegionalToken,
         result: SemaExprIdx,
-        coersion_outcome: Option<ExpectCoersionOutcome>,
+        coercion_outcome: Option<ExpectCoercionOutcome>,
     },
     Require {
         require_token: RequireRegionalToken,
@@ -335,10 +335,10 @@ impl<'a> SemaExprBuilder<'a> {
                 return_token,
                 result,
             } => {
-                let (result, coersion_outcome) = match self.return_ty() {
+                let (result, coercion_outcome) = match self.return_ty() {
                     Some(return_ty) => self.build_sem_expr_with_outcome(
                         result,
-                        ExpectCoersion::new_move(return_ty.into()),
+                        ExpectCoercion::new_move(return_ty.into()),
                     ),
                     None => (self.build_sem_expr(result, ExpectAnyDerived), None),
                 };
@@ -346,7 +346,7 @@ impl<'a> SemaExprBuilder<'a> {
                     Ok(SemaStmtData::Return {
                         return_token,
                         result,
-                        coersion_outcome,
+                        coercion_outcome,
                     }),
                     Ok(self.term_menu().never().into()),
                 )

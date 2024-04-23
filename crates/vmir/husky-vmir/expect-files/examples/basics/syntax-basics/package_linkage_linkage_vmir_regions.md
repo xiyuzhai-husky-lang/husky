@@ -515,7 +515,7 @@
                             expr: VmirExprIdx(
                                 0,
                             ),
-                            coersion: None,
+                            coercion: None,
                             discarded: false,
                         },
                         VmirStmtData::Let {
@@ -528,7 +528,7 @@
                             initial_value: VmirExprIdx(
                                 1,
                             ),
-                            coersion: None,
+                            coercion: None,
                         },
                     ],
                 },
@@ -590,7 +590,7 @@
                             initial_value: VmirExprIdx(
                                 0,
                             ),
-                            coersion: None,
+                            coercion: None,
                         },
                     ],
                 },
@@ -652,7 +652,7 @@
                             initial_value: VmirExprIdx(
                                 0,
                             ),
-                            coersion: None,
+                            coercion: None,
                         },
                     ],
                 },

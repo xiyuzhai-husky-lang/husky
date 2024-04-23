@@ -513,9 +513,9 @@
                                     data: [
                                         Eval {
                                             expr: 2,
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
-                                                    TrivialHirEagerCoersion {
+                                                    TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -752,9 +752,9 @@
                                     data: [
                                         Eval {
                                             expr: 1,
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
-                                                    TrivialHirEagerCoersion {
+                                                    TrivialHirEagerCoercion {
                                                         expectee_quary: Leashed {
                                                             place_idx: Some(
                                                                 PlaceIdx(0),
@@ -1019,9 +1019,9 @@
                                     data: [
                                         Eval {
                                             expr: 5,
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
-                                                    TrivialHirEagerCoersion {
+                                                    TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -1892,7 +1892,7 @@
                                                         },
                                                         23,
                                                         Trivial(
-                                                            TrivialHirEagerCoersion {
+                                                            TrivialHirEagerCoercion {
                                                                 expectee_quary: Leashed {
                                                                     place_idx: Some(
                                                                         PlaceIdx(6),
@@ -2095,9 +2095,9 @@
                                     data: [
                                         Eval {
                                             expr: 30,
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
-                                                    TrivialHirEagerCoersion {
+                                                    TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -2111,7 +2111,7 @@
                                             },
                                             contract: Pure,
                                             initial_value: 21,
-                                            coersion: None,
+                                            coercion: None,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -2120,7 +2120,7 @@
                                             },
                                             contract: Pure,
                                             initial_value: 24,
-                                            coersion: None,
+                                            coercion: None,
                                         },
                                         IfElse {
                                             if_branch: HirEagerIfBranch {
@@ -2142,7 +2142,7 @@
                                             },
                                             contract: Move,
                                             initial_value: 0,
-                                            coersion: None,
+                                            coercion: None,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -2151,7 +2151,7 @@
                                             },
                                             contract: Pure,
                                             initial_value: 5,
-                                            coersion: None,
+                                            coercion: None,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -2160,7 +2160,7 @@
                                             },
                                             contract: Pure,
                                             initial_value: 7,
-                                            coersion: None,
+                                            coercion: None,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -2169,7 +2169,7 @@
                                             },
                                             contract: Pure,
                                             initial_value: 10,
-                                            coersion: None,
+                                            coercion: None,
                                         },
                                         ForBetween {
                                             particulars: HirEagerForBetweenParticulars {
@@ -2204,8 +2204,8 @@
                                         },
                                         Return {
                                             result: 31,
-                                            coersion: Trivial(
-                                                TrivialHirEagerCoersion {
+                                            coercion: Trivial(
+                                                TrivialHirEagerCoercion {
                                                     expectee_quary: MutableOnStack {
                                                         place: Idx(
                                                             PlaceIdx(1),
@@ -3149,7 +3149,7 @@
                                                         },
                                                         21,
                                                         Trivial(
-                                                            TrivialHirEagerCoersion {
+                                                            TrivialHirEagerCoercion {
                                                                 expectee_quary: ImmutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(4),
@@ -3171,7 +3171,7 @@
                                                         },
                                                         22,
                                                         Trivial(
-                                                            TrivialHirEagerCoersion {
+                                                            TrivialHirEagerCoercion {
                                                                 expectee_quary: Const,
                                                             },
                                                         ),
@@ -3323,13 +3323,13 @@
                                             },
                                             contract: Pure,
                                             initial_value: 18,
-                                            coersion: None,
+                                            coercion: None,
                                         },
                                         Eval {
                                             expr: 24,
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
-                                                    TrivialHirEagerCoersion {
+                                                    TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -3338,9 +3338,9 @@
                                         },
                                         Eval {
                                             expr: 27,
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
-                                                    TrivialHirEagerCoersion {
+                                                    TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -3354,7 +3354,7 @@
                                             },
                                             contract: Move,
                                             initial_value: 0,
-                                            coersion: None,
+                                            coercion: None,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -3363,7 +3363,7 @@
                                             },
                                             contract: Move,
                                             initial_value: 7,
-                                            coersion: None,
+                                            coercion: None,
                                         },
                                         ForBetween {
                                             particulars: HirEagerForBetweenParticulars {
@@ -3398,8 +3398,8 @@
                                         },
                                         Return {
                                             result: 28,
-                                            coersion: Trivial(
-                                                TrivialHirEagerCoersion {
+                                            coercion: Trivial(
+                                                TrivialHirEagerCoercion {
                                                     expectee_quary: MutableOnStack {
                                                         place: Idx(
                                                             PlaceIdx(1),
@@ -4432,7 +4432,7 @@
                                                         },
                                                         27,
                                                         Trivial(
-                                                            TrivialHirEagerCoersion {
+                                                            TrivialHirEagerCoercion {
                                                                 expectee_quary: Leashed {
                                                                     place_idx: Some(
                                                                         PlaceIdx(7),
@@ -4598,7 +4598,7 @@
                                                         },
                                                         33,
                                                         Trivial(
-                                                            TrivialHirEagerCoersion {
+                                                            TrivialHirEagerCoercion {
                                                                 expectee_quary: Leashed {
                                                                     place_idx: Some(
                                                                         PlaceIdx(7),
@@ -4764,7 +4764,7 @@
                                                         },
                                                         39,
                                                         Trivial(
-                                                            TrivialHirEagerCoersion {
+                                                            TrivialHirEagerCoercion {
                                                                 expectee_quary: Leashed {
                                                                     place_idx: Some(
                                                                         PlaceIdx(7),
@@ -4930,7 +4930,7 @@
                                                         },
                                                         45,
                                                         Trivial(
-                                                            TrivialHirEagerCoersion {
+                                                            TrivialHirEagerCoercion {
                                                                 expectee_quary: Leashed {
                                                                     place_idx: Some(
                                                                         PlaceIdx(7),
@@ -5038,7 +5038,7 @@
                                                         },
                                                         48,
                                                         Trivial(
-                                                            TrivialHirEagerCoersion {
+                                                            TrivialHirEagerCoercion {
                                                                 expectee_quary: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(2),
@@ -5060,7 +5060,7 @@
                                                         },
                                                         49,
                                                         Trivial(
-                                                            TrivialHirEagerCoersion {
+                                                            TrivialHirEagerCoercion {
                                                                 expectee_quary: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(3),
@@ -5153,7 +5153,7 @@
                                                         },
                                                         51,
                                                         Trivial(
-                                                            TrivialHirEagerCoersion {
+                                                            TrivialHirEagerCoercion {
                                                                 expectee_quary: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(4),
@@ -5175,7 +5175,7 @@
                                                         },
                                                         52,
                                                         Trivial(
-                                                            TrivialHirEagerCoersion {
+                                                            TrivialHirEagerCoercion {
                                                                 expectee_quary: MutableOnStack {
                                                                     place: Idx(
                                                                         PlaceIdx(5),
@@ -5216,7 +5216,7 @@
                                                         },
                                                         50,
                                                         Trivial(
-                                                            TrivialHirEagerCoersion {
+                                                            TrivialHirEagerCoercion {
                                                                 expectee_quary: Transient,
                                                             },
                                                         ),
@@ -5234,7 +5234,7 @@
                                                         },
                                                         53,
                                                         Trivial(
-                                                            TrivialHirEagerCoersion {
+                                                            TrivialHirEagerCoercion {
                                                                 expectee_quary: Transient,
                                                             },
                                                         ),
@@ -5276,13 +5276,13 @@
                                             },
                                             contract: Pure,
                                             initial_value: 23,
-                                            coersion: None,
+                                            coercion: None,
                                         },
                                         Eval {
                                             expr: 29,
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
-                                                    TrivialHirEagerCoersion {
+                                                    TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -5291,9 +5291,9 @@
                                         },
                                         Eval {
                                             expr: 35,
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
-                                                    TrivialHirEagerCoersion {
+                                                    TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -5302,9 +5302,9 @@
                                         },
                                         Eval {
                                             expr: 41,
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
-                                                    TrivialHirEagerCoersion {
+                                                    TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -5313,9 +5313,9 @@
                                         },
                                         Eval {
                                             expr: 47,
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
-                                                    TrivialHirEagerCoersion {
+                                                    TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -5329,7 +5329,7 @@
                                             },
                                             contract: Pure,
                                             initial_value: 4,
-                                            coersion: None,
+                                            coercion: None,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -5338,7 +5338,7 @@
                                             },
                                             contract: Move,
                                             initial_value: 6,
-                                            coersion: None,
+                                            coercion: None,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -5347,7 +5347,7 @@
                                             },
                                             contract: Move,
                                             initial_value: 8,
-                                            coersion: None,
+                                            coercion: None,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -5356,7 +5356,7 @@
                                             },
                                             contract: Move,
                                             initial_value: 10,
-                                            coersion: None,
+                                            coercion: None,
                                         },
                                         Let {
                                             pattern: HirEagerLetVariablesPattern {
@@ -5365,7 +5365,7 @@
                                             },
                                             contract: Move,
                                             initial_value: 12,
-                                            coersion: None,
+                                            coercion: None,
                                         },
                                         ForBetween {
                                             particulars: HirEagerForBetweenParticulars {
@@ -5400,8 +5400,8 @@
                                         },
                                         Return {
                                             result: 54,
-                                            coersion: Trivial(
-                                                TrivialHirEagerCoersion {
+                                            coercion: Trivial(
+                                                TrivialHirEagerCoercion {
                                                     expectee_quary: Transient,
                                                 },
                                             ),
@@ -5775,7 +5775,7 @@
                                                         },
                                                         4,
                                                         Trivial(
-                                                            TrivialHirEagerCoersion {
+                                                            TrivialHirEagerCoercion {
                                                                 expectee_quary: Leashed {
                                                                     place_idx: Some(
                                                                         PlaceIdx(0),
@@ -5816,9 +5816,9 @@
                                     data: [
                                         Eval {
                                             expr: 5,
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
-                                                    TrivialHirEagerCoersion {
+                                                    TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -6438,7 +6438,7 @@
                                                         },
                                                         5,
                                                         Trivial(
-                                                            TrivialHirEagerCoersion {
+                                                            TrivialHirEagerCoercion {
                                                                 expectee_quary: Transient,
                                                             },
                                                         ),
@@ -6456,7 +6456,7 @@
                                                         },
                                                         11,
                                                         Trivial(
-                                                            TrivialHirEagerCoersion {
+                                                            TrivialHirEagerCoercion {
                                                                 expectee_quary: Transient,
                                                             },
                                                         ),
@@ -6493,9 +6493,9 @@
                                     data: [
                                         Eval {
                                             expr: 12,
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
-                                                    TrivialHirEagerCoersion {
+                                                    TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -6878,9 +6878,9 @@
                                     data: [
                                         Eval {
                                             expr: 5,
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
-                                                    TrivialHirEagerCoersion {
+                                                    TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -7263,9 +7263,9 @@
                                     data: [
                                         Eval {
                                             expr: 5,
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
-                                                    TrivialHirEagerCoersion {
+                                                    TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -7491,9 +7491,9 @@
                                     data: [
                                         Eval {
                                             expr: 2,
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
-                                                    TrivialHirEagerCoersion {
+                                                    TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -7816,9 +7816,9 @@
                                     data: [
                                         Eval {
                                             expr: 4,
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
-                                                    TrivialHirEagerCoersion {
+                                                    TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -8141,9 +8141,9 @@
                                     data: [
                                         Eval {
                                             expr: 4,
-                                            coersion: Some(
+                                            coercion: Some(
                                                 Trivial(
-                                                    TrivialHirEagerCoersion {
+                                                    TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),

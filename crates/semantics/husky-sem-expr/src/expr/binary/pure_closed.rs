@@ -31,7 +31,7 @@ impl<'a> SemaExprBuilder<'a> {
                 Err(DerivedSemaExprTypeError::BinaryOperationLeftOperandTypeNotInferred.into()),
             );
         };
-        let ropd = self.build_sem_expr(ropd, ExpectCoersion::new_pure(self, lopd_ty));
+        let ropd = self.build_sem_expr(ropd, ExpectCoercion::new_pure(self, lopd_ty));
         let ty_result = match lopd_ty.data(self) {
             FlyTermData::Literal(_) => todo!(),
             FlyTermData::TypeOntology {

@@ -2,23 +2,23 @@ use self::quary::FlyQuary;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub enum DerefFlyCoersion {
+pub enum DerefFlyCoercion {
     Leash,
     Ref { lifetime: FlyLifetime },
 }
 
-impl DerefFlyCoersion {
-    pub fn place_after_coersion(self) -> FlyQuary {
+impl DerefFlyCoercion {
+    pub fn place_after_coercion(self) -> FlyQuary {
         match self {
-            DerefFlyCoersion::Leash => FlyQuary::Leashed { place_idx: None },
-            DerefFlyCoersion::Ref { lifetime } => FlyQuary::Ref {
+            DerefFlyCoercion::Leash => FlyQuary::Leashed { place_idx: None },
+            DerefFlyCoercion::Ref { lifetime } => FlyQuary::Ref {
                 guard: Right(lifetime),
             },
         }
     }
 }
 
-impl ExpectCoersion {
+impl ExpectCoercion {
     pub(super) fn resolve_deref(
         &self,
         db: &::salsa::Db,
@@ -36,10 +36,10 @@ impl ExpectCoersion {
                 match prelude_indirection_ty_path {
                     PreludeIndirectionTypePath::Ref => {
                         debug_assert_eq!(expectee_ty_arguments.len(), 2);
-                        self.try_finalize_coersion(
+                        self.try_finalize_coercion(
                             self.ty_expected,
                             expectee_ty_arguments[1],
-                            DerefFlyCoersion::Ref {
+                            DerefFlyCoercion::Ref {
                                 lifetime: FlyLifetime::from_term(
                                     expectee_ty_arguments[0],
                                     db,
@@ -55,10 +55,10 @@ impl ExpectCoersion {
                     PreludeIndirectionTypePath::Leash => {
                         debug_assert_eq!(expectee_ty_arguments.len(), 1);
                         // todo: check expected_ty_argument_place
-                        self.try_finalize_coersion(
+                        self.try_finalize_coercion(
                             self.ty_expected,
                             expectee_ty_arguments[0],
-                            DerefFlyCoersion::Leash,
+                            DerefFlyCoercion::Leash,
                             db,
                             terms,
                             state,

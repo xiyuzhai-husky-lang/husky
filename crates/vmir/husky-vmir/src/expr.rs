@@ -1,4 +1,4 @@
-use self::coersion::VmirCoersion;
+use self::coercion::VmirCoercion;
 use crate::{
     destroyer::VmirDestroyerIdxRange, eval::EvalVmir, pattern::VmirPattern, stmt::VmirStmtIdxRange,
     *,
@@ -125,7 +125,7 @@ pub enum VmirArgument<LinkageImpl: IsLinkageImpl> {
     },
     Simple {
         expr: VmirExprIdx<LinkageImpl>,
-        coersion: VmirCoersion,
+        coercion: VmirCoercion,
     },
     Variadic {
         exprs: VmirExprIdxRange<LinkageImpl>,
@@ -400,9 +400,9 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
     ) -> impl Iterator<Item = VmirArgument<Linktime::LinkageImpl>> + Captures<&'comptime ()> + 'a
     {
         arguments.iter().map(move |m| match m {
-            HirEagerRitchieArgument::Simple(_, arg, coersion) => VmirArgument::Simple {
+            HirEagerRitchieArgument::Simple(_, arg, coercion) => VmirArgument::Simple {
                 expr: arg.to_vmir(self),
-                coersion: coersion.to_vmir(self),
+                coercion: coercion.to_vmir(self),
             },
             HirEagerRitchieArgument::Variadic => {
                 todo!()
@@ -416,17 +416,17 @@ impl<LinkageImpl: IsLinkageImpl> VmirExprIdx<LinkageImpl> {
     #[inline(always)]
     pub fn eval<'comptime>(
         self,
-        coersion: impl Into<Option<VmirCoersion>>,
+        coercion: impl Into<Option<VmirCoercion>>,
         ctx: &mut impl EvalVmir<'comptime, LinkageImpl>,
     ) -> LinkageImplVmControlFlow<LinkageImpl> {
         let value = ctx.eval_expr(self, |ctx| self.eval_aux(ctx))?;
-        VmControlFlow::Continue(match coersion.into() {
-            Some(coersion) => match coersion {
-                VmirCoersion::Trivial => value,
-                VmirCoersion::Never => todo!(),
-                VmirCoersion::WrapInSome => todo!(),
-                VmirCoersion::PlaceToLeash => todo!(),
-                VmirCoersion::Deref => todo!(),
+        VmControlFlow::Continue(match coercion.into() {
+            Some(coercion) => match coercion {
+                VmirCoercion::Trivial => value,
+                VmirCoercion::Never => todo!(),
+                VmirCoercion::WrapInSome => todo!(),
+                VmirCoercion::PlaceToLeash => todo!(),
+                VmirCoercion::Deref => todo!(),
             },
             None => value,
         })
@@ -498,7 +498,7 @@ impl<LinkageImpl: IsLinkageImpl> VmirExprIdx<LinkageImpl> {
                             > {
                                 match arg {
                                     VmirArgument::SelfValue { expr } => todo!(),
-                                    VmirArgument::Simple { expr, coersion } => todo!(),
+                                    VmirArgument::Simple { expr, coercion } => todo!(),
                                     VmirArgument::Variadic { exprs } => {
                                         VmControlFlow::Continue(VmArgumentValue::Variadic(
                                             exprs

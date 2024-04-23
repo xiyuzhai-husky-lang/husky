@@ -3,7 +3,7 @@ mod r#loop;
 mod r#match;
 
 use crate::{
-    coersion::VmirCoersion,
+    coercion::VmirCoercion,
     eval::EvalVmir,
     expr::VmirExprIdx,
     pattern::VmirPattern,
@@ -24,11 +24,11 @@ pub enum VmirStmtData<LinkageImpl: IsLinkageImpl> {
     Let {
         pattern: VmirPattern<LinkageImpl>,
         initial_value: VmirExprIdx<LinkageImpl>,
-        coersion: Option<VmirCoersion>,
+        coercion: Option<VmirCoercion>,
     },
     Return {
         result: VmirExprIdx<LinkageImpl>,
-        coersion: VmirCoersion,
+        coercion: VmirCoercion,
     },
     Require {
         condition: VmirCondition<LinkageImpl>,
@@ -39,7 +39,7 @@ pub enum VmirStmtData<LinkageImpl: IsLinkageImpl> {
     Break,
     Eval {
         expr: VmirExprIdx<LinkageImpl>,
-        coersion: Option<VmirCoersion>,
+        coercion: Option<VmirCoercion>,
         discarded: bool,
     },
     ForBetween {
@@ -119,15 +119,15 @@ impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for HirEagerStmtIdxRange {
                     pattern,
                     contract,
                     initial_value,
-                    coersion,
+                    coercion,
                 } => VmirStmtData::Let {
                     pattern: pattern.pattern_expr_idx().to_vmir(builder),
                     initial_value: initial_value.to_vmir(builder),
-                    coersion: coersion.to_vmir(builder),
+                    coercion: coercion.to_vmir(builder),
                 },
-                HirEagerStmtData::Return { result, coersion } => VmirStmtData::Return {
+                HirEagerStmtData::Return { result, coercion } => VmirStmtData::Return {
                     result: result.to_vmir(builder),
-                    coersion: coersion.to_vmir(builder),
+                    coercion: coercion.to_vmir(builder),
                 },
                 HirEagerStmtData::Require { ref condition } => VmirStmtData::Require {
                     condition: condition.to_vmir(builder),
@@ -138,11 +138,11 @@ impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for HirEagerStmtIdxRange {
                 HirEagerStmtData::Break => VmirStmtData::Break,
                 HirEagerStmtData::Eval {
                     expr,
-                    coersion,
+                    coercion,
                     discarded,
                 } => VmirStmtData::Eval {
                     expr: expr.to_vmir(builder),
-                    coersion: coersion.to_vmir(builder),
+                    coercion: coercion.to_vmir(builder),
                     discarded,
                 },
                 HirEagerStmtData::ForBetween {
@@ -295,13 +295,13 @@ impl<LinkageImpl: IsLinkageImpl> VmirStmtIdx<LinkageImpl> {
             VmirStmtData::Let {
                 pattern,
                 initial_value,
-                coersion,
+                coercion,
             } => {
-                let initial_value = initial_value.eval(coersion, ctx)?;
+                let initial_value = initial_value.eval(coercion, ctx)?;
                 pattern.take_value(initial_value, ctx);
                 Continue(().into())
             }
-            VmirStmtData::Return { result, coersion } => Return(result.eval(coersion, ctx)?),
+            VmirStmtData::Return { result, coercion } => Return(result.eval(coercion, ctx)?),
             VmirStmtData::Require { condition } => match condition.eval(ctx)? {
                 true => todo!(),
                 false => todo!(),
@@ -313,10 +313,10 @@ impl<LinkageImpl: IsLinkageImpl> VmirStmtIdx<LinkageImpl> {
             VmirStmtData::Break => LoopExit(().into()),
             VmirStmtData::Eval {
                 expr,
-                coersion,
+                coercion,
                 discarded,
             } => {
-                let result = expr.eval(coersion, ctx)?;
+                let result = expr.eval(coercion, ctx)?;
                 match discarded {
                     true => Continue(().into()),
                     false => Continue(result),

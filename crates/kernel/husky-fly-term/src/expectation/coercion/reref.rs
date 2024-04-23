@@ -3,7 +3,7 @@
 //!
 use super::*;
 
-impl ExpectCoersion {
+impl ExpectCoercion {
     pub(super) fn resolve_reref(
         &self,
         db: &::salsa::Db,
@@ -23,10 +23,10 @@ impl ExpectCoersion {
                 PreludeIndirectionTypePath::Leash => {
                     debug_assert_eq!(expected_ty_arguments.len(), 1);
                     // todo: check place
-                    self.try_finalize_coersion(
+                    self.try_finalize_coercion(
                         state.expectee(),
                         expected_ty_arguments[0],
-                        FlyCoersion::PlaceToLeash,
+                        FlyCoercion::PlaceToLeash,
                         db,
                         terms,
                         state,

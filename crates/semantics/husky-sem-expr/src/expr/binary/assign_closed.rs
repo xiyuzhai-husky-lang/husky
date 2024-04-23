@@ -79,7 +79,7 @@ impl<'a> SemaExprBuilder<'a> {
                         lambda_variable: hvar,
                     } => todo!(),
                 };
-                self.build_sem_expr(ropd, ExpectCoersion::new(Contract::Move, ropd_ty_expected))
+                self.build_sem_expr(ropd, ExpectCoercion::new(Contract::Move, ropd_ty_expected))
             }
             None => self.build_sem_expr(ropd, ExpectAnyDerived),
         };

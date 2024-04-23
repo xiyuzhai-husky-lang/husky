@@ -299,8 +299,8 @@
                             expr: VmirExprIdx(
                                 0,
                             ),
-                            coersion: Some(
-                                VmirCoersion::Trivial,
+                            coercion: Some(
+                                VmirCoercion::Trivial,
                             ),
                             discarded: false,
                         },
@@ -447,7 +447,7 @@
                                     expr: VmirExprIdx(
                                         1,
                                     ),
-                                    coersion: VmirCoersion::Trivial,
+                                    coercion: VmirCoercion::Trivial,
                                 },
                             ],
                         },
@@ -541,7 +541,7 @@
                                     expr: VmirExprIdx(
                                         3,
                                     ),
-                                    coersion: VmirCoersion::Trivial,
+                                    coercion: VmirCoercion::Trivial,
                                 },
                             ],
                         },
@@ -639,7 +639,7 @@
                                     expr: VmirExprIdx(
                                         5,
                                     ),
-                                    coersion: VmirCoersion::Trivial,
+                                    coercion: VmirCoercion::Trivial,
                                 },
                             ],
                         },
@@ -661,8 +661,8 @@
                             expr: VmirExprIdx(
                                 2,
                             ),
-                            coersion: Some(
-                                VmirCoersion::Trivial,
+                            coercion: Some(
+                                VmirCoercion::Trivial,
                             ),
                             discarded: false,
                         },
@@ -670,8 +670,8 @@
                             expr: VmirExprIdx(
                                 4,
                             ),
-                            coersion: Some(
-                                VmirCoersion::Trivial,
+                            coercion: Some(
+                                VmirCoercion::Trivial,
                             ),
                             discarded: false,
                         },
@@ -679,8 +679,8 @@
                             expr: VmirExprIdx(
                                 6,
                             ),
-                            coersion: Some(
-                                VmirCoersion::Trivial,
+                            coercion: Some(
+                                VmirCoercion::Trivial,
                             ),
                             discarded: false,
                         },
@@ -863,7 +863,7 @@
                                     expr: VmirExprIdx(
                                         1,
                                     ),
-                                    coersion: VmirCoersion::Trivial,
+                                    coercion: VmirCoercion::Trivial,
                                 },
                             ],
                         },
@@ -957,7 +957,7 @@
                                     expr: VmirExprIdx(
                                         3,
                                     ),
-                                    coersion: VmirCoersion::Trivial,
+                                    coercion: VmirCoercion::Trivial,
                                 },
                             ],
                         },
@@ -1055,7 +1055,7 @@
                                     expr: VmirExprIdx(
                                         5,
                                     ),
-                                    coersion: VmirCoersion::Trivial,
+                                    coercion: VmirCoercion::Trivial,
                                 },
                             ],
                         },
@@ -1077,8 +1077,8 @@
                             expr: VmirExprIdx(
                                 2,
                             ),
-                            coersion: Some(
-                                VmirCoersion::Trivial,
+                            coercion: Some(
+                                VmirCoercion::Trivial,
                             ),
                             discarded: false,
                         },
@@ -1086,8 +1086,8 @@
                             expr: VmirExprIdx(
                                 4,
                             ),
-                            coersion: Some(
-                                VmirCoersion::Trivial,
+                            coercion: Some(
+                                VmirCoercion::Trivial,
                             ),
                             discarded: false,
                         },
@@ -1095,8 +1095,8 @@
                             expr: VmirExprIdx(
                                 6,
                             ),
-                            coersion: Some(
-                                VmirCoersion::Trivial,
+                            coercion: Some(
+                                VmirCoercion::Trivial,
                             ),
                             discarded: false,
                         },

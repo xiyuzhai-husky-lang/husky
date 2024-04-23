@@ -76,7 +76,7 @@ impl<'a> SemaExprBuilder<'a> {
                     match return_ty {
                         Some((_, return_ty, _)) => match self.infer_expr_term(return_ty) {
                             Some(return_ty) => self
-                                .build_sem_expr_with_ty(body, ExpectCoersion::new_move(return_ty)),
+                                .build_sem_expr_with_ty(body, ExpectCoercion::new_move(return_ty)),
                             None => self.build_sem_expr_with_ty(body, ExpectAnyDerived),
                         },
                         None => self.build_sem_expr_with_ty(body, ExpectAnyOriginal),
@@ -96,7 +96,7 @@ impl<'a> SemaExprBuilder<'a> {
                     match return_ty {
                         Some((_, return_ty, _)) => match self.infer_expr_term(return_ty) {
                             Some(return_ty) => self
-                                .build_sem_expr_with_ty(body, ExpectCoersion::new_move(return_ty)),
+                                .build_sem_expr_with_ty(body, ExpectCoercion::new_move(return_ty)),
                             None => self.build_sem_expr_with_ty(body, ExpectAnyDerived),
                         },
                         None => self.build_sem_expr_with_ty(body, ExpectAnyDerived),
