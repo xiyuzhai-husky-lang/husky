@@ -42,3 +42,15 @@ impl std::ops::Add<u32> for TextLine {
         Self(self.0 + rhs)
     }
 }
+
+impl std::ops::Sub<u32> for TextLine {
+    type Output = Option<Self>;
+
+    fn sub(self, rhs: u32) -> Self::Output {
+        if self.0 >= rhs {
+            Some(Self(self.0 - rhs))
+        } else {
+            None
+        }
+    }
+}
