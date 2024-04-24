@@ -1,3 +1,4 @@
+#![feature(closure_track_caller)]
 pub mod helpers;
 pub mod jar;
 mod line_map;
