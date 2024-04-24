@@ -129,6 +129,31 @@ impl LineMap {
         ..=self.offset(range_to_inclusive.end)
     }
 
+    pub fn text_line_offset_range(&self, line: TextLine) -> Range<usize> {
+        let end = if (line.0 as usize) < self.newlines.len() {
+            self.offset(TextPosition {
+                line: line + 1,
+                col: 0.into(),
+            })
+        } else {
+            self.text_len_in_bytes
+        };
+        self.offset(TextPosition {
+            line,
+            col: 0.into(),
+        })..end
+    }
+
+    pub fn text_line_range_offset_range(&self, text_line_range: Range<TextLine>) -> Range<usize> {
+        self.offset(TextPosition {
+            line: text_line_range.start,
+            col: 0.into(),
+        })..self.offset(TextPosition {
+            line: text_line_range.end,
+            col: 0.into(),
+        })
+    }
+
     pub fn offset_range_from_text_line(
         &self,
         range_from_text_line: RangeFrom<TextLine>,

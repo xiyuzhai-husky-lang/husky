@@ -128,6 +128,22 @@ pub(crate) fn text_ref_index_by_range_to_inclusive_text_position_works() {
     t("hello", ..=((0, 2).into()), "hel");
 }
 
+impl<'a> RefIndex<'a, TextLine> for Text<'a> {
+    type Output = str;
+
+    fn ref_index(self, range: TextLine) -> &'a Self::Output {
+        &self.raw_text[self.line_map.text_line_offset_range(range)]
+    }
+}
+
+impl<'a> RefIndex<'a, Range<TextLine>> for Text<'a> {
+    type Output = str;
+
+    fn ref_index(self, range: Range<TextLine>) -> &'a Self::Output {
+        &self.raw_text[self.line_map.text_line_range_offset_range(range)]
+    }
+}
+
 impl<'a> RefIndex<'a, RangeFrom<TextLine>> for Text<'a> {
     type Output = str;
 
