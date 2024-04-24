@@ -4,8 +4,10 @@ use husky_text_protocol::{
     range::TextRange,
 };
 use ref_index::RefIndex;
+use std::ops::{Range, RangeFrom, RangeInclusive, RangeTo, RangeToInclusive};
 
 #[cfg(test)]
+#[track_caller]
 pub fn run_test_on_text(raw_text: &str, f: impl FnOnce(Text)) {
     use husky_text_protocol::line_map::LineMap;
 
@@ -14,10 +16,7 @@ pub fn run_test_on_text(raw_text: &str, f: impl FnOnce(Text)) {
 }
 
 impl<'a> Text<'a> {
-    pub fn text_within(self, range: TextRange) -> &'a str {
-        &self.raw_text[self.line_map.offset_range(range)]
-    }
-    pub fn text_within2<R>(self, range: R) -> &'a str
+    pub fn text_within<R>(self, range: R) -> &'a str
     where
         Self: RefIndex<'a, R, Output = str>,
     {
@@ -25,111 +24,191 @@ impl<'a> Text<'a> {
     }
 }
 
-impl<'a> RefIndex<'a, std::ops::Range<(u32, u32)>> for Text<'a> {
+#[cfg(test)]
+#[track_caller]
+pub(crate) fn run_index_test_on_text<I>(input: &str, index: I, expected: &str)
+where
+    for<'a> Text<'a>: RefIndex<'a, I, Output = str>,
+{
+    run_test_on_text(
+        input,
+        #[track_caller]
+        |text| assert_eq!(text.ref_index(index), expected),
+    )
+}
+
+impl<'a> RefIndex<'a, Range<(u32, u32)>> for Text<'a> {
     type Output = str;
 
-    fn ref_index(self, range: std::ops::Range<(u32, u32)>) -> &'a Self::Output {
+    fn ref_index(self, range: Range<(u32, u32)>) -> &'a Self::Output {
         &self.raw_text[self.line_map.offset_range(range)]
     }
 }
 
-impl<'a> std::ops::Index<std::ops::Range<(u32, u32)>> for Text<'a> {
+#[test]
+pub(crate) fn text_ref_index_by_u32_pair_range_works() {
+    let t = run_index_test_on_text::<Range<(u32, u32)>>;
+    t("hello", (0, 1)..(0, 3), "el");
+}
+
+impl<'a> RefIndex<'a, TextRange> for Text<'a> {
     type Output = str;
 
-    fn index(&self, range: std::ops::Range<(u32, u32)>) -> &Self::Output {
+    fn ref_index(self, range: TextRange) -> &'a Self::Output {
         &self.raw_text[self.line_map.offset_range(range)]
     }
 }
 
-impl<'a> std::ops::Index<TextRange> for Text<'a> {
-    type Output = str;
-
-    fn index(&self, range: TextRange) -> &Self::Output {
-        &self.raw_text[self.line_map.offset_range(range)]
-    }
+#[test]
+pub(crate) fn text_ref_index_by_text_range_works() {
+    let t = run_index_test_on_text::<TextRange>;
+    t("hello", ((0, 1)..(0, 3)).into(), "el");
 }
 
-impl<'a> std::ops::Index<std::ops::RangeFrom<TextPosition>> for Text<'a> {
+impl<'a> RefIndex<'a, RangeFrom<TextPosition>> for Text<'a> {
     type Output = str;
 
-    fn index(&self, range_from: std::ops::RangeFrom<TextPosition>) -> &Self::Output {
+    fn ref_index(self, range_from: RangeFrom<TextPosition>) -> &'a Self::Output {
         &self.raw_text[self.line_map.offset_range_from(range_from)]
     }
 }
 
-#[cfg(test)]
-pub(crate) fn run_index_test_on_text<I>(input: &str, range_from: I, expected: &str)
-where
-    for<'a> Text<'a>: std::ops::Index<I, Output = str>,
-{
-    run_test_on_text(input, |text| assert_eq!(&text[range_from], expected))
-}
-
 #[test]
-pub(crate) fn range_from_text_position_works() {
-    let t = run_index_test_on_text::<std::ops::RangeFrom<TextPosition>>;
+pub(crate) fn text_ref_index_by_range_from_text_position_works() {
+    let t = run_index_test_on_text::<RangeFrom<TextPosition>>;
     t("hello", ((0, 1).into()).., "ello");
 }
 
 #[test]
 #[should_panic]
 pub(crate) fn range_from_text_position_fails() {
-    let t = run_index_test_on_text::<std::ops::RangeFrom<TextPosition>>;
+    let t = run_index_test_on_text::<RangeFrom<TextPosition>>;
     t("hello\n", ((1, 1).into()).., "ello");
 }
 
-impl<'a> std::ops::Index<std::ops::RangeTo<TextPosition>> for Text<'a> {
+impl<'a> RefIndex<'a, RangeTo<TextPosition>> for Text<'a> {
     type Output = str;
 
-    fn index(&self, index: std::ops::RangeTo<TextPosition>) -> &Self::Output {
-        todo!()
+    fn ref_index(self, range_to: RangeTo<TextPosition>) -> &'a Self::Output {
+        &self.raw_text[self.line_map.offset_range_to(range_to)]
     }
 }
 
-impl<'a> std::ops::Index<std::ops::RangeInclusive<TextPosition>> for Text<'a> {
+#[test]
+pub(crate) fn text_ref_index_by_range_to_text_position_works() {
+    let t = run_index_test_on_text::<RangeTo<TextPosition>>;
+    t("hello", ..((0, 3).into()), "hel");
+}
+
+impl<'a> RefIndex<'a, RangeInclusive<TextPosition>> for Text<'a> {
     type Output = str;
 
-    fn index(&self, index: std::ops::RangeInclusive<TextPosition>) -> &Self::Output {
-        todo!()
+    fn ref_index(self, range_inclusive: RangeInclusive<TextPosition>) -> &'a Self::Output {
+        &self.raw_text[self.line_map.offset_range_inclusive(range_inclusive)]
     }
 }
 
-impl<'a> std::ops::Index<std::ops::RangeToInclusive<TextPosition>> for Text<'a> {
+#[test]
+pub(crate) fn text_ref_index_by_range_inclusive_text_position_works() {
+    let t = run_index_test_on_text::<RangeInclusive<TextPosition>>;
+    t("hello", ((0, 0).into())..=((0, 2).into()), "hel");
+}
+
+impl<'a> RefIndex<'a, RangeToInclusive<TextPosition>> for Text<'a> {
     type Output = str;
 
-    fn index(&self, index: std::ops::RangeToInclusive<TextPosition>) -> &Self::Output {
-        todo!()
+    fn ref_index(self, range_to_inclusive: RangeToInclusive<TextPosition>) -> &'a Self::Output {
+        &self.raw_text[self.line_map.offset_range_to_inclusive(range_to_inclusive)]
     }
 }
 
-impl<'a> std::ops::Index<std::ops::RangeFrom<TextLine>> for Text<'a> {
+#[test]
+pub(crate) fn text_ref_index_by_range_to_inclusive_text_position_works() {
+    let t = run_index_test_on_text::<RangeToInclusive<TextPosition>>;
+    t("hello", ..=((0, 2).into()), "hel");
+}
+
+impl<'a> RefIndex<'a, RangeFrom<TextLine>> for Text<'a> {
     type Output = str;
 
-    fn index(&self, index: std::ops::RangeFrom<TextLine>) -> &Self::Output {
-        todo!()
+    fn ref_index(self, range_from: RangeFrom<TextLine>) -> &'a Self::Output {
+        &self.raw_text[self.line_map.offset_range_from_text_line(range_from)]
     }
 }
 
-impl<'a> std::ops::Index<std::ops::RangeTo<TextLine>> for Text<'a> {
+#[test]
+pub(crate) fn text_ref_index_by_range_from_text_line_works() {
+    let t = run_index_test_on_text::<RangeFrom<TextLine>>;
+    t("hello", (0.into()).., "hello");
+    t("hello\nworld", (0.into()).., "hello\nworld");
+    t("hello\nworld", (1.into()).., "world");
+}
+
+impl<'a> RefIndex<'a, RangeTo<TextLine>> for Text<'a> {
     type Output = str;
 
-    fn index(&self, index: std::ops::RangeTo<TextLine>) -> &Self::Output {
-        todo!()
+    fn ref_index(self, range_to: RangeTo<TextLine>) -> &'a Self::Output {
+        &self.raw_text[self.line_map.offset_range_to_text_line(range_to)]
     }
 }
 
-impl<'a> std::ops::Index<std::ops::RangeInclusive<TextLine>> for Text<'a> {
+#[test]
+pub(crate) fn text_ref_index_by_range_to_text_line_works() {
+    let t = run_index_test_on_text::<RangeTo<TextLine>>;
+    t("hello", ..(0.into()), "");
+    t("hello\nworld", ..(0.into()), "");
+    t("hello\nworld", ..(1.into()), "hello\n");
+    t("hello\nworld", ..(2.into()), "hello\nworld");
+}
+
+impl<'a> RefIndex<'a, RangeInclusive<TextLine>> for Text<'a> {
     type Output = str;
 
-    fn index(&self, index: std::ops::RangeInclusive<TextLine>) -> &Self::Output {
-        todo!()
+    fn ref_index(self, range_inclusive: RangeInclusive<TextLine>) -> &'a Self::Output {
+        &self.raw_text[self
+            .line_map
+            .offset_range_inclusive_text_line(range_inclusive)]
     }
 }
 
-impl<'a> std::ops::Index<std::ops::RangeToInclusive<TextLine>> for Text<'a> {
+#[test]
+pub(crate) fn text_ref_index_by_range_inclusive_text_line_works() {
+    let t = run_index_test_on_text::<RangeInclusive<TextLine>>;
+    t("hello", (0.into())..=(0.into()), "hello");
+    t("hello\nworld", (0.into())..=(0.into()), "hello\n");
+    t("hello\nworld", (0.into())..=(1.into()), "hello\nworld");
+    t("hello\nworld\n", (0.into())..=(2.into()), "hello\nworld\n");
+}
+
+#[test]
+#[should_panic]
+pub(crate) fn text_ref_index_by_range_inclusive_text_line_fails() {
+    let t = run_index_test_on_text::<RangeInclusive<TextLine>>;
+    t("hello\nworld", (0.into())..=(2.into()), "hello\nworld");
+}
+
+impl<'a> RefIndex<'a, RangeToInclusive<TextLine>> for Text<'a> {
     type Output = str;
 
-    fn index(&self, index: std::ops::RangeToInclusive<TextLine>) -> &Self::Output {
-        todo!()
+    fn ref_index(self, range_to_inclusive: RangeToInclusive<TextLine>) -> &'a Self::Output {
+        &self.raw_text[self
+            .line_map
+            .offset_range_to_inclusive_text_line(range_to_inclusive)]
     }
+}
+
+#[test]
+pub(crate) fn text_ref_index_by_range_to_inclusive_text_line_works() {
+    let t = run_index_test_on_text::<RangeToInclusive<TextLine>>;
+    t("hello", ..=(0.into()), "hello");
+    t("hello\nworld", ..=(0.into()), "hello\n");
+    t("hello\nworld", ..=(1.into()), "hello\nworld");
+    t("hello\nworld\n", ..=(2.into()), "hello\nworld\n");
+}
+
+#[test]
+#[should_panic]
+pub(crate) fn text_ref_index_by_range_to_inclusive_text_line_fails() {
+    let t = run_index_test_on_text::<RangeToInclusive<TextLine>>;
+    t("hello\nworld", ..=(2.into()), "hello\nworld");
 }

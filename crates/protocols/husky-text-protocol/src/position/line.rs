@@ -34,3 +34,11 @@ impl From<i32> for TextLine {
         TextLine(base0 as u32)
     }
 }
+
+impl std::ops::Add<u32> for TextLine {
+    type Output = Self;
+
+    fn add(self, rhs: u32) -> Self::Output {
+        Self(self.0 + rhs)
+    }
+}
