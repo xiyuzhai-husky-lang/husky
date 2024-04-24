@@ -180,6 +180,7 @@ maybe-result = { path = "crates/abstractions/maybe-result" }
 original-error = { path = "crates/abstractions/original-error" }
 parsec = { path = "crates/abstractions/parsec" }
 propagate = { path = "crates/abstractions/propagate" }
+ref-index = { path = "crates/abstractions/ref-index" }
 salsa = { path = "crates/abstractions/salsa" }
 salsa-macros = { path = "crates/abstractions/salsa-macros" }
 serde-impl = { path = "crates/abstractions/serde-impl" }

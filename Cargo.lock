@@ -6269,6 +6269,7 @@ dependencies = [
  "husky-text-protocol",
  "husky-vfs",
  "lsp-types 0.94.1",
+ "ref-index",
  "rustc-hash",
  "salsa",
  "serde",
@@ -8928,6 +8929,10 @@ dependencies = [
  "libredox 0.0.1",
  "thiserror",
 ]
+
+[[package]]
+name = "ref-index"
+version = "0.1.0"
 
 [[package]]
 name = "regex"

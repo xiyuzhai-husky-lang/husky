@@ -88,8 +88,37 @@ impl LineMap {
         self.newlines[pos.line.0 as usize] + usize::from(pos.col.0 as usize)
     }
 
-    pub fn offset_range(&self, range: TextRange) -> std::ops::Range<usize> {
+    pub fn offset_range(&self, range: impl Into<TextRange>) -> std::ops::Range<usize> {
+        let range = range.into();
         self.offset(range.start)..self.offset(range.end)
+    }
+
+    pub fn offset_range_from(
+        &self,
+        range_from: std::ops::RangeFrom<TextPosition>,
+    ) -> std::ops::RangeFrom<usize> {
+        self.offset(range_from.start)..
+    }
+
+    pub fn offset_range_to(
+        &self,
+        range_to: std::ops::RangeTo<TextPosition>,
+    ) -> std::ops::RangeTo<usize> {
+        ..self.offset(range_to.end)
+    }
+
+    pub fn offset_range_inclusive(
+        &self,
+        range_inclusive: std::ops::RangeInclusive<TextPosition>,
+    ) -> std::ops::RangeInclusive<usize> {
+        self.offset(*range_inclusive.start())..=self.offset(*range_inclusive.end())
+    }
+
+    pub fn offset_range_to_inclusive(
+        &self,
+        range_to_inclusive: std::ops::RangeToInclusive<TextPosition>,
+    ) -> std::ops::RangeToInclusive<usize> {
+        ..=self.offset(range_to_inclusive.end)
     }
 
     pub fn to_utf16(&self, line_col: TextPosition) -> TextPositionUtf16 {
