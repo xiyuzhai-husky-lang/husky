@@ -1,3 +1,4 @@
+pub mod helpers;
 pub mod jar;
 mod line_map;
 #[cfg(test)]
@@ -33,20 +34,10 @@ impl<'a> std::fmt::Debug for Text<'a> {
     }
 }
 
-impl<'a> std::ops::Index<std::ops::Range<(u32, u32)>> for Text<'a> {
-    type Output = str;
-
-    fn index(&self, index: std::ops::Range<(u32, u32)>) -> &Self::Output {
-        self.text_within(index.into())
-    }
-}
-
 impl<'a> Text<'a> {
-    pub fn text_within(self, range: TextRange) -> &'a str {
-        &self.raw_text[self.line_map.offset_range(range)]
-    }
-
     pub fn offset_range(self, range: TextRange) -> std::ops::Range<usize> {
         self.line_map.offset_range(range)
     }
 }
+
+mod index;
