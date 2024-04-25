@@ -31,7 +31,10 @@ count-todo:
 	scripts/pattern_statistics.py "todo!()" crates 2 10
 
 update-expect:
-	scripts/update-expect.sh
+	scripts/update_expect.sh
+
+update-expect-package:
+	scripts/update_expect_package.sh husky-text
 
 update-expect-local:
 	cargo fmt
