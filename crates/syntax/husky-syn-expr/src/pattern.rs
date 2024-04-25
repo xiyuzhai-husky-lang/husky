@@ -9,7 +9,7 @@ pub use self::symbol::*;
 
 use super::*;
 use husky_coword::Ident;
-use husky_entity_kind::MajorFugitiveKind;
+use husky_entity_kind::MajorFormKind;
 use husky_entity_path::{ItemPath, TypePath, TypeVariantPath};
 use idx_arena::{map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange};
 use parsec::{IsStreamParser, PunctuatedSmallList, TryParseOptionFromStream};
@@ -29,7 +29,7 @@ pub enum SynPatternData {
     },
     /// example: `A::B`
     UnitTypeVariant {
-        path_expr_idx: PrincipalEntityPathSynExprIdx,
+        path_expr_idx: SynPrincipalEntityPathSynExprIdx,
         path: TypeVariantPath,
     },
     /// example: `(a, b)`
@@ -45,7 +45,7 @@ pub enum SynPatternData {
         rpar: RparRegionalToken,
     },
     TupleTypeVariant {
-        path_expr_idx: PrincipalEntityPathSynExprIdx,
+        path_expr_idx: SynPrincipalEntityPathSynExprIdx,
         path: TypeVariantPath,
         lpar: LparRegionalToken,
         fields: PunctuatedSmallList<
@@ -131,7 +131,7 @@ where
                         })
                     }
                     DisambiguatedTokenData::IdentifiableEntityPath(syn_expr) => match syn_expr {
-                        IdentifiableEntityPathExpr::Principal {
+                        ItemPathExpr::Principal {
                             path_expr_idx,
                             opt_path,
                         } => match opt_path {
@@ -145,19 +145,17 @@ where
                                 PrincipalEntityPath::MajorItem(path) => match path {
                                     MajorItemPath::Type(_) => todo!(),
                                     MajorItemPath::Trait(_) => todo!(),
-                                    MajorItemPath::Fugitive(path) => match path
-                                        .major_fugitive_kind(db)
-                                    {
-                                        MajorFugitiveKind::Ritchie(_) | MajorFugitiveKind::Val => {
+                                    MajorItemPath::Form(path) => match path.major_form_kind(db) {
+                                        MajorFormKind::Ritchie(_) | MajorFormKind::Val => {
                                             parse_overriding_ident_pattern(
                                                 parser,
                                                 path_expr_idx,
                                                 symbol_modifier_tokens,
                                             )
                                         }
-                                        MajorFugitiveKind::TypeAlias => todo!(),
-                                        MajorFugitiveKind::Formal => todo!(),
-                                        MajorFugitiveKind::Const => todo!(),
+                                        MajorFormKind::TypeAlias => todo!(),
+                                        MajorFormKind::Formal => todo!(),
+                                        MajorFormKind::Const => todo!(),
                                     },
                                 },
                                 PrincipalEntityPath::TypeVariant(path) => {
@@ -192,7 +190,7 @@ where
                             },
                             None => todo!(),
                         },
-                        IdentifiableEntityPathExpr::AssocItem { .. } => todo!(),
+                        ItemPathExpr::AssocItem { .. } => todo!(),
                     },
                     DisambiguatedTokenData::InheritedSynSymbol {
                         regional_token_idx,
@@ -211,7 +209,6 @@ where
                         symbol_modifier_tokens,
                         ident_token: IdentRegionalToken::new(ident, regional_token_idx),
                     }),
-                    DisambiguatedTokenData::SelfType(_) => todo!(),
                     DisambiguatedTokenData::SelfValue(_) => todo!(),
                     DisambiguatedTokenData::LeftDelimiter(_, _) => todo!(),
                     _ => None,
@@ -234,7 +231,7 @@ where
 
 fn parse_overriding_ident_pattern<'a, C>(
     parser: &mut SynExprParser<'a, C>,
-    path_expr_idx: PrincipalEntityPathSynExprIdx,
+    path_expr_idx: SynPrincipalEntityPathSynExprIdx,
     symbol_modifier_tokens: Option<EphemSymbolModifierRegionalTokens>,
 ) -> Option<SynPatternData>
 where
@@ -248,9 +245,9 @@ where
                 symbol_modifier_tokens,
                 ident_token,
             }),
-            PathNameRegionalToken::CrateRoot(_) => todo!(),
+            PathNameRegionalToken::CrateRootMod(_) => todo!(),
             PathNameRegionalToken::SelfMod(_) => todo!(),
-            PathNameRegionalToken::Super(_) => todo!(),
+            PathNameRegionalToken::SuperMod(_) => todo!(),
         },
         SynPrincipalEntityPathExpr::Subitem { .. } => todo!(),
     }

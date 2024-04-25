@@ -34,7 +34,7 @@ pub(crate) fn item_variance_reprs(
         ItemPath::MajorItem(path) => match path {
             MajorItemPath::Type(path) => ty_template_parameter_variance_reprs(db, path),
             MajorItemPath::Trait(path) => trai_item_variance_reprs(db, path),
-            MajorItemPath::Fugitive(path) => form_item_variance_reprs(db, path),
+            MajorItemPath::Form(path) => form_item_variance_reprs(db, path),
         },
         ItemPath::AssocItem(_path) => todo!(),
         // match path {
@@ -134,7 +134,7 @@ pub(crate) fn trai_item_variance_reprs(
 #[salsa::tracked(jar = DeclarativeTypeJar, return_ref)]
 pub(crate) fn form_item_variance_reprs(
     db: &::salsa::Db,
-    path: FugitivePath,
+    path: MajorFormPath,
 ) -> VarianceResult<Vec<VarianceRepr>> {
     let signature = match path.dec_template(db) {
         Ok(signature) => signature,

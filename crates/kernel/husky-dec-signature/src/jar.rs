@@ -31,12 +31,10 @@ pub struct DecSignatureJar(
     // trait
     TraitDecTemplate,
     trai_syn_dec_template,
-    // fugitive
-    // fugitive_signature,
-    fugitive_syn_dec_template,
+    // Form
+    form_syn_dec_template,
     MajorValDecTemplate,
-    MajorFnDecTemplate,
-    MajorGnDecTemplate,
+    MajorFunctionRitchieDecTemplate,
     TypeAliasDecTemplate,
     // impl block
     TypeImplBlockDecTemplate,
@@ -51,26 +49,26 @@ pub struct DecSignatureJar(
     // associated items
     // type item
     ty_item_syn_dec_template,
-    TypeAssocFnDecTemplate,
-    TypeMethodFnDecTemplate,
-    TypeMethodFunctionDecTemplate,
+    TypeAssocRitchieDecTemplate,
+    TypeMethodRitchieDecTemplate,
+    TypeMethodCurryDecTemplate,
     TypeAssocTypeDecTemplate,
     TypeAssocValDecTemplate,
     TypeMemoizedFieldDecTemplate,
     // trait item
-    // trai_item_syn_dec_template,
-    TraitAssocFnDecTemplate,
-    TraitMethodFnDecTemplate,
+    trai_item_syn_dec_template,
+    TraitAssocRitchieDecTemplate,
+    TraitMethodRitchieDecTemplate,
     TraitAssocTypeDecTemplate,
     TraitAssocValDecTemplate,
     // type as trait item
-    // trai_for_ty_item_syn_declarative_signature_from_decl,
-    TraitForTypeAssocFnDecTemplate,
-    TraitForTypeMethodFnDecTemplate,
+    trai_for_ty_item_syn_declarative_signature_from_decl,
+    TraitForTypeAssocRitchieDecTemplate,
+    TraitForTypeMethodRitchieDecTemplate,
     TraitForTypeAssocTypeDecTemplate,
     TraitForTypeAssocValDecTemplate,
     // attr
-    // attr_dec_template,
+    attr_dec_template,
     DeriveAttrDecTemplate,
     DeriveAttrShardDecTemplate,
 );

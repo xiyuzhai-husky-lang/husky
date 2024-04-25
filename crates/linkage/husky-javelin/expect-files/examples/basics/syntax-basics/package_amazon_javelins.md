@@ -16,8 +16,8 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavPath::Fugitive(
-                    FugitivePath(`syntax_basics::expr::nested`, `Ritchie(
+                path: JavPath::Form(
+                    FormPath(`syntax_basics::expr::nested`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -31,8 +31,8 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavPath::Fugitive(
-                    FugitivePath(`syntax_basics::expr::closure_inline`, `Ritchie(
+                path: JavPath::Form(
+                    FormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -46,8 +46,8 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavPath::Fugitive(
-                    FugitivePath(`syntax_basics::expr::closure_nested`, `Ritchie(
+                path: JavPath::Form(
+                    FormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
                         Fn,
                     )`),
                 ),

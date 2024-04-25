@@ -1,8 +1,9 @@
 use crate::*;
 use either::*;
 use husky_corgi_config::transpilation_setup::TranspilationSetup;
+use husky_entity_kind::ritchie::RitchieItemKind;
 use husky_entity_path::{
-    AssocItemPath, FugitivePath, PreludeTypePath, TraitForTypeItemPath, TraitItemPath,
+    AssocItemPath, MajorFormPath, PreludeTypePath, TraitForTypeItemPath, TraitItemPath,
     TypeItemPath, TypeVariantPath,
 };
 use husky_eth_signature::signature::HasEthTemplate;
@@ -62,18 +63,23 @@ impl TranspileToRustWith<()> for Linkage {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<()>) {
         let db = builder.db;
         match *self.data(db) {
-            LinkageData::MajorRitchieEager {
+            LinkageData::MajorFunctionRitchie {
                 path,
                 ref instantiation,
-            } => builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {
-                (path, instantiation).transpile_to_rust(builder)
-            }),
-            LinkageData::MajorRitchieLazy {
-                path,
-                ref instantiation,
-            } => builder.macro_call(RustMacroName::GnLinkageImpl, |builder| {
-                (path, instantiation).transpile_to_rust(builder)
-            }),
+            } => match path.major_form_kind(db).ritchie() {
+                RitchieItemKind::Fn => builder
+                    .macro_call(RustMacroName::FnLinkageImpl, |builder| {
+                        (path, instantiation).transpile_to_rust(builder)
+                    }),
+                RitchieItemKind::Gn => builder
+                    .macro_call(RustMacroName::GnLinkageImpl, |builder| {
+                        (path, instantiation).transpile_to_rust(builder)
+                    }),
+                RitchieItemKind::Vn => todo!(),
+                RitchieItemKind::Pn => todo!(),
+                RitchieItemKind::Qn => todo!(),
+                RitchieItemKind::Tn => todo!(),
+            },
             LinkageData::MajorVal {
                 path,
                 instantiation: _,
@@ -178,14 +184,16 @@ impl TranspileToRustWith<()> for Linkage {
                 field,
             } => builder.macro_call(RustMacroName::EnumVariantFieldLinkageImpl, |builder| {
                 path.parent_ty_path(db).transpile_to_rust(builder);
-                builder.delimited_comma_list(
-                    RustDelimiter::Angle,
-                    instantiation.iter().map(|(_, res)| match res {
-                        LinTermSymbolResolution::Explicit(arg) => arg,
-                        LinTermSymbolResolution::SelfLifetime
-                        | LinTermSymbolResolution::SelfQual(_) => unreachable!(),
-                    }),
-                );
+                if !instantiation.is_empty() {
+                    builder.delimited_comma_list(
+                        RustDelimiter::Angle,
+                        instantiation.iter().map(|(_, res)| match res {
+                            LinTermSymbolResolution::Explicit(arg) => arg,
+                            LinTermSymbolResolution::SelfLifetime
+                            | LinTermSymbolResolution::SelfQual(_) => unreachable!(),
+                        }),
+                    );
+                }
                 builder.punctuation(RustPunctuation::CommaSpaced);
                 path.transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::CommaSpaced);
@@ -247,7 +255,7 @@ impl TranspileToRustWith<()> for Linkage {
             } => builder.macro_call(RustMacroName::FnLinkageImpl, |builder| {
                 (path, instantiation).transpile_to_rust(builder)
             }),
-            LinkageData::UnveilAssocFn {
+            LinkageData::UnveilAssocRitchie {
                 path,
                 ref instantiation,
             } => builder.macro_call(RustMacroName::UnveilLinkageImpl, |builder| {
@@ -289,7 +297,7 @@ impl<E> TranspileToRustWith<E> for (AssocItemPath, &LinInstantiation) {
     }
 }
 
-impl<E> TranspileToRustWith<E> for (FugitivePath, &LinInstantiation) {
+impl<E> TranspileToRustWith<E> for (MajorFormPath, &LinInstantiation) {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let (path, instantiation) = self;
         path.transpile_to_rust(builder);
@@ -373,7 +381,7 @@ impl<E> TranspileToRustWith<E> for (TypeItemPath, &LinInstantiation) {
                     }
                     LinTermSymbolResolution::SelfQual(place) => match place {
                         qual::LinQual::Ref => ident.transpile_to_rust(builder),
-                        qual::LinQual::RefMut => builder.method_fn_ident_mut(ident),
+                        qual::LinQual::RefMut => builder.method_ritchie_ident_mut(ident),
                         qual::LinQual::Transient => todo!(),
                     },
                     _ => unreachable!(),

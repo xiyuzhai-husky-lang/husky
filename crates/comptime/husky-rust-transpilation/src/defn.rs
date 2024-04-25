@@ -7,7 +7,7 @@ mod ty_variant;
 
 use crate::*;
 use husky_corgi_config::transpilation_setup::TranspilationSetup;
-use husky_entity_kind::{EntityKind, MajorFugitiveKind, MajorItemKind};
+use husky_entity_kind::{EntityKind, MajorFormKind, MajorItemKind};
 use husky_entity_tree::helpers::paths::{module_item_paths, module_submodule_item_paths};
 use husky_hir_decl::parameter::{
     parenate::eager::{HirEagerParenateParameter, HirEagerParenateParameters},
@@ -80,8 +80,7 @@ use {}::{{*, ugly::*}};
     for item_path in module_item_paths(db, module_path) {
         match item_path.item_kind(db) {
             EntityKind::MajorItem {
-                module_item_kind:
-                    MajorItemKind::Fugitive(MajorFugitiveKind::Ritchie(ritchie_item_kind)),
+                module_item_kind: MajorItemKind::Form(MajorFormKind::Ritchie(ritchie_item_kind)),
                 ..
             } if ritchie_item_kind.is_lazy() => continue,
             _ => (),

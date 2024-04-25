@@ -5,9 +5,7 @@ AstSheet {
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        1,
-                    ),
+                    raw: 0,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Protected,
@@ -42,12 +40,12 @@ AstSheet {
         ],
     },
     top_level_asts: ArenaIdxRange(
-        1..2,
+        0..1,
     ),
     nested_top_level_asts: [],
     siblings: [
         ArenaIdxRange(
-            1..2,
+            0..1,
         ),
     ],
 }

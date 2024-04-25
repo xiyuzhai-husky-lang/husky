@@ -118,7 +118,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Keyword(
-            Keyword::Fugitive(
+            Keyword::Form(
                 Fn,
             ),
         ),

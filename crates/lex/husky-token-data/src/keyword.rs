@@ -1,7 +1,7 @@
 mod ambiguous;
 mod connection;
 mod end;
-mod fugitive;
+mod form;
 mod modifier;
 mod pronoun;
 mod stmt;
@@ -10,7 +10,7 @@ mod ty;
 pub use self::ambiguous::*;
 pub use self::connection::*;
 pub use self::end::*;
-pub use self::fugitive::*;
+pub use self::form::*;
 pub use self::modifier::*;
 pub use self::pronoun::*;
 pub use self::stmt::*;
@@ -26,7 +26,7 @@ use std::ops::Deref;
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum Keyword {
-    Fugitive(FugitiveKeyword),
+    Form(FormKeyword),
     TypeEntity(TypeEntityKeyword),
     Stmt(StmtKeyword),
     Modifier(ModifierKeyword),
@@ -76,7 +76,7 @@ impl Keyword {
 
     pub fn code(self) -> &'static str {
         match self {
-            Keyword::Fugitive(keyword) => keyword.code(),
+            Keyword::Form(keyword) => keyword.code(),
             Keyword::TypeEntity(keyword) => keyword.code(),
             Keyword::Stmt(keyword) => keyword.code(),
             Keyword::Use => "use",

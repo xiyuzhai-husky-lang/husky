@@ -6,25 +6,25 @@ EntityTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
-                        syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`, (0)),
+                        syn_node_path: MajorItemSynNodePath::Form(
+                            FormSynNodePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
-                        ast_idx: 63,
+                        ast_idx: 62,
                         ident_token: IdentToken {
                             ident: `one_fermi_match`,
                             token_idx: TokenIdx(
                                 6,
                             ),
                         },
-                        block: DefnBlock::Fugitive {
-                            path: FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                        block: DefnBlock::Form {
+                            path: FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                             body: Some(
-                                FugitiveBody {
+                                FormBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        1..2,
+                                        0..1,
                                     ),
                                 },
                             ),
@@ -32,8 +32,8 @@ EntityTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`, (0)),
+                    MajorItemSynNodePath::Form(
+                        FormSynNodePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`, (0)),
                     ),
                 ),
                 ident: `one_fermi_match`,
@@ -44,23 +44,23 @@ EntityTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
-                        syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`mnist_classifier::digits::one::is_one`, `Val`, (0)),
+                        syn_node_path: MajorItemSynNodePath::Form(
+                            FormSynNodePath(`mnist_classifier::digits::one::is_one`, `Val`, (0)),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 64,
+                        ast_idx: 63,
                         ident_token: IdentToken {
                             ident: `is_one`,
                             token_idx: TokenIdx(
                                 24,
                             ),
                         },
-                        block: DefnBlock::Fugitive {
-                            path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        block: DefnBlock::Form {
+                            path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                             body: Some(
-                                FugitiveBody {
+                                FormBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        49..52,
+                                        48..51,
                                     ),
                                 },
                             ),
@@ -68,8 +68,8 @@ EntityTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`mnist_classifier::digits::one::is_one`, `Val`, (0)),
+                    MajorItemSynNodePath::Form(
+                        FormSynNodePath(`mnist_classifier::digits::one::is_one`, `Val`, (0)),
                     ),
                 ),
                 ident: `is_one`,
@@ -78,29 +78,29 @@ EntityTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
-                        syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`mnist_classifier::digits::one::upmost`, `Ritchie(
+                        syn_node_path: MajorItemSynNodePath::Form(
+                            FormSynNodePath(`mnist_classifier::digits::one::upmost`, `Ritchie(
                                 Fn,
                             )`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
-                        ast_idx: 65,
+                        ast_idx: 64,
                         ident_token: IdentToken {
                             ident: `upmost`,
                             token_idx: TokenIdx(
                                 530,
                             ),
                         },
-                        block: DefnBlock::Fugitive {
-                            path: FugitivePath(`mnist_classifier::digits::one::upmost`, `Ritchie(
+                        block: DefnBlock::Form {
+                            path: FormPath(`mnist_classifier::digits::one::upmost`, `Ritchie(
                                 Fn,
                             )`),
                             body: Some(
-                                FugitiveBody {
+                                FormBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        52..55,
+                                        51..54,
                                     ),
                                 },
                             ),
@@ -108,8 +108,8 @@ EntityTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`mnist_classifier::digits::one::upmost`, `Ritchie(
+                    MajorItemSynNodePath::Form(
+                        FormSynNodePath(`mnist_classifier::digits::one::upmost`, `Ritchie(
                             Fn,
                         )`, (0)),
                     ),
@@ -122,29 +122,29 @@ EntityTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
-                        syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`mnist_classifier::digits::one::downmost`, `Ritchie(
+                        syn_node_path: MajorItemSynNodePath::Form(
+                            FormSynNodePath(`mnist_classifier::digits::one::downmost`, `Ritchie(
                                 Fn,
                             )`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
-                        ast_idx: 66,
+                        ast_idx: 65,
                         ident_token: IdentToken {
                             ident: `downmost`,
                             token_idx: TokenIdx(
                                 559,
                             ),
                         },
-                        block: DefnBlock::Fugitive {
-                            path: FugitivePath(`mnist_classifier::digits::one::downmost`, `Ritchie(
+                        block: DefnBlock::Form {
+                            path: FormPath(`mnist_classifier::digits::one::downmost`, `Ritchie(
                                 Fn,
                             )`),
                             body: Some(
-                                FugitiveBody {
+                                FormBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        55..58,
+                                        54..57,
                                     ),
                                 },
                             ),
@@ -152,8 +152,8 @@ EntityTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`mnist_classifier::digits::one::downmost`, `Ritchie(
+                    MajorItemSynNodePath::Form(
+                        FormSynNodePath(`mnist_classifier::digits::one::downmost`, `Ritchie(
                             Fn,
                         )`, (0)),
                     ),
@@ -166,29 +166,29 @@ EntityTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
-                        syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`mnist_classifier::digits::one::hat`, `Ritchie(
+                        syn_node_path: MajorItemSynNodePath::Form(
+                            FormSynNodePath(`mnist_classifier::digits::one::hat`, `Ritchie(
                                 Fn,
                             )`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::one`,
                         ),
-                        ast_idx: 67,
+                        ast_idx: 66,
                         ident_token: IdentToken {
                             ident: `hat`,
                             token_idx: TokenIdx(
                                 593,
                             ),
                         },
-                        block: DefnBlock::Fugitive {
-                            path: FugitivePath(`mnist_classifier::digits::one::hat`, `Ritchie(
+                        block: DefnBlock::Form {
+                            path: FormPath(`mnist_classifier::digits::one::hat`, `Ritchie(
                                 Fn,
                             )`),
                             body: Some(
-                                FugitiveBody {
+                                FormBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        58..62,
+                                        57..61,
                                     ),
                                 },
                             ),
@@ -196,8 +196,8 @@ EntityTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`mnist_classifier::digits::one::hat`, `Ritchie(
+                    MajorItemSynNodePath::Form(
+                        FormSynNodePath(`mnist_classifier::digits::one::hat`, `Ritchie(
                             Fn,
                         )`, (0)),
                     ),
@@ -212,8 +212,8 @@ EntityTreePresheet {
     once_use_rules: OnceUseRules(
         [
             OnceUseRule {
-                ast_idx: 62,
-                use_expr_idx: 2,
+                ast_idx: 61,
+                use_expr_idx: 1,
                 visibility: Scope::PubUnder(
                     `mnist_classifier::digits::one`,
                 ),
@@ -226,7 +226,7 @@ EntityTreePresheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        1..2,
+                        0..1,
                     ),
                 },
                 parent: None,
@@ -264,7 +264,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 1,
+                            child: 0,
                         },
                     ),
                 },

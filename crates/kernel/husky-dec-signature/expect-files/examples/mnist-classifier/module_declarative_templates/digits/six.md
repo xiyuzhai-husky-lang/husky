@@ -2,14 +2,14 @@
 [
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
             ),
         ),
         Ok(
             DecTemplate::MajorItem(
-                MajorItemDecTemplate::Fugitive(
-                    FugitiveDecTemplate::Ki(
+                MajorItemDecTemplate::Form(
+                    MajorFormDecTemplate::Val(
                         MajorValDecTemplate {
                             return_ty: EntityPath(
                                 Type(
@@ -30,14 +30,14 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
             ),
         ),
         Ok(
             DecTemplate::MajorItem(
-                MajorItemDecTemplate::Fugitive(
-                    FugitiveDecTemplate::Ki(
+                MajorItemDecTemplate::Form(
+                    MajorFormDecTemplate::Val(
                         MajorValDecTemplate {
                             return_ty: EntityPath(
                                 Type(
@@ -58,14 +58,14 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
             ),
         ),
         Ok(
             DecTemplate::MajorItem(
-                MajorItemDecTemplate::Fugitive(
-                    FugitiveDecTemplate::Ki(
+                MajorItemDecTemplate::Form(
+                    MajorFormDecTemplate::Val(
                         MajorValDecTemplate {
                             return_ty: Application(
                                 DecApplication(
@@ -82,17 +82,18 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::six::upmost`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::six::upmost`, `Ritchie(
                     Fn,
                 )`),
             ),
         ),
         Ok(
             DecTemplate::MajorItem(
-                MajorItemDecTemplate::Fugitive(
-                    FugitiveDecTemplate::Fn(
-                        MajorFnDecTemplate {
+                MajorItemDecTemplate::Form(
+                    MajorFormDecTemplate::Ritchie(
+                        MajorFunctionRitchieDecTemplate {
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
@@ -127,17 +128,18 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
                     Fn,
                 )`),
             ),
         ),
         Ok(
             DecTemplate::MajorItem(
-                MajorItemDecTemplate::Fugitive(
-                    FugitiveDecTemplate::Fn(
-                        MajorFnDecTemplate {
+                MajorItemDecTemplate::Form(
+                    MajorFormDecTemplate::Ritchie(
+                        MajorFunctionRitchieDecTemplate {
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },

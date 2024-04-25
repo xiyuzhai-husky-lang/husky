@@ -7,11 +7,15 @@ pub use text_bytes_len::*;
 
 use crate::*;
 use rustc_hash::FxHashMap;
-use std::iter;
+use std::{
+    iter,
+    ops::{Range, RangeFrom, RangeInclusive, RangeTo, RangeToInclusive},
+};
 use wide_char::*;
 
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub struct LineMap {
+    text_len_in_bytes: usize,
     /// Offset the the beginning of each line, zero-based
     pub(crate) newlines: Vec<usize>,
     /// List of non-ASCII characters on each line
@@ -28,6 +32,7 @@ pub struct TextPositionUtf16 {
 
 impl LineMap {
     pub fn new(text: &str) -> LineMap {
+        let text_len_in_bytes = text.len();
         let mut wide_chars_line_map = FxHashMap::default();
         let mut wide_chars_buffer: Vec<WideCharColRange> = vec![];
 
@@ -69,9 +74,14 @@ impl LineMap {
         }
 
         LineMap {
+            text_len_in_bytes,
             newlines,
             wide_chars_line_map,
         }
+    }
+
+    pub fn all_text_line_range(&self) -> Range<TextLine> {
+        (0.into())..(self.newlines.len().into())
     }
 
     pub fn position_from_offset(&self, offset: usize) -> TextPosition {
@@ -84,12 +94,111 @@ impl LineMap {
         }
     }
 
+    /// the byte index
     pub fn offset(&self, pos: TextPosition) -> usize {
+        if pos.line.0 as usize == self.newlines.len() {
+            if pos.col.0 == 0 {
+                return self.text_len_in_bytes;
+            } else {
+                todo!()
+            }
+        }
         self.newlines[pos.line.0 as usize] + usize::from(pos.col.0 as usize)
     }
 
-    pub fn offset_range(&self, range: TextRange) -> std::ops::Range<usize> {
+    pub fn offset_range(&self, range: impl Into<TextRange>) -> Range<usize> {
+        let range = range.into();
         self.offset(range.start)..self.offset(range.end)
+    }
+
+    pub fn offset_range_from(&self, range_from: RangeFrom<TextPosition>) -> RangeFrom<usize> {
+        self.offset(range_from.start)..
+    }
+
+    pub fn offset_range_to(&self, range_to: RangeTo<TextPosition>) -> RangeTo<usize> {
+        ..self.offset(range_to.end)
+    }
+
+    pub fn offset_range_inclusive(
+        &self,
+        range_inclusive: RangeInclusive<TextPosition>,
+    ) -> RangeInclusive<usize> {
+        self.offset(*range_inclusive.start())..=self.offset(*range_inclusive.end())
+    }
+
+    pub fn offset_range_to_inclusive(
+        &self,
+        range_to_inclusive: RangeToInclusive<TextPosition>,
+    ) -> RangeToInclusive<usize> {
+        ..=self.offset(range_to_inclusive.end)
+    }
+
+    pub fn text_line_offset_range(&self, line: TextLine) -> Range<usize> {
+        let end = if (line.0 as usize) < self.newlines.len() {
+            self.offset(TextPosition {
+                line: line + 1,
+                col: 0.into(),
+            })
+        } else {
+            self.text_len_in_bytes
+        };
+        self.offset(TextPosition {
+            line,
+            col: 0.into(),
+        })..end
+    }
+
+    pub fn text_line_range_offset_range(&self, text_line_range: Range<TextLine>) -> Range<usize> {
+        self.offset(TextPosition {
+            line: text_line_range.start,
+            col: 0.into(),
+        })..self.offset(TextPosition {
+            line: text_line_range.end,
+            col: 0.into(),
+        })
+    }
+
+    pub fn offset_range_from_text_line(
+        &self,
+        range_from_text_line: RangeFrom<TextLine>,
+    ) -> RangeFrom<usize> {
+        self.offset(TextPosition {
+            line: range_from_text_line.start,
+            col: 0.into(),
+        })..
+    }
+
+    pub fn offset_range_to_text_line(
+        &self,
+        range_from_text_line: RangeTo<TextLine>,
+    ) -> RangeTo<usize> {
+        ..self.offset(TextPosition {
+            line: range_from_text_line.end,
+            col: 0.into(),
+        })
+    }
+
+    pub fn offset_range_inclusive_text_line(
+        &self,
+        range_from_text_line: RangeInclusive<TextLine>,
+    ) -> Range<usize> {
+        self.offset(TextPosition {
+            line: *range_from_text_line.start(),
+            col: 0.into(),
+        })..self.offset(TextPosition {
+            line: *range_from_text_line.end() + 1,
+            col: 0.into(),
+        })
+    }
+
+    pub fn offset_range_to_inclusive_text_line(
+        &self,
+        range_from_text_line: RangeToInclusive<TextLine>,
+    ) -> RangeTo<usize> {
+        ..self.offset(TextPosition {
+            line: range_from_text_line.end + 1,
+            col: 0.into(),
+        })
     }
 
     pub fn to_utf16(&self, line_col: TextPosition) -> TextPositionUtf16 {
@@ -108,10 +217,7 @@ impl LineMap {
         }
     }
 
-    pub fn lines(
-        &self,
-        range: std::ops::Range<usize>,
-    ) -> impl Iterator<Item = std::ops::Range<usize>> + '_ {
+    pub fn lines(&self, range: Range<usize>) -> impl Iterator<Item = Range<usize>> + '_ {
         let lo = self.newlines.partition_point(|&it| it < range.start);
         let hi = self.newlines.partition_point(|&it| it <= range.end);
         let all = iter::once(range.start)

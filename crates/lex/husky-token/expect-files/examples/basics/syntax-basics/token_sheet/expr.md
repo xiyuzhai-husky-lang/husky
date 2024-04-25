@@ -2,7 +2,7 @@
 TokenSheetData {
     tokens: [
         TokenData::Keyword(
-            Keyword::Fugitive(
+            Keyword::Form(
                 Fn,
             ),
         ),
@@ -63,7 +63,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Keyword(
-            Keyword::Fugitive(
+            Keyword::Form(
                 Fn,
             ),
         ),
@@ -143,7 +143,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Keyword(
-            Keyword::Fugitive(
+            Keyword::Form(
                 Fn,
             ),
         ),

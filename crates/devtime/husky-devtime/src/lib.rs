@@ -120,7 +120,7 @@ impl<Task: IsTask> IsTracetime for Devtime<Task> {
                 (
                     followed_trace.into(),
                     ki_repr.into(),
-                    ki_repr.val_domain_repr(db).into(),
+                    ki_repr.ki_domain_repr(db).into(),
                 )
             }),
             None => None,

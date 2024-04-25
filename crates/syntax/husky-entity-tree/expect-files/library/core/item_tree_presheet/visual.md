@@ -12,8 +12,8 @@ EntityTreePresheet {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Trait(
                                             TraitSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TraitPath(`core::visual::Visualize`),
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TraitPath(`core::visual::Visualize`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -23,7 +23,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 4,
+                        ast_idx: 3,
                         ident_token: IdentToken {
                             ident: `Visualize`,
                             token_idx: TokenIdx(
@@ -35,7 +35,7 @@ EntityTreePresheet {
                             items: Some(
                                 TraitItems {
                                     ast_idx_range: ArenaIdxRange(
-                                        1..2,
+                                        0..1,
                                     ),
                                 },
                             ),
@@ -49,8 +49,8 @@ EntityTreePresheet {
                                 data: ItemSynNodePathData::MajorItem(
                                     MajorItemSynNodePathData::Trait(
                                         TraitSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TraitPath(`core::visual::Visualize`),
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: TraitPath(`core::visual::Visualize`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -72,8 +72,8 @@ EntityTreePresheet {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`core::visual::Visual`, `Extern`),
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`core::visual::Visual`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -83,7 +83,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 5,
+                        ast_idx: 4,
                         ident_token: IdentToken {
                             ident: `Visual`,
                             token_idx: TokenIdx(
@@ -103,8 +103,8 @@ EntityTreePresheet {
                                 data: ItemSynNodePathData::MajorItem(
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`core::visual::Visual`, `Extern`),
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: TypePath(`core::visual::Visual`, `Extern`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -122,8 +122,8 @@ EntityTreePresheet {
     once_use_rules: OnceUseRules(
         [
             OnceUseRule {
-                ast_idx: 3,
-                use_expr_idx: 2,
+                ast_idx: 2,
+                use_expr_idx: 1,
                 visibility: Scope::PubUnder(
                     `core::visual`,
                 ),
@@ -136,7 +136,7 @@ EntityTreePresheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        1..2,
+                        0..1,
                     ),
                 },
                 parent: None,
@@ -174,7 +174,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 1,
+                            child: 0,
                         },
                     ),
                 },

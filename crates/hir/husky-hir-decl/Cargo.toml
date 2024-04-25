@@ -25,7 +25,7 @@ husky-eth-signature.workspace = true
 husky-fly-term.workspace = true
 husky-term-prelude.workspace = true
 # semantics
-husky-sema-expr.workspace = true
+husky-sem-expr.workspace = true
 # syntax
 husky-entity-tree.workspace = true
 husky-syn-expr.workspace = true
@@ -50,7 +50,7 @@ husky-dec-term.workspace = true
 husky-dec-ty.workspace = true
 husky-dec-signature.workspace = true
 # semantics
-husky-sema-place-contract.workspace = true
+husky-sem-place-contract.workspace = true
 # syntax
 husky-ast = { workspace = true, features = ["test_utils"] }
 husky-toml-ast.workspace = true

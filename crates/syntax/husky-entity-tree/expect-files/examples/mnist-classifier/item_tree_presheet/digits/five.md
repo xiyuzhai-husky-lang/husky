@@ -6,25 +6,25 @@ EntityTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
-                        syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`mnist_classifier::digits::five::is_five`, `Val`, (0)),
+                        syn_node_path: MajorItemSynNodePath::Form(
+                            FormSynNodePath(`mnist_classifier::digits::five::is_five`, `Val`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
-                        ast_idx: 3,
+                        ast_idx: 2,
                         ident_token: IdentToken {
                             ident: `is_five`,
                             token_idx: TokenIdx(
                                 10,
                             ),
                         },
-                        block: DefnBlock::Fugitive {
-                            path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                        block: DefnBlock::Form {
+                            path: FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                             body: Some(
-                                FugitiveBody {
+                                FormBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        1..2,
+                                        0..1,
                                     ),
                                 },
                             ),
@@ -32,8 +32,8 @@ EntityTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`mnist_classifier::digits::five::is_five`, `Val`, (0)),
+                    MajorItemSynNodePath::Form(
+                        FormSynNodePath(`mnist_classifier::digits::five::is_five`, `Val`, (0)),
                     ),
                 ),
                 ident: `is_five`,
@@ -46,8 +46,8 @@ EntityTreePresheet {
     once_use_rules: OnceUseRules(
         [
             OnceUseRule {
-                ast_idx: 2,
-                use_expr_idx: 2,
+                ast_idx: 1,
+                use_expr_idx: 1,
                 visibility: Scope::PubUnder(
                     `mnist_classifier::digits::five`,
                 ),
@@ -60,7 +60,7 @@ EntityTreePresheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        1..2,
+                        0..1,
                     ),
                 },
                 parent: None,
@@ -98,7 +98,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 1,
+                            child: 0,
                         },
                     ),
                 },

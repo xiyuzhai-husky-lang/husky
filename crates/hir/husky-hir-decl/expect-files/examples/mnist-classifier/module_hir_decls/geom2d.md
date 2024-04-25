@@ -49,25 +49,25 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::Ident(
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::Ident(
                                             `x`,
                                         ),
-                                        data: HirEagerRuntimeSvarData::FieldVariable,
+                                        data: HirEagerRuntimeVariableData::FieldVariable,
                                     },
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::Ident(
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::Ident(
                                             `y`,
                                         ),
-                                        data: HirEagerRuntimeSvarData::FieldVariable,
+                                        data: HirEagerRuntimeVariableData::FieldVariable,
                                     },
                                 ],
                             },
@@ -76,6 +76,80 @@
                     },
                 },
             ),
+        ),
+    ),
+    HirDecl::Attr(
+        AttrHirDecl::Derive(
+            DeriveAttrHirDecl {
+                path: AttrItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 325,
+                        },
+                    ),
+                ),
+                trais: [
+                    HirTrait {
+                        trai_path: TraitPath(`core::fmt::Debug`),
+                        template_arguments: [],
+                    },
+                    HirTrait {
+                        trai_path: TraitPath(`core::clone::Clone`),
+                        template_arguments: [],
+                    },
+                    HirTrait {
+                        trai_path: TraitPath(`core::visual::Visualize`),
+                        template_arguments: [],
+                    },
+                ],
+                hir_eager_expr_region: HirEagerExprRegion {
+                    region_path: RegionPath::Decl(
+                        ItemPath::Attr(
+                            Room32,
+                            AttrItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 325,
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                    expr_arena: Arena {
+                        data: [],
+                    },
+                    stmt_arena: Arena {
+                        data: [],
+                    },
+                    pattern_arena: Arena {
+                        data: [],
+                    },
+                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        arena: Arena {
+                            data: [],
+                        },
+                    },
+                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        arena: Arena {
+                            data: [
+                                HirEagerRuntimeVariableEntry {
+                                    name: HirEagerRuntimeVariableName::Ident(
+                                        `x`,
+                                    ),
+                                    data: HirEagerRuntimeVariableData::FieldVariable,
+                                },
+                                HirEagerRuntimeVariableEntry {
+                                    name: HirEagerRuntimeVariableName::Ident(
+                                        `y`,
+                                    ),
+                                    data: HirEagerRuntimeVariableData::FieldVariable,
+                                },
+                            ],
+                        },
+                        self_value_variable: None,
+                    },
+                },
+            },
         ),
     ),
     HirDecl::MajorItem(
@@ -127,25 +201,25 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::Ident(
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::Ident(
                                             `x`,
                                         ),
-                                        data: HirEagerRuntimeSvarData::FieldVariable,
+                                        data: HirEagerRuntimeVariableData::FieldVariable,
                                     },
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::Ident(
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::Ident(
                                             `y`,
                                         ),
-                                        data: HirEagerRuntimeSvarData::FieldVariable,
+                                        data: HirEagerRuntimeVariableData::FieldVariable,
                                     },
                                 ],
                             },
@@ -205,25 +279,25 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::Ident(
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::Ident(
                                             `x`,
                                         ),
-                                        data: HirEagerRuntimeSvarData::FieldVariable,
+                                        data: HirEagerRuntimeVariableData::FieldVariable,
                                     },
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::Ident(
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::Ident(
                                             `y`,
                                         ),
-                                        data: HirEagerRuntimeSvarData::FieldVariable,
+                                        data: HirEagerRuntimeVariableData::FieldVariable,
                                     },
                                 ],
                             },
@@ -283,25 +357,25 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::Ident(
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::Ident(
                                             `min`,
                                         ),
-                                        data: HirEagerRuntimeSvarData::FieldVariable,
+                                        data: HirEagerRuntimeVariableData::FieldVariable,
                                     },
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::Ident(
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::Ident(
                                             `max`,
                                         ),
-                                        data: HirEagerRuntimeSvarData::FieldVariable,
+                                        data: HirEagerRuntimeVariableData::FieldVariable,
                                     },
                                 ],
                             },
@@ -361,25 +435,25 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::Ident(
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::Ident(
                                             `xrange`,
                                         ),
-                                        data: HirEagerRuntimeSvarData::FieldVariable,
+                                        data: HirEagerRuntimeVariableData::FieldVariable,
                                     },
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::Ident(
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::Ident(
                                             `yrange`,
                                         ),
-                                        data: HirEagerRuntimeSvarData::FieldVariable,
+                                        data: HirEagerRuntimeVariableData::FieldVariable,
                                     },
                                 ],
                             },
@@ -439,25 +513,25 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::Ident(
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::Ident(
                                             `xrange`,
                                         ),
-                                        data: HirEagerRuntimeSvarData::FieldVariable,
+                                        data: HirEagerRuntimeVariableData::FieldVariable,
                                     },
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::Ident(
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::Ident(
                                             `yrange`,
                                         ),
-                                        data: HirEagerRuntimeSvarData::FieldVariable,
+                                        data: HirEagerRuntimeVariableData::FieldVariable,
                                     },
                                 ],
                             },
@@ -511,12 +585,12 @@
                     pattern_arena: Arena {
                         data: [],
                     },
-                    comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
                     },
-                    runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
@@ -528,8 +602,8 @@
     ),
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
-            TypeItemHirDecl::AssocFn(
-                TypeAssocFnHirDecl {
+            TypeItemHirDecl::AssocRitchie(
+                TypeAssocRitchieHirDecl {
                     path: TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::from_i_shift28`, `AssocRitchie(
                         Fn,
                     )`),
@@ -539,7 +613,7 @@
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 1,
+                                pattern_expr_idx: 0,
                                 contract: Pure,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -550,7 +624,7 @@
                                 ),
                             },
                             HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 2,
+                                pattern_expr_idx: 1,
                                 contract: Pure,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -603,34 +677,34 @@
                                 },
                             ],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::SelfValue,
-                                        data: HirEagerRuntimeSvarData::SelfValue,
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::SelfValue,
+                                        data: HirEagerRuntimeVariableData::SelfValue,
                                     },
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::Ident(
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::Ident(
                                             `i`,
                                         ),
-                                        data: HirEagerRuntimeSvarData::ParenateParameter,
+                                        data: HirEagerRuntimeVariableData::ParenateParameter,
                                     },
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::Ident(
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::Ident(
                                             `shift`,
                                         ),
-                                        data: HirEagerRuntimeSvarData::ParenateParameter,
+                                        data: HirEagerRuntimeVariableData::ParenateParameter,
                                     },
                                 ],
                             },
                             self_value_variable: Some(
-                                1,
+                                0,
                             ),
                         },
                     },
@@ -641,7 +715,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
-                TypeMethodFnHirDecl {
+                TypeMethodRitchieHirDecl {
                     path: TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::vector`, `MethodRitchie(
                         Fn,
                     )`),
@@ -687,22 +761,22 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::SelfValue,
-                                        data: HirEagerRuntimeSvarData::SelfValue,
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::SelfValue,
+                                        data: HirEagerRuntimeVariableData::SelfValue,
                                     },
                                 ],
                             },
                             self_value_variable: Some(
-                                1,
+                                0,
                             ),
                         },
                     },
@@ -713,7 +787,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
-                TypeMethodFnHirDecl {
+                TypeMethodRitchieHirDecl {
                     path: TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::to`, `MethodRitchie(
                         Fn,
                     )`),
@@ -733,7 +807,7 @@
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 1,
+                                pattern_expr_idx: 0,
                                 contract: Pure,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -779,28 +853,28 @@
                                 },
                             ],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::SelfValue,
-                                        data: HirEagerRuntimeSvarData::SelfValue,
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::SelfValue,
+                                        data: HirEagerRuntimeVariableData::SelfValue,
                                     },
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::Ident(
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::Ident(
                                             `other`,
                                         ),
-                                        data: HirEagerRuntimeSvarData::ParenateParameter,
+                                        data: HirEagerRuntimeVariableData::ParenateParameter,
                                     },
                                 ],
                             },
                             self_value_variable: Some(
-                                1,
+                                0,
                             ),
                         },
                     },
@@ -811,7 +885,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
-                TypeMethodFnHirDecl {
+                TypeMethodRitchieHirDecl {
                     path: TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::norm`, `MethodRitchie(
                         Fn,
                     )`),
@@ -857,22 +931,22 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::SelfValue,
-                                        data: HirEagerRuntimeSvarData::SelfValue,
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::SelfValue,
+                                        data: HirEagerRuntimeVariableData::SelfValue,
                                     },
                                 ],
                             },
                             self_value_variable: Some(
-                                1,
+                                0,
                             ),
                         },
                     },
@@ -883,7 +957,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
-                TypeMethodFnHirDecl {
+                TypeMethodRitchieHirDecl {
                     path: TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::dist`, `MethodRitchie(
                         Fn,
                     )`),
@@ -903,7 +977,7 @@
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 1,
+                                pattern_expr_idx: 0,
                                 contract: Pure,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -949,28 +1023,28 @@
                                 },
                             ],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::SelfValue,
-                                        data: HirEagerRuntimeSvarData::SelfValue,
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::SelfValue,
+                                        data: HirEagerRuntimeVariableData::SelfValue,
                                     },
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::Ident(
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::Ident(
                                             `other`,
                                         ),
-                                        data: HirEagerRuntimeSvarData::ParenateParameter,
+                                        data: HirEagerRuntimeVariableData::ParenateParameter,
                                     },
                                 ],
                             },
                             self_value_variable: Some(
-                                1,
+                                0,
                             ),
                         },
                     },
@@ -1021,12 +1095,12 @@
                     pattern_arena: Arena {
                         data: [],
                     },
-                    comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
                     },
-                    runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
@@ -1039,7 +1113,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
-                TypeMethodFnHirDecl {
+                TypeMethodRitchieHirDecl {
                     path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::point`, `MethodRitchie(
                         Fn,
                     )`),
@@ -1085,22 +1159,22 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::SelfValue,
-                                        data: HirEagerRuntimeSvarData::SelfValue,
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::SelfValue,
+                                        data: HirEagerRuntimeVariableData::SelfValue,
                                     },
                                 ],
                             },
                             self_value_variable: Some(
-                                1,
+                                0,
                             ),
                         },
                     },
@@ -1111,7 +1185,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
-                TypeMethodFnHirDecl {
+                TypeMethodRitchieHirDecl {
                     path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::to`, `MethodRitchie(
                         Fn,
                     )`),
@@ -1131,7 +1205,7 @@
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 1,
+                                pattern_expr_idx: 0,
                                 contract: Pure,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -1177,28 +1251,28 @@
                                 },
                             ],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::SelfValue,
-                                        data: HirEagerRuntimeSvarData::SelfValue,
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::SelfValue,
+                                        data: HirEagerRuntimeVariableData::SelfValue,
                                     },
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::Ident(
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::Ident(
                                             `other`,
                                         ),
-                                        data: HirEagerRuntimeSvarData::ParenateParameter,
+                                        data: HirEagerRuntimeVariableData::ParenateParameter,
                                     },
                                 ],
                             },
                             self_value_variable: Some(
-                                1,
+                                0,
                             ),
                         },
                     },
@@ -1209,7 +1283,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
-                TypeMethodFnHirDecl {
+                TypeMethodRitchieHirDecl {
                     path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::norm`, `MethodRitchie(
                         Fn,
                     )`),
@@ -1255,22 +1329,22 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::SelfValue,
-                                        data: HirEagerRuntimeSvarData::SelfValue,
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::SelfValue,
+                                        data: HirEagerRuntimeVariableData::SelfValue,
                                     },
                                 ],
                             },
                             self_value_variable: Some(
-                                1,
+                                0,
                             ),
                         },
                     },
@@ -1281,7 +1355,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
-                TypeMethodFnHirDecl {
+                TypeMethodRitchieHirDecl {
                     path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::dot`, `MethodRitchie(
                         Fn,
                     )`),
@@ -1301,7 +1375,7 @@
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 1,
+                                pattern_expr_idx: 0,
                                 contract: Pure,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -1347,28 +1421,28 @@
                                 },
                             ],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::SelfValue,
-                                        data: HirEagerRuntimeSvarData::SelfValue,
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::SelfValue,
+                                        data: HirEagerRuntimeVariableData::SelfValue,
                                     },
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::Ident(
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::Ident(
                                             `other`,
                                         ),
-                                        data: HirEagerRuntimeSvarData::ParenateParameter,
+                                        data: HirEagerRuntimeVariableData::ParenateParameter,
                                     },
                                 ],
                             },
                             self_value_variable: Some(
-                                1,
+                                0,
                             ),
                         },
                     },
@@ -1379,7 +1453,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
-                TypeMethodFnHirDecl {
+                TypeMethodRitchieHirDecl {
                     path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::cross`, `MethodRitchie(
                         Fn,
                     )`),
@@ -1399,7 +1473,7 @@
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 1,
+                                pattern_expr_idx: 0,
                                 contract: Pure,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -1445,28 +1519,28 @@
                                 },
                             ],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::SelfValue,
-                                        data: HirEagerRuntimeSvarData::SelfValue,
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::SelfValue,
+                                        data: HirEagerRuntimeVariableData::SelfValue,
                                     },
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::Ident(
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::Ident(
                                             `other`,
                                         ),
-                                        data: HirEagerRuntimeSvarData::ParenateParameter,
+                                        data: HirEagerRuntimeVariableData::ParenateParameter,
                                     },
                                 ],
                             },
                             self_value_variable: Some(
-                                1,
+                                0,
                             ),
                         },
                     },
@@ -1477,7 +1551,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
-                TypeMethodFnHirDecl {
+                TypeMethodRitchieHirDecl {
                     path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::angle`, `MethodRitchie(
                         Fn,
                     )`),
@@ -1497,7 +1571,7 @@
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 1,
+                                pattern_expr_idx: 0,
                                 contract: Pure,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -1543,28 +1617,28 @@
                                 },
                             ],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::SelfValue,
-                                        data: HirEagerRuntimeSvarData::SelfValue,
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::SelfValue,
+                                        data: HirEagerRuntimeVariableData::SelfValue,
                                     },
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::Ident(
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::Ident(
                                             `is_branch_cut_positive`,
                                         ),
-                                        data: HirEagerRuntimeSvarData::ParenateParameter,
+                                        data: HirEagerRuntimeVariableData::ParenateParameter,
                                     },
                                 ],
                             },
                             self_value_variable: Some(
-                                1,
+                                0,
                             ),
                         },
                     },
@@ -1575,7 +1649,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
-                TypeMethodFnHirDecl {
+                TypeMethodRitchieHirDecl {
                     path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::rotation_direction_to`, `MethodRitchie(
                         Fn,
                     )`),
@@ -1595,7 +1669,7 @@
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 1,
+                                pattern_expr_idx: 0,
                                 contract: Pure,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -1641,28 +1715,28 @@
                                 },
                             ],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::SelfValue,
-                                        data: HirEagerRuntimeSvarData::SelfValue,
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::SelfValue,
+                                        data: HirEagerRuntimeVariableData::SelfValue,
                                     },
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::Ident(
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::Ident(
                                             `other`,
                                         ),
-                                        data: HirEagerRuntimeSvarData::ParenateParameter,
+                                        data: HirEagerRuntimeVariableData::ParenateParameter,
                                     },
                                 ],
                             },
                             self_value_variable: Some(
-                                1,
+                                0,
                             ),
                         },
                     },
@@ -1673,7 +1747,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
-                TypeMethodFnHirDecl {
+                TypeMethodRitchieHirDecl {
                     path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::angle_to`, `MethodRitchie(
                         Fn,
                     )`),
@@ -1693,7 +1767,7 @@
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 1,
+                                pattern_expr_idx: 0,
                                 contract: Pure,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -1704,7 +1778,7 @@
                                 ),
                             },
                             HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 2,
+                                pattern_expr_idx: 1,
                                 contract: Pure,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -1757,34 +1831,34 @@
                                 },
                             ],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::SelfValue,
-                                        data: HirEagerRuntimeSvarData::SelfValue,
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::SelfValue,
+                                        data: HirEagerRuntimeVariableData::SelfValue,
                                     },
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::Ident(
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::Ident(
                                             `other`,
                                         ),
-                                        data: HirEagerRuntimeSvarData::ParenateParameter,
+                                        data: HirEagerRuntimeVariableData::ParenateParameter,
                                     },
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::Ident(
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::Ident(
                                             `is_branch_cut_positive`,
                                         ),
-                                        data: HirEagerRuntimeSvarData::ParenateParameter,
+                                        data: HirEagerRuntimeVariableData::ParenateParameter,
                                     },
                                 ],
                             },
                             self_value_variable: Some(
-                                1,
+                                0,
                             ),
                         },
                     },
@@ -1835,12 +1909,12 @@
                     pattern_arena: Arena {
                         data: [],
                     },
-                    comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
                     },
-                    runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
@@ -1853,7 +1927,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
-                TypeMethodFnHirDecl {
+                TypeMethodRitchieHirDecl {
                     path: TypeItemPath(`<mnist_classifier::geom2d::ClosedRange(0)>::relative_range`, `MethodRitchie(
                         Fn,
                     )`),
@@ -1873,7 +1947,7 @@
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 1,
+                                pattern_expr_idx: 0,
                                 contract: Pure,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -1919,28 +1993,28 @@
                                 },
                             ],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::SelfValue,
-                                        data: HirEagerRuntimeSvarData::SelfValue,
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::SelfValue,
+                                        data: HirEagerRuntimeVariableData::SelfValue,
                                     },
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::Ident(
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::Ident(
                                             `other`,
                                         ),
-                                        data: HirEagerRuntimeSvarData::ParenateParameter,
+                                        data: HirEagerRuntimeVariableData::ParenateParameter,
                                     },
                                 ],
                             },
                             self_value_variable: Some(
-                                1,
+                                0,
                             ),
                         },
                     },
@@ -1951,7 +2025,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
-                TypeMethodFnHirDecl {
+                TypeMethodRitchieHirDecl {
                     path: TypeItemPath(`<mnist_classifier::geom2d::ClosedRange(0)>::relative_point`, `MethodRitchie(
                         Fn,
                     )`),
@@ -1971,7 +2045,7 @@
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 1,
+                                pattern_expr_idx: 0,
                                 contract: Pure,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -2017,28 +2091,28 @@
                                 },
                             ],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::SelfValue,
-                                        data: HirEagerRuntimeSvarData::SelfValue,
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::SelfValue,
+                                        data: HirEagerRuntimeVariableData::SelfValue,
                                     },
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::Ident(
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::Ident(
                                             `v`,
                                         ),
-                                        data: HirEagerRuntimeSvarData::ParenateParameter,
+                                        data: HirEagerRuntimeVariableData::ParenateParameter,
                                     },
                                 ],
                             },
                             self_value_variable: Some(
-                                1,
+                                0,
                             ),
                         },
                     },
@@ -2089,12 +2163,12 @@
                     pattern_arena: Arena {
                         data: [],
                     },
-                    comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
                     },
-                    runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
@@ -2107,7 +2181,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
-                TypeMethodFnHirDecl {
+                TypeMethodRitchieHirDecl {
                     path: TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::relative_bounding_box`, `MethodRitchie(
                         Fn,
                     )`),
@@ -2127,7 +2201,7 @@
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 1,
+                                pattern_expr_idx: 0,
                                 contract: Pure,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -2173,28 +2247,28 @@
                                 },
                             ],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::SelfValue,
-                                        data: HirEagerRuntimeSvarData::SelfValue,
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::SelfValue,
+                                        data: HirEagerRuntimeVariableData::SelfValue,
                                     },
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::Ident(
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::Ident(
                                             `other`,
                                         ),
-                                        data: HirEagerRuntimeSvarData::ParenateParameter,
+                                        data: HirEagerRuntimeVariableData::ParenateParameter,
                                     },
                                 ],
                             },
                             self_value_variable: Some(
-                                1,
+                                0,
                             ),
                         },
                     },
@@ -2205,7 +2279,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
-                TypeMethodFnHirDecl {
+                TypeMethodRitchieHirDecl {
                     path: TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::relative_point`, `MethodRitchie(
                         Fn,
                     )`),
@@ -2225,7 +2299,7 @@
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 1,
+                                pattern_expr_idx: 0,
                                 contract: Pure,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -2271,28 +2345,28 @@
                                 },
                             ],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::SelfValue,
-                                        data: HirEagerRuntimeSvarData::SelfValue,
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::SelfValue,
+                                        data: HirEagerRuntimeVariableData::SelfValue,
                                     },
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::Ident(
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::Ident(
                                             `point`,
                                         ),
-                                        data: HirEagerRuntimeSvarData::ParenateParameter,
+                                        data: HirEagerRuntimeVariableData::ParenateParameter,
                                     },
                                 ],
                             },
                             self_value_variable: Some(
-                                1,
+                                0,
                             ),
                         },
                     },
@@ -2303,7 +2377,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
-                TypeMethodFnHirDecl {
+                TypeMethodRitchieHirDecl {
                     path: TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::xmin`, `MethodRitchie(
                         Fn,
                     )`),
@@ -2349,22 +2423,22 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::SelfValue,
-                                        data: HirEagerRuntimeSvarData::SelfValue,
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::SelfValue,
+                                        data: HirEagerRuntimeVariableData::SelfValue,
                                     },
                                 ],
                             },
                             self_value_variable: Some(
-                                1,
+                                0,
                             ),
                         },
                     },
@@ -2375,7 +2449,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
-                TypeMethodFnHirDecl {
+                TypeMethodRitchieHirDecl {
                     path: TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::xmax`, `MethodRitchie(
                         Fn,
                     )`),
@@ -2421,22 +2495,22 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::SelfValue,
-                                        data: HirEagerRuntimeSvarData::SelfValue,
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::SelfValue,
+                                        data: HirEagerRuntimeVariableData::SelfValue,
                                     },
                                 ],
                             },
                             self_value_variable: Some(
-                                1,
+                                0,
                             ),
                         },
                     },
@@ -2447,7 +2521,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
-                TypeMethodFnHirDecl {
+                TypeMethodRitchieHirDecl {
                     path: TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::ymin`, `MethodRitchie(
                         Fn,
                     )`),
@@ -2493,22 +2567,22 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::SelfValue,
-                                        data: HirEagerRuntimeSvarData::SelfValue,
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::SelfValue,
+                                        data: HirEagerRuntimeVariableData::SelfValue,
                                     },
                                 ],
                             },
                             self_value_variable: Some(
-                                1,
+                                0,
                             ),
                         },
                     },
@@ -2519,7 +2593,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
-                TypeMethodFnHirDecl {
+                TypeMethodRitchieHirDecl {
                     path: TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::ymax`, `MethodRitchie(
                         Fn,
                     )`),
@@ -2565,22 +2639,22 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::SelfValue,
-                                        data: HirEagerRuntimeSvarData::SelfValue,
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::SelfValue,
+                                        data: HirEagerRuntimeVariableData::SelfValue,
                                     },
                                 ],
                             },
                             self_value_variable: Some(
-                                1,
+                                0,
                             ),
                         },
                     },
@@ -2631,12 +2705,12 @@
                     pattern_arena: Arena {
                         data: [],
                     },
-                    comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
                     },
-                    runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
@@ -2649,7 +2723,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
-                TypeMethodFnHirDecl {
+                TypeMethodRitchieHirDecl {
                     path: TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::xmin`, `MethodRitchie(
                         Fn,
                     )`),
@@ -2695,22 +2769,22 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::SelfValue,
-                                        data: HirEagerRuntimeSvarData::SelfValue,
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::SelfValue,
+                                        data: HirEagerRuntimeVariableData::SelfValue,
                                     },
                                 ],
                             },
                             self_value_variable: Some(
-                                1,
+                                0,
                             ),
                         },
                     },
@@ -2721,7 +2795,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
-                TypeMethodFnHirDecl {
+                TypeMethodRitchieHirDecl {
                     path: TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::xmax`, `MethodRitchie(
                         Fn,
                     )`),
@@ -2767,22 +2841,22 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::SelfValue,
-                                        data: HirEagerRuntimeSvarData::SelfValue,
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::SelfValue,
+                                        data: HirEagerRuntimeVariableData::SelfValue,
                                     },
                                 ],
                             },
                             self_value_variable: Some(
-                                1,
+                                0,
                             ),
                         },
                     },
@@ -2793,7 +2867,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
-                TypeMethodFnHirDecl {
+                TypeMethodRitchieHirDecl {
                     path: TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::ymin`, `MethodRitchie(
                         Fn,
                     )`),
@@ -2839,22 +2913,22 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::SelfValue,
-                                        data: HirEagerRuntimeSvarData::SelfValue,
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::SelfValue,
+                                        data: HirEagerRuntimeVariableData::SelfValue,
                                     },
                                 ],
                             },
                             self_value_variable: Some(
-                                1,
+                                0,
                             ),
                         },
                     },
@@ -2865,7 +2939,7 @@
     HirDecl::AssocItem(
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
-                TypeMethodFnHirDecl {
+                TypeMethodRitchieHirDecl {
                     path: TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::ymax`, `MethodRitchie(
                         Fn,
                     )`),
@@ -2911,22 +2985,22 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::SelfValue,
-                                        data: HirEagerRuntimeSvarData::SelfValue,
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::SelfValue,
+                                        data: HirEagerRuntimeVariableData::SelfValue,
                                     },
                                 ],
                             },
                             self_value_variable: Some(
-                                1,
+                                0,
                             ),
                         },
                     },

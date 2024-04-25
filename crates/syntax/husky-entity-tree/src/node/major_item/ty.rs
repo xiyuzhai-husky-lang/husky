@@ -1,8 +1,6 @@
 use super::*;
 use husky_entity_kind::TypeKind;
 
-use smallvec::SmallVec;
-
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::as_id(jar = EntityTreeJar)]
@@ -12,7 +10,7 @@ pub struct TypeSynNodePath(ItemSynNodePathId);
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct TypeSynNodePathData {
-    maybe_ambiguous_path: MaybeAmbiguousPath<TypePath>,
+    disambiguated_item_path: DisambiguatedItemPath<TypePath>,
 }
 
 impl TypeSynNodePath {
@@ -24,7 +22,7 @@ impl TypeSynNodePath {
         Self(ItemSynNodePathId::new(
             db,
             ItemSynNodePathData::MajorItem(MajorItemSynNodePathData::Type(TypeSynNodePathData {
-                maybe_ambiguous_path: registry.issue_maybe_ambiguous_path(path),
+                disambiguated_item_path: registry.issue_maybe_ambiguous_path(path),
             })),
         ))
     }
@@ -37,15 +35,21 @@ impl TypeSynNodePath {
     }
 
     pub fn ident(self, db: &::salsa::Db) -> Ident {
-        self.data(db).maybe_ambiguous_path.path.ident(db)
+        self.data(db)
+            .disambiguated_item_path
+            .maybe_ambiguous_item_path
+            .ident(db)
     }
 
-    pub fn unambiguous_path(self, db: &::salsa::Db) -> Option<TypePath> {
+    pub fn unambiguous_item_path(self, db: &::salsa::Db) -> Option<TypePath> {
         self.data(db).path()
     }
 
     pub fn ty_kind(self, db: &::salsa::Db) -> TypeKind {
-        self.data(db).maybe_ambiguous_path.path.ty_kind(db)
+        self.data(db)
+            .disambiguated_item_path
+            .maybe_ambiguous_item_path
+            .ty_kind(db)
     }
 
     pub(crate) fn syn_node<'a>(self, db: &'a ::salsa::Db) -> &'a MajorItemSynNode {
@@ -58,13 +62,6 @@ impl TypeSynNodePath {
         };
         node
     }
-
-    pub(crate) fn attr_syn_nodes<'a>(
-        self,
-        db: &'a ::salsa::Db,
-    ) -> &'a [(AttrSynNodePath, AttrSynNode)] {
-        ty_attrs(db, self)
-    }
 }
 
 impl TypeSynNodePathData {
@@ -73,15 +70,19 @@ impl TypeSynNodePathData {
     }
 
     pub fn path(self) -> Option<TypePath> {
-        self.maybe_ambiguous_path.unambiguous_path()
+        self.disambiguated_item_path.unambiguous_item_path()
     }
 
     pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
-        self.maybe_ambiguous_path.path.module_path(db)
+        self.disambiguated_item_path
+            .maybe_ambiguous_item_path
+            .module_path(db)
     }
 
     pub fn ty_kind(self, db: &::salsa::Db) -> TypeKind {
-        self.maybe_ambiguous_path.path.ty_kind(db)
+        self.disambiguated_item_path
+            .maybe_ambiguous_item_path
+            .ty_kind(db)
     }
 
     pub fn ast_idx(self, id: ItemSynNodePathId, db: &::salsa::Db) -> AstIdx {
@@ -96,7 +97,7 @@ impl HasSynNodePath for TypePath {
         TypeSynNodePath(ItemSynNodePathId::new(
             db,
             ItemSynNodePathData::MajorItem(MajorItemSynNodePathData::Type(TypeSynNodePathData {
-                maybe_ambiguous_path: MaybeAmbiguousPath::from_path(self),
+                disambiguated_item_path: DisambiguatedItemPath::from_path(self),
             })),
         ))
     }
@@ -106,44 +107,4 @@ impl From<TypeSynNodePath> for ItemSynNodePath {
     fn from(id: TypeSynNodePath) -> Self {
         ItemSynNodePath::MajorItem(id.into())
     }
-}
-
-impl HasAttrPaths for TypePath {
-    type AttrPath = AttrItemPath;
-
-    fn attr_paths(self, db: &::salsa::Db) -> &[Self::AttrPath] {
-        ty_attr_paths(db, self)
-    }
-}
-
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
-fn ty_attrs(
-    db: &::salsa::Db,
-    ty_syn_node_path: TypeSynNodePath,
-) -> SmallVec<[(AttrSynNodePath, AttrSynNode); 2]> {
-    let ast_sheet = ty_syn_node_path.module_path(db).ast_sheet(db);
-    let mut registry = ItemSynNodePathRegistry::default();
-    ast_sheet.procure_attrs(
-        ty_syn_node_path.data(db).maybe_ambiguous_path.path.into(),
-        ty_syn_node_path.syn_node(db).ast_idx,
-        move |attr_ast_idx, _, path| {
-            AttrSynNode::new(
-                ty_syn_node_path.into(),
-                path,
-                attr_ast_idx,
-                &mut registry,
-                db,
-            )
-        },
-        db,
-    )
-}
-
-#[salsa::tracked(jar = EntityTreeJar, return_ref)]
-fn ty_attr_paths(db: &::salsa::Db, path: TypePath) -> SmallVec<[AttrItemPath; 2]> {
-    path.syn_node_path(db)
-        .attr_syn_nodes(db)
-        .iter()
-        .filter_map(|(attr_syn_node_path, _)| attr_syn_node_path.path(db))
-        .collect()
 }

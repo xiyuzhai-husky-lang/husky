@@ -1,5 +1,5 @@
 /// this module is for instantiation to use
-use crate::{instantiation::*, term::svar::EthSvar, *};
+use crate::{instantiation::*, term::symbolic_variable::EthSymbolicVariable, *};
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 #[salsa::derive_debug_with_db]
@@ -61,7 +61,7 @@ impl std::ops::Deref for EthTemplateParameters {
 #[salsa::derive_debug_with_db]
 pub struct EthTemplateParameter {
     annotated_variance: Option<Variance>,
-    symbol: EthSvar,
+    symbol: EthSymbolicVariable,
     traits: Vec<EthTerm>,
 }
 
@@ -72,7 +72,7 @@ impl EthTemplateParameter {
     ) -> EthTermResult<Self> {
         Ok(Self {
             annotated_variance: declarative_generic_paramter.annotated_variance(),
-            symbol: EthSvar::from_dec(db, declarative_generic_paramter.symbol())?,
+            symbol: EthSymbolicVariable::from_dec(db, declarative_generic_paramter.symbol())?,
             traits: declarative_generic_paramter
                 .traits()
                 .iter()
@@ -81,7 +81,7 @@ impl EthTemplateParameter {
         })
     }
 
-    pub fn symbol(&self) -> EthSvar {
+    pub fn symbol(&self) -> EthSymbolicVariable {
         self.symbol
     }
 

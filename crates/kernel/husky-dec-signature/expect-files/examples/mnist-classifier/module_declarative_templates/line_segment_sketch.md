@@ -267,17 +267,18 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                     Fn,
                 )`),
             ),
         ),
         Ok(
             DecTemplate::MajorItem(
-                MajorItemDecTemplate::Fugitive(
-                    FugitiveDecTemplate::Fn(
-                        MajorFnDecTemplate {
+                MajorItemDecTemplate::Form(
+                    MajorFormDecTemplate::Ritchie(
+                        MajorFunctionRitchieDecTemplate {
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
@@ -336,17 +337,18 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                     Fn,
                 )`),
             ),
         ),
         Ok(
             DecTemplate::MajorItem(
-                MajorItemDecTemplate::Fugitive(
-                    FugitiveDecTemplate::Fn(
-                        MajorFnDecTemplate {
+                MajorItemDecTemplate::Form(
+                    MajorFormDecTemplate::Ritchie(
+                        MajorFunctionRitchieDecTemplate {
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
@@ -405,17 +407,18 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
                     Fn,
                 )`),
             ),
         ),
         Ok(
             DecTemplate::MajorItem(
-                MajorItemDecTemplate::Fugitive(
-                    FugitiveDecTemplate::Fn(
-                        MajorFnDecTemplate {
+                MajorItemDecTemplate::Form(
+                    MajorFormDecTemplate::Ritchie(
+                        MajorFunctionRitchieDecTemplate {
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
@@ -486,17 +489,18 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
                     Fn,
                 )`),
             ),
         ),
         Ok(
             DecTemplate::MajorItem(
-                MajorItemDecTemplate::Fugitive(
-                    FugitiveDecTemplate::Fn(
-                        MajorFnDecTemplate {
+                MajorItemDecTemplate::Form(
+                    MajorFormDecTemplate::Ritchie(
+                        MajorFunctionRitchieDecTemplate {
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
@@ -583,17 +587,18 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
                     Fn,
                 )`),
             ),
         ),
         Ok(
             DecTemplate::MajorItem(
-                MajorItemDecTemplate::Fugitive(
-                    FugitiveDecTemplate::Fn(
-                        MajorFnDecTemplate {
+                MajorItemDecTemplate::Form(
+                    MajorFormDecTemplate::Ritchie(
+                        MajorFunctionRitchieDecTemplate {
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
@@ -698,8 +703,8 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TraitForTypeItem(
-                    TraitForTypeItemDecTemplate::MethodFn(
-                        TraitForTypeMethodFnDecTemplate {
+                    TraitForTypeItemDecTemplate::MethodRitchie(
+                        TraitForTypeMethodRitchieDecTemplate {
                             self_ty: EntityPath(
                                 Type(
                                     TypePath(
@@ -794,8 +799,8 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::AssocFn(
-                        TypeAssocFnDecTemplate {
+                    TypeItemDecTemplate::AssocRitchie(
+                        TypeAssocRitchieDecTemplate {
                             path: TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::new`, `AssocRitchie(
                                 Fn,
                             )`),
@@ -889,8 +894,8 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                    TypeItemDecTemplate::MethodRitchie(
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::displacement`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -1014,8 +1019,8 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TraitForTypeItem(
-                    TraitForTypeItemDecTemplate::MethodFn(
-                        TraitForTypeMethodFnDecTemplate {
+                    TraitForTypeItemDecTemplate::MethodRitchie(
+                        TraitForTypeMethodRitchieDecTemplate {
                             self_ty: EntityPath(
                                 Type(
                                     TypePath(
@@ -1196,8 +1201,8 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::AssocFn(
-                        TypeAssocFnDecTemplate {
+                    TypeItemDecTemplate::AssocRitchie(
+                        TypeAssocRitchieDecTemplate {
                             path: TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::new`, `AssocRitchie(
                                 Fn,
                             )`),

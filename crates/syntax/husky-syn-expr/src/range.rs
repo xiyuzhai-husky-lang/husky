@@ -17,10 +17,10 @@ pub(crate) fn syn_expr_range_region(
     SynExprRangeCalculator::new(db, expr_region).calc_all()
 }
 
-impl std::ops::Index<PrincipalEntityPathSynExprIdx> for SynExprRangeRegion {
+impl std::ops::Index<SynPrincipalEntityPathSynExprIdx> for SynExprRangeRegion {
     type Output = RegionalTokenIdxRange;
 
-    fn index(&self, index: PrincipalEntityPathSynExprIdx) -> &Self::Output {
+    fn index(&self, index: SynPrincipalEntityPathSynExprIdx) -> &Self::Output {
         &self.item_path_expr_ranges[index.index()]
     }
 }
@@ -49,18 +49,18 @@ struct SynExprRangeCalculator<'a> {
     stmt_ranges: SynStmtMap<RegionalTokenIdxRange>,
 }
 
-impl<'a> std::ops::Index<PrincipalEntityPathSynExprIdx> for SynExprRangeCalculator<'a> {
+impl<'a> std::ops::Index<SynPrincipalEntityPathSynExprIdx> for SynExprRangeCalculator<'a> {
     type Output = RegionalTokenIdxRange;
 
-    fn index(&self, index: PrincipalEntityPathSynExprIdx) -> &Self::Output {
+    fn index(&self, index: SynPrincipalEntityPathSynExprIdx) -> &Self::Output {
         &self.principal_entity_path_expr_ranges[index.index()]
     }
 }
 
-impl<'a> std::ops::Index<&PrincipalEntityPathSynExprIdx> for SynExprRangeCalculator<'a> {
+impl<'a> std::ops::Index<&SynPrincipalEntityPathSynExprIdx> for SynExprRangeCalculator<'a> {
     type Output = RegionalTokenIdxRange;
 
-    fn index(&self, index: &PrincipalEntityPathSynExprIdx) -> &Self::Output {
+    fn index(&self, index: &SynPrincipalEntityPathSynExprIdx) -> &Self::Output {
         &self.principal_entity_path_expr_ranges[index.index()]
     }
 }
@@ -246,7 +246,7 @@ impl<'a> SynExprRangeCalculator<'a> {
             }
             SynExprData::Binary { lopd, ropd, .. } => self[lopd].join(self[ropd]),
             SynExprData::PrincipalEntityPath { path_expr_idx, .. } => self[path_expr_idx],
-            SynExprData::AssocItem {
+            SynExprData::MajorItemPathAssocItem {
                 parent_expr_idx,
                 ident_token,
                 ..
@@ -254,6 +254,16 @@ impl<'a> SynExprRangeCalculator<'a> {
                 // todo: consider implicit(angular) arguments
                 self[parent_expr_idx].to(RegionalTokenIdxRangeEnd::new_after(
                     ident_token.regional_token_idx(),
+                ))
+            }
+            SynExprData::AssocItem {
+                parent_expr_idx,
+                ident_regional_token_idx,
+                ..
+            } => {
+                // todo: consider implicit(angular) arguments
+                self[parent_expr_idx].to(RegionalTokenIdxRangeEnd::new_after(
+                    ident_regional_token_idx,
                 ))
             }
             SynExprData::Be {

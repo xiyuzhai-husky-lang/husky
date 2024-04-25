@@ -2,8 +2,8 @@
 [
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`quick_sort::quick_sort`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`quick_sort::quick_sort`, `Ritchie(
                     Fn,
                 )`),
             ),
@@ -14,9 +14,9 @@
                     HirTemplateParameters(
                         [
                             HirTemplateParameter {
-                                symbol: HirTemplateSvar::Type(
-                                    HirTypeSvar::Type {
-                                        attrs: HirTemplateSvarAttrs {
+                                symbol: HirTemplateVariable::Type(
+                                    HirTypeTemplateVariable::Type {
+                                        attrs: HirTemplateVariableAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -38,7 +38,7 @@
                 ),
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TypeItem(
+                        path: JavPath::TypeItem(
                             TypeItemPath(`<core::slice::Slice(0)>::len`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -46,20 +46,20 @@
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateSvar::Type(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
+                                    HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
                                             disambiguator: 0,
                                         },
                                     ),
-                                    HirTermSvarResolution::Explicit(
+                                    HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Type(
-                                            HirType::Svar(
-                                                HirTypeSvar::Type {
-                                                    attrs: HirTemplateSvarAttrs {
+                                            HirType::Variable(
+                                                HirTypeTemplateVariable::Type {
+                                                    attrs: HirTemplateVariableAttrs {
                                                         class: Comptime,
                                                     },
                                                     variance: None,
@@ -76,28 +76,28 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::Fugitive(
-                            FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                        path: JavPath::Form(
+                            FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                 Fn,
                             )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateSvar::Type(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
+                                    HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
                                             disambiguator: 0,
                                         },
                                     ),
-                                    HirTermSvarResolution::Explicit(
+                                    HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Type(
-                                            HirType::Svar(
-                                                HirTypeSvar::Type {
-                                                    attrs: HirTemplateSvarAttrs {
+                                            HirType::Variable(
+                                                HirTypeTemplateVariable::Type {
+                                                    attrs: HirTemplateVariableAttrs {
                                                         class: Comptime,
                                                     },
                                                     variance: None,
@@ -117,8 +117,8 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                     Fn,
                 )`),
             ),
@@ -129,9 +129,9 @@
                     HirTemplateParameters(
                         [
                             HirTemplateParameter {
-                                symbol: HirTemplateSvar::Type(
-                                    HirTypeSvar::Type {
-                                        attrs: HirTemplateSvarAttrs {
+                                symbol: HirTemplateVariable::Type(
+                                    HirTypeTemplateVariable::Type {
+                                        attrs: HirTemplateVariableAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -153,28 +153,28 @@
                 ),
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::Fugitive(
-                            FugitivePath(`quick_sort::partition`, `Ritchie(
+                        path: JavPath::Form(
+                            FormPath(`quick_sort::partition`, `Ritchie(
                                 Fn,
                             )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateSvar::Type(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
+                                    HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
                                             disambiguator: 0,
                                         },
                                     ),
-                                    HirTermSvarResolution::Explicit(
+                                    HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Type(
-                                            HirType::Svar(
-                                                HirTypeSvar::Type {
-                                                    attrs: HirTemplateSvarAttrs {
+                                            HirType::Variable(
+                                                HirTypeTemplateVariable::Type {
+                                                    attrs: HirTemplateVariableAttrs {
                                                         class: Comptime,
                                                     },
                                                     variance: None,
@@ -189,28 +189,28 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::Fugitive(
-                            FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                        path: JavPath::Form(
+                            FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                 Fn,
                             )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateSvar::Type(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
+                                    HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
                                             disambiguator: 0,
                                         },
                                     ),
-                                    HirTermSvarResolution::Explicit(
+                                    HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Type(
-                                            HirType::Svar(
-                                                HirTypeSvar::Type {
-                                                    attrs: HirTemplateSvarAttrs {
+                                            HirType::Variable(
+                                                HirTypeTemplateVariable::Type {
+                                                    attrs: HirTemplateVariableAttrs {
                                                         class: Comptime,
                                                     },
                                                     variance: None,
@@ -230,8 +230,8 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`quick_sort::partition`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`quick_sort::partition`, `Ritchie(
                     Fn,
                 )`),
             ),
@@ -242,9 +242,9 @@
                     HirTemplateParameters(
                         [
                             HirTemplateParameter {
-                                symbol: HirTemplateSvar::Type(
-                                    HirTypeSvar::Type {
-                                        attrs: HirTemplateSvarAttrs {
+                                symbol: HirTemplateVariable::Type(
+                                    HirTypeTemplateVariable::Type {
+                                        attrs: HirTemplateVariableAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -266,7 +266,7 @@
                 ),
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TypeItem(
+                        path: JavPath::TypeItem(
                             TypeItemPath(`<core::slice::Slice(0)>::swap`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -274,20 +274,20 @@
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateSvar::Type(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
+                                    HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
                                             disambiguator: 0,
                                         },
                                     ),
-                                    HirTermSvarResolution::Explicit(
+                                    HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Type(
-                                            HirType::Svar(
-                                                HirTypeSvar::Type {
-                                                    attrs: HirTemplateSvarAttrs {
+                                            HirType::Variable(
+                                                HirTypeTemplateVariable::Type {
+                                                    attrs: HirTemplateVariableAttrs {
                                                         class: Comptime,
                                                     },
                                                     variance: None,
@@ -298,10 +298,10 @@
                                     ),
                                 ),
                                 (
-                                    HirTemplateSvar::Type(
-                                        HirTypeSvar::SelfLifetime,
+                                    HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::SelfLifetime,
                                     ),
-                                    HirTermSvarResolution::SelfLifetime,
+                                    HirTermSymbolicVariableResolution::SelfLifetime,
                                 ),
                             ],
                             separator: Some(
@@ -315,8 +315,8 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                     Fn,
                 )`),
             ),
@@ -343,9 +343,22 @@
         ),
     ),
     (
+        ItemPath::Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 138,
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                     Fn,
                 )`),
             ),
@@ -383,6 +396,19 @@
                 ],
             },
         ),
+    ),
+    (
+        ItemPath::Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 139,
+                    },
+                ),
+            ),
+        ),
+        None,
     ),
 ]
 ```

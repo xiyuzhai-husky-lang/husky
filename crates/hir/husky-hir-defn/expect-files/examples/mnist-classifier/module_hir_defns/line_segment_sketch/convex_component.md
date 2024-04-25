@@ -81,25 +81,25 @@
                             pattern_arena: Arena {
                                 data: [],
                             },
-                            comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                            comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                                 arena: Arena {
                                     data: [],
                                 },
                             },
-                            runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                            runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                                 arena: Arena {
                                     data: [
-                                        HirEagerRuntimeSvarEntry {
-                                            name: HirEagerRuntimeSvarName::Ident(
+                                        HirEagerRuntimeVariableEntry {
+                                            name: HirEagerRuntimeVariableName::Ident(
                                                 `line_segment_sketch`,
                                             ),
-                                            data: HirEagerRuntimeSvarData::FieldVariable,
+                                            data: HirEagerRuntimeVariableData::FieldVariable,
                                         },
-                                        HirEagerRuntimeSvarEntry {
-                                            name: HirEagerRuntimeSvarName::Ident(
+                                        HirEagerRuntimeVariableEntry {
+                                            name: HirEagerRuntimeVariableName::Ident(
                                                 `line_segments`,
                                             ),
-                                            data: HirEagerRuntimeSvarData::FieldVariable,
+                                            data: HirEagerRuntimeVariableData::FieldVariable,
                                         },
                                     ],
                                 },
@@ -147,12 +147,12 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -166,14 +166,14 @@
     HirDefn::AssocItem(
         AssocItemHirDefn::TraitForTypeItem(
             TraitForTypeItemHirDefn::MethodFn(
-                TraitForTypeMethodFnHirDefn {
+                TraitForTypeMethodRitchieHirDefn {
                     path: TraitForTypeItemPath(
                         `<mnist_classifier::line_segment_sketch::convex_component::ConvexComponent as core::visual::Visualize(0)>::visualize`,
                         TraitItemKind::MethodRitchie(
                             RitchieItemKind::Fn,
                         ),
                     ),
-                    hir_decl: TraitForTypeMethodFnHirDecl {
+                    hir_decl: TraitForTypeMethodRitchieHirDecl {
                         path: TraitForTypeItemPath(
                             `<mnist_classifier::line_segment_sketch::convex_component::ConvexComponent as core::visual::Visualize(0)>::visualize`,
                             TraitItemKind::MethodRitchie(
@@ -225,29 +225,29 @@
                             pattern_arena: Arena {
                                 data: [],
                             },
-                            comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                            comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                                 arena: Arena {
                                     data: [],
                                 },
                             },
-                            runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                            runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                                 arena: Arena {
                                     data: [
-                                        HirEagerRuntimeSvarEntry {
-                                            name: HirEagerRuntimeSvarName::SelfValue,
-                                            data: HirEagerRuntimeSvarData::SelfValue,
+                                        HirEagerRuntimeVariableEntry {
+                                            name: HirEagerRuntimeVariableName::SelfValue,
+                                            data: HirEagerRuntimeVariableData::SelfValue,
                                         },
                                     ],
                                 },
                                 self_value_variable: Some(
-                                    1,
+                                    0,
                                 ),
                             },
                         },
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            4,
+                            3,
                             HirEagerExprRegion {
                                 region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
@@ -265,7 +265,7 @@
                                     data: [
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                1,
+                                                0,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -291,7 +291,7 @@
                                         },
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::PropsStructField {
-                                                self_argument: 1,
+                                                self_argument: 0,
                                                 self_ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
@@ -351,8 +351,8 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::MethodFnCall {
-                                                self_argument: 2,
+                                            data: HirEagerExprData::MethodRitchieCall {
+                                                self_argument: 1,
                                                 self_contract: Pure,
                                                 ident: `visualize`,
                                                 path: AssocItemPath::TraitForTypeItem(
@@ -366,10 +366,10 @@
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
                                                         (
-                                                            HirTemplateSvar::Type(
-                                                                HirTypeSvar::SelfType,
+                                                            HirTemplateVariable::Type(
+                                                                HirTypeTemplateVariable::SelfType,
                                                             ),
-                                                            HirTermSvarResolution::Explicit(
+                                                            HirTermSymbolicVariableResolution::Explicit(
                                                                 HirTemplateArgument::Type(
                                                                     HirType::PathLeading(
                                                                         HirTypePathLeading {
@@ -410,7 +410,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
-                                                    1..2,
+                                                    0..1,
                                                 ),
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -427,10 +427,10 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr: 3,
-                                            coersion: Some(
+                                            expr: 2,
+                                            coercion: Some(
                                                 Trivial(
-                                                    TrivialHirEagerCoersion {
+                                                    TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -442,22 +442,22 @@
                                 pattern_arena: Arena {
                                     data: [],
                                 },
-                                comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                                comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                                     arena: Arena {
                                         data: [],
                                     },
                                 },
-                                runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                                runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                                     arena: Arena {
                                         data: [
-                                            HirEagerRuntimeSvarEntry {
-                                                name: HirEagerRuntimeSvarName::SelfValue,
-                                                data: HirEagerRuntimeSvarData::SelfValue,
+                                            HirEagerRuntimeVariableEntry {
+                                                name: HirEagerRuntimeVariableName::SelfValue,
+                                                data: HirEagerRuntimeVariableData::SelfValue,
                                             },
                                         ],
                                     },
                                     self_value_variable: Some(
-                                        1,
+                                        0,
                                     ),
                                 },
                             },

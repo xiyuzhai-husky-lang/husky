@@ -1,6 +1,4 @@
-use crate::decl::HasSynNodeDecl;
-use crate::decl::SynDecl;
-use crate::{decl::ItemSynNodeDecl, *};
+use crate::*;
 
 #[salsa::tracked(db = SynDeclDb, jar = SynDeclJar, constructor = new)]
 pub struct SynNodeDeclSheet {
@@ -82,6 +80,16 @@ pub struct SynDeclSheet {
     pub decls: Vec<(ItemPath, SynDecl)>,
 }
 
+pub trait HasSynDeclSheet: Copy {
+    fn syn_decl_sheet(self, db: &::salsa::Db) -> SynDeclSheet;
+}
+
+impl HasSynDeclSheet for ModulePath {
+    fn syn_decl_sheet(self, db: &::salsa::Db) -> SynDeclSheet {
+        syn_decl_sheet(db, self)
+    }
+}
+
 // only useful for testing purposes
 #[salsa::tracked(jar = SynDeclJar)]
 pub fn syn_decl_sheet(db: &::salsa::Db, path: ModulePath) -> SynDeclSheet {
@@ -89,14 +97,14 @@ pub fn syn_decl_sheet(db: &::salsa::Db, path: ModulePath) -> SynDeclSheet {
     let item_tree_sheet = db.item_syn_tree_sheet(path);
     let mut decls: Vec<(ItemPath, SynDecl)> = Default::default();
     for syn_node_path in item_tree_sheet.major_item_syn_node_paths() {
-        if let Some(path) = syn_node_path.path(db) {
+        if let Some(path) = syn_node_path.unambiguous_item_path(db) {
             let Ok(decl) = path.syn_decl(db) else { todo!() };
             decls.push((path, decl))
         }
     }
     // todo: trait item
     for syn_node_path in item_tree_sheet.impl_block_syn_node_paths() {
-        if let Some(path) = syn_node_path.path(db)
+        if let Some(path) = syn_node_path.unambiguous_item_path(db)
             && let Ok(decl) = path.syn_decl(db)
         {
             decls.push((path.into(), decl.into()));
@@ -130,7 +138,7 @@ fn syn_decl_sheet_works() {
     use tests::*;
 
     DB::ast_expect_test_debug_with_db(
-        |db, module_path| db.syn_decl_sheet(module_path),
+        |db, module_path: ModulePath| module_path.syn_decl_sheet(db),
         &AstTestConfig::new(
             "syn_decl_sheet",
             FileExtensionConfig::Markdown,

@@ -46,7 +46,7 @@ impl HasHirDecl for TypeVariantPath {
     }
 }
 
-#[salsa::tracked(jar = HirDeclJar)]
+#[salsa::tracked]
 fn ty_variant_hir_decl(db: &::salsa::Db, path: TypeVariantPath) -> Option<TypeVariantHirDecl> {
     match path.parent_ty_path(db).ty_kind(db) {
         TypeKind::Enum => (),

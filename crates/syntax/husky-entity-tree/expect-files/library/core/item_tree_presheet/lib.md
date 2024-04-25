@@ -10,8 +10,8 @@ EntityTreePresheet {
                             ItemSynNodePathId {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
+                                        disambiguated_item_path: DisambiguatedItemPath {
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(
                                                 ItemPathId(
                                                     Id {
                                                         value: 1,
@@ -25,7 +25,7 @@ EntityTreePresheet {
                             },
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 1,
+                        ast_idx: 0,
                         ident_token: IdentToken {
                             ident: `array`,
                             token_idx: TokenIdx(
@@ -40,8 +40,8 @@ EntityTreePresheet {
                         ItemSynNodePathId {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(
                                             ItemPathId(
                                                 Id {
                                                     value: 1,
@@ -65,8 +65,8 @@ EntityTreePresheet {
                             ItemSynNodePathId {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
+                                        disambiguated_item_path: DisambiguatedItemPath {
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(
                                                 ItemPathId(
                                                     Id {
                                                         value: 2,
@@ -80,7 +80,7 @@ EntityTreePresheet {
                             },
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 2,
+                        ast_idx: 1,
                         ident_token: IdentToken {
                             ident: `basic`,
                             token_idx: TokenIdx(
@@ -95,8 +95,8 @@ EntityTreePresheet {
                         ItemSynNodePathId {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(
                                             ItemPathId(
                                                 Id {
                                                     value: 2,
@@ -120,8 +120,8 @@ EntityTreePresheet {
                             ItemSynNodePathId {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
+                                        disambiguated_item_path: DisambiguatedItemPath {
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(
                                                 ItemPathId(
                                                     Id {
                                                         value: 3,
@@ -135,7 +135,7 @@ EntityTreePresheet {
                             },
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 3,
+                        ast_idx: 2,
                         ident_token: IdentToken {
                             ident: `clone`,
                             token_idx: TokenIdx(
@@ -150,8 +150,8 @@ EntityTreePresheet {
                         ItemSynNodePathId {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(
                                             ItemPathId(
                                                 Id {
                                                     value: 3,
@@ -175,8 +175,8 @@ EntityTreePresheet {
                             ItemSynNodePathId {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
+                                        disambiguated_item_path: DisambiguatedItemPath {
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(
                                                 ItemPathId(
                                                     Id {
                                                         value: 4,
@@ -190,7 +190,7 @@ EntityTreePresheet {
                             },
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 4,
+                        ast_idx: 3,
                         ident_token: IdentToken {
                             ident: `cmp`,
                             token_idx: TokenIdx(
@@ -205,8 +205,8 @@ EntityTreePresheet {
                         ItemSynNodePathId {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(
                                             ItemPathId(
                                                 Id {
                                                     value: 4,
@@ -230,8 +230,8 @@ EntityTreePresheet {
                             ItemSynNodePathId {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
+                                        disambiguated_item_path: DisambiguatedItemPath {
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(
                                                 ItemPathId(
                                                     Id {
                                                         value: 5,
@@ -245,7 +245,7 @@ EntityTreePresheet {
                             },
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 5,
+                        ast_idx: 4,
                         ident_token: IdentToken {
                             ident: `default`,
                             token_idx: TokenIdx(
@@ -260,8 +260,8 @@ EntityTreePresheet {
                         ItemSynNodePathId {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(
                                             ItemPathId(
                                                 Id {
                                                     value: 5,
@@ -285,8 +285,8 @@ EntityTreePresheet {
                             ItemSynNodePathId {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
+                                        disambiguated_item_path: DisambiguatedItemPath {
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(
                                                 ItemPathId(
                                                     Id {
                                                         value: 6,
@@ -300,7 +300,7 @@ EntityTreePresheet {
                             },
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 6,
+                        ast_idx: 5,
                         ident_token: IdentToken {
                             ident: `fmt`,
                             token_idx: TokenIdx(
@@ -315,8 +315,8 @@ EntityTreePresheet {
                         ItemSynNodePathId {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(
                                             ItemPathId(
                                                 Id {
                                                     value: 6,
@@ -340,8 +340,8 @@ EntityTreePresheet {
                             ItemSynNodePathId {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
+                                        disambiguated_item_path: DisambiguatedItemPath {
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(
                                                 ItemPathId(
                                                     Id {
                                                         value: 7,
@@ -355,7 +355,7 @@ EntityTreePresheet {
                             },
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 7,
+                        ast_idx: 6,
                         ident_token: IdentToken {
                             ident: `logic`,
                             token_idx: TokenIdx(
@@ -370,8 +370,8 @@ EntityTreePresheet {
                         ItemSynNodePathId {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(
                                             ItemPathId(
                                                 Id {
                                                     value: 7,
@@ -395,8 +395,8 @@ EntityTreePresheet {
                             ItemSynNodePathId {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
+                                        disambiguated_item_path: DisambiguatedItemPath {
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(
                                                 ItemPathId(
                                                     Id {
                                                         value: 8,
@@ -410,7 +410,7 @@ EntityTreePresheet {
                             },
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 8,
+                        ast_idx: 7,
                         ident_token: IdentToken {
                             ident: `marker`,
                             token_idx: TokenIdx(
@@ -425,8 +425,8 @@ EntityTreePresheet {
                         ItemSynNodePathId {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(
                                             ItemPathId(
                                                 Id {
                                                     value: 8,
@@ -450,8 +450,8 @@ EntityTreePresheet {
                             ItemSynNodePathId {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
+                                        disambiguated_item_path: DisambiguatedItemPath {
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(
                                                 ItemPathId(
                                                     Id {
                                                         value: 9,
@@ -465,7 +465,7 @@ EntityTreePresheet {
                             },
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 9,
+                        ast_idx: 8,
                         ident_token: IdentToken {
                             ident: `mem`,
                             token_idx: TokenIdx(
@@ -480,8 +480,8 @@ EntityTreePresheet {
                         ItemSynNodePathId {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(
                                             ItemPathId(
                                                 Id {
                                                     value: 9,
@@ -505,8 +505,8 @@ EntityTreePresheet {
                             ItemSynNodePathId {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
+                                        disambiguated_item_path: DisambiguatedItemPath {
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(
                                                 ItemPathId(
                                                     Id {
                                                         value: 10,
@@ -520,7 +520,7 @@ EntityTreePresheet {
                             },
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 10,
+                        ast_idx: 9,
                         ident_token: IdentToken {
                             ident: `num`,
                             token_idx: TokenIdx(
@@ -535,8 +535,8 @@ EntityTreePresheet {
                         ItemSynNodePathId {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(
                                             ItemPathId(
                                                 Id {
                                                     value: 10,
@@ -560,8 +560,8 @@ EntityTreePresheet {
                             ItemSynNodePathId {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
+                                        disambiguated_item_path: DisambiguatedItemPath {
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(
                                                 ItemPathId(
                                                     Id {
                                                         value: 11,
@@ -575,7 +575,7 @@ EntityTreePresheet {
                             },
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 11,
+                        ast_idx: 10,
                         ident_token: IdentToken {
                             ident: `ops`,
                             token_idx: TokenIdx(
@@ -590,8 +590,8 @@ EntityTreePresheet {
                         ItemSynNodePathId {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(
                                             ItemPathId(
                                                 Id {
                                                     value: 11,
@@ -615,8 +615,8 @@ EntityTreePresheet {
                             ItemSynNodePathId {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
+                                        disambiguated_item_path: DisambiguatedItemPath {
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(
                                                 ItemPathId(
                                                     Id {
                                                         value: 12,
@@ -630,7 +630,7 @@ EntityTreePresheet {
                             },
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 12,
+                        ast_idx: 11,
                         ident_token: IdentToken {
                             ident: `option`,
                             token_idx: TokenIdx(
@@ -645,8 +645,8 @@ EntityTreePresheet {
                         ItemSynNodePathId {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(
                                             ItemPathId(
                                                 Id {
                                                     value: 12,
@@ -670,8 +670,8 @@ EntityTreePresheet {
                             ItemSynNodePathId {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
+                                        disambiguated_item_path: DisambiguatedItemPath {
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(
                                                 ItemPathId(
                                                     Id {
                                                         value: 13,
@@ -685,7 +685,7 @@ EntityTreePresheet {
                             },
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 13,
+                        ast_idx: 12,
                         ident_token: IdentToken {
                             ident: `prelude`,
                             token_idx: TokenIdx(
@@ -700,8 +700,8 @@ EntityTreePresheet {
                         ItemSynNodePathId {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(
                                             ItemPathId(
                                                 Id {
                                                     value: 13,
@@ -725,8 +725,8 @@ EntityTreePresheet {
                             ItemSynNodePathId {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
+                                        disambiguated_item_path: DisambiguatedItemPath {
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(
                                                 ItemPathId(
                                                     Id {
                                                         value: 14,
@@ -740,7 +740,7 @@ EntityTreePresheet {
                             },
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 14,
+                        ast_idx: 13,
                         ident_token: IdentToken {
                             ident: `raw_bits`,
                             token_idx: TokenIdx(
@@ -755,8 +755,8 @@ EntityTreePresheet {
                         ItemSynNodePathId {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(
                                             ItemPathId(
                                                 Id {
                                                     value: 14,
@@ -780,8 +780,8 @@ EntityTreePresheet {
                             ItemSynNodePathId {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
+                                        disambiguated_item_path: DisambiguatedItemPath {
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(
                                                 ItemPathId(
                                                     Id {
                                                         value: 15,
@@ -795,7 +795,7 @@ EntityTreePresheet {
                             },
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 15,
+                        ast_idx: 14,
                         ident_token: IdentToken {
                             ident: `result`,
                             token_idx: TokenIdx(
@@ -810,8 +810,8 @@ EntityTreePresheet {
                         ItemSynNodePathId {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(
                                             ItemPathId(
                                                 Id {
                                                     value: 15,
@@ -835,8 +835,8 @@ EntityTreePresheet {
                             ItemSynNodePathId {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
+                                        disambiguated_item_path: DisambiguatedItemPath {
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(
                                                 ItemPathId(
                                                     Id {
                                                         value: 16,
@@ -850,7 +850,7 @@ EntityTreePresheet {
                             },
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 16,
+                        ast_idx: 15,
                         ident_token: IdentToken {
                             ident: `vec`,
                             token_idx: TokenIdx(
@@ -865,8 +865,8 @@ EntityTreePresheet {
                         ItemSynNodePathId {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(
                                             ItemPathId(
                                                 Id {
                                                     value: 16,
@@ -890,8 +890,8 @@ EntityTreePresheet {
                             ItemSynNodePathId {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
+                                        disambiguated_item_path: DisambiguatedItemPath {
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(
                                                 ItemPathId(
                                                     Id {
                                                         value: 17,
@@ -905,7 +905,7 @@ EntityTreePresheet {
                             },
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 17,
+                        ast_idx: 16,
                         ident_token: IdentToken {
                             ident: `slice`,
                             token_idx: TokenIdx(
@@ -920,8 +920,8 @@ EntityTreePresheet {
                         ItemSynNodePathId {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(
                                             ItemPathId(
                                                 Id {
                                                     value: 17,
@@ -945,8 +945,8 @@ EntityTreePresheet {
                             ItemSynNodePathId {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
+                                        disambiguated_item_path: DisambiguatedItemPath {
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(
                                                 ItemPathId(
                                                     Id {
                                                         value: 18,
@@ -960,7 +960,7 @@ EntityTreePresheet {
                             },
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 18,
+                        ast_idx: 17,
                         ident_token: IdentToken {
                             ident: `str`,
                             token_idx: TokenIdx(
@@ -975,8 +975,8 @@ EntityTreePresheet {
                         ItemSynNodePathId {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(
                                             ItemPathId(
                                                 Id {
                                                     value: 18,
@@ -1000,8 +1000,8 @@ EntityTreePresheet {
                             ItemSynNodePathId {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
+                                        disambiguated_item_path: DisambiguatedItemPath {
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(
                                                 ItemPathId(
                                                     Id {
                                                         value: 19,
@@ -1015,7 +1015,7 @@ EntityTreePresheet {
                             },
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 19,
+                        ast_idx: 18,
                         ident_token: IdentToken {
                             ident: `visual`,
                             token_idx: TokenIdx(
@@ -1030,8 +1030,8 @@ EntityTreePresheet {
                         ItemSynNodePathId {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(
                                             ItemPathId(
                                                 Id {
                                                     value: 19,
@@ -1053,8 +1053,8 @@ EntityTreePresheet {
     once_use_rules: OnceUseRules(
         [
             OnceUseRule {
-                ast_idx: 20,
-                use_expr_idx: 3,
+                ast_idx: 19,
+                use_expr_idx: 2,
                 visibility: Scope::PubUnder(
                     `core`,
                 ),
@@ -1067,7 +1067,7 @@ EntityTreePresheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        2..3,
+                        1..2,
                     ),
                 },
                 parent: None,
@@ -1106,7 +1106,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 1,
+                            child: 0,
                         },
                     ),
                 },
@@ -1129,7 +1129,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 2,
+                            child: 1,
                         },
                     ),
                 },

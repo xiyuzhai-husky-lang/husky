@@ -30,13 +30,13 @@ where
             DisambiguatedTokenData::CurrentSynSymbol {
                 ident,
                 regional_token_idx,
-                current_syn_symbol_idx,
-                current_syn_symbol_kind,
+                current_variable_idx,
+                current_variable_kind,
             } => self.accept_atom(SynExprData::CurrentSynSymbol {
                 ident,
                 regional_token_idx,
-                current_syn_symbol_idx,
-                current_syn_symbol_kind,
+                current_variable_idx,
+                current_variable_kind,
             }),
             DisambiguatedTokenData::SelfType(regional_token_idx) => {
                 self.accept_atom(SynExprData::SelfType(regional_token_idx))
@@ -107,6 +107,10 @@ where
                 eq_token,
             } => self.accept_incomplete_keyword_argument(regional_token_idx, ident, eq_token),
             DisambiguatedTokenData::At(regional_token_idx) => self.accept_at(regional_token_idx),
+            DisambiguatedTokenData::AssocItem {
+                ident,
+                regional_token_idx,
+            } => self.accept_assoc_item(ident, regional_token_idx),
         }
     }
 
@@ -634,6 +638,27 @@ where
             SynExprData::At {
                 at_regional_token_idx,
                 place_label_regional_token,
+            }
+            .into(),
+        )
+    }
+
+    fn accept_assoc_item(&mut self, ident: Ident, ident_regional_token_idx: RegionalTokenIdx) {
+        let Some(IncompleteSynExprData::Binary {
+            lopd,
+            punctuation: SynBinaryOpr::ScopeResolution,
+            punctuation_regional_token_idx,
+        }) = self.take_last_incomplete_expr()
+        else {
+            unreachable!("this is called only when there is an incomplete binary expression")
+        };
+        let parent_expr_idx = self.context_mut().alloc_expr(lopd);
+        self.push_top_syn_expr(
+            SynExprData::AssocItem {
+                parent_expr_idx,
+                colon_colon_regional_token_idx: punctuation_regional_token_idx,
+                ident,
+                ident_regional_token_idx,
             }
             .into(),
         )

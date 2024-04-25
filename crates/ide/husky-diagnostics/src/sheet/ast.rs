@@ -96,19 +96,17 @@ impl Diagnose for (TokenVerseIdx, &OriginalAstError) {
             OriginalAstError::Todo => {
                 format!("Syntax Error: ast error todo")
             }
-            OriginalAstError::UnexpectedEndAfterFugitiveKeywordInsideModule => {
-                format!("Syntax Error: UnexpectedEndAfterFugitiveKeywordInsideModule")
+            OriginalAstError::UnexpectedEndAfterFormKeywordInsideModule => {
+                format!("Syntax Error: UnexpectedEndAfterFormKeywordInsideModule")
             }
-            OriginalAstError::UnexpectedEndAfterFugitiveKeywordInsideTrait => {
-                format!("Syntax Error: UnexpectedEndAfterFugitiveKeywordInsideTrait")
+            OriginalAstError::UnexpectedEndAfterFormKeywordInsideTrait => {
+                format!("Syntax Error: UnexpectedEndAfterFormKeywordInsideTrait")
             }
-            OriginalAstError::UnexpectedEndAfterFugitiveKeywordInsideTypeImplBlock => {
-                format!("Syntax Error: UnexpectedEndAfterFugitiveKeywordInsideTypeImplBlock")
+            OriginalAstError::UnexpectedEndAfterFormKeywordInsideTypeImplBlock => {
+                format!("Syntax Error: UnexpectedEndAfterFormKeywordInsideTypeImplBlock")
             }
-            OriginalAstError::UnexpectedEndAfterFugitiveKeywordInsideTraitForTypeImplBlock => {
-                format!(
-                    "Syntax Error: UnexpectedEndAfterFugitiveKeywordInsideTraitForTypeImplBlock"
-                )
+            OriginalAstError::UnexpectedEndAfterFormKeywordInsideTraitForTypeImplBlock => {
+                format!("Syntax Error: UnexpectedEndAfterFormKeywordInsideTraitForTypeImplBlock")
             }
             OriginalAstError::UnexpectedStmtInsideTrait => {
                 format!("Syntax Error: UnexpectedStmtInsideTrait")
@@ -170,7 +168,7 @@ impl Diagnose for (TokenVerseIdx, &OriginalAstError) {
             OriginalAstError::ExpectedFormBodyForMain(_) => {
                 format!("Syntax Error: ExpectedFormBodyForMain")
             }
-            OriginalAstError::UnexpectedModUnderFugitive => {
+            OriginalAstError::UnexpectedModUnderForm => {
                 format!("unexpected submodule inside module item")
             }
             OriginalAstError::SubmoduleFileNotFound {
@@ -182,7 +180,7 @@ impl Diagnose for (TokenVerseIdx, &OriginalAstError) {
             OriginalAstError::UnexpectedTraitInsideImplBlock => todo!(),
             OriginalAstError::ExpectedLboxOrIdentAfterPoundForAttrOrSorce => todo!(),
             OriginalAstError::UnexpectedMemoUnderModule => todo!(),
-            OriginalAstError::UnexpectedMemoUnderFugitive => todo!(),
+            OriginalAstError::UnexpectedMemoUnderForm => todo!(),
         }
     }
 
@@ -202,14 +200,14 @@ impl Diagnose for (TokenVerseIdx, &OriginalAstError) {
             | OriginalAstError::UnexpectedStmtInsideImplBlock
             | OriginalAstError::InvalidAstForDefinitionOrUse
             | OriginalAstError::Todo
-            | OriginalAstError::UnexpectedEndAfterFugitiveKeywordInsideModule
-            | OriginalAstError::UnexpectedEndAfterFugitiveKeywordInsideTrait
-            | OriginalAstError::UnexpectedEndAfterFugitiveKeywordInsideTypeImplBlock
-            | OriginalAstError::UnexpectedEndAfterFugitiveKeywordInsideTraitForTypeImplBlock
+            | OriginalAstError::UnexpectedEndAfterFormKeywordInsideModule
+            | OriginalAstError::UnexpectedEndAfterFormKeywordInsideTrait
+            | OriginalAstError::UnexpectedEndAfterFormKeywordInsideTypeImplBlock
+            | OriginalAstError::UnexpectedEndAfterFormKeywordInsideTraitForTypeImplBlock
             | OriginalAstError::UnexpectedStmtInsideTrait
             | OriginalAstError::UnexpectedMainInsideTrait
             | OriginalAstError::UnexpectedUseInsideTrait
-            | OriginalAstError::UnexpectedModUnderFugitive
+            | OriginalAstError::UnexpectedModUnderForm
             | OriginalAstError::UnexpectedImplBlockInsideModuleItem
             | OriginalAstError::UnexpectedTraitInsideTrait
             | OriginalAstError::UnexpectedPattern
@@ -250,7 +248,7 @@ impl Diagnose for (TokenVerseIdx, &OriginalAstError) {
             OriginalAstError::UnexpectedTraitInsideImplBlock => todo!(),
             OriginalAstError::ExpectedLboxOrIdentAfterPoundForAttrOrSorce => todo!(),
             OriginalAstError::UnexpectedMemoUnderModule => todo!(),
-            OriginalAstError::UnexpectedMemoUnderFugitive => todo!(),
+            OriginalAstError::UnexpectedMemoUnderForm => todo!(),
         }
     }
 }

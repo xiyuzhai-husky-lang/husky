@@ -15,6 +15,7 @@ pub use self::ty_variant::*;
 use crate::*;
 use enum_class::Room32;
 use husky_token::IdentToken;
+use smallvec::{smallvec, SmallVec};
 use vec_like::VecPairMap;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -66,8 +67,8 @@ impl ItemSynNodePathId {
         }
     }
 
-    pub fn path(self, db: &::salsa::Db) -> Option<ItemPath> {
-        self.data(db).path()
+    pub fn unambiguous_item_path(self, db: &::salsa::Db) -> Option<ItemPath> {
+        self.data(db).unambiguous_item_path()
     }
 
     pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
@@ -98,14 +99,14 @@ fn syn_node_path_id_conversion_works() {
 }
 
 impl ItemSynNodePathData {
-    pub fn path(self) -> Option<ItemPath> {
+    pub fn unambiguous_item_path(self) -> Option<ItemPath> {
         match self {
-            ItemSynNodePathData::Submodule(slf) => slf.path().map(Into::into),
-            ItemSynNodePathData::MajorItem(slf) => slf.path().map(Into::into),
-            ItemSynNodePathData::TypeVariant(slf) => slf.path().map(Into::into),
-            ItemSynNodePathData::ImplBlock(slf) => slf.path().map(Into::into),
-            ItemSynNodePathData::AssocItem(slf) => slf.path().map(Into::into),
-            ItemSynNodePathData::Attr(slf) => slf.path().map(Into::into),
+            ItemSynNodePathData::Submodule(slf) => slf.unambiguous_item_path().map(Into::into),
+            ItemSynNodePathData::MajorItem(slf) => slf.unambiguous_item_path().map(Into::into),
+            ItemSynNodePathData::TypeVariant(slf) => slf.unambiguous_item_path().map(Into::into),
+            ItemSynNodePathData::ImplBlock(slf) => slf.unambiguous_item_path().map(Into::into),
+            ItemSynNodePathData::AssocItem(slf) => slf.unambiguous_item_path().map(Into::into),
+            ItemSynNodePathData::Attr(slf) => slf.unambiguous_item_path().map(Into::into),
         }
     }
 
@@ -133,33 +134,31 @@ impl ItemSynNodePathData {
 }
 
 impl ItemSynNodePath {
-    pub fn path(self, db: &::salsa::Db) -> Option<ItemPath> {
+    pub fn unambiguous_item_path(self, db: &::salsa::Db) -> Option<ItemPath> {
         match self {
-            ItemSynNodePath::Submodule(_, syn_node_path) => syn_node_path.path(db).map(Into::into),
-            ItemSynNodePath::MajorItem(syn_node_path) => syn_node_path.path(db).map(Into::into),
-            ItemSynNodePath::TypeVariant(_, syn_node_path) => {
-                syn_node_path.unambiguous_path(db).map(Into::into)
+            ItemSynNodePath::Submodule(_, syn_node_path) => {
+                syn_node_path.unambiguous_item_path(db).map(Into::into)
             }
-            ItemSynNodePath::ImplBlock(syn_node_path) => syn_node_path.path(db).map(Into::into),
-            ItemSynNodePath::AssocItem(syn_node_path) => syn_node_path.path(db).map(Into::into),
-            ItemSynNodePath::Attr(_, syn_node_path) => syn_node_path.path(db).map(Into::into),
+            ItemSynNodePath::MajorItem(syn_node_path) => {
+                syn_node_path.unambiguous_item_path(db).map(Into::into)
+            }
+            ItemSynNodePath::TypeVariant(_, syn_node_path) => {
+                syn_node_path.unambiguous_item_path(db).map(Into::into)
+            }
+            ItemSynNodePath::ImplBlock(syn_node_path) => {
+                syn_node_path.unambiguous_item_path(db).map(Into::into)
+            }
+            ItemSynNodePath::AssocItem(syn_node_path) => {
+                syn_node_path.unambiguous_item_path(db).map(Into::into)
+            }
+            ItemSynNodePath::Attr(_, syn_node_path) => {
+                syn_node_path.unambiguous_item_path(db).map(Into::into)
+            }
         }
     }
 
     pub fn toolchain(self, db: &::salsa::Db) -> Toolchain {
         self.module_path(db).toolchain(db)
-    }
-
-    pub(crate) fn attr_syn_nodes(self, db: &::salsa::Db) -> &[(AttrSynNodePath, AttrSynNode)] {
-        // ad hoc
-        match self {
-            ItemSynNodePath::Submodule(_, _) => &[],
-            ItemSynNodePath::MajorItem(path) => path.attrs(db),
-            ItemSynNodePath::TypeVariant(_, _) => &[],
-            ItemSynNodePath::ImplBlock(_) => &[],
-            ItemSynNodePath::AssocItem(_) => &[],
-            ItemSynNodePath::Attr(_, _) => &[],
-        }
     }
 }
 
@@ -193,14 +192,14 @@ impl ItemSynNodePathRegistry {
     fn issue_maybe_ambiguous_path<P: Copy + Into<ItemPath>>(
         &mut self,
         path: P,
-    ) -> MaybeAmbiguousPath<P> {
+    ) -> DisambiguatedItemPath<P> {
         let next_disambiguator = self
             .next_disambiguators
             .get_value_mut_or_insert_default(path.into());
         let disambiguator = *next_disambiguator;
         *next_disambiguator += 1;
-        MaybeAmbiguousPath {
-            path,
+        DisambiguatedItemPath {
+            maybe_ambiguous_item_path: path,
             disambiguator,
         }
     }
@@ -208,21 +207,25 @@ impl ItemSynNodePathRegistry {
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct MaybeAmbiguousPath<P> {
-    path: P,
+pub struct DisambiguatedItemPath<P> {
+    maybe_ambiguous_item_path: P,
     disambiguator: u8,
 }
 
-impl<P> MaybeAmbiguousPath<P> {
-    fn from_path(path: P) -> Self {
+impl<P> DisambiguatedItemPath<P> {
+    fn from_path(maybe_ambiguous_item_path: P) -> Self {
         Self {
-            path,
+            maybe_ambiguous_item_path,
             disambiguator: 0,
         }
     }
 
-    fn unambiguous_path(self) -> Option<P> {
-        (self.disambiguator == 0).then_some(self.path)
+    fn unambiguous_item_path(self) -> Option<P> {
+        (self.disambiguator == 0).then_some(self.maybe_ambiguous_item_path)
+    }
+
+    fn maybe_ambiguous_item_path(self) -> P {
+        self.maybe_ambiguous_item_path
     }
 }
 
@@ -292,10 +295,4 @@ pub trait HasAssocItemPaths: Copy {
     type AssocItemPath;
 
     fn assoc_item_paths(self, db: &::salsa::Db) -> &[(Ident, Self::AssocItemPath)];
-}
-
-pub trait HasAttrPaths: Copy {
-    type AttrPath;
-
-    fn attr_paths(self, db: &::salsa::Db) -> &[Self::AttrPath];
 }

@@ -55,9 +55,8 @@ impl<'a> AstParser<'a> {
             // todo: refactor such that token_verse_iter is pub(crate)
             self.token_verse_iter = seq.token_verse_iter(self.token_sheet.tokens());
             let indent = self.token_verse_iter.next_token_verse_indent();
-            let nested_asts = self.with_indent(indent, |slf| {
-                slf.parse_normal_ast_children::<FugitiveBody>()
-            });
+            let nested_asts =
+                self.with_indent(indent, |slf| slf.parse_normal_ast_children::<FormBody>());
             nested_top_level_asts.push((seq.lcurl(), nested_asts))
         }
         AstSheet::new(
@@ -133,13 +132,12 @@ impl<'a> AstParser<'a> {
                     VisibilityExpr::new_protected(self.module_path),
                     None,
                 ),
-                Keyword::Mod | Keyword::Fugitive(_) | Keyword::Trait | Keyword::TypeEntity(_) => {
-                    self.parse_defn::<C>(
+                Keyword::Mod | Keyword::Form(_) | Keyword::Trait | Keyword::TypeEntity(_) => self
+                    .parse_defn::<C>(
                         token_verse_idx,
                         VisibilityExpr::new_protected(self.module_path),
                         None,
-                    )
-                }
+                    ),
                 Keyword::Impl => AstData::ImplBlock {
                     token_verse_idx,
                     items: if self.is_trai_impl(token_verse_idx) {

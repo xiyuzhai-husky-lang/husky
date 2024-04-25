@@ -9,7 +9,7 @@ pub struct TraitForTypeItemSynNodePath(ItemSynNodePathId);
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct TraitForTypeItemSynNodePathData {
-    maybe_ambiguous_path: MaybeAmbiguousPath<TraitForTypeItemPath>,
+    disambiguated_item_path: DisambiguatedItemPath<TraitForTypeItemPath>,
 }
 
 impl From<TraitForTypeItemSynNodePath> for ItemSynNodePath {
@@ -28,7 +28,7 @@ impl TraitForTypeItemSynNodePath {
             db,
             ItemSynNodePathData::AssocItem(AssocItemSynNodePathData::TraitForTypeItem(
                 TraitForTypeItemSynNodePathData {
-                    maybe_ambiguous_path: registry.issue_maybe_ambiguous_path(path),
+                    disambiguated_item_path: registry.issue_maybe_ambiguous_path(path),
                 },
             )),
         ))
@@ -44,7 +44,7 @@ impl TraitForTypeItemSynNodePath {
     }
 
     pub fn path(self, db: &::salsa::Db) -> Option<TraitForTypeItemPath> {
-        Some(match self.0.path(db)? {
+        Some(match self.0.unambiguous_item_path(db)? {
             ItemPath::AssocItem(AssocItemPath::TraitForTypeItem(path)) => path,
             _ => unreachable!(),
         })
@@ -58,22 +58,26 @@ impl TraitForTypeItemSynNodePathData {
     }
 
     pub fn path(&self) -> Option<TraitForTypeItemPath> {
-        self.maybe_ambiguous_path.unambiguous_path()
+        self.disambiguated_item_path.unambiguous_item_path()
     }
 
     pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
-        self.maybe_ambiguous_path.path.module_path(db)
+        self.disambiguated_item_path
+            .maybe_ambiguous_item_path
+            .module_path(db)
     }
 
     pub fn impl_block(&self, db: &::salsa::Db) -> TraitForTypeImplBlockSynNodePath {
-        self.maybe_ambiguous_path
-            .path
+        self.disambiguated_item_path
+            .maybe_ambiguous_item_path
             .impl_block(db)
             .syn_node_path(db)
     }
 
     pub fn item_kind(&self, db: &::salsa::Db) -> TraitItemKind {
-        self.maybe_ambiguous_path.path.item_kind(db)
+        self.disambiguated_item_path
+            .maybe_ambiguous_item_path
+            .item_kind(db)
     }
 
     pub fn ast_idx(self, id: ItemSynNodePathId, db: &::salsa::Db) -> AstIdx {
@@ -101,7 +105,7 @@ impl HasSynNodePath for TraitForTypeItemPath {
             db,
             ItemSynNodePathData::AssocItem(AssocItemSynNodePathData::TraitForTypeItem(
                 TraitForTypeItemSynNodePathData {
-                    maybe_ambiguous_path: MaybeAmbiguousPath::from_path(self),
+                    disambiguated_item_path: DisambiguatedItemPath::from_path(self),
                 },
             )),
         ))

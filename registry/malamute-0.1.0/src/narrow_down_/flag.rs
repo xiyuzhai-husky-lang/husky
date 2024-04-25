@@ -20,7 +20,7 @@ where
     Label: IsLabel,
 {
     pub fn from_features(
-        val_domain_repr: __ValDomainReprInterface,
+        ki_domain_repr: __ValDomainReprInterface,
         arguments: &[__KiReprInterface],
         label0: Label,
     ) -> Result<Self, ()> {
@@ -28,7 +28,7 @@ where
         for i in 0..5 {
             let input_id = __InputId::from_index(i);
             if let Some(stalk) =
-                Self::from_features_aux(val_domain_repr, input_id, arguments, label0)?
+                Self::from_features_aux(ki_domain_repr, input_id, arguments, label0)?
             {
                 stalks.push(stalk)
             }
@@ -37,12 +37,12 @@ where
     }
 
     fn from_features_aux(
-        val_domain_repr: __ValDomainReprInterface,
+        ki_domain_repr: __ValDomainReprInterface,
         input_id: __InputId,
         arguments: &[__KiReprInterface],
         label0: Label,
     ) -> Result<Option<Stalk>, ()> {
-        match __eval_val_domain_repr_interface_at_input(val_domain_repr, input_id) {
+        match __eval_ki_domain_repr_interface_at_input(ki_domain_repr, input_id) {
             KiControlFlow::Continue(_) => (),
             KiControlFlow::LoopContinue => todo!(),
             KiControlFlow::LoopExit(_) => todo!(),

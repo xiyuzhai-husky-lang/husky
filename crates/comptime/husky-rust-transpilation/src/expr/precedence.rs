@@ -72,14 +72,14 @@ pub(super) fn hir_eager_expr_precedence(data: &HirEagerExprData) -> RustPreceden
     match data {
         HirEagerExprData::Literal(_)
         | HirEagerExprData::PrincipalEntityPath(_)
-        | HirEagerExprData::ConstSvar { .. }
+        | HirEagerExprData::ConstVariable { .. }
         | HirEagerExprData::Variable(_)
         | HirEagerExprData::NewTuple { .. }
         | HirEagerExprData::NewList { .. }
         | HirEagerExprData::EmptyHtmlTag { .. }
         | HirEagerExprData::Todo
         | HirEagerExprData::Unreachable
-        | HirEagerExprData::AssocFn { .. } => RustPrecedence::Atom,
+        | HirEagerExprData::AssocRitchie { .. } => RustPrecedence::Atom,
         HirEagerExprData::Binary { opr, .. } => match opr {
             HirBinaryOpr::Closed(opr) => match opr {
                 BinaryClosedOpr::Add => RustPrecedence::Additive,
@@ -111,13 +111,13 @@ pub(super) fn hir_eager_expr_precedence(data: &HirEagerExprData) -> RustPreceden
         HirEagerExprData::Be { .. } => RustPrecedence::Be,
         HirEagerExprData::Prefix { .. }
         | HirEagerExprData::Suffix { .. }
-        | HirEagerExprData::TypeConstructorFnCall { .. }
+        | HirEagerExprData::TypeConstructorCall { .. }
         | HirEagerExprData::TypeVariantConstructorCall { .. }
-        | HirEagerExprData::FunctionFnCall { .. }
-        | HirEagerExprData::AssocFunctionFnCall { .. }
+        | HirEagerExprData::FunctionRitchieCall { .. }
+        | HirEagerExprData::AssocFunctionRitchieCall { .. }
         | HirEagerExprData::PropsStructField { .. }
         | HirEagerExprData::MemoizedField { .. }
-        | HirEagerExprData::MethodFnCall { .. }
+        | HirEagerExprData::MethodRitchieCall { .. }
         | HirEagerExprData::Index { .. }
         | HirEagerExprData::Unwrap { .. } => RustPrecedence::Suffix,
         HirEagerExprData::Block { .. } => RustPrecedence::None,

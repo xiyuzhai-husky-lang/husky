@@ -11,7 +11,7 @@ enum-class.workspace = true
 # fs
 husky-vfs.workspace = true
 # lex
-husky-regional-token.workspace = true
+husky-token.workspace = true
 
 [dev-dependencies]
 # kernel

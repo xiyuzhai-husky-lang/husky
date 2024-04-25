@@ -10,8 +10,8 @@ EntityTreeSheet {
                             ItemSynNodePathId {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
+                                        disambiguated_item_path: DisambiguatedItemPath {
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(
                                                 ItemPathId(
                                                     Id {
                                                         value: 1,
@@ -27,7 +27,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `syntax_basics`,
                         ),
-                        ast_idx: 1,
+                        ast_idx: 0,
                         ident_token: IdentToken {
                             ident: `ast`,
                             token_idx: TokenIdx(
@@ -42,8 +42,8 @@ EntityTreeSheet {
                         ItemSynNodePathId {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(
                                             ItemPathId(
                                                 Id {
                                                     value: 1,
@@ -69,8 +69,8 @@ EntityTreeSheet {
                             ItemSynNodePathId {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
+                                        disambiguated_item_path: DisambiguatedItemPath {
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(
                                                 ItemPathId(
                                                     Id {
                                                         value: 2,
@@ -86,7 +86,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `syntax_basics`,
                         ),
-                        ast_idx: 2,
+                        ast_idx: 1,
                         ident_token: IdentToken {
                             ident: `uses`,
                             token_idx: TokenIdx(
@@ -101,8 +101,8 @@ EntityTreeSheet {
                         ItemSynNodePathId {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(
                                             ItemPathId(
                                                 Id {
                                                     value: 2,
@@ -128,8 +128,8 @@ EntityTreeSheet {
                             ItemSynNodePathId {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
+                                        disambiguated_item_path: DisambiguatedItemPath {
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(
                                                 ItemPathId(
                                                     Id {
                                                         value: 3,
@@ -145,7 +145,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `syntax_basics`,
                         ),
-                        ast_idx: 3,
+                        ast_idx: 2,
                         ident_token: IdentToken {
                             ident: `defn`,
                             token_idx: TokenIdx(
@@ -160,8 +160,8 @@ EntityTreeSheet {
                         ItemSynNodePathId {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(
                                             ItemPathId(
                                                 Id {
                                                     value: 3,
@@ -187,8 +187,8 @@ EntityTreeSheet {
                             ItemSynNodePathId {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
+                                        disambiguated_item_path: DisambiguatedItemPath {
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(
                                                 ItemPathId(
                                                     Id {
                                                         value: 4,
@@ -204,7 +204,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `syntax_basics`,
                         ),
-                        ast_idx: 4,
+                        ast_idx: 3,
                         ident_token: IdentToken {
                             ident: `expr`,
                             token_idx: TokenIdx(
@@ -219,8 +219,8 @@ EntityTreeSheet {
                         ItemSynNodePathId {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(
                                             ItemPathId(
                                                 Id {
                                                     value: 4,
@@ -245,7 +245,7 @@ EntityTreeSheet {
         [
             EntitySymbolEntry {
                 ident: `ast`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `syntax_basics`,
                 ),
                 symbol: EntitySymbol::Submodule {
@@ -260,7 +260,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `uses`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `syntax_basics`,
                 ),
                 symbol: EntitySymbol::Submodule {
@@ -275,7 +275,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `defn`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `syntax_basics`,
                 ),
                 symbol: EntitySymbol::Submodule {
@@ -290,7 +290,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `expr`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `syntax_basics`,
                 ),
                 symbol: EntitySymbol::Submodule {

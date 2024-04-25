@@ -22,7 +22,7 @@ pub trait VfsTestUtils: Default + std::ops::Deref<Target = Db> + std::ops::Deref
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
     fn vfs_plain_test<U>(f: impl Fn(&::salsa::Db, U), config: &VfsTestConfig)
     where
-        U: VfsTestUnit;
+        U: IsVfsTestUnit;
 
     /// run to see whether the output agrees with previous
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
@@ -30,19 +30,19 @@ pub trait VfsTestUtils: Default + std::ops::Deref<Target = Db> + std::ops::Deref
         f: impl Fn(&'a ::salsa::Db, U) -> R,
         config: &VfsTestConfig,
     ) where
-        U: VfsTestUnit + salsa::DebugWithDb,
+        U: IsVfsTestUnit + salsa::DebugWithDb,
         R: salsa::DebugWithDb;
 
     /// run to see whether the output agrees with previous
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
     fn vfs_expect_test_debug<'a, U, R>(f: impl Fn(&'a ::salsa::Db, U) -> R, config: &VfsTestConfig)
     where
-        U: VfsTestUnit + salsa::DebugWithDb,
+        U: IsVfsTestUnit + salsa::DebugWithDb,
         R: std::fmt::Debug;
 
     fn vfs_expect_test_display<U, R>(f: impl Fn(&::salsa::Db, U) -> R, config: &VfsTestConfig)
     where
-        U: VfsTestUnit + salsa::DebugWithDb,
+        U: IsVfsTestUnit + salsa::DebugWithDb,
         R: std::fmt::Display;
 }
 
@@ -56,7 +56,7 @@ where
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
     fn vfs_plain_test<U>(f: impl Fn(&::salsa::Db, U), config: &VfsTestConfig)
     where
-        U: VfsTestUnit,
+        U: IsVfsTestUnit,
     {
         for test_suite in config.test_domains() {
             for path in collect_package_relative_dirs(&test_suite.src_base()).into_iter() {
@@ -68,7 +68,7 @@ where
                     &path.to_logical_path(&test_suite.src_base()),
                 )
                 .unwrap();
-                for unit in <U as VfsTestUnit>::collect_from_package_path(db, package_path) {
+                for unit in <U as IsVfsTestUnit>::collect_from_package_path(db, package_path) {
                     f(db, unit);
                     if let Some(adversarials_base) = test_suite.adversarials_base() {
                         vfs_adversarial_test(
@@ -90,7 +90,7 @@ where
         f: impl Fn(&'a ::salsa::Db, U) -> R,
         config: &VfsTestConfig,
     ) where
-        U: VfsTestUnit + salsa::DebugWithDb,
+        U: IsVfsTestUnit + salsa::DebugWithDb,
         R: salsa::DebugWithDb,
     {
         vfs_expect_test::<DB, _>(
@@ -103,7 +103,7 @@ where
     /// it will invoke robustness test if environment variable `ROBUSTNESS_TEST` is set be a positive number
     fn vfs_expect_test_debug<'a, U, R>(f: impl Fn(&'a ::salsa::Db, U) -> R, config: &VfsTestConfig)
     where
-        U: VfsTestUnit + salsa::DebugWithDb,
+        U: IsVfsTestUnit + salsa::DebugWithDb,
         R: std::fmt::Debug,
     {
         vfs_expect_test::<DB, _>(
@@ -114,7 +114,7 @@ where
 
     fn vfs_expect_test_display<U, R>(f: impl Fn(&::salsa::Db, U) -> R, config: &VfsTestConfig)
     where
-        U: VfsTestUnit + salsa::DebugWithDb,
+        U: IsVfsTestUnit + salsa::DebugWithDb,
         R: std::fmt::Display,
     {
         vfs_expect_test::<DB, _>(|db, u| format!("{}", &f(db, u)), config)

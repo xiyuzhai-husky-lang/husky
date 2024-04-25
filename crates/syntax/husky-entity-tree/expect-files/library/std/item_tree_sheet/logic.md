@@ -11,8 +11,8 @@ EntityTreeSheet {
     once_use_rules: OnceUseRules(
         [
             OnceUseRule {
-                ast_idx: 1,
-                use_expr_idx: 3,
+                ast_idx: 0,
+                use_expr_idx: 2,
                 visibility: Scope::Pub,
                 variant: OnceUseRuleVariant::Parent {
                     parent_name_token: PathNameToken::Ident(
@@ -24,7 +24,7 @@ EntityTreeSheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        2..3,
+                        1..2,
                     ),
                 },
                 parent: None,
@@ -39,8 +39,8 @@ EntityTreeSheet {
                 },
             },
             OnceUseRule {
-                ast_idx: 1,
-                use_expr_idx: 2,
+                ast_idx: 0,
+                use_expr_idx: 1,
                 visibility: Scope::Pub,
                 variant: OnceUseRuleVariant::Parent {
                     parent_name_token: PathNameToken::Ident(
@@ -52,7 +52,7 @@ EntityTreeSheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        1..2,
+                        0..1,
                     ),
                 },
                 parent: Some(
@@ -84,8 +84,8 @@ EntityTreeSheet {
             UseAllRule {
                 parent_module_path: `core::logic`,
                 is_same_crate: false,
-                ast_idx: 1,
-                use_expr_idx: 1,
+                ast_idx: 0,
+                use_expr_idx: 0,
                 visibility: Scope::Pub,
                 progress: Ok(
                     0,

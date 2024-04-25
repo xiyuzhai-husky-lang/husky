@@ -12,8 +12,8 @@ EntityTreeSheet {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -23,7 +23,7 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 80,
+                        ast_idx: 79,
                         ident_token: IdentToken {
                             ident: `Point2d`,
                             token_idx: TokenIdx(
@@ -43,8 +43,8 @@ EntityTreeSheet {
                                 data: ItemSynNodePathData::MajorItem(
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -66,8 +66,8 @@ EntityTreeSheet {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -77,7 +77,7 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 82,
+                        ast_idx: 81,
                         ident_token: IdentToken {
                             ident: `RelativePoint2d`,
                             token_idx: TokenIdx(
@@ -97,8 +97,8 @@ EntityTreeSheet {
                                 data: ItemSynNodePathData::MajorItem(
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -120,8 +120,8 @@ EntityTreeSheet {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -131,7 +131,7 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 83,
+                        ast_idx: 82,
                         ident_token: IdentToken {
                             ident: `Vector2d`,
                             token_idx: TokenIdx(
@@ -151,8 +151,8 @@ EntityTreeSheet {
                                 data: ItemSynNodePathData::MajorItem(
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -174,8 +174,8 @@ EntityTreeSheet {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -185,7 +185,7 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 85,
+                        ast_idx: 84,
                         ident_token: IdentToken {
                             ident: `ClosedRange`,
                             token_idx: TokenIdx(
@@ -205,8 +205,8 @@ EntityTreeSheet {
                                 data: ItemSynNodePathData::MajorItem(
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -228,8 +228,8 @@ EntityTreeSheet {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -239,7 +239,7 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 87,
+                        ast_idx: 86,
                         ident_token: IdentToken {
                             ident: `BoundingBox`,
                             token_idx: TokenIdx(
@@ -259,8 +259,8 @@ EntityTreeSheet {
                                 data: ItemSynNodePathData::MajorItem(
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -282,8 +282,8 @@ EntityTreeSheet {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -293,7 +293,7 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 89,
+                        ast_idx: 88,
                         ident_token: IdentToken {
                             ident: `RelativeBoundingBox`,
                             token_idx: TokenIdx(
@@ -313,8 +313,8 @@ EntityTreeSheet {
                                 data: ItemSynNodePathData::MajorItem(
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -333,7 +333,7 @@ EntityTreeSheet {
         [
             EntitySymbolEntry {
                 ident: `Point2d`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Type(
                         TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -342,7 +342,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `RelativePoint2d`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Type(
                         TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
@@ -351,7 +351,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Vector2d`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Type(
                         TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -360,7 +360,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `ClosedRange`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Type(
                         TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -369,7 +369,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `BoundingBox`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Type(
                         TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -378,7 +378,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `RelativeBoundingBox`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Type(
                         TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -427,16 +427,16 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 81,
+                    ast_idx: 80,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             23,
                         ),
                     },
-                    ty_expr: 7,
+                    ty_expr: 6,
                     items: TypeItems {
                         ast_idx_range: ArenaIdxRange(
-                            6..11,
+                            5..10,
                         ),
                     },
                 },
@@ -481,16 +481,16 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 84,
+                    ast_idx: 83,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             178,
                         ),
                     },
-                    ty_expr: 8,
+                    ty_expr: 7,
                     items: TypeItems {
                         ast_idx_range: ArenaIdxRange(
-                            42..50,
+                            41..49,
                         ),
                     },
                 },
@@ -535,16 +535,16 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 86,
+                    ast_idx: 85,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             507,
                         ),
                     },
-                    ty_expr: 9,
+                    ty_expr: 8,
                     items: TypeItems {
                         ast_idx_range: ArenaIdxRange(
-                            57..59,
+                            56..58,
                         ),
                     },
                 },
@@ -589,16 +589,16 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 88,
+                    ast_idx: 87,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             617,
                         ),
                     },
-                    ty_expr: 10,
+                    ty_expr: 9,
                     items: TypeItems {
                         ast_idx_range: ArenaIdxRange(
-                            65..71,
+                            64..70,
                         ),
                     },
                 },
@@ -643,16 +643,16 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 90,
+                    ast_idx: 89,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             751,
                         ),
                     },
-                    ty_expr: 11,
+                    ty_expr: 10,
                     items: TypeItems {
                         ast_idx_range: ArenaIdxRange(
-                            75..79,
+                            74..78,
                         ),
                     },
                 },

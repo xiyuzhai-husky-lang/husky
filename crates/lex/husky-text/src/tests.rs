@@ -1,15 +1,13 @@
-// #[test]
-// fn test_text() {
-//     let text = Text::new(
-//         r#"abcd
-// efgh
-//   123456"#,
-//     );
-//     should_eq!(&text[(0, 0)..(0, 1)], "a");
-//     should_eq!(&text[(0, 0)..(0, 3)], "abc");
-//     should_eq!(&text[(0, 0)..(0, 4)], "abcd");
-//     should_eq!(&text[(0, 0)..(1, 1)], "abcd\ne");
-// }
+use crate::Text;
+
+#[cfg(test)]
+#[track_caller]
+pub(crate) fn run_test_on_text(raw_text: &str, f: impl FnOnce(Text)) {
+    use husky_text_protocol::line_map::LineMap;
+
+    let line_map = &LineMap::new(raw_text);
+    f(Text { raw_text, line_map });
+}
 
 #[test]
 fn test_string_length() {

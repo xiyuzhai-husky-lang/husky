@@ -139,7 +139,7 @@ pub(crate) fn package_source_rust_package_manifest(
         package: Some(Package::<toml::Value> {
             name: package_path.name(db).data(db).to_owned(),
             edition: Some(MaybeInherited::Local(Edition::E2021)),
-            version: MaybeInherited::Local("0.1.0".to_string()),
+            version: Some(MaybeInherited::Local("0.1.0".to_string())),
             build: None,
             workspace: None,
             authors: None,
@@ -200,7 +200,7 @@ pub(crate) fn package_linkages_rust_package_manifest(
         package: Some(Package::<toml::Value> {
             name: format!("{}-linkages", package_path.name(db).data(db)),
             edition: Some(MaybeInherited::Local(Edition::E2021)),
-            version: MaybeInherited::Local("0.1.0".to_string()),
+            version: Some(MaybeInherited::Local("0.1.0".to_string())),
             build: None,
             workspace: None,
             authors: None,

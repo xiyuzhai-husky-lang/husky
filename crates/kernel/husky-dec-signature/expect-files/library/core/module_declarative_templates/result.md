@@ -15,7 +15,7 @@
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        svar: DecSvar(
+                                        svar: DecSymbolicVariable(
                                             Id {
                                                 value: 10,
                                             },
@@ -24,7 +24,7 @@
                                     },
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        svar: DecSvar(
+                                        svar: DecSymbolicVariable(
                                             Id {
                                                 value: 11,
                                             },
@@ -36,7 +36,7 @@
                             self_ty: Application(
                                 DecApplication(
                                     Id {
-                                        value: 30,
+                                        value: 44,
                                     },
                                 ),
                             ),
@@ -60,7 +60,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    svar: DecSvar(
+                                    svar: DecSymbolicVariable(
                                         Id {
                                             value: 10,
                                         },
@@ -69,7 +69,7 @@
                                 },
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    svar: DecSvar(
+                                    svar: DecSymbolicVariable(
                                         Id {
                                             value: 11,
                                         },
@@ -78,7 +78,7 @@
                                 },
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    svar: DecSvar(
+                                    svar: DecSymbolicVariable(
                                         Id {
                                             value: 12,
                                         },
@@ -87,7 +87,7 @@
                                 },
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    svar: DecSvar(
+                                    svar: DecSymbolicVariable(
                                         Id {
                                             value: 13,
                                         },
@@ -99,7 +99,7 @@
                         trai: Application(
                             DecApplication(
                                 Id {
-                                    value: 33,
+                                    value: 47,
                                 },
                             ),
                         ),
@@ -107,7 +107,7 @@
                             Application(
                                 DecApplication(
                                     Id {
-                                        value: 34,
+                                        value: 48,
                                     },
                                 ),
                             ),
@@ -138,8 +138,8 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            ty_term: Symbol(
-                                DecSvar(
+                            ty_term: SymbolicVariable(
+                                DecSymbolicVariable(
                                     Id {
                                         value: 13,
                                     },
@@ -165,12 +165,12 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TraitForTypeItem(
-                    TraitForTypeItemDecTemplate::AssocFn(
-                        TraitForTypeAssocFnDecTemplate {
+                    TraitForTypeItemDecTemplate::AssocRitchie(
+                        TraitForTypeAssocRitchieDecTemplate {
                             self_ty: Application(
                                 DecApplication(
                                     Id {
-                                        value: 34,
+                                        value: 48,
                                     },
                                 ),
                             ),
@@ -185,7 +185,7 @@
                                             ty: Application(
                                                 DecApplication(
                                                     Id {
-                                                        value: 36,
+                                                        value: 50,
                                                     },
                                                 ),
                                             ),
@@ -196,7 +196,7 @@
                             return_ty: Application(
                                 DecApplication(
                                     Id {
-                                        value: 34,
+                                        value: 48,
                                     },
                                 ),
                             ),

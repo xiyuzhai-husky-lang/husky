@@ -128,13 +128,13 @@ impl HasSynNodeDecl for ItemSynNodePath {
 pub trait HasSynDecl: Copy {
     type Decl;
 
-    fn syn_decl(self, db: &::salsa::Db) -> DeclResult<Self::Decl>;
+    fn syn_decl(self, db: &::salsa::Db) -> SynDeclResult<Self::Decl>;
 }
 
 impl HasSynDecl for ItemPath {
     type Decl = SynDecl;
 
-    fn syn_decl(self, db: &::salsa::Db) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &::salsa::Db) -> SynDeclResult<Self::Decl> {
         match self {
             ItemPath::Submodule(_, path) => path.syn_decl(db).map(Into::into),
             ItemPath::MajorItem(path) => path.syn_decl(db).map(Into::into),

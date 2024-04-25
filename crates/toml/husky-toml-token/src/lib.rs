@@ -25,7 +25,7 @@ use std::str;
 use std::sync::Arc;
 use tokenize::*;
 
-pub type StringValue = Arc<String>;
+pub type StringValue = Arc<str>;
 
 /// tokens in toml file
 #[derive(Debug, PartialEq, Eq)]

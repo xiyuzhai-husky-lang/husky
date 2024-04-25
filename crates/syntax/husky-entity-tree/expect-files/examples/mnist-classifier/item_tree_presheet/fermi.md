@@ -12,8 +12,8 @@ EntityTreePresheet {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -23,7 +23,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 23,
+                        ast_idx: 22,
                         ident_token: IdentToken {
                             ident: `FermiMatchResult`,
                             token_idx: TokenIdx(
@@ -43,8 +43,8 @@ EntityTreePresheet {
                                 data: ItemSynNodePathData::MajorItem(
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -60,27 +60,27 @@ EntityTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
-                        syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                        syn_node_path: MajorItemSynNodePath::Form(
+                            FormSynNodePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`, (0)),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 25,
+                        ast_idx: 24,
                         ident_token: IdentToken {
                             ident: `fermi_match`,
                             token_idx: TokenIdx(
                                 154,
                             ),
                         },
-                        block: DefnBlock::Fugitive {
-                            path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                        block: DefnBlock::Form {
+                            path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
                             )`),
                             body: Some(
-                                FugitiveBody {
+                                FormBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        18..22,
+                                        17..21,
                                     ),
                                 },
                             ),
@@ -88,8 +88,8 @@ EntityTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                    MajorItemSynNodePath::Form(
+                        FormSynNodePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                             Fn,
                         )`, (0)),
                     ),
@@ -102,8 +102,8 @@ EntityTreePresheet {
     once_use_rules: OnceUseRules(
         [
             OnceUseRule {
-                ast_idx: 22,
-                use_expr_idx: 2,
+                ast_idx: 21,
+                use_expr_idx: 1,
                 visibility: Scope::PubUnder(
                     `mnist_classifier::fermi`,
                 ),
@@ -116,7 +116,7 @@ EntityTreePresheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        1..2,
+                        0..1,
                     ),
                 },
                 parent: None,
@@ -154,7 +154,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 1,
+                            child: 0,
                         },
                     ),
                 },

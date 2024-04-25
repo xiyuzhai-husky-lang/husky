@@ -12,8 +12,8 @@ EntityTreeCrateBundle {
                                     ItemSynNodePathId {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: SubmoduleItemPath(
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: SubmoduleItemPath(
                                                         ItemPathId(
                                                             Id {
                                                                 value: 1,
@@ -29,7 +29,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `syntax_errors`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 0,
                                 ident_token: IdentToken {
                                     ident: `ast`,
                                     token_idx: TokenIdx(
@@ -44,8 +44,8 @@ EntityTreeCrateBundle {
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmoduleItemPath(
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(
                                                     ItemPathId(
                                                         Id {
                                                             value: 1,
@@ -71,8 +71,8 @@ EntityTreeCrateBundle {
                                     ItemSynNodePathId {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: SubmoduleItemPath(
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: SubmoduleItemPath(
                                                         ItemPathId(
                                                             Id {
                                                                 value: 2,
@@ -88,7 +88,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `syntax_errors`,
                                 ),
-                                ast_idx: 2,
+                                ast_idx: 1,
                                 ident_token: IdentToken {
                                     ident: `uses`,
                                     token_idx: TokenIdx(
@@ -103,8 +103,8 @@ EntityTreeCrateBundle {
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmoduleItemPath(
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(
                                                     ItemPathId(
                                                         Id {
                                                             value: 2,
@@ -129,7 +129,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `ast`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `syntax_errors`,
                         ),
                         symbol: EntitySymbol::Submodule {
@@ -144,7 +144,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `uses`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `syntax_errors`,
                         ),
                         symbol: EntitySymbol::Submodule {
@@ -181,8 +181,8 @@ EntityTreeCrateBundle {
                                             data: ItemSynNodePathData::MajorItem(
                                                 MajorItemSynNodePathData::Type(
                                                     TypeSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(`syntax_errors::ast::A`, `Struct`),
+                                                        disambiguated_item_path: DisambiguatedItemPath {
+                                                            maybe_ambiguous_item_path: TypePath(`syntax_errors::ast::A`, `Struct`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -194,7 +194,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `syntax_errors::ast`,
                                 ),
-                                ast_idx: 3,
+                                ast_idx: 2,
                                 ident_token: IdentToken {
                                     ident: `A`,
                                     token_idx: TokenIdx(
@@ -214,8 +214,8 @@ EntityTreeCrateBundle {
                                         data: ItemSynNodePathData::MajorItem(
                                             MajorItemSynNodePathData::Type(
                                                 TypeSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`syntax_errors::ast::A`, `Struct`),
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`syntax_errors::ast::A`, `Struct`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -236,7 +236,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `A`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `syntax_errors::ast`,
                         ),
                         symbol: EntitySymbol::MajorItem {
@@ -287,16 +287,16 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                             ),
-                            ast_idx: 4,
+                            ast_idx: 3,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
                                     7,
                                 ),
                             },
-                            ty_expr: 1,
+                            ty_expr: 0,
                             items: TypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    1..2,
+                                    0..1,
                                 ),
                             },
                         },

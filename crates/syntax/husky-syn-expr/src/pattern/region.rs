@@ -7,8 +7,8 @@ pub struct SynPatternExprRegion {
     /// the contract of pattern expressions are computed when they are created
     pattern_expr_contracts: SynPatternOrderedMap<Contract>,
     pattern_symbol_arena: SynPatternSymbolArena,
-    pattern_symbol_maps: SynPatternOrderedMap<IdentPairMap<SynPatternSymbolIdx>>,
-    pattern_symbol_modifiers: SynPatternSymbolOrderedMap<SvarModifier>,
+    pattern_symbol_maps: SynPatternOrderedMap<IdentPairMap<PatternVariableIdx>>,
+    pattern_symbol_modifiers: SynPatternSymbolOrderedMap<VariableModifier>,
 }
 
 impl SynPatternExprRegion {
@@ -27,14 +27,14 @@ impl SynPatternExprRegion {
     fn calc_symbols(
         &mut self,
         pattern_expr_idx: SynPatternIdx,
-    ) -> IdentPairMap<SynPatternSymbolIdx> {
-        let symbols: IdentPairMap<SynPatternSymbolIdx> = match self.pattern_expr_arena
+    ) -> IdentPairMap<PatternVariableIdx> {
+        let symbols: IdentPairMap<PatternVariableIdx> = match self.pattern_expr_arena
             [pattern_expr_idx]
         {
             SynPatternData::Literal { .. } => Default::default(),
             SynPatternData::Ident { ident_token, .. } => IdentPairMap::new_one_element_map((
                 ident_token.ident(),
-                self.alloc_new_symbol(SynPatternSymbol::Atom(pattern_expr_idx)),
+                self.alloc_new_symbol(PatternVariable::Atom(pattern_expr_idx)),
             )),
             SynPatternData::UnitTypeVariant { .. } => Default::default(),
             SynPatternData::Tuple { .. } => todo!(),
@@ -59,7 +59,7 @@ impl SynPatternExprRegion {
         symbols
     }
 
-    fn alloc_new_symbol(&mut self, symbol: SynPatternSymbol) -> SynPatternSymbolIdx {
+    fn alloc_new_symbol(&mut self, symbol: PatternVariable) -> PatternVariableIdx {
         let modifier = symbol.pattern_symbol_modifier(&self.pattern_expr_arena);
         let idx = self.pattern_symbol_arena.alloc_one(symbol);
         self.pattern_symbol_modifiers.insert_next(idx, modifier);
@@ -75,7 +75,7 @@ impl SynPatternExprRegion {
     pub fn pattern_expr_symbols(
         &self,
         syn_pattern_expr_idx: SynPatternIdx,
-    ) -> &[(Ident, SynPatternSymbolIdx)] {
+    ) -> &[(Ident, PatternVariableIdx)] {
         &self.pattern_symbol_maps[syn_pattern_expr_idx]
     }
 
@@ -96,18 +96,18 @@ impl std::ops::Index<SynPatternIdx> for SynPatternExprRegion {
     }
 }
 
-impl std::ops::Index<SynPatternSymbolIdx> for SynPatternExprRegion {
-    type Output = SynPatternSymbol;
+impl std::ops::Index<PatternVariableIdx> for SynPatternExprRegion {
+    type Output = PatternVariable;
 
-    fn index(&self, index: SynPatternSymbolIdx) -> &Self::Output {
+    fn index(&self, index: PatternVariableIdx) -> &Self::Output {
         &self.pattern_symbol_arena[index]
     }
 }
 
-impl std::ops::Index<&SynPatternSymbolIdx> for SynPatternExprRegion {
-    type Output = SynPatternSymbol;
+impl std::ops::Index<&PatternVariableIdx> for SynPatternExprRegion {
+    type Output = PatternVariable;
 
-    fn index(&self, index: &SynPatternSymbolIdx) -> &Self::Output {
+    fn index(&self, index: &PatternVariableIdx) -> &Self::Output {
         &self.pattern_symbol_arena[index]
     }
 }
@@ -117,7 +117,7 @@ impl SynExprRegionData {
         self.pattern_expr_region().pattern_contract(syn_pattern)
     }
 
-    pub fn pattern_symbol_modifier(&self, pattern_symbol: SynPatternSymbolIdx) -> SvarModifier {
+    pub fn pattern_symbol_modifier(&self, pattern_symbol: PatternVariableIdx) -> VariableModifier {
         self.pattern_expr_region()
             .pattern_symbol_modifier(pattern_symbol)
     }
@@ -128,7 +128,10 @@ impl SynPatternExprRegion {
         self.pattern_expr_contracts[pattern_expr_idx]
     }
 
-    pub fn pattern_symbol_modifier(&self, pattern_symbol_idx: SynPatternSymbolIdx) -> SvarModifier {
-        self.pattern_symbol_modifiers[pattern_symbol_idx]
+    pub fn pattern_symbol_modifier(
+        &self,
+        pattern_variable_idx: PatternVariableIdx,
+    ) -> VariableModifier {
+        self.pattern_symbol_modifiers[pattern_variable_idx]
     }
 }

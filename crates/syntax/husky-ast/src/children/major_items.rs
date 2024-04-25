@@ -12,21 +12,21 @@ impl IsAstChildren for MajorItems {
     fn determine_item_kind(item_keyword_group: EntityKindKeywordGroup) -> AstResult<EntityKind> {
         let module_item_kind: MajorItemKind = match item_keyword_group {
             EntityKindKeywordGroup::Submodule(_) => return Ok(EntityKind::Module),
-            EntityKindKeywordGroup::Fn(_) => MajorFugitiveKind::FN.into(),
-            EntityKindKeywordGroup::Gn(_) => MajorFugitiveKind::GN.into(),
-            EntityKindKeywordGroup::Vn(_) => MajorFugitiveKind::VN.into(),
-            EntityKindKeywordGroup::Pn(_) => MajorFugitiveKind::PN.into(),
-            EntityKindKeywordGroup::Qn(_) => MajorFugitiveKind::QN.into(),
-            EntityKindKeywordGroup::Tn(_) => MajorFugitiveKind::TN.into(),
+            EntityKindKeywordGroup::Fn(_) => MajorFormKind::FN.into(),
+            EntityKindKeywordGroup::Gn(_) => MajorFormKind::GN.into(),
+            EntityKindKeywordGroup::Vn(_) => MajorFormKind::VN.into(),
+            EntityKindKeywordGroup::Pn(_) => MajorFormKind::PN.into(),
+            EntityKindKeywordGroup::Qn(_) => MajorFormKind::QN.into(),
+            EntityKindKeywordGroup::Tn(_) => MajorFormKind::TN.into(),
             EntityKindKeywordGroup::StaticFn(_, _) => {
                 Err(OriginalAstError::UnexpectedStaticFnOutsideImplBlock)?
             }
-            EntityKindKeywordGroup::Const(_) => MajorFugitiveKind::Const.into(),
-            EntityKindKeywordGroup::Ki(_) => MajorFugitiveKind::Val.into(),
+            EntityKindKeywordGroup::Const(_) => MajorFormKind::Const.into(),
+            EntityKindKeywordGroup::Ki(_) => MajorFormKind::Val.into(),
             EntityKindKeywordGroup::Memo(_) => Err(OriginalAstError::UnexpectedMemoUnderModule)?,
-            EntityKindKeywordGroup::FormalEntity(_) => MajorFugitiveKind::Formal.into(),
+            EntityKindKeywordGroup::FormalEntity(_) => MajorFormKind::Formal.into(),
             EntityKindKeywordGroup::MajorType(token) => token.type_kind().into(),
-            EntityKindKeywordGroup::AliasOrAssociateType(_) => MajorFugitiveKind::TypeAlias.into(),
+            EntityKindKeywordGroup::AliasOrAssociateType(_) => MajorFormKind::TypeAlias.into(),
             EntityKindKeywordGroup::Trait(_) => MajorItemKind::Trait,
         };
         Ok(EntityKind::MajorItem {

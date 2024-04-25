@@ -71,7 +71,7 @@ impl TraitForTypeAssocTypeSynDecl {
         db: &::salsa::Db,
         path: TraitForTypeItemPath,
         syn_node_decl: TraitForTypeAssocTypeSynNodeDecl,
-    ) -> DeclResult<Self> {
+    ) -> SynDeclResult<Self> {
         let template_parameters = syn_node_decl
             .template_parameters(db)
             .as_ref()?

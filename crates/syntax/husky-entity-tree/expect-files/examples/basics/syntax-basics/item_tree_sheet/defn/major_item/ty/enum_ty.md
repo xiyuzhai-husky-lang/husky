@@ -12,8 +12,8 @@ EntityTreeSheet {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`syntax_basics::defn::major_item::ty::enum_ty::A`, `Enum`),
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`syntax_basics::defn::major_item::ty::enum_ty::A`, `Enum`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -25,7 +25,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `syntax_basics::defn::major_item::ty::enum_ty`,
                         ),
-                        ast_idx: 6,
+                        ast_idx: 5,
                         ident_token: IdentToken {
                             ident: `A`,
                             token_idx: TokenIdx(
@@ -37,7 +37,7 @@ EntityTreeSheet {
                             variants: Some(
                                 TypeVariants {
                                     ast_idx_range: ArenaIdxRange(
-                                        1..6,
+                                        0..5,
                                     ),
                                 },
                             ),
@@ -51,8 +51,8 @@ EntityTreeSheet {
                                 data: ItemSynNodePathData::MajorItem(
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`syntax_basics::defn::major_item::ty::enum_ty::A`, `Enum`),
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: TypePath(`syntax_basics::defn::major_item::ty::enum_ty::A`, `Enum`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -73,7 +73,7 @@ EntityTreeSheet {
         [
             EntitySymbolEntry {
                 ident: `A`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `syntax_basics::defn::major_item::ty::enum_ty`,
                 ),
                 symbol: EntitySymbol::MajorItem {

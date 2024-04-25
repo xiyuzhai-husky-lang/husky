@@ -24,7 +24,7 @@ pub enum AstData {
     },
     BasicStmtOrBranch {
         token_verse_idx: TokenVerseIdx,
-        body: Option<FugitiveBody>,
+        body: Option<FormBody>,
     },
     IfElseStmts {
         if_branch: AstIdx,

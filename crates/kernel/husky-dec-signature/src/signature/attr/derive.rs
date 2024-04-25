@@ -23,7 +23,7 @@ impl DeriveAttrDecTemplate {
                     dec_term_region.expr_term(trai.syn_expr_idx())?,
                 ))
             })
-            .collect::<DecTermResultBorrowed2<_>>()?;
+            .collect::<SynExprDecTermResultRef<_>>()?;
         Ok(DeriveAttrDecTemplate::new(db, shards))
     }
 }

@@ -5,34 +5,33 @@ pub struct EtherealSignatureJar(
     // assoc_items
     // - type items
     ty_item_eth_templates_map,
-    TypeMethodFnEthTemplate,
-    TypeMethodFunctionEthTemplate,
+    TypeMethodRitchieEthTemplate,
+    TypeMethodCurryEthTemplate,
     TypeMemoizedFieldEthTemplate,
-    TypeAssocFnEthTemplate,
+    TypeAssocRitchieEthTemplate,
     TypeAssocTypeEthTemplate,
     // ty_item_eth_template,
     // - trait items
-    TraitAssocFnEthTemplate,
+    TraitAssocRitchieEthTemplate,
     TraitMethodFnEthTemplate,
     // - trait for type items
-    TraitForTypeAssocFnEthTemplate,
+    TraitForTypeAssocRitchieEthTemplate,
     TraitForTypeAssocValEthTemplate,
     TraitForTypeAssocTypeEthTemplate,
     TraitForTypeAssocTypeEtherealSignatureBuilder,
     // trai_for_ty_item_eth_template,
     trai_for_ty_assoc_ty_ethereal_signature_signature_builder_try_into_signature,
-    TraitForTypeMethodFnEthTemplate,
-    TraitForTypeMethodFnEtherealSignatureBuilder,
-    trai_for_ty_method_fn_ethereal_signature_signature_builder_try_into_signature,
+    TraitForTypeMethodRitchieEthTemplate,
+    TraitForTypeMethodRitchieEtherealSignatureBuilder,
+    trai_for_ty_method_ritchie_ethereal_signature_signature_builder_try_into_signature,
     // trai
     TraitEthTemplate,
     trai_eth_template,
-    // fugitive
-    // fugitive_eth_template,
-    FunctionFnEthTemplate,
-    GnFugitiveEthTemplate,
-    TypeAliasEthTemplate,
-    ValFugitiveEthTemplate,
+    // Form
+    form_eth_template,
+    MajorFunctionRitchieEthTemplate,
+    MajorTypeAliasEthTemplate,
+    MajorValEthTemplate,
     // ty
     EnumEthTemplate,
     ExternTypeEthTemplate,
@@ -53,7 +52,7 @@ pub struct EtherealSignatureJar(
     TypeImplBlockEthTemplate,
     // - trait for type
     TraitForTypeImplBlockEthTemplate,
-    TraitForTypeImplBlockEtherealSignatureBuilder,
+    EthTraitForTypeImplBlockSignatureBuilder,
     trai_for_ty_impl_block_eth_template,
     ty_impl_block_eth_template,
     crate::helpers::trai_for_ty::ty_side_impl_block_signature_templates_map,

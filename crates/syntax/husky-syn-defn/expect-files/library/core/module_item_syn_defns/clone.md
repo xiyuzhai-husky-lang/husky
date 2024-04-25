@@ -9,6 +9,16 @@
         None,
     ),
     (
+        ItemPath::AssocItem(
+            AssocItemPath::TraitItem(
+                TraitItemPath(`core::clone::Clone::clone`, `MethodRitchie(
+                    Fn,
+                )`),
+            ),
+        ),
+        None,
+    ),
+    (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath(`#derive _ as core::clone::Clone(0)`),

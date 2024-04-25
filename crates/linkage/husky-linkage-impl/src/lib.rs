@@ -66,7 +66,7 @@ macro_rules! fn_linkage_impl {
         }
         // pass `$fn_item` two times
         // - one time is to determine the parameter types and return type
-        // - the other time is to actually give the fn pointer with implicit coersion
+        // - the other time is to actually give the fn pointer with implicit coercion
         FnLinkageImplSource(std::marker::PhantomData::<__LinkageImpl>, $fn_item)
             .into_fn_linkage_impl(fn_wrapper, $fn_item)
     }};
@@ -192,7 +192,7 @@ macro_rules! unveil_linkage_impl {
         }
         // pass `$fn_item` two times
         // - one time is to determine the parameter types and return type
-        // - the other time is to actually give the fn pointer with implicit coersion
+        // - the other time is to actually give the fn pointer with implicit coercion
         UnveilFnLinkageImplSource(std::marker::PhantomData::<__LinkageImpl>, $fn_item)
             .into_unveil_linkage_impl(fn_wrapper, $fn_item)
     }};

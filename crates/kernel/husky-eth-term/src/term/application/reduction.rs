@@ -2,20 +2,17 @@ use super::*;
 
 impl EthApplication {
     pub(in crate::term) fn reduce(self, db: &::salsa::Db) -> EthTerm {
-        reduce_term_application(db, self)
+        reduce_eth_application(db, self)
     }
 }
 
 #[salsa::tracked(jar = EthTermJar)]
-pub(crate) fn reduce_term_application(
-    db: &::salsa::Db,
-    term_application: EthApplication,
-) -> EthTerm {
-    let function = term_application.function(db).reduce(db);
-    let argument = term_application.argument(db).reduce(db);
-    let shift = term_application.shift(db);
+fn reduce_eth_application(db: &::salsa::Db, eth_application: EthApplication) -> EthTerm {
+    let function = eth_application.function(db).reduce(db);
+    let argument = eth_application.argument(db).reduce(db);
+    let shift = eth_application.shift(db);
     match function {
-        EthTerm::EntityPath(ItemPathTerm::Fugitive(_)) => todo!(),
+        EthTerm::EntityPath(ItemPathTerm::Form(_)) => todo!(),
         EthTerm::Ritchie(_) => todo!(),
         EthTerm::Abstraction(_) => todo!(),
         EthTerm::Application(function_term_application)

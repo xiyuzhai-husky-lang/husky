@@ -60,7 +60,7 @@ Ok(
                                     },
                                 ),
                                 value: Some(
-                                    1,
+                                    0,
                                 ),
                             },
                             TomlSectionEntry {
@@ -73,7 +73,7 @@ Ok(
                                     },
                                 ),
                                 value: Some(
-                                    2,
+                                    1,
                                 ),
                             },
                             TomlSectionEntry {
@@ -86,7 +86,7 @@ Ok(
                                     },
                                 ),
                                 value: Some(
-                                    3,
+                                    2,
                                 ),
                             },
                             TomlSectionEntry {
@@ -99,7 +99,7 @@ Ok(
                                     },
                                 ),
                                 value: Some(
-                                    4,
+                                    3,
                                 ),
                             },
                             TomlSectionEntry {
@@ -112,7 +112,7 @@ Ok(
                                     },
                                 ),
                                 value: Some(
-                                    5,
+                                    4,
                                 ),
                             },
                             TomlSectionEntry {
@@ -125,7 +125,7 @@ Ok(
                                     },
                                 ),
                                 value: Some(
-                                    6,
+                                    5,
                                 ),
                             },
                             TomlSectionEntry {
@@ -138,7 +138,7 @@ Ok(
                                     },
                                 ),
                                 value: Some(
-                                    7,
+                                    6,
                                 ),
                             },
                             TomlSectionEntry {
@@ -151,7 +151,7 @@ Ok(
                                     },
                                 ),
                                 value: Some(
-                                    8,
+                                    7,
                                 ),
                             },
                         ],
@@ -178,7 +178,7 @@ Ok(
                                     },
                                 ),
                                 value: Some(
-                                    9,
+                                    8,
                                 ),
                             },
                             TomlSectionEntry {
@@ -191,7 +191,7 @@ Ok(
                                     },
                                 ),
                                 value: Some(
-                                    10,
+                                    9,
                                 ),
                             },
                         ],
@@ -203,100 +203,100 @@ Ok(
         line_groups: [
             TomlLineGroup::SectionTitle {
                 title: [
-                    Word(
+                    Coword(
                         "package",
                     ),
                 ],
                 kind: TomlSectionKind::Normal,
             },
             TomlLineGroup::KeyValue(
-                Word(
+                Coword(
                     "name",
+                ),
+                Some(
+                    0,
+                ),
+            ),
+            TomlLineGroup::KeyValue(
+                Coword(
+                    "version",
                 ),
                 Some(
                     1,
                 ),
             ),
             TomlLineGroup::KeyValue(
-                Word(
-                    "version",
+                Coword(
+                    "license",
                 ),
                 Some(
                     2,
                 ),
             ),
             TomlLineGroup::KeyValue(
-                Word(
-                    "license",
+                Coword(
+                    "repository",
                 ),
                 Some(
                     3,
                 ),
             ),
             TomlLineGroup::KeyValue(
-                Word(
-                    "repository",
+                Coword(
+                    "description",
                 ),
                 Some(
                     4,
                 ),
             ),
             TomlLineGroup::KeyValue(
-                Word(
-                    "description",
+                Coword(
+                    "autotests",
                 ),
                 Some(
                     5,
                 ),
             ),
             TomlLineGroup::KeyValue(
-                Word(
-                    "autotests",
+                Coword(
+                    "autobenches",
                 ),
                 Some(
                     6,
                 ),
             ),
+            TomlLineGroup::Comment,
+            TomlLineGroup::Comment,
             TomlLineGroup::KeyValue(
-                Word(
-                    "autobenches",
+                Coword(
+                    "edition",
                 ),
                 Some(
                     7,
                 ),
             ),
-            TomlLineGroup::Comment,
-            TomlLineGroup::Comment,
-            TomlLineGroup::KeyValue(
-                Word(
-                    "edition",
-                ),
-                Some(
-                    8,
-                ),
-            ),
             TomlLineGroup::SectionTitle {
                 title: [
-                    Word(
+                    Coword(
                         "lib",
                     ),
                 ],
                 kind: TomlSectionKind::Normal,
             },
             TomlLineGroup::KeyValue(
-                Word(
+                Coword(
                     "test",
                 ),
                 Some(
-                    9,
+                    8,
                 ),
             ),
             TomlLineGroup::KeyValue(
-                Word(
+                Coword(
                     "bench",
                 ),
                 Some(
-                    10,
+                    9,
                 ),
             ),
         ],
@@ -307,14 +307,14 @@ Ok(
                         value: 2,
                     },
                 ): Section(
-                    1,
+                    0,
                 ),
                 Coword(
                     Id {
                         value: 12,
                     },
                 ): Section(
-                    2,
+                    1,
                 ),
             },
         },

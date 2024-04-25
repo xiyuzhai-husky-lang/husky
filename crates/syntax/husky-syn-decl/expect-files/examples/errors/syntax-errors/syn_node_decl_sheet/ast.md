@@ -9,8 +9,8 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::MajorItem(
                                 MajorItemSynNodePathData::Type(
                                     TypeSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TypePath(`syntax_errors::ast::A`, `Struct`),
+                                        disambiguated_item_path: DisambiguatedItemPath {
+                                            maybe_ambiguous_item_path: TypePath(`syntax_errors::ast::A`, `Struct`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -29,8 +29,8 @@ SynNodeDeclSheet {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`syntax_errors::ast::A`, `Struct`),
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`syntax_errors::ast::A`, `Struct`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -76,8 +76,8 @@ SynNodeDeclSheet {
                                                         data: ItemSynNodePathData::MajorItem(
                                                             MajorItemSynNodePathData::Type(
                                                                 TypeSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypePath(`syntax_errors::ast::A`, `Struct`),
+                                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                                        maybe_ambiguous_item_path: TypePath(`syntax_errors::ast::A`, `Struct`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -88,7 +88,7 @@ SynNodeDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    syn_expr_arena: Arena {
+                                    expr_arena: Arena {
                                         data: [],
                                     },
                                     principal_item_path_expr_arena: Arena {
@@ -112,22 +112,22 @@ SynNodeDeclSheet {
                                             data: [],
                                         },
                                     },
-                                    symbol_region: VariableRegionData {
+                                    variable_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [],
                                         },
                                         allow_self_type: True,
                                         allow_self_value: False,
                                         pattern_ty_constraints: [],
                                     },
-                                    syn_pattern_expr_roots: [],
-                                    syn_expr_roots: [],
+                                    pattern_roots: [],
+                                    expr_roots: [],
                                     has_self_lifetime: false,
                                     has_self_place: false,
-                                    syn_pattern_to_current_syn_symbol_map: [],
+                                    pattern_to_current_variable_map: [],
                                 },
                             },
                         },
@@ -186,7 +186,7 @@ SynNodeDeclSheet {
                             None,
                         ),
                         self_ty_expr: SelfTypeSyndicate {
-                            expr: 1,
+                            expr: 0,
                         },
                         eol_colon: Ok(
                             EolRegionalToken::Colon(
@@ -223,10 +223,10 @@ SynNodeDeclSheet {
                                         ),
                                     ),
                                 ),
-                                syn_expr_arena: Arena {
+                                expr_arena: Arena {
                                     data: [
                                         SynExprData::PrincipalEntityPath {
-                                            path_expr_idx: 1,
+                                            path_expr_idx: 0,
                                             opt_path: Some(
                                                 PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
@@ -274,27 +274,27 @@ SynNodeDeclSheet {
                                         data: [],
                                     },
                                 },
-                                symbol_region: VariableRegionData {
+                                variable_region: VariableRegionData {
                                     inherited_syn_symbol_arena: Arena {
                                         data: [],
                                     },
-                                    current_syn_symbol_arena: Arena {
+                                    current_variable_arena: Arena {
                                         data: [],
                                     },
                                     allow_self_type: True,
                                     allow_self_value: False,
                                     pattern_ty_constraints: [],
                                 },
-                                syn_pattern_expr_roots: [],
-                                syn_expr_roots: [
+                                pattern_roots: [],
+                                expr_roots: [
                                     SynExprRoot {
                                         kind: SynExprRootKind::SelfType,
-                                        syn_expr_idx: 1,
+                                        syn_expr_idx: 0,
                                     },
                                 ],
                                 has_self_lifetime: false,
                                 has_self_place: false,
-                                syn_pattern_to_current_syn_symbol_map: [],
+                                pattern_to_current_variable_map: [],
                             },
                         },
                     },

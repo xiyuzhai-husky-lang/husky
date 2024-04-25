@@ -67,3 +67,11 @@ type command:
 ```
 settings set frame-format frame #${frame.index}: ${frame.pc}{ ${module.file.basename}{\`${function.name}}}{ at ${line.file.fullpath}:${line.number}}\n
 ```
+
+## lean server gives fwIn.txt fwOut.txt wdErr.txt wdIn.txt wdOut.txt
+
+search for Server Logging: Enabled in its setting
+
+## #[cfg(test)] is not runned during testing in `linkages_emancipated_by_javelin`
+
+I'm still working on this

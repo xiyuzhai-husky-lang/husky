@@ -1,13 +1,13 @@
 ```rust
 [
     (
-        FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+        FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
         KiRepr {
-            val_domain_repr: Omni,
-            opn: ValOpn::Linkage(
+            ki_domain_repr: Omni,
+            opn: KiOpn::Linkage(
                 Linkage {
                     data: LinkageData::MajorVal {
-                        path: FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                        path: FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                         instantiation: LinInstantiation {
                             symbol_resolutions: [],
                             separator: None,
@@ -17,21 +17,21 @@
             ),
             arguments: [],
             source: KiReprSource::ValItem(
-                FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
             ),
             caching_class: ValItem,
         },
     ),
     (
-        FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+        FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
         KiRepr {
-            val_domain_repr: Omni,
-            opn: ValOpn::ValItemLazilyDefined(
-                FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+            ki_domain_repr: Omni,
+            opn: KiOpn::ValItemLazilyDefined(
+                FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
             ),
             arguments: [],
             source: KiReprSource::ValItem(
-                FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
             ),
             caching_class: ValItem,
         },

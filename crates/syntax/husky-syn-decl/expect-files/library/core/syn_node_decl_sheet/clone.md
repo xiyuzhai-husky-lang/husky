@@ -9,8 +9,8 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::MajorItem(
                                 MajorItemSynNodePathData::Trait(
                                     TraitSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitPath(`core::clone::Clone`),
+                                        disambiguated_item_path: DisambiguatedItemPath {
+                                            maybe_ambiguous_item_path: TraitPath(`core::clone::Clone`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -28,8 +28,8 @@ SynNodeDeclSheet {
                                 data: ItemSynNodePathData::MajorItem(
                                     MajorItemSynNodePathData::Trait(
                                         TraitSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TraitPath(`core::clone::Clone`),
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: TraitPath(`core::clone::Clone`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -51,8 +51,8 @@ SynNodeDeclSheet {
                                                     data: ItemSynNodePathData::MajorItem(
                                                         MajorItemSynNodePathData::Trait(
                                                             TraitSynNodePathData {
-                                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                    path: TraitPath(`core::clone::Clone`),
+                                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                                    maybe_ambiguous_item_path: TraitPath(`core::clone::Clone`),
                                                                     disambiguator: 0,
                                                                 },
                                                             },
@@ -63,7 +63,7 @@ SynNodeDeclSheet {
                                         ),
                                     ),
                                 ),
-                                syn_expr_arena: Arena {
+                                expr_arena: Arena {
                                     data: [],
                                 },
                                 principal_item_path_expr_arena: Arena {
@@ -87,22 +87,22 @@ SynNodeDeclSheet {
                                         data: [],
                                     },
                                 },
-                                symbol_region: VariableRegionData {
+                                variable_region: VariableRegionData {
                                     inherited_syn_symbol_arena: Arena {
                                         data: [],
                                     },
-                                    current_syn_symbol_arena: Arena {
+                                    current_variable_arena: Arena {
                                         data: [],
                                     },
                                     allow_self_type: True,
                                     allow_self_value: False,
                                     pattern_ty_constraints: [],
                                 },
-                                syn_pattern_expr_roots: [],
-                                syn_expr_roots: [],
+                                pattern_roots: [],
+                                expr_roots: [],
                                 has_self_lifetime: false,
                                 has_self_place: false,
-                                syn_pattern_to_current_syn_symbol_map: [],
+                                pattern_to_current_variable_map: [],
                             },
                         },
                     },
@@ -148,7 +148,7 @@ SynNodeDeclSheet {
                             None,
                         ),
                         trai_expr: TraitSyndicate {
-                            syn_expr_idx: 1,
+                            syn_expr_idx: 0,
                         },
                         for_token: ConnectionForRegionalToken {
                             regional_token_idx: RegionalTokenIdx(
@@ -201,10 +201,10 @@ SynNodeDeclSheet {
                                         ),
                                     ),
                                 ),
-                                syn_expr_arena: Arena {
+                                expr_arena: Arena {
                                     data: [
                                         SynExprData::PrincipalEntityPath {
-                                            path_expr_idx: 1,
+                                            path_expr_idx: 0,
                                             opt_path: Some(
                                                 PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Trait(
@@ -252,27 +252,27 @@ SynNodeDeclSheet {
                                         data: [],
                                     },
                                 },
-                                symbol_region: VariableRegionData {
+                                variable_region: VariableRegionData {
                                     inherited_syn_symbol_arena: Arena {
                                         data: [],
                                     },
-                                    current_syn_symbol_arena: Arena {
+                                    current_variable_arena: Arena {
                                         data: [],
                                     },
                                     allow_self_type: True,
                                     allow_self_value: False,
                                     pattern_ty_constraints: [],
                                 },
-                                syn_pattern_expr_roots: [],
-                                syn_expr_roots: [
+                                pattern_roots: [],
+                                expr_roots: [
                                     SynExprRoot {
-                                        kind: SynExprRootKind::Trait,
-                                        syn_expr_idx: 1,
+                                        kind: SynExprRootKind::PrimalTrait,
+                                        syn_expr_idx: 0,
                                     },
                                 ],
                                 has_self_lifetime: false,
                                 has_self_place: false,
-                                syn_pattern_to_current_syn_symbol_map: [],
+                                pattern_to_current_variable_map: [],
                             },
                         },
                     },
@@ -287,8 +287,8 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::AssocItem(
                                 AssocItemSynNodePathData::TraitForTypeItem(
                                     TraitForTypeItemSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: TraitForTypeItemPath(
+                                        disambiguated_item_path: DisambiguatedItemPath {
+                                            maybe_ambiguous_item_path: TraitForTypeItemPath(
                                                 `<#derive _ as core::clone::Clone(0)>::clone`,
                                                 TraitItemKind::MethodRitchie(
                                                     RitchieItemKind::Fn,
@@ -306,14 +306,14 @@ SynNodeDeclSheet {
             ItemSynNodeDecl::AssocItem(
                 AssocItemSynNodeDecl::TraitForTypeItem(
                     TraitForTypeItemSynNodeDecl::MethodFn(
-                        TraitForTypeMethodFnSynNodeDecl {
+                        TraitForTypeMethodRitchieSynNodeDecl {
                             syn_node_path: TraitForTypeItemSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::AssocItem(
                                         AssocItemSynNodePathData::TraitForTypeItem(
                                             TraitForTypeItemSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TraitForTypeItemPath(
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TraitForTypeItemPath(
                                                         `<#derive _ as core::clone::Clone(0)>::clone`,
                                                         TraitItemKind::MethodRitchie(
                                                             RitchieItemKind::Fn,
@@ -326,6 +326,7 @@ SynNodeDeclSheet {
                                     ),
                                 },
                             ),
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameter_decl_list: Ok(
                                 None,
                             ),
@@ -359,7 +360,7 @@ SynNodeDeclSheet {
                             return_ty: Ok(
                                 Some(
                                     ReturnTypeBeforeColonSyndicate {
-                                        syn_expr_idx: 1,
+                                        syn_expr_idx: 0,
                                     },
                                 ),
                             ),
@@ -395,10 +396,10 @@ SynNodeDeclSheet {
                                                         ),
                                                     ),
                                                 ),
-                                                syn_expr_arena: Arena {
+                                                expr_arena: Arena {
                                                     data: [
                                                         SynExprData::PrincipalEntityPath {
-                                                            path_expr_idx: 1,
+                                                            path_expr_idx: 0,
                                                             opt_path: Some(
                                                                 PrincipalEntityPath::MajorItem(
                                                                     MajorItemPath::Trait(
@@ -446,27 +447,27 @@ SynNodeDeclSheet {
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: VariableRegionData {
+                                                variable_region: VariableRegionData {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
-                                                    current_syn_symbol_arena: Arena {
+                                                    current_variable_arena: Arena {
                                                         data: [],
                                                     },
                                                     allow_self_type: True,
                                                     allow_self_value: False,
                                                     pattern_ty_constraints: [],
                                                 },
-                                                syn_pattern_expr_roots: [],
-                                                syn_expr_roots: [
+                                                pattern_roots: [],
+                                                expr_roots: [
                                                     SynExprRoot {
-                                                        kind: SynExprRootKind::Trait,
-                                                        syn_expr_idx: 1,
+                                                        kind: SynExprRootKind::PrimalTrait,
+                                                        syn_expr_idx: 0,
                                                     },
                                                 ],
                                                 has_self_lifetime: false,
                                                 has_self_place: false,
-                                                syn_pattern_to_current_syn_symbol_map: [],
+                                                pattern_to_current_variable_map: [],
                                             },
                                         },
                                     ),
@@ -478,8 +479,8 @@ SynNodeDeclSheet {
                                                         data: ItemSynNodePathData::AssocItem(
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(
+                                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                                        maybe_ambiguous_item_path: TraitForTypeItemPath(
                                                                             `<#derive _ as core::clone::Clone(0)>::clone`,
                                                                             TraitItemKind::MethodRitchie(
                                                                                 RitchieItemKind::Fn,
@@ -495,7 +496,7 @@ SynNodeDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    syn_expr_arena: Arena {
+                                    expr_arena: Arena {
                                         data: [
                                             SynExprData::SelfType(
                                                 RegionalTokenIdx(
@@ -525,27 +526,27 @@ SynNodeDeclSheet {
                                             data: [],
                                         },
                                     },
-                                    symbol_region: VariableRegionData {
+                                    variable_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [],
                                         },
                                         allow_self_type: True,
                                         allow_self_value: True,
                                         pattern_ty_constraints: [],
                                     },
-                                    syn_pattern_expr_roots: [],
-                                    syn_expr_roots: [
+                                    pattern_roots: [],
+                                    expr_roots: [
                                         SynExprRoot {
                                             kind: SynExprRootKind::ReturnType,
-                                            syn_expr_idx: 1,
+                                            syn_expr_idx: 0,
                                         },
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
-                                    syn_pattern_to_current_syn_symbol_map: [],
+                                    pattern_to_current_variable_map: [],
                                 },
                             },
                         },

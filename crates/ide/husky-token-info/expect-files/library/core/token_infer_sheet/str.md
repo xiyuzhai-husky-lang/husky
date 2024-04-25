@@ -6,10 +6,10 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::UseExpr(
-                        2,
+                        1,
                     ),
                     data: TokenInfoData::UseExpr {
-                        use_expr_idx: 2,
+                        use_expr_idx: 1,
                         rule_idx: OnceUseRuleIdx(
                             0,
                         ),
@@ -38,8 +38,8 @@ Ok(
                                         data: ItemSynNodePathData::MajorItem(
                                             MajorItemSynNodePathData::Type(
                                                 TypeSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`core::str::str`, `Extern`),
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`core::str::str`, `Extern`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -72,8 +72,8 @@ Ok(
                                         data: ItemSynNodePathData::MajorItem(
                                             MajorItemSynNodePathData::Type(
                                                 TypeSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`core::str::StringLiteral`, `Extern`),
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`core::str::StringLiteral`, `Extern`),
                                                         disambiguator: 0,
                                                     },
                                                 },

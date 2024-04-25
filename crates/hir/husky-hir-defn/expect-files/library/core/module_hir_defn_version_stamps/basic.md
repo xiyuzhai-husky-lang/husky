@@ -23,6 +23,19 @@
         ),
     ),
     (
+        Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 137,
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
         MajorItem(
             Type(
                 TypePath(
@@ -45,6 +58,19 @@
         ),
     ),
     (
+        Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 138,
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
         MajorItem(
             Type(
                 TypePath(
@@ -65,6 +91,19 @@
                 ),
             ),
         ),
+    ),
+    (
+        Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 139,
+                    },
+                ),
+            ),
+        ),
+        None,
     ),
     (
         MajorItem(

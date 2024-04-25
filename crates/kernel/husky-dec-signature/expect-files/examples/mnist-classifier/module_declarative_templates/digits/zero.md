@@ -2,14 +2,14 @@
 [
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
             ),
         ),
         Ok(
             DecTemplate::MajorItem(
-                MajorItemDecTemplate::Fugitive(
-                    FugitiveDecTemplate::Ki(
+                MajorItemDecTemplate::Form(
+                    MajorFormDecTemplate::Val(
                         MajorValDecTemplate {
                             return_ty: EntityPath(
                                 Type(
@@ -30,17 +30,18 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
                     Fn,
                 )`),
             ),
         ),
         Ok(
             DecTemplate::MajorItem(
-                MajorItemDecTemplate::Fugitive(
-                    FugitiveDecTemplate::Fn(
-                        MajorFnDecTemplate {
+                MajorItemDecTemplate::Form(
+                    MajorFormDecTemplate::Ritchie(
+                        MajorFunctionRitchieDecTemplate {
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
@@ -75,14 +76,14 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
             ),
         ),
         Ok(
             DecTemplate::MajorItem(
-                MajorItemDecTemplate::Fugitive(
-                    FugitiveDecTemplate::Ki(
+                MajorItemDecTemplate::Form(
+                    MajorFormDecTemplate::Val(
                         MajorValDecTemplate {
                             return_ty: Application(
                                 DecApplication(

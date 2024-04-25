@@ -12,7 +12,7 @@ pub use self::linkage_impl::*;
 pub use husky_task_interface_macros::*;
 
 use self::ki_repr::{
-    KiArgumentReprInterface, KiReprInterface, KiRuntimeConstantInterface, ValDomainReprInterface,
+    KiArgumentReprInterface, KiDomainReprInterface, KiReprInterface, KiRuntimeConstantInterface,
 };
 use husky_value_interface::IsValue;
 use once_cell::sync::OnceCell;
@@ -186,7 +186,7 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
         generic_pedestal: fn(LinkageImpl::Pedestal) -> LinkageImpl::Pedestal,
         gn_generic_wrapper: fn(
             DevEvalContext<LinkageImpl>,
-            ValDomainReprInterface,
+            KiDomainReprInterface,
             &[KiArgumentReprInterface],
         ) -> LinkageImplKiControlFlow<LinkageImpl>,
         val_argument_reprs: &[KiArgumentReprInterface],
@@ -207,12 +207,12 @@ impl<LinkageImpl: IsLinkageImpl> DevEvalContext<LinkageImpl> {
             .eval_ki_repr_interface_dyn(ki_repr_interface, self.pedestal)
     }
 
-    pub fn eval_val_domain_repr_interface(
+    pub fn eval_ki_domain_repr_interface(
         self,
-        val_domain_repr_interface: ValDomainReprInterface,
+        ki_domain_repr_interface: KiDomainReprInterface,
     ) -> KiControlFlow<(), Infallible, LinkageImpl::Exception> {
         self.runtime
-            .eval_val_domain_repr_interface_dyn(val_domain_repr_interface, self.pedestal)
+            .eval_ki_domain_repr_interface_dyn(ki_domain_repr_interface, self.pedestal)
     }
 
     pub fn eval_memo_field_with<Slf>(
@@ -271,9 +271,9 @@ pub trait IsDevRuntime<LinkageImpl: IsLinkageImpl> {
         pedestal: LinkageImpl::Pedestal,
     ) -> LinkageImplKiControlFlow<LinkageImpl>;
 
-    fn eval_val_domain_repr_interface_at_pedestal(
+    fn eval_ki_domain_repr_interface_at_pedestal(
         &self,
-        val_domain_repr: ValDomainReprInterface,
+        ki_domain_repr: KiDomainReprInterface,
         pedestal: LinkageImpl::Pedestal,
     ) -> KiControlFlow<(), Infallible, LinkageImpl::Exception>;
 
@@ -283,7 +283,7 @@ pub trait IsDevRuntime<LinkageImpl: IsLinkageImpl> {
         &self,
         ki_repr: KiReprInterface,
         pedestal: LinkageImpl::Pedestal,
-        f: impl FnOnce(ValDomainReprInterface) -> LinkageImplKiControlFlow<LinkageImpl>,
+        f: impl FnOnce(KiDomainReprInterface) -> LinkageImplKiControlFlow<LinkageImpl>,
     ) -> LinkageImplKiControlFlow<LinkageImpl>;
 
     fn eval_memo_field_with(
@@ -323,9 +323,9 @@ pub trait IsDevRuntimeDyn<LinkageImpl: IsLinkageImpl> {
         pedestal: LinkageImpl::Pedestal,
     ) -> LinkageImplKiControlFlow<LinkageImpl>;
 
-    fn eval_val_domain_repr_interface_dyn(
+    fn eval_ki_domain_repr_interface_dyn(
         &self,
-        val_domain_repr: ValDomainReprInterface,
+        ki_domain_repr: KiDomainReprInterface,
         pedestal: LinkageImpl::Pedestal,
     ) -> KiControlFlow<(), Infallible, LinkageImpl::Exception>;
 
@@ -335,7 +335,7 @@ pub trait IsDevRuntimeDyn<LinkageImpl: IsLinkageImpl> {
         generic_pedestal: LinkageImpl::Pedestal,
         gn_generic_wrapper: fn(
             DevEvalContext<LinkageImpl>,
-            ValDomainReprInterface,
+            KiDomainReprInterface,
             &[KiArgumentReprInterface],
         ) -> LinkageImplKiControlFlow<LinkageImpl>,
         val_argument_reprs: &[KiArgumentReprInterface],
@@ -387,12 +387,12 @@ where
         self.eval_ki_repr_interface_at_pedestal(ki_repr_interface, pedestal)
     }
 
-    fn eval_val_domain_repr_interface_dyn(
+    fn eval_ki_domain_repr_interface_dyn(
         &self,
-        val_domain_repr_interface: ValDomainReprInterface,
+        ki_domain_repr_interface: KiDomainReprInterface,
         pedestal: LinkageImpl::Pedestal,
     ) -> KiControlFlow<(), Infallible, LinkageImpl::Exception> {
-        self.eval_val_domain_repr_interface_at_pedestal(val_domain_repr_interface, pedestal)
+        self.eval_ki_domain_repr_interface_at_pedestal(ki_domain_repr_interface, pedestal)
     }
 
     fn eval_ki_repr_interface_at_generic_pedestal_dyn(
@@ -401,7 +401,7 @@ where
         generic_pedestal: LinkageImpl::Pedestal,
         gn_generic_wrapper: fn(
             DevEvalContext<LinkageImpl>,
-            ValDomainReprInterface,
+            KiDomainReprInterface,
             &[KiArgumentReprInterface],
         ) -> LinkageImplKiControlFlow<LinkageImpl>,
         val_argument_reprs: &[KiArgumentReprInterface],
@@ -409,7 +409,7 @@ where
         self.eval_ki_repr_with(
             ki_repr_interface,
             generic_pedestal,
-            |val_domain_repr: ValDomainReprInterface| {
+            |ki_domain_repr: KiDomainReprInterface| {
                 gn_generic_wrapper(
                     DevEvalContext {
                         runtime: unsafe {
@@ -419,7 +419,7 @@ where
                         },
                         pedestal: generic_pedestal,
                     },
-                    val_domain_repr,
+                    ki_domain_repr,
                     val_argument_reprs,
                 )
             },

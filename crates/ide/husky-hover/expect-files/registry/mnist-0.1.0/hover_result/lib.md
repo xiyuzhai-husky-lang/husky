@@ -220,7 +220,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 35;\n\ntoken_line_group_idx = 13\n\ntoken = TokenData::Ident(\n    `Visualize`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynPrincipalEntityPathExpr(\n            1,\n            PrincipalEntityPath::MajorItem(\n                MajorItemPath::Trait(\n                    TraitPath(`core::visual::Visualize`),\n                ),\n            ),\n        ),\n        data: TokenInfoData::Entity(\n            EntityPath::MajorItem(\n                MajorItemPath::Trait(\n                    TraitPath(`core::visual::Visualize`),\n                ),\n            ),\n        ),\n    },\n);\n\n\n",
+                            value: "\ntoken_idx = 35;\n\ntoken_line_group_idx = 13\n\ntoken = TokenData::Ident(\n    `Visualize`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynPrincipalEntityPathExpr(\n            0,\n            PrincipalEntityPath::MajorItem(\n                MajorItemPath::Trait(\n                    TraitPath(`core::visual::Visualize`),\n                ),\n            ),\n        ),\n        data: TokenInfoData::Entity(\n            EntityPath::MajorItem(\n                MajorItemPath::Trait(\n                    TraitPath(`core::visual::Visualize`),\n                ),\n            ),\n        ),\n    },\n);\n\n\n",
                         },
                     ),
                     range: Some(
@@ -250,7 +250,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 40;\n\ntoken_line_group_idx = 14\n\ntoken = TokenData::Ident(\n    `visualize`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::AstIdentifiable,\n        data: TokenInfoData::EntityNode(\n            ItemSynNodePath::AssocItem(\n                AssocItemSynNodePath::TraitForTypeItem(\n                    TraitForTypeItemSynNodePath(\n                        ItemSynNodePathId {\n                            data: ItemSynNodePathData::AssocItem(\n                                AssocItemSynNodePathData::TraitForTypeItem(\n                                    TraitForTypeItemSynNodePathData {\n                                        maybe_ambiguous_path: MaybeAmbiguousPath {\n                                            path: TraitForTypeItemPath(\n                                                `<mnist::BinaryImage28 as core::visual::Visualize(0)>::visualize`,\n                                                TraitItemKind::MethodRitchie(\n                                                    RitchieItemKind::Fn,\n                                                ),\n                                            ),\n                                            disambiguator: 0,\n                                        },\n                                    },\n                                ),\n                            ),\n                        },\n                    ),\n                ),\n            ),\n            EntityKind::AssocItem {\n                assoc_item_kind: AssocItemKind::TraitForTypeItem(\n                    TraitItemKind::MethodRitchie(\n                        RitchieItemKind::Fn,\n                    ),\n                ),\n            },\n        ),\n    },\n);\n\n\n",
+                            value: "\ntoken_idx = 40;\n\ntoken_line_group_idx = 14\n\ntoken = TokenData::Ident(\n    `visualize`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::AstIdentifiable,\n        data: TokenInfoData::EntityNode(\n            ItemSynNodePath::AssocItem(\n                AssocItemSynNodePath::TraitForTypeItem(\n                    TraitForTypeItemSynNodePath(\n                        ItemSynNodePathId {\n                            data: ItemSynNodePathData::AssocItem(\n                                AssocItemSynNodePathData::TraitForTypeItem(\n                                    TraitForTypeItemSynNodePathData {\n                                        disambiguated_item_path: DisambiguatedItemPath {\n                                            maybe_ambiguous_item_path: TraitForTypeItemPath(\n                                                `<mnist::BinaryImage28 as core::visual::Visualize(0)>::visualize`,\n                                                TraitItemKind::MethodRitchie(\n                                                    RitchieItemKind::Fn,\n                                                ),\n                                            ),\n                                            disambiguator: 0,\n                                        },\n                                    },\n                                ),\n                            ),\n                        },\n                    ),\n                ),\n            ),\n            EntityKind::AssocItem {\n                assoc_item_kind: AssocItemKind::TraitForTypeItem(\n                    TraitItemKind::MethodRitchie(\n                        RitchieItemKind::Fn,\n                    ),\n                ),\n            },\n        ),\n    },\n);\n\n\n",
                         },
                     ),
                     range: Some(
@@ -400,7 +400,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 65;\n\ntoken_line_group_idx = 17\n\ntoken = TokenData::Ident(\n    `BinaryImage28`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynPrincipalEntityPathExpr(\n            4,\n            PrincipalEntityPath::MajorItem(\n                MajorItemPath::Type(\n                    TypePath(`mnist::BinaryImage28`, `Extern`),\n                ),\n            ),\n        ),\n        data: TokenInfoData::Entity(\n            EntityPath::MajorItem(\n                MajorItemPath::Type(\n                    TypePath(`mnist::BinaryImage28`, `Extern`),\n                ),\n            ),\n        ),\n    },\n);\n\n\n",
+                            value: "\ntoken_idx = 65;\n\ntoken_line_group_idx = 17\n\ntoken = TokenData::Ident(\n    `BinaryImage28`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynPrincipalEntityPathExpr(\n            3,\n            PrincipalEntityPath::MajorItem(\n                MajorItemPath::Type(\n                    TypePath(`mnist::BinaryImage28`, `Extern`),\n                ),\n            ),\n        ),\n        data: TokenInfoData::Entity(\n            EntityPath::MajorItem(\n                MajorItemPath::Type(\n                    TypePath(`mnist::BinaryImage28`, `Extern`),\n                ),\n            ),\n        ),\n    },\n);\n\n\n",
                         },
                     ),
                     range: Some(
@@ -430,7 +430,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 70;\n\ntoken_line_group_idx = 18\n\ntoken = TokenData::Ident(\n    `r32`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynPrincipalEntityPathExpr(\n            1,\n            PrincipalEntityPath::MajorItem(\n                MajorItemPath::Type(\n                    TypePath(`core::raw_bits::r32`, `Extern`),\n                ),\n            ),\n        ),\n        data: TokenInfoData::Entity(\n            EntityPath::MajorItem(\n                MajorItemPath::Type(\n                    TypePath(`core::raw_bits::r32`, `Extern`),\n                ),\n            ),\n        ),\n    },\n);\n\n\n",
+                            value: "\ntoken_idx = 70;\n\ntoken_line_group_idx = 18\n\ntoken = TokenData::Ident(\n    `r32`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynPrincipalEntityPathExpr(\n            0,\n            PrincipalEntityPath::MajorItem(\n                MajorItemPath::Type(\n                    TypePath(`core::raw_bits::r32`, `Extern`),\n                ),\n            ),\n        ),\n        data: TokenInfoData::Entity(\n            EntityPath::MajorItem(\n                MajorItemPath::Type(\n                    TypePath(`core::raw_bits::r32`, `Extern`),\n                ),\n            ),\n        ),\n    },\n);\n\n\n",
                         },
                     ),
                     range: Some(
@@ -490,7 +490,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "This is a paradigm\ntoken_idx = 80;\n\ntoken_line_group_idx = 21\n\ntoken = TokenData::Keyword(\n    Keyword::Fugitive(\n        Fn,\n    ),\n);\n\ntoken_info = None;\n\n\n",
+                            value: "This is a paradigm\ntoken_idx = 80;\n\ntoken_line_group_idx = 21\n\ntoken = TokenData::Keyword(\n    Keyword::Form(\n        Fn,\n    ),\n);\n\ntoken_info = None;\n\n\n",
                         },
                     ),
                     range: Some(
@@ -520,7 +520,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 85;\n\ntoken_line_group_idx = 21\n\ntoken = TokenData::Ident(\n    `Visual`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynPrincipalEntityPathExpr(\n            1,\n            PrincipalEntityPath::MajorItem(\n                MajorItemPath::Type(\n                    TypePath(`core::visual::Visual`, `Extern`),\n                ),\n            ),\n        ),\n        data: TokenInfoData::Entity(\n            EntityPath::MajorItem(\n                MajorItemPath::Type(\n                    TypePath(`core::visual::Visual`, `Extern`),\n                ),\n            ),\n        ),\n    },\n);\n\n\n",
+                            value: "\ntoken_idx = 85;\n\ntoken_line_group_idx = 21\n\ntoken = TokenData::Ident(\n    `Visual`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynPrincipalEntityPathExpr(\n            0,\n            PrincipalEntityPath::MajorItem(\n                MajorItemPath::Type(\n                    TypePath(`core::visual::Visual`, `Extern`),\n                ),\n            ),\n        ),\n        data: TokenInfoData::Entity(\n            EntityPath::MajorItem(\n                MajorItemPath::Type(\n                    TypePath(`core::visual::Visual`, `Extern`),\n                ),\n            ),\n        ),\n    },\n);\n\n\n",
                         },
                     ),
                     range: Some(
@@ -610,7 +610,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 100;\n\ntoken_line_group_idx = 24\n\ntoken = TokenData::Ident(\n    `core`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynPrincipalEntityPathExpr(\n            1,\n            PrincipalEntityPath::Module(\n                `core`,\n            ),\n        ),\n        data: TokenInfoData::Entity(\n            EntityPath::Module(\n                `core`,\n            ),\n        ),\n    },\n);\n\n\n",
+                            value: "\ntoken_idx = 100;\n\ntoken_line_group_idx = 24\n\ntoken = TokenData::Ident(\n    `core`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::SynPrincipalEntityPathExpr(\n            0,\n            PrincipalEntityPath::Module(\n                `core`,\n            ),\n        ),\n        data: TokenInfoData::Entity(\n            EntityPath::Module(\n                `core`,\n            ),\n        ),\n    },\n);\n\n\n",
                         },
                     ),
                     range: Some(

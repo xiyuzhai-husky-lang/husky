@@ -8,8 +8,8 @@
                         data: ItemSynNodePathData::MajorItem(
                             MajorItemSynNodePathData::Type(
                                 TypeSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -47,8 +47,8 @@
                         data: ItemSynNodePathData::AssocItem(
                             AssocItemSynNodePathData::TraitForTypeItem(
                                 TraitForTypeItemSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TraitForTypeItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TraitForTypeItemPath(
                                             `<mnist_classifier::line_segment_sketch::convex_component::ConvexComponent as core::visual::Visualize(0)>::visualize`,
                                             TraitItemKind::MethodRitchie(
                                                 RitchieItemKind::Fn,
@@ -65,7 +65,7 @@
         ),
         Some(
             ItemSynNodeDefn {
-                body: 4,
+                body: 3,
                 syn_expr_region: SynExprRegion {
                     data: SynExprRegionData {
                         parent: Some(
@@ -92,10 +92,10 @@
                                                         ),
                                                     ),
                                                 ),
-                                                syn_expr_arena: Arena {
+                                                expr_arena: Arena {
                                                     data: [
                                                         SynExprData::PrincipalEntityPath {
-                                                            path_expr_idx: 1,
+                                                            path_expr_idx: 0,
                                                             opt_path: Some(
                                                                 PrincipalEntityPath::MajorItem(
                                                                     MajorItemPath::Trait(
@@ -105,7 +105,7 @@
                                                             ),
                                                         },
                                                         SynExprData::PrincipalEntityPath {
-                                                            path_expr_idx: 2,
+                                                            path_expr_idx: 1,
                                                             opt_path: Some(
                                                                 PrincipalEntityPath::MajorItem(
                                                                     MajorItemPath::Type(
@@ -168,31 +168,31 @@
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: VariableRegionData {
+                                                variable_region: VariableRegionData {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
-                                                    current_syn_symbol_arena: Arena {
+                                                    current_variable_arena: Arena {
                                                         data: [],
                                                     },
                                                     allow_self_type: True,
                                                     allow_self_value: False,
                                                     pattern_ty_constraints: [],
                                                 },
-                                                syn_pattern_expr_roots: [],
-                                                syn_expr_roots: [
+                                                pattern_roots: [],
+                                                expr_roots: [
                                                     SynExprRoot {
-                                                        kind: SynExprRootKind::Trait,
-                                                        syn_expr_idx: 1,
+                                                        kind: SynExprRootKind::PrimalTrait,
+                                                        syn_expr_idx: 0,
                                                     },
                                                     SynExprRoot {
                                                         kind: SynExprRootKind::SelfType,
-                                                        syn_expr_idx: 2,
+                                                        syn_expr_idx: 1,
                                                     },
                                                 ],
                                                 has_self_lifetime: false,
                                                 has_self_place: false,
-                                                syn_pattern_to_current_syn_symbol_map: [],
+                                                pattern_to_current_variable_map: [],
                                             },
                                         },
                                     ),
@@ -204,8 +204,8 @@
                                                         data: ItemSynNodePathData::AssocItem(
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(
+                                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                                        maybe_ambiguous_item_path: TraitForTypeItemPath(
                                                                             `<mnist_classifier::line_segment_sketch::convex_component::ConvexComponent as core::visual::Visualize(0)>::visualize`,
                                                                             TraitItemKind::MethodRitchie(
                                                                                 RitchieItemKind::Fn,
@@ -221,10 +221,10 @@
                                             ),
                                         ),
                                     ),
-                                    syn_expr_arena: Arena {
+                                    expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 1,
+                                                path_expr_idx: 0,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -272,27 +272,27 @@
                                             data: [],
                                         },
                                     },
-                                    symbol_region: VariableRegionData {
+                                    variable_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [],
                                         },
                                         allow_self_type: True,
                                         allow_self_value: True,
                                         pattern_ty_constraints: [],
                                     },
-                                    syn_pattern_expr_roots: [],
-                                    syn_expr_roots: [
+                                    pattern_roots: [],
+                                    expr_roots: [
                                         SynExprRoot {
                                             kind: SynExprRootKind::ReturnType,
-                                            syn_expr_idx: 1,
+                                            syn_expr_idx: 0,
                                         },
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
-                                    syn_pattern_to_current_syn_symbol_map: [],
+                                    pattern_to_current_variable_map: [],
                                 },
                             },
                         ),
@@ -304,8 +304,8 @@
                                             data: ItemSynNodePathData::AssocItem(
                                                 AssocItemSynNodePathData::TraitForTypeItem(
                                                     TraitForTypeItemSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TraitForTypeItemPath(
+                                                        disambiguated_item_path: DisambiguatedItemPath {
+                                                            maybe_ambiguous_item_path: TraitForTypeItemPath(
                                                                 `<mnist_classifier::line_segment_sketch::convex_component::ConvexComponent as core::visual::Visualize(0)>::visualize`,
                                                                 TraitItemKind::MethodRitchie(
                                                                     RitchieItemKind::Fn,
@@ -321,7 +321,7 @@
                                 ),
                             ),
                         ),
-                        syn_expr_arena: Arena {
+                        expr_arena: Arena {
                             data: [
                                 SynExprData::SelfValue(
                                     RegionalTokenIdx(
@@ -329,7 +329,7 @@
                                     ),
                                 ),
                                 SynExprData::Field {
-                                    owner: 1,
+                                    owner: 0,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         2,
                                     ),
@@ -341,7 +341,7 @@
                                     },
                                 },
                                 SynExprData::MethodApplicationOrCall {
-                                    self_argument: 2,
+                                    self_argument: 1,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         4,
                                     ),
@@ -362,7 +362,7 @@
                                 },
                                 SynExprData::Block {
                                     stmts: ArenaIdxRange(
-                                        1..2,
+                                        0..1,
                                     ),
                                 },
                             ],
@@ -373,7 +373,7 @@
                         stmt_arena: Arena {
                             data: [
                                 SynStmtData::Eval {
-                                    expr_idx: 3,
+                                    expr_idx: 2,
                                     eol_semicolon: Ok(
                                         None,
                                     ),
@@ -395,31 +395,31 @@
                                 data: [],
                             },
                         },
-                        symbol_region: VariableRegionData {
+                        variable_region: VariableRegionData {
                             inherited_syn_symbol_arena: Arena {
                                 data: [],
                             },
-                            current_syn_symbol_arena: Arena {
+                            current_variable_arena: Arena {
                                 data: [],
                             },
                             allow_self_type: True,
                             allow_self_value: True,
                             pattern_ty_constraints: [],
                         },
-                        syn_pattern_expr_roots: [],
-                        syn_expr_roots: [
+                        pattern_roots: [],
+                        expr_roots: [
                             SynExprRoot {
                                 kind: SynExprRootKind::EvalExpr,
-                                syn_expr_idx: 3,
+                                syn_expr_idx: 2,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::BlockExpr,
-                                syn_expr_idx: 4,
+                                syn_expr_idx: 3,
                             },
                         ],
                         has_self_lifetime: false,
                         has_self_place: false,
-                        syn_pattern_to_current_syn_symbol_map: [],
+                        pattern_to_current_variable_map: [],
                     },
                 },
             },

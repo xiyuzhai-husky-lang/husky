@@ -8,8 +8,8 @@
                         data: ItemSynNodePathData::MajorItem(
                             MajorItemSynNodePathData::Type(
                                 TypeSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`core::array::Array`, `Extern`),
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TypePath(`core::array::Array`, `Extern`),
                                         disambiguator: 0,
                                     },
                                 },

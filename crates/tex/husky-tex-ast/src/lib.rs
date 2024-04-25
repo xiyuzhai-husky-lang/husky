@@ -1,18 +1,13 @@
-pub mod ast;
+pub mod data;
+pub mod district;
+pub mod jar;
+mod parser;
+pub mod region;
 pub mod sheet;
+#[cfg(test)]
+mod tests;
 pub mod token;
 
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
-}
-
+use self::jar::TexAstJar as Jar;
 #[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
-}
+use self::tests::*;

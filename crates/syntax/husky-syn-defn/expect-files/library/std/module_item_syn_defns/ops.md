@@ -8,5 +8,23 @@
         ),
         None,
     ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TraitItem(
+                TraitItemPath(`std::ops::Add::Output`, `AssocType`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TraitItem(
+                TraitItemPath(`std::ops::Add::add`, `MethodRitchie(
+                    Fn,
+                )`),
+            ),
+        ),
+        None,
+    ),
 ]
 ```

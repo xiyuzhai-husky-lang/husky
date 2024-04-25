@@ -251,7 +251,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Keyword(
-            Keyword::Fugitive(
+            Keyword::Form(
                 Fn,
             ),
         ),
@@ -334,7 +334,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Keyword(
-            Keyword::Fugitive(
+            Keyword::Form(
                 Memo,
             ),
         ),
@@ -368,7 +368,7 @@ TokenSheetData {
             `hausdorff_norm`,
         ),
         TokenData::Keyword(
-            Keyword::Fugitive(
+            Keyword::Form(
                 Memo,
             ),
         ),
@@ -460,7 +460,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Keyword(
-            Keyword::Fugitive(
+            Keyword::Form(
                 Memo,
             ),
         ),
@@ -900,7 +900,7 @@ TokenSheetData {
             `hausdorff_norm`,
         ),
         TokenData::Keyword(
-            Keyword::Fugitive(
+            Keyword::Form(
                 Memo,
             ),
         ),
@@ -1279,7 +1279,7 @@ TokenSheetData {
             `angle_change`,
         ),
         TokenData::Keyword(
-            Keyword::Fugitive(
+            Keyword::Form(
                 Memo,
             ),
         ),
@@ -1889,7 +1889,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Keyword(
-            Keyword::Fugitive(
+            Keyword::Form(
                 Memo,
             ),
         ),
@@ -1966,7 +1966,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Keyword(
-            Keyword::Fugitive(
+            Keyword::Form(
                 Fn,
             ),
         ),
@@ -2165,7 +2165,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Keyword(
-            Keyword::Fugitive(
+            Keyword::Form(
                 Fn,
             ),
         ),
@@ -2272,7 +2272,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Keyword(
-            Keyword::Fugitive(
+            Keyword::Form(
                 Fn,
             ),
         ),
@@ -2379,7 +2379,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Keyword(
-            Keyword::Fugitive(
+            Keyword::Form(
                 Fn,
             ),
         ),
@@ -2465,7 +2465,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Keyword(
-            Keyword::Fugitive(
+            Keyword::Form(
                 Fn,
             ),
         ),
@@ -2564,7 +2564,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Keyword(
-            Keyword::Fugitive(
+            Keyword::Form(
                 Fn,
             ),
         ),
@@ -2666,7 +2666,7 @@ TokenSheetData {
             Keyword::Pub,
         ),
         TokenData::Keyword(
-            Keyword::Fugitive(
+            Keyword::Form(
                 Fn,
             ),
         ),

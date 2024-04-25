@@ -5,13 +5,11 @@ pub use self::branch_stmt::*;
 pub use self::loop_stmt::*;
 
 use self::{be_variable::HirEagerBeVariablesPattern, let_variable::HirEagerLetVariablesPattern};
-use crate::{coersion::HirEagerCoersion, *};
+use crate::{coercion::HirEagerCoercion, *};
 use husky_expr::stmt::ConditionConversion;
 use husky_fly_term::ExpectationOutcome;
 use husky_hir_ty::ritchie::HirContract;
-use husky_sema_expr::{
-    stmt::condition::SemaCondition, SemaStmtData, SemaStmtIdx, SemaStmtIdxRange,
-};
+use husky_sem_expr::{stmt::condition::SemaCondition, SemaStmtData, SemaStmtIdx, SemaStmtIdxRange};
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum HirEagerStmtData {
@@ -19,11 +17,11 @@ pub enum HirEagerStmtData {
         pattern: HirEagerLetVariablesPattern,
         contract: HirContract,
         initial_value: HirEagerExprIdx,
-        coersion: Option<HirEagerCoersion>,
+        coercion: Option<HirEagerCoercion>,
     },
     Return {
         result: HirEagerExprIdx,
-        coersion: HirEagerCoersion,
+        coercion: HirEagerCoercion,
     },
     Require {
         condition: HirEagerCondition,
@@ -34,7 +32,7 @@ pub enum HirEagerStmtData {
     Break,
     Eval {
         expr: HirEagerExprIdx,
-        coersion: Option<HirEagerCoersion>,
+        coercion: Option<HirEagerCoercion>,
         discarded: bool,
     },
     ForBetween {
@@ -78,31 +76,31 @@ impl ToHirEager for SemaStmtIdx {
     type Output = Option<HirEagerStmtData>;
 
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
-        Some(match self.data(builder.sema_stmt_arena_ref()) {
+        Some(match self.data(builder.sem_stmt_arena_ref()) {
             &SemaStmtData::Let {
-                ref let_pattern_sema_obelisk,
+                ref let_pattern_sem_obelisk,
                 contract,
-                initial_value_sema_expr_idx,
-                ref coersion_outcome,
+                initial_value_sem_expr_idx,
+                ref coercion_outcome,
                 ..
             } => HirEagerStmtData::Let {
-                pattern: builder.new_let_variables_pattern(let_pattern_sema_obelisk),
+                pattern: builder.new_let_variables_pattern(let_pattern_sem_obelisk),
                 contract: HirContract::from_contract(contract),
-                initial_value: initial_value_sema_expr_idx.to_hir_eager(builder),
-                coersion: coersion_outcome
+                initial_value: initial_value_sem_expr_idx.to_hir_eager(builder),
+                coercion: coercion_outcome
                     .as_ref()
-                    .map(|coersion_outcome| coersion_outcome.coersion().to_hir_eager(builder)),
+                    .map(|coercion_outcome| coercion_outcome.coercion().to_hir_eager(builder)),
             },
             SemaStmtData::Return {
                 result,
-                ref coersion_outcome,
+                ref coercion_outcome,
                 ..
             } => HirEagerStmtData::Return {
                 result: result.to_hir_eager(builder),
-                coersion: coersion_outcome
+                coercion: coercion_outcome
                     .as_ref()
                     .unwrap()
-                    .coersion()
+                    .coercion()
                     .to_hir_eager(builder),
             },
             SemaStmtData::Require { condition, .. } => HirEagerStmtData::Require {
@@ -113,15 +111,15 @@ impl ToHirEager for SemaStmtIdx {
             },
             SemaStmtData::Break { break_token: _ } => HirEagerStmtData::Break,
             SemaStmtData::Eval {
-                sema_expr_idx,
+                sem_expr_idx,
                 outcome,
                 eol_semicolon,
             } => HirEagerStmtData::Eval {
-                expr: sema_expr_idx.to_hir_eager(builder),
+                expr: sem_expr_idx.to_hir_eager(builder),
                 discarded: eol_semicolon.is_some(),
-                coersion: match outcome {
-                    Some(ExpectationOutcome::Coersion(coersion_outcome)) => {
-                        Some(coersion_outcome.coersion().to_hir_eager(builder))
+                coercion: match outcome {
+                    Some(ExpectationOutcome::Coercion(coercion_outcome)) => {
+                        Some(coercion_outcome.coercion().to_hir_eager(builder))
                     }
                     _ => None,
                 },
@@ -185,18 +183,18 @@ impl ToHirEager for SemaStmtIdxRange {
     type Output = HirEagerStmtIdxRange;
 
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
-        let mut sema_stmt_indices: Vec<SemaStmtIdx> = vec![];
+        let mut sem_stmt_indices: Vec<SemaStmtIdx> = vec![];
         let mut hir_eager_stmts: Vec<HirEagerStmtData> = vec![];
-        for sema_stmt_idx in self {
-            match sema_stmt_idx.to_hir_eager(builder) {
+        for sem_stmt_idx in self {
+            match sem_stmt_idx.to_hir_eager(builder) {
                 Some(hir_eager_stmt) => {
-                    sema_stmt_indices.push(sema_stmt_idx);
+                    sem_stmt_indices.push(sem_stmt_idx);
                     hir_eager_stmts.push(hir_eager_stmt)
                 }
                 None => todo!(),
             }
         }
-        builder.alloc_stmts(sema_stmt_indices, hir_eager_stmts)
+        builder.alloc_stmts(sem_stmt_indices, hir_eager_stmts)
     }
 }
 
@@ -227,10 +225,10 @@ impl ToHirEager for SemaCondition {
                 pattern: target.to_hir_eager(builder),
             },
             SemaCondition::Other {
-                sema_expr_idx,
+                sem_expr_idx,
                 conversion,
             } => HirEagerCondition::Other {
-                opd: sema_expr_idx.to_hir_eager(builder),
+                opd: sem_expr_idx.to_hir_eager(builder),
                 conversion,
             },
         }

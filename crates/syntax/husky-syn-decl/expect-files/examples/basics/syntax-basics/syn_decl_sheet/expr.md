@@ -3,19 +3,20 @@ SynDeclSheet {
     decls: [
         (
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`syntax_basics::expr::nested`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`syntax_basics::expr::nested`, `Ritchie(
                         Fn,
                     )`),
                 ),
             ),
             SynDecl::MajorItem(
-                MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::Fn(
-                        MajorFnSynDecl {
-                            path: FugitivePath(`syntax_basics::expr::nested`, `Ritchie(
+                MajorItemSynDecl::Form(
+                    FormSynDecl::Ritchie(
+                        MajorFunctionRitchieSynDecl {
+                            path: FormPath(`syntax_basics::expr::nested`, `Ritchie(
                                 Fn,
                             )`),
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameters: [],
                             parenate_parameters: [],
                             return_ty: None,
@@ -24,14 +25,14 @@ SynDeclSheet {
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`syntax_basics::expr::nested`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`syntax_basics::expr::nested`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
                                         ),
                                     ),
-                                    syn_expr_arena: Arena {
+                                    expr_arena: Arena {
                                         data: [],
                                     },
                                     principal_item_path_expr_arena: Arena {
@@ -55,22 +56,22 @@ SynDeclSheet {
                                             data: [],
                                         },
                                     },
-                                    symbol_region: VariableRegionData {
+                                    variable_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [],
                                         },
                                         allow_self_type: False,
                                         allow_self_value: False,
                                         pattern_ty_constraints: [],
                                     },
-                                    syn_pattern_expr_roots: [],
-                                    syn_expr_roots: [],
+                                    pattern_roots: [],
+                                    expr_roots: [],
                                     has_self_lifetime: false,
                                     has_self_place: false,
-                                    syn_pattern_to_current_syn_symbol_map: [],
+                                    pattern_to_current_variable_map: [],
                                 },
                             },
                         },
@@ -80,19 +81,20 @@ SynDeclSheet {
         ),
         (
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`syntax_basics::expr::closure_inline`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
                         Fn,
                     )`),
                 ),
             ),
             SynDecl::MajorItem(
-                MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::Fn(
-                        MajorFnSynDecl {
-                            path: FugitivePath(`syntax_basics::expr::closure_inline`, `Ritchie(
+                MajorItemSynDecl::Form(
+                    FormSynDecl::Ritchie(
+                        MajorFunctionRitchieSynDecl {
+                            path: FormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
                                 Fn,
                             )`),
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameters: [],
                             parenate_parameters: [],
                             return_ty: None,
@@ -101,14 +103,14 @@ SynDeclSheet {
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`syntax_basics::expr::closure_inline`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`syntax_basics::expr::closure_inline`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
                                         ),
                                     ),
-                                    syn_expr_arena: Arena {
+                                    expr_arena: Arena {
                                         data: [],
                                     },
                                     principal_item_path_expr_arena: Arena {
@@ -132,22 +134,22 @@ SynDeclSheet {
                                             data: [],
                                         },
                                     },
-                                    symbol_region: VariableRegionData {
+                                    variable_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [],
                                         },
                                         allow_self_type: False,
                                         allow_self_value: False,
                                         pattern_ty_constraints: [],
                                     },
-                                    syn_pattern_expr_roots: [],
-                                    syn_expr_roots: [],
+                                    pattern_roots: [],
+                                    expr_roots: [],
                                     has_self_lifetime: false,
                                     has_self_place: false,
-                                    syn_pattern_to_current_syn_symbol_map: [],
+                                    pattern_to_current_variable_map: [],
                                 },
                             },
                         },
@@ -157,19 +159,20 @@ SynDeclSheet {
         ),
         (
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`syntax_basics::expr::closure_nested`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
                         Fn,
                     )`),
                 ),
             ),
             SynDecl::MajorItem(
-                MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::Fn(
-                        MajorFnSynDecl {
-                            path: FugitivePath(`syntax_basics::expr::closure_nested`, `Ritchie(
+                MajorItemSynDecl::Form(
+                    FormSynDecl::Ritchie(
+                        MajorFunctionRitchieSynDecl {
+                            path: FormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
                                 Fn,
                             )`),
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameters: [],
                             parenate_parameters: [],
                             return_ty: None,
@@ -178,14 +181,14 @@ SynDeclSheet {
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`syntax_basics::expr::closure_nested`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`syntax_basics::expr::closure_nested`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
                                         ),
                                     ),
-                                    syn_expr_arena: Arena {
+                                    expr_arena: Arena {
                                         data: [],
                                     },
                                     principal_item_path_expr_arena: Arena {
@@ -209,22 +212,22 @@ SynDeclSheet {
                                             data: [],
                                         },
                                     },
-                                    symbol_region: VariableRegionData {
+                                    variable_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [],
                                         },
                                         allow_self_type: False,
                                         allow_self_value: False,
                                         pattern_ty_constraints: [],
                                     },
-                                    syn_pattern_expr_roots: [],
-                                    syn_expr_roots: [],
+                                    pattern_roots: [],
+                                    expr_roots: [],
                                     has_self_lifetime: false,
                                     has_self_place: false,
-                                    syn_pattern_to_current_syn_symbol_map: [],
+                                    pattern_to_current_variable_map: [],
                                 },
                             },
                         },

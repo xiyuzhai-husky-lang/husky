@@ -1,6 +1,6 @@
 #![feature(let_chains)]
 pub mod builder;
-pub mod coersion;
+pub mod coercion;
 pub mod expr;
 pub mod helpers;
 pub mod jar;
@@ -10,7 +10,7 @@ pub mod place_contract;
 pub mod region;
 pub mod source_map;
 pub mod stmt;
-pub mod var;
+pub mod variable;
 
 pub use self::expr::*;
 pub use self::pattern_expr::*;

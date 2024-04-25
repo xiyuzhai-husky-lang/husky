@@ -12,8 +12,8 @@ EntityTreePresheet {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`core::num::i8`, `Extern`),
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`core::num::i8`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -23,7 +23,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 52,
+                        ast_idx: 51,
                         ident_token: IdentToken {
                             ident: `i8`,
                             token_idx: TokenIdx(
@@ -43,8 +43,8 @@ EntityTreePresheet {
                                 data: ItemSynNodePathData::MajorItem(
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`core::num::i8`, `Extern`),
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: TypePath(`core::num::i8`, `Extern`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -66,8 +66,8 @@ EntityTreePresheet {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`core::num::i16`, `Extern`),
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`core::num::i16`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -77,7 +77,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 57,
+                        ast_idx: 56,
                         ident_token: IdentToken {
                             ident: `i16`,
                             token_idx: TokenIdx(
@@ -97,8 +97,8 @@ EntityTreePresheet {
                                 data: ItemSynNodePathData::MajorItem(
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`core::num::i16`, `Extern`),
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: TypePath(`core::num::i16`, `Extern`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -120,8 +120,8 @@ EntityTreePresheet {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`core::num::i32`, `Extern`),
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`core::num::i32`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -131,7 +131,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 62,
+                        ast_idx: 61,
                         ident_token: IdentToken {
                             ident: `i32`,
                             token_idx: TokenIdx(
@@ -151,8 +151,8 @@ EntityTreePresheet {
                                 data: ItemSynNodePathData::MajorItem(
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`core::num::i32`, `Extern`),
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: TypePath(`core::num::i32`, `Extern`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -174,8 +174,8 @@ EntityTreePresheet {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`core::num::i64`, `Extern`),
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`core::num::i64`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -185,7 +185,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 67,
+                        ast_idx: 66,
                         ident_token: IdentToken {
                             ident: `i64`,
                             token_idx: TokenIdx(
@@ -205,8 +205,8 @@ EntityTreePresheet {
                                 data: ItemSynNodePathData::MajorItem(
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`core::num::i64`, `Extern`),
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: TypePath(`core::num::i64`, `Extern`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -228,8 +228,8 @@ EntityTreePresheet {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`core::num::i128`, `Extern`),
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`core::num::i128`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -239,7 +239,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 72,
+                        ast_idx: 71,
                         ident_token: IdentToken {
                             ident: `i128`,
                             token_idx: TokenIdx(
@@ -259,8 +259,8 @@ EntityTreePresheet {
                                 data: ItemSynNodePathData::MajorItem(
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`core::num::i128`, `Extern`),
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: TypePath(`core::num::i128`, `Extern`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -282,8 +282,8 @@ EntityTreePresheet {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`core::num::isize`, `Extern`),
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`core::num::isize`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -293,7 +293,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 77,
+                        ast_idx: 76,
                         ident_token: IdentToken {
                             ident: `isize`,
                             token_idx: TokenIdx(
@@ -313,8 +313,8 @@ EntityTreePresheet {
                                 data: ItemSynNodePathData::MajorItem(
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`core::num::isize`, `Extern`),
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: TypePath(`core::num::isize`, `Extern`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -336,8 +336,8 @@ EntityTreePresheet {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`core::num::u8`, `Extern`),
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`core::num::u8`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -347,7 +347,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 82,
+                        ast_idx: 81,
                         ident_token: IdentToken {
                             ident: `u8`,
                             token_idx: TokenIdx(
@@ -367,8 +367,8 @@ EntityTreePresheet {
                                 data: ItemSynNodePathData::MajorItem(
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`core::num::u8`, `Extern`),
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: TypePath(`core::num::u8`, `Extern`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -390,8 +390,8 @@ EntityTreePresheet {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`core::num::u16`, `Extern`),
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`core::num::u16`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -401,7 +401,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 87,
+                        ast_idx: 86,
                         ident_token: IdentToken {
                             ident: `u16`,
                             token_idx: TokenIdx(
@@ -421,8 +421,8 @@ EntityTreePresheet {
                                 data: ItemSynNodePathData::MajorItem(
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`core::num::u16`, `Extern`),
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: TypePath(`core::num::u16`, `Extern`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -444,8 +444,8 @@ EntityTreePresheet {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`core::num::u32`, `Extern`),
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`core::num::u32`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -455,7 +455,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 92,
+                        ast_idx: 91,
                         ident_token: IdentToken {
                             ident: `u32`,
                             token_idx: TokenIdx(
@@ -475,8 +475,8 @@ EntityTreePresheet {
                                 data: ItemSynNodePathData::MajorItem(
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`core::num::u32`, `Extern`),
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: TypePath(`core::num::u32`, `Extern`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -498,8 +498,8 @@ EntityTreePresheet {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`core::num::u64`, `Extern`),
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`core::num::u64`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -509,7 +509,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 97,
+                        ast_idx: 96,
                         ident_token: IdentToken {
                             ident: `u64`,
                             token_idx: TokenIdx(
@@ -529,8 +529,8 @@ EntityTreePresheet {
                                 data: ItemSynNodePathData::MajorItem(
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`core::num::u64`, `Extern`),
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: TypePath(`core::num::u64`, `Extern`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -552,8 +552,8 @@ EntityTreePresheet {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`core::num::u128`, `Extern`),
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`core::num::u128`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -563,7 +563,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 102,
+                        ast_idx: 101,
                         ident_token: IdentToken {
                             ident: `u128`,
                             token_idx: TokenIdx(
@@ -583,8 +583,8 @@ EntityTreePresheet {
                                 data: ItemSynNodePathData::MajorItem(
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`core::num::u128`, `Extern`),
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: TypePath(`core::num::u128`, `Extern`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -606,8 +606,8 @@ EntityTreePresheet {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`core::num::usize`, `Extern`),
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`core::num::usize`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -617,7 +617,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 107,
+                        ast_idx: 106,
                         ident_token: IdentToken {
                             ident: `usize`,
                             token_idx: TokenIdx(
@@ -637,8 +637,8 @@ EntityTreePresheet {
                                 data: ItemSynNodePathData::MajorItem(
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`core::num::usize`, `Extern`),
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: TypePath(`core::num::usize`, `Extern`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -660,8 +660,8 @@ EntityTreePresheet {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`core::num::f32`, `Extern`),
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`core::num::f32`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -671,7 +671,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 112,
+                        ast_idx: 111,
                         ident_token: IdentToken {
                             ident: `f32`,
                             token_idx: TokenIdx(
@@ -691,8 +691,8 @@ EntityTreePresheet {
                                 data: ItemSynNodePathData::MajorItem(
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`core::num::f32`, `Extern`),
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: TypePath(`core::num::f32`, `Extern`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -714,8 +714,8 @@ EntityTreePresheet {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`core::num::f64`, `Extern`),
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`core::num::f64`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -725,11 +725,11 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 117,
+                        ast_idx: 116,
                         ident_token: IdentToken {
                             ident: `f64`,
                             token_idx: TokenIdx(
-                                863,
+                                877,
                             ),
                         },
                         block: DefnBlock::Type {
@@ -745,8 +745,8 @@ EntityTreePresheet {
                                 data: ItemSynNodePathData::MajorItem(
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`core::num::f64`, `Extern`),
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: TypePath(`core::num::f64`, `Extern`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -764,8 +764,8 @@ EntityTreePresheet {
     once_use_rules: OnceUseRules(
         [
             OnceUseRule {
-                ast_idx: 48,
-                use_expr_idx: 2,
+                ast_idx: 47,
+                use_expr_idx: 1,
                 visibility: Scope::PubUnder(
                     `core::num`,
                 ),
@@ -778,15 +778,15 @@ EntityTreePresheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        1..2,
+                        0..1,
                     ),
                 },
                 parent: None,
                 state: UseOneRuleState::Unresolved,
             },
             OnceUseRule {
-                ast_idx: 49,
-                use_expr_idx: 5,
+                ast_idx: 48,
+                use_expr_idx: 4,
                 visibility: Scope::PubUnder(
                     `core::num`,
                 ),
@@ -799,7 +799,7 @@ EntityTreePresheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        4..5,
+                        3..4,
                     ),
                 },
                 parent: None,
@@ -837,7 +837,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 1,
+                            child: 0,
                         },
                     ),
                 },
@@ -869,7 +869,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 3,
+                            child: 2,
                         },
                     ),
                 },
@@ -892,7 +892,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 4,
+                            child: 3,
                         },
                     ),
                 },

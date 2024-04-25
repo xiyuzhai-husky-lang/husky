@@ -28,9 +28,9 @@ SynDeclSheet {
                                             6,
                                         ),
                                     ),
-                                    ty: 1,
+                                    ty: 0,
                                     initialization: None,
-                                    variable: 1,
+                                    variable: 0,
                                 },
                                 PropsFieldSyndicate {
                                     decorators: [],
@@ -46,9 +46,9 @@ SynDeclSheet {
                                             10,
                                         ),
                                     ),
-                                    ty: 2,
+                                    ty: 1,
                                     initialization: None,
-                                    variable: 2,
+                                    variable: 1,
                                 },
                                 PropsFieldSyndicate {
                                     decorators: [],
@@ -64,9 +64,9 @@ SynDeclSheet {
                                             14,
                                         ),
                                     ),
-                                    ty: 3,
+                                    ty: 2,
                                     initialization: None,
-                                    variable: 3,
+                                    variable: 2,
                                 },
                                 PropsFieldSyndicate {
                                     decorators: [],
@@ -82,9 +82,9 @@ SynDeclSheet {
                                             18,
                                         ),
                                     ),
-                                    ty: 4,
+                                    ty: 3,
                                     initialization: None,
-                                    variable: 4,
+                                    variable: 3,
                                 },
                             ],
                             syn_expr_region: SynExprRegion {
@@ -98,8 +98,8 @@ SynDeclSheet {
                                                         data: ItemSynNodePathData::MajorItem(
                                                             MajorItemSynNodePathData::Type(
                                                                 TypeSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
+                                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                                        maybe_ambiguous_item_path: TypePath(`mnist_classifier::connected_component::ConnectedComponentDistribution`, `Struct`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -110,8 +110,18 @@ SynDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    syn_expr_arena: Arena {
+                                    expr_arena: Arena {
                                         data: [
+                                            SynExprData::PrincipalEntityPath {
+                                                path_expr_idx: 0,
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
+                                                            TypePath(`core::num::i32`, `Extern`),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 1,
                                                 opt_path: Some(
@@ -134,16 +144,6 @@ SynDeclSheet {
                                             },
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 3,
-                                                opt_path: Some(
-                                                    PrincipalEntityPath::MajorItem(
-                                                        MajorItemPath::Type(
-                                                            TypePath(`core::num::i32`, `Extern`),
-                                                        ),
-                                                    ),
-                                                ),
-                                            },
-                                            SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 4,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -236,19 +236,19 @@ SynDeclSheet {
                                             data: [],
                                         },
                                     },
-                                    symbol_region: VariableRegionData {
+                                    variable_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         8,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::FieldVariable {
+                                                    data: CurrentVariableData::FieldVariable {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `row_start`,
                                                             regional_token_idx: RegionalTokenIdx(
@@ -257,13 +257,13 @@ SynDeclSheet {
                                                         },
                                                     },
                                                 },
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         12,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::FieldVariable {
+                                                    data: CurrentVariableData::FieldVariable {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `row_end`,
                                                             regional_token_idx: RegionalTokenIdx(
@@ -272,13 +272,13 @@ SynDeclSheet {
                                                         },
                                                     },
                                                 },
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         16,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::FieldVariable {
+                                                    data: CurrentVariableData::FieldVariable {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `upper_mass`,
                                                             regional_token_idx: RegionalTokenIdx(
@@ -287,13 +287,13 @@ SynDeclSheet {
                                                         },
                                                     },
                                                 },
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         20,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::FieldVariable {
+                                                    data: CurrentVariableData::FieldVariable {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `lower_mass`,
                                                             regional_token_idx: RegionalTokenIdx(
@@ -321,10 +321,10 @@ SynDeclSheet {
                                                             5,
                                                         ),
                                                     },
-                                                    ty_expr_idx: 1,
+                                                    ty_expr_idx: 0,
                                                 },
                                                 ArenaIdxRange(
-                                                    1..2,
+                                                    0..1,
                                                 ),
                                             ),
                                             (
@@ -341,10 +341,10 @@ SynDeclSheet {
                                                             9,
                                                         ),
                                                     },
-                                                    ty_expr_idx: 2,
+                                                    ty_expr_idx: 1,
                                                 },
                                                 ArenaIdxRange(
-                                                    2..3,
+                                                    1..2,
                                                 ),
                                             ),
                                             (
@@ -361,10 +361,10 @@ SynDeclSheet {
                                                             13,
                                                         ),
                                                     },
-                                                    ty_expr_idx: 3,
+                                                    ty_expr_idx: 2,
                                                 },
                                                 ArenaIdxRange(
-                                                    3..4,
+                                                    2..3,
                                                 ),
                                             ),
                                             (
@@ -381,16 +381,16 @@ SynDeclSheet {
                                                             17,
                                                         ),
                                                     },
-                                                    ty_expr_idx: 4,
+                                                    ty_expr_idx: 3,
                                                 },
                                                 ArenaIdxRange(
-                                                    4..5,
+                                                    3..4,
                                                 ),
                                             ),
                                         ],
                                     },
-                                    syn_pattern_expr_roots: [],
-                                    syn_expr_roots: [
+                                    pattern_roots: [],
+                                    expr_roots: [
                                         SynExprRoot {
                                             kind: SynExprRootKind::PropsStructFieldType {
                                                 ident_token: IdentRegionalToken {
@@ -400,7 +400,7 @@ SynDeclSheet {
                                                     ),
                                                 },
                                             },
-                                            syn_expr_idx: 1,
+                                            syn_expr_idx: 0,
                                         },
                                         SynExprRoot {
                                             kind: SynExprRootKind::PropsStructFieldType {
@@ -411,7 +411,7 @@ SynDeclSheet {
                                                     ),
                                                 },
                                             },
-                                            syn_expr_idx: 2,
+                                            syn_expr_idx: 1,
                                         },
                                         SynExprRoot {
                                             kind: SynExprRootKind::PropsStructFieldType {
@@ -422,7 +422,7 @@ SynDeclSheet {
                                                     ),
                                                 },
                                             },
-                                            syn_expr_idx: 3,
+                                            syn_expr_idx: 2,
                                         },
                                         SynExprRoot {
                                             kind: SynExprRootKind::PropsStructFieldType {
@@ -433,12 +433,12 @@ SynDeclSheet {
                                                     ),
                                                 },
                                             },
-                                            syn_expr_idx: 4,
+                                            syn_expr_idx: 3,
                                         },
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
-                                    syn_pattern_to_current_syn_symbol_map: [],
+                                    pattern_to_current_variable_map: [],
                                 },
                             },
                         },
@@ -473,9 +473,9 @@ SynDeclSheet {
                                             6,
                                         ),
                                     ),
-                                    ty: 5,
+                                    ty: 4,
                                     initialization: None,
-                                    variable: 1,
+                                    variable: 0,
                                 },
                             ],
                             syn_expr_region: SynExprRegion {
@@ -489,8 +489,8 @@ SynDeclSheet {
                                                         data: ItemSynNodePathData::MajorItem(
                                                             MajorItemSynNodePathData::Type(
                                                                 TypeSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
+                                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                                        maybe_ambiguous_item_path: TypePath(`mnist_classifier::connected_component::EffHoles`, `Struct`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -501,10 +501,10 @@ SynDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    syn_expr_arena: Arena {
+                                    expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 1,
+                                                path_expr_idx: 0,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -518,7 +518,7 @@ SynDeclSheet {
                                                 opr_regional_token_idx: RegionalTokenIdx(
                                                     10,
                                                 ),
-                                                opd: 1,
+                                                opd: 0,
                                             },
                                             SynExprData::List {
                                                 lbox_regional_token_idx: RegionalTokenIdx(
@@ -534,11 +534,11 @@ SynDeclSheet {
                                                 opr_regional_token_idx: RegionalTokenIdx(
                                                     9,
                                                 ),
-                                                opd: 2,
+                                                opd: 1,
                                             },
                                             SynExprData::ExplicitApplication {
-                                                function_expr_idx: 3,
-                                                argument_expr_idx: 4,
+                                                function_expr_idx: 2,
+                                                argument_expr_idx: 3,
                                             },
                                         ],
                                     },
@@ -579,19 +579,19 @@ SynDeclSheet {
                                             data: [],
                                         },
                                     },
-                                    symbol_region: VariableRegionData {
+                                    variable_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         12,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::FieldVariable {
+                                                    data: CurrentVariableData::FieldVariable {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `matches`,
                                                             regional_token_idx: RegionalTokenIdx(
@@ -619,16 +619,16 @@ SynDeclSheet {
                                                             5,
                                                         ),
                                                     },
-                                                    ty_expr_idx: 5,
+                                                    ty_expr_idx: 4,
                                                 },
                                                 ArenaIdxRange(
-                                                    1..2,
+                                                    0..1,
                                                 ),
                                             ),
                                         ],
                                     },
-                                    syn_pattern_expr_roots: [],
-                                    syn_expr_roots: [
+                                    pattern_roots: [],
+                                    expr_roots: [
                                         SynExprRoot {
                                             kind: SynExprRootKind::PropsStructFieldType {
                                                 ident_token: IdentRegionalToken {
@@ -638,12 +638,12 @@ SynDeclSheet {
                                                     ),
                                                 },
                                             },
-                                            syn_expr_idx: 5,
+                                            syn_expr_idx: 4,
                                         },
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
-                                    syn_pattern_to_current_syn_symbol_map: [],
+                                    pattern_to_current_variable_map: [],
                                 },
                             },
                         },
@@ -653,39 +653,40 @@ SynDeclSheet {
         ),
         (
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                         Fn,
                     )`),
                 ),
             ),
             SynDecl::MajorItem(
-                MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::Fn(
-                        MajorFnSynDecl {
-                            path: FugitivePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                MajorItemSynDecl::Form(
+                    FormSynDecl::Ritchie(
+                        MajorFunctionRitchieSynDecl {
+                            path: FormPath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                                 Fn,
                             )`),
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameters: [],
                             parenate_parameters: [
                                 ParenateParameterSyndicate::Simple {
                                     syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                        syn_pattern_expr_idx: 1,
+                                        syn_pattern_expr_idx: 0,
                                     },
                                     variables: ArenaIdxRange(
-                                        1..2,
+                                        0..1,
                                     ),
                                     colon: ColonRegionalToken(
                                         RegionalTokenIdx(
                                             5,
                                         ),
                                     ),
-                                    ty: 2,
+                                    ty: 1,
                                 },
                             ],
                             return_ty: Some(
                                 ReturnTypeBeforeColonSyndicate {
-                                    syn_expr_idx: 4,
+                                    syn_expr_idx: 3,
                                 },
                             ),
                             syn_expr_region: SynExprRegion {
@@ -693,17 +694,17 @@ SynDeclSheet {
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`mnist_classifier::connected_component::hole_tmpl`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
                                         ),
                                     ),
-                                    syn_expr_arena: Arena {
+                                    expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 1,
+                                                path_expr_idx: 0,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -717,10 +718,10 @@ SynDeclSheet {
                                                 opr_regional_token_idx: RegionalTokenIdx(
                                                     6,
                                                 ),
-                                                opd: 1,
+                                                opd: 0,
                                             },
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 2,
+                                                path_expr_idx: 1,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -734,7 +735,7 @@ SynDeclSheet {
                                                 opr_regional_token_idx: RegionalTokenIdx(
                                                     10,
                                                 ),
-                                                opd: 3,
+                                                opd: 2,
                                             },
                                         ],
                                     },
@@ -796,8 +797,8 @@ SynDeclSheet {
                                         },
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                SynPatternSymbol::Atom(
-                                                    1,
+                                                PatternVariable::Atom(
+                                                    0,
                                                 ),
                                             ],
                                         },
@@ -805,7 +806,7 @@ SynDeclSheet {
                                             [
                                                 (
                                                     `ct`,
-                                                    1,
+                                                    0,
                                                 ),
                                             ],
                                         ],
@@ -815,21 +816,21 @@ SynDeclSheet {
                                             ],
                                         },
                                     },
-                                    symbol_region: VariableRegionData {
+                                    variable_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `ct`,
-                                                        pattern_symbol_idx: 1,
+                                                        pattern_variable_idx: 0,
                                                     },
                                                 },
                                             ],
@@ -840,38 +841,38 @@ SynDeclSheet {
                                             (
                                                 SimpleParenateParameter {
                                                     syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                                        syn_pattern_expr_idx: 1,
+                                                        syn_pattern_expr_idx: 0,
                                                     },
-                                                    ty: 2,
+                                                    ty: 1,
                                                 },
                                                 ArenaIdxRange(
-                                                    1..2,
+                                                    0..1,
                                                 ),
                                             ),
                                         ],
                                     },
-                                    syn_pattern_expr_roots: [
+                                    pattern_roots: [
                                         SynPatternRoot {
                                             kind: SynPatternExprRootKind::Parenate,
-                                            syn_pattern_expr_idx: 1,
+                                            syn_pattern_expr_idx: 0,
                                         },
                                     ],
-                                    syn_expr_roots: [
+                                    expr_roots: [
                                         SynExprRoot {
                                             kind: SynExprRootKind::ExplicitParameterType,
-                                            syn_expr_idx: 2,
+                                            syn_expr_idx: 1,
                                         },
                                         SynExprRoot {
                                             kind: SynExprRootKind::ReturnType,
-                                            syn_expr_idx: 4,
+                                            syn_expr_idx: 3,
                                         },
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
-                                    syn_pattern_to_current_syn_symbol_map: [
+                                    pattern_to_current_variable_map: [
                                         (
-                                            1,
-                                            1,
+                                            0,
+                                            0,
                                         ),
                                     ],
                                 },
@@ -908,9 +909,9 @@ SynDeclSheet {
                                             6,
                                         ),
                                     ),
-                                    ty: 1,
+                                    ty: 0,
                                     initialization: None,
-                                    variable: 1,
+                                    variable: 0,
                                 },
                             ],
                             syn_expr_region: SynExprRegion {
@@ -924,8 +925,8 @@ SynDeclSheet {
                                                         data: ItemSynNodePathData::MajorItem(
                                                             MajorItemSynNodePathData::Type(
                                                                 TypeSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
+                                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                                        maybe_ambiguous_item_path: TypePath(`mnist_classifier::connected_component::ConnectedComponent`, `Struct`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -936,10 +937,10 @@ SynDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    syn_expr_arena: Arena {
+                                    expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 1,
+                                                path_expr_idx: 0,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -987,19 +988,19 @@ SynDeclSheet {
                                             data: [],
                                         },
                                     },
-                                    symbol_region: VariableRegionData {
+                                    variable_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         8,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::FieldVariable {
+                                                    data: CurrentVariableData::FieldVariable {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `mask`,
                                                             regional_token_idx: RegionalTokenIdx(
@@ -1027,16 +1028,16 @@ SynDeclSheet {
                                                             5,
                                                         ),
                                                     },
-                                                    ty_expr_idx: 1,
+                                                    ty_expr_idx: 0,
                                                 },
                                                 ArenaIdxRange(
-                                                    1..2,
+                                                    0..1,
                                                 ),
                                             ),
                                         ],
                                     },
-                                    syn_pattern_expr_roots: [],
-                                    syn_expr_roots: [
+                                    pattern_roots: [],
+                                    expr_roots: [
                                         SynExprRoot {
                                             kind: SynExprRootKind::PropsStructFieldType {
                                                 ident_token: IdentRegionalToken {
@@ -1046,12 +1047,12 @@ SynDeclSheet {
                                                     ),
                                                 },
                                             },
-                                            syn_expr_idx: 1,
+                                            syn_expr_idx: 0,
                                         },
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
-                                    syn_pattern_to_current_syn_symbol_map: [],
+                                    pattern_to_current_variable_map: [],
                                 },
                             },
                         },
@@ -1061,21 +1062,36 @@ SynDeclSheet {
         ),
         (
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                         Fn,
                     )`),
                 ),
             ),
             SynDecl::MajorItem(
-                MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::Fn(
-                        MajorFnSynDecl {
-                            path: FugitivePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                MajorItemSynDecl::Form(
+                    FormSynDecl::Ritchie(
+                        MajorFunctionRitchieSynDecl {
+                            path: FormPath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                                 Fn,
                             )`),
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameters: [],
                             parenate_parameters: [
+                                ParenateParameterSyndicate::Simple {
+                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
+                                        syn_pattern_expr_idx: 0,
+                                    },
+                                    variables: ArenaIdxRange(
+                                        0..1,
+                                    ),
+                                    colon: ColonRegionalToken(
+                                        RegionalTokenIdx(
+                                            5,
+                                        ),
+                                    ),
+                                    ty: 0,
+                                },
                                 ParenateParameterSyndicate::Simple {
                                     syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                         syn_pattern_expr_idx: 1,
@@ -1085,29 +1101,15 @@ SynDeclSheet {
                                     ),
                                     colon: ColonRegionalToken(
                                         RegionalTokenIdx(
-                                            5,
+                                            9,
                                         ),
                                     ),
                                     ty: 1,
                                 },
-                                ParenateParameterSyndicate::Simple {
-                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                        syn_pattern_expr_idx: 2,
-                                    },
-                                    variables: ArenaIdxRange(
-                                        2..3,
-                                    ),
-                                    colon: ColonRegionalToken(
-                                        RegionalTokenIdx(
-                                            9,
-                                        ),
-                                    ),
-                                    ty: 2,
-                                },
                             ],
                             return_ty: Some(
                                 ReturnTypeBeforeColonSyndicate {
-                                    syn_expr_idx: 3,
+                                    syn_expr_idx: 2,
                                 },
                             ),
                             syn_expr_region: SynExprRegion {
@@ -1115,15 +1117,25 @@ SynDeclSheet {
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`mnist_classifier::connected_component::horizontal_extend`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
                                         ),
                                     ),
-                                    syn_expr_arena: Arena {
+                                    expr_arena: Arena {
                                         data: [
+                                            SynExprData::PrincipalEntityPath {
+                                                path_expr_idx: 0,
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
+                                                            TypePath(`core::raw_bits::r32`, `Extern`),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 1,
                                                 opt_path: Some(
@@ -1136,16 +1148,6 @@ SynDeclSheet {
                                             },
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 2,
-                                                opt_path: Some(
-                                                    PrincipalEntityPath::MajorItem(
-                                                        MajorItemPath::Type(
-                                                            TypePath(`core::raw_bits::r32`, `Extern`),
-                                                        ),
-                                                    ),
-                                                ),
-                                            },
-                                            SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 3,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -1239,11 +1241,11 @@ SynDeclSheet {
                                         },
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                SynPatternSymbol::Atom(
-                                                    1,
+                                                PatternVariable::Atom(
+                                                    0,
                                                 ),
-                                                SynPatternSymbol::Atom(
-                                                    2,
+                                                PatternVariable::Atom(
+                                                    1,
                                                 ),
                                             ],
                                         },
@@ -1251,13 +1253,13 @@ SynDeclSheet {
                                             [
                                                 (
                                                     `a`,
-                                                    1,
+                                                    0,
                                                 ),
                                             ],
                                             [
                                                 (
                                                     `x`,
-                                                    2,
+                                                    1,
                                                 ),
                                             ],
                                         ],
@@ -1268,32 +1270,32 @@ SynDeclSheet {
                                             ],
                                         },
                                     },
-                                    symbol_region: VariableRegionData {
+                                    variable_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `a`,
-                                                        pattern_symbol_idx: 1,
+                                                        pattern_variable_idx: 0,
                                                     },
                                                 },
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         9,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `x`,
-                                                        pattern_symbol_idx: 2,
+                                                        pattern_variable_idx: 1,
                                                     },
                                                 },
                                             ],
@@ -1301,6 +1303,17 @@ SynDeclSheet {
                                         allow_self_type: False,
                                         allow_self_value: False,
                                         pattern_ty_constraints: [
+                                            (
+                                                SimpleParenateParameter {
+                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
+                                                        syn_pattern_expr_idx: 0,
+                                                    },
+                                                    ty: 0,
+                                                },
+                                                ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                            ),
                                             (
                                                 SimpleParenateParameter {
                                                     syn_pattern_root: ParenateParameterSynPatternExprRoot {
@@ -1312,53 +1325,42 @@ SynDeclSheet {
                                                     1..2,
                                                 ),
                                             ),
-                                            (
-                                                SimpleParenateParameter {
-                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                                        syn_pattern_expr_idx: 2,
-                                                    },
-                                                    ty: 2,
-                                                },
-                                                ArenaIdxRange(
-                                                    2..3,
-                                                ),
-                                            ),
                                         ],
                                     },
-                                    syn_pattern_expr_roots: [
+                                    pattern_roots: [
+                                        SynPatternRoot {
+                                            kind: SynPatternExprRootKind::Parenate,
+                                            syn_pattern_expr_idx: 0,
+                                        },
                                         SynPatternRoot {
                                             kind: SynPatternExprRootKind::Parenate,
                                             syn_pattern_expr_idx: 1,
                                         },
-                                        SynPatternRoot {
-                                            kind: SynPatternExprRootKind::Parenate,
-                                            syn_pattern_expr_idx: 2,
-                                        },
                                     ],
-                                    syn_expr_roots: [
+                                    expr_roots: [
+                                        SynExprRoot {
+                                            kind: SynExprRootKind::ExplicitParameterType,
+                                            syn_expr_idx: 0,
+                                        },
                                         SynExprRoot {
                                             kind: SynExprRootKind::ExplicitParameterType,
                                             syn_expr_idx: 1,
                                         },
                                         SynExprRoot {
-                                            kind: SynExprRootKind::ExplicitParameterType,
-                                            syn_expr_idx: 2,
-                                        },
-                                        SynExprRoot {
                                             kind: SynExprRootKind::ReturnType,
-                                            syn_expr_idx: 3,
+                                            syn_expr_idx: 2,
                                         },
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
-                                    syn_pattern_to_current_syn_symbol_map: [
+                                    pattern_to_current_variable_map: [
                                         (
-                                            1,
-                                            1,
+                                            0,
+                                            0,
                                         ),
                                         (
-                                            2,
-                                            2,
+                                            1,
+                                            1,
                                         ),
                                     ],
                                 },
@@ -1370,39 +1372,40 @@ SynDeclSheet {
         ),
         (
             ItemPath::MajorItem(
-                MajorItemPath::Fugitive(
-                    FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                MajorItemPath::Form(
+                    FormPath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
                         Fn,
                     )`),
                 ),
             ),
             SynDecl::MajorItem(
-                MajorItemSynDecl::Fugitive(
-                    FugitiveSynDecl::Fn(
-                        MajorFnSynDecl {
-                            path: FugitivePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                MajorItemSynDecl::Form(
+                    FormSynDecl::Ritchie(
+                        MajorFunctionRitchieSynDecl {
+                            path: FormPath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
                                 Fn,
                             )`),
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameters: [],
                             parenate_parameters: [
                                 ParenateParameterSyndicate::Simple {
                                     syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                        syn_pattern_expr_idx: 1,
+                                        syn_pattern_expr_idx: 0,
                                     },
                                     variables: ArenaIdxRange(
-                                        1..2,
+                                        0..1,
                                     ),
                                     colon: ColonRegionalToken(
                                         RegionalTokenIdx(
                                             6,
                                         ),
                                     ),
-                                    ty: 1,
+                                    ty: 0,
                                 },
                             ],
                             return_ty: Some(
                                 ReturnTypeBeforeColonSyndicate {
-                                    syn_expr_idx: 4,
+                                    syn_expr_idx: 3,
                                 },
                             ),
                             syn_expr_region: SynExprRegion {
@@ -1410,17 +1413,17 @@ SynDeclSheet {
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`mnist_classifier::connected_component::find_connected_components`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
                                         ),
                                     ),
-                                    syn_expr_arena: Arena {
+                                    expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 1,
+                                                path_expr_idx: 0,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -1439,7 +1442,7 @@ SynDeclSheet {
                                                 ),
                                             },
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 2,
+                                                path_expr_idx: 1,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -1449,8 +1452,8 @@ SynDeclSheet {
                                                 ),
                                             },
                                             SynExprData::ExplicitApplication {
-                                                function_expr_idx: 2,
-                                                argument_expr_idx: 3,
+                                                function_expr_idx: 1,
+                                                argument_expr_idx: 2,
                                             },
                                         ],
                                     },
@@ -1512,8 +1515,8 @@ SynDeclSheet {
                                         },
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                SynPatternSymbol::Atom(
-                                                    1,
+                                                PatternVariable::Atom(
+                                                    0,
                                                 ),
                                             ],
                                         },
@@ -1521,7 +1524,7 @@ SynDeclSheet {
                                             [
                                                 (
                                                     `img`,
-                                                    1,
+                                                    0,
                                                 ),
                                             ],
                                         ],
@@ -1531,21 +1534,21 @@ SynDeclSheet {
                                             ],
                                         },
                                     },
-                                    symbol_region: VariableRegionData {
+                                    variable_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `img`,
-                                                        pattern_symbol_idx: 1,
+                                                        pattern_variable_idx: 0,
                                                     },
                                                 },
                                             ],
@@ -1556,38 +1559,38 @@ SynDeclSheet {
                                             (
                                                 SimpleParenateParameter {
                                                     syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                                        syn_pattern_expr_idx: 1,
+                                                        syn_pattern_expr_idx: 0,
                                                     },
-                                                    ty: 1,
+                                                    ty: 0,
                                                 },
                                                 ArenaIdxRange(
-                                                    1..2,
+                                                    0..1,
                                                 ),
                                             ),
                                         ],
                                     },
-                                    syn_pattern_expr_roots: [
+                                    pattern_roots: [
                                         SynPatternRoot {
                                             kind: SynPatternExprRootKind::Parenate,
-                                            syn_pattern_expr_idx: 1,
+                                            syn_pattern_expr_idx: 0,
                                         },
                                     ],
-                                    syn_expr_roots: [
+                                    expr_roots: [
                                         SynExprRoot {
                                             kind: SynExprRootKind::ExplicitParameterType,
-                                            syn_expr_idx: 1,
+                                            syn_expr_idx: 0,
                                         },
                                         SynExprRoot {
                                             kind: SynExprRootKind::ReturnType,
-                                            syn_expr_idx: 4,
+                                            syn_expr_idx: 3,
                                         },
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
-                                    syn_pattern_to_current_syn_symbol_map: [
+                                    pattern_to_current_variable_map: [
                                         (
-                                            1,
-                                            1,
+                                            0,
+                                            0,
                                         ),
                                     ],
                                 },
@@ -1609,11 +1612,11 @@ SynDeclSheet {
                         path: TraitForTypeImplBlockPath(`mnist_classifier::connected_component::ConnectedComponent as core::visual::Visualize(0)`),
                         template_parameters: [],
                         trai_expr: TraitSyndicate {
-                            syn_expr_idx: 1,
+                            syn_expr_idx: 0,
                         },
                         self_ty_decl: PathLeadingExpr(
                             SelfTypeSyndicate {
-                                expr: 2,
+                                expr: 1,
                             },
                         ),
                         syn_expr_region: SynExprRegion {
@@ -1636,10 +1639,10 @@ SynDeclSheet {
                                         ),
                                     ),
                                 ),
-                                syn_expr_arena: Arena {
+                                expr_arena: Arena {
                                     data: [
                                         SynExprData::PrincipalEntityPath {
-                                            path_expr_idx: 1,
+                                            path_expr_idx: 0,
                                             opt_path: Some(
                                                 PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Trait(
@@ -1649,7 +1652,7 @@ SynDeclSheet {
                                             ),
                                         },
                                         SynExprData::PrincipalEntityPath {
-                                            path_expr_idx: 2,
+                                            path_expr_idx: 1,
                                             opt_path: Some(
                                                 PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
@@ -1712,31 +1715,31 @@ SynDeclSheet {
                                         data: [],
                                     },
                                 },
-                                symbol_region: VariableRegionData {
+                                variable_region: VariableRegionData {
                                     inherited_syn_symbol_arena: Arena {
                                         data: [],
                                     },
-                                    current_syn_symbol_arena: Arena {
+                                    current_variable_arena: Arena {
                                         data: [],
                                     },
                                     allow_self_type: True,
                                     allow_self_value: False,
                                     pattern_ty_constraints: [],
                                 },
-                                syn_pattern_expr_roots: [],
-                                syn_expr_roots: [
+                                pattern_roots: [],
+                                expr_roots: [
                                     SynExprRoot {
-                                        kind: SynExprRootKind::Trait,
-                                        syn_expr_idx: 1,
+                                        kind: SynExprRootKind::PrimalTrait,
+                                        syn_expr_idx: 0,
                                     },
                                     SynExprRoot {
                                         kind: SynExprRootKind::SelfType,
-                                        syn_expr_idx: 2,
+                                        syn_expr_idx: 1,
                                     },
                                 ],
                                 has_self_lifetime: false,
                                 has_self_place: false,
-                                syn_pattern_to_current_syn_symbol_map: [],
+                                pattern_to_current_variable_map: [],
                             },
                         },
                     },
@@ -1757,19 +1760,20 @@ SynDeclSheet {
             SynDecl::AssocItem(
                 AssocItemSynDecl::TraitForTypeItem(
                     TraitForTypeItemSynDecl::MethodFn(
-                        TraitForTypeMethodFnSynDecl {
+                        TraitForTypeMethodRitchieSynDecl {
                             path: TraitForTypeItemPath(
                                 `<mnist_classifier::connected_component::ConnectedComponent as core::visual::Visualize(0)>::visualize`,
                                 TraitItemKind::MethodRitchie(
                                     RitchieItemKind::Fn,
                                 ),
                             ),
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
                             return_ty: Some(
                                 ReturnTypeBeforeColonSyndicate {
-                                    syn_expr_idx: 1,
+                                    syn_expr_idx: 0,
                                 },
                             ),
                             syn_expr_region: SynExprRegion {
@@ -1795,10 +1799,10 @@ SynDeclSheet {
                                                         ),
                                                     ),
                                                 ),
-                                                syn_expr_arena: Arena {
+                                                expr_arena: Arena {
                                                     data: [
                                                         SynExprData::PrincipalEntityPath {
-                                                            path_expr_idx: 1,
+                                                            path_expr_idx: 0,
                                                             opt_path: Some(
                                                                 PrincipalEntityPath::MajorItem(
                                                                     MajorItemPath::Trait(
@@ -1808,7 +1812,7 @@ SynDeclSheet {
                                                             ),
                                                         },
                                                         SynExprData::PrincipalEntityPath {
-                                                            path_expr_idx: 2,
+                                                            path_expr_idx: 1,
                                                             opt_path: Some(
                                                                 PrincipalEntityPath::MajorItem(
                                                                     MajorItemPath::Type(
@@ -1871,31 +1875,31 @@ SynDeclSheet {
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: VariableRegionData {
+                                                variable_region: VariableRegionData {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
-                                                    current_syn_symbol_arena: Arena {
+                                                    current_variable_arena: Arena {
                                                         data: [],
                                                     },
                                                     allow_self_type: True,
                                                     allow_self_value: False,
                                                     pattern_ty_constraints: [],
                                                 },
-                                                syn_pattern_expr_roots: [],
-                                                syn_expr_roots: [
+                                                pattern_roots: [],
+                                                expr_roots: [
                                                     SynExprRoot {
-                                                        kind: SynExprRootKind::Trait,
-                                                        syn_expr_idx: 1,
+                                                        kind: SynExprRootKind::PrimalTrait,
+                                                        syn_expr_idx: 0,
                                                     },
                                                     SynExprRoot {
                                                         kind: SynExprRootKind::SelfType,
-                                                        syn_expr_idx: 2,
+                                                        syn_expr_idx: 1,
                                                     },
                                                 ],
                                                 has_self_lifetime: false,
                                                 has_self_place: false,
-                                                syn_pattern_to_current_syn_symbol_map: [],
+                                                pattern_to_current_variable_map: [],
                                             },
                                         },
                                     ),
@@ -1907,8 +1911,8 @@ SynDeclSheet {
                                                         data: ItemSynNodePathData::AssocItem(
                                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                                 TraitForTypeItemSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TraitForTypeItemPath(
+                                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                                        maybe_ambiguous_item_path: TraitForTypeItemPath(
                                                                             `<mnist_classifier::connected_component::ConnectedComponent as core::visual::Visualize(0)>::visualize`,
                                                                             TraitItemKind::MethodRitchie(
                                                                                 RitchieItemKind::Fn,
@@ -1924,10 +1928,10 @@ SynDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    syn_expr_arena: Arena {
+                                    expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 1,
+                                                path_expr_idx: 0,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -1975,27 +1979,27 @@ SynDeclSheet {
                                             data: [],
                                         },
                                     },
-                                    symbol_region: VariableRegionData {
+                                    variable_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [],
                                         },
                                         allow_self_type: True,
                                         allow_self_value: True,
                                         pattern_ty_constraints: [],
                                     },
-                                    syn_pattern_expr_roots: [],
-                                    syn_expr_roots: [
+                                    pattern_roots: [],
+                                    expr_roots: [
                                         SynExprRoot {
                                             kind: SynExprRootKind::ReturnType,
-                                            syn_expr_idx: 1,
+                                            syn_expr_idx: 0,
                                         },
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
-                                    syn_pattern_to_current_syn_symbol_map: [],
+                                    pattern_to_current_variable_map: [],
                                 },
                             },
                         },
@@ -2027,7 +2031,7 @@ SynDeclSheet {
                         ),
                         template_parameters: [],
                         self_ty_expr: SelfTypeSyndicate {
-                            expr: 1,
+                            expr: 0,
                         },
                         syn_expr_region: SynExprRegion {
                             data: SynExprRegionData {
@@ -2055,10 +2059,10 @@ SynDeclSheet {
                                         ),
                                     ),
                                 ),
-                                syn_expr_arena: Arena {
+                                expr_arena: Arena {
                                     data: [
                                         SynExprData::PrincipalEntityPath {
-                                            path_expr_idx: 1,
+                                            path_expr_idx: 0,
                                             opt_path: Some(
                                                 PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Type(
@@ -2106,27 +2110,27 @@ SynDeclSheet {
                                         data: [],
                                     },
                                 },
-                                symbol_region: VariableRegionData {
+                                variable_region: VariableRegionData {
                                     inherited_syn_symbol_arena: Arena {
                                         data: [],
                                     },
-                                    current_syn_symbol_arena: Arena {
+                                    current_variable_arena: Arena {
                                         data: [],
                                     },
                                     allow_self_type: True,
                                     allow_self_value: False,
                                     pattern_ty_constraints: [],
                                 },
-                                syn_pattern_expr_roots: [],
-                                syn_expr_roots: [
+                                pattern_roots: [],
+                                expr_roots: [
                                     SynExprRoot {
                                         kind: SynExprRootKind::SelfType,
-                                        syn_expr_idx: 1,
+                                        syn_expr_idx: 0,
                                     },
                                 ],
                                 has_self_lifetime: false,
                                 has_self_place: false,
-                                syn_pattern_to_current_syn_symbol_map: [],
+                                pattern_to_current_variable_map: [],
                             },
                         },
                     },
@@ -2146,7 +2150,7 @@ SynDeclSheet {
                             path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::raw_contours`, `MemoizedField`),
                             return_ty: Some(
                                 ReturnTypeBeforeEqSyndicate {
-                                    expr: 3,
+                                    expr: 2,
                                 },
                             ),
                             expr: None,
@@ -2179,10 +2183,10 @@ SynDeclSheet {
                                                         ),
                                                     ),
                                                 ),
-                                                syn_expr_arena: Arena {
+                                                expr_arena: Arena {
                                                     data: [
                                                         SynExprData::PrincipalEntityPath {
-                                                            path_expr_idx: 1,
+                                                            path_expr_idx: 0,
                                                             opt_path: Some(
                                                                 PrincipalEntityPath::MajorItem(
                                                                     MajorItemPath::Type(
@@ -2230,27 +2234,27 @@ SynDeclSheet {
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: VariableRegionData {
+                                                variable_region: VariableRegionData {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
-                                                    current_syn_symbol_arena: Arena {
+                                                    current_variable_arena: Arena {
                                                         data: [],
                                                     },
                                                     allow_self_type: True,
                                                     allow_self_value: False,
                                                     pattern_ty_constraints: [],
                                                 },
-                                                syn_pattern_expr_roots: [],
-                                                syn_expr_roots: [
+                                                pattern_roots: [],
+                                                expr_roots: [
                                                     SynExprRoot {
                                                         kind: SynExprRootKind::SelfType,
-                                                        syn_expr_idx: 1,
+                                                        syn_expr_idx: 0,
                                                     },
                                                 ],
                                                 has_self_lifetime: false,
                                                 has_self_place: false,
-                                                syn_pattern_to_current_syn_symbol_map: [],
+                                                pattern_to_current_variable_map: [],
                                             },
                                         },
                                     ),
@@ -2262,8 +2266,8 @@ SynDeclSheet {
                                                         data: ItemSynNodePathData::AssocItem(
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::raw_contours`, `MemoizedField`),
+                                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::raw_contours`, `MemoizedField`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -2274,7 +2278,7 @@ SynDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    syn_expr_arena: Arena {
+                                    expr_arena: Arena {
                                         data: [
                                             SynExprData::List {
                                                 lbox_regional_token_idx: RegionalTokenIdx(
@@ -2286,7 +2290,7 @@ SynDeclSheet {
                                                 ),
                                             },
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 1,
+                                                path_expr_idx: 0,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -2296,8 +2300,8 @@ SynDeclSheet {
                                                 ),
                                             },
                                             SynExprData::ExplicitApplication {
-                                                function_expr_idx: 1,
-                                                argument_expr_idx: 2,
+                                                function_expr_idx: 0,
+                                                argument_expr_idx: 1,
                                             },
                                         ],
                                     },
@@ -2338,27 +2342,27 @@ SynDeclSheet {
                                             data: [],
                                         },
                                     },
-                                    symbol_region: VariableRegionData {
+                                    variable_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [],
                                         },
                                         allow_self_type: True,
                                         allow_self_value: True,
                                         pattern_ty_constraints: [],
                                     },
-                                    syn_pattern_expr_roots: [],
-                                    syn_expr_roots: [
+                                    pattern_roots: [],
+                                    expr_roots: [
                                         SynExprRoot {
                                             kind: SynExprRootKind::ReturnType,
-                                            syn_expr_idx: 3,
+                                            syn_expr_idx: 2,
                                         },
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
-                                    syn_pattern_to_current_syn_symbol_map: [],
+                                    pattern_to_current_variable_map: [],
                                 },
                             },
                         },
@@ -2379,7 +2383,7 @@ SynDeclSheet {
                             path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::eff_holes`, `MemoizedField`),
                             return_ty: Some(
                                 ReturnTypeBeforeEqSyndicate {
-                                    expr: 1,
+                                    expr: 0,
                                 },
                             ),
                             expr: None,
@@ -2412,10 +2416,10 @@ SynDeclSheet {
                                                         ),
                                                     ),
                                                 ),
-                                                syn_expr_arena: Arena {
+                                                expr_arena: Arena {
                                                     data: [
                                                         SynExprData::PrincipalEntityPath {
-                                                            path_expr_idx: 1,
+                                                            path_expr_idx: 0,
                                                             opt_path: Some(
                                                                 PrincipalEntityPath::MajorItem(
                                                                     MajorItemPath::Type(
@@ -2463,27 +2467,27 @@ SynDeclSheet {
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: VariableRegionData {
+                                                variable_region: VariableRegionData {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
-                                                    current_syn_symbol_arena: Arena {
+                                                    current_variable_arena: Arena {
                                                         data: [],
                                                     },
                                                     allow_self_type: True,
                                                     allow_self_value: False,
                                                     pattern_ty_constraints: [],
                                                 },
-                                                syn_pattern_expr_roots: [],
-                                                syn_expr_roots: [
+                                                pattern_roots: [],
+                                                expr_roots: [
                                                     SynExprRoot {
                                                         kind: SynExprRootKind::SelfType,
-                                                        syn_expr_idx: 1,
+                                                        syn_expr_idx: 0,
                                                     },
                                                 ],
                                                 has_self_lifetime: false,
                                                 has_self_place: false,
-                                                syn_pattern_to_current_syn_symbol_map: [],
+                                                pattern_to_current_variable_map: [],
                                             },
                                         },
                                     ),
@@ -2495,8 +2499,8 @@ SynDeclSheet {
                                                         data: ItemSynNodePathData::AssocItem(
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::eff_holes`, `MemoizedField`),
+                                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::eff_holes`, `MemoizedField`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -2507,10 +2511,10 @@ SynDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    syn_expr_arena: Arena {
+                                    expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 1,
+                                                path_expr_idx: 0,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -2558,27 +2562,27 @@ SynDeclSheet {
                                             data: [],
                                         },
                                     },
-                                    symbol_region: VariableRegionData {
+                                    variable_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [],
                                         },
                                         allow_self_type: True,
                                         allow_self_value: True,
                                         pattern_ty_constraints: [],
                                     },
-                                    syn_pattern_expr_roots: [],
-                                    syn_expr_roots: [
+                                    pattern_roots: [],
+                                    expr_roots: [
                                         SynExprRoot {
                                             kind: SynExprRootKind::ReturnType,
-                                            syn_expr_idx: 1,
+                                            syn_expr_idx: 0,
                                         },
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
-                                    syn_pattern_to_current_syn_symbol_map: [],
+                                    pattern_to_current_variable_map: [],
                                 },
                             },
                         },
@@ -2599,7 +2603,7 @@ SynDeclSheet {
                             path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::max_hole_ilen`, `MemoizedField`),
                             return_ty: Some(
                                 ReturnTypeBeforeEqSyndicate {
-                                    expr: 1,
+                                    expr: 0,
                                 },
                             ),
                             expr: None,
@@ -2632,10 +2636,10 @@ SynDeclSheet {
                                                         ),
                                                     ),
                                                 ),
-                                                syn_expr_arena: Arena {
+                                                expr_arena: Arena {
                                                     data: [
                                                         SynExprData::PrincipalEntityPath {
-                                                            path_expr_idx: 1,
+                                                            path_expr_idx: 0,
                                                             opt_path: Some(
                                                                 PrincipalEntityPath::MajorItem(
                                                                     MajorItemPath::Type(
@@ -2683,27 +2687,27 @@ SynDeclSheet {
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: VariableRegionData {
+                                                variable_region: VariableRegionData {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
-                                                    current_syn_symbol_arena: Arena {
+                                                    current_variable_arena: Arena {
                                                         data: [],
                                                     },
                                                     allow_self_type: True,
                                                     allow_self_value: False,
                                                     pattern_ty_constraints: [],
                                                 },
-                                                syn_pattern_expr_roots: [],
-                                                syn_expr_roots: [
+                                                pattern_roots: [],
+                                                expr_roots: [
                                                     SynExprRoot {
                                                         kind: SynExprRootKind::SelfType,
-                                                        syn_expr_idx: 1,
+                                                        syn_expr_idx: 0,
                                                     },
                                                 ],
                                                 has_self_lifetime: false,
                                                 has_self_place: false,
-                                                syn_pattern_to_current_syn_symbol_map: [],
+                                                pattern_to_current_variable_map: [],
                                             },
                                         },
                                     ),
@@ -2715,8 +2719,8 @@ SynDeclSheet {
                                                         data: ItemSynNodePathData::AssocItem(
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::max_hole_ilen`, `MemoizedField`),
+                                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::max_hole_ilen`, `MemoizedField`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -2727,10 +2731,10 @@ SynDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    syn_expr_arena: Arena {
+                                    expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 1,
+                                                path_expr_idx: 0,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -2778,27 +2782,27 @@ SynDeclSheet {
                                             data: [],
                                         },
                                     },
-                                    symbol_region: VariableRegionData {
+                                    variable_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [],
                                         },
                                         allow_self_type: True,
                                         allow_self_value: True,
                                         pattern_ty_constraints: [],
                                     },
-                                    syn_pattern_expr_roots: [],
-                                    syn_expr_roots: [
+                                    pattern_roots: [],
+                                    expr_roots: [
                                         SynExprRoot {
                                             kind: SynExprRootKind::ReturnType,
-                                            syn_expr_idx: 1,
+                                            syn_expr_idx: 0,
                                         },
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
-                                    syn_pattern_to_current_syn_symbol_map: [],
+                                    pattern_to_current_variable_map: [],
                                 },
                             },
                         },
@@ -2819,7 +2823,7 @@ SynDeclSheet {
                             path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::max_row_span`, `MemoizedField`),
                             return_ty: Some(
                                 ReturnTypeBeforeEqSyndicate {
-                                    expr: 1,
+                                    expr: 0,
                                 },
                             ),
                             expr: None,
@@ -2852,10 +2856,10 @@ SynDeclSheet {
                                                         ),
                                                     ),
                                                 ),
-                                                syn_expr_arena: Arena {
+                                                expr_arena: Arena {
                                                     data: [
                                                         SynExprData::PrincipalEntityPath {
-                                                            path_expr_idx: 1,
+                                                            path_expr_idx: 0,
                                                             opt_path: Some(
                                                                 PrincipalEntityPath::MajorItem(
                                                                     MajorItemPath::Type(
@@ -2903,27 +2907,27 @@ SynDeclSheet {
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: VariableRegionData {
+                                                variable_region: VariableRegionData {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
-                                                    current_syn_symbol_arena: Arena {
+                                                    current_variable_arena: Arena {
                                                         data: [],
                                                     },
                                                     allow_self_type: True,
                                                     allow_self_value: False,
                                                     pattern_ty_constraints: [],
                                                 },
-                                                syn_pattern_expr_roots: [],
-                                                syn_expr_roots: [
+                                                pattern_roots: [],
+                                                expr_roots: [
                                                     SynExprRoot {
                                                         kind: SynExprRootKind::SelfType,
-                                                        syn_expr_idx: 1,
+                                                        syn_expr_idx: 0,
                                                     },
                                                 ],
                                                 has_self_lifetime: false,
                                                 has_self_place: false,
-                                                syn_pattern_to_current_syn_symbol_map: [],
+                                                pattern_to_current_variable_map: [],
                                             },
                                         },
                                     ),
@@ -2935,8 +2939,8 @@ SynDeclSheet {
                                                         data: ItemSynNodePathData::AssocItem(
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::max_row_span`, `MemoizedField`),
+                                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::max_row_span`, `MemoizedField`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -2947,10 +2951,10 @@ SynDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    syn_expr_arena: Arena {
+                                    expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 1,
+                                                path_expr_idx: 0,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -2998,27 +3002,27 @@ SynDeclSheet {
                                             data: [],
                                         },
                                     },
-                                    symbol_region: VariableRegionData {
+                                    variable_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [],
                                         },
                                         allow_self_type: True,
                                         allow_self_value: True,
                                         pattern_ty_constraints: [],
                                     },
-                                    syn_pattern_expr_roots: [],
-                                    syn_expr_roots: [
+                                    pattern_roots: [],
+                                    expr_roots: [
                                         SynExprRoot {
                                             kind: SynExprRootKind::ReturnType,
-                                            syn_expr_idx: 1,
+                                            syn_expr_idx: 0,
                                         },
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
-                                    syn_pattern_to_current_syn_symbol_map: [],
+                                    pattern_to_current_variable_map: [],
                                 },
                             },
                         },
@@ -3039,7 +3043,7 @@ SynDeclSheet {
                             path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::row_span_sum`, `MemoizedField`),
                             return_ty: Some(
                                 ReturnTypeBeforeEqSyndicate {
-                                    expr: 1,
+                                    expr: 0,
                                 },
                             ),
                             expr: None,
@@ -3072,10 +3076,10 @@ SynDeclSheet {
                                                         ),
                                                     ),
                                                 ),
-                                                syn_expr_arena: Arena {
+                                                expr_arena: Arena {
                                                     data: [
                                                         SynExprData::PrincipalEntityPath {
-                                                            path_expr_idx: 1,
+                                                            path_expr_idx: 0,
                                                             opt_path: Some(
                                                                 PrincipalEntityPath::MajorItem(
                                                                     MajorItemPath::Type(
@@ -3123,27 +3127,27 @@ SynDeclSheet {
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: VariableRegionData {
+                                                variable_region: VariableRegionData {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
-                                                    current_syn_symbol_arena: Arena {
+                                                    current_variable_arena: Arena {
                                                         data: [],
                                                     },
                                                     allow_self_type: True,
                                                     allow_self_value: False,
                                                     pattern_ty_constraints: [],
                                                 },
-                                                syn_pattern_expr_roots: [],
-                                                syn_expr_roots: [
+                                                pattern_roots: [],
+                                                expr_roots: [
                                                     SynExprRoot {
                                                         kind: SynExprRootKind::SelfType,
-                                                        syn_expr_idx: 1,
+                                                        syn_expr_idx: 0,
                                                     },
                                                 ],
                                                 has_self_lifetime: false,
                                                 has_self_place: false,
-                                                syn_pattern_to_current_syn_symbol_map: [],
+                                                pattern_to_current_variable_map: [],
                                             },
                                         },
                                     ),
@@ -3155,8 +3159,8 @@ SynDeclSheet {
                                                         data: ItemSynNodePathData::AssocItem(
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::row_span_sum`, `MemoizedField`),
+                                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::row_span_sum`, `MemoizedField`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -3167,10 +3171,10 @@ SynDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    syn_expr_arena: Arena {
+                                    expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 1,
+                                                path_expr_idx: 0,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -3218,27 +3222,27 @@ SynDeclSheet {
                                             data: [],
                                         },
                                     },
-                                    symbol_region: VariableRegionData {
+                                    variable_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [],
                                         },
                                         allow_self_type: True,
                                         allow_self_value: True,
                                         pattern_ty_constraints: [],
                                     },
-                                    syn_pattern_expr_roots: [],
-                                    syn_expr_roots: [
+                                    pattern_roots: [],
+                                    expr_roots: [
                                         SynExprRoot {
                                             kind: SynExprRootKind::ReturnType,
-                                            syn_expr_idx: 1,
+                                            syn_expr_idx: 0,
                                         },
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
-                                    syn_pattern_to_current_syn_symbol_map: [],
+                                    pattern_to_current_variable_map: [],
                                 },
                             },
                         },
@@ -3259,7 +3263,7 @@ SynDeclSheet {
                             path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::distribution`, `MemoizedField`),
                             return_ty: Some(
                                 ReturnTypeBeforeEqSyndicate {
-                                    expr: 1,
+                                    expr: 0,
                                 },
                             ),
                             expr: None,
@@ -3292,10 +3296,10 @@ SynDeclSheet {
                                                         ),
                                                     ),
                                                 ),
-                                                syn_expr_arena: Arena {
+                                                expr_arena: Arena {
                                                     data: [
                                                         SynExprData::PrincipalEntityPath {
-                                                            path_expr_idx: 1,
+                                                            path_expr_idx: 0,
                                                             opt_path: Some(
                                                                 PrincipalEntityPath::MajorItem(
                                                                     MajorItemPath::Type(
@@ -3343,27 +3347,27 @@ SynDeclSheet {
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: VariableRegionData {
+                                                variable_region: VariableRegionData {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
-                                                    current_syn_symbol_arena: Arena {
+                                                    current_variable_arena: Arena {
                                                         data: [],
                                                     },
                                                     allow_self_type: True,
                                                     allow_self_value: False,
                                                     pattern_ty_constraints: [],
                                                 },
-                                                syn_pattern_expr_roots: [],
-                                                syn_expr_roots: [
+                                                pattern_roots: [],
+                                                expr_roots: [
                                                     SynExprRoot {
                                                         kind: SynExprRootKind::SelfType,
-                                                        syn_expr_idx: 1,
+                                                        syn_expr_idx: 0,
                                                     },
                                                 ],
                                                 has_self_lifetime: false,
                                                 has_self_place: false,
-                                                syn_pattern_to_current_syn_symbol_map: [],
+                                                pattern_to_current_variable_map: [],
                                             },
                                         },
                                     ),
@@ -3375,8 +3379,8 @@ SynDeclSheet {
                                                         data: ItemSynNodePathData::AssocItem(
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::distribution`, `MemoizedField`),
+                                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::distribution`, `MemoizedField`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -3387,10 +3391,10 @@ SynDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    syn_expr_arena: Arena {
+                                    expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 1,
+                                                path_expr_idx: 0,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -3438,27 +3442,27 @@ SynDeclSheet {
                                             data: [],
                                         },
                                     },
-                                    symbol_region: VariableRegionData {
+                                    variable_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [],
                                         },
                                         allow_self_type: True,
                                         allow_self_value: True,
                                         pattern_ty_constraints: [],
                                     },
-                                    syn_pattern_expr_roots: [],
-                                    syn_expr_roots: [
+                                    pattern_roots: [],
+                                    expr_roots: [
                                         SynExprRoot {
                                             kind: SynExprRootKind::ReturnType,
-                                            syn_expr_idx: 1,
+                                            syn_expr_idx: 0,
                                         },
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
-                                    syn_pattern_to_current_syn_symbol_map: [],
+                                    pattern_to_current_variable_map: [],
                                 },
                             },
                         },
@@ -3479,7 +3483,7 @@ SynDeclSheet {
                             path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::upper_mass`, `MemoizedField`),
                             return_ty: Some(
                                 ReturnTypeBeforeEqSyndicate {
-                                    expr: 1,
+                                    expr: 0,
                                 },
                             ),
                             expr: None,
@@ -3512,10 +3516,10 @@ SynDeclSheet {
                                                         ),
                                                     ),
                                                 ),
-                                                syn_expr_arena: Arena {
+                                                expr_arena: Arena {
                                                     data: [
                                                         SynExprData::PrincipalEntityPath {
-                                                            path_expr_idx: 1,
+                                                            path_expr_idx: 0,
                                                             opt_path: Some(
                                                                 PrincipalEntityPath::MajorItem(
                                                                     MajorItemPath::Type(
@@ -3563,27 +3567,27 @@ SynDeclSheet {
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: VariableRegionData {
+                                                variable_region: VariableRegionData {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
-                                                    current_syn_symbol_arena: Arena {
+                                                    current_variable_arena: Arena {
                                                         data: [],
                                                     },
                                                     allow_self_type: True,
                                                     allow_self_value: False,
                                                     pattern_ty_constraints: [],
                                                 },
-                                                syn_pattern_expr_roots: [],
-                                                syn_expr_roots: [
+                                                pattern_roots: [],
+                                                expr_roots: [
                                                     SynExprRoot {
                                                         kind: SynExprRootKind::SelfType,
-                                                        syn_expr_idx: 1,
+                                                        syn_expr_idx: 0,
                                                     },
                                                 ],
                                                 has_self_lifetime: false,
                                                 has_self_place: false,
-                                                syn_pattern_to_current_syn_symbol_map: [],
+                                                pattern_to_current_variable_map: [],
                                             },
                                         },
                                     ),
@@ -3595,8 +3599,8 @@ SynDeclSheet {
                                                         data: ItemSynNodePathData::AssocItem(
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::upper_mass`, `MemoizedField`),
+                                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::upper_mass`, `MemoizedField`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -3607,10 +3611,10 @@ SynDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    syn_expr_arena: Arena {
+                                    expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 1,
+                                                path_expr_idx: 0,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -3658,27 +3662,27 @@ SynDeclSheet {
                                             data: [],
                                         },
                                     },
-                                    symbol_region: VariableRegionData {
+                                    variable_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [],
                                         },
                                         allow_self_type: True,
                                         allow_self_value: True,
                                         pattern_ty_constraints: [],
                                     },
-                                    syn_pattern_expr_roots: [],
-                                    syn_expr_roots: [
+                                    pattern_roots: [],
+                                    expr_roots: [
                                         SynExprRoot {
                                             kind: SynExprRootKind::ReturnType,
-                                            syn_expr_idx: 1,
+                                            syn_expr_idx: 0,
                                         },
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
-                                    syn_pattern_to_current_syn_symbol_map: [],
+                                    pattern_to_current_variable_map: [],
                                 },
                             },
                         },
@@ -3699,7 +3703,7 @@ SynDeclSheet {
                             path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::lower_mass`, `MemoizedField`),
                             return_ty: Some(
                                 ReturnTypeBeforeEqSyndicate {
-                                    expr: 1,
+                                    expr: 0,
                                 },
                             ),
                             expr: None,
@@ -3732,10 +3736,10 @@ SynDeclSheet {
                                                         ),
                                                     ),
                                                 ),
-                                                syn_expr_arena: Arena {
+                                                expr_arena: Arena {
                                                     data: [
                                                         SynExprData::PrincipalEntityPath {
-                                                            path_expr_idx: 1,
+                                                            path_expr_idx: 0,
                                                             opt_path: Some(
                                                                 PrincipalEntityPath::MajorItem(
                                                                     MajorItemPath::Type(
@@ -3783,27 +3787,27 @@ SynDeclSheet {
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: VariableRegionData {
+                                                variable_region: VariableRegionData {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
-                                                    current_syn_symbol_arena: Arena {
+                                                    current_variable_arena: Arena {
                                                         data: [],
                                                     },
                                                     allow_self_type: True,
                                                     allow_self_value: False,
                                                     pattern_ty_constraints: [],
                                                 },
-                                                syn_pattern_expr_roots: [],
-                                                syn_expr_roots: [
+                                                pattern_roots: [],
+                                                expr_roots: [
                                                     SynExprRoot {
                                                         kind: SynExprRootKind::SelfType,
-                                                        syn_expr_idx: 1,
+                                                        syn_expr_idx: 0,
                                                     },
                                                 ],
                                                 has_self_lifetime: false,
                                                 has_self_place: false,
-                                                syn_pattern_to_current_syn_symbol_map: [],
+                                                pattern_to_current_variable_map: [],
                                             },
                                         },
                                     ),
@@ -3815,8 +3819,8 @@ SynDeclSheet {
                                                         data: ItemSynNodePathData::AssocItem(
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::lower_mass`, `MemoizedField`),
+                                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::lower_mass`, `MemoizedField`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -3827,10 +3831,10 @@ SynDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    syn_expr_arena: Arena {
+                                    expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 1,
+                                                path_expr_idx: 0,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -3878,27 +3882,27 @@ SynDeclSheet {
                                             data: [],
                                         },
                                     },
-                                    symbol_region: VariableRegionData {
+                                    variable_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [],
                                         },
                                         allow_self_type: True,
                                         allow_self_value: True,
                                         pattern_ty_constraints: [],
                                     },
-                                    syn_pattern_expr_roots: [],
-                                    syn_expr_roots: [
+                                    pattern_roots: [],
+                                    expr_roots: [
                                         SynExprRoot {
                                             kind: SynExprRootKind::ReturnType,
-                                            syn_expr_idx: 1,
+                                            syn_expr_idx: 0,
                                         },
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
-                                    syn_pattern_to_current_syn_symbol_map: [],
+                                    pattern_to_current_variable_map: [],
                                 },
                             },
                         },
@@ -3917,7 +3921,7 @@ SynDeclSheet {
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
-                        TypeMethodFnSynDecl {
+                        TypeMethodRitchieSynDecl {
                             path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::top_k_row_span_sum`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -3926,22 +3930,22 @@ SynDeclSheet {
                             parenate_parameters: [
                                 ParenateParameterSyndicate::Simple {
                                     syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                        syn_pattern_expr_idx: 1,
+                                        syn_pattern_expr_idx: 0,
                                     },
                                     variables: ArenaIdxRange(
-                                        1..2,
+                                        0..1,
                                     ),
                                     colon: ColonRegionalToken(
                                         RegionalTokenIdx(
                                             5,
                                         ),
                                     ),
-                                    ty: 1,
+                                    ty: 0,
                                 },
                             ],
                             return_ty: Some(
                                 ReturnTypeBeforeColonSyndicate {
-                                    syn_expr_idx: 2,
+                                    syn_expr_idx: 1,
                                 },
                             ),
                             syn_expr_region: SynExprRegion {
@@ -3973,10 +3977,10 @@ SynDeclSheet {
                                                         ),
                                                     ),
                                                 ),
-                                                syn_expr_arena: Arena {
+                                                expr_arena: Arena {
                                                     data: [
                                                         SynExprData::PrincipalEntityPath {
-                                                            path_expr_idx: 1,
+                                                            path_expr_idx: 0,
                                                             opt_path: Some(
                                                                 PrincipalEntityPath::MajorItem(
                                                                     MajorItemPath::Type(
@@ -4024,27 +4028,27 @@ SynDeclSheet {
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: VariableRegionData {
+                                                variable_region: VariableRegionData {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
-                                                    current_syn_symbol_arena: Arena {
+                                                    current_variable_arena: Arena {
                                                         data: [],
                                                     },
                                                     allow_self_type: True,
                                                     allow_self_value: False,
                                                     pattern_ty_constraints: [],
                                                 },
-                                                syn_pattern_expr_roots: [],
-                                                syn_expr_roots: [
+                                                pattern_roots: [],
+                                                expr_roots: [
                                                     SynExprRoot {
                                                         kind: SynExprRootKind::SelfType,
-                                                        syn_expr_idx: 1,
+                                                        syn_expr_idx: 0,
                                                     },
                                                 ],
                                                 has_self_lifetime: false,
                                                 has_self_place: false,
-                                                syn_pattern_to_current_syn_symbol_map: [],
+                                                pattern_to_current_variable_map: [],
                                             },
                                         },
                                     ),
@@ -4056,8 +4060,8 @@ SynDeclSheet {
                                                         data: ItemSynNodePathData::AssocItem(
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::top_k_row_span_sum`, `MethodRitchie(
+                                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::top_k_row_span_sum`, `MethodRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,
@@ -4070,10 +4074,10 @@ SynDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    syn_expr_arena: Arena {
+                                    expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 1,
+                                                path_expr_idx: 0,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -4083,7 +4087,7 @@ SynDeclSheet {
                                                 ),
                                             },
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 2,
+                                                path_expr_idx: 1,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -4152,8 +4156,8 @@ SynDeclSheet {
                                         },
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                SynPatternSymbol::Atom(
-                                                    1,
+                                                PatternVariable::Atom(
+                                                    0,
                                                 ),
                                             ],
                                         },
@@ -4161,7 +4165,7 @@ SynDeclSheet {
                                             [
                                                 (
                                                     `k`,
-                                                    1,
+                                                    0,
                                                 ),
                                             ],
                                         ],
@@ -4171,21 +4175,21 @@ SynDeclSheet {
                                             ],
                                         },
                                     },
-                                    symbol_region: VariableRegionData {
+                                    variable_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `k`,
-                                                        pattern_symbol_idx: 1,
+                                                        pattern_variable_idx: 0,
                                                     },
                                                 },
                                             ],
@@ -4196,38 +4200,38 @@ SynDeclSheet {
                                             (
                                                 SimpleParenateParameter {
                                                     syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                                        syn_pattern_expr_idx: 1,
+                                                        syn_pattern_expr_idx: 0,
                                                     },
-                                                    ty: 1,
+                                                    ty: 0,
                                                 },
                                                 ArenaIdxRange(
-                                                    1..2,
+                                                    0..1,
                                                 ),
                                             ),
                                         ],
                                     },
-                                    syn_pattern_expr_roots: [
+                                    pattern_roots: [
                                         SynPatternRoot {
                                             kind: SynPatternExprRootKind::Parenate,
-                                            syn_pattern_expr_idx: 1,
+                                            syn_pattern_expr_idx: 0,
                                         },
                                     ],
-                                    syn_expr_roots: [
+                                    expr_roots: [
                                         SynExprRoot {
                                             kind: SynExprRootKind::ExplicitParameterType,
-                                            syn_expr_idx: 1,
+                                            syn_expr_idx: 0,
                                         },
                                         SynExprRoot {
                                             kind: SynExprRootKind::ReturnType,
-                                            syn_expr_idx: 2,
+                                            syn_expr_idx: 1,
                                         },
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
-                                    syn_pattern_to_current_syn_symbol_map: [
+                                    pattern_to_current_variable_map: [
                                         (
-                                            1,
-                                            1,
+                                            0,
+                                            0,
                                         ),
                                     ],
                                 },
@@ -4248,7 +4252,7 @@ SynDeclSheet {
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
-                        TypeMethodFnSynDecl {
+                        TypeMethodRitchieSynDecl {
                             path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::top_k_row_right_mass_sum`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -4257,22 +4261,22 @@ SynDeclSheet {
                             parenate_parameters: [
                                 ParenateParameterSyndicate::Simple {
                                     syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                        syn_pattern_expr_idx: 1,
+                                        syn_pattern_expr_idx: 0,
                                     },
                                     variables: ArenaIdxRange(
-                                        1..2,
+                                        0..1,
                                     ),
                                     colon: ColonRegionalToken(
                                         RegionalTokenIdx(
                                             5,
                                         ),
                                     ),
-                                    ty: 1,
+                                    ty: 0,
                                 },
                             ],
                             return_ty: Some(
                                 ReturnTypeBeforeColonSyndicate {
-                                    syn_expr_idx: 2,
+                                    syn_expr_idx: 1,
                                 },
                             ),
                             syn_expr_region: SynExprRegion {
@@ -4304,10 +4308,10 @@ SynDeclSheet {
                                                         ),
                                                     ),
                                                 ),
-                                                syn_expr_arena: Arena {
+                                                expr_arena: Arena {
                                                     data: [
                                                         SynExprData::PrincipalEntityPath {
-                                                            path_expr_idx: 1,
+                                                            path_expr_idx: 0,
                                                             opt_path: Some(
                                                                 PrincipalEntityPath::MajorItem(
                                                                     MajorItemPath::Type(
@@ -4355,27 +4359,27 @@ SynDeclSheet {
                                                         data: [],
                                                     },
                                                 },
-                                                symbol_region: VariableRegionData {
+                                                variable_region: VariableRegionData {
                                                     inherited_syn_symbol_arena: Arena {
                                                         data: [],
                                                     },
-                                                    current_syn_symbol_arena: Arena {
+                                                    current_variable_arena: Arena {
                                                         data: [],
                                                     },
                                                     allow_self_type: True,
                                                     allow_self_value: False,
                                                     pattern_ty_constraints: [],
                                                 },
-                                                syn_pattern_expr_roots: [],
-                                                syn_expr_roots: [
+                                                pattern_roots: [],
+                                                expr_roots: [
                                                     SynExprRoot {
                                                         kind: SynExprRootKind::SelfType,
-                                                        syn_expr_idx: 1,
+                                                        syn_expr_idx: 0,
                                                     },
                                                 ],
                                                 has_self_lifetime: false,
                                                 has_self_place: false,
-                                                syn_pattern_to_current_syn_symbol_map: [],
+                                                pattern_to_current_variable_map: [],
                                             },
                                         },
                                     ),
@@ -4387,8 +4391,8 @@ SynDeclSheet {
                                                         data: ItemSynNodePathData::AssocItem(
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::top_k_row_right_mass_sum`, `MethodRitchie(
+                                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::top_k_row_right_mass_sum`, `MethodRitchie(
                                                                             Fn,
                                                                         )`),
                                                                         disambiguator: 0,
@@ -4401,10 +4405,10 @@ SynDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    syn_expr_arena: Arena {
+                                    expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 1,
+                                                path_expr_idx: 0,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -4414,7 +4418,7 @@ SynDeclSheet {
                                                 ),
                                             },
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 2,
+                                                path_expr_idx: 1,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -4483,8 +4487,8 @@ SynDeclSheet {
                                         },
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                SynPatternSymbol::Atom(
-                                                    1,
+                                                PatternVariable::Atom(
+                                                    0,
                                                 ),
                                             ],
                                         },
@@ -4492,7 +4496,7 @@ SynDeclSheet {
                                             [
                                                 (
                                                     `k`,
-                                                    1,
+                                                    0,
                                                 ),
                                             ],
                                         ],
@@ -4502,21 +4506,21 @@ SynDeclSheet {
                                             ],
                                         },
                                     },
-                                    symbol_region: VariableRegionData {
+                                    variable_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `k`,
-                                                        pattern_symbol_idx: 1,
+                                                        pattern_variable_idx: 0,
                                                     },
                                                 },
                                             ],
@@ -4527,38 +4531,38 @@ SynDeclSheet {
                                             (
                                                 SimpleParenateParameter {
                                                     syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                                        syn_pattern_expr_idx: 1,
+                                                        syn_pattern_expr_idx: 0,
                                                     },
-                                                    ty: 1,
+                                                    ty: 0,
                                                 },
                                                 ArenaIdxRange(
-                                                    1..2,
+                                                    0..1,
                                                 ),
                                             ),
                                         ],
                                     },
-                                    syn_pattern_expr_roots: [
+                                    pattern_roots: [
                                         SynPatternRoot {
                                             kind: SynPatternExprRootKind::Parenate,
-                                            syn_pattern_expr_idx: 1,
+                                            syn_pattern_expr_idx: 0,
                                         },
                                     ],
-                                    syn_expr_roots: [
+                                    expr_roots: [
                                         SynExprRoot {
                                             kind: SynExprRootKind::ExplicitParameterType,
-                                            syn_expr_idx: 1,
+                                            syn_expr_idx: 0,
                                         },
                                         SynExprRoot {
                                             kind: SynExprRootKind::ReturnType,
-                                            syn_expr_idx: 2,
+                                            syn_expr_idx: 1,
                                         },
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
-                                    syn_pattern_to_current_syn_symbol_map: [
+                                    pattern_to_current_variable_map: [
                                         (
-                                            1,
-                                            1,
+                                            0,
+                                            0,
                                         ),
                                     ],
                                 },

@@ -14,7 +14,7 @@ impl HasHirDecl for SubmoduleItemPath {
     }
 }
 
-#[salsa::tracked(jar = HirDeclJar)]
+#[salsa::tracked]
 fn submodule_hir_decl(db: &::salsa::Db, path: SubmoduleItemPath) -> SubmoduleHirDecl {
     SubmoduleHirDecl::new(db, path)
 }

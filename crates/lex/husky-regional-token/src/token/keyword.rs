@@ -215,6 +215,12 @@ pub struct SelfTypeRegionalToken {
 }
 
 impl SelfTypeRegionalToken {
+    pub fn new(regional_token_idx: RegionalTokenIdx) -> Self {
+        Self { regional_token_idx }
+    }
+}
+
+impl SelfTypeRegionalToken {
     pub fn regional_token_idx(&self) -> RegionalTokenIdx {
         self.regional_token_idx
     }

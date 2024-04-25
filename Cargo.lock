@@ -967,9 +967,9 @@ dependencies = [
 
 [[package]]
 name = "cargo"
-version = "0.78.0"
+version = "0.78.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "40aa4f7f65beb7840194ee32d91f7d0ee0165bbf85e368bbb2c8d6389ea4fabb"
+checksum = "d6305e39d08315644d79a5ae09a0745dfb3a43b5b5e318e55dbda3f12031c5dc"
 dependencies = [
  "annotate-snippets",
  "anstream",
@@ -1121,9 +1121,9 @@ dependencies = [
 
 [[package]]
 name = "cargo-manifest"
-version = "0.13.0"
+version = "0.14.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "bf6ff49a028a52bf61913e19f5ba3b9bd34145cc97eb1649865576c8f06b408d"
+checksum = "7db7ad32d2729eca70d1669bae38b6a29dabc30a16f1892cc00977873f450d0a"
 dependencies = [
  "serde",
  "thiserror",
@@ -1143,7 +1143,15 @@ dependencies = [
 name = "cargo-rename-extension"
 version = "0.1.0"
 dependencies = [
- "clap 3.2.25",
+ "clap 4.5.4",
+]
+
+[[package]]
+name = "cargo-replace-file-stem"
+version = "0.1.0"
+dependencies = [
+ "clap 4.5.4",
+ "husky-cli-utils",
 ]
 
 [[package]]
@@ -1298,7 +1306,7 @@ checksum = "4ea181bf566f71cb9a5d17a59e1871af638180a18fb0035c92ae62b705207123"
 dependencies = [
  "atty",
  "bitflags 1.3.2",
- "clap_derive",
+ "clap_derive 3.2.25",
  "clap_lex 0.2.4",
  "indexmap 1.9.3",
  "once_cell",
@@ -1314,6 +1322,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "90bc066a67923782aa8515dbaea16946c5bcc5addbd668bb80af688e53e548a0"
 dependencies = [
  "clap_builder",
+ "clap_derive 4.5.4",
 ]
 
 [[package]]
@@ -1340,6 +1349,18 @@ dependencies = [
  "proc-macro2",
  "quote",
  "syn 1.0.109",
+]
+
+[[package]]
+name = "clap_derive"
+version = "4.5.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "528131438037fd55894f62d6e9f068b8f45ac57ffa77517819645d10aed04f64"
+dependencies = [
+ "heck 0.5.0",
+ "proc-macro2",
+ "quote",
+ "syn 2.0.55",
 ]
 
 [[package]]
@@ -3966,7 +3987,7 @@ dependencies = [
  "husky-path-utils",
  "husky-print-utils",
  "husky-profile-utils",
- "husky-sema-expr",
+ "husky-sem-expr",
  "husky-semantic-token",
  "husky-syn-decl",
  "husky-syn-defn",
@@ -4114,6 +4135,7 @@ name = "husky-cli-utils"
 version = "0.1.0"
 dependencies = [
  "colored",
+ "husky-screen-utils",
 ]
 
 [[package]]
@@ -4377,8 +4399,8 @@ dependencies = [
  "husky-manifest-ast",
  "husky-print-utils",
  "husky-rust-transpilation",
- "husky-sema-expr",
- "husky-sema-place-contract",
+ "husky-sem-expr",
+ "husky-sem-place-contract",
  "husky-syn-decl",
  "husky-syn-defn",
  "husky-syn-expr",
@@ -4508,7 +4530,7 @@ dependencies = [
  "husky-print-utils",
  "husky-regional-token",
  "husky-scope-expr",
- "husky-sema-expr",
+ "husky-sem-expr",
  "husky-syn-decl",
  "husky-syn-defn",
  "husky-syn-expr",
@@ -4847,8 +4869,8 @@ dependencies = [
  "husky-manifest",
  "husky-manifest-ast",
  "husky-print-utils",
- "husky-sema-expr",
- "husky-sema-place-contract",
+ "husky-sem-expr",
+ "husky-sem-place-contract",
  "husky-syn-decl",
  "husky-syn-defn",
  "husky-syn-expr",
@@ -4889,8 +4911,8 @@ dependencies = [
  "husky-manifest",
  "husky-manifest-ast",
  "husky-print-utils",
- "husky-sema-expr",
- "husky-sema-place-contract",
+ "husky-sem-expr",
+ "husky-sem-place-contract",
  "husky-syn-decl",
  "husky-syn-defn",
  "husky-syn-expr",
@@ -4927,9 +4949,9 @@ dependencies = [
  "husky-place",
  "husky-print-utils",
  "husky-regional-token",
- "husky-sema-expr",
- "husky-sema-opr",
- "husky-sema-place-contract",
+ "husky-sem-expr",
+ "husky-sem-opr",
+ "husky-sem-place-contract",
  "husky-syn-defn",
  "husky-syn-expr",
  "husky-term-prelude",
@@ -4955,7 +4977,7 @@ dependencies = [
  "husky-hir-eager-expr",
  "husky-hir-expr",
  "husky-hir-lazy-expr",
- "husky-sema-expr",
+ "husky-sem-expr",
  "husky-syn-defn",
  "husky-syn-expr",
  "salsa",
@@ -4979,9 +5001,9 @@ dependencies = [
  "husky-hir-opr",
  "husky-hir-ty",
  "husky-print-utils",
- "husky-sema-expr",
- "husky-sema-opr",
- "husky-sema-place-contract",
+ "husky-sem-expr",
+ "husky-sem-opr",
+ "husky-sem-place-contract",
  "husky-syn-defn",
  "husky-syn-expr",
  "husky-term-prelude",
@@ -5001,7 +5023,7 @@ dependencies = [
  "husky-entity-path",
  "husky-fly-term",
  "husky-opr",
- "husky-sema-opr",
+ "husky-sem-opr",
  "salsa",
 ]
 
@@ -5032,7 +5054,7 @@ dependencies = [
  "husky-place",
  "husky-print-utils",
  "husky-scope",
- "husky-sema-place-contract",
+ "husky-sem-place-contract",
  "husky-term-prelude",
  "husky-vfs",
  "maybe-result",
@@ -5062,8 +5084,8 @@ dependencies = [
  "husky-manifest",
  "husky-manifest-ast",
  "husky-print-utils",
- "husky-sema-expr",
- "husky-sema-place-contract",
+ "husky-sem-expr",
+ "husky-sem-place-contract",
  "husky-syn-decl",
  "husky-syn-defn",
  "husky-syn-expr",
@@ -5145,8 +5167,8 @@ dependencies = [
  "husky-manifest",
  "husky-manifest-ast",
  "husky-print-utils",
- "husky-sema-expr",
- "husky-sema-place-contract",
+ "husky-sem-expr",
+ "husky-sem-place-contract",
  "husky-syn-decl",
  "husky-syn-defn",
  "husky-syn-expr",
@@ -5212,8 +5234,8 @@ dependencies = [
  "husky-ml-task",
  "husky-print-utils",
  "husky-regional-token",
- "husky-sema-expr",
- "husky-sema-place-contract",
+ "husky-sem-expr",
+ "husky-sem-place-contract",
  "husky-syn-decl",
  "husky-syn-defn",
  "husky-syn-expr",
@@ -5232,6 +5254,22 @@ dependencies = [
  "salsa",
  "smallvec",
 ]
+
+[[package]]
+name = "husky-lean-ast"
+version = "0.1.0"
+
+[[package]]
+name = "husky-lean-sem-expr"
+version = "0.1.0"
+
+[[package]]
+name = "husky-lean-syn-expr"
+version = "0.1.0"
+
+[[package]]
+name = "husky-lean-token"
+version = "0.1.0"
 
 [[package]]
 name = "husky-lifetime-utils"
@@ -5266,9 +5304,10 @@ dependencies = [
  "husky-javelin",
  "husky-manifest",
  "husky-manifest-ast",
+ "husky-place",
  "husky-print-utils",
- "husky-sema-expr",
- "husky-sema-place-contract",
+ "husky-sem-expr",
+ "husky-sem-place-contract",
  "husky-syn-decl",
  "husky-syn-defn",
  "husky-syn-expr",
@@ -5315,6 +5354,13 @@ name = "husky-log-utils"
 version = "0.1.0"
 dependencies = [
  "log",
+]
+
+[[package]]
+name = "husky-logicm-prototype"
+version = "0.1.0"
+dependencies = [
+ "salsa",
 ]
 
 [[package]]
@@ -5481,6 +5527,20 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-namekian-ast"
+version = "0.1.0"
+dependencies = [
+ "expect-test",
+ "husky-text-protocol",
+ "idx-arena",
+ "salsa",
+]
+
+[[package]]
+name = "husky-namekian-grammar-rules"
+version = "0.1.0"
+
+[[package]]
 name = "husky-ndp-task"
 version = "0.1.0"
 dependencies = [
@@ -5566,6 +5626,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-pn-prototype"
+version = "0.1.0"
+
+[[package]]
 name = "husky-primitive-value"
 version = "0.1.0"
 
@@ -5598,6 +5662,10 @@ dependencies = [
 
 [[package]]
 name = "husky-proof-protocol"
+version = "0.1.0"
+
+[[package]]
+name = "husky-qn-prototype"
 version = "0.1.0"
 
 [[package]]
@@ -5672,8 +5740,8 @@ dependencies = [
  "husky-opr",
  "husky-place",
  "husky-print-utils",
- "husky-sema-expr",
- "husky-sema-place-contract",
+ "husky-sem-expr",
+ "husky-sem-place-contract",
  "husky-syn-decl",
  "husky-syn-defn",
  "husky-syn-expr",
@@ -5707,7 +5775,7 @@ version = "0.1.0"
 dependencies = [
  "enum-class",
  "husky-coword",
- "husky-regional-token",
+ "husky-token",
  "husky-vfs",
  "salsa",
  "with-db",
@@ -5730,7 +5798,11 @@ dependencies = [
 ]
 
 [[package]]
-name = "husky-sema-expr"
+name = "husky-screen-utils"
+version = "0.1.0"
+
+[[package]]
+name = "husky-sem-expr"
 version = "0.1.0"
 dependencies = [
  "codespan-reporting",
@@ -5758,8 +5830,8 @@ dependencies = [
  "husky-place",
  "husky-print-utils",
  "husky-regional-token",
- "husky-sema-expr",
- "husky-sema-opr",
+ "husky-sem-expr",
+ "husky-sem-opr",
  "husky-syn-decl",
  "husky-syn-defn",
  "husky-syn-expr",
@@ -5781,14 +5853,14 @@ dependencies = [
 ]
 
 [[package]]
-name = "husky-sema-opr"
+name = "husky-sem-opr"
 version = "0.1.0"
 dependencies = [
  "husky-opr",
 ]
 
 [[package]]
-name = "husky-sema-place-contract"
+name = "husky-sem-place-contract"
 version = "0.1.0"
 dependencies = [
  "husky-ast",
@@ -5807,8 +5879,8 @@ dependencies = [
  "husky-manifest",
  "husky-manifest-ast",
  "husky-place",
- "husky-sema-expr",
- "husky-sema-opr",
+ "husky-sem-expr",
+ "husky-sem-opr",
  "husky-syn-decl",
  "husky-syn-defn",
  "husky-syn-expr",
@@ -5843,8 +5915,8 @@ dependencies = [
  "husky-fly-term",
  "husky-manifest",
  "husky-manifest-ast",
- "husky-sema-expr",
- "husky-sema-place-contract",
+ "husky-sem-expr",
+ "husky-sem-place-contract",
  "husky-semantic-token",
  "husky-syn-decl",
  "husky-syn-defn",
@@ -6119,9 +6191,25 @@ name = "husky-tex-ast"
 version = "0.1.0"
 dependencies = [
  "egui",
+ "enum-class",
+ "expect-test",
+ "husky-coword",
+ "husky-tex-math-letter",
+ "husky-tex-math-opr",
+ "husky-tex-prelude",
  "husky-tex-token",
  "idx-arena",
+ "salsa",
  "time-capsule",
+]
+
+[[package]]
+name = "husky-tex-command"
+version = "0.1.0"
+dependencies = [
+ "husky-coword",
+ "husky-tex-prelude",
+ "salsa",
 ]
 
 [[package]]
@@ -6134,8 +6222,41 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-tex-math-letter"
+version = "0.1.0"
+
+[[package]]
+name = "husky-tex-math-opr"
+version = "0.1.0"
+
+[[package]]
+name = "husky-tex-prelude"
+version = "0.1.0"
+
+[[package]]
+name = "husky-tex-sem-expr"
+version = "0.1.0"
+
+[[package]]
+name = "husky-tex-syn-expr"
+version = "0.1.0"
+
+[[package]]
 name = "husky-tex-token"
 version = "0.1.0"
+dependencies = [
+ "enum-class",
+ "expect-test",
+ "husky-coword",
+ "husky-print-utils",
+ "husky-tex-command",
+ "husky-tex-math-letter",
+ "husky-tex-math-opr",
+ "husky-tex-prelude",
+ "husky-text-protocol",
+ "salsa",
+ "shifted-unsigned-int",
+]
 
 [[package]]
 name = "husky-text"
@@ -6148,6 +6269,7 @@ dependencies = [
  "husky-text-protocol",
  "husky-vfs",
  "lsp-types 0.94.1",
+ "ref-index",
  "rustc-hash",
  "salsa",
  "serde",
@@ -6164,6 +6286,10 @@ dependencies = [
 
 [[package]]
 name = "husky-text-span"
+version = "0.1.0"
+
+[[package]]
+name = "husky-tn-prototype"
 version = "0.1.0"
 
 [[package]]
@@ -6256,9 +6382,9 @@ dependencies = [
  "husky-manifest-ast",
  "husky-print-utils",
  "husky-regional-token",
- "husky-sema-expr",
- "husky-sema-opr",
- "husky-sema-place-contract",
+ "husky-sem-expr",
+ "husky-sem-opr",
+ "husky-sem-place-contract",
  "husky-syn-decl",
  "husky-syn-defn",
  "husky-syn-expr",
@@ -6374,8 +6500,8 @@ dependencies = [
  "husky-manifest-ast",
  "husky-print-utils",
  "husky-regional-token",
- "husky-sema-expr",
- "husky-sema-place-contract",
+ "husky-sem-expr",
+ "husky-sem-place-contract",
  "husky-syn-decl",
  "husky-syn-defn",
  "husky-syn-expr",
@@ -6540,6 +6666,48 @@ dependencies = [
 [[package]]
 name = "husky-vm"
 version = "0.1.0"
+dependencies = [
+ "husky-ast",
+ "husky-corgi-config",
+ "husky-corgi-config-ast",
+ "husky-coword",
+ "husky-dec-signature",
+ "husky-dec-term",
+ "husky-dec-ty",
+ "husky-entity-path",
+ "husky-entity-tree",
+ "husky-eth-signature",
+ "husky-eth-term",
+ "husky-fly-term",
+ "husky-hir-decl",
+ "husky-hir-defn",
+ "husky-hir-eager-expr",
+ "husky-hir-expr",
+ "husky-hir-lazy-expr",
+ "husky-hir-ty",
+ "husky-javelin",
+ "husky-linkage",
+ "husky-manifest",
+ "husky-manifest-ast",
+ "husky-place",
+ "husky-sem-expr",
+ "husky-sem-place-contract",
+ "husky-syn-decl",
+ "husky-syn-defn",
+ "husky-syn-expr",
+ "husky-task",
+ "husky-task-interface",
+ "husky-term-prelude",
+ "husky-text",
+ "husky-token",
+ "husky-token-data",
+ "husky-toml-ast",
+ "husky-toml-token",
+ "husky-value-interface",
+ "husky-vfs",
+ "husky-vmir",
+ "salsa",
+]
 
 [[package]]
 name = "husky-vmir"
@@ -6579,8 +6747,8 @@ dependencies = [
  "husky-opr",
  "husky-place",
  "husky-print-utils",
- "husky-sema-expr",
- "husky-sema-place-contract",
+ "husky-sem-expr",
+ "husky-sem-place-contract",
  "husky-standard-value",
  "husky-syn-decl",
  "husky-syn-defn",
@@ -6599,7 +6767,12 @@ dependencies = [
  "salsa",
  "shifted-unsigned-int",
  "smallvec",
+ "version-stamp",
 ]
+
+[[package]]
+name = "husky-vn-prototype"
+version = "0.1.0"
 
 [[package]]
 name = "husky-websocket-utils"
@@ -7115,6 +7288,13 @@ name = "lazycell"
 version = "1.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "830d08ce1d1d941e6b30645f1a0eb5643013d835ce3779a5fc208261dbe10f55"
+
+[[package]]
+name = "learn-rusqlite"
+version = "0.1.0"
+dependencies = [
+ "rusqlite",
+]
 
 [[package]]
 name = "lebe"
@@ -8749,6 +8929,10 @@ dependencies = [
  "libredox 0.0.1",
  "thiserror",
 ]
+
+[[package]]
+name = "ref-index"
+version = "0.1.0"
 
 [[package]]
 name = "regex"

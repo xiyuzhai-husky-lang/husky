@@ -1,5 +1,5 @@
-mod linkage_impl;
 mod ty;
+pub mod virtual_linkage_impl;
 
 use crate::{
     linkage::ty::ty_linkages_emancipated_by_javelin,
@@ -8,12 +8,12 @@ use crate::{
 };
 use either::*;
 use husky_coword::Ident;
-use husky_entity_kind::{MajorFugitiveKind, TraitItemKind, TypeItemKind, TypeKind};
-use husky_entity_path::{AssocItemPath, FugitivePath, PreludeTraitPath, TypeVariantPath};
+use husky_entity_kind::{MajorFormKind, TraitItemKind, TypeItemKind, TypeKind};
+use husky_entity_path::{AssocItemPath, MajorFormPath, PreludeTraitPath, TypeVariantPath};
 use husky_entity_path::{TraitForTypeItemPath, TypePath};
 use husky_hir_decl::decl::{HasHirDecl, TypeHirDecl};
 use husky_hir_decl::helpers::enum_ty_has_only_unit_variants;
-use husky_hir_defn::{FugitiveHirDefn, HasHirDefn};
+use husky_hir_defn::{HasHirDefn, MajorFormHirDefn};
 use husky_hir_expr::HirExprIdx;
 use husky_hir_ty::{instantiation::HirInstantiation, HirType};
 use husky_javelin::{
@@ -33,16 +33,12 @@ pub struct Linkage {
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum LinkageData {
-    MajorRitchieEager {
-        path: FugitivePath,
-        instantiation: LinInstantiation,
-    },
-    MajorRitchieLazy {
-        path: FugitivePath,
+    MajorFunctionRitchie {
+        path: MajorFormPath,
         instantiation: LinInstantiation,
     },
     MajorVal {
-        path: FugitivePath,
+        path: MajorFormPath,
         instantiation: LinInstantiation,
     },
     MemoizedField {
@@ -57,7 +53,7 @@ pub enum LinkageData {
         path: AssocItemPath,
         instantiation: LinInstantiation,
     },
-    UnveilAssocFn {
+    UnveilAssocRitchie {
         path: TraitForTypeItemPath,
         instantiation: LinInstantiation,
     },
@@ -115,8 +111,8 @@ pub enum LinkageField {
 
 impl Linkage {
     /// gives a linkage if the item is eagerly defined or extern
-    pub fn new_val_item(path: FugitivePath, db: &::salsa::Db) -> Option<Self> {
-        let FugitiveHirDefn::Ki(hir_defn) = path.hir_defn(db).unwrap() else {
+    pub fn new_val_item(path: MajorFormPath, db: &::salsa::Db) -> Option<Self> {
+        let MajorFormHirDefn::Val(hir_defn) = path.hir_defn(db).unwrap() else {
             unreachable!()
         };
         match hir_defn.hir_expr_body_and_region(db) {
@@ -236,39 +232,22 @@ impl Linkage {
         )
     }
 
-    pub fn new_function_fn_item(
-        path: FugitivePath,
+    pub fn new_major_function_ritchie_item(
+        path: MajorFormPath,
         hir_instantiation: &HirInstantiation,
         lin_instantiation: &LinInstantiation,
         db: &::salsa::Db,
     ) -> Self {
-        debug_assert_eq!(path.major_fugitive_kind(db), MajorFugitiveKind::FN);
         Self::new(
             db,
-            LinkageData::MajorRitchieEager {
+            LinkageData::MajorFunctionRitchie {
                 path,
                 instantiation: LinInstantiation::from_hir(hir_instantiation, lin_instantiation, db),
             },
         )
     }
 
-    pub fn new_function_gn_item(
-        path: FugitivePath,
-        hir_instantiation: &HirInstantiation,
-        lin_instantiation: &LinInstantiation,
-        db: &::salsa::Db,
-    ) -> Self {
-        debug_assert_eq!(path.major_fugitive_kind(db), MajorFugitiveKind::GN);
-        Self::new(
-            db,
-            LinkageData::MajorRitchieLazy {
-                path,
-                instantiation: LinInstantiation::from_hir(hir_instantiation, lin_instantiation, db),
-            },
-        )
-    }
-
-    pub fn new_assoc_function_fn_item(
+    pub fn new_assoc_function_ritchie_item(
         path: AssocItemPath,
         hir_instantiation: &HirInstantiation,
         lin_instantiation: &LinInstantiation,
@@ -291,7 +270,7 @@ impl Linkage {
     ) -> Self {
         Self::new(
             db,
-            LinkageData::UnveilAssocFn {
+            LinkageData::UnveilAssocRitchie {
                 path,
                 instantiation: LinInstantiation::from_hir(hir_instantiation, lin_instantiation, db),
             },
@@ -334,8 +313,8 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                     .collect()
             }
             match path {
-                JavPath::Fugitive(path) => match path.major_fugitive_kind(db) {
-                    MajorFugitiveKind::Ritchie(ritchie_item_kind) => {
+                JavPath::Form(path) => match path.major_form_kind(db) {
+                    MajorFormKind::Ritchie(ritchie_item_kind) => {
                         match ritchie_item_kind.is_lazy() {
                             true => {
                                 let Some(hir_defn) = path.hir_defn(db) else {
@@ -348,7 +327,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                                         |instantiation| {
                                             Linkage::new(
                                                 db,
-                                                LinkageData::MajorRitchieLazy {
+                                                LinkageData::MajorFunctionRitchie {
                                                     path,
                                                     instantiation,
                                                 },
@@ -363,7 +342,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                                 |instantiation| {
                                     Linkage::new(
                                         db,
-                                        LinkageData::MajorRitchieEager {
+                                        LinkageData::MajorFunctionRitchie {
                                             path,
                                             instantiation,
                                         },
@@ -373,7 +352,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                             ),
                         }
                     }
-                    MajorFugitiveKind::Val => {
+                    MajorFormKind::Val => {
                         smallvec![Linkage::new(
                             db,
                             LinkageData::MajorVal {
@@ -382,8 +361,8 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                             }
                         )]
                     }
-                    MajorFugitiveKind::Const => todo!(),
-                    MajorFugitiveKind::TypeAlias | MajorFugitiveKind::Formal => unreachable!(),
+                    MajorFormKind::Const => todo!(),
+                    MajorFormKind::TypeAlias | MajorFormKind::Formal => unreachable!(),
                 },
                 JavPath::TypeItem(path) => match path.item_kind(db) {
                     TypeItemKind::AssocRitchie(_) => build(
@@ -471,7 +450,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                                             ),
                                             Linkage::new(
                                                 db,
-                                                LinkageData::UnveilAssocFn {
+                                                LinkageData::UnveilAssocRitchie {
                                                     path: path.into(),
                                                     instantiation,
                                                 },

@@ -17,7 +17,7 @@
                                         annotated_variance: Some(
                                             Covariant,
                                         ),
-                                        svar: DecSvar(
+                                        svar: DecSymbolicVariable(
                                             Id {
                                                 value: 4,
                                             },
@@ -49,7 +49,7 @@
                                         annotated_variance: Some(
                                             Covariant,
                                         ),
-                                        svar: DecSvar(
+                                        svar: DecSymbolicVariable(
                                             Id {
                                                 value: 4,
                                             },
@@ -84,7 +84,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    svar: DecSvar(
+                                    svar: DecSymbolicVariable(
                                         Id {
                                             value: 10,
                                         },
@@ -96,7 +96,7 @@
                         ty: Application(
                             DecApplication(
                                 Id {
-                                    value: 39,
+                                    value: 53,
                                 },
                             ),
                         ),
@@ -116,8 +116,8 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                    TypeItemDecTemplate::MethodRitchie(
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<core::slice::Slice(0)>::len`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -126,7 +126,7 @@
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
-                                            svar: DecSvar(
+                                            svar: DecSymbolicVariable(
                                                 Id {
                                                     value: 10,
                                                 },
@@ -138,7 +138,7 @@
                                 ty: Application(
                                     DecApplication(
                                         Id {
-                                            value: 39,
+                                            value: 53,
                                         },
                                     ),
                                 ),
@@ -146,7 +146,7 @@
                             self_ty: Application(
                                 DecApplication(
                                     Id {
-                                        value: 39,
+                                        value: 53,
                                     },
                                 ),
                             ),
@@ -158,7 +158,7 @@
                                 ty: Application(
                                     DecApplication(
                                         Id {
-                                            value: 39,
+                                            value: 53,
                                         },
                                     ),
                                 ),
@@ -194,8 +194,8 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                    TypeItemDecTemplate::MethodRitchie(
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<core::slice::Slice(0)>::swap`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -204,7 +204,7 @@
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
-                                            svar: DecSvar(
+                                            svar: DecSymbolicVariable(
                                                 Id {
                                                     value: 10,
                                                 },
@@ -216,7 +216,7 @@
                                 ty: Application(
                                     DecApplication(
                                         Id {
-                                            value: 39,
+                                            value: 53,
                                         },
                                     ),
                                 ),
@@ -224,7 +224,7 @@
                             self_ty: Application(
                                 DecApplication(
                                     Id {
-                                        value: 39,
+                                        value: 53,
                                     },
                                 ),
                             ),
@@ -232,7 +232,7 @@
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        svar: DecSvar(
+                                        svar: DecSymbolicVariable(
                                             Id {
                                                 value: 1,
                                             },
@@ -246,7 +246,7 @@
                                 ty: Application(
                                     DecApplication(
                                         Id {
-                                            value: 39,
+                                            value: 53,
                                         },
                                     ),
                                 ),
@@ -318,7 +318,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    svar: DecSvar(
+                                    svar: DecSymbolicVariable(
                                         Id {
                                             value: 10,
                                         },
@@ -342,7 +342,7 @@
                             Application(
                                 DecApplication(
                                     Id {
-                                        value: 40,
+                                        value: 54,
                                     },
                                 ),
                             ),
@@ -373,8 +373,8 @@
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
-                            ty_term: Symbol(
-                                DecSvar(
+                            ty_term: SymbolicVariable(
+                                DecSymbolicVariable(
                                     Id {
                                         value: 10,
                                     },
@@ -406,7 +406,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    svar: DecSvar(
+                                    svar: DecSymbolicVariable(
                                         Id {
                                             value: 10,
                                         },
@@ -418,7 +418,7 @@
                         ty: Application(
                             DecApplication(
                                 Id {
-                                    value: 40,
+                                    value: 54,
                                 },
                             ),
                         ),
@@ -438,8 +438,8 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                    TypeItemDecTemplate::MethodRitchie(
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<core::slice::CyclicSlice(0)>::ilen`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -448,7 +448,7 @@
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
-                                            svar: DecSvar(
+                                            svar: DecSymbolicVariable(
                                                 Id {
                                                     value: 10,
                                                 },
@@ -460,7 +460,7 @@
                                 ty: Application(
                                     DecApplication(
                                         Id {
-                                            value: 40,
+                                            value: 54,
                                         },
                                     ),
                                 ),
@@ -468,7 +468,7 @@
                             self_ty: Application(
                                 DecApplication(
                                     Id {
-                                        value: 40,
+                                        value: 54,
                                     },
                                 ),
                             ),
@@ -480,7 +480,7 @@
                                 ty: Application(
                                     DecApplication(
                                         Id {
-                                            value: 40,
+                                            value: 54,
                                         },
                                     ),
                                 ),
@@ -516,8 +516,8 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                    TypeItemDecTemplate::MethodRitchie(
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -526,7 +526,7 @@
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
-                                            svar: DecSvar(
+                                            svar: DecSymbolicVariable(
                                                 Id {
                                                     value: 10,
                                                 },
@@ -538,7 +538,7 @@
                                 ty: Application(
                                     DecApplication(
                                         Id {
-                                            value: 40,
+                                            value: 54,
                                         },
                                     ),
                                 ),
@@ -546,7 +546,7 @@
                             self_ty: Application(
                                 DecApplication(
                                     Id {
-                                        value: 40,
+                                        value: 54,
                                     },
                                 ),
                             ),
@@ -558,7 +558,7 @@
                                 ty: Application(
                                     DecApplication(
                                         Id {
-                                            value: 40,
+                                            value: 54,
                                         },
                                     ),
                                 ),
@@ -594,8 +594,8 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                    TypeItemDecTemplate::MethodRitchie(
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -604,7 +604,7 @@
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
-                                            svar: DecSvar(
+                                            svar: DecSymbolicVariable(
                                                 Id {
                                                     value: 10,
                                                 },
@@ -616,7 +616,7 @@
                                 ty: Application(
                                     DecApplication(
                                         Id {
-                                            value: 40,
+                                            value: 54,
                                         },
                                     ),
                                 ),
@@ -624,7 +624,7 @@
                             self_ty: Application(
                                 DecApplication(
                                     Id {
-                                        value: 40,
+                                        value: 54,
                                     },
                                 ),
                             ),
@@ -636,7 +636,7 @@
                                 ty: Application(
                                     DecApplication(
                                         Id {
-                                            value: 40,
+                                            value: 54,
                                         },
                                     ),
                                 ),
@@ -672,8 +672,8 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                    TypeItemDecTemplate::MethodRitchie(
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -682,7 +682,7 @@
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
-                                            svar: DecSvar(
+                                            svar: DecSymbolicVariable(
                                                 Id {
                                                     value: 10,
                                                 },
@@ -694,7 +694,7 @@
                                 ty: Application(
                                     DecApplication(
                                         Id {
-                                            value: 40,
+                                            value: 54,
                                         },
                                     ),
                                 ),
@@ -702,7 +702,7 @@
                             self_ty: Application(
                                 DecApplication(
                                     Id {
-                                        value: 40,
+                                        value: 54,
                                     },
                                 ),
                             ),
@@ -714,7 +714,7 @@
                                 ty: Application(
                                     DecApplication(
                                         Id {
-                                            value: 40,
+                                            value: 54,
                                         },
                                     ),
                                 ),
@@ -725,7 +725,7 @@
                             return_ty: Application(
                                 DecApplication(
                                     Id {
-                                        value: 42,
+                                        value: 56,
                                     },
                                 ),
                             ),
@@ -746,8 +746,8 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                    TypeItemDecTemplate::MethodRitchie(
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<core::slice::CyclicSlice(0)>::last`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -756,7 +756,7 @@
                                     data: [
                                         DeclarativeTemplateParameter {
                                             annotated_variance: None,
-                                            svar: DecSvar(
+                                            svar: DecSymbolicVariable(
                                                 Id {
                                                     value: 10,
                                                 },
@@ -768,7 +768,7 @@
                                 ty: Application(
                                     DecApplication(
                                         Id {
-                                            value: 40,
+                                            value: 54,
                                         },
                                     ),
                                 ),
@@ -776,7 +776,7 @@
                             self_ty: Application(
                                 DecApplication(
                                     Id {
-                                        value: 40,
+                                        value: 54,
                                     },
                                 ),
                             ),
@@ -788,7 +788,7 @@
                                 ty: Application(
                                     DecApplication(
                                         Id {
-                                            value: 40,
+                                            value: 54,
                                         },
                                     ),
                                 ),
@@ -799,7 +799,7 @@
                             return_ty: Application(
                                 DecApplication(
                                     Id {
-                                        value: 42,
+                                        value: 56,
                                     },
                                 ),
                             ),

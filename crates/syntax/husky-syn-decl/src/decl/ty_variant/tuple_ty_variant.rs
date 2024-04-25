@@ -60,7 +60,7 @@ impl TypeTupleVariantSynDecl {
         db: &::salsa::Db,
         path: TypeVariantPath,
         syn_node_decl: TypeTupleVariantSynNodeDecl,
-    ) -> DeclResult<Self> {
+    ) -> SynDeclResult<Self> {
         let fields = SmallVec::from(syn_node_decl.field_comma_list(db).as_ref()?.elements());
         syn_node_decl.rpar(db).as_ref()?;
         Ok(Self::new(

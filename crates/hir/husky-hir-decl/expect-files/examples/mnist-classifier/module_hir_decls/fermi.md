@@ -99,25 +99,25 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::Ident(
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::Ident(
                                             `matches`,
                                         ),
-                                        data: HirEagerRuntimeSvarData::FieldVariable,
+                                        data: HirEagerRuntimeVariableData::FieldVariable,
                                     },
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::Ident(
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::Ident(
                                             `others`,
                                         ),
-                                        data: HirEagerRuntimeSvarData::FieldVariable,
+                                        data: HirEagerRuntimeVariableData::FieldVariable,
                                     },
                                 ],
                             },
@@ -129,113 +129,116 @@
         ),
     ),
     HirDecl::MajorItem(
-        MajorItemHirDecl::Fugitive(
-            FugitiveHirDecl::FunctionFn(
-                FunctionMajorFnHirDecl {
-                    path: FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+        MajorItemHirDecl::Form(
+            MajorFormHirDecl::Ritchie(
+                MajorFunctionRitchieHirDecl {
+                    path: FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                         Fn,
                     )`),
+                    ritchie_item_kind: RitchieItemKind::Fn,
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    parenate_parameters: HirEagerParenateParameters(
-                        [
-                            HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 1,
-                                contract: Pure,
-                                ty: HirType::PathLeading(
-                                    HirTypePathLeading {
-                                        ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                        template_arguments: [
-                                            HirTemplateArgument::Type(
-                                                HirType::PathLeading(
-                                                    HirTypePathLeading {
-                                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                                        template_arguments: [
-                                                            HirTemplateArgument::Type(
-                                                                HirType::PathLeading(
-                                                                    HirTypePathLeading {
-                                                                        ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                        template_arguments: [],
-                                                                        always_copyable: false,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ],
-                                                        always_copyable: false,
-                                                    },
-                                                ),
-                                            ),
-                                        ],
-                                        always_copyable: true,
-                                    },
-                                ),
-                            },
-                            HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 2,
-                                contract: Pure,
-                                ty: HirType::PathLeading(
-                                    HirTypePathLeading {
-                                        ty_path: TypePath(`core::vec::Vec`, `Extern`),
-                                        template_arguments: [
-                                            HirTemplateArgument::Type(
-                                                HirType::Ritchie(
-                                                    HirRitchieType {
-                                                        ritchie_ty_kind: RitchieTypeKind::Item(
-                                                            RitchieItemKind::Fn,
-                                                        ),
-                                                        parameters: HirRitchieParameters {
-                                                            data: [
-                                                                HirRitchieParameter::Simple(
-                                                                    HirRitchieSimpleParameter {
-                                                                        contract: Pure,
-                                                                        ty: HirType::PathLeading(
-                                                                            HirTypePathLeading {
-                                                                                ty_path: TypePath(`core::mem::Leash`, `Extern`),
-                                                                                template_arguments: [
-                                                                                    HirTemplateArgument::Type(
-                                                                                        HirType::PathLeading(
-                                                                                            HirTypePathLeading {
-                                                                                                ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
-                                                                                                template_arguments: [],
-                                                                                                always_copyable: false,
-                                                                                            },
-                                                                                        ),
-                                                                                    ),
-                                                                                ],
-                                                                                always_copyable: true,
-                                                                            },
-                                                                        ),
-                                                                    },
+                    parenate_parameters: HirParenateParameters::Eager(
+                        HirEagerParenateParameters(
+                            [
+                                HirEagerParenateParameter::Simple {
+                                    pattern_expr_idx: 0,
+                                    contract: Pure,
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                            template_arguments: [
+                                                HirTemplateArgument::Type(
+                                                    HirType::PathLeading(
+                                                        HirTypePathLeading {
+                                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                                            template_arguments: [
+                                                                HirTemplateArgument::Type(
+                                                                    HirType::PathLeading(
+                                                                        HirTypePathLeading {
+                                                                            ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                            template_arguments: [],
+                                                                            always_copyable: false,
+                                                                        },
+                                                                    ),
                                                                 ),
                                                             ],
+                                                            always_copyable: false,
                                                         },
-                                                        return_ty: HirType::PathLeading(
-                                                            HirTypePathLeading {
-                                                                ty_path: TypePath(`core::option::Option`, `Enum`),
-                                                                template_arguments: [
-                                                                    HirTemplateArgument::Type(
-                                                                        HirType::PathLeading(
-                                                                            HirTypePathLeading {
-                                                                                ty_path: TypePath(`core::num::f32`, `Extern`),
-                                                                                template_arguments: [],
-                                                                                always_copyable: true,
-                                                                            },
-                                                                        ),
+                                                    ),
+                                                ),
+                                            ],
+                                            always_copyable: true,
+                                        },
+                                    ),
+                                },
+                                HirEagerParenateParameter::Simple {
+                                    pattern_expr_idx: 1,
+                                    contract: Pure,
+                                    ty: HirType::PathLeading(
+                                        HirTypePathLeading {
+                                            ty_path: TypePath(`core::vec::Vec`, `Extern`),
+                                            template_arguments: [
+                                                HirTemplateArgument::Type(
+                                                    HirType::Ritchie(
+                                                        HirRitchieType {
+                                                            ritchie_ty_kind: RitchieTypeKind::Item(
+                                                                RitchieItemKind::Fn,
+                                                            ),
+                                                            parameters: HirRitchieParameters {
+                                                                data: [
+                                                                    HirRitchieParameter::Simple(
+                                                                        HirRitchieSimpleParameter {
+                                                                            contract: Pure,
+                                                                            ty: HirType::PathLeading(
+                                                                                HirTypePathLeading {
+                                                                                    ty_path: TypePath(`core::mem::Leash`, `Extern`),
+                                                                                    template_arguments: [
+                                                                                        HirTemplateArgument::Type(
+                                                                                            HirType::PathLeading(
+                                                                                                HirTypePathLeading {
+                                                                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent`, `Struct`),
+                                                                                                    template_arguments: [],
+                                                                                                    always_copyable: false,
+                                                                                                },
+                                                                                            ),
+                                                                                        ),
+                                                                                    ],
+                                                                                    always_copyable: true,
+                                                                                },
+                                                                            ),
+                                                                        },
                                                                     ),
                                                                 ],
-                                                                always_copyable: true,
                                                             },
-                                                        ),
-                                                    },
+                                                            return_ty: HirType::PathLeading(
+                                                                HirTypePathLeading {
+                                                                    ty_path: TypePath(`core::option::Option`, `Enum`),
+                                                                    template_arguments: [
+                                                                        HirTemplateArgument::Type(
+                                                                            HirType::PathLeading(
+                                                                                HirTypePathLeading {
+                                                                                    ty_path: TypePath(`core::num::f32`, `Extern`),
+                                                                                    template_arguments: [],
+                                                                                    always_copyable: true,
+                                                                                },
+                                                                            ),
+                                                                        ),
+                                                                    ],
+                                                                    always_copyable: true,
+                                                                },
+                                                            ),
+                                                        },
+                                                    ),
                                                 ),
-                                            ),
-                                        ],
-                                        always_copyable: false,
-                                    },
-                                ),
-                            },
-                        ],
+                                            ],
+                                            always_copyable: false,
+                                        },
+                                    ),
+                                },
+                            ],
+                        ),
                     ),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {
@@ -244,65 +247,13 @@
                             always_copyable: false,
                         },
                     ),
-                    hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
-                                        Fn,
-                                    )`),
-                                ),
-                            ),
+                    hir_expr_region: Eager(
+                        HirEagerExprRegion(
+                            Id {
+                                value: 67,
+                            },
                         ),
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_arena: Arena {
-                            data: [
-                                HirEagerPatternEntry {
-                                    data: HirEagerPatternData::Ident {
-                                        symbol_modifier: None,
-                                        ident: `concave_components`,
-                                    },
-                                    contract: Pure,
-                                },
-                                HirEagerPatternEntry {
-                                    data: HirEagerPatternData::Ident {
-                                        symbol_modifier: None,
-                                        ident: `templates`,
-                                    },
-                                    contract: Pure,
-                                },
-                            ],
-                        },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
-                            arena: Arena {
-                                data: [],
-                            },
-                        },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
-                            arena: Arena {
-                                data: [
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::Ident(
-                                            `concave_components`,
-                                        ),
-                                        data: HirEagerRuntimeSvarData::ParenateParameter,
-                                    },
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::Ident(
-                                            `templates`,
-                                        ),
-                                        data: HirEagerRuntimeSvarData::ParenateParameter,
-                                    },
-                                ],
-                            },
-                            self_value_variable: None,
-                        },
-                    },
+                    ),
                 },
             ),
         ),
@@ -350,12 +301,12 @@
                     pattern_arena: Arena {
                         data: [],
                     },
-                    comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
                     },
-                    runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                         arena: Arena {
                             data: [],
                         },
@@ -394,22 +345,22 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::SelfValue,
-                                        data: HirEagerRuntimeSvarData::SelfValue,
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::SelfValue,
+                                        data: HirEagerRuntimeVariableData::SelfValue,
                                     },
                                 ],
                             },
                             self_value_variable: Some(
-                                1,
+                                0,
                             ),
                         },
                     },
@@ -446,22 +397,22 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::SelfValue,
-                                        data: HirEagerRuntimeSvarData::SelfValue,
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::SelfValue,
+                                        data: HirEagerRuntimeVariableData::SelfValue,
                                     },
                                 ],
                             },
                             self_value_variable: Some(
-                                1,
+                                0,
                             ),
                         },
                     },
@@ -498,22 +449,22 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerRuntimeSvarEntry {
-                                        name: HirEagerRuntimeSvarName::SelfValue,
-                                        data: HirEagerRuntimeSvarData::SelfValue,
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::SelfValue,
+                                        data: HirEagerRuntimeVariableData::SelfValue,
                                     },
                                 ],
                             },
                             self_value_variable: Some(
-                                1,
+                                0,
                             ),
                         },
                     },

@@ -9,6 +9,32 @@
         None,
     ),
     (
+        ItemPath::TypeVariant(
+            Room32,
+            TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 81,
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::TypeVariant(
+            Room32,
+            TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 82,
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
                 TraitForTypeImplBlockPath(`core::result::Result as core::ops::Unveil(0)`),

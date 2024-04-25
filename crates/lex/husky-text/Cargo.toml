@@ -11,6 +11,7 @@ rustc-hash.workspace = true
 lsp-types = { version = "=0.94", features = ["proposed"], optional = true }
 serde.workspace = true
 # abstraction
+ref-index.workspace = true
 salsa.workspace = true
 # fs
 husky-vfs.workspace = true

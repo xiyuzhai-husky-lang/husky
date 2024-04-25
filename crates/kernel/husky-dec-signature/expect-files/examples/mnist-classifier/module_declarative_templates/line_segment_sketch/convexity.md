@@ -2,17 +2,18 @@
 [
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::line_segment_sketch::convexity::is_convex`, `Ritchie(
                     Fn,
                 )`),
             ),
         ),
         Ok(
             DecTemplate::MajorItem(
-                MajorItemDecTemplate::Fugitive(
-                    FugitiveDecTemplate::Fn(
-                        MajorFnDecTemplate {
+                MajorItemDecTemplate::Form(
+                    MajorFormDecTemplate::Ritchie(
+                        MajorFunctionRitchieDecTemplate {
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },

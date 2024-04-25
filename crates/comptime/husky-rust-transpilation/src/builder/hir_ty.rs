@@ -2,7 +2,10 @@ use super::*;
 use either::*;
 use husky_entity_kind::ritchie::RitchieItemKind;
 use husky_entity_path::PreludeIndirectionTypePath;
-use husky_hir_ty::{instantiation::HirTermSvarResolution, ritchie::HirRitchieType, HirConstSvar};
+use husky_hir_ty::{
+    instantiation::HirTermSymbolicVariableResolution, ritchie::HirRitchieType,
+    HirConstTemplateVariable,
+};
 use husky_term_prelude::ritchie::RitchieTypeKind;
 
 impl TranspileToRustWith<HirEagerExprRegion> for HirType {
@@ -52,7 +55,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirType {
                     }
                 }
             }
-            HirType::Svar(svar) => builder.hir_template_svar(svar),
+            HirType::Variable(svar) => builder.hir_template_svar(svar),
             HirType::TypeAssocType(_) => todo!(),
             HirType::TraitAssocType(_) => todo!(),
             HirType::Ritchie(hir_ritchie_ty) => hir_ritchie_ty.transpile_to_rust(builder),
@@ -96,12 +99,12 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirTemplateArgument {
     }
 }
 
-impl TranspileToRustWith<HirEagerExprRegion> for HirTermSvarResolution {
+impl TranspileToRustWith<HirEagerExprRegion> for HirTermSymbolicVariableResolution {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         match self {
-            HirTermSvarResolution::Explicit(arg) => arg.transpile_to_rust(builder),
-            HirTermSvarResolution::SelfLifetime => todo!(),
-            HirTermSvarResolution::SelfContractedQuary(_) => todo!(),
+            HirTermSymbolicVariableResolution::Explicit(arg) => arg.transpile_to_rust(builder),
+            HirTermSymbolicVariableResolution::SelfLifetime => todo!(),
+            HirTermSymbolicVariableResolution::SelfContractedQuary(_) => todo!(),
         }
     }
 }
@@ -137,7 +140,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirConstant {
     }
 }
 
-impl TranspileToRustWith<HirEagerExprRegion> for HirConstSvar {
+impl TranspileToRustWith<HirEagerExprRegion> for HirConstTemplateVariable {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         builder.hir_template_svar(self)
     }

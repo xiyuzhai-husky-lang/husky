@@ -132,17 +132,18 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::raw_contour::get_pixel_pair`, `Ritchie(
                     Fn,
                 )`),
             ),
         ),
         Ok(
             DecTemplate::MajorItem(
-                MajorItemDecTemplate::Fugitive(
-                    FugitiveDecTemplate::Fn(
-                        MajorFnDecTemplate {
+                MajorItemDecTemplate::Form(
+                    MajorFormDecTemplate::Ritchie(
+                        MajorFunctionRitchieDecTemplate {
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
@@ -201,17 +202,18 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_left`, `Ritchie(
                     Fn,
                 )`),
             ),
         ),
         Ok(
             DecTemplate::MajorItem(
-                MajorItemDecTemplate::Fugitive(
-                    FugitiveDecTemplate::Fn(
-                        MajorFnDecTemplate {
+                MajorItemDecTemplate::Form(
+                    MajorFormDecTemplate::Ritchie(
+                        MajorFunctionRitchieDecTemplate {
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
@@ -270,17 +272,18 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::raw_contour::get_pixel_to_the_right`, `Ritchie(
                     Fn,
                 )`),
             ),
         ),
         Ok(
             DecTemplate::MajorItem(
-                MajorItemDecTemplate::Fugitive(
-                    FugitiveDecTemplate::Fn(
-                        MajorFnDecTemplate {
+                MajorItemDecTemplate::Form(
+                    MajorFormDecTemplate::Ritchie(
+                        MajorFunctionRitchieDecTemplate {
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
@@ -339,17 +342,18 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::raw_contour::get_inward_direction`, `Ritchie(
                     Fn,
                 )`),
             ),
         ),
         Ok(
             DecTemplate::MajorItem(
-                MajorItemDecTemplate::Fugitive(
-                    FugitiveDecTemplate::Fn(
-                        MajorFnDecTemplate {
+                MajorItemDecTemplate::Form(
+                    MajorFormDecTemplate::Ritchie(
+                        MajorFunctionRitchieDecTemplate {
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
@@ -424,17 +428,18 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::raw_contour::get_angle_change`, `Ritchie(
                     Fn,
                 )`),
             ),
         ),
         Ok(
             DecTemplate::MajorItem(
-                MajorItemDecTemplate::Fugitive(
-                    FugitiveDecTemplate::Fn(
-                        MajorFnDecTemplate {
+                MajorItemDecTemplate::Form(
+                    MajorFormDecTemplate::Ritchie(
+                        MajorFunctionRitchieDecTemplate {
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
@@ -493,17 +498,18 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::raw_contour::get_outward_direction`, `Ritchie(
                     Fn,
                 )`),
             ),
         ),
         Ok(
             DecTemplate::MajorItem(
-                MajorItemDecTemplate::Fugitive(
-                    FugitiveDecTemplate::Fn(
-                        MajorFnDecTemplate {
+                MajorItemDecTemplate::Form(
+                    MajorFormDecTemplate::Ritchie(
+                        MajorFunctionRitchieDecTemplate {
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
@@ -709,17 +715,18 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::raw_contour::get_concave_middle_point`, `Ritchie(
                     Fn,
                 )`),
             ),
         ),
         Ok(
             DecTemplate::MajorItem(
-                MajorItemDecTemplate::Fugitive(
-                    FugitiveDecTemplate::Fn(
-                        MajorFnDecTemplate {
+                MajorItemDecTemplate::Form(
+                    MajorFormDecTemplate::Ritchie(
+                        MajorFunctionRitchieDecTemplate {
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
@@ -758,17 +765,18 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::raw_contour::find_raw_contours`, `Ritchie(
                     Fn,
                 )`),
             ),
         ),
         Ok(
             DecTemplate::MajorItem(
-                MajorItemDecTemplate::Fugitive(
-                    FugitiveDecTemplate::Fn(
-                        MajorFnDecTemplate {
+                MajorItemDecTemplate::Form(
+                    MajorFormDecTemplate::Ritchie(
+                        MajorFunctionRitchieDecTemplate {
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
@@ -857,8 +865,8 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TraitForTypeItem(
-                    TraitForTypeItemDecTemplate::MethodFn(
-                        TraitForTypeMethodFnDecTemplate {
+                    TraitForTypeItemDecTemplate::MethodRitchie(
+                        TraitForTypeMethodRitchieDecTemplate {
                             self_ty: EntityPath(
                                 Type(
                                     TypePath(
@@ -1133,8 +1141,8 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                    TypeItemDecTemplate::MethodRitchie(
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
                                 Fn,
                             )`),

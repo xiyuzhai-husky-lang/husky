@@ -16,8 +16,8 @@ Ok(
                                         data: ItemSynNodePathData::MajorItem(
                                             MajorItemSynNodePathData::Type(
                                                 TypeSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`syntax_errors::ast::A`, `Struct`),
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`syntax_errors::ast::A`, `Struct`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -42,7 +42,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`syntax_errors::ast::A`, `Struct`),

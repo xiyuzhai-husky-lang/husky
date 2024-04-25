@@ -1,10 +1,11 @@
 use self::term::curry::EthCurry;
 use crate::*;
 use husky_dec_ty::principal_item_path::{
-    fugitive_path_declarative_ty, trai_path_declarative_ty,
+    form_path_declarative_ty, trai_path_declarative_ty,
     ty_instance_constructor_path_declarative_ty, ty_ontology_path_declarative_ty,
     ty_variant::ty_variant_path_declarative_ty,
 };
+use husky_entity_kind::TraitItemKind;
 use husky_vfs::Toolchain;
 
 pub trait HasType: Copy {
@@ -45,7 +46,7 @@ impl HasTypeGivenDisambiguation for MajorItemPath {
         match self {
             MajorItemPath::Type(path) => path.ty(db, disambiguation),
             MajorItemPath::Trait(path) => path.ty(db),
-            MajorItemPath::Fugitive(path) => path.ty(db),
+            MajorItemPath::Form(path) => path.ty(db),
         }
     }
 }
@@ -56,9 +57,9 @@ impl HasType for TraitPath {
     }
 }
 
-impl HasType for FugitivePath {
+impl HasType for MajorFormPath {
     fn ty(self, db: &::salsa::Db) -> EthTermResult<EthTerm> {
-        EthTerm::ty_from_dec(db, fugitive_path_declarative_ty(db, self)?)
+        EthTerm::ty_from_dec(db, form_path_declarative_ty(db, self)?)
     }
 }
 
@@ -115,10 +116,10 @@ impl EthTerm {
     pub fn raw_ty(self, db: &::salsa::Db) -> EthTermResult<RawType> {
         Ok(match self {
             EthTerm::Literal(slf) => RawType::Prelude(slf.ty()),
-            EthTerm::Symbol(slf) => RawType::Declarative(slf.ty(db).into_declarative(db)),
-            EthTerm::Hvar(slf) => RawType::Declarative(slf.ty(db).into_declarative(db)),
+            EthTerm::SymbolicVariable(slf) => RawType::Declarative(slf.ty(db).into_declarative(db)),
+            EthTerm::LambdaVariable(slf) => RawType::Declarative(slf.ty(db).into_declarative(db)),
             EthTerm::EntityPath(slf) => match slf {
-                ItemPathTerm::Fugitive(_path) => todo!(),
+                ItemPathTerm::Form(_path) => todo!(),
                 ItemPathTerm::Trait(path) => {
                     RawType::Declarative(trai_path_declarative_ty(db, path)?)
                 }
@@ -138,7 +139,15 @@ impl EthTerm {
             EthTerm::Ritchie(_) => DecTerm::Category(Sort::new(1.into())).into(),
             EthTerm::Abstraction(_) => todo!(),
             EthTerm::Application(term) => RawType::Declarative(term.declarative_ty(db)?),
-            EthTerm::TypeAsTraitItem(_) => todo!(),
+            EthTerm::TypeAsTraitItem(term) => match term.trai_item_path(db).item_kind(db) {
+                TraitItemKind::AssocRitchie(_) => todo!(),
+                TraitItemKind::AssocType => DecTerm::Category(Sort::new(1.into())).into(), // todo: maybe consider template parameters?
+                TraitItemKind::AssocVal => todo!(),
+                TraitItemKind::AssocFormal => todo!(),
+                TraitItemKind::AssocConst => todo!(),
+                TraitItemKind::MemoizedField => todo!(),
+                TraitItemKind::MethodRitchie(_) => todo!(),
+            },
             EthTerm::TraitConstraint(_) => todo!(),
         })
     }

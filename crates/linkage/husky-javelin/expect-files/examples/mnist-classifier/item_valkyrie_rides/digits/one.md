@@ -2,8 +2,8 @@
 [
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
             ),
         ),
         Some(
@@ -68,8 +68,8 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
             ),
         ),
         Some(
@@ -77,24 +77,24 @@
                 hir_template_parameters: None,
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::Fugitive(
-                            FugitivePath(`malamute::narrow_down`, `Ritchie(
+                        path: JavPath::Form(
+                            FormPath(`malamute::narrow_down`, `Ritchie(
                                 Gn,
                             )`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateSvar::Type(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
+                                    HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
                                             disambiguator: 0,
                                         },
                                     ),
-                                    HirTermSvarResolution::Explicit(
+                                    HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Type(
                                             HirType::PathLeading(
                                                 HirTypePathLeading {
@@ -107,26 +107,26 @@
                                     ),
                                 ),
                                 (
-                                    HirTemplateSvar::Const(
-                                        HirConstSvar {
-                                            ty: HirType::Svar(
-                                                HirTypeSvar::Type {
-                                                    attrs: HirTemplateSvarAttrs {
+                                    HirTemplateVariable::Const(
+                                        HirConstTemplateVariable {
+                                            ty: HirType::Variable(
+                                                HirTypeTemplateVariable::Type {
+                                                    attrs: HirTemplateVariableAttrs {
                                                         class: Comptime,
                                                     },
                                                     variance: None,
                                                     disambiguator: 0,
                                                 },
                                             ),
-                                            index: HirConstSvarIndex::Other {
-                                                attrs: HirTemplateSvarAttrs {
+                                            index: HirConstTemplateVariableIndex::Other {
+                                                attrs: HirTemplateVariableAttrs {
                                                     class: Runtime,
                                                 },
                                                 disambiguator: 0,
                                             },
                                         },
                                     ),
-                                    HirTermSvarResolution::Explicit(
+                                    HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Constant(
                                             TypeVariant(
                                                 TypeVariantPath(
@@ -197,7 +197,7 @@
                         ),
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TypeItem(
+                        path: JavPath::TypeItem(
                             TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -205,16 +205,16 @@
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateSvar::Type(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
+                                    HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
                                             disambiguator: 0,
                                         },
                                     ),
-                                    HirTermSvarResolution::Explicit(
+                                    HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Type(
                                             HirType::PathLeading(
                                                 HirTypePathLeading {
@@ -233,7 +233,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TypeItem(
+                        path: JavPath::TypeItem(
                             TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -241,16 +241,16 @@
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateSvar::Type(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
+                                    HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
                                             disambiguator: 0,
                                         },
                                     ),
-                                    HirTermSvarResolution::Explicit(
+                                    HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Type(
                                             HirType::PathLeading(
                                                 HirTypePathLeading {
@@ -283,8 +283,8 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::one::upmost`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::one::upmost`, `Ritchie(
                     Fn,
                 )`),
             ),
@@ -302,8 +302,8 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::one::downmost`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::one::downmost`, `Ritchie(
                     Fn,
                 )`),
             ),
@@ -321,8 +321,8 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::one::hat`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::one::hat`, `Ritchie(
                     Fn,
                 )`),
             ),

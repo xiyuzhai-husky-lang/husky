@@ -2,8 +2,8 @@
 [
     (
         MajorItem(
-            Fugitive(
-                FugitivePath(
+            Form(
+                MajorFormPath(
                     ItemPathId(
                         Id {
                             value: 1,
@@ -24,8 +24,8 @@
     ),
     (
         MajorItem(
-            Fugitive(
-                FugitivePath(
+            Form(
+                MajorFormPath(
                     ItemPathId(
                         Id {
                             value: 2,
@@ -46,8 +46,8 @@
     ),
     (
         MajorItem(
-            Fugitive(
-                FugitivePath(
+            Form(
+                MajorFormPath(
                     ItemPathId(
                         Id {
                             value: 3,
@@ -68,8 +68,8 @@
     ),
     (
         MajorItem(
-            Fugitive(
-                FugitivePath(
+            Form(
+                MajorFormPath(
                     ItemPathId(
                         Id {
                             value: 4,
@@ -89,9 +89,22 @@
         ),
     ),
     (
+        Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 138,
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
         MajorItem(
-            Fugitive(
-                FugitivePath(
+            Form(
+                MajorFormPath(
                     ItemPathId(
                         Id {
                             value: 5,
@@ -109,6 +122,19 @@
                 ),
             ),
         ),
+    ),
+    (
+        Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 139,
+                    },
+                ),
+            ),
+        ),
+        None,
     ),
 ]
 ```

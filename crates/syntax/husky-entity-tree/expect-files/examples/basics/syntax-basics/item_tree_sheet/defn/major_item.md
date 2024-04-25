@@ -10,8 +10,8 @@ EntityTreeSheet {
                             ItemSynNodePathId {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
+                                        disambiguated_item_path: DisambiguatedItemPath {
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(
                                                 ItemPathId(
                                                     Id {
                                                         value: 7,
@@ -27,7 +27,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `syntax_basics::defn::major_item`,
                         ),
-                        ast_idx: 1,
+                        ast_idx: 0,
                         ident_token: IdentToken {
                             ident: `ty`,
                             token_idx: TokenIdx(
@@ -42,8 +42,8 @@ EntityTreeSheet {
                         ItemSynNodePathId {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(
                                             ItemPathId(
                                                 Id {
                                                     value: 7,
@@ -68,7 +68,7 @@ EntityTreeSheet {
         [
             EntitySymbolEntry {
                 ident: `ty`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `syntax_basics::defn::major_item`,
                 ),
                 symbol: EntitySymbol::Submodule {

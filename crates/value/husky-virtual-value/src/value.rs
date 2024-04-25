@@ -10,10 +10,11 @@ use husky_value_protocol::presentation::{
 };
 use husky_visual_protocol::synchrotron::VisualSynchrotron;
 use husky_visual_protocol::visual::Visual;
-use std::cmp::Ordering;
+use std::{cmp::Ordering, sync::Arc};
 
 #[derive(Debug)]
 pub enum Value {
+    Uninit,
     Invalid,
     Moved,
     Unit(()),
@@ -43,9 +44,15 @@ pub enum Value {
         index: u8,
         presenter: EnumU8ValuePresenter,
     },
+    Vec(Vec<Value>),
+    StringLiteral(Arc<str>),
 }
 
 impl IsValue for Value {
+    fn new_uninit() -> Self {
+        Value::Uninit
+    }
+
     fn from_enum_u8(index: u8, presenter: EnumU8ValuePresenter) -> Self {
         todo!()
     }
@@ -88,6 +95,10 @@ impl IsValue for Value {
 
     fn visualize(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
         todo!()
+    }
+
+    fn from_str_literal(str_value: std::sync::Arc<str>) -> Self {
+        Value::StringLiteral(str_value)
     }
 }
 
@@ -314,7 +325,37 @@ impl std::ops::Neg for Value {
     type Output = Self;
 
     fn neg(self) -> Self::Output {
-        todo!()
+        match self {
+            Value::Uninit => todo!(),
+            Value::Invalid => todo!(),
+            Value::Moved => todo!(),
+            Value::Unit(_) => todo!(),
+            Value::Bool(_) => todo!(),
+            Value::Char(_) => todo!(),
+            Value::I8(_) => todo!(),
+            Value::I16(_) => todo!(),
+            Value::I32(i) => (-i).into(),
+            Value::I64(_) => todo!(),
+            Value::I128(_) => todo!(),
+            Value::ISize(_) => todo!(),
+            Value::U8(_) => todo!(),
+            Value::U16(_) => todo!(),
+            Value::U32(_) => todo!(),
+            Value::U64(_) => todo!(),
+            Value::U128(_) => todo!(),
+            Value::USize(_) => todo!(),
+            Value::R8(_) => todo!(),
+            Value::R16(_) => todo!(),
+            Value::R32(_) => todo!(),
+            Value::R64(_) => todo!(),
+            Value::R128(_) => todo!(),
+            Value::RSize(_) => todo!(),
+            Value::F32(_) => todo!(),
+            Value::F64(_) => todo!(),
+            Value::EnumU8 { index, presenter } => todo!(),
+            Value::Vec(_) => todo!(),
+            Value::StringLiteral(_) => todo!(),
+        }
     }
 }
 

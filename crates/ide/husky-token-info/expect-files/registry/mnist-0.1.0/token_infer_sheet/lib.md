@@ -15,8 +15,8 @@ Ok(
                                         data: ItemSynNodePathData::MajorItem(
                                             MajorItemSynNodePathData::Type(
                                                 TypeSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`mnist::MnistLabel`, `Enum`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -61,7 +61,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Trait(
                                 TraitPath(`core::fmt::Debug`),
@@ -81,7 +81,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        2,
+                        1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Trait(
                                 TraitPath(`core::clone::Clone`),
@@ -111,8 +111,8 @@ Ok(
                                         data: ItemSynNodePathData::MajorItem(
                                             MajorItemSynNodePathData::Type(
                                                 TypeSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist::BinaryImage28`, `Extern`),
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -136,7 +136,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Trait(
                                 TraitPath(`core::visual::Visualize`),
@@ -156,7 +156,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        2,
+                        1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`mnist::BinaryImage28`, `Extern`),
@@ -185,8 +185,8 @@ Ok(
                                         data: ItemSynNodePathData::AssocItem(
                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath(
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TraitForTypeItemPath(
                                                             `<mnist::BinaryImage28 as core::visual::Visualize(0)>::visualize`,
                                                             TraitItemKind::MethodRitchie(
                                                                 RitchieItemKind::Fn,
@@ -217,7 +217,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`core::visual::Visual`, `Extern`),
@@ -238,7 +238,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`mnist::BinaryImage28`, `Extern`),
@@ -269,8 +269,8 @@ Ok(
                                         data: ItemSynNodePathData::AssocItem(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`<mnist::BinaryImage28(0)>::new_zeros`, `AssocRitchie(
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist::BinaryImage28(0)>::new_zeros`, `AssocRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -299,7 +299,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                     ),
                     data: TokenInfoData::SelfType,
@@ -310,7 +310,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::Module(
                             `core`,
                         ),
@@ -318,6 +318,22 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::Module(
                             `core`,
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                        PrincipalEntityPath::Module(
+                            `core::ops`,
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::Module(
+                            `core::ops`,
                         ),
                     ),
                 },
@@ -327,22 +343,6 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         2,
-                        PrincipalEntityPath::Module(
-                            `core::ops`,
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::Module(
-                            `core::ops`,
-                        ),
-                    ),
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        3,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Trait(
                                 TraitPath(`core::ops::IntIndex`),
@@ -362,7 +362,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        4,
+                        3,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`mnist::BinaryImage28`, `Extern`),
@@ -391,8 +391,8 @@ Ok(
                                         data: ItemSynNodePathData::AssocItem(
                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath(
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TraitForTypeItemPath(
                                                             `<mnist::BinaryImage28 as core::ops::IntIndex(0)>::Output`,
                                                             TraitItemKind::AssocType,
                                                         ),
@@ -417,7 +417,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`core::raw_bits::r32`, `Extern`),
@@ -446,8 +446,8 @@ Ok(
                                         data: ItemSynNodePathData::MajorItem(
                                             MajorItemSynNodePathData::Type(
                                                 TypeSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist::BinaryGrid28`, `Extern`),
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -471,7 +471,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Trait(
                                 TraitPath(`core::visual::Visualize`),
@@ -491,7 +491,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        2,
+                        1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`mnist::BinaryGrid28`, `Extern`),
@@ -520,8 +520,8 @@ Ok(
                                         data: ItemSynNodePathData::AssocItem(
                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath(
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TraitForTypeItemPath(
                                                             `<mnist::BinaryGrid28 as core::visual::Visualize(0)>::visualize`,
                                                             TraitItemKind::MethodRitchie(
                                                                 RitchieItemKind::Fn,
@@ -552,7 +552,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`core::visual::Visual`, `Extern`),
@@ -573,7 +573,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`mnist::BinaryGrid28`, `Extern`),
@@ -604,8 +604,8 @@ Ok(
                                         data: ItemSynNodePathData::AssocItem(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`<mnist::BinaryGrid28(0)>::new_zeros`, `AssocRitchie(
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist::BinaryGrid28(0)>::new_zeros`, `AssocRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -634,7 +634,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                     ),
                     data: TokenInfoData::SelfType,
@@ -645,7 +645,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::Module(
                             `core`,
                         ),
@@ -653,6 +653,22 @@ Ok(
                     data: TokenInfoData::Entity(
                         EntityPath::Module(
                             `core`,
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                        PrincipalEntityPath::Module(
+                            `core::ops`,
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::Module(
+                            `core::ops`,
                         ),
                     ),
                 },
@@ -662,22 +678,6 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         2,
-                        PrincipalEntityPath::Module(
-                            `core::ops`,
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::Module(
-                            `core::ops`,
-                        ),
-                    ),
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        3,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Trait(
                                 TraitPath(`core::ops::IntIndex`),
@@ -697,7 +697,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        4,
+                        3,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`mnist::BinaryGrid28`, `Extern`),
@@ -726,8 +726,8 @@ Ok(
                                         data: ItemSynNodePathData::AssocItem(
                                             AssocItemSynNodePathData::TraitForTypeItem(
                                                 TraitForTypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitForTypeItemPath(
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TraitForTypeItemPath(
                                                             `<mnist::BinaryGrid28 as core::ops::IntIndex(0)>::Output`,
                                                             TraitItemKind::AssocType,
                                                         ),
@@ -752,7 +752,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`core::raw_bits::r32`, `Extern`),
@@ -775,13 +775,13 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
-                            MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`mnist::input`, `Val`, (0)),
+                            MajorItemSynNodePath::Form(
+                                FormSynNodePath(`mnist::input`, `Val`, (0)),
                             ),
                         ),
                         EntityKind::MajorItem {
-                            module_item_kind: MajorItemKind::Fugitive(
-                                MajorFugitiveKind::Val,
+                            module_item_kind: MajorItemKind::Form(
+                                MajorFormKind::Val,
                             ),
                             connection: MajorItemConnectionKind::Connected,
                         },
@@ -792,7 +792,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`mnist::BinaryImage28`, `Extern`),

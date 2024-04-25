@@ -14,7 +14,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    svar: DecSvar(
+                                    svar: DecSymbolicVariable(
                                         Id {
                                             value: 5,
                                         },
@@ -42,7 +42,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    svar: DecSvar(
+                                    svar: DecSymbolicVariable(
                                         Id {
                                             value: 5,
                                         },
@@ -70,7 +70,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    svar: DecSvar(
+                                    svar: DecSymbolicVariable(
                                         Id {
                                             value: 5,
                                         },
@@ -98,7 +98,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    svar: DecSvar(
+                                    svar: DecSymbolicVariable(
                                         Id {
                                             value: 5,
                                         },

@@ -16,7 +16,7 @@ pub enum DecSignatureError {
     ReturnTypeDecTermError,
     // derived
     #[error("todo")]
-    DeclError(DeclError),
+    SynDeclError(SynDeclError),
     #[error("todo")]
     NodeDeclError,
     #[error("todo")]
@@ -31,15 +31,15 @@ impl From<&DecSignatureError> for DecSignatureError {
     }
 }
 
-impl From<DecTermError2> for DecSignatureError {
-    fn from(value: DecTermError2) -> Self {
+impl From<SynExprDecTermError> for DecSignatureError {
+    fn from(value: SynExprDecTermError) -> Self {
         todo!()
     }
 }
 
-impl From<DeclError> for DecSignatureError {
-    fn from(e: DeclError) -> Self {
-        DecSignatureError::DeclError(e)
+impl From<SynDeclError> for DecSignatureError {
+    fn from(e: SynDeclError) -> Self {
+        DecSignatureError::SynDeclError(e)
     }
 }
 
@@ -60,8 +60,8 @@ impl From<&DecTermError> for DecSignatureError {
     }
 }
 
-impl From<&DecTermError2> for DecSignatureError {
-    fn from(value: &DecTermError2) -> Self {
+impl From<&SynExprDecTermError> for DecSignatureError {
+    fn from(value: &SynExprDecTermError) -> Self {
         DecSignatureError::DecTermError
     }
 }

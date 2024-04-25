@@ -1,4 +1,4 @@
-use husky_sema_opr::suffix::SemaSuffixOpr;
+use husky_sem_opr::suffix::SemaSuffixOpr;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum HirSuffixOpr {

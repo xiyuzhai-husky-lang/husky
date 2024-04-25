@@ -5,18 +5,14 @@ AstSheet {
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        9,
-                    ),
+                    raw: 8,
                 },
                 body: None,
             },
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        8,
-                    ),
+                    raw: 7,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Protected,
@@ -46,9 +42,9 @@ AstSheet {
                 },
                 block: DefnBlock::AssocItem {
                     body: Some(
-                        FugitiveBody {
+                        FormBody {
                             ast_idx_range: ArenaIdxRange(
-                                1..2,
+                                0..1,
                             ),
                         },
                     ),
@@ -57,41 +53,33 @@ AstSheet {
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        12,
-                    ),
+                    raw: 11,
                 },
                 body: None,
             },
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        14,
-                    ),
+                    raw: 13,
                 },
                 body: None,
             },
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        24,
-                    ),
+                    raw: 23,
                 },
                 body: None,
             },
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        23,
-                    ),
+                    raw: 22,
                 },
                 body: Some(
-                    FugitiveBody {
+                    FormBody {
                         ast_idx_range: ArenaIdxRange(
-                            5..6,
+                            4..5,
                         ),
                     },
                 ),
@@ -99,75 +87,61 @@ AstSheet {
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        21,
-                    ),
+                    raw: 20,
                 },
                 body: None,
             },
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        22,
-                    ),
+                    raw: 21,
                 },
                 body: None,
             },
             AstData::IfElseStmts {
-                if_branch: 6,
+                if_branch: 5,
                 elif_branches: ArenaIdxRange(
-                    7..7,
+                    6..6,
                 ),
                 else_branch: None,
             },
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        16,
-                    ),
+                    raw: 15,
                 },
                 body: None,
             },
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        17,
-                    ),
+                    raw: 16,
                 },
                 body: None,
             },
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        18,
-                    ),
+                    raw: 17,
                 },
                 body: None,
             },
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        19,
-                    ),
+                    raw: 18,
                 },
                 body: None,
             },
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        20,
-                    ),
+                    raw: 19,
                 },
                 body: Some(
-                    FugitiveBody {
+                    FormBody {
                         ast_idx_range: ArenaIdxRange(
-                            7..10,
+                            6..9,
                         ),
                     },
                 ),
@@ -175,68 +149,54 @@ AstSheet {
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        25,
-                    ),
+                    raw: 24,
                 },
                 body: None,
             },
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        30,
-                    ),
+                    raw: 29,
                 },
                 body: None,
             },
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        31,
-                    ),
+                    raw: 30,
                 },
                 body: None,
             },
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        32,
-                    ),
+                    raw: 31,
                 },
                 body: None,
             },
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        27,
-                    ),
+                    raw: 26,
                 },
                 body: None,
             },
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        28,
-                    ),
+                    raw: 27,
                 },
                 body: None,
             },
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        29,
-                    ),
+                    raw: 28,
                 },
                 body: Some(
-                    FugitiveBody {
+                    FormBody {
                         ast_idx_range: ArenaIdxRange(
-                            16..19,
+                            15..18,
                         ),
                     },
                 ),
@@ -244,113 +204,89 @@ AstSheet {
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        33,
-                    ),
+                    raw: 32,
                 },
                 body: None,
             },
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        41,
-                    ),
+                    raw: 40,
                 },
                 body: None,
             },
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        42,
-                    ),
+                    raw: 41,
                 },
                 body: None,
             },
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        43,
-                    ),
+                    raw: 42,
                 },
                 body: None,
             },
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        44,
-                    ),
+                    raw: 43,
                 },
                 body: None,
             },
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        45,
-                    ),
+                    raw: 44,
                 },
                 body: None,
             },
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        35,
-                    ),
+                    raw: 34,
                 },
                 body: None,
             },
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        36,
-                    ),
+                    raw: 35,
                 },
                 body: None,
             },
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        37,
-                    ),
+                    raw: 36,
                 },
                 body: None,
             },
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        38,
-                    ),
+                    raw: 37,
                 },
                 body: None,
             },
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        39,
-                    ),
+                    raw: 38,
                 },
                 body: None,
             },
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        40,
-                    ),
+                    raw: 39,
                 },
                 body: Some(
-                    FugitiveBody {
+                    FormBody {
                         ast_idx_range: ArenaIdxRange(
-                            23..28,
+                            22..27,
                         ),
                     },
                 ),
@@ -358,81 +294,63 @@ AstSheet {
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        46,
-                    ),
+                    raw: 45,
                 },
                 body: None,
             },
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        48,
-                    ),
+                    raw: 47,
                 },
                 body: None,
             },
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        50,
-                    ),
+                    raw: 49,
                 },
                 body: None,
             },
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        52,
-                    ),
+                    raw: 51,
                 },
                 body: None,
             },
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        54,
-                    ),
+                    raw: 53,
                 },
                 body: None,
             },
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        56,
-                    ),
+                    raw: 55,
                 },
                 body: None,
             },
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        58,
-                    ),
+                    raw: 57,
                 },
                 body: None,
             },
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        60,
-                    ),
+                    raw: 59,
                 },
                 body: None,
             },
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        11,
-                    ),
+                    raw: 10,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Protected,
@@ -460,9 +378,9 @@ AstSheet {
                 },
                 block: DefnBlock::AssocItem {
                     body: Some(
-                        FugitiveBody {
+                        FormBody {
                             ast_idx_range: ArenaIdxRange(
-                                3..4,
+                                2..3,
                             ),
                         },
                     ),
@@ -471,9 +389,7 @@ AstSheet {
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        13,
-                    ),
+                    raw: 12,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Protected,
@@ -501,9 +417,9 @@ AstSheet {
                 },
                 block: DefnBlock::AssocItem {
                     body: Some(
-                        FugitiveBody {
+                        FormBody {
                             ast_idx_range: ArenaIdxRange(
-                                4..5,
+                                3..4,
                             ),
                         },
                     ),
@@ -512,9 +428,7 @@ AstSheet {
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        15,
-                    ),
+                    raw: 14,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Protected,
@@ -542,9 +456,9 @@ AstSheet {
                 },
                 block: DefnBlock::AssocItem {
                     body: Some(
-                        FugitiveBody {
+                        FormBody {
                             ast_idx_range: ArenaIdxRange(
-                                10..16,
+                                9..15,
                             ),
                         },
                     ),
@@ -553,9 +467,7 @@ AstSheet {
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        26,
-                    ),
+                    raw: 25,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Protected,
@@ -583,9 +495,9 @@ AstSheet {
                 },
                 block: DefnBlock::AssocItem {
                     body: Some(
-                        FugitiveBody {
+                        FormBody {
                             ast_idx_range: ArenaIdxRange(
-                                19..23,
+                                18..22,
                             ),
                         },
                     ),
@@ -594,9 +506,7 @@ AstSheet {
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        34,
-                    ),
+                    raw: 33,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Protected,
@@ -624,9 +534,9 @@ AstSheet {
                 },
                 block: DefnBlock::AssocItem {
                     body: Some(
-                        FugitiveBody {
+                        FormBody {
                             ast_idx_range: ArenaIdxRange(
-                                28..35,
+                                27..34,
                             ),
                         },
                     ),
@@ -635,9 +545,7 @@ AstSheet {
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        47,
-                    ),
+                    raw: 46,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Protected,
@@ -665,9 +573,9 @@ AstSheet {
                 },
                 block: DefnBlock::AssocItem {
                     body: Some(
-                        FugitiveBody {
+                        FormBody {
                             ast_idx_range: ArenaIdxRange(
-                                35..36,
+                                34..35,
                             ),
                         },
                     ),
@@ -676,9 +584,7 @@ AstSheet {
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        49,
-                    ),
+                    raw: 48,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Protected,
@@ -708,9 +614,9 @@ AstSheet {
                 },
                 block: DefnBlock::AssocItem {
                     body: Some(
-                        FugitiveBody {
+                        FormBody {
                             ast_idx_range: ArenaIdxRange(
-                                36..37,
+                                35..36,
                             ),
                         },
                     ),
@@ -719,9 +625,7 @@ AstSheet {
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        51,
-                    ),
+                    raw: 50,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Protected,
@@ -751,9 +655,9 @@ AstSheet {
                 },
                 block: DefnBlock::AssocItem {
                     body: Some(
-                        FugitiveBody {
+                        FormBody {
                             ast_idx_range: ArenaIdxRange(
-                                37..38,
+                                36..37,
                             ),
                         },
                     ),
@@ -762,9 +666,7 @@ AstSheet {
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        53,
-                    ),
+                    raw: 52,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Protected,
@@ -794,9 +696,9 @@ AstSheet {
                 },
                 block: DefnBlock::AssocItem {
                     body: Some(
-                        FugitiveBody {
+                        FormBody {
                             ast_idx_range: ArenaIdxRange(
-                                38..39,
+                                37..38,
                             ),
                         },
                     ),
@@ -805,9 +707,7 @@ AstSheet {
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        55,
-                    ),
+                    raw: 54,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Protected,
@@ -837,9 +737,9 @@ AstSheet {
                 },
                 block: DefnBlock::AssocItem {
                     body: Some(
-                        FugitiveBody {
+                        FormBody {
                             ast_idx_range: ArenaIdxRange(
-                                39..40,
+                                38..39,
                             ),
                         },
                     ),
@@ -848,9 +748,7 @@ AstSheet {
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        57,
-                    ),
+                    raw: 56,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Protected,
@@ -880,9 +778,9 @@ AstSheet {
                 },
                 block: DefnBlock::AssocItem {
                     body: Some(
-                        FugitiveBody {
+                        FormBody {
                             ast_idx_range: ArenaIdxRange(
-                                40..41,
+                                39..40,
                             ),
                         },
                     ),
@@ -891,9 +789,7 @@ AstSheet {
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        59,
-                    ),
+                    raw: 58,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Protected,
@@ -923,9 +819,9 @@ AstSheet {
                 },
                 block: DefnBlock::AssocItem {
                     body: Some(
-                        FugitiveBody {
+                        FormBody {
                             ast_idx_range: ArenaIdxRange(
-                                41..42,
+                                40..41,
                             ),
                         },
                     ),
@@ -934,156 +830,108 @@ AstSheet {
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        67,
-                    ),
+                    raw: 66,
                 },
                 body: None,
             },
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        71,
-                    ),
+                    raw: 70,
                 },
                 body: None,
             },
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        73,
-                    ),
+                    raw: 72,
                 },
                 body: None,
             },
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        72,
-                    ),
+                    raw: 71,
                 },
                 body: Some(
-                    FugitiveBody {
-                        ast_idx_range: ArenaIdxRange(
-                            56..57,
-                        ),
-                    },
-                ),
-            },
-            AstData::BasicStmtOrBranch {
-                token_verse_idx: TokenVerseIdx {
-                    lcurl: None,
-                    raw: ShiftedU32(
-                        70,
-                    ),
-                },
-                body: Some(
-                    FugitiveBody {
+                    FormBody {
                         ast_idx_range: ArenaIdxRange(
                             55..56,
                         ),
                     },
                 ),
             },
-            AstData::IfElseStmts {
-                if_branch: 57,
-                elif_branches: ArenaIdxRange(
-                    58..58,
-                ),
-                else_branch: None,
-            },
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        74,
-                    ),
-                },
-                body: None,
-            },
-            AstData::BasicStmtOrBranch {
-                token_verse_idx: TokenVerseIdx {
-                    lcurl: None,
-                    raw: ShiftedU32(
-                        75,
-                    ),
-                },
-                body: None,
-            },
-            AstData::BasicStmtOrBranch {
-                token_verse_idx: TokenVerseIdx {
-                    lcurl: None,
-                    raw: ShiftedU32(
-                        62,
-                    ),
-                },
-                body: None,
-            },
-            AstData::BasicStmtOrBranch {
-                token_verse_idx: TokenVerseIdx {
-                    lcurl: None,
-                    raw: ShiftedU32(
-                        63,
-                    ),
-                },
-                body: None,
-            },
-            AstData::BasicStmtOrBranch {
-                token_verse_idx: TokenVerseIdx {
-                    lcurl: None,
-                    raw: ShiftedU32(
-                        64,
-                    ),
-                },
-                body: None,
-            },
-            AstData::BasicStmtOrBranch {
-                token_verse_idx: TokenVerseIdx {
-                    lcurl: None,
-                    raw: ShiftedU32(
-                        65,
-                    ),
-                },
-                body: None,
-            },
-            AstData::BasicStmtOrBranch {
-                token_verse_idx: TokenVerseIdx {
-                    lcurl: None,
-                    raw: ShiftedU32(
-                        66,
-                    ),
+                    raw: 69,
                 },
                 body: Some(
-                    FugitiveBody {
+                    FormBody {
                         ast_idx_range: ArenaIdxRange(
                             54..55,
                         ),
                     },
                 ),
             },
+            AstData::IfElseStmts {
+                if_branch: 56,
+                elif_branches: ArenaIdxRange(
+                    57..57,
+                ),
+                else_branch: None,
+            },
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        68,
-                    ),
+                    raw: 73,
                 },
                 body: None,
             },
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        69,
-                    ),
+                    raw: 74,
+                },
+                body: None,
+            },
+            AstData::BasicStmtOrBranch {
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: 61,
+                },
+                body: None,
+            },
+            AstData::BasicStmtOrBranch {
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: 62,
+                },
+                body: None,
+            },
+            AstData::BasicStmtOrBranch {
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: 63,
+                },
+                body: None,
+            },
+            AstData::BasicStmtOrBranch {
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: 64,
+                },
+                body: None,
+            },
+            AstData::BasicStmtOrBranch {
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: 65,
                 },
                 body: Some(
-                    FugitiveBody {
+                    FormBody {
                         ast_idx_range: ArenaIdxRange(
-                            58..62,
+                            53..54,
                         ),
                     },
                 ),
@@ -1091,18 +939,34 @@ AstSheet {
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        76,
-                    ),
+                    raw: 67,
+                },
+                body: None,
+            },
+            AstData::BasicStmtOrBranch {
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: 68,
+                },
+                body: Some(
+                    FormBody {
+                        ast_idx_range: ArenaIdxRange(
+                            57..61,
+                        ),
+                    },
+                ),
+            },
+            AstData::BasicStmtOrBranch {
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: 75,
                 },
                 body: None,
             },
             AstData::Use {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        1,
-                    ),
+                    raw: 0,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Protected,
@@ -1115,9 +979,7 @@ AstSheet {
             AstData::Use {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        2,
-                    ),
+                    raw: 1,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Protected,
@@ -1130,9 +992,7 @@ AstSheet {
             AstData::Use {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        3,
-                    ),
+                    raw: 2,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Protected,
@@ -1145,9 +1005,7 @@ AstSheet {
             AstData::Use {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        4,
-                    ),
+                    raw: 3,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Protected,
@@ -1160,9 +1018,7 @@ AstSheet {
             AstData::Use {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        5,
-                    ),
+                    raw: 4,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Protected,
@@ -1175,9 +1031,7 @@ AstSheet {
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        6,
-                    ),
+                    raw: 5,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
@@ -1216,15 +1070,13 @@ AstSheet {
             AstData::ImplBlock {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        7,
-                    ),
+                    raw: 6,
                 },
                 items: Some(
                     TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                2..3,
+                                1..2,
                             ),
                         },
                     ),
@@ -1233,15 +1085,13 @@ AstSheet {
             AstData::ImplBlock {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        10,
-                    ),
+                    raw: 9,
                 },
                 items: Some(
                     Type(
                         TypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                42..54,
+                                41..53,
                             ),
                         },
                     ),
@@ -1250,9 +1100,7 @@ AstSheet {
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        61,
-                    ),
+                    raw: 60,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
@@ -1265,8 +1113,8 @@ AstSheet {
                     visibility: Scope::Pub,
                 },
                 item_kind: EntityKind::MajorItem {
-                    module_item_kind: MajorItemKind::Fugitive(
-                        MajorFugitiveKind::Ritchie(
+                    module_item_kind: MajorItemKind::Form(
+                        MajorFormKind::Ritchie(
                             RitchieItemKind::Fn,
                         ),
                     ),
@@ -1285,14 +1133,14 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: DefnBlock::Fugitive {
-                    path: FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
+                block: DefnBlock::Form {
+                    path: FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
                         Fn,
                     )`),
                     body: Some(
-                        FugitiveBody {
+                        FormBody {
                             ast_idx_range: ArenaIdxRange(
-                                62..70,
+                                61..69,
                             ),
                         },
                     ),
@@ -1301,15 +1149,21 @@ AstSheet {
         ],
     },
     top_level_asts: ArenaIdxRange(
-        70..79,
+        69..78,
     ),
     nested_top_level_asts: [],
     siblings: [
         ArenaIdxRange(
-            1..1,
+            0..0,
+        ),
+        ArenaIdxRange(
+            0..1,
         ),
         ArenaIdxRange(
             1..2,
+        ),
+        ArenaIdxRange(
+            2..2,
         ),
         ArenaIdxRange(
             2..3,
@@ -1324,103 +1178,103 @@ AstSheet {
             4..4,
         ),
         ArenaIdxRange(
+            4..4,
+        ),
+        ArenaIdxRange(
+            4..4,
+        ),
+        ArenaIdxRange(
+            4..4,
+        ),
+        ArenaIdxRange(
+            4..4,
+        ),
+        ArenaIdxRange(
+            4..4,
+        ),
+        ArenaIdxRange(
+            4..4,
+        ),
+        ArenaIdxRange(
             4..5,
         ),
         ArenaIdxRange(
-            5..5,
+            6..9,
         ),
         ArenaIdxRange(
-            5..5,
+            9..9,
         ),
         ArenaIdxRange(
-            5..5,
+            9..15,
         ),
         ArenaIdxRange(
-            5..5,
+            15..15,
         ),
         ArenaIdxRange(
-            5..5,
+            15..15,
         ),
         ArenaIdxRange(
-            5..5,
+            15..15,
         ),
         ArenaIdxRange(
-            5..5,
+            15..15,
         ),
         ArenaIdxRange(
-            5..6,
+            15..15,
         ),
         ArenaIdxRange(
-            7..10,
+            15..18,
         ),
         ArenaIdxRange(
-            10..10,
+            18..18,
         ),
         ArenaIdxRange(
-            10..16,
+            18..22,
         ),
         ArenaIdxRange(
-            16..16,
+            22..22,
         ),
         ArenaIdxRange(
-            16..16,
+            22..22,
         ),
         ArenaIdxRange(
-            16..16,
+            22..22,
         ),
         ArenaIdxRange(
-            16..16,
+            22..22,
         ),
         ArenaIdxRange(
-            16..16,
+            22..22,
         ),
         ArenaIdxRange(
-            16..19,
+            22..22,
         ),
         ArenaIdxRange(
-            19..19,
+            22..22,
         ),
         ArenaIdxRange(
-            19..23,
+            22..22,
         ),
         ArenaIdxRange(
-            23..23,
+            22..22,
         ),
         ArenaIdxRange(
-            23..23,
+            22..22,
         ),
         ArenaIdxRange(
-            23..23,
+            22..27,
         ),
         ArenaIdxRange(
-            23..23,
+            27..27,
         ),
         ArenaIdxRange(
-            23..23,
+            27..34,
         ),
         ArenaIdxRange(
-            23..23,
+            34..34,
         ),
         ArenaIdxRange(
-            23..23,
-        ),
-        ArenaIdxRange(
-            23..23,
-        ),
-        ArenaIdxRange(
-            23..23,
-        ),
-        ArenaIdxRange(
-            23..23,
-        ),
-        ArenaIdxRange(
-            23..28,
-        ),
-        ArenaIdxRange(
-            28..28,
-        ),
-        ArenaIdxRange(
-            28..35,
+            34..35,
         ),
         ArenaIdxRange(
             35..35,
@@ -1459,22 +1313,25 @@ AstSheet {
             40..41,
         ),
         ArenaIdxRange(
-            41..41,
+            41..53,
         ),
         ArenaIdxRange(
-            41..42,
+            53..53,
         ),
         ArenaIdxRange(
-            42..54,
+            53..53,
         ),
         ArenaIdxRange(
-            54..54,
+            53..53,
         ),
         ArenaIdxRange(
-            54..54,
+            53..53,
         ),
         ArenaIdxRange(
-            54..54,
+            53..53,
+        ),
+        ArenaIdxRange(
+            53..54,
         ),
         ArenaIdxRange(
             54..54,
@@ -1489,34 +1346,25 @@ AstSheet {
             55..55,
         ),
         ArenaIdxRange(
-            55..55,
-        ),
-        ArenaIdxRange(
             55..56,
         ),
         ArenaIdxRange(
-            56..56,
+            57..57,
         ),
         ArenaIdxRange(
-            56..57,
+            57..57,
         ),
         ArenaIdxRange(
-            58..58,
+            57..61,
         ),
         ArenaIdxRange(
-            58..58,
+            61..61,
         ),
         ArenaIdxRange(
-            58..62,
+            61..69,
         ),
         ArenaIdxRange(
-            62..62,
-        ),
-        ArenaIdxRange(
-            62..70,
-        ),
-        ArenaIdxRange(
-            70..79,
+            69..78,
         ),
     ],
 }

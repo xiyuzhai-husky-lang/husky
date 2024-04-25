@@ -45,14 +45,26 @@
         ),
     ),
     (
-        MajorItem(
-            Fugitive(
-                FugitivePath(
-                    ItemPathId(
-                        Id {
-                            value: 21,
-                        },
-                    ),
+        Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 416,
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        TypeVariant(
+            Room32,
+            TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 17,
+                    },
                 ),
             ),
         ),
@@ -67,14 +79,13 @@
         ),
     ),
     (
-        MajorItem(
-            Fugitive(
-                FugitivePath(
-                    ItemPathId(
-                        Id {
-                            value: 22,
-                        },
-                    ),
+        TypeVariant(
+            Room32,
+            TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 18,
+                    },
                 ),
             ),
         ),
@@ -89,14 +100,13 @@
         ),
     ),
     (
-        MajorItem(
-            Fugitive(
-                FugitivePath(
-                    ItemPathId(
-                        Id {
-                            value: 23,
-                        },
-                    ),
+        TypeVariant(
+            Room32,
+            TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 19,
+                    },
                 ),
             ),
         ),
@@ -111,14 +121,13 @@
         ),
     ),
     (
-        MajorItem(
-            Fugitive(
-                FugitivePath(
-                    ItemPathId(
-                        Id {
-                            value: 24,
-                        },
-                    ),
+        TypeVariant(
+            Room32,
+            TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 20,
+                    },
                 ),
             ),
         ),
@@ -134,11 +143,11 @@
     ),
     (
         MajorItem(
-            Fugitive(
-                FugitivePath(
+            Form(
+                MajorFormPath(
                     ItemPathId(
                         Id {
-                            value: 25,
+                            value: 21,
                         },
                     ),
                 ),
@@ -156,8 +165,96 @@
     ),
     (
         MajorItem(
-            Fugitive(
-                FugitivePath(
+            Form(
+                MajorFormPath(
+                    ItemPathId(
+                        Id {
+                            value: 22,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        Some(
+            Some(
+                HirDefnVersionStamp(
+                    Id {
+                        value: 165,
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        MajorItem(
+            Form(
+                MajorFormPath(
+                    ItemPathId(
+                        Id {
+                            value: 23,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        Some(
+            Some(
+                HirDefnVersionStamp(
+                    Id {
+                        value: 166,
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        MajorItem(
+            Form(
+                MajorFormPath(
+                    ItemPathId(
+                        Id {
+                            value: 24,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        Some(
+            Some(
+                HirDefnVersionStamp(
+                    Id {
+                        value: 167,
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        MajorItem(
+            Form(
+                MajorFormPath(
+                    ItemPathId(
+                        Id {
+                            value: 25,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        Some(
+            Some(
+                HirDefnVersionStamp(
+                    Id {
+                        value: 168,
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        MajorItem(
+            Form(
+                MajorFormPath(
                     ItemPathId(
                         Id {
                             value: 26,
@@ -170,7 +267,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 165,
+                        value: 169,
                     },
                 ),
             ),
@@ -192,7 +289,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 166,
+                        value: 170,
                     },
                 ),
             ),
@@ -200,8 +297,8 @@
     ),
     (
         MajorItem(
-            Fugitive(
-                FugitivePath(
+            Form(
+                MajorFormPath(
                     ItemPathId(
                         Id {
                             value: 28,
@@ -214,7 +311,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 167,
+                        value: 171,
                     },
                 ),
             ),
@@ -222,8 +319,8 @@
     ),
     (
         MajorItem(
-            Fugitive(
-                FugitivePath(
+            Form(
+                MajorFormPath(
                     ItemPathId(
                         Id {
                             value: 29,
@@ -236,7 +333,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 168,
+                        value: 172,
                     },
                 ),
             ),
@@ -258,7 +355,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 169,
+                        value: 173,
                     },
                 ),
             ),
@@ -280,7 +377,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 170,
+                        value: 174,
                     },
                 ),
             ),
@@ -302,7 +399,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 171,
+                        value: 175,
                     },
                 ),
             ),
@@ -324,7 +421,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 172,
+                        value: 176,
                     },
                 ),
             ),
@@ -346,7 +443,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 173,
+                        value: 177,
                     },
                 ),
             ),
@@ -368,7 +465,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 174,
+                        value: 178,
                     },
                 ),
             ),
@@ -390,7 +487,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 175,
+                        value: 179,
                     },
                 ),
             ),
@@ -412,7 +509,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 176,
+                        value: 180,
                     },
                 ),
             ),

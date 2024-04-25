@@ -6,10 +6,10 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::UseExpr(
-                        2,
+                        1,
                     ),
                     data: TokenInfoData::UseExpr {
-                        use_expr_idx: 2,
+                        use_expr_idx: 1,
                         rule_idx: OnceUseRuleIdx(
                             0,
                         ),
@@ -30,10 +30,10 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::UseExpr(
-                        4,
+                        3,
                     ),
                     data: TokenInfoData::UseExpr {
-                        use_expr_idx: 4,
+                        use_expr_idx: 3,
                         rule_idx: OnceUseRuleIdx(
                             1,
                         ),
@@ -53,7 +53,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::UseExpr(
-                        3,
+                        2,
                     ),
                     data: TokenInfoData::UseExprStar,
                 },
@@ -64,7 +64,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Trait(
                                 TraitPath(`core::fmt::Debug`),
@@ -75,6 +75,26 @@ Ok(
                         EntityPath::MajorItem(
                             MajorItemPath::Trait(
                                 TraitPath(`core::fmt::Debug`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::PartialEq`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::PartialEq`),
                             ),
                         ),
                     ),
@@ -87,14 +107,14 @@ Ok(
                         2,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Trait(
-                                TraitPath(`core::cmp::PartialEq`),
+                                TraitPath(`core::cmp::Eq`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Trait(
-                                TraitPath(`core::cmp::PartialEq`),
+                                TraitPath(`core::cmp::Eq`),
                             ),
                         ),
                     ),
@@ -107,14 +127,14 @@ Ok(
                         3,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Trait(
-                                TraitPath(`core::cmp::Eq`),
+                                TraitPath(`core::clone::Clone`),
                             ),
                         ),
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
                             MajorItemPath::Trait(
-                                TraitPath(`core::cmp::Eq`),
+                                TraitPath(`core::clone::Clone`),
                             ),
                         ),
                     ),
@@ -125,26 +145,6 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         4,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Trait(
-                                TraitPath(`core::clone::Clone`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Trait(
-                                TraitPath(`core::clone::Clone`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        5,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Trait(
                                 TraitPath(`core::marker::Copy`),
@@ -174,8 +174,8 @@ Ok(
                                         data: ItemSynNodePathData::MajorItem(
                                             MajorItemSynNodePathData::Type(
                                                 TypeSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`core::option::Option`, `Enum`),
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`core::option::Option`, `Enum`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -198,11 +198,11 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::TemplateParameter(
-                        1,
+                        0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `T`,
@@ -220,7 +220,24 @@ Ok(
             None,
             None,
             None,
-            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            0,
+                        ),
+                    ),
+                    data: TokenInfoData::InheritedSynSymbol {
+                        inherited_syn_symbol_idx: 0,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Template(
+                            InheritedTemplateVariable::Type {
+                                ident: `T`,
+                            },
+                        ),
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
             None,
             None,
             None,

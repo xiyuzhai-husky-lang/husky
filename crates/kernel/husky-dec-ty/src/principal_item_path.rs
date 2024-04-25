@@ -1,9 +1,9 @@
-mod fugitive;
+mod form;
 mod ty_instance_constructor;
 pub mod ty_variant;
 mod utils;
 
-pub use self::fugitive::*;
+pub use self::form::*;
 
 pub use self::ty_instance_constructor::*;
 
@@ -17,7 +17,7 @@ pub fn declarative_term_item_path_declarative_ty(
     path: DecItemPath,
 ) -> DeclarativeTypeResult<DecTerm> {
     match path {
-        DecItemPath::Fugitive(_) => todo!(),
+        DecItemPath::Form(_) => todo!(),
         DecItemPath::Trait(_) => todo!(),
         DecItemPath::Type(_) => todo!(),
         DecItemPath::TypeVariant(_) => todo!(),
@@ -64,7 +64,7 @@ fn ty_ontology_path_declarative_ty_works() {
                                         .expect("should be okay at this branch")
                                         .syn_expr_region(db),
                                 )
-                                .dec_symbol_region()
+                                .symbolic_variable_region()
                                 .symbol_name_map();
                             t.with_symbol_source_map(name_map)
                         }),

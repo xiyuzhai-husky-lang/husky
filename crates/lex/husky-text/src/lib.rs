@@ -1,10 +1,14 @@
+#![feature(closure_track_caller)]
+pub mod helpers;
 pub mod jar;
 mod line_map;
 #[cfg(test)]
 mod tests;
 
 use self::jar::*;
-use husky_text_protocol::{line_map::*, range::*};
+#[cfg(test)]
+use self::tests::*;
+use husky_text_protocol::{line_map::*, position::TextLine, range::*};
 use husky_vfs::ModulePath;
 use line_map::module_text_line_map;
 
@@ -12,6 +16,14 @@ use line_map::module_text_line_map;
 pub struct Text<'a> {
     raw_text: &'a str,
     line_map: &'a LineMap,
+}
+
+impl<'a> Text<'a> {
+    pub fn indexed_lines(self) -> impl Iterator<Item = (TextLine, &'a str)> {
+        self.line_map
+            .all_text_line_range()
+            .map(move |text_line| (text_line, self.text_within(text_line)))
+    }
 }
 
 pub trait HasText: Copy {
@@ -33,20 +45,10 @@ impl<'a> std::fmt::Debug for Text<'a> {
     }
 }
 
-impl<'a> std::ops::Index<std::ops::Range<(u32, u32)>> for Text<'a> {
-    type Output = str;
-
-    fn index(&self, index: std::ops::Range<(u32, u32)>) -> &Self::Output {
-        self.text_within(index.into())
-    }
-}
-
 impl<'a> Text<'a> {
-    pub fn text_within(self, range: TextRange) -> &'a str {
-        &self.raw_text[self.line_map.offset_range(range)]
-    }
-
     pub fn offset_range(self, range: TextRange) -> std::ops::Range<usize> {
         self.line_map.offset_range(range)
     }
 }
+
+mod index;

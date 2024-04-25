@@ -77,7 +77,7 @@ impl<'a> HoverResultCalculator<'a> {
 
     fn gen_keyword_content(&self, kw: Keyword) -> &'static str {
         match kw {
-            Keyword::Fugitive(_keyword) => "This is a paradigm",
+            Keyword::Form(_keyword) => "This is a paradigm",
             _ => "Other",
         }
     }
@@ -95,13 +95,13 @@ impl<'a> HoverResultCalculator<'a> {
                 TokenInfoData::Entity(_) => format!(""),
                 TokenInfoData::EntityNode(_, _) => format!(""),
                 TokenInfoData::CurrentSynSymbol {
-                    current_syn_symbol_idx,
+                    current_variable_idx,
                     syn_expr_region,
                     ..
                 } => {
                     format!(
                         "{:#?}",
-                        syn_expr_region.data(self.db).symbol_region()[*current_syn_symbol_idx]
+                        syn_expr_region.data(self.db).variable_region()[*current_variable_idx]
                             .debug(self.db)
                     )
                 }
@@ -112,7 +112,7 @@ impl<'a> HoverResultCalculator<'a> {
                 } => {
                     format!(
                         "{:#?}",
-                        syn_expr_region.data(self.db).symbol_region()[*inherited_syn_symbol_idx]
+                        syn_expr_region.data(self.db).variable_region()[*inherited_syn_symbol_idx]
                             .debug(self.db)
                     )
                 }

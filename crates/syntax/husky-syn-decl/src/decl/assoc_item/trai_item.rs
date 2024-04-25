@@ -1,15 +1,15 @@
-mod assoc_fn;
+mod assoc_ritchie;
 mod assoc_ty;
 mod assoc_val;
 mod memo_field;
-mod method_fn;
+mod method_ritchie;
 
 use husky_entity_kind::TraitItemKind;
 
-pub use self::assoc_fn::*;
+pub use self::assoc_ritchie::*;
 pub use self::assoc_ty::*;
 pub use self::assoc_val::*;
-pub use self::method_fn::*;
+pub use self::method_ritchie::*;
 
 use super::*;
 
@@ -17,8 +17,9 @@ use super::*;
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum TraitItemSynNodeDecl {
-    AssocFn(TraitAssocFnSynNodeDecl),
-    MethodFn(TraitMethodFnSynNodeDecl),
+    AssocRitchie(TraitAssocRitchieSynNodeDecl),
+    MethodRitchie(TraitMethodRitchieSynNodeDecl),
+    MemoizedField(()),
     AssocType(TraitAssocTypeSynNodeDecl),
     AssocVal(TraitAssocValSynNodeDecl),
 }
@@ -26,8 +27,9 @@ pub enum TraitItemSynNodeDecl {
 impl TraitItemSynNodeDecl {
     pub fn syn_node_path(self, db: &::salsa::Db) -> TraitItemSynNodePath {
         match self {
-            TraitItemSynNodeDecl::AssocFn(decl) => decl.syn_node_path(db),
-            TraitItemSynNodeDecl::MethodFn(decl) => decl.syn_node_path(db),
+            TraitItemSynNodeDecl::AssocRitchie(decl) => decl.syn_node_path(db),
+            TraitItemSynNodeDecl::MethodRitchie(decl) => decl.syn_node_path(db),
+            TraitItemSynNodeDecl::MemoizedField(_) => todo!(),
             TraitItemSynNodeDecl::AssocType(decl) => decl.syn_node_path(db),
             TraitItemSynNodeDecl::AssocVal(decl) => decl.syn_node_path(db),
         }
@@ -35,8 +37,9 @@ impl TraitItemSynNodeDecl {
 
     pub fn syn_expr_region(self, db: &::salsa::Db) -> SynExprRegion {
         match self {
-            TraitItemSynNodeDecl::AssocFn(syn_node_decl) => syn_node_decl.syn_expr_region(db),
-            TraitItemSynNodeDecl::MethodFn(syn_node_decl) => syn_node_decl.syn_expr_region(db),
+            TraitItemSynNodeDecl::AssocRitchie(syn_node_decl) => syn_node_decl.syn_expr_region(db),
+            TraitItemSynNodeDecl::MethodRitchie(syn_node_decl) => syn_node_decl.syn_expr_region(db),
+            TraitItemSynNodeDecl::MemoizedField(_) => todo!(),
             TraitItemSynNodeDecl::AssocType(syn_node_decl) => syn_node_decl.syn_expr_region(db),
             TraitItemSynNodeDecl::AssocVal(syn_node_decl) => syn_node_decl.syn_expr_region(db),
         }
@@ -44,8 +47,9 @@ impl TraitItemSynNodeDecl {
 
     pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         match self {
-            TraitItemSynNodeDecl::AssocFn(slf) => slf.errors(db),
-            TraitItemSynNodeDecl::MethodFn(slf) => slf.errors(db),
+            TraitItemSynNodeDecl::AssocRitchie(slf) => slf.errors(db),
+            TraitItemSynNodeDecl::MethodRitchie(slf) => slf.errors(db),
+            TraitItemSynNodeDecl::MemoizedField(_) => todo!(),
             TraitItemSynNodeDecl::AssocType(slf) => slf.errors(db),
             TraitItemSynNodeDecl::AssocVal(slf) => slf.errors(db),
         }
@@ -76,12 +80,14 @@ impl<'a> DeclParser<'a> {
     ) -> TraitItemSynNodeDecl {
         match syn_node_path.item_kind(self.db()) {
             TraitItemKind::MemoizedField => todo!(),
-            TraitItemKind::MethodRitchie(_) => {
-                self.parse_trai_method_fn_node_decl(syn_node_path).into()
-            }
+            TraitItemKind::MethodRitchie(_) => self
+                .parse_trai_method_ritchie_node_decl(syn_node_path)
+                .into(),
             TraitItemKind::AssocType => self.parse_trai_assoc_ty_node_decl(syn_node_path).into(),
             TraitItemKind::AssocVal => self.parse_trai_assoc_val_node_decl(syn_node_path).into(),
-            TraitItemKind::AssocRitchie(_) => todo!(),
+            TraitItemKind::AssocRitchie(_) => self
+                .parse_trai_assoc_ritchie_node_decl(syn_node_path)
+                .into(),
             TraitItemKind::AssocFormal => todo!(),
             TraitItemKind::AssocConst => todo!(),
         }
@@ -92,7 +98,7 @@ impl<'a> DeclParser<'a> {
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum TraitItemSynDecl {
-    AssocFn(TraitAssocFnSynDecl),
+    AssocRitchie(TraitAssocRitchieSynDecl),
     MethodFn(TraitMethodFnSynDecl),
     AssocType(TraitAssocTypeSynDecl),
     AssocVal(TraitAssocValSynDecl),
@@ -104,14 +110,15 @@ impl TraitItemSynDecl {
         db: &::salsa::Db,
         path: TraitItemPath,
         syn_node_decl: TraitItemSynNodeDecl,
-    ) -> DeclResult<Self> {
+    ) -> SynDeclResult<Self> {
         Ok(match syn_node_decl {
-            TraitItemSynNodeDecl::AssocFn(syn_node_decl) => {
-                TraitAssocFnSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+            TraitItemSynNodeDecl::AssocRitchie(syn_node_decl) => {
+                TraitAssocRitchieSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
-            TraitItemSynNodeDecl::MethodFn(syn_node_decl) => {
+            TraitItemSynNodeDecl::MethodRitchie(syn_node_decl) => {
                 TraitMethodFnSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
+            TraitItemSynNodeDecl::MemoizedField(_) => todo!(),
             TraitItemSynNodeDecl::AssocType(syn_node_decl) => {
                 TraitAssocTypeSynDecl::from_node_decl(path, syn_node_decl, db)?.into()
             }
@@ -124,7 +131,7 @@ impl TraitItemSynDecl {
 impl TraitItemSynDecl {
     pub fn path(self, db: &::salsa::Db) -> TraitItemPath {
         match self {
-            TraitItemSynDecl::AssocFn(slf) => slf.path(db),
+            TraitItemSynDecl::AssocRitchie(slf) => slf.path(db),
             TraitItemSynDecl::MethodFn(slf) => slf.path(db),
             TraitItemSynDecl::AssocType(slf) => slf.path(db),
             TraitItemSynDecl::AssocVal(slf) => slf.path(db),
@@ -133,7 +140,7 @@ impl TraitItemSynDecl {
 
     pub fn template_parameters<'a>(self, db: &'a ::salsa::Db) -> &'a [TemplateSynParameterData] {
         match self {
-            TraitItemSynDecl::AssocFn(slf) => slf.template_parameters(db),
+            TraitItemSynDecl::AssocRitchie(slf) => slf.template_parameters(db),
             TraitItemSynDecl::MethodFn(slf) => slf.template_parameters(db),
             TraitItemSynDecl::AssocType(slf) => slf.template_parameters(db),
             TraitItemSynDecl::AssocVal(_slf) => &[],
@@ -145,7 +152,7 @@ impl TraitItemSynDecl {
         db: &'a ::salsa::Db,
     ) -> Option<&'a [ParenateParameterSyndicate]> {
         match self {
-            TraitItemSynDecl::AssocFn(syn_decl) => Some(syn_decl.parenate_parameters(db)),
+            TraitItemSynDecl::AssocRitchie(syn_decl) => Some(syn_decl.parenate_parameters(db)),
             TraitItemSynDecl::MethodFn(syn_decl) => Some(syn_decl.parenate_parameters(db)),
             TraitItemSynDecl::AssocType(_) => None,
             TraitItemSynDecl::AssocVal(_) => None,
@@ -154,7 +161,7 @@ impl TraitItemSynDecl {
 
     pub fn syn_expr_region(self, db: &::salsa::Db) -> SynExprRegion {
         match self {
-            TraitItemSynDecl::AssocFn(slf) => slf.syn_expr_region(db),
+            TraitItemSynDecl::AssocRitchie(slf) => slf.syn_expr_region(db),
             TraitItemSynDecl::MethodFn(slf) => slf.syn_expr_region(db),
             TraitItemSynDecl::AssocType(slf) => slf.syn_expr_region(db),
             TraitItemSynDecl::AssocVal(slf) => slf.syn_expr_region(db),
@@ -165,7 +172,7 @@ impl TraitItemSynDecl {
 impl HasSynDecl for TraitItemPath {
     type Decl = TraitItemSynDecl;
 
-    fn syn_decl(self, db: &::salsa::Db) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &::salsa::Db) -> SynDeclResult<Self::Decl> {
         trai_item_syn_decl(db, self)
     }
 }
@@ -174,7 +181,7 @@ impl HasSynDecl for TraitItemPath {
 pub(crate) fn trai_item_syn_decl(
     db: &::salsa::Db,
     path: TraitItemPath,
-) -> DeclResult<TraitItemSynDecl> {
+) -> SynDeclResult<TraitItemSynDecl> {
     let syn_node_decl = path.syn_node_path(db).syn_node_decl(db);
     TraitItemSynDecl::from_node_decl(db, path, syn_node_decl)
 }

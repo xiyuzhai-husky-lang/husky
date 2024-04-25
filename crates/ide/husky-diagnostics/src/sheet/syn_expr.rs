@@ -274,12 +274,6 @@ impl Diagnose for OriginalSynExprError {
             } => {
                 format!("Syntax Error: unrecognized identifier")
             }
-            OriginalSynExprError::UnresolvedSubitem {
-                regional_token_idx: _,
-                ident: _,
-            } => {
-                format!("Syntax Error: unresolved subitem")
-            }
             OriginalSynExprError::ExpectedLetVariablesType(_) => {
                 format!("Syntax Error: expected let variables type")
             }
@@ -315,7 +309,9 @@ impl Diagnose for OriginalSynExprError {
                 light_arrow_token: _,
             } => todo!(),
             OriginalSynExprError::ExpectedExplicitParameterDefaultValue(_) => todo!(),
-            OriginalSynExprError::ExpectedTypeTermForAssocType(_) => todo!(),
+            OriginalSynExprError::ExpectedTypeTermForAssocType(_) => {
+                format!("Syntax Error: ExpectedTypeTermForAssocType")
+            }
             OriginalSynExprError::ExpectIdentAfterScopeResolution(_) => todo!(),
             OriginalSynExprError::EntityTree {
                 regional_token_idx: _,

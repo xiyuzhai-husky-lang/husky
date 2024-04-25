@@ -48,7 +48,7 @@ impl Diagnose for OriginalEntityTreeError {
             OriginalEntityTreeError::InvalidTypePath(_) => todo!(),
             OriginalEntityTreeError::CanOnlyUseParentSuperForModulePath => todo!(),
             OriginalEntityTreeError::NoSuperForCrateRoot { super_token: _ } => todo!(),
-            OriginalEntityTreeError::NoSubitemForFugitive => todo!(),
+            OriginalEntityTreeError::NoSubitemForForm => todo!(),
             OriginalEntityTreeError::InvalidParentPath {
                 name_token: _,
                 principal_entity_path: _,
@@ -87,7 +87,7 @@ impl Diagnose for OriginalEntityTreeError {
             OriginalEntityTreeError::InvalidTypePath(_) => todo!(),
             OriginalEntityTreeError::CanOnlyUseParentSuperForModulePath => todo!(),
             OriginalEntityTreeError::NoSuperForCrateRoot { super_token: _ } => todo!(),
-            OriginalEntityTreeError::NoSubitemForFugitive => todo!(),
+            OriginalEntityTreeError::NoSubitemForForm => todo!(),
             OriginalEntityTreeError::InvalidParentPath {
                 name_token: _,
                 principal_entity_path: _,
@@ -141,7 +141,7 @@ impl Diagnose for ImplBlockIllForm {
                 format!("expect type path after `for` keyword")
             }
             ImplBlockIllForm::ExpectedDeriveIdent(_) => todo!(),
-            ImplBlockIllForm::UnexpectedFugitivePath(_) => todo!(),
+            ImplBlockIllForm::UnexpectedFormPath(_) => todo!(),
             ImplBlockIllForm::InvalidTypeSketch => todo!(),
         }
     }
@@ -185,7 +185,7 @@ impl Diagnose for ImplBlockIllForm {
             ImplBlockIllForm::MissingForKeyword => todo!(),
             ImplBlockIllForm::ExpectTypePathAfterForKeyword => todo!(),
             ImplBlockIllForm::ExpectedDeriveIdent(_) => todo!(),
-            ImplBlockIllForm::UnexpectedFugitivePath(_) => todo!(),
+            ImplBlockIllForm::UnexpectedFormPath(_) => todo!(),
             ImplBlockIllForm::InvalidTypeSketch => todo!(),
         }
     }

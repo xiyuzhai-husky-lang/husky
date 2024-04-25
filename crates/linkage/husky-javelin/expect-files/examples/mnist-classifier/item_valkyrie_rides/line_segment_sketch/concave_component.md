@@ -19,8 +19,8 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
                     Fn,
                 )`),
             ),
@@ -43,7 +43,7 @@
                         ),
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TypeItem(
+                        path: JavPath::TypeItem(
                             TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -51,16 +51,16 @@
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateSvar::Type(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
+                                    HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
                                             disambiguator: 0,
                                         },
                                     ),
-                                    HirTermSvarResolution::Explicit(
+                                    HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Type(
                                             HirType::PathLeading(
                                                 HirTypePathLeading {
@@ -79,7 +79,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TypeItem(
+                        path: JavPath::TypeItem(
                             TypeItemPath(`<core::vec::Vec(0)>::cyclic_slice_leashed`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -87,16 +87,16 @@
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateSvar::Type(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
+                                    HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
                                             disambiguator: 0,
                                         },
                                     ),
-                                    HirTermSvarResolution::Explicit(
+                                    HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Type(
                                             HirType::PathLeading(
                                                 HirTypePathLeading {
@@ -115,7 +115,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TypeItem(
+                        path: JavPath::TypeItem(
                             TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -123,16 +123,16 @@
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateSvar::Type(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
+                                    HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
                                             disambiguator: 0,
                                         },
                                     ),
-                                    HirTermSvarResolution::Explicit(
+                                    HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Type(
                                             HirType::PathLeading(
                                                 HirTypePathLeading {
@@ -145,10 +145,10 @@
                                     ),
                                 ),
                                 (
-                                    HirTemplateSvar::Type(
-                                        HirTypeSvar::SelfLifetime,
+                                    HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::SelfLifetime,
                                     ),
-                                    HirTermSvarResolution::SelfLifetime,
+                                    HirTermSymbolicVariableResolution::SelfLifetime,
                                 ),
                             ],
                             separator: Some(
@@ -259,7 +259,7 @@
                 hir_template_parameters: None,
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TypeItem(
+                        path: JavPath::TypeItem(
                             TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -267,16 +267,16 @@
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateSvar::Type(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
+                                    HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
                                             disambiguator: 0,
                                         },
                                     ),
-                                    HirTermSvarResolution::Explicit(
+                                    HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Type(
                                             HirType::PathLeading(
                                                 HirTypePathLeading {
@@ -295,7 +295,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TypeItem(
+                        path: JavPath::TypeItem(
                             TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -303,16 +303,16 @@
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateSvar::Type(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
+                                    HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
                                             disambiguator: 0,
                                         },
                                     ),
-                                    HirTermSvarResolution::Explicit(
+                                    HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Type(
                                             HirType::PathLeading(
                                                 HirTypePathLeading {
@@ -331,7 +331,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TypeItem(
+                        path: JavPath::TypeItem(
                             TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -339,16 +339,16 @@
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateSvar::Type(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
+                                    HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
                                             disambiguator: 0,
                                         },
                                     ),
-                                    HirTermSvarResolution::Explicit(
+                                    HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Type(
                                             HirType::PathLeading(
                                                 HirTypePathLeading {
@@ -381,7 +381,7 @@
                 hir_template_parameters: None,
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TypeItem(
+                        path: JavPath::TypeItem(
                             TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -389,16 +389,16 @@
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateSvar::Type(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
+                                    HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
                                             disambiguator: 0,
                                         },
                                     ),
-                                    HirTermSvarResolution::Explicit(
+                                    HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Type(
                                             HirType::PathLeading(
                                                 HirTypePathLeading {
@@ -417,7 +417,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TypeItem(
+                        path: JavPath::TypeItem(
                             TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -425,16 +425,16 @@
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateSvar::Type(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
+                                    HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
                                             disambiguator: 0,
                                         },
                                     ),
-                                    HirTermSvarResolution::Explicit(
+                                    HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Type(
                                             HirType::PathLeading(
                                                 HirTypePathLeading {
@@ -467,7 +467,7 @@
                 hir_template_parameters: None,
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TypeItem(
+                        path: JavPath::TypeItem(
                             TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -475,16 +475,16 @@
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateSvar::Type(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
+                                    HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
                                             disambiguator: 0,
                                         },
                                     ),
-                                    HirTermSvarResolution::Explicit(
+                                    HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Type(
                                             HirType::PathLeading(
                                                 HirTypePathLeading {
@@ -503,7 +503,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TypeItem(
+                        path: JavPath::TypeItem(
                             TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -511,16 +511,16 @@
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateSvar::Type(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
+                                    HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
                                             disambiguator: 0,
                                         },
                                     ),
-                                    HirTermSvarResolution::Explicit(
+                                    HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Type(
                                             HirType::PathLeading(
                                                 HirTypePathLeading {
@@ -539,7 +539,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TypeItem(
+                        path: JavPath::TypeItem(
                             TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -547,16 +547,16 @@
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateSvar::Type(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
+                                    HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
                                             disambiguator: 0,
                                         },
                                     ),
-                                    HirTermSvarResolution::Explicit(
+                                    HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Type(
                                             HirType::PathLeading(
                                                 HirTypePathLeading {
@@ -608,7 +608,7 @@
                 ),
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TypeItem(
+                        path: JavPath::TypeItem(
                             TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -616,16 +616,16 @@
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateSvar::Type(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
+                                    HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
                                             disambiguator: 0,
                                         },
                                     ),
-                                    HirTermSvarResolution::Explicit(
+                                    HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Type(
                                             HirType::PathLeading(
                                                 HirTypePathLeading {
@@ -644,7 +644,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TraitForTypeItem(
+                        path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
                                 `<#derive _ as core::clone::Clone(0)>::clone`,
                                 TraitItemKind::MethodRitchie(
@@ -655,10 +655,10 @@
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateSvar::Type(
-                                        HirTypeSvar::SelfType,
+                                    HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::SelfType,
                                     ),
-                                    HirTermSvarResolution::Explicit(
+                                    HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Type(
                                             HirType::PathLeading(
                                                 HirTypePathLeading {
@@ -677,7 +677,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TypeItem(
+                        path: JavPath::TypeItem(
                             TypeItemPath(`<core::slice::CyclicSlice(0)>::last`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -685,16 +685,16 @@
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateSvar::Type(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
+                                    HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
                                             disambiguator: 0,
                                         },
                                     ),
-                                    HirTermSvarResolution::Explicit(
+                                    HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Type(
                                             HirType::PathLeading(
                                                 HirTypePathLeading {
@@ -733,7 +733,7 @@
                 ),
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TypeItem(
+                        path: JavPath::TypeItem(
                             TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -741,16 +741,16 @@
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateSvar::Type(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
+                                    HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
                                             disambiguator: 0,
                                         },
                                     ),
-                                    HirTermSvarResolution::Explicit(
+                                    HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Type(
                                             HirType::PathLeading(
                                                 HirTypePathLeading {
@@ -769,7 +769,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TraitForTypeItem(
+                        path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
                                 `<#derive _ as core::clone::Clone(0)>::clone`,
                                 TraitItemKind::MethodRitchie(
@@ -780,10 +780,10 @@
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateSvar::Type(
-                                        HirTypeSvar::SelfType,
+                                    HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::SelfType,
                                     ),
-                                    HirTermSvarResolution::Explicit(
+                                    HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Type(
                                             HirType::PathLeading(
                                                 HirTypePathLeading {
@@ -822,7 +822,7 @@
                 ),
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TypeItem(
+                        path: JavPath::TypeItem(
                             TypeItemPath(`<core::slice::CyclicSlice(0)>::last`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -830,16 +830,16 @@
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateSvar::Type(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
+                                    HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
                                             disambiguator: 0,
                                         },
                                     ),
-                                    HirTermSvarResolution::Explicit(
+                                    HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Type(
                                             HirType::PathLeading(
                                                 HirTypePathLeading {
@@ -858,7 +858,7 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TraitForTypeItem(
+                        path: JavPath::TraitForTypeItem(
                             TraitForTypeItemPath(
                                 `<#derive _ as core::clone::Clone(0)>::clone`,
                                 TraitItemKind::MethodRitchie(
@@ -869,10 +869,10 @@
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateSvar::Type(
-                                        HirTypeSvar::SelfType,
+                                    HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::SelfType,
                                     ),
-                                    HirTermSvarResolution::Explicit(
+                                    HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Type(
                                             HirType::PathLeading(
                                                 HirTypePathLeading {
@@ -930,7 +930,7 @@
                 ),
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TypeItem(
+                        path: JavPath::TypeItem(
                             TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -938,16 +938,16 @@
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateSvar::Type(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
+                                    HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
                                             disambiguator: 0,
                                         },
                                     ),
-                                    HirTermSvarResolution::Explicit(
+                                    HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Type(
                                             HirType::PathLeading(
                                                 HirTypePathLeading {
@@ -986,7 +986,7 @@
                 ),
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TypeItem(
+                        path: JavPath::TypeItem(
                             TypeItemPath(`<core::slice::CyclicSlice(0)>::last`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -994,16 +994,16 @@
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateSvar::Type(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
+                                    HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
                                             disambiguator: 0,
                                         },
                                     ),
-                                    HirTermSvarResolution::Explicit(
+                                    HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Type(
                                             HirType::PathLeading(
                                                 HirTypePathLeading {

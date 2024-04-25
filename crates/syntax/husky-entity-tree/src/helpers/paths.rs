@@ -1,3 +1,6 @@
+use husky_coword::coword_menu;
+use husky_entity_kind::MajorFormKind;
+
 use super::*;
 
 pub trait HasItemPaths: Copy {
@@ -16,90 +19,100 @@ impl HasItemPaths for CratePath {
     }
 }
 
-// include submodules, major items, associated items
+/// include everything defined under a module,
+/// submodules, major items, associated items, impl blocks, attrs
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub fn module_item_syn_node_paths(
     db: &::salsa::Db,
     module_path: ModulePath,
 ) -> Vec<ItemSynNodePath> {
-    let mut node_paths: Vec<ItemSynNodePath> = Default::default();
+    let mut syn_node_paths: Vec<ItemSynNodePath> = Default::default();
     let item_tree_sheet = db.item_syn_tree_sheet(module_path);
-    let mut push = |syn_node_path| {
-        node_paths.push(syn_node_path);
+    let mut push_with_attrs = |syn_node_path| {
+        syn_node_paths.push(syn_node_path);
         for &(attr_syn_node_path, _) in syn_node_path.attr_syn_nodes(db) {
-            node_paths.push(attr_syn_node_path.into())
+            syn_node_paths.push(attr_syn_node_path.into())
         }
     };
     for syn_node_path in item_tree_sheet.major_item_syn_node_paths() {
-        push(syn_node_path);
-        // ignore this for now because I'm lazy
-        // match syn_node_path {
-        //     ItemSynNodePath::MajorItem(MajorItemSynNodePath::Trait(trai_node_path)) => {
-        //         for trai_item_syn_node_path in trai_node_path.item_node_paths(db) {
-        //             node_paths.push(trai_item_syn_node_path.into())
-        //         }
-        //     }
-        //     _ => (),
-        // }
+        push_with_attrs(syn_node_path);
+        match syn_node_path {
+            ItemSynNodePath::MajorItem(MajorItemSynNodePath::Trait(trai_node_path)) => {
+                for trai_item_syn_node_path in trai_node_path.item_node_paths(db) {
+                    push_with_attrs(trai_item_syn_node_path.into())
+                }
+            }
+            ItemSynNodePath::MajorItem(MajorItemSynNodePath::Type(ty_node_path)) => {
+                for ty_variant_syn_node_path in ty_node_path.ty_variant_syn_node_paths(db) {
+                    push_with_attrs(ty_variant_syn_node_path.into())
+                }
+            }
+            _ => (),
+        }
     }
-    // todo: trait item
     for impl_block_syn_node_path in item_tree_sheet.impl_block_syn_node_paths() {
-        push(impl_block_syn_node_path.into());
+        push_with_attrs(impl_block_syn_node_path.into());
         match impl_block_syn_node_path {
             ImplBlockSynNodePath::TypeImplBlock(impl_block_syn_node_path) => {
                 for syn_node_path in impl_block_syn_node_path.item_syn_node_paths(db) {
-                    push(syn_node_path.into())
+                    push_with_attrs(syn_node_path.into())
                 }
             }
             ImplBlockSynNodePath::TraitForTypeImplBlock(impl_block_syn_node_path) => {
                 for syn_node_path in impl_block_syn_node_path.item_syn_node_paths(db) {
-                    push(syn_node_path.into())
+                    push_with_attrs(syn_node_path.into())
                 }
             }
             ImplBlockSynNodePath::IllFormedImplBlock(impl_block_syn_node_path) => {
                 for syn_node_path in impl_block_syn_node_path.item_syn_node_paths(db) {
-                    push(syn_node_path.into())
+                    push_with_attrs(syn_node_path.into())
                 }
             }
         }
     }
-    node_paths
+    syn_node_paths
 }
 
-// include submodules, module items, associated items
-// todo: type variants
-// todo: trait item
+/// include everything defined under a module,
+/// submodules, major items, associated items, impl blocks, attrs
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
 pub fn module_item_paths(db: &::salsa::Db, module_path: ModulePath) -> Vec<ItemPath> {
-    let mut paths: Vec<ItemPath> = Default::default();
-    let item_tree_sheet = db.item_syn_tree_sheet(module_path);
-    for syn_node_path in item_tree_sheet.major_item_syn_node_paths() {
-        if let Some(path) = syn_node_path.path(db) {
-            paths.push(path)
-        }
-    }
-    for syn_node_path in item_tree_sheet.impl_block_syn_node_paths() {
-        if let Some(path) = syn_node_path.path(db) {
-            paths.push(path.into());
-            match path {
-                ImplBlockPath::TypeImplBlock(path) => {
-                    for syn_node_path in path.syn_node_path(db).item_syn_node_paths(db) {
-                        if let Some(path) = syn_node_path.path(db) {
-                            paths.push(path.into())
-                        }
-                    }
-                }
-                ImplBlockPath::TraitForTypeImplBlock(path) => {
-                    for syn_node_path in path.syn_node_path(db).item_syn_node_paths(db) {
-                        if let Some(path) = syn_node_path.path(db) {
-                            paths.push(path.into())
-                        }
-                    }
-                }
-            }
-        }
-    }
-    paths
+    module_item_syn_node_paths(db, module_path)
+        .iter()
+        .filter_map(|syn_node_path| syn_node_path.unambiguous_item_path(db))
+        .collect()
+}
+
+#[test]
+fn module_item_paths_works() {
+    DB::ast_expect_test_debug_with_db(
+        |db, module_path| module_item_paths(db, module_path),
+        &AstTestConfig::new(
+            "module_item_paths",
+            FileExtensionConfig::Markdown,
+            TestDomainsConfig::SYNTAX,
+        ),
+    )
+}
+
+#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+pub fn module_test_paths(db: &::salsa::Db, module_path: ModulePath) -> Vec<MajorFormPath> {
+    module_item_paths(db, module_path)
+        .iter()
+        .filter_map(|&item_path| to_test_path(db, *item_path))
+        .collect()
+}
+
+#[test]
+fn module_test_paths_works() {
+    DB::ast_expect_test_debug_with_db(
+        |db, module_path| module_test_paths(db, module_path),
+        &AstTestConfig::new(
+            "module_test_paths",
+            FileExtensionConfig::Markdown,
+            TestDomainsConfig::SYNTAX,
+        ),
+    )
 }
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
@@ -109,6 +122,55 @@ pub fn crate_item_paths(db: &::salsa::Db, crate_path: CratePath) -> Vec<ItemPath
         .iter()
         .flat_map(|module_path| module_path.item_paths(db).iter().copied())
         .collect()
+}
+
+#[test]
+fn crate_item_paths_works() {
+    DB::ast_expect_test_debug_with_db(
+        |db, crate_path| crate_item_paths(db, crate_path),
+        &AstTestConfig::new(
+            "crate_item_paths",
+            FileExtensionConfig::Markdown,
+            TestDomainsConfig::SYNTAX,
+        ),
+    )
+}
+
+#[salsa::tracked(jar = EntityTreeJar, return_ref)]
+pub fn crate_test_paths(db: &::salsa::Db, crate_path: CratePath) -> Vec<MajorFormPath> {
+    crate_item_paths(db, crate_path)
+        .iter()
+        .filter_map(|&item_path| to_test_path(db, *item_path))
+        .collect()
+}
+
+#[test]
+fn crate_test_paths_works() {
+    DB::ast_expect_test_debug_with_db(
+        |db, crate_path| crate_test_paths(db, crate_path),
+        &AstTestConfig::new(
+            "crate_test_paths",
+            FileExtensionConfig::Markdown,
+            TestDomainsConfig::SYNTAX,
+        ),
+    )
+}
+
+#[salsa::tracked(jar = EntityTreeJar)]
+fn to_test_path(db: &::salsa::Db, path_id: ItemPathId) -> Option<MajorFormPath> {
+    match path_id.item_path(db) {
+        ItemPath::MajorItem(MajorItemPath::Form(path)) => match path.major_form_kind(db) {
+            MajorFormKind::Ritchie(_) | MajorFormKind::Val => {
+                let test_ident = coword_menu(db).test_ident();
+                path.attr_paths(db)
+                    .iter()
+                    .any(|attr_path| attr_path.ident(db) == test_ident)
+                    .then_some(path)
+            }
+            _ => None,
+        },
+        _ => None,
+    }
 }
 
 #[salsa::tracked(jar = EntityTreeJar, return_ref)]
@@ -124,18 +186,6 @@ pub fn module_submodule_item_paths(
             _ => None,
         })
         .collect()
-}
-
-#[test]
-fn module_item_paths_works() {
-    DB::ast_expect_test_debug_with_db(
-        |db, module_path| module_item_paths(db, module_path),
-        &AstTestConfig::new(
-            "module_item_paths",
-            FileExtensionConfig::Markdown,
-            TestDomainsConfig::SYNTAX,
-        ),
-    )
 }
 
 #[test]

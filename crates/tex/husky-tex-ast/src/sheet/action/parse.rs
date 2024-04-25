@@ -15,9 +15,9 @@ impl IsTimeCapsuleAction for MathAstParseAction {
     }
 
     fn exec(self, sheet: &mut TexAstSheet) -> Self::Outcome {
-        let TexAstData::TextEdit { ref buffer } = sheet.arena[self.ast_idx] else {
-            unreachable!()
-        };
+        // let TexAstData::TextEdit { ref buffer } = sheet.arena[self.ast_idx] else {
+        //     unreachable!()
+        // };
         todo!()
     }
 }

@@ -172,7 +172,7 @@ pub(crate) fn ethereal_term_application_declarative_ty(
 pub(crate) fn ethereal_term_application_declarative_ty_dependent_aux(
     db: &::salsa::Db,
     function_ty: DecCurry,
-    function_ty_parameter_variable: DecHvar,
+    function_ty_parameter_variable: DecLambdaVariable,
     argument: DecTerm,
     argument_ty: RawType,
     shift: u8,
@@ -201,7 +201,12 @@ pub(crate) fn ethereal_term_application_declarative_ty_dependent_aux(
                     // this is possible because we expect in the recursion process
                     // shift never appears twice
                     let new_parameter_symbol = unsafe {
-                        DecSvar::new_ad_hoc(db, argument_ty.toolchain(db), new_parameter_ty, shift)
+                        DecSymbolicVariable::new_ad_hoc(
+                            db,
+                            argument_ty.toolchain(db),
+                            new_parameter_ty,
+                            shift,
+                        )
                     };
                     Ok(DecCurry::new_dependent(
                         db,

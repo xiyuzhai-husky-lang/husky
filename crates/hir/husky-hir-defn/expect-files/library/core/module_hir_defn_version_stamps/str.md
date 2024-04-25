@@ -16,7 +16,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 152,
+                        value: 158,
                     },
                 ),
             ),
@@ -38,7 +38,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 153,
+                        value: 159,
                     },
                 ),
             ),

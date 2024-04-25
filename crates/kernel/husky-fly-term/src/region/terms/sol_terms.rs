@@ -38,7 +38,7 @@ impl SolTerm {
     }
 
     pub(crate) fn data(self, engine: &impl FlyTermEngine) -> &SolidTermData {
-        self.data_inner(&engine.fly_terms().solid_terms())
+        self.data_inner(&engine.fly_terms().sol_terms())
     }
 
     pub(crate) fn data_inner(self, solid_terms: &SolTerms) -> &SolidTermData {

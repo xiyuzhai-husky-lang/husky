@@ -6,9 +6,9 @@ use husky_hir_expr::{
 };
 use husky_hir_lazy_expr::HirLazyPatternExprIdx;
 use husky_hir_ty::{db::HirTypeDb, menu::HirTypeMenu, trai::HirTrait, HirType};
-use husky_sema_expr::{SemaExprDb, SemaExprRegionData};
+use husky_sem_expr::{SemaExprDb, SemaExprRegionData};
 use husky_syn_expr::{
-    CurrentSynSymbolIdx, ReturnTypeBeforeColonSyndicate, ReturnTypeBeforeEqSyndicate, SynExprIdx,
+    CurrentVariableIdx, ReturnTypeBeforeColonSyndicate, ReturnTypeBeforeEqSyndicate, SynExprIdx,
     SynExprRegion, SynExprRegionData, SynPatternRoot,
 };
 
@@ -16,7 +16,7 @@ pub(crate) struct HirDeclBuilder<'a> {
     db: &'a ::salsa::Db,
     hir_ty_menu: &'a HirTypeMenu,
     syn_expr_region_data: &'a SynExprRegionData,
-    sema_expr_region_data: &'a SemaExprRegionData,
+    sem_expr_region_data: &'a SemaExprRegionData,
     hir_expr_region: HirExprRegion,
     hir_expr_source_map: HirExprSourceMap,
 }
@@ -27,13 +27,13 @@ impl<'a> HirDeclBuilder<'a> {
         let hir_ty_menu = db.hir_ty_menu(toolchain);
         let (hir_expr_region, hir_expr_source_map) =
             hir_expr_region_with_source_map(syn_expr_region, db);
-        let sema_expr_region = db.sema_expr_region(syn_expr_region);
-        let syn_expr_region = sema_expr_region.syn_expr_region(db);
+        let sem_expr_region = db.sem_expr_region(syn_expr_region);
+        let syn_expr_region = sem_expr_region.syn_expr_region(db);
         Self {
             db,
             hir_ty_menu,
             syn_expr_region_data: syn_expr_region.data(db),
-            sema_expr_region_data: sema_expr_region.data(db),
+            sem_expr_region_data: sem_expr_region.data(db),
             hir_expr_region,
             hir_expr_source_map,
         }
@@ -59,15 +59,15 @@ impl<'a> HirDeclBuilder<'a> {
     }
 
     pub(crate) fn hir_ty(&self, syn_expr_idx: SynExprIdx) -> Option<HirType> {
-        let sema_expr_idx = self
-            .sema_expr_region_data
-            .syn_root_to_sema_expr_idx(syn_expr_idx);
+        let sem_expr_idx = self
+            .sem_expr_region_data
+            .syn_root_to_sem_expr_idx(syn_expr_idx);
         match self
-            .sema_expr_region_data
-            .sema_expr_term(sema_expr_idx)
+            .sem_expr_region_data
+            .sem_expr_term(sem_expr_idx)
             .unwrap()
             .unwrap()
-            .base_resolved_inner(self.sema_expr_region_data.fly_term_region().hollow_terms())
+            .base_resolved_inner(self.sem_expr_region_data.fly_term_region().hollow_terms())
         {
             FlyTermBase::Eth(term) => HirType::from_eth(term, self.db),
             FlyTermBase::Sol(_) => todo!(),
@@ -77,15 +77,15 @@ impl<'a> HirDeclBuilder<'a> {
     }
 
     pub(crate) fn hir_trai(&self, syn_expr_idx: SynExprIdx) -> HirTrait {
-        let sema_expr_idx = self
-            .sema_expr_region_data
-            .syn_root_to_sema_expr_idx(syn_expr_idx);
+        let sem_expr_idx = self
+            .sem_expr_region_data
+            .syn_root_to_sem_expr_idx(syn_expr_idx);
         match self
-            .sema_expr_region_data
-            .sema_expr_term(sema_expr_idx)
+            .sem_expr_region_data
+            .sem_expr_term(sem_expr_idx)
             .unwrap()
             .unwrap()
-            .base_resolved_inner(self.sema_expr_region_data.fly_term_region().hollow_terms())
+            .base_resolved_inner(self.sem_expr_region_data.fly_term_region().hollow_terms())
         {
             FlyTermBase::Eth(term) => HirTrait::from_eth(term, self.db),
             FlyTermBase::Sol(_) => todo!(),
@@ -98,12 +98,12 @@ impl<'a> HirDeclBuilder<'a> {
         self.hir_expr_region
     }
 
-    pub(crate) fn current_syn_symbol_term(
+    pub(crate) fn current_variable_term(
         &self,
-        current_syn_symbol_idx: CurrentSynSymbolIdx,
+        current_variable_idx: CurrentVariableIdx,
     ) -> EthTerm {
-        match self.sema_expr_region_data.symbol_terms()[current_syn_symbol_idx]
-            .base_resolved_inner(self.sema_expr_region_data.fly_term_region())
+        match self.sem_expr_region_data.symbol_terms()[current_variable_idx]
+            .base_resolved_inner(self.sem_expr_region_data.fly_term_region())
         {
             FlyTermBase::Eth(symbol_term) => symbol_term,
             FlyTermBase::Sol(_) => todo!(),
@@ -120,12 +120,12 @@ impl<'a> HirDeclBuilder<'a> {
         let HirExprSourceMap::Eager(source_map) = self.hir_expr_source_map else {
             unreachable!()
         };
-        let sema_expr_idx = self
-            .sema_expr_region_data
-            .syn_root_to_sema_expr_idx(syn_expr_root);
+        let sem_expr_idx = self
+            .sem_expr_region_data
+            .syn_root_to_sem_expr_idx(syn_expr_root);
         source_map
             .data(self.db)
-            .sema_to_hir_eager_expr_idx(sema_expr_idx)
+            .sem_to_hir_eager_expr_idx(sem_expr_idx)
     }
 
     pub(crate) fn hir_eager_pattern_expr_idx(
@@ -138,7 +138,7 @@ impl<'a> HirDeclBuilder<'a> {
         let db = self.db;
         source_map
             .data(db)
-            .syn_pattern_root_to_sema_expr_idx(syn_pattern_root)
+            .syn_pattern_root_to_sem_expr_idx(syn_pattern_root)
     }
 
     pub(crate) fn hir_lazy_pattern_expr_idx(
@@ -151,14 +151,14 @@ impl<'a> HirDeclBuilder<'a> {
         let db = self.db;
         source_map
             .data(db)
-            .syn_pattern_root_to_sema_expr_idx(syn_pattern_root)
+            .syn_pattern_root_to_sem_expr_idx(syn_pattern_root)
     }
 
     pub(crate) fn syn_expr_region_data(&self) -> &'a SynExprRegionData {
         self.syn_expr_region_data
     }
 
-    pub(crate) fn sema_expr_region_data(&self) -> &'a SemaExprRegionData {
-        self.sema_expr_region_data
+    pub(crate) fn sem_expr_region_data(&self) -> &'a SemaExprRegionData {
+        self.sem_expr_region_data
     }
 }

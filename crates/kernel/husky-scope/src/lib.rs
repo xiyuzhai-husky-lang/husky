@@ -4,7 +4,7 @@ mod visibility;
 
 pub use self::visibility::*;
 
-use husky_regional_token::RegionalTokenIdxRange;
+use husky_token::TokenIdxRange;
 use husky_vfs::ModulePath;
 use std::cmp::Ordering;
 use with_db::PartialOrdWithDb;
@@ -18,7 +18,7 @@ pub enum Scope {
     Private(ModulePath),  // only self
     Disconnected {
         module_path: ModulePath,
-        file_visibility: RegionScope,
+        visibility: RegionScope,
     },
 }
 
@@ -26,7 +26,7 @@ pub enum Scope {
 pub struct RegionScope {
     // todo: how to include this information?
     // region_path: ItemSynNodePath,
-    token_idx_range: RegionalTokenIdxRange,
+    token_idx_range: TokenIdxRange,
 }
 
 impl PartialOrdWithDb for Scope {

@@ -27,7 +27,7 @@ impl DecApplicationOrRitchieCall {
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
-        ctx: &DecSvarNameMap,
+        ctx: &DecSymbolicVariableNameMap,
     ) -> std::fmt::Result {
         self.function(db).display_fmt_with_db_and_ctx(f, db, ctx)?;
         let template_arguments = self.template_arguments(db);

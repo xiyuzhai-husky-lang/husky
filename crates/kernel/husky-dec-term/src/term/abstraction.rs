@@ -2,7 +2,7 @@ use super::*;
 
 #[salsa::interned]
 pub struct DecAbstraction {
-    pub x: DecHvar,
+    pub x: DecLambdaVariable,
     pub m: DecTerm,
 }
 
@@ -16,7 +16,7 @@ impl DecAbstraction {
         self,
         _f: &mut std::fmt::Formatter<'_>,
         _db: &::salsa::Db,
-        _ctx: &DecSvarNameMap,
+        _ctx: &DecSymbolicVariableNameMap,
     ) -> std::fmt::Result {
         todo!()
     }

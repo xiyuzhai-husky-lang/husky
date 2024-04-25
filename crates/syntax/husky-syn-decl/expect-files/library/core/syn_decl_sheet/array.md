@@ -15,7 +15,7 @@ SynDeclSheet {
                             template_parameters: [
                                 TemplateSynParameterData {
                                     annotated_variance_token: None,
-                                    symbol: 1,
+                                    symbol: 0,
                                     variant: TemplateParameterSyndicateVariant::Constant {
                                         const_token: ConstRegionalToken {
                                             regional_token_idx: RegionalTokenIdx(
@@ -33,7 +33,7 @@ SynDeclSheet {
                                                 7,
                                             ),
                                         ),
-                                        ty_expr: 1,
+                                        ty_expr: 0,
                                     },
                                 },
                                 TemplateSynParameterData {
@@ -46,7 +46,7 @@ SynDeclSheet {
                                             },
                                         ),
                                     ),
-                                    symbol: 2,
+                                    symbol: 1,
                                     variant: TemplateParameterSyndicateVariant::Type {
                                         ident_token: IdentRegionalToken {
                                             ident: `E`,
@@ -69,8 +69,8 @@ SynDeclSheet {
                                                         data: ItemSynNodePathData::MajorItem(
                                                             MajorItemSynNodePathData::Type(
                                                                 TypeSynNodePathData {
-                                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                                        path: TypePath(`core::array::Array`, `Extern`),
+                                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                                        maybe_ambiguous_item_path: TypePath(`core::array::Array`, `Extern`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -81,10 +81,10 @@ SynDeclSheet {
                                             ),
                                         ),
                                     ),
-                                    syn_expr_arena: Arena {
+                                    expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 1,
+                                                path_expr_idx: 0,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -132,41 +132,41 @@ SynDeclSheet {
                                             data: [],
                                         },
                                     },
-                                    symbol_region: VariableRegionData {
+                                    variable_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         9,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::TemplateParameter {
+                                                    data: CurrentVariableData::TemplateParameter {
                                                         syn_attrs: TemplateParameterSynAttrs {
                                                             syn_attrs: [],
                                                         },
                                                         annotated_variance_token: None,
-                                                        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Constant {
+                                                        data: CurrentTemplateVariableData::Constant {
                                                             ident_token: IdentRegionalToken {
                                                                 ident: `L`,
                                                                 regional_token_idx: RegionalTokenIdx(
                                                                     6,
                                                                 ),
                                                             },
-                                                            ty_expr_idx: 1,
+                                                            ty_expr_idx: 0,
                                                         },
                                                     },
                                                 },
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         12,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::TemplateParameter {
+                                                    data: CurrentVariableData::TemplateParameter {
                                                         syn_attrs: TemplateParameterSynAttrs {
                                                             syn_attrs: [],
                                                         },
@@ -179,13 +179,14 @@ SynDeclSheet {
                                                                 },
                                                             ),
                                                         ),
-                                                        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
+                                                        data: CurrentTemplateVariableData::Type {
                                                             ident_token: IdentRegionalToken {
                                                                 ident: `E`,
                                                                 regional_token_idx: RegionalTokenIdx(
                                                                     11,
                                                                 ),
                                                             },
+                                                            trai_syn_expr_idxs: [],
                                                         },
                                                     },
                                                 },
@@ -197,27 +198,27 @@ SynDeclSheet {
                                             (
                                                 TemplateTypeParameter,
                                                 ArenaIdxRange(
-                                                    1..2,
+                                                    0..1,
                                                 ),
                                             ),
                                             (
                                                 TemplateTypeParameter,
                                                 ArenaIdxRange(
-                                                    2..3,
+                                                    1..2,
                                                 ),
                                             ),
                                         ],
                                     },
-                                    syn_pattern_expr_roots: [],
-                                    syn_expr_roots: [
+                                    pattern_roots: [],
+                                    expr_roots: [
                                         SynExprRoot {
                                             kind: SynExprRootKind::ConstantImplicitParameterType,
-                                            syn_expr_idx: 1,
+                                            syn_expr_idx: 0,
                                         },
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
-                                    syn_pattern_to_current_syn_symbol_map: [],
+                                    pattern_to_current_variable_map: [],
                                 },
                             },
                         },

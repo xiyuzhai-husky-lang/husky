@@ -5,41 +5,41 @@ pub use self::hol_terms::*;
 pub use self::sol_terms::*;
 
 use super::*;
-use husky_eth_term::term::svar::EthSvar;
+use husky_eth_term::term::symbolic_variable::EthSymbolicVariable;
 
 // `Default` is not implemented because we might need to initialize `solid_terms` from the parent
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct FlyTerms {
-    solid_terms: SolTerms,
-    hollow_terms: HolTerms,
+    sol_terms: SolTerms,
+    hol_terms: HolTerms,
 }
 
 impl std::borrow::Borrow<HolTerms> for FlyTerms {
     fn borrow(&self) -> &HolTerms {
-        &self.hollow_terms
+        &self.hol_terms
     }
 }
 
 impl FlyTerms {
     pub(crate) fn new(terms: Option<&Self>) -> Self {
         Self {
-            solid_terms: SolTerms::new(terms.map(|terms| &terms.solid_terms)),
+            sol_terms: SolTerms::new(terms.map(|terms| &terms.sol_terms)),
             // `Default` is derived for `hollow_terms` because we never inherited hollow terms
-            hollow_terms: Default::default(),
+            hol_terms: Default::default(),
         }
     }
 
     pub(crate) fn new_hole_from_template_parameter_symbol(
         &mut self,
         hole_source: HoleSource,
-        template_parameter_symbol: EthSvar,
+        template_parameter_symbol: EthSymbolicVariable,
         db: &::salsa::Db,
     ) -> HolTerm {
         let hole_kind = match template_parameter_symbol.ty(db) {
             EthTerm::Literal(_) => todo!(),
-            EthTerm::Symbol(_) => HoleKind::AnyOriginal,
-            EthTerm::Hvar(_) => todo!(),
+            EthTerm::SymbolicVariable(_) => HoleKind::AnyOriginal,
+            EthTerm::LambdaVariable(_) => todo!(),
             EthTerm::EntityPath(_) => todo!(),
             EthTerm::Category(cat) => {
                 if cat.universe().raw() != 1 {
@@ -56,7 +56,7 @@ impl FlyTerms {
             EthTerm::TypeAsTraitItem(_) => todo!(),
             EthTerm::TraitConstraint(_) => todo!(),
         };
-        self.hollow_terms.alloc_new(HolTermData::Hole {
+        self.hol_terms.alloc_new(HolTermData::Hole {
             hole_source,
             hole_kind,
             fill: None,
@@ -72,7 +72,7 @@ impl FlyTerms {
         parameter_hvar: FlyHvar,
     ) -> HolTerm {
         let hole_kind = match parameter_hvar.data_inner(db, self) {
-            FlyTermData::Hvar { ty, .. } => match ty.data_inner(db, self) {
+            FlyTermData::LambdaVariable { ty, .. } => match ty.data_inner(db, self) {
                 FlyTermData::TypeOntology {
                     ty_path: path,
                     refined_ty_path: refined_path,
@@ -101,8 +101,8 @@ impl FlyTerms {
                     parameter_contracted_tys,
                     return_ty,
                 } => todo!(),
-                FlyTermData::Symbol { .. } => HoleKind::AnyOriginal,
-                FlyTermData::Hvar { .. } => todo!(),
+                FlyTermData::SymbolicVariable { .. } => HoleKind::AnyOriginal,
+                FlyTermData::LambdaVariable { .. } => todo!(),
                 _ => unreachable!(),
             },
             FlyTermData::Hole(_, _) => todo!(),
@@ -117,7 +117,7 @@ impl FlyTerms {
                 unreachable!()
             }
         };
-        self.hollow_terms.alloc_new(HolTermData::Hole {
+        self.hol_terms.alloc_new(HolTermData::Hole {
             hole_source,
             hole_kind,
             fill: None,
@@ -125,19 +125,19 @@ impl FlyTerms {
         })
     }
 
-    pub fn hollow_terms(&self) -> &HolTerms {
-        &self.hollow_terms
+    pub fn hol_terms(&self) -> &HolTerms {
+        &self.hol_terms
     }
 
-    pub fn solid_terms(&self) -> &SolTerms {
-        &self.solid_terms
+    pub fn sol_terms(&self) -> &SolTerms {
+        &self.sol_terms
     }
 
-    pub fn hollow_terms_mut(&mut self) -> &mut HolTerms {
-        &mut self.hollow_terms
+    pub fn hol_terms_mut(&mut self) -> &mut HolTerms {
+        &mut self.hol_terms
     }
 
-    pub fn solid_terms_mut(&mut self) -> &mut SolTerms {
-        &mut self.solid_terms
+    pub fn sol_terms_mut(&mut self) -> &mut SolTerms {
+        &mut self.sol_terms
     }
 }

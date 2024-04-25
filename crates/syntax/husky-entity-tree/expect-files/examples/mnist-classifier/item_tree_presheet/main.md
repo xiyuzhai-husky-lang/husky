@@ -10,8 +10,8 @@ EntityTreePresheet {
                             ItemSynNodePathId {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
+                                        disambiguated_item_path: DisambiguatedItemPath {
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(
                                                 ItemPathId(
                                                     Id {
                                                         value: 1,
@@ -27,7 +27,7 @@ EntityTreePresheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
-                        ast_idx: 11,
+                        ast_idx: 10,
                         ident_token: IdentToken {
                             ident: `connected_component`,
                             token_idx: TokenIdx(
@@ -42,8 +42,8 @@ EntityTreePresheet {
                         ItemSynNodePathId {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(
                                             ItemPathId(
                                                 Id {
                                                     value: 1,
@@ -69,8 +69,8 @@ EntityTreePresheet {
                             ItemSynNodePathId {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
+                                        disambiguated_item_path: DisambiguatedItemPath {
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(
                                                 ItemPathId(
                                                     Id {
                                                         value: 2,
@@ -86,7 +86,7 @@ EntityTreePresheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
-                        ast_idx: 12,
+                        ast_idx: 11,
                         ident_token: IdentToken {
                             ident: `raw_contour`,
                             token_idx: TokenIdx(
@@ -101,8 +101,8 @@ EntityTreePresheet {
                         ItemSynNodePathId {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(
                                             ItemPathId(
                                                 Id {
                                                     value: 2,
@@ -128,8 +128,8 @@ EntityTreePresheet {
                             ItemSynNodePathId {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
+                                        disambiguated_item_path: DisambiguatedItemPath {
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(
                                                 ItemPathId(
                                                     Id {
                                                         value: 3,
@@ -145,7 +145,7 @@ EntityTreePresheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
-                        ast_idx: 13,
+                        ast_idx: 12,
                         ident_token: IdentToken {
                             ident: `geom2d`,
                             token_idx: TokenIdx(
@@ -160,8 +160,8 @@ EntityTreePresheet {
                         ItemSynNodePathId {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(
                                             ItemPathId(
                                                 Id {
                                                     value: 3,
@@ -187,8 +187,8 @@ EntityTreePresheet {
                             ItemSynNodePathId {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
+                                        disambiguated_item_path: DisambiguatedItemPath {
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(
                                                 ItemPathId(
                                                     Id {
                                                         value: 4,
@@ -204,7 +204,7 @@ EntityTreePresheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
-                        ast_idx: 14,
+                        ast_idx: 13,
                         ident_token: IdentToken {
                             ident: `line_segment_sketch`,
                             token_idx: TokenIdx(
@@ -219,8 +219,8 @@ EntityTreePresheet {
                         ItemSynNodePathId {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(
                                             ItemPathId(
                                                 Id {
                                                     value: 4,
@@ -246,8 +246,8 @@ EntityTreePresheet {
                             ItemSynNodePathId {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
+                                        disambiguated_item_path: DisambiguatedItemPath {
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(
                                                 ItemPathId(
                                                     Id {
                                                         value: 5,
@@ -263,7 +263,7 @@ EntityTreePresheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
-                        ast_idx: 15,
+                        ast_idx: 14,
                         ident_token: IdentToken {
                             ident: `fermi`,
                             token_idx: TokenIdx(
@@ -278,8 +278,8 @@ EntityTreePresheet {
                         ItemSynNodePathId {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(
                                             ItemPathId(
                                                 Id {
                                                     value: 5,
@@ -305,8 +305,8 @@ EntityTreePresheet {
                             ItemSynNodePathId {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
+                                        disambiguated_item_path: DisambiguatedItemPath {
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(
                                                 ItemPathId(
                                                     Id {
                                                         value: 6,
@@ -322,7 +322,7 @@ EntityTreePresheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
-                        ast_idx: 16,
+                        ast_idx: 15,
                         ident_token: IdentToken {
                             ident: `digits`,
                             token_idx: TokenIdx(
@@ -337,8 +337,8 @@ EntityTreePresheet {
                         ItemSynNodePathId {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(
                                             ItemPathId(
                                                 Id {
                                                     value: 6,
@@ -364,8 +364,8 @@ EntityTreePresheet {
                             ItemSynNodePathId {
                                 data: ItemSynNodePathData::Submodule(
                                     SubmoduleSynNodePathData {
-                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                            path: SubmoduleItemPath(
+                                        disambiguated_item_path: DisambiguatedItemPath {
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(
                                                 ItemPathId(
                                                     Id {
                                                         value: 7,
@@ -381,7 +381,7 @@ EntityTreePresheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
-                        ast_idx: 17,
+                        ast_idx: 16,
                         ident_token: IdentToken {
                             ident: `major`,
                             token_idx: TokenIdx(
@@ -396,8 +396,8 @@ EntityTreePresheet {
                         ItemSynNodePathId {
                             data: ItemSynNodePathData::Submodule(
                                 SubmoduleSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: SubmoduleItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(
                                             ItemPathId(
                                                 Id {
                                                     value: 7,
@@ -419,25 +419,25 @@ EntityTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
-                        syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`mnist_classifier::main`, `Val`, (0)),
+                        syn_node_path: MajorItemSynNodePath::Form(
+                            FormSynNodePath(`mnist_classifier::main`, `Val`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier`,
                         ),
-                        ast_idx: 26,
+                        ast_idx: 25,
                         ident_token: IdentToken {
                             ident: `main`,
                             token_idx: TokenIdx(
                                 61,
                             ),
                         },
-                        block: DefnBlock::Fugitive {
-                            path: FugitivePath(`mnist_classifier::main`, `Val`),
+                        block: DefnBlock::Form {
+                            path: FormPath(`mnist_classifier::main`, `Val`),
                             body: Some(
-                                FugitiveBody {
+                                FormBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        1..11,
+                                        0..10,
                                     ),
                                 },
                             ),
@@ -445,8 +445,8 @@ EntityTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`mnist_classifier::main`, `Val`, (0)),
+                    MajorItemSynNodePath::Form(
+                        FormSynNodePath(`mnist_classifier::main`, `Val`, (0)),
                     ),
                 ),
                 ident: `main`,
@@ -459,8 +459,8 @@ EntityTreePresheet {
     once_use_rules: OnceUseRules(
         [
             OnceUseRule {
-                ast_idx: 18,
-                use_expr_idx: 3,
+                ast_idx: 17,
+                use_expr_idx: 2,
                 visibility: Scope::PubUnder(
                     `mnist_classifier`,
                 ),
@@ -473,15 +473,15 @@ EntityTreePresheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        2..3,
+                        1..2,
                     ),
                 },
                 parent: None,
                 state: UseOneRuleState::Unresolved,
             },
             OnceUseRule {
-                ast_idx: 19,
-                use_expr_idx: 6,
+                ast_idx: 18,
+                use_expr_idx: 5,
                 visibility: Scope::PubUnder(
                     `mnist_classifier`,
                 ),
@@ -494,15 +494,15 @@ EntityTreePresheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        5..6,
+                        4..5,
                     ),
                 },
                 parent: None,
                 state: UseOneRuleState::Unresolved,
             },
             OnceUseRule {
-                ast_idx: 20,
-                use_expr_idx: 9,
+                ast_idx: 19,
+                use_expr_idx: 8,
                 visibility: Scope::PubUnder(
                     `mnist_classifier`,
                 ),
@@ -515,15 +515,15 @@ EntityTreePresheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        8..9,
+                        7..8,
                     ),
                 },
                 parent: None,
                 state: UseOneRuleState::Unresolved,
             },
             OnceUseRule {
-                ast_idx: 21,
-                use_expr_idx: 12,
+                ast_idx: 20,
+                use_expr_idx: 11,
                 visibility: Scope::PubUnder(
                     `mnist_classifier`,
                 ),
@@ -536,15 +536,15 @@ EntityTreePresheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        11..12,
+                        10..11,
                     ),
                 },
                 parent: None,
                 state: UseOneRuleState::Unresolved,
             },
             OnceUseRule {
-                ast_idx: 22,
-                use_expr_idx: 15,
+                ast_idx: 21,
+                use_expr_idx: 14,
                 visibility: Scope::PubUnder(
                     `mnist_classifier`,
                 ),
@@ -557,15 +557,15 @@ EntityTreePresheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        14..15,
+                        13..14,
                     ),
                 },
                 parent: None,
                 state: UseOneRuleState::Unresolved,
             },
             OnceUseRule {
-                ast_idx: 23,
-                use_expr_idx: 18,
+                ast_idx: 22,
+                use_expr_idx: 17,
                 visibility: Scope::PubUnder(
                     `mnist_classifier`,
                 ),
@@ -578,15 +578,15 @@ EntityTreePresheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        17..18,
+                        16..17,
                     ),
                 },
                 parent: None,
                 state: UseOneRuleState::Unresolved,
             },
             OnceUseRule {
-                ast_idx: 24,
-                use_expr_idx: 20,
+                ast_idx: 23,
+                use_expr_idx: 19,
                 visibility: Scope::PubUnder(
                     `mnist_classifier`,
                 ),
@@ -600,15 +600,15 @@ EntityTreePresheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        19..20,
+                        18..19,
                     ),
                 },
                 parent: None,
                 state: UseOneRuleState::Unresolved,
             },
             OnceUseRule {
-                ast_idx: 25,
-                use_expr_idx: 22,
+                ast_idx: 24,
+                use_expr_idx: 21,
                 visibility: Scope::PubUnder(
                     `mnist_classifier`,
                 ),
@@ -622,7 +622,7 @@ EntityTreePresheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        21..22,
+                        20..21,
                     ),
                 },
                 parent: None,
@@ -661,7 +661,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 1,
+                            child: 0,
                         },
                     ),
                 },
@@ -684,7 +684,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 2,
+                            child: 1,
                         },
                     ),
                 },
@@ -715,7 +715,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 4,
+                            child: 3,
                         },
                     ),
                 },
@@ -738,7 +738,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 5,
+                            child: 4,
                         },
                     ),
                 },
@@ -769,7 +769,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 7,
+                            child: 6,
                         },
                     ),
                 },
@@ -792,7 +792,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 8,
+                            child: 7,
                         },
                     ),
                 },
@@ -823,7 +823,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 10,
+                            child: 9,
                         },
                     ),
                 },
@@ -846,7 +846,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 11,
+                            child: 10,
                         },
                     ),
                 },
@@ -877,7 +877,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 13,
+                            child: 12,
                         },
                     ),
                 },
@@ -900,7 +900,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 14,
+                            child: 13,
                         },
                     ),
                 },
@@ -931,7 +931,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 16,
+                            child: 15,
                         },
                     ),
                 },
@@ -954,7 +954,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 17,
+                            child: 16,
                         },
                     ),
                 },
@@ -985,7 +985,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 19,
+                            child: 18,
                         },
                     ),
                 },
@@ -1016,7 +1016,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 21,
+                            child: 20,
                         },
                     ),
                 },

@@ -19,7 +19,7 @@ husky-entity-kind.workspace = true
 husky-syn-expr.workspace = true
 husky-syn-defn.workspace = true
 # semantics
-husky-sema-expr.workspace = true
+husky-sem-expr.workspace = true
 # comptime
 husky-hir-eager-expr.workspace = true
 husky-hir-lazy-expr.workspace = true

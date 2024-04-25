@@ -4,8 +4,8 @@ use husky_hir_eager_expr::{
     HirEagerExprData, HirEagerExprIdx, HirEagerExprRegion, HirEagerExprSourceMap,
     HirEagerExprSourceMapData,
 };
-use husky_sema_expr::{
-    helpers::range::sema_expr_range_region, SemaExprData, SemaExprRegion, SemaRitchieArgument,
+use husky_sem_expr::{
+    helpers::range::sem_expr_range_region, SemaExprData, SemaExprRegion, SemaRitchieArgument,
 };
 use husky_syn_decl::decl::HasSynDecl;
 
@@ -28,10 +28,10 @@ pub enum EagerExprEssence {
 pub struct EagerExprTraceData {
     path: TracePath,
     biological_parent: Trace,
-    sema_expr_idx: SemaExprIdx,
+    sem_expr_idx: SemaExprIdx,
     hir_eager_expr_idx: Option<HirEagerExprIdx>,
     #[skip_fmt]
-    sema_expr_region: SemaExprRegion,
+    sem_expr_region: SemaExprRegion,
     #[skip_fmt]
     hir_eager_expr_region: HirEagerExprRegion,
     #[skip_fmt]
@@ -42,9 +42,9 @@ impl Trace {
     pub(crate) fn new_eager_expr(
         biological_parent_path: TracePath,
         biological_parent: Trace,
-        sema_expr_idx: SemaExprIdx,
+        sem_expr_idx: SemaExprIdx,
         hir_eager_expr_idx: Option<HirEagerExprIdx>,
-        sema_expr_region: SemaExprRegion,
+        sem_expr_region: SemaExprRegion,
         hir_eager_expr_region: HirEagerExprRegion,
         hir_eager_expr_source_map: HirEagerExprSourceMap,
         eager_expr_trace_path_registry: &mut TracePathRegistry<EagerExprEssence>,
@@ -64,9 +64,9 @@ impl Trace {
             EagerExprTraceData {
                 path,
                 biological_parent: biological_parent.into(),
-                sema_expr_idx,
+                sem_expr_idx,
                 hir_eager_expr_idx,
-                sema_expr_region,
+                sem_expr_region,
                 hir_eager_expr_region,
                 hir_eager_expr_source_map,
             }
@@ -78,11 +78,11 @@ impl Trace {
 
 impl EagerExprTraceData {
     pub(super) fn view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
-        let sema_expr_region = self.sema_expr_region;
-        let sema_expr_range_region = sema_expr_range_region(db, sema_expr_region);
-        let sema_expr_range_region_data = sema_expr_range_region.data(db);
-        let region_path = sema_expr_region.path(db);
-        let regional_token_idx_range = sema_expr_range_region_data[self.sema_expr_idx];
+        let sem_expr_region = self.sem_expr_region;
+        let sem_expr_range_region = sem_expr_range_region(db, sem_expr_region);
+        let sem_expr_range_region_data = sem_expr_range_region.data(db);
+        let region_path = sem_expr_region.path(db);
+        let regional_token_idx_range = sem_expr_range_region_data[self.sem_expr_idx];
         let token_idx_range = regional_token_idx_range
             .token_idx_range(region_path.regional_token_idx_base(db).unwrap());
         TraceViewLines::new(
@@ -99,11 +99,13 @@ impl EagerExprTraceData {
             return false;
         };
         match *self.hir_eager_expr_region.expr_arena(db)[hir_eager_expr_idx].data() {
-            HirEagerExprData::FunctionFnCall { path, .. } => path.hir_defn(db).is_some(),
-            HirEagerExprData::AssocFunctionFnCall { path, .. } => path.hir_defn(db).is_some(),
-            HirEagerExprData::MethodFnCall { path, .. } => path.hir_defn(db).is_some(),
+            HirEagerExprData::FunctionRitchieCall { path, .. } => path.hir_defn(db).is_some(),
+            HirEagerExprData::AssocFunctionRitchieCall { path, .. } => path.hir_defn(db).is_some(),
+            HirEagerExprData::MethodRitchieCall { path, .. } => path.hir_defn(db).is_some(),
             HirEagerExprData::Block { stmts: _ } => unreachable!(),
-            HirEagerExprData::AssocFn { assoc_item_path } => assoc_item_path.hir_defn(db).is_some(),
+            HirEagerExprData::AssocRitchie { assoc_item_path } => {
+                assoc_item_path.hir_defn(db).is_some()
+            }
             _ => false,
         }
     }
@@ -111,19 +113,19 @@ impl EagerExprTraceData {
     pub(super) fn subtraces(&self, trace: Trace, db: &::salsa::Db) -> Vec<Trace> {
         let biological_parent_path = self.path;
         let biological_parent = trace;
-        let sema_expr_idx = self.sema_expr_idx;
+        let sem_expr_idx = self.sem_expr_idx;
         let Some(hir_eager_expr_idx) = self.hir_eager_expr_idx else {
             return vec![];
         };
-        let caller_sema_expr_region = self.sema_expr_region;
-        let caller_sema_expr_region_data = caller_sema_expr_region.data(db);
+        let caller_sem_expr_region = self.sem_expr_region;
+        let caller_sem_expr_region_data = caller_sem_expr_region.data(db);
         let hir_eager_expr_source_map_data = self.hir_eager_expr_source_map.data(db);
         match *self.hir_eager_expr_region.expr_arena(db)[hir_eager_expr_idx].data() {
-            HirEagerExprData::FunctionFnCall { path, .. } => {
+            HirEagerExprData::FunctionRitchieCall { path, .. } => {
                 let SemaExprData::FunctionRitchieCall {
                     ref ritchie_parameter_argument_matches,
                     ..
-                } = sema_expr_idx.data(caller_sema_expr_region_data.sema_expr_arena())
+                } = sem_expr_idx.data(caller_sem_expr_region_data.sem_expr_arena())
                 else {
                     unreachable!()
                 };
@@ -132,7 +134,7 @@ impl EagerExprTraceData {
                     biological_parent_path,
                     biological_parent,
                     ritchie_parameter_argument_matches,
-                    caller_sema_expr_region,
+                    caller_sem_expr_region,
                     hir_eager_expr_source_map_data,
                     syn_decl.syn_expr_region(db),
                     db,
@@ -148,11 +150,11 @@ impl EagerExprTraceData {
                 );
                 subtraces
             }
-            HirEagerExprData::AssocFunctionFnCall { path, .. } => {
+            HirEagerExprData::AssocFunctionRitchieCall { path, .. } => {
                 let SemaExprData::FunctionRitchieCall {
                     ref ritchie_parameter_argument_matches,
                     ..
-                } = sema_expr_idx.data(caller_sema_expr_region_data.sema_expr_arena())
+                } = sem_expr_idx.data(caller_sem_expr_region_data.sem_expr_arena())
                 else {
                     unreachable!()
                 };
@@ -161,7 +163,7 @@ impl EagerExprTraceData {
                     biological_parent_path,
                     biological_parent,
                     ritchie_parameter_argument_matches,
-                    caller_sema_expr_region,
+                    caller_sem_expr_region,
                     hir_eager_expr_source_map_data,
                     syn_decl.syn_expr_region(db),
                     db,
@@ -177,11 +179,11 @@ impl EagerExprTraceData {
                 );
                 subtraces
             }
-            HirEagerExprData::MethodFnCall { path, .. } => {
+            HirEagerExprData::MethodRitchieCall { path, .. } => {
                 let SemaExprData::MethodFnCall {
                     ref ritchie_parameter_argument_matches,
                     ..
-                } = sema_expr_idx.data(caller_sema_expr_region_data.sema_expr_arena())
+                } = sem_expr_idx.data(caller_sem_expr_region_data.sem_expr_arena())
                 else {
                     unreachable!()
                 };
@@ -190,7 +192,7 @@ impl EagerExprTraceData {
                     biological_parent_path,
                     biological_parent,
                     ritchie_parameter_argument_matches,
-                    caller_sema_expr_region,
+                    caller_sem_expr_region,
                     hir_eager_expr_source_map_data,
                     syn_decl.syn_expr_region(db),
                     db,
@@ -207,7 +209,7 @@ impl EagerExprTraceData {
                 subtraces
             }
             HirEagerExprData::Block { .. } => unreachable!(),
-            HirEagerExprData::AssocFn { assoc_item_path: _ } => todo!(),
+            HirEagerExprData::AssocRitchie { assoc_item_path: _ } => todo!(),
             _ => vec![],
         }
     }
@@ -217,7 +219,7 @@ fn fn_call_eager_expr_trace_input_traces(
     trace_path: TracePath,
     trace: Trace,
     ritchie_parameter_argument_matches: &[SemaRitchieArgument],
-    caller_sema_expr_region: SemaExprRegion,
+    caller_sem_expr_region: SemaExprRegion,
     caller_hir_eager_expr_source_map_data: &HirEagerExprSourceMapData,
     callee_syn_expr_region: SynExprRegion,
     db: &::salsa::Db,
@@ -227,11 +229,11 @@ fn fn_call_eager_expr_trace_input_traces(
         .map(|m| {
             let data = match m {
                 SemaRitchieArgument::Simple(_, list_item) => {
-                    let sema_expr_idx = list_item.argument_sema_expr_idx();
+                    let sem_expr_idx = list_item.argument_sem_expr_idx();
                     EagerCallInputSketch::Simple {
-                        argument_sema_expr_idx: sema_expr_idx,
+                        argument_sem_expr_idx: sem_expr_idx,
                         argument_hir_eager_expr_idx: caller_hir_eager_expr_source_map_data
-                            .sema_to_hir_eager_expr_idx(sema_expr_idx),
+                            .sem_to_hir_eager_expr_idx(sem_expr_idx),
                     }
                 }
                 SemaRitchieArgument::Variadic(_, _) => {
@@ -245,7 +247,7 @@ fn fn_call_eager_expr_trace_input_traces(
                 trace_path,
                 trace,
                 data,
-                caller_sema_expr_region,
+                caller_sem_expr_region,
                 callee_syn_expr_region,
                 db,
             )

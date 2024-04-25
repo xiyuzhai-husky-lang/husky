@@ -34,7 +34,7 @@ husky-regional-token.workspace = true
 # linkage
 husky-linkage.workspace = true
 # semantics
-husky-sema-expr.workspace = true
+husky-sem-expr.workspace = true
 # syntax
 husky-entity-tree.workspace = true
 husky-syn-defn.workspace = true
@@ -70,8 +70,8 @@ husky-visual-protocol.workspace = true
 # semantics
 husky-manifest.workspace = true
 husky-corgi-config.workspace = true
-husky-sema-expr.workspace = true
-husky-sema-place-contract.workspace = true
+husky-sem-expr.workspace = true
+husky-sem-place-contract.workspace = true
 # syntax
 husky-ast = { workspace = true, features = ["test_utils"] }
 husky-toml-ast.workspace = true

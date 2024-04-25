@@ -1,10 +1,10 @@
 ```rust
 [
     HirDecl::MajorItem(
-        MajorItemHirDecl::Fugitive(
-            FugitiveHirDecl::Ki(
-                ValFugitiveHirDecl {
-                    path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+        MajorItemHirDecl::Form(
+            MajorFormHirDecl::Val(
+                MajorValHirDecl {
+                    path: FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {
                             ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
@@ -15,8 +15,8 @@
                     hir_eager_expr_region: HirEagerExprRegion {
                         region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                                MajorItemPath::Form(
+                                    FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                                 ),
                             ),
                         ),
@@ -29,12 +29,12 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },

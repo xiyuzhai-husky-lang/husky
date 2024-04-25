@@ -17,7 +17,7 @@
                                         annotated_variance: Some(
                                             Covariant,
                                         ),
-                                        svar: DecSvar(
+                                        svar: DecSymbolicVariable(
                                             Id {
                                                 value: 7,
                                             },
@@ -28,7 +28,7 @@
                                         annotated_variance: Some(
                                             Covariant,
                                         ),
-                                        svar: DecSvar(
+                                        svar: DecSymbolicVariable(
                                             Id {
                                                 value: 4,
                                             },
@@ -60,7 +60,7 @@
                                         annotated_variance: Some(
                                             Covariant,
                                         ),
-                                        svar: DecSvar(
+                                        svar: DecSymbolicVariable(
                                             Id {
                                                 value: 7,
                                             },
@@ -71,7 +71,7 @@
                                         annotated_variance: Some(
                                             Invariant,
                                         ),
-                                        svar: DecSvar(
+                                        svar: DecSymbolicVariable(
                                             Id {
                                                 value: 8,
                                             },
@@ -103,7 +103,7 @@
                                         annotated_variance: Some(
                                             Covariant,
                                         ),
-                                        svar: DecSvar(
+                                        svar: DecSymbolicVariable(
                                             Id {
                                                 value: 4,
                                             },
@@ -133,7 +133,7 @@
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        svar: DecSvar(
+                                        svar: DecSymbolicVariable(
                                             Id {
                                                 value: 9,
                                             },
@@ -142,7 +142,7 @@
                                     },
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        svar: DecSvar(
+                                        svar: DecSymbolicVariable(
                                             Id {
                                                 value: 10,
                                             },
@@ -171,7 +171,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    svar: DecSvar(
+                                    svar: DecSymbolicVariable(
                                         Id {
                                             value: 10,
                                         },

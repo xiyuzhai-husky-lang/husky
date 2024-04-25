@@ -4,7 +4,7 @@ mod solid;
 
 use super::*;
 use husky_coword::Ident;
-use husky_entity_tree::helpers::TraitInUseItemsWithGivenIdent;
+use husky_entity_tree::helpers::AvailableTraitItemsWithGivenIdent;
 use husky_regional_token::IdentRegionalToken;
 
 pub type FlyMethodDynamicDispatch = FlyDynamicDispatch<MethodFlySignature>;
@@ -22,7 +22,7 @@ pub trait HasFlyTraitMethodDispatch: Copy {
             expr_idx,
             ident_regional_token,
             engine
-                .trai_in_use_items_table()
+                .available_trai_items_table()
                 .available_trait_items_with_given_ident(ident_regional_token.ident())?,
             indirections,
         )
@@ -33,7 +33,7 @@ pub trait HasFlyTraitMethodDispatch: Copy {
         engine: &mut impl FlyTermEngineMut,
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
-        trai_item_records: TraitInUseItemsWithGivenIdent,
+        trai_item_records: AvailableTraitItemsWithGivenIdent,
         indirections: FlyIndirections,
     ) -> FlyTermMaybeResult<FlyMethodDynamicDispatch>;
 }
@@ -114,7 +114,7 @@ impl HasFlyTraitMethodDispatch for FlyTerm {
         engine: &mut impl FlyTermEngineMut,
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
-        trai_item_records: TraitInUseItemsWithGivenIdent,
+        trai_item_records: AvailableTraitItemsWithGivenIdent,
         indirections: FlyIndirections,
     ) -> FlyTermMaybeResult<FlyMethodDynamicDispatch> {
         match self.base_resolved(engine) {

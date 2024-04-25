@@ -7,8 +7,8 @@ impl FlyTerm {
             | FlyTermData::Hole(_, _)
             | FlyTermData::Sort(_)
             | FlyTermData::Ritchie { .. }
-            | FlyTermData::Symbol { .. }
-            | FlyTermData::Hvar { .. } => self,
+            | FlyTermData::SymbolicVariable { .. }
+            | FlyTermData::LambdaVariable { .. } => self,
             FlyTermData::Curry { return_ty, .. } => return_ty.curry_destination(db, terms),
             FlyTermData::Literal(_) | FlyTermData::TypeVariant { .. } => unreachable!(),
         }
@@ -39,7 +39,9 @@ impl FlyTerm {
             },
             FlyTermData::Sort(_) => FinalDestination::Sort,
             FlyTermData::Ritchie { ritchie_kind, .. } => FinalDestination::Ritchie(ritchie_kind),
-            FlyTermData::Symbol { .. } | FlyTermData::Hvar { .. } => FinalDestination::AnyOriginal,
+            FlyTermData::SymbolicVariable { .. } | FlyTermData::LambdaVariable { .. } => {
+                FinalDestination::AnyOriginal
+            }
             FlyTermData::Literal(_) | FlyTermData::TypeVariant { .. } => unreachable!(),
         }
     }
@@ -80,7 +82,7 @@ impl FlyTerm {
                 parameter_contracted_tys,
                 return_ty,
             } => 0,
-            FlyTermData::Symbol { .. } | FlyTermData::Hvar { .. } => 0,
+            FlyTermData::SymbolicVariable { .. } | FlyTermData::LambdaVariable { .. } => 0,
             FlyTermData::TypeVariant { path } => todo!(),
         }
     }

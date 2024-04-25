@@ -6,10 +6,10 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::UseExpr(
-                        2,
+                        1,
                     ),
                     data: TokenInfoData::UseExpr {
-                        use_expr_idx: 2,
+                        use_expr_idx: 1,
                         rule_idx: OnceUseRuleIdx(
                             0,
                         ),
@@ -38,8 +38,8 @@ Ok(
                                         data: ItemSynNodePathData::MajorItem(
                                             MajorItemSynNodePathData::Type(
                                                 TypeSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`core::array::Array`, `Extern`),
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`core::array::Array`, `Extern`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -63,11 +63,11 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::TemplateParameter(
-                        1,
+                        0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Constant {
                                 ident_token: IdentRegionalToken {
                                     ident: `L`,
@@ -85,7 +85,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`core::num::usize`, `Extern`),
@@ -106,11 +106,11 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::TemplateParameter(
-                        2,
+                        1,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                        current_variable_idx: 1,
+                        current_variable_kind: CurrentVariableKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `E`,

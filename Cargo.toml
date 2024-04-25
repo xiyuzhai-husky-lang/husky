@@ -15,10 +15,13 @@ members = [
     "crates/kernel/*",
     "crates/ki/*",
     "crates/lex/*",
+    "crates/lean/*",
     "crates/linkage/*",
     "crates/linktime/*",
     "crates/mir/*",
+    "crates/namekian/*",
     "crates/protocols/*",
+    "crates/prototypes/*",
     "crates/runtime/*",
     "crates/semantics/*",
     "crates/syntax/*",
@@ -30,6 +33,7 @@ members = [
     "crates/vmir/*",
     "library/core",
     "registry/*",
+    "playground/learn-rusqlite"
 ]
 resolver = "2"
 
@@ -64,8 +68,8 @@ lto = false
 arc-swap = "1.4.0"
 atomic_enum = "0.3.0"
 axum = { version = "0.7.4" }
-cargo = "0.78.0"
-cargo-manifest = "0.13.0"
+cargo = "0.78"
+cargo-manifest = "0.14"
 chinese-number = { version = "0.7.2", default-features = false, features = [
     "number-to-chinese"
 ] }
@@ -128,6 +132,16 @@ pathdiff = "0.2.1"
 proc-macro2 = "1.0.69"
 quote = "1.0"
 relative-path = "1.7.2"
+# `bundled` causes us to automatically compile and link in an up to date
+# version of SQLite for you. This avoids many common build issues, and
+# avoids depending on the version of SQLite on the users system (or your
+# system), which may be old or missing. It's the right choice for most
+# programs that control their own SQLite databases.
+#
+# That said, it's not ideal for all scenarios and in particular, generic
+# libraries built around `rusqlite` should probably not enable it, which
+# is why it is not a default feature -- it could become hard to disable.
+rusqlite = { version = "0.30.0", features = ["bundled"] }
 rust-optimal-transport = { version = "0.2", features = ["blas"] }
 rustc_version = "0.4"
 rustc-hash = "1.1.0"
@@ -166,6 +180,7 @@ maybe-result = { path = "crates/abstractions/maybe-result" }
 original-error = { path = "crates/abstractions/original-error" }
 parsec = { path = "crates/abstractions/parsec" }
 propagate = { path = "crates/abstractions/propagate" }
+ref-index = { path = "crates/abstractions/ref-index" }
 salsa = { path = "crates/abstractions/salsa" }
 salsa-macros = { path = "crates/abstractions/salsa-macros" }
 serde-impl = { path = "crates/abstractions/serde-impl" }
@@ -174,6 +189,7 @@ snapshot = { path = "crates/abstractions/snapshot" }
 time-capsule = { path = "crates/abstractions/time-capsule" }
 ui = { path = "crates/abstractions/ui" }
 vec-like = { path = "crates/abstractions/vec-like" }
+version-stamp = { path = "crates/abstractions/version-stamp" }
 with-db = { path = "crates/abstractions/with-db" }
 # comptime
 husky-dev-comptime = { path = "crates/comptime/husky-dev-comptime" }
@@ -242,9 +258,9 @@ husky-visual-protocol = { path = "crates/protocols/husky-visual-protocol" }
 # runtime
 husky-dev-runtime = { path = "crates/runtime/husky-dev-runtime" }
 # semantics
-husky-sema-expr = { path = "crates/semantics/husky-sema-expr" }
-husky-sema-opr = { path = "crates/semantics/husky-sema-opr" }
-husky-sema-place-contract = { path = "crates/semantics/husky-sema-place-contract" }
+husky-sem-expr = { path = "crates/semantics/husky-sem-expr" }
+husky-sem-opr = { path = "crates/semantics/husky-sem-opr" }
+husky-sem-place-contract = { path = "crates/semantics/husky-sem-place-contract" }
 # syntax
 husky-ast = { path = "crates/syntax/husky-ast" }
 husky-decl-ast = { path = "crates/syntax/husky-decl-ast" }
@@ -273,6 +289,12 @@ husky-task-interface = { path = "crates/tasks/husky-task-interface" }
 husky-task-interface-macros = { path = "crates/tasks/husky-task-interface-macros" }
 # tex
 husky-tex-ast = { path = "crates/tex/husky-tex-ast" }
+husky-tex-command = { path = "crates/tex/husky-tex-command" }
+husky-tex-math-letter = { path = "crates/tex/husky-tex-math-letter" }
+husky-tex-math-opr = { path = "crates/tex/husky-tex-math-opr" }
+husky-tex-prelude = { path = "crates/tex/husky-tex-prelude" }
+husky-tex-sem-expr = { path = "crates/tex/husky-tex-sem-expr" }
+husky-tex-syn-expr = { path = "crates/tex/husky-tex-syn-expr" }
 husky-tex-text = { path = "crates/tex/husky-tex-text" }
 husky-tex-token = { path = "crates/tex/husky-tex-token" }
 # toml
@@ -297,6 +319,7 @@ husky-path-utils = { path = "crates/utils/husky-path-utils" }
 husky-print-utils = { path = "crates/utils/husky-print-utils" }
 husky-profile-utils = { path = "crates/utils/husky-profile-utils" }
 husky-salsa-log-utils = { path = "crates/utils/husky-salsa-log-utils" }
+husky-screen-utils = { path = "crates/utils/husky-screen-utils" }
 husky-sync-utils = { path = "crates/utils/husky-sync-utils" }
 husky-toml-utils = { path = "crates/utils/husky-toml-utils" }
 husky-rng-utils = { path = "crates/utils/husky-rng-utils" }

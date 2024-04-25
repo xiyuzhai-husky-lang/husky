@@ -26,13 +26,13 @@ where
         let symbols = symbols
             .iter()
             .map(|(ident, pattern_symbol)| {
-                CurrentSynSymbolEntry::new(
+                CurrentVariableEntry::new(
                     self.pattern_expr_region(),
                     access_start,
                     Some(access_end),
-                    CurrentSynSymbolData::BeVariable {
+                    CurrentVariableData::BeVariable {
                         ident: *ident,
-                        pattern_symbol_idx: *pattern_symbol,
+                        pattern_variable_idx: *pattern_symbol,
                     },
                 )
             })

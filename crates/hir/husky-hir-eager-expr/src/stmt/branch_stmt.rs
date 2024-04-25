@@ -1,4 +1,4 @@
-use husky_sema_expr::{
+use husky_sem_expr::{
     match_stmt::SemaCaseBranch,
     stmt::if_else_stmt::{SemaElifBranch, SemaElseBranch, SemaIfBranch},
 };
@@ -65,7 +65,7 @@ impl ToHirEager for SemaCaseBranch {
 
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
         HirEagerCaseBranch {
-            pattern: builder.new_pattern(self.case_pattern_sema_obelisk.syn_pattern_root()),
+            pattern: builder.new_pattern(self.case_pattern_sem_obelisk.syn_pattern_root()),
             stmts: self.stmts.to_hir_eager(builder),
         }
     }

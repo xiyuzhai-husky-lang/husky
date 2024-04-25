@@ -1,7 +1,7 @@
 use super::*;
 use either::*;
 use husky_entity_path::{
-    AssocItemPath, FugitivePath, MajorItemPath, PatternPath, PreludeIntTypePath,
+    AssocItemPath, MajorFormPath, MajorItemPath, PatternPath, PreludeIntTypePath,
     PreludeNumTypePath, PreludeTypePath, PrincipalEntityPath, TraitForTypeItemPath, TraitItemPath,
     TraitPath, TypeItemPath, TypePath, TypeSketch, TypeVariantPath,
 };
@@ -56,7 +56,7 @@ impl<E> TranspileToRustWith<E> for MajorItemPath {
     }
 }
 
-impl<E> TranspileToRustWith<E> for FugitivePath {
+impl<E> TranspileToRustWith<E> for MajorFormPath {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         let db = builder.db();
         self.module_path(db).transpile_to_rust(builder);

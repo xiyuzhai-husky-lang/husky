@@ -107,14 +107,14 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::main`, `Val`),
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::main`, `Val`),
             ),
         ),
         Ok(
             DecTemplate::MajorItem(
-                MajorItemDecTemplate::Fugitive(
-                    FugitiveDecTemplate::Ki(
+                MajorItemDecTemplate::Form(
+                    MajorFormDecTemplate::Val(
                         MajorValDecTemplate {
                             return_ty: Application(
                                 DecApplication(

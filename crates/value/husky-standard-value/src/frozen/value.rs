@@ -9,6 +9,7 @@ use husky_value_protocol::presentation::EnumU8ValuePresenter;
 pub enum FrozenValue {
     /// useful for snapshot caching on stack
     None,
+    Uninit,
     Invalid,
     Moved,
     Unit(()),
@@ -53,6 +54,7 @@ pub enum FrozenValue {
 impl Value {
     pub unsafe fn freeze(&self) -> FrozenValue {
         match self {
+            Value::Uninit => todo!(),
             Value::Moved => FrozenValue::Moved,
             Value::Invalid => FrozenValue::Invalid,
             Value::Unit(_) => FrozenValue::Unit(()),

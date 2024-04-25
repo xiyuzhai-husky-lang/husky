@@ -206,7 +206,7 @@ impl TypeSynDecl {
         db: &::salsa::Db,
         path: TypePath,
         syn_node_decl: TypeSynNodeDecl,
-    ) -> DeclResult<Self> {
+    ) -> SynDeclResult<Self> {
         Ok(match syn_node_decl {
             TypeSynNodeDecl::Enum(syn_node_decl) => {
                 EnumSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
@@ -240,13 +240,13 @@ impl HasSynDecl for TypePath {
     type Decl = TypeSynDecl;
 
     #[inline(always)]
-    fn syn_decl(self, db: &::salsa::Db) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &::salsa::Db) -> SynDeclResult<Self::Decl> {
         ty_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
-pub(crate) fn ty_decl(db: &::salsa::Db, path: TypePath) -> DeclResult<TypeSynDecl> {
+pub(crate) fn ty_decl(db: &::salsa::Db, path: TypePath) -> SynDeclResult<TypeSynDecl> {
     TypeSynDecl::from_node_decl(db, path, path.syn_node_path(db).syn_node_decl(db))
 }
 

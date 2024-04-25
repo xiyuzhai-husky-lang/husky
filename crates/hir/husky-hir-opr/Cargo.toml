@@ -12,4 +12,4 @@ husky-opr.workspace = true
 husky-fly-term = { path = "../../kernel/husky-fly-term" }
 husky-entity-path.workspace = true
 # semantics
-husky-sema-opr = { path = "../../semantics/husky-sema-opr" }
+husky-sem-opr = { path = "../../semantics/husky-sem-opr" }

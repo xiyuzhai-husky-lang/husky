@@ -63,7 +63,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::zero::open_one_match`, `Val`),
                     },
                 ),
             },
@@ -74,7 +74,7 @@
                             value: 14,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 64,
@@ -113,14 +113,14 @@
                             value: 14,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        1,
+                    sem_stmt_idx: SemaStmtIdx(
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 2,
                         },
@@ -170,13 +170,13 @@
                             value: 16,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        5,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         4,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        3,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 2,
                         },
@@ -201,7 +201,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -212,7 +212,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -259,13 +259,13 @@
                             value: 16,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        5,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         4,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        3,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 2,
                         },
@@ -290,7 +290,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                     },
                 ),
             },
@@ -301,7 +301,7 @@
                             value: 15,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 66,
@@ -321,7 +321,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -342,11 +342,11 @@
                             value: 15,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        8,
+                    sem_stmt_idx: SemaStmtIdx(
+                        7,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        8,
+                        7,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -361,11 +361,11 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                1..8,
+                                0..7,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -391,7 +391,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -417,14 +417,14 @@
                             value: 19,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        1,
+                    sem_stmt_idx: SemaStmtIdx(
+                        0,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -450,7 +450,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -476,14 +476,14 @@
                             value: 19,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        2,
+                    sem_stmt_idx: SemaStmtIdx(
+                        1,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        2,
+                        1,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -509,7 +509,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -535,14 +535,14 @@
                             value: 19,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        3,
+                    sem_stmt_idx: SemaStmtIdx(
+                        2,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        3,
+                        2,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -568,7 +568,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -594,14 +594,14 @@
                             value: 19,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        4,
+                    sem_stmt_idx: SemaStmtIdx(
+                        3,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        4,
+                        3,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -627,7 +627,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -653,14 +653,14 @@
                             value: 19,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        5,
+                    sem_stmt_idx: SemaStmtIdx(
+                        4,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        5,
+                        4,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -686,7 +686,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -712,14 +712,14 @@
                             value: 19,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        6,
+                    sem_stmt_idx: SemaStmtIdx(
+                        5,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        6,
+                        5,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -745,7 +745,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -771,14 +771,14 @@
                             value: 19,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        7,
+                    sem_stmt_idx: SemaStmtIdx(
+                        6,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        7,
+                        6,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -798,7 +798,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -809,7 +809,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -848,13 +848,13 @@
                             value: 19,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        2,
+                    sem_expr_idx: SemaExprIdx(
+                        1,
                     ),
                     hir_lazy_expr_idx: Some(
-                        2,
+                        1,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -901,13 +901,13 @@
                             value: 19,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        3,
+                    sem_expr_idx: SemaExprIdx(
+                        2,
                     ),
                     hir_lazy_expr_idx: Some(
-                        3,
+                        2,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -935,7 +935,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -956,14 +956,14 @@
                             value: 15,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        9,
+                    sem_stmt_idx: SemaStmtIdx(
+                        8,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        9,
+                        8,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -1005,7 +1005,7 @@
                             value: 20,
                         },
                     ),
-                    syn_pattern_expr_idx: 5,
+                    syn_pattern_expr_idx: 4,
                     hir_lazy_pattern_expr_idx: None,
                     hir_lazy_variable_idxs: [
                         (
@@ -1017,11 +1017,11 @@
                                 ),
                             ),
                             Some(
-                                3,
+                                2,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -1063,13 +1063,13 @@
                             value: 20,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        34,
-                    ),
-                    hir_lazy_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         33,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_lazy_expr_idx: Some(
+                        32,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -1094,7 +1094,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -1105,7 +1105,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -1144,13 +1144,13 @@
                             value: 20,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        34,
-                    ),
-                    hir_lazy_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         33,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_lazy_expr_idx: Some(
+                        32,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -1178,7 +1178,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -1199,14 +1199,14 @@
                             value: 15,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        10,
+                    sem_stmt_idx: SemaStmtIdx(
+                        9,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        10,
+                        9,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -1248,13 +1248,13 @@
                             value: 21,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        43,
-                    ),
-                    hir_lazy_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         42,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_lazy_expr_idx: Some(
+                        41,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -1301,13 +1301,13 @@
                             value: 21,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        36,
-                    ),
-                    hir_lazy_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         35,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_lazy_expr_idx: Some(
+                        34,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -1354,13 +1354,13 @@
                             value: 21,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        37,
-                    ),
-                    hir_lazy_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         36,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_lazy_expr_idx: Some(
+                        35,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -1407,13 +1407,13 @@
                             value: 21,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        38,
-                    ),
-                    hir_lazy_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         37,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_lazy_expr_idx: Some(
+                        36,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -1460,13 +1460,13 @@
                             value: 21,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        39,
-                    ),
-                    hir_lazy_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         38,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_lazy_expr_idx: Some(
+                        37,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -1513,13 +1513,13 @@
                             value: 21,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        40,
-                    ),
-                    hir_lazy_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         39,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_lazy_expr_idx: Some(
+                        38,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -1566,13 +1566,13 @@
                             value: 21,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        41,
-                    ),
-                    hir_lazy_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         40,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_lazy_expr_idx: Some(
+                        39,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -1619,13 +1619,13 @@
                             value: 21,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        43,
-                    ),
-                    hir_lazy_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         42,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_lazy_expr_idx: Some(
+                        41,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -1653,7 +1653,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -1674,14 +1674,14 @@
                             value: 15,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        11,
+                    sem_stmt_idx: SemaStmtIdx(
+                        10,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        11,
+                        10,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -1723,13 +1723,13 @@
                             value: 22,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        45,
-                    ),
-                    hir_lazy_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         44,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_lazy_expr_idx: Some(
+                        43,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -1776,13 +1776,13 @@
                             value: 22,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        46,
-                    ),
-                    hir_lazy_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         45,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_lazy_expr_idx: Some(
+                        44,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -1810,7 +1810,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -1831,14 +1831,14 @@
                             value: 15,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        12,
+                    sem_stmt_idx: SemaStmtIdx(
+                        11,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        12,
+                        11,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -1858,7 +1858,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -1869,7 +1869,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -1908,13 +1908,13 @@
                             value: 23,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        50,
-                    ),
-                    hir_lazy_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         49,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_lazy_expr_idx: Some(
+                        48,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -1961,13 +1961,13 @@
                             value: 23,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        51,
-                    ),
-                    hir_lazy_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         50,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_lazy_expr_idx: Some(
+                        49,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -1995,7 +1995,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -2016,14 +2016,14 @@
                             value: 15,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        13,
+                    sem_stmt_idx: SemaStmtIdx(
+                        12,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        13,
+                        12,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -2043,7 +2043,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -2054,7 +2054,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -2093,13 +2093,13 @@
                             value: 24,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        56,
+                    sem_expr_idx: SemaExprIdx(
+                        55,
                     ),
                     hir_lazy_expr_idx: Some(
-                        54,
+                        53,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -2146,13 +2146,13 @@
                             value: 24,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        57,
+                    sem_expr_idx: SemaExprIdx(
+                        56,
                     ),
                     hir_lazy_expr_idx: Some(
-                        55,
+                        54,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -2180,7 +2180,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -2201,14 +2201,14 @@
                             value: 15,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        14,
+                    sem_stmt_idx: SemaStmtIdx(
+                        13,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        14,
+                        13,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -2250,7 +2250,7 @@
                             value: 25,
                         },
                     ),
-                    syn_pattern_expr_idx: 9,
+                    syn_pattern_expr_idx: 8,
                     hir_lazy_pattern_expr_idx: None,
                     hir_lazy_variable_idxs: [
                         (
@@ -2262,11 +2262,11 @@
                                 ),
                             ),
                             Some(
-                                4,
+                                3,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -2286,7 +2286,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -2297,7 +2297,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -2336,13 +2336,13 @@
                             value: 25,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        62,
+                    sem_expr_idx: SemaExprIdx(
+                        61,
                     ),
                     hir_lazy_expr_idx: Some(
-                        59,
+                        58,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -2389,13 +2389,13 @@
                             value: 25,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        63,
+                    sem_expr_idx: SemaExprIdx(
+                        62,
                     ),
                     hir_lazy_expr_idx: Some(
-                        60,
+                        59,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -2423,7 +2423,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -2444,14 +2444,14 @@
                             value: 15,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        15,
+                    sem_stmt_idx: SemaStmtIdx(
+                        14,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        15,
+                        14,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -2493,7 +2493,7 @@
                             value: 26,
                         },
                     ),
-                    syn_pattern_expr_idx: 10,
+                    syn_pattern_expr_idx: 9,
                     hir_lazy_pattern_expr_idx: None,
                     hir_lazy_variable_idxs: [
                         (
@@ -2505,11 +2505,11 @@
                                 ),
                             ),
                             Some(
-                                5,
+                                4,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -2551,13 +2551,13 @@
                             value: 26,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        66,
+                    sem_expr_idx: SemaExprIdx(
+                        65,
                     ),
                     hir_lazy_expr_idx: Some(
-                        63,
+                        62,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -2604,13 +2604,13 @@
                             value: 26,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        68,
+                    sem_expr_idx: SemaExprIdx(
+                        67,
                     ),
                     hir_lazy_expr_idx: Some(
-                        65,
+                        64,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -2657,13 +2657,13 @@
                             value: 26,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        69,
+                    sem_expr_idx: SemaExprIdx(
+                        68,
                     ),
                     hir_lazy_expr_idx: Some(
-                        66,
+                        65,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -2710,13 +2710,13 @@
                             value: 26,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        70,
+                    sem_expr_idx: SemaExprIdx(
+                        69,
                     ),
                     hir_lazy_expr_idx: Some(
-                        67,
+                        66,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -2763,13 +2763,13 @@
                             value: 26,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        72,
+                    sem_expr_idx: SemaExprIdx(
+                        71,
                     ),
                     hir_lazy_expr_idx: Some(
-                        69,
+                        68,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -2816,13 +2816,13 @@
                             value: 26,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        73,
+                    sem_expr_idx: SemaExprIdx(
+                        72,
                     ),
                     hir_lazy_expr_idx: Some(
-                        70,
+                        69,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -2850,7 +2850,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -2871,14 +2871,14 @@
                             value: 15,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        16,
+                    sem_stmt_idx: SemaStmtIdx(
+                        15,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        16,
+                        15,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -2920,7 +2920,7 @@
                             value: 27,
                         },
                     ),
-                    syn_pattern_expr_idx: 11,
+                    syn_pattern_expr_idx: 10,
                     hir_lazy_pattern_expr_idx: None,
                     hir_lazy_variable_idxs: [
                         (
@@ -2932,11 +2932,11 @@
                                 ),
                             ),
                             Some(
-                                6,
+                                5,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -2956,7 +2956,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                     },
                 ),
             },
@@ -2967,7 +2967,7 @@
                             value: 68,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 114,
@@ -3006,13 +3006,13 @@
                             value: 27,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        76,
+                    sem_expr_idx: SemaExprIdx(
+                        75,
                     ),
                     hir_lazy_expr_idx: Some(
-                        73,
+                        72,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -3059,13 +3059,13 @@
                             value: 27,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        77,
+                    sem_expr_idx: SemaExprIdx(
+                        76,
                     ),
                     hir_lazy_expr_idx: Some(
-                        74,
+                        73,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -3090,7 +3090,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                     },
                 ),
             },
@@ -3101,7 +3101,7 @@
                             value: 68,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 114,
@@ -3140,13 +3140,13 @@
                             value: 27,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        79,
+                    sem_expr_idx: SemaExprIdx(
+                        78,
                     ),
                     hir_lazy_expr_idx: Some(
-                        76,
+                        75,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -3193,13 +3193,13 @@
                             value: 27,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        80,
+                    sem_expr_idx: SemaExprIdx(
+                        79,
                     ),
                     hir_lazy_expr_idx: Some(
-                        77,
+                        76,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -3227,7 +3227,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -3248,14 +3248,14 @@
                             value: 15,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        17,
+                    sem_stmt_idx: SemaStmtIdx(
+                        16,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        17,
+                        16,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -3297,7 +3297,7 @@
                             value: 28,
                         },
                     ),
-                    syn_pattern_expr_idx: 12,
+                    syn_pattern_expr_idx: 11,
                     hir_lazy_pattern_expr_idx: None,
                     hir_lazy_variable_idxs: [
                         (
@@ -3309,11 +3309,11 @@
                                 ),
                             ),
                             Some(
-                                7,
+                                6,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -3355,13 +3355,13 @@
                             value: 28,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        82,
+                    sem_expr_idx: SemaExprIdx(
+                        81,
                     ),
                     hir_lazy_expr_idx: Some(
-                        79,
+                        78,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -3408,13 +3408,13 @@
                             value: 28,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        83,
+                    sem_expr_idx: SemaExprIdx(
+                        82,
                     ),
                     hir_lazy_expr_idx: Some(
-                        80,
+                        79,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -3442,7 +3442,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -3463,14 +3463,14 @@
                             value: 15,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        18,
+                    sem_stmt_idx: SemaStmtIdx(
+                        17,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        18,
+                        17,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -3512,13 +3512,13 @@
                             value: 29,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        85,
+                    sem_expr_idx: SemaExprIdx(
+                        84,
                     ),
                     hir_lazy_expr_idx: Some(
-                        82,
+                        81,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -3546,7 +3546,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -3567,14 +3567,14 @@
                             value: 15,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        19,
+                    sem_stmt_idx: SemaStmtIdx(
+                        18,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        19,
+                        18,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -3616,7 +3616,7 @@
                             value: 30,
                         },
                     ),
-                    syn_pattern_expr_idx: 13,
+                    syn_pattern_expr_idx: 12,
                     hir_lazy_pattern_expr_idx: None,
                     hir_lazy_variable_idxs: [
                         (
@@ -3628,11 +3628,11 @@
                                 ),
                             ),
                             Some(
-                                8,
+                                7,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -3674,13 +3674,13 @@
                             value: 30,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        88,
+                    sem_expr_idx: SemaExprIdx(
+                        87,
                     ),
                     hir_lazy_expr_idx: Some(
-                        85,
+                        84,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -3727,13 +3727,13 @@
                             value: 30,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        89,
+                    sem_expr_idx: SemaExprIdx(
+                        88,
                     ),
                     hir_lazy_expr_idx: Some(
-                        86,
+                        85,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -3761,7 +3761,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -3782,14 +3782,14 @@
                             value: 15,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        20,
+                    sem_stmt_idx: SemaStmtIdx(
+                        19,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        20,
+                        19,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -3838,7 +3838,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::one::one_fermi_match`, `Val`),
                     },
                 ),
             },
@@ -3849,7 +3849,7 @@
                             value: 80,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 67,
@@ -3888,14 +3888,14 @@
                             value: 85,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        1,
+                    sem_stmt_idx: SemaStmtIdx(
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 8,
                         },
@@ -3945,13 +3945,13 @@
                             value: 87,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        7,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         6,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        5,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 8,
                         },
@@ -3976,7 +3976,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -3987,7 +3987,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -4034,13 +4034,13 @@
                             value: 87,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        7,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         6,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        5,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 8,
                         },
@@ -4065,7 +4065,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                     },
                 ),
             },
@@ -4076,7 +4076,7 @@
                             value: 81,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 68,
@@ -4096,7 +4096,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 },
                             ),
                         },
@@ -4117,14 +4117,14 @@
                             value: 86,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        42,
+                    sem_stmt_idx: SemaStmtIdx(
+                        41,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        42,
+                        41,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -4166,13 +4166,13 @@
                             value: 90,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        6,
+                    sem_expr_idx: SemaExprIdx(
+                        5,
                     ),
                     hir_lazy_expr_idx: Some(
-                        6,
+                        5,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -4197,7 +4197,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -4208,7 +4208,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -4247,13 +4247,13 @@
                             value: 90,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        3,
+                    sem_expr_idx: SemaExprIdx(
+                        2,
                     ),
                     hir_lazy_expr_idx: Some(
-                        3,
+                        2,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -4278,7 +4278,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                     },
                 ),
             },
@@ -4289,7 +4289,7 @@
                             value: 90,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 111,
@@ -4328,13 +4328,13 @@
                             value: 90,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        6,
+                    sem_expr_idx: SemaExprIdx(
+                        5,
                     ),
                     hir_lazy_expr_idx: Some(
-                        6,
+                        5,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -4362,7 +4362,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 },
                             ),
                         },
@@ -4383,14 +4383,14 @@
                             value: 86,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        43,
+                    sem_stmt_idx: SemaStmtIdx(
+                        42,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        43,
+                        42,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -4432,7 +4432,7 @@
                             value: 91,
                         },
                     ),
-                    syn_pattern_expr_idx: 1,
+                    syn_pattern_expr_idx: 0,
                     hir_lazy_pattern_expr_idx: None,
                     hir_lazy_variable_idxs: [
                         (
@@ -4444,11 +4444,11 @@
                                 ),
                             ),
                             Some(
-                                1,
+                                0,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -4490,13 +4490,13 @@
                             value: 91,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        11,
+                    sem_expr_idx: SemaExprIdx(
+                        10,
                     ),
                     hir_lazy_expr_idx: Some(
-                        11,
+                        10,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -4521,7 +4521,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -4532,7 +4532,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -4571,13 +4571,13 @@
                             value: 91,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        11,
+                    sem_expr_idx: SemaExprIdx(
+                        10,
                     ),
                     hir_lazy_expr_idx: Some(
-                        11,
+                        10,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -4605,7 +4605,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 },
                             ),
                         },
@@ -4626,11 +4626,11 @@
                             value: 86,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        44,
+                    sem_stmt_idx: SemaStmtIdx(
+                        43,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        44,
+                        43,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -4645,11 +4645,11 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                2..5,
+                                1..4,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -4675,7 +4675,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -4701,14 +4701,14 @@
                             value: 92,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        2,
+                    sem_stmt_idx: SemaStmtIdx(
+                        1,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        2,
+                        1,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -4734,7 +4734,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -4760,11 +4760,11 @@
                             value: 92,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        3,
+                    sem_stmt_idx: SemaStmtIdx(
+                        2,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        3,
+                        2,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -4779,11 +4779,11 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                1..2,
+                                0..1,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -4809,7 +4809,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -4835,14 +4835,14 @@
                             value: 92,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        4,
+                    sem_stmt_idx: SemaStmtIdx(
+                        3,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        4,
+                        3,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -4884,13 +4884,13 @@
                             value: 92,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        12,
+                    sem_expr_idx: SemaExprIdx(
+                        11,
                     ),
                     hir_lazy_expr_idx: Some(
-                        12,
+                        11,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -4937,13 +4937,13 @@
                             value: 92,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        13,
+                    sem_expr_idx: SemaExprIdx(
+                        12,
                     ),
                     hir_lazy_expr_idx: Some(
-                        13,
+                        12,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -4971,7 +4971,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 },
                             ),
                         },
@@ -4992,11 +4992,11 @@
                             value: 86,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        44,
+                    sem_stmt_idx: SemaStmtIdx(
+                        43,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        44,
+                        43,
                     ),
                     lazy_stmt_sketch: ElseBranch {
                         else_regional_token: ElseRegionalToken {
@@ -5011,11 +5011,11 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                16..42,
+                                15..41,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -5041,7 +5041,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -5067,14 +5067,14 @@
                             value: 93,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        16,
+                    sem_stmt_idx: SemaStmtIdx(
+                        15,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        16,
+                        15,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -5100,7 +5100,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -5126,14 +5126,14 @@
                             value: 93,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        17,
+                    sem_stmt_idx: SemaStmtIdx(
+                        16,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        17,
+                        16,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -5159,7 +5159,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -5185,14 +5185,14 @@
                             value: 93,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        18,
+                    sem_stmt_idx: SemaStmtIdx(
+                        17,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        18,
+                        17,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -5218,7 +5218,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -5244,14 +5244,14 @@
                             value: 93,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        19,
+                    sem_stmt_idx: SemaStmtIdx(
+                        18,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        19,
+                        18,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -5277,7 +5277,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -5303,14 +5303,14 @@
                             value: 93,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        20,
+                    sem_stmt_idx: SemaStmtIdx(
+                        19,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        20,
+                        19,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -5336,7 +5336,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -5362,11 +5362,11 @@
                             value: 93,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        21,
+                    sem_stmt_idx: SemaStmtIdx(
+                        20,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        21,
+                        20,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -5381,11 +5381,11 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                5..9,
+                                4..8,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -5411,7 +5411,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -5437,14 +5437,14 @@
                             value: 93,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        22,
+                    sem_stmt_idx: SemaStmtIdx(
+                        21,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        22,
+                        21,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -5470,7 +5470,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -5496,14 +5496,14 @@
                             value: 93,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        23,
+                    sem_stmt_idx: SemaStmtIdx(
+                        22,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        23,
+                        22,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -5529,7 +5529,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -5555,14 +5555,14 @@
                             value: 93,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        24,
+                    sem_stmt_idx: SemaStmtIdx(
+                        23,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        24,
+                        23,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -5588,7 +5588,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -5614,14 +5614,14 @@
                             value: 93,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        25,
+                    sem_stmt_idx: SemaStmtIdx(
+                        24,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        25,
+                        24,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -5647,7 +5647,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -5673,11 +5673,11 @@
                             value: 93,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        26,
+                    sem_stmt_idx: SemaStmtIdx(
+                        25,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        26,
+                        25,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -5692,11 +5692,11 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                9..15,
+                                8..14,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -5722,7 +5722,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -5748,11 +5748,11 @@
                             value: 93,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        27,
+                    sem_stmt_idx: SemaStmtIdx(
+                        26,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        27,
+                        26,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -5767,11 +5767,11 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                15..16,
+                                14..15,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -5797,7 +5797,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -5823,14 +5823,14 @@
                             value: 93,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        28,
+                    sem_stmt_idx: SemaStmtIdx(
+                        27,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        28,
+                        27,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -5856,7 +5856,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -5882,14 +5882,14 @@
                             value: 93,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        29,
+                    sem_stmt_idx: SemaStmtIdx(
+                        28,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        29,
+                        28,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -5915,7 +5915,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -5941,14 +5941,14 @@
                             value: 93,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        30,
+                    sem_stmt_idx: SemaStmtIdx(
+                        29,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        30,
+                        29,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -5974,7 +5974,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -6000,14 +6000,14 @@
                             value: 93,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        31,
+                    sem_stmt_idx: SemaStmtIdx(
+                        30,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        31,
+                        30,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -6033,7 +6033,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -6059,14 +6059,14 @@
                             value: 93,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        32,
+                    sem_stmt_idx: SemaStmtIdx(
+                        31,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        32,
+                        31,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -6092,7 +6092,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -6118,14 +6118,14 @@
                             value: 93,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        33,
+                    sem_stmt_idx: SemaStmtIdx(
+                        32,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        33,
+                        32,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -6151,7 +6151,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -6177,14 +6177,14 @@
                             value: 93,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        34,
+                    sem_stmt_idx: SemaStmtIdx(
+                        33,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        34,
+                        33,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -6210,7 +6210,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -6236,14 +6236,14 @@
                             value: 93,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        35,
+                    sem_stmt_idx: SemaStmtIdx(
+                        34,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        35,
+                        34,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -6269,7 +6269,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -6295,14 +6295,14 @@
                             value: 93,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        36,
+                    sem_stmt_idx: SemaStmtIdx(
+                        35,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        36,
+                        35,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -6328,7 +6328,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -6354,14 +6354,14 @@
                             value: 93,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        37,
+                    sem_stmt_idx: SemaStmtIdx(
+                        36,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        37,
+                        36,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -6387,7 +6387,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -6413,14 +6413,14 @@
                             value: 93,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        38,
+                    sem_stmt_idx: SemaStmtIdx(
+                        37,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        38,
+                        37,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -6446,7 +6446,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -6472,14 +6472,14 @@
                             value: 93,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        39,
+                    sem_stmt_idx: SemaStmtIdx(
+                        38,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        39,
+                        38,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -6505,7 +6505,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -6531,14 +6531,14 @@
                             value: 93,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        40,
+                    sem_stmt_idx: SemaStmtIdx(
+                        39,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        40,
+                        39,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -6564,7 +6564,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -6590,14 +6590,14 @@
                             value: 93,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        41,
+                    sem_stmt_idx: SemaStmtIdx(
+                        40,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        41,
+                        40,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -6646,7 +6646,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                     },
                 ),
             },
@@ -6657,7 +6657,7 @@
                             value: 124,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 72,
@@ -6696,14 +6696,14 @@
                             value: 132,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        1,
+                    sem_stmt_idx: SemaStmtIdx(
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 18,
                         },
@@ -6753,13 +6753,13 @@
                             value: 135,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        5,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         4,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        3,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 18,
                         },
@@ -6784,7 +6784,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -6795,7 +6795,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -6842,13 +6842,13 @@
                             value: 135,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        5,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         4,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        3,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 18,
                         },
@@ -6873,7 +6873,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                     },
                 ),
             },
@@ -6884,7 +6884,7 @@
                             value: 125,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 73,
@@ -6923,14 +6923,14 @@
                             value: 133,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        1,
+                    sem_stmt_idx: SemaStmtIdx(
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 20,
                         },
@@ -6980,13 +6980,13 @@
                             value: 138,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        6,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         5,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        4,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 20,
                         },
@@ -7011,7 +7011,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -7022,7 +7022,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -7069,13 +7069,13 @@
                             value: 138,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        6,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         5,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        4,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 20,
                         },
@@ -7100,7 +7100,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                     },
                 ),
             },
@@ -7111,7 +7111,7 @@
                             value: 126,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 74,
@@ -7131,7 +7131,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -7152,14 +7152,14 @@
                             value: 134,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        20,
+                    sem_stmt_idx: SemaStmtIdx(
+                        19,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        20,
+                        19,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -7201,7 +7201,7 @@
                             value: 141,
                         },
                     ),
-                    syn_pattern_expr_idx: 1,
+                    syn_pattern_expr_idx: 0,
                     hir_lazy_pattern_expr_idx: None,
                     hir_lazy_variable_idxs: [
                         (
@@ -7213,11 +7213,11 @@
                                 ),
                             ),
                             Some(
-                                1,
+                                0,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -7237,7 +7237,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                     },
                 ),
             },
@@ -7248,7 +7248,7 @@
                             value: 124,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 72,
@@ -7287,13 +7287,13 @@
                             value: 141,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        2,
+                    sem_expr_idx: SemaExprIdx(
+                        1,
                     ),
                     hir_lazy_expr_idx: Some(
-                        2,
+                        1,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -7321,7 +7321,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -7342,14 +7342,14 @@
                             value: 134,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        21,
+                    sem_stmt_idx: SemaStmtIdx(
+                        20,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        21,
+                        20,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -7391,13 +7391,13 @@
                             value: 142,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        5,
+                    sem_expr_idx: SemaExprIdx(
+                        4,
                     ),
                     hir_lazy_expr_idx: Some(
-                        5,
+                        4,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -7425,7 +7425,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -7446,14 +7446,14 @@
                             value: 134,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        22,
+                    sem_stmt_idx: SemaStmtIdx(
+                        21,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        22,
+                        21,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -7495,7 +7495,7 @@
                             value: 143,
                         },
                     ),
-                    syn_pattern_expr_idx: 4,
+                    syn_pattern_expr_idx: 3,
                     hir_lazy_pattern_expr_idx: None,
                     hir_lazy_variable_idxs: [
                         (
@@ -7507,11 +7507,11 @@
                                 ),
                             ),
                             Some(
-                                2,
+                                1,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -7531,7 +7531,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -7542,7 +7542,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -7581,13 +7581,13 @@
                             value: 143,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        8,
-                    ),
-                    hir_lazy_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         7,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_lazy_expr_idx: Some(
+                        6,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -7615,7 +7615,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -7636,14 +7636,14 @@
                             value: 134,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        23,
+                    sem_stmt_idx: SemaStmtIdx(
+                        22,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        23,
+                        22,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -7685,7 +7685,7 @@
                             value: 144,
                         },
                     ),
-                    syn_pattern_expr_idx: 5,
+                    syn_pattern_expr_idx: 4,
                     hir_lazy_pattern_expr_idx: None,
                     hir_lazy_variable_idxs: [
                         (
@@ -7697,11 +7697,11 @@
                                 ),
                             ),
                             Some(
-                                3,
+                                2,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -7721,7 +7721,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -7732,7 +7732,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -7771,13 +7771,13 @@
                             value: 144,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        10,
-                    ),
-                    hir_lazy_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         9,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_lazy_expr_idx: Some(
+                        8,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -7802,7 +7802,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -7813,7 +7813,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -7852,13 +7852,13 @@
                             value: 144,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        12,
-                    ),
-                    hir_lazy_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         11,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_lazy_expr_idx: Some(
+                        10,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -7886,7 +7886,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -7907,11 +7907,11 @@
                             value: 134,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        24,
+                    sem_stmt_idx: SemaStmtIdx(
+                        23,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        24,
+                        23,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -7926,11 +7926,11 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                6..18,
+                                5..17,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -7956,7 +7956,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -7982,14 +7982,14 @@
                             value: 145,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        6,
+                    sem_stmt_idx: SemaStmtIdx(
+                        5,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        6,
+                        5,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -8015,7 +8015,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -8041,14 +8041,14 @@
                             value: 145,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        7,
+                    sem_stmt_idx: SemaStmtIdx(
+                        6,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        7,
+                        6,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -8074,7 +8074,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -8100,14 +8100,14 @@
                             value: 145,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        8,
+                    sem_stmt_idx: SemaStmtIdx(
+                        7,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        8,
+                        7,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -8133,7 +8133,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -8159,14 +8159,14 @@
                             value: 145,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        9,
+                    sem_stmt_idx: SemaStmtIdx(
+                        8,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        9,
+                        8,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -8192,7 +8192,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -8218,14 +8218,14 @@
                             value: 145,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        10,
+                    sem_stmt_idx: SemaStmtIdx(
+                        9,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        10,
+                        9,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -8251,7 +8251,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -8277,14 +8277,14 @@
                             value: 145,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        11,
+                    sem_stmt_idx: SemaStmtIdx(
+                        10,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        11,
+                        10,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -8310,7 +8310,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -8336,14 +8336,14 @@
                             value: 145,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        12,
+                    sem_stmt_idx: SemaStmtIdx(
+                        11,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        12,
+                        11,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -8369,7 +8369,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -8395,11 +8395,11 @@
                             value: 145,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        13,
+                    sem_stmt_idx: SemaStmtIdx(
+                        12,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        13,
+                        12,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -8414,11 +8414,11 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                1..5,
+                                0..4,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -8444,7 +8444,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -8470,14 +8470,14 @@
                             value: 145,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        14,
+                    sem_stmt_idx: SemaStmtIdx(
+                        13,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        14,
+                        13,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -8503,7 +8503,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -8529,14 +8529,14 @@
                             value: 145,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        15,
+                    sem_stmt_idx: SemaStmtIdx(
+                        14,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        15,
+                        14,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -8562,7 +8562,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -8588,11 +8588,11 @@
                             value: 145,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        16,
+                    sem_stmt_idx: SemaStmtIdx(
+                        15,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        16,
+                        15,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -8607,11 +8607,11 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                5..6,
+                                4..5,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -8637,7 +8637,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -8663,14 +8663,14 @@
                             value: 145,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        17,
+                    sem_stmt_idx: SemaStmtIdx(
+                        16,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        17,
+                        16,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -8712,13 +8712,13 @@
                             value: 145,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        14,
-                    ),
-                    hir_lazy_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         13,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_lazy_expr_idx: Some(
+                        12,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -8765,13 +8765,13 @@
                             value: 145,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        15,
-                    ),
-                    hir_lazy_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         14,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_lazy_expr_idx: Some(
+                        13,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -8799,7 +8799,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -8820,14 +8820,14 @@
                             value: 134,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        25,
+                    sem_stmt_idx: SemaStmtIdx(
+                        24,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        25,
+                        24,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -8869,13 +8869,13 @@
                             value: 146,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        87,
+                    sem_expr_idx: SemaExprIdx(
+                        86,
                     ),
                     hir_lazy_expr_idx: Some(
-                        84,
+                        83,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -8900,7 +8900,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                     },
                 ),
             },
@@ -8911,7 +8911,7 @@
                             value: 124,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 72,
@@ -8950,13 +8950,13 @@
                             value: 146,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        85,
+                    sem_expr_idx: SemaExprIdx(
+                        84,
                     ),
                     hir_lazy_expr_idx: Some(
-                        82,
+                        81,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -9003,13 +9003,13 @@
                             value: 146,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        87,
+                    sem_expr_idx: SemaExprIdx(
+                        86,
                     ),
                     hir_lazy_expr_idx: Some(
-                        84,
+                        83,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -9037,7 +9037,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -9058,11 +9058,11 @@
                             value: 134,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        26,
+                    sem_stmt_idx: SemaStmtIdx(
+                        25,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        26,
+                        25,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -9077,11 +9077,11 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                18..19,
+                                17..18,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -9107,7 +9107,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -9133,14 +9133,14 @@
                             value: 147,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        18,
+                    sem_stmt_idx: SemaStmtIdx(
+                        17,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        18,
+                        17,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -9160,7 +9160,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                     },
                 ),
             },
@@ -9171,7 +9171,7 @@
                             value: 124,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 72,
@@ -9210,13 +9210,13 @@
                             value: 147,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        90,
+                    sem_expr_idx: SemaExprIdx(
+                        89,
                     ),
                     hir_lazy_expr_idx: Some(
-                        87,
+                        86,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -9244,7 +9244,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -9265,14 +9265,14 @@
                             value: 134,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        27,
+                    sem_stmt_idx: SemaStmtIdx(
+                        26,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        27,
+                        26,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -9314,13 +9314,13 @@
                             value: 148,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        97,
+                    sem_expr_idx: SemaExprIdx(
+                        96,
                     ),
                     hir_lazy_expr_idx: Some(
-                        94,
+                        93,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -9367,13 +9367,13 @@
                             value: 148,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        98,
+                    sem_expr_idx: SemaExprIdx(
+                        97,
                     ),
                     hir_lazy_expr_idx: Some(
-                        95,
+                        94,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -9420,13 +9420,13 @@
                             value: 148,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        102,
+                    sem_expr_idx: SemaExprIdx(
+                        101,
                     ),
                     hir_lazy_expr_idx: Some(
-                        99,
+                        98,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -9473,13 +9473,13 @@
                             value: 148,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        103,
+                    sem_expr_idx: SemaExprIdx(
+                        102,
                     ),
                     hir_lazy_expr_idx: Some(
-                        100,
+                        99,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -9507,7 +9507,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -9528,11 +9528,11 @@
                             value: 134,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        28,
+                    sem_stmt_idx: SemaStmtIdx(
+                        27,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        28,
+                        27,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -9547,11 +9547,11 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                19..20,
+                                18..19,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -9577,7 +9577,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -9603,14 +9603,14 @@
                             value: 149,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        19,
+                    sem_stmt_idx: SemaStmtIdx(
+                        18,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        19,
+                        18,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -9652,13 +9652,13 @@
                             value: 149,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        106,
+                    sem_expr_idx: SemaExprIdx(
+                        105,
                     ),
                     hir_lazy_expr_idx: Some(
-                        103,
+                        102,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -9705,13 +9705,13 @@
                             value: 149,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        107,
+                    sem_expr_idx: SemaExprIdx(
+                        106,
                     ),
                     hir_lazy_expr_idx: Some(
-                        104,
+                        103,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -9739,7 +9739,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -9760,14 +9760,14 @@
                             value: 134,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        29,
+                    sem_stmt_idx: SemaStmtIdx(
+                        28,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        29,
+                        28,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -9809,13 +9809,13 @@
                             value: 150,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        120,
+                    sem_expr_idx: SemaExprIdx(
+                        119,
                     ),
                     hir_lazy_expr_idx: Some(
-                        116,
+                        115,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -9843,7 +9843,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -9864,14 +9864,14 @@
                             value: 134,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        30,
+                    sem_stmt_idx: SemaStmtIdx(
+                        29,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        30,
+                        29,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -9920,7 +9920,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
@@ -9931,7 +9931,7 @@
                             value: 176,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 77,
@@ -9970,14 +9970,14 @@
                             value: 192,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        1,
+                    sem_stmt_idx: SemaStmtIdx(
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 28,
                         },
@@ -10027,13 +10027,13 @@
                             value: 194,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        7,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         6,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        5,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 28,
                         },
@@ -10058,7 +10058,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -10069,7 +10069,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -10116,13 +10116,13 @@
                             value: 194,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        7,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         6,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        5,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 28,
                         },
@@ -10147,7 +10147,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                     },
                 ),
             },
@@ -10158,7 +10158,7 @@
                             value: 177,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 78,
@@ -10197,14 +10197,14 @@
                             value: 193,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        1,
+                    sem_stmt_idx: SemaStmtIdx(
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -10224,7 +10224,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -10235,7 +10235,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -10282,13 +10282,13 @@
                             value: 197,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        2,
+                    sem_expr_idx: SemaExprIdx(
+                        1,
                     ),
                     hir_eager_expr_idx: Some(
-                        2,
+                        1,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -10335,14 +10335,14 @@
                             value: 193,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        2,
+                    sem_stmt_idx: SemaStmtIdx(
+                        1,
                     ),
                     hir_eager_stmt_idx: Some(
-                        2,
+                        1,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -10362,7 +10362,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -10373,7 +10373,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -10420,13 +10420,13 @@
                             value: 198,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        6,
+                    sem_expr_idx: SemaExprIdx(
+                        5,
                     ),
                     hir_eager_expr_idx: Some(
-                        6,
+                        5,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -10473,14 +10473,14 @@
                             value: 193,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        3,
+                    sem_stmt_idx: SemaStmtIdx(
+                        2,
                     ),
                     hir_eager_stmt_idx: Some(
-                        3,
+                        2,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -10522,7 +10522,7 @@
                             value: 199,
                         },
                     ),
-                    syn_pattern_expr_idx: 1,
+                    syn_pattern_expr_idx: 0,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -10533,11 +10533,11 @@
                                 ),
                             ),
                             Some(
-                                1,
+                                0,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -10552,7 +10552,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
@@ -10563,7 +10563,7 @@
                             value: 176,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 77,
@@ -10610,13 +10610,13 @@
                             value: 199,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        10,
+                    sem_expr_idx: SemaExprIdx(
+                        9,
                     ),
                     hir_eager_expr_idx: Some(
-                        10,
+                        9,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -10663,14 +10663,14 @@
                             value: 193,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        4,
+                    sem_stmt_idx: SemaStmtIdx(
+                        3,
                     ),
                     hir_eager_stmt_idx: Some(
-                        4,
+                        3,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -10712,7 +10712,7 @@
                             value: 200,
                         },
                     ),
-                    syn_pattern_expr_idx: 2,
+                    syn_pattern_expr_idx: 1,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -10723,11 +10723,11 @@
                                 ),
                             ),
                             Some(
-                                2,
+                                1,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -10742,7 +10742,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
@@ -10753,7 +10753,7 @@
                             value: 176,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 77,
@@ -10800,13 +10800,13 @@
                             value: 200,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        14,
+                    sem_expr_idx: SemaExprIdx(
+                        13,
                     ),
                     hir_eager_expr_idx: Some(
-                        14,
+                        13,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -10853,14 +10853,14 @@
                             value: 193,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        5,
+                    sem_stmt_idx: SemaStmtIdx(
+                        4,
                     ),
                     hir_eager_stmt_idx: Some(
-                        5,
+                        4,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -10902,7 +10902,7 @@
                             value: 201,
                         },
                     ),
-                    syn_pattern_expr_idx: 3,
+                    syn_pattern_expr_idx: 2,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -10913,11 +10913,11 @@
                                 ),
                             ),
                             Some(
-                                3,
+                                2,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -10932,7 +10932,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
@@ -10943,7 +10943,7 @@
                             value: 176,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 77,
@@ -10990,13 +10990,13 @@
                             value: 201,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        18,
+                    sem_expr_idx: SemaExprIdx(
+                        17,
                     ),
                     hir_eager_expr_idx: Some(
-                        18,
+                        17,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -11043,14 +11043,14 @@
                             value: 193,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        6,
+                    sem_stmt_idx: SemaStmtIdx(
+                        5,
                     ),
                     hir_eager_stmt_idx: Some(
-                        6,
+                        5,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -11100,13 +11100,13 @@
                             value: 202,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        21,
+                    sem_expr_idx: SemaExprIdx(
+                        20,
                     ),
                     hir_eager_expr_idx: Some(
-                        21,
+                        20,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -11153,14 +11153,14 @@
                             value: 193,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        7,
+                    sem_stmt_idx: SemaStmtIdx(
+                        6,
                     ),
                     hir_eager_stmt_idx: Some(
-                        7,
+                        6,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -11210,13 +11210,13 @@
                             value: 203,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        23,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         22,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        21,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -11271,13 +11271,13 @@
                             value: 203,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        25,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         24,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        23,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -11324,14 +11324,14 @@
                             value: 193,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        8,
+                    sem_stmt_idx: SemaStmtIdx(
+                        7,
                     ),
                     hir_eager_stmt_idx: Some(
-                        8,
+                        7,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -11381,13 +11381,13 @@
                             value: 204,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        28,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         27,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        26,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -11434,14 +11434,14 @@
                             value: 193,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        9,
+                    sem_stmt_idx: SemaStmtIdx(
+                        8,
                     ),
                     hir_eager_stmt_idx: Some(
-                        9,
+                        8,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -11483,7 +11483,7 @@
                             value: 205,
                         },
                     ),
-                    syn_pattern_expr_idx: 8,
+                    syn_pattern_expr_idx: 7,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -11494,11 +11494,11 @@
                                 ),
                             ),
                             Some(
-                                4,
+                                3,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -11543,13 +11543,13 @@
                             value: 205,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        30,
+                    sem_expr_idx: SemaExprIdx(
+                        29,
                     ),
                     hir_eager_expr_idx: Some(
-                        28,
+                        27,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -11604,13 +11604,13 @@
                             value: 205,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        32,
+                    sem_expr_idx: SemaExprIdx(
+                        31,
                     ),
                     hir_eager_expr_idx: Some(
-                        30,
+                        29,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -11665,13 +11665,13 @@
                             value: 205,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        34,
+                    sem_expr_idx: SemaExprIdx(
+                        33,
                     ),
                     hir_eager_expr_idx: Some(
-                        32,
+                        31,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -11718,14 +11718,14 @@
                             value: 193,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        10,
+                    sem_stmt_idx: SemaStmtIdx(
+                        9,
                     ),
                     hir_eager_stmt_idx: Some(
-                        10,
+                        9,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -11775,13 +11775,13 @@
                             value: 206,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        35,
+                    sem_expr_idx: SemaExprIdx(
+                        34,
                     ),
                     hir_eager_expr_idx: Some(
-                        33,
+                        32,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -11836,13 +11836,13 @@
                             value: 206,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        38,
+                    sem_expr_idx: SemaExprIdx(
+                        37,
                     ),
                     hir_eager_expr_idx: Some(
-                        36,
+                        35,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -11889,14 +11889,14 @@
                             value: 193,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        11,
+                    sem_stmt_idx: SemaStmtIdx(
+                        10,
                     ),
                     hir_eager_stmt_idx: Some(
-                        11,
+                        10,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -11938,7 +11938,7 @@
                             value: 207,
                         },
                     ),
-                    syn_pattern_expr_idx: 9,
+                    syn_pattern_expr_idx: 8,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -11949,11 +11949,11 @@
                                 ),
                             ),
                             Some(
-                                5,
+                                4,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -11998,13 +11998,13 @@
                             value: 207,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        43,
+                    sem_expr_idx: SemaExprIdx(
+                        42,
                     ),
                     hir_eager_expr_idx: Some(
-                        41,
+                        40,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -12059,13 +12059,13 @@
                             value: 207,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        45,
+                    sem_expr_idx: SemaExprIdx(
+                        44,
                     ),
                     hir_eager_expr_idx: Some(
-                        43,
+                        42,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -12112,14 +12112,14 @@
                             value: 193,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        12,
+                    sem_stmt_idx: SemaStmtIdx(
+                        11,
                     ),
                     hir_eager_stmt_idx: Some(
-                        12,
+                        11,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -12161,7 +12161,7 @@
                             value: 208,
                         },
                     ),
-                    syn_pattern_expr_idx: 10,
+                    syn_pattern_expr_idx: 9,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -12172,11 +12172,11 @@
                                 ),
                             ),
                             Some(
-                                6,
+                                5,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -12221,13 +12221,13 @@
                             value: 208,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        46,
+                    sem_expr_idx: SemaExprIdx(
+                        45,
                     ),
                     hir_eager_expr_idx: Some(
-                        44,
+                        43,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -12282,13 +12282,13 @@
                             value: 208,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        48,
+                    sem_expr_idx: SemaExprIdx(
+                        47,
                     ),
                     hir_eager_expr_idx: Some(
-                        46,
+                        45,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -12335,14 +12335,14 @@
                             value: 193,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        13,
+                    sem_stmt_idx: SemaStmtIdx(
+                        12,
                     ),
                     hir_eager_stmt_idx: Some(
-                        13,
+                        12,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -12384,7 +12384,7 @@
                             value: 209,
                         },
                     ),
-                    syn_pattern_expr_idx: 11,
+                    syn_pattern_expr_idx: 10,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -12395,11 +12395,11 @@
                                 ),
                             ),
                             Some(
-                                7,
+                                6,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -12444,13 +12444,13 @@
                             value: 209,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        49,
+                    sem_expr_idx: SemaExprIdx(
+                        48,
                     ),
                     hir_eager_expr_idx: Some(
-                        47,
+                        46,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -12505,13 +12505,13 @@
                             value: 209,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        51,
+                    sem_expr_idx: SemaExprIdx(
+                        50,
                     ),
                     hir_eager_expr_idx: Some(
-                        49,
+                        48,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -12566,13 +12566,13 @@
                             value: 209,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        50,
+                    sem_expr_idx: SemaExprIdx(
+                        49,
                     ),
                     hir_eager_expr_idx: Some(
-                        48,
+                        47,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -12619,14 +12619,14 @@
                             value: 193,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        14,
+                    sem_stmt_idx: SemaStmtIdx(
+                        13,
                     ),
                     hir_eager_stmt_idx: Some(
-                        14,
+                        13,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -12676,13 +12676,13 @@
                             value: 210,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        52,
+                    sem_expr_idx: SemaExprIdx(
+                        51,
                     ),
                     hir_eager_expr_idx: Some(
-                        50,
+                        49,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -12729,14 +12729,14 @@
                             value: 193,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        15,
+                    sem_stmt_idx: SemaStmtIdx(
+                        14,
                     ),
                     hir_eager_stmt_idx: Some(
-                        15,
+                        14,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -12756,7 +12756,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
@@ -12767,7 +12767,7 @@
                             value: 176,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 77,
@@ -12814,13 +12814,13 @@
                             value: 211,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        56,
+                    sem_expr_idx: SemaExprIdx(
+                        55,
                     ),
                     hir_eager_expr_idx: Some(
-                        54,
+                        53,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -12867,14 +12867,14 @@
                             value: 193,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        16,
+                    sem_stmt_idx: SemaStmtIdx(
+                        15,
                     ),
                     hir_eager_stmt_idx: Some(
-                        16,
+                        15,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -12924,13 +12924,13 @@
                             value: 212,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        59,
+                    sem_expr_idx: SemaExprIdx(
+                        58,
                     ),
                     hir_eager_expr_idx: Some(
-                        57,
+                        56,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -12985,13 +12985,13 @@
                             value: 212,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        61,
+                    sem_expr_idx: SemaExprIdx(
+                        60,
                     ),
                     hir_eager_expr_idx: Some(
-                        59,
+                        58,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -13038,14 +13038,14 @@
                             value: 193,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        17,
+                    sem_stmt_idx: SemaStmtIdx(
+                        16,
                     ),
                     hir_eager_stmt_idx: Some(
-                        17,
+                        16,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -13094,7 +13094,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                     },
                 ),
             },
@@ -13105,7 +13105,7 @@
                             value: 229,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 82,
@@ -13144,14 +13144,14 @@
                             value: 252,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        1,
+                    sem_stmt_idx: SemaStmtIdx(
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 38,
                         },
@@ -13201,13 +13201,13 @@
                             value: 256,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        6,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         5,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        4,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 38,
                         },
@@ -13232,7 +13232,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -13243,7 +13243,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -13290,13 +13290,13 @@
                             value: 256,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        6,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         5,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        4,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 38,
                         },
@@ -13321,7 +13321,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                     },
                 ),
             },
@@ -13332,7 +13332,7 @@
                             value: 230,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 84,
@@ -13371,14 +13371,14 @@
                             value: 253,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        1,
+                    sem_stmt_idx: SemaStmtIdx(
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 42,
                         },
@@ -13428,13 +13428,13 @@
                             value: 259,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        5,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         4,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        3,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 42,
                         },
@@ -13459,7 +13459,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -13470,7 +13470,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -13517,13 +13517,13 @@
                             value: 259,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        5,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         4,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        3,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 42,
                         },
@@ -13548,7 +13548,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::four::components_max_heights`, `Val`),
                     },
                 ),
             },
@@ -13559,7 +13559,7 @@
                             value: 231,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 85,
@@ -13598,14 +13598,14 @@
                             value: 254,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        1,
+                    sem_stmt_idx: SemaStmtIdx(
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 44,
                         },
@@ -13655,13 +13655,13 @@
                             value: 262,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        5,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         4,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        3,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 44,
                         },
@@ -13686,7 +13686,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -13697,7 +13697,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -13744,13 +13744,13 @@
                             value: 262,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        5,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         4,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        3,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 44,
                         },
@@ -13775,7 +13775,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::four::is_four`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::four::is_four`, `Val`),
                     },
                 ),
             },
@@ -13786,7 +13786,7 @@
                             value: 232,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 86,
@@ -13825,14 +13825,14 @@
                             value: 255,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        15,
+                    sem_stmt_idx: SemaStmtIdx(
+                        14,
                     ),
                     hir_eager_stmt_idx: Some(
-                        15,
+                        14,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -13852,7 +13852,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                     },
                 ),
             },
@@ -13863,7 +13863,7 @@
                             value: 229,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 82,
@@ -13910,13 +13910,13 @@
                             value: 265,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        2,
+                    sem_expr_idx: SemaExprIdx(
+                        1,
                     ),
                     hir_eager_expr_idx: Some(
-                        2,
+                        1,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -13963,14 +13963,14 @@
                             value: 255,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        16,
+                    sem_stmt_idx: SemaStmtIdx(
+                        15,
                     ),
                     hir_eager_stmt_idx: Some(
-                        16,
+                        15,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -13990,7 +13990,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::four::left_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::four::left_components`, `Val`),
                     },
                 ),
             },
@@ -14001,7 +14001,7 @@
                             value: 229,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 82,
@@ -14048,13 +14048,13 @@
                             value: 266,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        7,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         6,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        5,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -14101,14 +14101,14 @@
                             value: 255,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        17,
+                    sem_stmt_idx: SemaStmtIdx(
+                        16,
                     ),
                     hir_eager_stmt_idx: Some(
-                        17,
+                        16,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -14150,7 +14150,7 @@
                             value: 267,
                         },
                     ),
-                    syn_pattern_expr_idx: 5,
+                    syn_pattern_expr_idx: 4,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -14161,11 +14161,11 @@
                                 ),
                             ),
                             Some(
-                                1,
+                                0,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -14180,7 +14180,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -14191,7 +14191,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -14238,13 +14238,13 @@
                             value: 267,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        12,
+                    sem_expr_idx: SemaExprIdx(
+                        11,
                     ),
                     hir_eager_expr_idx: Some(
-                        10,
+                        9,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -14291,14 +14291,14 @@
                             value: 255,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        18,
+                    sem_stmt_idx: SemaStmtIdx(
+                        17,
                     ),
                     hir_eager_stmt_idx: Some(
-                        18,
+                        17,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -14348,13 +14348,13 @@
                             value: 268,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        13,
+                    sem_expr_idx: SemaExprIdx(
+                        12,
                     ),
                     hir_eager_expr_idx: Some(
-                        11,
+                        10,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -14409,13 +14409,13 @@
                             value: 268,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        14,
+                    sem_expr_idx: SemaExprIdx(
+                        13,
                     ),
                     hir_eager_expr_idx: Some(
-                        12,
+                        11,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -14462,14 +14462,14 @@
                             value: 255,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        19,
+                    sem_stmt_idx: SemaStmtIdx(
+                        18,
                     ),
                     hir_eager_stmt_idx: Some(
-                        19,
+                        18,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -14511,7 +14511,7 @@
                             value: 269,
                         },
                     ),
-                    syn_pattern_expr_idx: 7,
+                    syn_pattern_expr_idx: 6,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -14522,11 +14522,11 @@
                                 ),
                             ),
                             Some(
-                                2,
+                                1,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -14541,7 +14541,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::four::components_max_downwards`, `Val`),
                     },
                 ),
             },
@@ -14552,7 +14552,7 @@
                             value: 230,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 84,
@@ -14599,13 +14599,13 @@
                             value: 269,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        19,
+                    sem_expr_idx: SemaExprIdx(
+                        18,
                     ),
                     hir_eager_expr_idx: Some(
-                        16,
+                        15,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -14652,14 +14652,14 @@
                             value: 255,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        20,
+                    sem_stmt_idx: SemaStmtIdx(
+                        19,
                     ),
                     hir_eager_stmt_idx: Some(
-                        20,
+                        19,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -14709,13 +14709,13 @@
                             value: 270,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        22,
+                    sem_expr_idx: SemaExprIdx(
+                        21,
                     ),
                     hir_eager_expr_idx: Some(
-                        19,
+                        18,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -14762,14 +14762,14 @@
                             value: 255,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        21,
+                    sem_stmt_idx: SemaStmtIdx(
+                        20,
                     ),
                     hir_eager_stmt_idx: Some(
-                        21,
+                        20,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -14811,7 +14811,7 @@
                             value: 271,
                         },
                     ),
-                    syn_pattern_expr_idx: 10,
+                    syn_pattern_expr_idx: 9,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -14822,11 +14822,11 @@
                                 ),
                             ),
                             Some(
-                                3,
+                                2,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -14871,13 +14871,13 @@
                             value: 271,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        24,
+                    sem_expr_idx: SemaExprIdx(
+                        23,
                     ),
                     hir_eager_expr_idx: Some(
-                        20,
+                        19,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -14932,13 +14932,13 @@
                             value: 271,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        26,
+                    sem_expr_idx: SemaExprIdx(
+                        25,
                     ),
                     hir_eager_expr_idx: Some(
-                        22,
+                        21,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -14993,13 +14993,13 @@
                             value: 271,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        27,
+                    sem_expr_idx: SemaExprIdx(
+                        26,
                     ),
                     hir_eager_expr_idx: Some(
-                        23,
+                        22,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -15046,14 +15046,14 @@
                             value: 255,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        22,
+                    sem_stmt_idx: SemaStmtIdx(
+                        21,
                     ),
                     hir_eager_stmt_idx: Some(
-                        22,
+                        21,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -15095,7 +15095,7 @@
                             value: 272,
                         },
                     ),
-                    syn_pattern_expr_idx: 11,
+                    syn_pattern_expr_idx: 10,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -15106,11 +15106,11 @@
                                 ),
                             ),
                             Some(
-                                4,
+                                3,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -15125,7 +15125,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -15136,7 +15136,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -15183,13 +15183,13 @@
                             value: 272,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        29,
+                    sem_expr_idx: SemaExprIdx(
+                        28,
                     ),
                     hir_eager_expr_idx: Some(
-                        25,
+                        24,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -15214,7 +15214,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -15225,7 +15225,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -15272,13 +15272,13 @@
                             value: 272,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        31,
+                    sem_expr_idx: SemaExprIdx(
+                        30,
                     ),
                     hir_eager_expr_idx: Some(
-                        27,
+                        26,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -15325,14 +15325,14 @@
                             value: 255,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        23,
+                    sem_stmt_idx: SemaStmtIdx(
+                        22,
                     ),
                     hir_eager_stmt_idx: Some(
-                        23,
+                        22,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -15382,13 +15382,13 @@
                             value: 273,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        33,
+                    sem_expr_idx: SemaExprIdx(
+                        32,
                     ),
                     hir_eager_expr_idx: Some(
-                        29,
+                        28,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -15435,11 +15435,11 @@
                             value: 255,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        24,
+                    sem_stmt_idx: SemaStmtIdx(
+                        23,
                     ),
                     hir_eager_stmt_idx: Some(
-                        24,
+                        23,
                     ),
                     eager_stmt_data_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -15454,11 +15454,11 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                1..15,
+                                0..14,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -15500,14 +15500,14 @@
                             value: 274,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        1,
+                    sem_stmt_idx: SemaStmtIdx(
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -15549,14 +15549,14 @@
                             value: 274,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        2,
+                    sem_stmt_idx: SemaStmtIdx(
+                        1,
                     ),
                     hir_eager_stmt_idx: Some(
-                        2,
+                        1,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -15598,14 +15598,14 @@
                             value: 274,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        3,
+                    sem_stmt_idx: SemaStmtIdx(
+                        2,
                     ),
                     hir_eager_stmt_idx: Some(
-                        3,
+                        2,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -15647,14 +15647,14 @@
                             value: 274,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        4,
+                    sem_stmt_idx: SemaStmtIdx(
+                        3,
                     ),
                     hir_eager_stmt_idx: Some(
-                        4,
+                        3,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -15696,14 +15696,14 @@
                             value: 274,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        5,
+                    sem_stmt_idx: SemaStmtIdx(
+                        4,
                     ),
                     hir_eager_stmt_idx: Some(
-                        5,
+                        4,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -15745,14 +15745,14 @@
                             value: 274,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        6,
+                    sem_stmt_idx: SemaStmtIdx(
+                        5,
                     ),
                     hir_eager_stmt_idx: Some(
-                        6,
+                        5,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -15794,14 +15794,14 @@
                             value: 274,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        7,
+                    sem_stmt_idx: SemaStmtIdx(
+                        6,
                     ),
                     hir_eager_stmt_idx: Some(
-                        7,
+                        6,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -15843,14 +15843,14 @@
                             value: 274,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        8,
+                    sem_stmt_idx: SemaStmtIdx(
+                        7,
                     ),
                     hir_eager_stmt_idx: Some(
-                        8,
+                        7,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -15892,14 +15892,14 @@
                             value: 274,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        9,
+                    sem_stmt_idx: SemaStmtIdx(
+                        8,
                     ),
                     hir_eager_stmt_idx: Some(
-                        9,
+                        8,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -15941,14 +15941,14 @@
                             value: 274,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        10,
+                    sem_stmt_idx: SemaStmtIdx(
+                        9,
                     ),
                     hir_eager_stmt_idx: Some(
-                        10,
+                        9,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -15990,14 +15990,14 @@
                             value: 274,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        11,
+                    sem_stmt_idx: SemaStmtIdx(
+                        10,
                     ),
                     hir_eager_stmt_idx: Some(
-                        11,
+                        10,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -16039,14 +16039,14 @@
                             value: 274,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        12,
+                    sem_stmt_idx: SemaStmtIdx(
+                        11,
                     ),
                     hir_eager_stmt_idx: Some(
-                        12,
+                        11,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -16088,14 +16088,14 @@
                             value: 274,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        13,
+                    sem_stmt_idx: SemaStmtIdx(
+                        12,
                     ),
                     hir_eager_stmt_idx: Some(
-                        13,
+                        12,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -16137,14 +16137,14 @@
                             value: 274,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        14,
+                    sem_stmt_idx: SemaStmtIdx(
+                        13,
                     ),
                     hir_eager_stmt_idx: Some(
-                        14,
+                        13,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -16194,13 +16194,13 @@
                             value: 274,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        36,
+                    sem_expr_idx: SemaExprIdx(
+                        35,
                     ),
                     hir_eager_expr_idx: Some(
-                        32,
+                        31,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -16255,13 +16255,13 @@
                             value: 274,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        37,
+                    sem_expr_idx: SemaExprIdx(
+                        36,
                     ),
                     hir_eager_expr_idx: Some(
-                        33,
+                        32,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -16308,14 +16308,14 @@
                             value: 255,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        25,
+                    sem_stmt_idx: SemaStmtIdx(
+                        24,
                     ),
                     hir_eager_stmt_idx: Some(
-                        25,
+                        24,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 46,
                         },
@@ -16364,7 +16364,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                     },
                 ),
             },
@@ -16375,7 +16375,7 @@
                             value: 283,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 89,
@@ -16414,14 +16414,14 @@
                             value: 315,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        1,
+                    sem_stmt_idx: SemaStmtIdx(
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 52,
                         },
@@ -16470,7 +16470,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                     },
                 ),
             },
@@ -16481,7 +16481,7 @@
                             value: 285,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 90,
@@ -16520,14 +16520,14 @@
                             value: 317,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        1,
+                    sem_stmt_idx: SemaStmtIdx(
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 54,
                         },
@@ -16577,13 +16577,13 @@
                             value: 320,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        5,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         4,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        3,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 54,
                         },
@@ -16608,7 +16608,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -16619,7 +16619,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -16666,13 +16666,13 @@
                             value: 320,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        5,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         4,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        3,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 54,
                         },
@@ -16697,7 +16697,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                     },
                 ),
             },
@@ -16708,7 +16708,7 @@
                             value: 286,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 92,
@@ -16747,14 +16747,14 @@
                             value: 318,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        1,
+                    sem_stmt_idx: SemaStmtIdx(
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 58,
                         },
@@ -16804,13 +16804,13 @@
                             value: 323,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        6,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         5,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        4,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 58,
                         },
@@ -16835,7 +16835,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -16846,7 +16846,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -16893,13 +16893,13 @@
                             value: 323,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        6,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         5,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        4,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 58,
                         },
@@ -16924,7 +16924,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                     },
                 ),
             },
@@ -16935,7 +16935,7 @@
                             value: 287,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 95,
@@ -16974,14 +16974,14 @@
                             value: 319,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        11,
+                    sem_stmt_idx: SemaStmtIdx(
+                        10,
                     ),
                     hir_eager_stmt_idx: Some(
-                        11,
+                        10,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -17001,7 +17001,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -17012,7 +17012,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -17059,13 +17059,13 @@
                             value: 326,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        2,
+                    sem_expr_idx: SemaExprIdx(
+                        1,
                     ),
                     hir_eager_expr_idx: Some(
-                        2,
+                        1,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -17112,14 +17112,14 @@
                             value: 319,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        12,
+                    sem_stmt_idx: SemaStmtIdx(
+                        11,
                     ),
                     hir_eager_stmt_idx: Some(
-                        12,
+                        11,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -17161,7 +17161,7 @@
                             value: 327,
                         },
                     ),
-                    syn_pattern_expr_idx: 1,
+                    syn_pattern_expr_idx: 0,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -17172,11 +17172,11 @@
                                 ),
                             ),
                             Some(
-                                1,
+                                0,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -17191,7 +17191,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                     },
                 ),
             },
@@ -17202,7 +17202,7 @@
                             value: 285,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 90,
@@ -17249,13 +17249,13 @@
                             value: 327,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        6,
+                    sem_expr_idx: SemaExprIdx(
+                        5,
                     ),
                     hir_eager_expr_idx: Some(
-                        6,
+                        5,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -17302,11 +17302,11 @@
                             value: 319,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        13,
+                    sem_stmt_idx: SemaStmtIdx(
+                        12,
                     ),
                     hir_eager_stmt_idx: Some(
-                        13,
+                        12,
                     ),
                     eager_stmt_data_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -17321,11 +17321,11 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                4..8,
+                                3..7,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -17367,14 +17367,14 @@
                             value: 328,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        4,
+                    sem_stmt_idx: SemaStmtIdx(
+                        3,
                     ),
                     hir_eager_stmt_idx: Some(
-                        4,
+                        3,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -17416,14 +17416,14 @@
                             value: 328,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        5,
+                    sem_stmt_idx: SemaStmtIdx(
+                        4,
                     ),
                     hir_eager_stmt_idx: Some(
-                        5,
+                        4,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -17465,11 +17465,11 @@
                             value: 328,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        6,
+                    sem_stmt_idx: SemaStmtIdx(
+                        5,
                     ),
                     hir_eager_stmt_idx: Some(
-                        6,
+                        5,
                     ),
                     eager_stmt_data_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -17484,11 +17484,11 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                1..4,
+                                0..3,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -17530,14 +17530,14 @@
                             value: 328,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        7,
+                    sem_stmt_idx: SemaStmtIdx(
+                        6,
                     ),
                     hir_eager_stmt_idx: Some(
-                        7,
+                        6,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -17587,13 +17587,13 @@
                             value: 328,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        7,
+                    sem_expr_idx: SemaExprIdx(
+                        6,
                     ),
                     hir_eager_expr_idx: Some(
-                        7,
+                        6,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -17640,11 +17640,11 @@
                             value: 319,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        14,
+                    sem_stmt_idx: SemaStmtIdx(
+                        13,
                     ),
                     hir_eager_stmt_idx: Some(
-                        14,
+                        13,
                     ),
                     eager_stmt_data_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -17659,11 +17659,11 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                8..11,
+                                7..10,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -17705,14 +17705,14 @@
                             value: 329,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        8,
+                    sem_stmt_idx: SemaStmtIdx(
+                        7,
                     ),
                     hir_eager_stmt_idx: Some(
-                        8,
+                        7,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -17754,14 +17754,14 @@
                             value: 329,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        9,
+                    sem_stmt_idx: SemaStmtIdx(
+                        8,
                     ),
                     hir_eager_stmt_idx: Some(
-                        9,
+                        8,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -17803,14 +17803,14 @@
                             value: 329,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        10,
+                    sem_stmt_idx: SemaStmtIdx(
+                        9,
                     ),
                     hir_eager_stmt_idx: Some(
-                        10,
+                        9,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -17860,13 +17860,13 @@
                             value: 329,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        36,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         35,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        34,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -17913,14 +17913,14 @@
                             value: 319,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        15,
+                    sem_stmt_idx: SemaStmtIdx(
+                        14,
                     ),
                     hir_eager_stmt_idx: Some(
-                        15,
+                        14,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -17940,7 +17940,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                     },
                 ),
             },
@@ -17951,7 +17951,7 @@
                             value: 286,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 92,
@@ -17998,13 +17998,13 @@
                             value: 330,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        49,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         48,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        47,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -18051,14 +18051,14 @@
                             value: 319,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        16,
+                    sem_stmt_idx: SemaStmtIdx(
+                        15,
                     ),
                     hir_eager_stmt_idx: Some(
-                        16,
+                        15,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -18100,7 +18100,7 @@
                             value: 331,
                         },
                     ),
-                    syn_pattern_expr_idx: 10,
+                    syn_pattern_expr_idx: 9,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -18111,11 +18111,11 @@
                                 ),
                             ),
                             Some(
-                                6,
+                                5,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -18130,7 +18130,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                     },
                 ),
             },
@@ -18141,7 +18141,7 @@
                             value: 286,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 92,
@@ -18188,13 +18188,13 @@
                             value: 331,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        54,
+                    sem_expr_idx: SemaExprIdx(
+                        53,
                     ),
                     hir_eager_expr_idx: Some(
-                        52,
+                        51,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -18241,14 +18241,14 @@
                             value: 319,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        17,
+                    sem_stmt_idx: SemaStmtIdx(
+                        16,
                     ),
                     hir_eager_stmt_idx: Some(
-                        17,
+                        16,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -18290,14 +18290,14 @@
                             value: 319,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        18,
+                    sem_stmt_idx: SemaStmtIdx(
+                        17,
                     ),
                     hir_eager_stmt_idx: Some(
-                        18,
+                        17,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -18346,7 +18346,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
                     },
                 ),
             },
@@ -18357,7 +18357,7 @@
                             value: 315,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 96,
@@ -18396,14 +18396,14 @@
                             value: 353,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        1,
+                    sem_stmt_idx: SemaStmtIdx(
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 66,
                         },
@@ -18453,13 +18453,13 @@
                             value: 355,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        5,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         4,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        3,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 66,
                         },
@@ -18484,7 +18484,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -18495,7 +18495,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -18542,13 +18542,13 @@
                             value: 355,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        5,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         4,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        3,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 66,
                         },
@@ -18573,7 +18573,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                     },
                 ),
             },
@@ -18584,7 +18584,7 @@
                             value: 316,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 97,
@@ -18623,14 +18623,14 @@
                             value: 354,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        4,
+                    sem_stmt_idx: SemaStmtIdx(
+                        3,
                     ),
                     hir_eager_stmt_idx: Some(
-                        4,
+                        3,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 68,
                         },
@@ -18672,7 +18672,7 @@
                             value: 358,
                         },
                     ),
-                    syn_pattern_expr_idx: 1,
+                    syn_pattern_expr_idx: 0,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -18683,11 +18683,11 @@
                                 ),
                             ),
                             Some(
-                                1,
+                                0,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 68,
                         },
@@ -18702,7 +18702,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -18713,7 +18713,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -18760,13 +18760,13 @@
                             value: 358,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        2,
+                    sem_expr_idx: SemaExprIdx(
+                        1,
                     ),
                     hir_eager_expr_idx: Some(
-                        2,
+                        1,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 68,
                         },
@@ -18791,7 +18791,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -18802,7 +18802,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -18849,13 +18849,13 @@
                             value: 358,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        4,
+                    sem_expr_idx: SemaExprIdx(
+                        3,
                     ),
                     hir_eager_expr_idx: Some(
-                        4,
+                        3,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 68,
                         },
@@ -18902,11 +18902,11 @@
                             value: 354,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        5,
+                    sem_stmt_idx: SemaStmtIdx(
+                        4,
                     ),
                     hir_eager_stmt_idx: Some(
-                        5,
+                        4,
                     ),
                     eager_stmt_data_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -18921,11 +18921,11 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                2..4,
+                                1..3,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 68,
                         },
@@ -18967,11 +18967,11 @@
                             value: 359,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        2,
+                    sem_stmt_idx: SemaStmtIdx(
+                        1,
                     ),
                     hir_eager_stmt_idx: Some(
-                        2,
+                        1,
                     ),
                     eager_stmt_data_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -18986,11 +18986,11 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                1..2,
+                                0..1,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 68,
                         },
@@ -19032,14 +19032,14 @@
                             value: 359,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        3,
+                    sem_stmt_idx: SemaStmtIdx(
+                        2,
                     ),
                     hir_eager_stmt_idx: Some(
-                        3,
+                        2,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 68,
                         },
@@ -19059,7 +19059,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -19070,7 +19070,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -19117,13 +19117,13 @@
                             value: 359,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        7,
+                    sem_expr_idx: SemaExprIdx(
+                        6,
                     ),
                     hir_eager_expr_idx: Some(
-                        7,
+                        6,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 68,
                         },
@@ -19178,13 +19178,13 @@
                             value: 359,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        8,
+                    sem_expr_idx: SemaExprIdx(
+                        7,
                     ),
                     hir_eager_expr_idx: Some(
-                        8,
+                        7,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 68,
                         },
@@ -19231,14 +19231,14 @@
                             value: 354,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        6,
+                    sem_stmt_idx: SemaStmtIdx(
+                        5,
                     ),
                     hir_eager_stmt_idx: Some(
-                        6,
+                        5,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 68,
                         },
@@ -19287,7 +19287,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                     },
                 ),
             },
@@ -19298,7 +19298,7 @@
                             value: 329,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 99,
@@ -19337,14 +19337,14 @@
                             value: 371,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        1,
+                    sem_stmt_idx: SemaStmtIdx(
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 72,
                         },
@@ -19394,13 +19394,13 @@
                             value: 374,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        5,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         4,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        3,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 72,
                         },
@@ -19425,7 +19425,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -19436,7 +19436,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -19483,13 +19483,13 @@
                             value: 374,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        5,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         4,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        3,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 72,
                         },
@@ -19514,7 +19514,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                     },
                 ),
             },
@@ -19525,7 +19525,7 @@
                             value: 330,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 100,
@@ -19564,14 +19564,14 @@
                             value: 372,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        1,
+                    sem_stmt_idx: SemaStmtIdx(
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 74,
                         },
@@ -19621,13 +19621,13 @@
                             value: 377,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        5,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         4,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        3,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 74,
                         },
@@ -19652,7 +19652,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -19663,7 +19663,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -19710,13 +19710,13 @@
                             value: 377,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        5,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         4,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        3,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 74,
                         },
@@ -19741,7 +19741,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                     },
                 ),
             },
@@ -19752,7 +19752,7 @@
                             value: 331,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 101,
@@ -19791,14 +19791,14 @@
                             value: 373,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        15,
+                    sem_stmt_idx: SemaStmtIdx(
+                        14,
                     ),
                     hir_eager_stmt_idx: Some(
-                        15,
+                        14,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -19840,7 +19840,7 @@
                             value: 380,
                         },
                     ),
-                    syn_pattern_expr_idx: 1,
+                    syn_pattern_expr_idx: 0,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -19851,11 +19851,11 @@
                                 ),
                             ),
                             Some(
-                                1,
+                                0,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -19870,7 +19870,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -19881,7 +19881,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -19928,13 +19928,13 @@
                             value: 380,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        2,
+                    sem_expr_idx: SemaExprIdx(
+                        1,
                     ),
                     hir_eager_expr_idx: Some(
-                        2,
+                        1,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -19981,14 +19981,14 @@
                             value: 373,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        16,
+                    sem_stmt_idx: SemaStmtIdx(
+                        15,
                     ),
                     hir_eager_stmt_idx: Some(
-                        16,
+                        15,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -20038,13 +20038,13 @@
                             value: 381,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        3,
+                    sem_expr_idx: SemaExprIdx(
+                        2,
                     ),
                     hir_eager_expr_idx: Some(
-                        3,
+                        2,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -20099,13 +20099,13 @@
                             value: 381,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        4,
+                    sem_expr_idx: SemaExprIdx(
+                        3,
                     ),
                     hir_eager_expr_idx: Some(
-                        4,
+                        3,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -20152,14 +20152,14 @@
                             value: 373,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        17,
+                    sem_stmt_idx: SemaStmtIdx(
+                        16,
                     ),
                     hir_eager_stmt_idx: Some(
-                        17,
+                        16,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -20201,7 +20201,7 @@
                             value: 382,
                         },
                     ),
-                    syn_pattern_expr_idx: 3,
+                    syn_pattern_expr_idx: 2,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -20212,11 +20212,11 @@
                                 ),
                             ),
                             Some(
-                                2,
+                                1,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -20231,7 +20231,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                     },
                 ),
             },
@@ -20242,7 +20242,7 @@
                             value: 329,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 99,
@@ -20289,13 +20289,13 @@
                             value: 382,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        9,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         8,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        7,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -20342,14 +20342,14 @@
                             value: 373,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        18,
+                    sem_stmt_idx: SemaStmtIdx(
+                        17,
                     ),
                     hir_eager_stmt_idx: Some(
-                        18,
+                        17,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -20399,13 +20399,13 @@
                             value: 383,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        12,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         11,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        10,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -20452,14 +20452,14 @@
                             value: 373,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        19,
+                    sem_stmt_idx: SemaStmtIdx(
+                        18,
                     ),
                     hir_eager_stmt_idx: Some(
-                        19,
+                        18,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -20501,7 +20501,7 @@
                             value: 384,
                         },
                     ),
-                    syn_pattern_expr_idx: 6,
+                    syn_pattern_expr_idx: 5,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -20512,11 +20512,11 @@
                                 ),
                             ),
                             Some(
-                                3,
+                                2,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -20561,13 +20561,13 @@
                             value: 384,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        14,
+                    sem_expr_idx: SemaExprIdx(
+                        13,
                     ),
                     hir_eager_expr_idx: Some(
-                        12,
+                        11,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -20622,13 +20622,13 @@
                             value: 384,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        16,
+                    sem_expr_idx: SemaExprIdx(
+                        15,
                     ),
                     hir_eager_expr_idx: Some(
-                        14,
+                        13,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -20683,13 +20683,13 @@
                             value: 384,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        17,
+                    sem_expr_idx: SemaExprIdx(
+                        16,
                     ),
                     hir_eager_expr_idx: Some(
-                        15,
+                        14,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -20736,14 +20736,14 @@
                             value: 373,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        20,
+                    sem_stmt_idx: SemaStmtIdx(
+                        19,
                     ),
                     hir_eager_stmt_idx: Some(
-                        20,
+                        19,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -20785,7 +20785,7 @@
                             value: 385,
                         },
                     ),
-                    syn_pattern_expr_idx: 7,
+                    syn_pattern_expr_idx: 6,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -20796,11 +20796,11 @@
                                 ),
                             ),
                             Some(
-                                4,
+                                3,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -20815,7 +20815,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -20826,7 +20826,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -20873,13 +20873,13 @@
                             value: 385,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        19,
+                    sem_expr_idx: SemaExprIdx(
+                        18,
                     ),
                     hir_eager_expr_idx: Some(
-                        17,
+                        16,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -20904,7 +20904,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -20915,7 +20915,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -20962,13 +20962,13 @@
                             value: 385,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        21,
+                    sem_expr_idx: SemaExprIdx(
+                        20,
                     ),
                     hir_eager_expr_idx: Some(
-                        19,
+                        18,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -21015,14 +21015,14 @@
                             value: 373,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        21,
+                    sem_stmt_idx: SemaStmtIdx(
+                        20,
                     ),
                     hir_eager_stmt_idx: Some(
-                        21,
+                        20,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -21072,13 +21072,13 @@
                             value: 386,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        23,
+                    sem_expr_idx: SemaExprIdx(
+                        22,
                     ),
                     hir_eager_expr_idx: Some(
-                        21,
+                        20,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -21125,11 +21125,11 @@
                             value: 373,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        22,
+                    sem_stmt_idx: SemaStmtIdx(
+                        21,
                     ),
                     hir_eager_stmt_idx: Some(
-                        22,
+                        21,
                     ),
                     eager_stmt_data_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -21144,11 +21144,11 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                1..15,
+                                0..14,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -21190,14 +21190,14 @@
                             value: 387,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        1,
+                    sem_stmt_idx: SemaStmtIdx(
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -21239,14 +21239,14 @@
                             value: 387,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        2,
+                    sem_stmt_idx: SemaStmtIdx(
+                        1,
                     ),
                     hir_eager_stmt_idx: Some(
-                        2,
+                        1,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -21288,14 +21288,14 @@
                             value: 387,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        3,
+                    sem_stmt_idx: SemaStmtIdx(
+                        2,
                     ),
                     hir_eager_stmt_idx: Some(
-                        3,
+                        2,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -21337,14 +21337,14 @@
                             value: 387,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        4,
+                    sem_stmt_idx: SemaStmtIdx(
+                        3,
                     ),
                     hir_eager_stmt_idx: Some(
-                        4,
+                        3,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -21386,14 +21386,14 @@
                             value: 387,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        5,
+                    sem_stmt_idx: SemaStmtIdx(
+                        4,
                     ),
                     hir_eager_stmt_idx: Some(
-                        5,
+                        4,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -21435,14 +21435,14 @@
                             value: 387,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        6,
+                    sem_stmt_idx: SemaStmtIdx(
+                        5,
                     ),
                     hir_eager_stmt_idx: Some(
-                        6,
+                        5,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -21484,14 +21484,14 @@
                             value: 387,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        7,
+                    sem_stmt_idx: SemaStmtIdx(
+                        6,
                     ),
                     hir_eager_stmt_idx: Some(
-                        7,
+                        6,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -21533,14 +21533,14 @@
                             value: 387,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        8,
+                    sem_stmt_idx: SemaStmtIdx(
+                        7,
                     ),
                     hir_eager_stmt_idx: Some(
-                        8,
+                        7,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -21582,14 +21582,14 @@
                             value: 387,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        9,
+                    sem_stmt_idx: SemaStmtIdx(
+                        8,
                     ),
                     hir_eager_stmt_idx: Some(
-                        9,
+                        8,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -21631,14 +21631,14 @@
                             value: 387,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        10,
+                    sem_stmt_idx: SemaStmtIdx(
+                        9,
                     ),
                     hir_eager_stmt_idx: Some(
-                        10,
+                        9,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -21680,14 +21680,14 @@
                             value: 387,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        11,
+                    sem_stmt_idx: SemaStmtIdx(
+                        10,
                     ),
                     hir_eager_stmt_idx: Some(
-                        11,
+                        10,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -21729,14 +21729,14 @@
                             value: 387,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        12,
+                    sem_stmt_idx: SemaStmtIdx(
+                        11,
                     ),
                     hir_eager_stmt_idx: Some(
-                        12,
+                        11,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -21778,14 +21778,14 @@
                             value: 387,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        13,
+                    sem_stmt_idx: SemaStmtIdx(
+                        12,
                     ),
                     hir_eager_stmt_idx: Some(
-                        13,
+                        12,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -21827,14 +21827,14 @@
                             value: 387,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        14,
+                    sem_stmt_idx: SemaStmtIdx(
+                        13,
                     ),
                     hir_eager_stmt_idx: Some(
-                        14,
+                        13,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -21884,13 +21884,13 @@
                             value: 387,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        26,
+                    sem_expr_idx: SemaExprIdx(
+                        25,
                     ),
                     hir_eager_expr_idx: Some(
-                        24,
+                        23,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -21945,13 +21945,13 @@
                             value: 387,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        27,
+                    sem_expr_idx: SemaExprIdx(
+                        26,
                     ),
                     hir_eager_expr_idx: Some(
-                        25,
+                        24,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -21998,14 +21998,14 @@
                             value: 373,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        23,
+                    sem_stmt_idx: SemaStmtIdx(
+                        22,
                     ),
                     hir_eager_stmt_idx: Some(
-                        23,
+                        22,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -22054,7 +22054,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                     },
                 ),
             },
@@ -22065,7 +22065,7 @@
                             value: 376,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 104,
@@ -22104,14 +22104,14 @@
                             value: 424,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        1,
+                    sem_stmt_idx: SemaStmtIdx(
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 82,
                         },
@@ -22161,13 +22161,13 @@
                             value: 426,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        7,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         6,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        5,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 82,
                         },
@@ -22192,7 +22192,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -22203,7 +22203,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -22250,13 +22250,13 @@
                             value: 426,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        7,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         6,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        5,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 82,
                         },
@@ -22281,7 +22281,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                     },
                 ),
             },
@@ -22292,7 +22292,7 @@
                             value: 377,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 108,
@@ -22331,14 +22331,14 @@
                             value: 425,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        20,
+                    sem_stmt_idx: SemaStmtIdx(
+                        19,
                     ),
                     hir_eager_stmt_idx: Some(
-                        20,
+                        19,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -22380,7 +22380,7 @@
                             value: 429,
                         },
                     ),
-                    syn_pattern_expr_idx: 1,
+                    syn_pattern_expr_idx: 0,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -22391,11 +22391,11 @@
                                 ),
                             ),
                             Some(
-                                1,
+                                0,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -22410,7 +22410,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -22421,7 +22421,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -22468,13 +22468,13 @@
                             value: 429,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        2,
+                    sem_expr_idx: SemaExprIdx(
+                        1,
                     ),
                     hir_eager_expr_idx: Some(
-                        2,
+                        1,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -22521,14 +22521,14 @@
                             value: 425,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        21,
+                    sem_stmt_idx: SemaStmtIdx(
+                        20,
                     ),
                     hir_eager_stmt_idx: Some(
-                        21,
+                        20,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -22570,7 +22570,7 @@
                             value: 430,
                         },
                     ),
-                    syn_pattern_expr_idx: 2,
+                    syn_pattern_expr_idx: 1,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -22581,11 +22581,11 @@
                                 ),
                             ),
                             Some(
-                                2,
+                                1,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -22600,7 +22600,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -22611,7 +22611,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -22658,13 +22658,13 @@
                             value: 430,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        4,
+                    sem_expr_idx: SemaExprIdx(
+                        3,
                     ),
                     hir_eager_expr_idx: Some(
-                        4,
+                        3,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -22711,14 +22711,14 @@
                             value: 425,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        22,
+                    sem_stmt_idx: SemaStmtIdx(
+                        21,
                     ),
                     hir_eager_stmt_idx: Some(
-                        22,
+                        21,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -22768,13 +22768,13 @@
                             value: 431,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        5,
+                    sem_expr_idx: SemaExprIdx(
+                        4,
                     ),
                     hir_eager_expr_idx: Some(
-                        5,
+                        4,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -22829,13 +22829,13 @@
                             value: 431,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        6,
+                    sem_expr_idx: SemaExprIdx(
+                        5,
                     ),
                     hir_eager_expr_idx: Some(
-                        6,
+                        5,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -22882,14 +22882,14 @@
                             value: 425,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        23,
+                    sem_stmt_idx: SemaStmtIdx(
+                        22,
                     ),
                     hir_eager_stmt_idx: Some(
-                        23,
+                        22,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -22931,7 +22931,7 @@
                             value: 432,
                         },
                     ),
-                    syn_pattern_expr_idx: 4,
+                    syn_pattern_expr_idx: 3,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -22942,11 +22942,11 @@
                                 ),
                             ),
                             Some(
-                                3,
+                                2,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -22961,7 +22961,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                     },
                 ),
             },
@@ -22972,7 +22972,7 @@
                             value: 376,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 104,
@@ -23019,13 +23019,13 @@
                             value: 432,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        11,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         10,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        9,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -23072,14 +23072,14 @@
                             value: 425,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        24,
+                    sem_stmt_idx: SemaStmtIdx(
+                        23,
                     ),
                     hir_eager_stmt_idx: Some(
-                        24,
+                        23,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -23121,7 +23121,7 @@
                             value: 433,
                         },
                     ),
-                    syn_pattern_expr_idx: 5,
+                    syn_pattern_expr_idx: 4,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -23132,11 +23132,11 @@
                                 ),
                             ),
                             Some(
-                                4,
+                                3,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -23151,7 +23151,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                     },
                 ),
             },
@@ -23162,7 +23162,7 @@
                             value: 376,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 104,
@@ -23209,13 +23209,13 @@
                             value: 433,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        15,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         14,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        13,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -23262,14 +23262,14 @@
                             value: 425,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        25,
+                    sem_stmt_idx: SemaStmtIdx(
+                        24,
                     ),
                     hir_eager_stmt_idx: Some(
-                        25,
+                        24,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -23311,7 +23311,7 @@
                             value: 434,
                         },
                     ),
-                    syn_pattern_expr_idx: 6,
+                    syn_pattern_expr_idx: 5,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -23322,11 +23322,11 @@
                                 ),
                             ),
                             Some(
-                                5,
+                                4,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -23341,7 +23341,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                     },
                 ),
             },
@@ -23352,7 +23352,7 @@
                             value: 376,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 104,
@@ -23399,13 +23399,13 @@
                             value: 434,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        19,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         18,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        17,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -23452,14 +23452,14 @@
                             value: 425,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        26,
+                    sem_stmt_idx: SemaStmtIdx(
+                        25,
                     ),
                     hir_eager_stmt_idx: Some(
-                        26,
+                        25,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -23509,13 +23509,13 @@
                             value: 435,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        22,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         21,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        20,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -23562,14 +23562,14 @@
                             value: 425,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        27,
+                    sem_stmt_idx: SemaStmtIdx(
+                        26,
                     ),
                     hir_eager_stmt_idx: Some(
-                        27,
+                        26,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -23611,7 +23611,7 @@
                             value: 436,
                         },
                     ),
-                    syn_pattern_expr_idx: 7,
+                    syn_pattern_expr_idx: 6,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -23622,11 +23622,11 @@
                                 ),
                             ),
                             Some(
-                                6,
+                                5,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -23641,7 +23641,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -23652,7 +23652,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -23699,13 +23699,13 @@
                             value: 436,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        26,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         25,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        24,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -23730,7 +23730,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -23741,7 +23741,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -23788,13 +23788,13 @@
                             value: 436,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        28,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         27,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        26,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -23841,14 +23841,14 @@
                             value: 425,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        28,
+                    sem_stmt_idx: SemaStmtIdx(
+                        27,
                     ),
                     hir_eager_stmt_idx: Some(
-                        28,
+                        27,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -23898,13 +23898,13 @@
                             value: 437,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        30,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         29,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        28,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -23951,11 +23951,11 @@
                             value: 425,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        29,
+                    sem_stmt_idx: SemaStmtIdx(
+                        28,
                     ),
                     hir_eager_stmt_idx: Some(
-                        29,
+                        28,
                     ),
                     eager_stmt_data_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -23970,11 +23970,11 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                1..15,
+                                0..14,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -24016,14 +24016,14 @@
                             value: 438,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        1,
+                    sem_stmt_idx: SemaStmtIdx(
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -24065,14 +24065,14 @@
                             value: 438,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        2,
+                    sem_stmt_idx: SemaStmtIdx(
+                        1,
                     ),
                     hir_eager_stmt_idx: Some(
-                        2,
+                        1,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -24114,14 +24114,14 @@
                             value: 438,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        3,
+                    sem_stmt_idx: SemaStmtIdx(
+                        2,
                     ),
                     hir_eager_stmt_idx: Some(
-                        3,
+                        2,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -24163,14 +24163,14 @@
                             value: 438,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        4,
+                    sem_stmt_idx: SemaStmtIdx(
+                        3,
                     ),
                     hir_eager_stmt_idx: Some(
-                        4,
+                        3,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -24212,14 +24212,14 @@
                             value: 438,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        5,
+                    sem_stmt_idx: SemaStmtIdx(
+                        4,
                     ),
                     hir_eager_stmt_idx: Some(
-                        5,
+                        4,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -24261,14 +24261,14 @@
                             value: 438,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        6,
+                    sem_stmt_idx: SemaStmtIdx(
+                        5,
                     ),
                     hir_eager_stmt_idx: Some(
-                        6,
+                        5,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -24310,14 +24310,14 @@
                             value: 438,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        7,
+                    sem_stmt_idx: SemaStmtIdx(
+                        6,
                     ),
                     hir_eager_stmt_idx: Some(
-                        7,
+                        6,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -24359,14 +24359,14 @@
                             value: 438,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        8,
+                    sem_stmt_idx: SemaStmtIdx(
+                        7,
                     ),
                     hir_eager_stmt_idx: Some(
-                        8,
+                        7,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -24408,14 +24408,14 @@
                             value: 438,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        9,
+                    sem_stmt_idx: SemaStmtIdx(
+                        8,
                     ),
                     hir_eager_stmt_idx: Some(
-                        9,
+                        8,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -24457,14 +24457,14 @@
                             value: 438,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        10,
+                    sem_stmt_idx: SemaStmtIdx(
+                        9,
                     ),
                     hir_eager_stmt_idx: Some(
-                        10,
+                        9,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -24506,14 +24506,14 @@
                             value: 438,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        11,
+                    sem_stmt_idx: SemaStmtIdx(
+                        10,
                     ),
                     hir_eager_stmt_idx: Some(
-                        11,
+                        10,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -24555,14 +24555,14 @@
                             value: 438,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        12,
+                    sem_stmt_idx: SemaStmtIdx(
+                        11,
                     ),
                     hir_eager_stmt_idx: Some(
-                        12,
+                        11,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -24604,14 +24604,14 @@
                             value: 438,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        13,
+                    sem_stmt_idx: SemaStmtIdx(
+                        12,
                     ),
                     hir_eager_stmt_idx: Some(
-                        13,
+                        12,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -24653,14 +24653,14 @@
                             value: 438,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        14,
+                    sem_stmt_idx: SemaStmtIdx(
+                        13,
                     ),
                     hir_eager_stmt_idx: Some(
-                        14,
+                        13,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -24710,13 +24710,13 @@
                             value: 438,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        33,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         32,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        31,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -24763,11 +24763,11 @@
                             value: 425,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        30,
+                    sem_stmt_idx: SemaStmtIdx(
+                        29,
                     ),
                     hir_eager_stmt_idx: Some(
-                        30,
+                        29,
                     ),
                     eager_stmt_data_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -24782,11 +24782,11 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                15..20,
+                                14..19,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -24828,14 +24828,14 @@
                             value: 439,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        15,
+                    sem_stmt_idx: SemaStmtIdx(
+                        14,
                     ),
                     hir_eager_stmt_idx: Some(
-                        15,
+                        14,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -24877,14 +24877,14 @@
                             value: 439,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        16,
+                    sem_stmt_idx: SemaStmtIdx(
+                        15,
                     ),
                     hir_eager_stmt_idx: Some(
-                        16,
+                        15,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -24926,14 +24926,14 @@
                             value: 439,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        17,
+                    sem_stmt_idx: SemaStmtIdx(
+                        16,
                     ),
                     hir_eager_stmt_idx: Some(
-                        17,
+                        16,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -24975,14 +24975,14 @@
                             value: 439,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        18,
+                    sem_stmt_idx: SemaStmtIdx(
+                        17,
                     ),
                     hir_eager_stmt_idx: Some(
-                        18,
+                        17,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -25024,14 +25024,14 @@
                             value: 439,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        19,
+                    sem_stmt_idx: SemaStmtIdx(
+                        18,
                     ),
                     hir_eager_stmt_idx: Some(
-                        19,
+                        18,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -25081,13 +25081,13 @@
                             value: 439,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        91,
+                    sem_expr_idx: SemaExprIdx(
+                        90,
                     ),
                     hir_eager_expr_idx: Some(
-                        86,
+                        85,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -25134,14 +25134,14 @@
                             value: 425,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        31,
+                    sem_stmt_idx: SemaStmtIdx(
+                        30,
                     ),
                     hir_eager_stmt_idx: Some(
-                        31,
+                        30,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -25190,7 +25190,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
                     },
                 ),
             },
@@ -25201,7 +25201,7 @@
                             value: 430,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 109,
@@ -25240,14 +25240,14 @@
                             value: 486,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        1,
+                    sem_stmt_idx: SemaStmtIdx(
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 94,
                         },
@@ -25297,13 +25297,13 @@
                             value: 493,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        3,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         2,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        1,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 94,
                         },
@@ -25349,14 +25349,14 @@
                         },
                     ),
                     input_sketch: Simple {
-                        argument_sema_expr_idx: SemaExprIdx(
-                            2,
-                        ),
-                        argument_hir_eager_expr_idx: Some(
+                        argument_sem_expr_idx: SemaExprIdx(
                             1,
                         ),
+                        argument_hir_eager_expr_idx: Some(
+                            0,
+                        ),
                     },
-                    caller_sema_expr_region: SemaExprRegion(
+                    caller_sem_expr_region: SemaExprRegion(
                         Id {
                             value: 94,
                         },
@@ -25382,8 +25382,8 @@
                             },
                         ),
                         callee_path: MajorItem(
-                            Fugitive(
-                                FugitivePath(
+                            Form(
+                                MajorFormPath(
                                     ItemPathId(
                                         Id {
                                             value: 14,
@@ -25408,8 +25408,8 @@
                         },
                     ),
                     callee_path: MajorItem(
-                        Fugitive(
-                            FugitivePath(
+                        Form(
+                            MajorFormPath(
                                 ItemPathId(
                                     Id {
                                         value: 14,
@@ -25428,7 +25428,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist::input`, `Val`),
+                        val_item_path: FormPath(`mnist::input`, `Val`),
                     },
                 ),
             },
@@ -25439,7 +25439,7 @@
                             value: 435,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 275,
@@ -25486,13 +25486,13 @@
                             value: 493,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        3,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         2,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        1,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 94,
                         },
@@ -25538,14 +25538,14 @@
                         },
                     ),
                     input_sketch: Simple {
-                        argument_sema_expr_idx: SemaExprIdx(
-                            2,
-                        ),
-                        argument_hir_eager_expr_idx: Some(
+                        argument_sem_expr_idx: SemaExprIdx(
                             1,
                         ),
+                        argument_hir_eager_expr_idx: Some(
+                            0,
+                        ),
                     },
-                    caller_sema_expr_region: SemaExprRegion(
+                    caller_sem_expr_region: SemaExprRegion(
                         Id {
                             value: 94,
                         },
@@ -25571,8 +25571,8 @@
                             },
                         ),
                         callee_path: MajorItem(
-                            Fugitive(
-                                FugitivePath(
+                            Form(
+                                MajorFormPath(
                                     ItemPathId(
                                         Id {
                                             value: 14,
@@ -25597,8 +25597,8 @@
                         },
                     ),
                     callee_path: MajorItem(
-                        Fugitive(
-                            FugitivePath(
+                        Form(
+                            MajorFormPath(
                                 ItemPathId(
                                     Id {
                                         value: 14,
@@ -25617,7 +25617,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -25628,7 +25628,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -25667,14 +25667,14 @@
                             value: 487,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        5,
+                    sem_stmt_idx: SemaStmtIdx(
+                        4,
                     ),
                     hir_eager_stmt_idx: Some(
-                        5,
+                        4,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 96,
                         },
@@ -25716,7 +25716,7 @@
                             value: 498,
                         },
                     ),
-                    syn_pattern_expr_idx: 1,
+                    syn_pattern_expr_idx: 0,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -25727,11 +25727,11 @@
                                 ),
                             ),
                             Some(
-                                1,
+                                0,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 96,
                         },
@@ -25768,14 +25768,14 @@
                             value: 487,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        6,
+                    sem_stmt_idx: SemaStmtIdx(
+                        5,
                     ),
                     hir_eager_stmt_idx: Some(
-                        6,
+                        5,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 96,
                         },
@@ -25817,7 +25817,7 @@
                             value: 499,
                         },
                     ),
-                    syn_pattern_expr_idx: 2,
+                    syn_pattern_expr_idx: 1,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -25828,11 +25828,11 @@
                                 ),
                             ),
                             Some(
-                                2,
+                                1,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 96,
                         },
@@ -25869,11 +25869,11 @@
                             value: 487,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        7,
+                    sem_stmt_idx: SemaStmtIdx(
+                        6,
                     ),
                     hir_eager_stmt_idx: Some(
-                        7,
+                        6,
                     ),
                     eager_stmt_data_sketch: ForBetween {
                         for_regional_token: StmtForRegionalToken {
@@ -25890,11 +25890,11 @@
                         ),
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                3..5,
+                                2..4,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 96,
                         },
@@ -25936,14 +25936,14 @@
                             value: 500,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        3,
+                    sem_stmt_idx: SemaStmtIdx(
+                        2,
                     ),
                     hir_eager_stmt_idx: Some(
-                        3,
+                        2,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 96,
                         },
@@ -25985,7 +25985,7 @@
                             value: 504,
                         },
                     ),
-                    syn_pattern_expr_idx: 3,
+                    syn_pattern_expr_idx: 2,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -25996,11 +25996,11 @@
                                 ),
                             ),
                             Some(
-                                4,
+                                3,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 96,
                         },
@@ -26015,7 +26015,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
                     },
                 ),
             },
@@ -26026,7 +26026,7 @@
                             value: 430,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 109,
@@ -26073,13 +26073,13 @@
                             value: 504,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        7,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         6,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        5,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 96,
                         },
@@ -26134,13 +26134,13 @@
                             value: 504,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        9,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         8,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        7,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 96,
                         },
@@ -26187,11 +26187,11 @@
                             value: 500,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        4,
+                    sem_stmt_idx: SemaStmtIdx(
+                        3,
                     ),
                     hir_eager_stmt_idx: Some(
-                        4,
+                        3,
                     ),
                     eager_stmt_data_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -26206,11 +26206,11 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                1..3,
+                                0..2,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 96,
                         },
@@ -26252,14 +26252,14 @@
                             value: 505,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        1,
+                    sem_stmt_idx: SemaStmtIdx(
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 96,
                         },
@@ -26301,14 +26301,14 @@
                             value: 505,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        2,
+                    sem_stmt_idx: SemaStmtIdx(
+                        1,
                     ),
                     hir_eager_stmt_idx: Some(
-                        2,
+                        1,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 96,
                         },
@@ -26358,13 +26358,13 @@
                             value: 505,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        10,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         9,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        8,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 96,
                         },
@@ -26419,13 +26419,13 @@
                             value: 505,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        11,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         10,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        9,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 96,
                         },
@@ -26480,11 +26480,11 @@
                             value: 500,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        5,
+                    sem_expr_idx: SemaExprIdx(
+                        4,
                     ),
                     hir_eager_expr_idx: None,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 96,
                         },
@@ -26509,7 +26509,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
                     },
                 ),
             },
@@ -26520,7 +26520,7 @@
                             value: 430,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 109,
@@ -26559,14 +26559,14 @@
                             value: 515,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        1,
+                    sem_stmt_idx: SemaStmtIdx(
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 94,
                         },
@@ -26616,13 +26616,13 @@
                             value: 500,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        4,
+                    sem_expr_idx: SemaExprIdx(
+                        3,
                     ),
                     hir_eager_expr_idx: Some(
-                        4,
+                        3,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 96,
                         },
@@ -26657,7 +26657,7 @@
                                 TypeItemPath(
                                     ItemPathId(
                                         Id {
-                                            value: 374,
+                                            value: 376,
                                         },
                                     ),
                                 ),
@@ -26683,7 +26683,7 @@
                             TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 374,
+                                        value: 376,
                                     },
                                 ),
                             ),
@@ -26721,14 +26721,14 @@
                             value: 487,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        8,
+                    sem_stmt_idx: SemaStmtIdx(
+                        7,
                     ),
                     hir_eager_stmt_idx: Some(
-                        8,
+                        7,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 96,
                         },
@@ -26748,7 +26748,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
                     },
                 ),
             },
@@ -26759,7 +26759,7 @@
                             value: 430,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 109,
@@ -26798,14 +26798,14 @@
                             value: 519,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        1,
+                    sem_stmt_idx: SemaStmtIdx(
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 94,
                         },
@@ -26855,13 +26855,13 @@
                             value: 501,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        20,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         19,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        18,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 96,
                         },
@@ -26886,7 +26886,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                     },
                 ),
             },
@@ -26897,7 +26897,7 @@
                             value: 90,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 111,
@@ -26936,14 +26936,14 @@
                             value: 488,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        2,
+                    sem_stmt_idx: SemaStmtIdx(
+                        1,
                     ),
                     hir_eager_stmt_idx: Some(
-                        2,
+                        1,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 98,
                         },
@@ -26985,7 +26985,7 @@
                             value: 522,
                         },
                     ),
-                    syn_pattern_expr_idx: 1,
+                    syn_pattern_expr_idx: 0,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -26996,11 +26996,11 @@
                                 ),
                             ),
                             Some(
-                                1,
+                                0,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 98,
                         },
@@ -27037,11 +27037,11 @@
                             value: 488,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        3,
+                    sem_stmt_idx: SemaStmtIdx(
+                        2,
                     ),
                     hir_eager_stmt_idx: Some(
-                        3,
+                        2,
                     ),
                     eager_stmt_data_sketch: ForBetween {
                         for_regional_token: StmtForRegionalToken {
@@ -27058,11 +27058,11 @@
                         ),
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                1..2,
+                                0..1,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 98,
                         },
@@ -27104,14 +27104,14 @@
                             value: 523,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        1,
+                    sem_stmt_idx: SemaStmtIdx(
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 98,
                         },
@@ -27161,13 +27161,13 @@
                             value: 526,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        5,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         4,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        3,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 98,
                         },
@@ -27192,7 +27192,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
                     },
                 ),
             },
@@ -27203,7 +27203,7 @@
                             value: 430,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 109,
@@ -27250,13 +27250,13 @@
                             value: 526,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        7,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         6,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        5,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 98,
                         },
@@ -27311,13 +27311,13 @@
                             value: 526,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        9,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         8,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        7,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 98,
                         },
@@ -27372,11 +27372,11 @@
                             value: 523,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        4,
+                    sem_expr_idx: SemaExprIdx(
+                        3,
                     ),
                     hir_eager_expr_idx: None,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 98,
                         },
@@ -27401,7 +27401,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::connected_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::connected_components`, `Val`),
                     },
                 ),
             },
@@ -27412,7 +27412,7 @@
                             value: 430,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 109,
@@ -27451,14 +27451,14 @@
                             value: 532,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        1,
+                    sem_stmt_idx: SemaStmtIdx(
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 94,
                         },
@@ -27508,13 +27508,13 @@
                             value: 523,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        3,
+                    sem_expr_idx: SemaExprIdx(
+                        2,
                     ),
                     hir_eager_expr_idx: Some(
-                        3,
+                        2,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 98,
                         },
@@ -27549,7 +27549,7 @@
                                 TypeItemPath(
                                     ItemPathId(
                                         Id {
-                                            value: 374,
+                                            value: 376,
                                         },
                                     ),
                                 ),
@@ -27575,7 +27575,7 @@
                             TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 374,
+                                        value: 376,
                                     },
                                 ),
                             ),
@@ -27613,14 +27613,14 @@
                             value: 488,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        4,
+                    sem_stmt_idx: SemaStmtIdx(
+                        3,
                     ),
                     hir_eager_stmt_idx: Some(
-                        4,
+                        3,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 98,
                         },
@@ -27670,13 +27670,13 @@
                             value: 524,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        11,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         10,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        9,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 98,
                         },
@@ -27701,7 +27701,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -27712,7 +27712,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -27751,14 +27751,14 @@
                             value: 537,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        5,
+                    sem_stmt_idx: SemaStmtIdx(
+                        4,
                     ),
                     hir_eager_stmt_idx: Some(
-                        5,
+                        4,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 96,
                         },
@@ -27800,14 +27800,14 @@
                             value: 537,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        6,
+                    sem_stmt_idx: SemaStmtIdx(
+                        5,
                     ),
                     hir_eager_stmt_idx: Some(
-                        6,
+                        5,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 96,
                         },
@@ -27849,11 +27849,11 @@
                             value: 537,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        7,
+                    sem_stmt_idx: SemaStmtIdx(
+                        6,
                     ),
                     hir_eager_stmt_idx: Some(
-                        7,
+                        6,
                     ),
                     eager_stmt_data_sketch: ForBetween {
                         for_regional_token: StmtForRegionalToken {
@@ -27870,11 +27870,11 @@
                         ),
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                3..5,
+                                2..4,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 96,
                         },
@@ -27916,14 +27916,14 @@
                             value: 537,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        8,
+                    sem_stmt_idx: SemaStmtIdx(
+                        7,
                     ),
                     hir_eager_stmt_idx: Some(
-                        8,
+                        7,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 96,
                         },
@@ -27973,13 +27973,13 @@
                             value: 524,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        13,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         12,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        11,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 98,
                         },
@@ -28004,7 +28004,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_raw_contours`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_raw_contours`, `Val`),
                     },
                 ),
             },
@@ -28015,7 +28015,7 @@
                             value: 431,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 112,
@@ -28054,14 +28054,14 @@
                             value: 489,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        1,
+                    sem_stmt_idx: SemaStmtIdx(
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 100,
                         },
@@ -28081,7 +28081,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -28092,7 +28092,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -28131,14 +28131,14 @@
                             value: 544,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        5,
+                    sem_stmt_idx: SemaStmtIdx(
+                        4,
                     ),
                     hir_eager_stmt_idx: Some(
-                        5,
+                        4,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 96,
                         },
@@ -28180,14 +28180,14 @@
                             value: 544,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        6,
+                    sem_stmt_idx: SemaStmtIdx(
+                        5,
                     ),
                     hir_eager_stmt_idx: Some(
-                        6,
+                        5,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 96,
                         },
@@ -28229,11 +28229,11 @@
                             value: 544,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        7,
+                    sem_stmt_idx: SemaStmtIdx(
+                        6,
                     ),
                     hir_eager_stmt_idx: Some(
-                        7,
+                        6,
                     ),
                     eager_stmt_data_sketch: ForBetween {
                         for_regional_token: StmtForRegionalToken {
@@ -28250,11 +28250,11 @@
                         ),
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                3..5,
+                                2..4,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 96,
                         },
@@ -28296,14 +28296,14 @@
                             value: 544,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        8,
+                    sem_stmt_idx: SemaStmtIdx(
+                        7,
                     ),
                     hir_eager_stmt_idx: Some(
-                        8,
+                        7,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 96,
                         },
@@ -28353,13 +28353,13 @@
                             value: 543,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        2,
+                    sem_expr_idx: SemaExprIdx(
+                        1,
                     ),
                     hir_eager_expr_idx: Some(
-                        2,
+                        1,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 100,
                         },
@@ -28384,7 +28384,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                     },
                 ),
             },
@@ -28395,7 +28395,7 @@
                             value: 432,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 113,
@@ -28434,14 +28434,14 @@
                             value: 490,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        1,
+                    sem_stmt_idx: SemaStmtIdx(
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 102,
                         },
@@ -28461,7 +28461,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -28472,7 +28472,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -28511,14 +28511,14 @@
                             value: 551,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        5,
+                    sem_stmt_idx: SemaStmtIdx(
+                        4,
                     ),
                     hir_eager_stmt_idx: Some(
-                        5,
+                        4,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 96,
                         },
@@ -28560,14 +28560,14 @@
                             value: 551,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        6,
+                    sem_stmt_idx: SemaStmtIdx(
+                        5,
                     ),
                     hir_eager_stmt_idx: Some(
-                        6,
+                        5,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 96,
                         },
@@ -28609,11 +28609,11 @@
                             value: 551,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        7,
+                    sem_stmt_idx: SemaStmtIdx(
+                        6,
                     ),
                     hir_eager_stmt_idx: Some(
-                        7,
+                        6,
                     ),
                     eager_stmt_data_sketch: ForBetween {
                         for_regional_token: StmtForRegionalToken {
@@ -28630,11 +28630,11 @@
                         ),
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                3..5,
+                                2..4,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 96,
                         },
@@ -28676,14 +28676,14 @@
                             value: 551,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        8,
+                    sem_stmt_idx: SemaStmtIdx(
+                        7,
                     ),
                     hir_eager_stmt_idx: Some(
-                        8,
+                        7,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 96,
                         },
@@ -28733,13 +28733,13 @@
                             value: 550,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        2,
+                    sem_expr_idx: SemaExprIdx(
+                        1,
                     ),
                     hir_eager_expr_idx: Some(
-                        2,
+                        1,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 102,
                         },
@@ -28764,7 +28764,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                     },
                 ),
             },
@@ -28775,7 +28775,7 @@
                             value: 68,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 114,
@@ -28814,14 +28814,14 @@
                             value: 491,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        1,
+                    sem_stmt_idx: SemaStmtIdx(
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 104,
                         },
@@ -28841,7 +28841,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_raw_contour`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_raw_contour`, `Val`),
                     },
                 ),
             },
@@ -28852,7 +28852,7 @@
                             value: 432,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 113,
@@ -28891,14 +28891,14 @@
                             value: 558,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        1,
+                    sem_stmt_idx: SemaStmtIdx(
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 102,
                         },
@@ -28948,13 +28948,13 @@
                             value: 557,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        2,
+                    sem_expr_idx: SemaExprIdx(
+                        1,
                     ),
                     hir_eager_expr_idx: Some(
-                        2,
+                        1,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 104,
                         },
@@ -28979,7 +28979,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -28990,7 +28990,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -29029,14 +29029,14 @@
                             value: 492,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        1,
+                    sem_stmt_idx: SemaStmtIdx(
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 106,
                         },
@@ -29056,7 +29056,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                     },
                 ),
             },
@@ -29067,7 +29067,7 @@
                             value: 68,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 114,
@@ -29106,14 +29106,14 @@
                             value: 562,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        1,
+                    sem_stmt_idx: SemaStmtIdx(
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 104,
                         },
@@ -29163,13 +29163,13 @@
                             value: 561,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        2,
+                    sem_expr_idx: SemaExprIdx(
+                        1,
                     ),
                     hir_eager_expr_idx: Some(
-                        2,
+                        1,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 106,
                         },
@@ -29194,7 +29194,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::main`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::main`, `Val`),
                     },
                 ),
             },
@@ -29205,7 +29205,7 @@
                             value: 3,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 8,
@@ -29244,14 +29244,14 @@
                             value: 3,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        1,
+                    sem_stmt_idx: SemaStmtIdx(
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 92,
                         },
@@ -29271,7 +29271,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                     },
                 ),
             },
@@ -29282,7 +29282,7 @@
                             value: 81,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 68,
@@ -29302,7 +29302,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 },
                             ),
                         },
@@ -29323,14 +29323,14 @@
                             value: 575,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        42,
+                    sem_stmt_idx: SemaStmtIdx(
+                        41,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        42,
+                        41,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -29372,13 +29372,13 @@
                             value: 576,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        6,
+                    sem_expr_idx: SemaExprIdx(
+                        5,
                     ),
                     hir_lazy_expr_idx: Some(
-                        6,
+                        5,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -29403,7 +29403,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -29414,7 +29414,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -29453,13 +29453,13 @@
                             value: 576,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        3,
+                    sem_expr_idx: SemaExprIdx(
+                        2,
                     ),
                     hir_lazy_expr_idx: Some(
-                        3,
+                        2,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -29484,7 +29484,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                     },
                 ),
             },
@@ -29495,7 +29495,7 @@
                             value: 90,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 111,
@@ -29534,13 +29534,13 @@
                             value: 576,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        6,
+                    sem_expr_idx: SemaExprIdx(
+                        5,
                     ),
                     hir_lazy_expr_idx: Some(
-                        6,
+                        5,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -29568,7 +29568,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 },
                             ),
                         },
@@ -29589,14 +29589,14 @@
                             value: 575,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        43,
+                    sem_stmt_idx: SemaStmtIdx(
+                        42,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        43,
+                        42,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -29638,7 +29638,7 @@
                             value: 577,
                         },
                     ),
-                    syn_pattern_expr_idx: 1,
+                    syn_pattern_expr_idx: 0,
                     hir_lazy_pattern_expr_idx: None,
                     hir_lazy_variable_idxs: [
                         (
@@ -29650,11 +29650,11 @@
                                 ),
                             ),
                             Some(
-                                1,
+                                0,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -29696,13 +29696,13 @@
                             value: 577,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        11,
+                    sem_expr_idx: SemaExprIdx(
+                        10,
                     ),
                     hir_lazy_expr_idx: Some(
-                        11,
+                        10,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -29727,7 +29727,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -29738,7 +29738,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -29777,13 +29777,13 @@
                             value: 577,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        11,
+                    sem_expr_idx: SemaExprIdx(
+                        10,
                     ),
                     hir_lazy_expr_idx: Some(
-                        11,
+                        10,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -29811,7 +29811,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 },
                             ),
                         },
@@ -29832,11 +29832,11 @@
                             value: 575,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        44,
+                    sem_stmt_idx: SemaStmtIdx(
+                        43,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        44,
+                        43,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -29851,11 +29851,11 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                2..5,
+                                1..4,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -29881,7 +29881,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -29907,14 +29907,14 @@
                             value: 578,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        2,
+                    sem_stmt_idx: SemaStmtIdx(
+                        1,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        2,
+                        1,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -29940,7 +29940,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -29966,11 +29966,11 @@
                             value: 578,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        3,
+                    sem_stmt_idx: SemaStmtIdx(
+                        2,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        3,
+                        2,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -29985,11 +29985,11 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                1..2,
+                                0..1,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -30015,7 +30015,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -30041,14 +30041,14 @@
                             value: 578,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        4,
+                    sem_stmt_idx: SemaStmtIdx(
+                        3,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        4,
+                        3,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -30090,13 +30090,13 @@
                             value: 578,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        12,
+                    sem_expr_idx: SemaExprIdx(
+                        11,
                     ),
                     hir_lazy_expr_idx: Some(
-                        12,
+                        11,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -30143,13 +30143,13 @@
                             value: 578,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        13,
+                    sem_expr_idx: SemaExprIdx(
+                        12,
                     ),
                     hir_lazy_expr_idx: Some(
-                        13,
+                        12,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -30177,7 +30177,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                 },
                             ),
                         },
@@ -30198,11 +30198,11 @@
                             value: 575,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        44,
+                    sem_stmt_idx: SemaStmtIdx(
+                        43,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        44,
+                        43,
                     ),
                     lazy_stmt_sketch: ElseBranch {
                         else_regional_token: ElseRegionalToken {
@@ -30217,11 +30217,11 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                16..42,
+                                15..41,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -30247,7 +30247,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -30273,14 +30273,14 @@
                             value: 579,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        16,
+                    sem_stmt_idx: SemaStmtIdx(
+                        15,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        16,
+                        15,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -30306,7 +30306,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -30332,14 +30332,14 @@
                             value: 579,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        17,
+                    sem_stmt_idx: SemaStmtIdx(
+                        16,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        17,
+                        16,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -30365,7 +30365,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -30391,14 +30391,14 @@
                             value: 579,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        18,
+                    sem_stmt_idx: SemaStmtIdx(
+                        17,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        18,
+                        17,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -30424,7 +30424,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -30450,14 +30450,14 @@
                             value: 579,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        19,
+                    sem_stmt_idx: SemaStmtIdx(
+                        18,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        19,
+                        18,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -30483,7 +30483,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -30509,14 +30509,14 @@
                             value: 579,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        20,
+                    sem_stmt_idx: SemaStmtIdx(
+                        19,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        20,
+                        19,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -30542,7 +30542,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -30568,11 +30568,11 @@
                             value: 579,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        21,
+                    sem_stmt_idx: SemaStmtIdx(
+                        20,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        21,
+                        20,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -30587,11 +30587,11 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                5..9,
+                                4..8,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -30617,7 +30617,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -30643,14 +30643,14 @@
                             value: 579,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        22,
+                    sem_stmt_idx: SemaStmtIdx(
+                        21,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        22,
+                        21,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -30676,7 +30676,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -30702,14 +30702,14 @@
                             value: 579,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        23,
+                    sem_stmt_idx: SemaStmtIdx(
+                        22,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        23,
+                        22,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -30735,7 +30735,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -30761,14 +30761,14 @@
                             value: 579,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        24,
+                    sem_stmt_idx: SemaStmtIdx(
+                        23,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        24,
+                        23,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -30794,7 +30794,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -30820,14 +30820,14 @@
                             value: 579,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        25,
+                    sem_stmt_idx: SemaStmtIdx(
+                        24,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        25,
+                        24,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -30853,7 +30853,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -30879,11 +30879,11 @@
                             value: 579,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        26,
+                    sem_stmt_idx: SemaStmtIdx(
+                        25,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        26,
+                        25,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -30898,11 +30898,11 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                9..15,
+                                8..14,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -30928,7 +30928,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -30954,11 +30954,11 @@
                             value: 579,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        27,
+                    sem_stmt_idx: SemaStmtIdx(
+                        26,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        27,
+                        26,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -30973,11 +30973,11 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                15..16,
+                                14..15,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -31003,7 +31003,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -31029,14 +31029,14 @@
                             value: 579,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        28,
+                    sem_stmt_idx: SemaStmtIdx(
+                        27,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        28,
+                        27,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -31062,7 +31062,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -31088,14 +31088,14 @@
                             value: 579,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        29,
+                    sem_stmt_idx: SemaStmtIdx(
+                        28,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        29,
+                        28,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -31121,7 +31121,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -31147,14 +31147,14 @@
                             value: 579,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        30,
+                    sem_stmt_idx: SemaStmtIdx(
+                        29,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        30,
+                        29,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -31180,7 +31180,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -31206,14 +31206,14 @@
                             value: 579,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        31,
+                    sem_stmt_idx: SemaStmtIdx(
+                        30,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        31,
+                        30,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -31239,7 +31239,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -31265,14 +31265,14 @@
                             value: 579,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        32,
+                    sem_stmt_idx: SemaStmtIdx(
+                        31,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        32,
+                        31,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -31298,7 +31298,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -31324,14 +31324,14 @@
                             value: 579,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        33,
+                    sem_stmt_idx: SemaStmtIdx(
+                        32,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        33,
+                        32,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -31357,7 +31357,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -31383,14 +31383,14 @@
                             value: 579,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        34,
+                    sem_stmt_idx: SemaStmtIdx(
+                        33,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        34,
+                        33,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -31416,7 +31416,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -31442,14 +31442,14 @@
                             value: 579,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        35,
+                    sem_stmt_idx: SemaStmtIdx(
+                        34,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        35,
+                        34,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -31475,7 +31475,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -31501,14 +31501,14 @@
                             value: 579,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        36,
+                    sem_stmt_idx: SemaStmtIdx(
+                        35,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        36,
+                        35,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -31534,7 +31534,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -31560,14 +31560,14 @@
                             value: 579,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        37,
+                    sem_stmt_idx: SemaStmtIdx(
+                        36,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        37,
+                        36,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -31593,7 +31593,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -31619,14 +31619,14 @@
                             value: 579,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        38,
+                    sem_stmt_idx: SemaStmtIdx(
+                        37,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        38,
+                        37,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -31652,7 +31652,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -31678,14 +31678,14 @@
                             value: 579,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        39,
+                    sem_stmt_idx: SemaStmtIdx(
+                        38,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        39,
+                        38,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -31711,7 +31711,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -31737,14 +31737,14 @@
                             value: 579,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        40,
+                    sem_stmt_idx: SemaStmtIdx(
+                        39,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        40,
+                        39,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -31770,7 +31770,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             },
                                         ),
                                     },
@@ -31796,14 +31796,14 @@
                             value: 579,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        41,
+                    sem_stmt_idx: SemaStmtIdx(
+                        40,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        41,
+                        40,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 10,
                         },
@@ -31845,14 +31845,14 @@
                             value: 3,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        2,
+                    sem_stmt_idx: SemaStmtIdx(
+                        1,
                     ),
                     hir_eager_stmt_idx: Some(
-                        2,
+                        1,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 92,
                         },
@@ -31872,7 +31872,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                     },
                 ),
             },
@@ -31883,7 +31883,7 @@
                             value: 126,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 74,
@@ -31903,7 +31903,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -31924,14 +31924,14 @@
                             value: 618,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        20,
+                    sem_stmt_idx: SemaStmtIdx(
+                        19,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        20,
+                        19,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -31973,7 +31973,7 @@
                             value: 619,
                         },
                     ),
-                    syn_pattern_expr_idx: 1,
+                    syn_pattern_expr_idx: 0,
                     hir_lazy_pattern_expr_idx: None,
                     hir_lazy_variable_idxs: [
                         (
@@ -31985,11 +31985,11 @@
                                 ),
                             ),
                             Some(
-                                1,
+                                0,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -32009,7 +32009,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                     },
                 ),
             },
@@ -32020,7 +32020,7 @@
                             value: 124,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 72,
@@ -32059,13 +32059,13 @@
                             value: 619,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        2,
+                    sem_expr_idx: SemaExprIdx(
+                        1,
                     ),
                     hir_lazy_expr_idx: Some(
-                        2,
+                        1,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -32093,7 +32093,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -32114,14 +32114,14 @@
                             value: 618,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        21,
+                    sem_stmt_idx: SemaStmtIdx(
+                        20,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        21,
+                        20,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -32163,13 +32163,13 @@
                             value: 620,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        5,
+                    sem_expr_idx: SemaExprIdx(
+                        4,
                     ),
                     hir_lazy_expr_idx: Some(
-                        5,
+                        4,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -32197,7 +32197,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -32218,14 +32218,14 @@
                             value: 618,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        22,
+                    sem_stmt_idx: SemaStmtIdx(
+                        21,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        22,
+                        21,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -32267,7 +32267,7 @@
                             value: 621,
                         },
                     ),
-                    syn_pattern_expr_idx: 4,
+                    syn_pattern_expr_idx: 3,
                     hir_lazy_pattern_expr_idx: None,
                     hir_lazy_variable_idxs: [
                         (
@@ -32279,11 +32279,11 @@
                                 ),
                             ),
                             Some(
-                                2,
+                                1,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -32303,7 +32303,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -32314,7 +32314,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -32353,13 +32353,13 @@
                             value: 621,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        8,
-                    ),
-                    hir_lazy_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         7,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_lazy_expr_idx: Some(
+                        6,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -32387,7 +32387,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -32408,14 +32408,14 @@
                             value: 618,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        23,
+                    sem_stmt_idx: SemaStmtIdx(
+                        22,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        23,
+                        22,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -32457,7 +32457,7 @@
                             value: 622,
                         },
                     ),
-                    syn_pattern_expr_idx: 5,
+                    syn_pattern_expr_idx: 4,
                     hir_lazy_pattern_expr_idx: None,
                     hir_lazy_variable_idxs: [
                         (
@@ -32469,11 +32469,11 @@
                                 ),
                             ),
                             Some(
-                                3,
+                                2,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -32493,7 +32493,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -32504,7 +32504,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -32543,13 +32543,13 @@
                             value: 622,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        10,
-                    ),
-                    hir_lazy_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         9,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_lazy_expr_idx: Some(
+                        8,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -32574,7 +32574,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -32585,7 +32585,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -32624,13 +32624,13 @@
                             value: 622,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        12,
-                    ),
-                    hir_lazy_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         11,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_lazy_expr_idx: Some(
+                        10,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -32658,7 +32658,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -32679,11 +32679,11 @@
                             value: 618,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        24,
+                    sem_stmt_idx: SemaStmtIdx(
+                        23,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        24,
+                        23,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -32698,11 +32698,11 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                6..18,
+                                5..17,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -32728,7 +32728,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -32754,14 +32754,14 @@
                             value: 623,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        6,
+                    sem_stmt_idx: SemaStmtIdx(
+                        5,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        6,
+                        5,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -32787,7 +32787,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -32813,14 +32813,14 @@
                             value: 623,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        7,
+                    sem_stmt_idx: SemaStmtIdx(
+                        6,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        7,
+                        6,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -32846,7 +32846,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -32872,14 +32872,14 @@
                             value: 623,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        8,
+                    sem_stmt_idx: SemaStmtIdx(
+                        7,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        8,
+                        7,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -32905,7 +32905,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -32931,14 +32931,14 @@
                             value: 623,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        9,
+                    sem_stmt_idx: SemaStmtIdx(
+                        8,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        9,
+                        8,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -32964,7 +32964,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -32990,14 +32990,14 @@
                             value: 623,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        10,
+                    sem_stmt_idx: SemaStmtIdx(
+                        9,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        10,
+                        9,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -33023,7 +33023,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -33049,14 +33049,14 @@
                             value: 623,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        11,
+                    sem_stmt_idx: SemaStmtIdx(
+                        10,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        11,
+                        10,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -33082,7 +33082,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -33108,14 +33108,14 @@
                             value: 623,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        12,
+                    sem_stmt_idx: SemaStmtIdx(
+                        11,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        12,
+                        11,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -33141,7 +33141,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -33167,11 +33167,11 @@
                             value: 623,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        13,
+                    sem_stmt_idx: SemaStmtIdx(
+                        12,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        13,
+                        12,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -33186,11 +33186,11 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                1..5,
+                                0..4,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -33216,7 +33216,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -33242,14 +33242,14 @@
                             value: 623,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        14,
+                    sem_stmt_idx: SemaStmtIdx(
+                        13,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        14,
+                        13,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -33275,7 +33275,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -33301,14 +33301,14 @@
                             value: 623,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        15,
+                    sem_stmt_idx: SemaStmtIdx(
+                        14,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        15,
+                        14,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -33334,7 +33334,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -33360,11 +33360,11 @@
                             value: 623,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        16,
+                    sem_stmt_idx: SemaStmtIdx(
+                        15,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        16,
+                        15,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -33379,11 +33379,11 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                5..6,
+                                4..5,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -33409,7 +33409,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -33435,14 +33435,14 @@
                             value: 623,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        17,
+                    sem_stmt_idx: SemaStmtIdx(
+                        16,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        17,
+                        16,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -33484,13 +33484,13 @@
                             value: 623,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        14,
-                    ),
-                    hir_lazy_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         13,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_lazy_expr_idx: Some(
+                        12,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -33537,13 +33537,13 @@
                             value: 623,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        15,
-                    ),
-                    hir_lazy_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         14,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_lazy_expr_idx: Some(
+                        13,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -33571,7 +33571,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -33592,14 +33592,14 @@
                             value: 618,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        25,
+                    sem_stmt_idx: SemaStmtIdx(
+                        24,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        25,
+                        24,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -33641,13 +33641,13 @@
                             value: 624,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        87,
+                    sem_expr_idx: SemaExprIdx(
+                        86,
                     ),
                     hir_lazy_expr_idx: Some(
-                        84,
+                        83,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -33672,7 +33672,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                     },
                 ),
             },
@@ -33683,7 +33683,7 @@
                             value: 124,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 72,
@@ -33722,13 +33722,13 @@
                             value: 624,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        85,
+                    sem_expr_idx: SemaExprIdx(
+                        84,
                     ),
                     hir_lazy_expr_idx: Some(
-                        82,
+                        81,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -33775,13 +33775,13 @@
                             value: 624,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        87,
+                    sem_expr_idx: SemaExprIdx(
+                        86,
                     ),
                     hir_lazy_expr_idx: Some(
-                        84,
+                        83,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -33809,7 +33809,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -33830,11 +33830,11 @@
                             value: 618,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        26,
+                    sem_stmt_idx: SemaStmtIdx(
+                        25,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        26,
+                        25,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -33849,11 +33849,11 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                18..19,
+                                17..18,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -33879,7 +33879,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -33905,14 +33905,14 @@
                             value: 625,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        18,
+                    sem_stmt_idx: SemaStmtIdx(
+                        17,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        18,
+                        17,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -33932,7 +33932,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                     },
                 ),
             },
@@ -33943,7 +33943,7 @@
                             value: 124,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 72,
@@ -33982,13 +33982,13 @@
                             value: 625,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        90,
+                    sem_expr_idx: SemaExprIdx(
+                        89,
                     ),
                     hir_lazy_expr_idx: Some(
-                        87,
+                        86,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -34016,7 +34016,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -34037,14 +34037,14 @@
                             value: 618,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        27,
+                    sem_stmt_idx: SemaStmtIdx(
+                        26,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        27,
+                        26,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -34086,13 +34086,13 @@
                             value: 626,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        97,
+                    sem_expr_idx: SemaExprIdx(
+                        96,
                     ),
                     hir_lazy_expr_idx: Some(
-                        94,
+                        93,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -34139,13 +34139,13 @@
                             value: 626,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        98,
+                    sem_expr_idx: SemaExprIdx(
+                        97,
                     ),
                     hir_lazy_expr_idx: Some(
-                        95,
+                        94,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -34192,13 +34192,13 @@
                             value: 626,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        102,
+                    sem_expr_idx: SemaExprIdx(
+                        101,
                     ),
                     hir_lazy_expr_idx: Some(
-                        99,
+                        98,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -34245,13 +34245,13 @@
                             value: 626,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        103,
+                    sem_expr_idx: SemaExprIdx(
+                        102,
                     ),
                     hir_lazy_expr_idx: Some(
-                        100,
+                        99,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -34279,7 +34279,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -34300,11 +34300,11 @@
                             value: 618,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        28,
+                    sem_stmt_idx: SemaStmtIdx(
+                        27,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        28,
+                        27,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -34319,11 +34319,11 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                19..20,
+                                18..19,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -34349,7 +34349,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             },
                                         ),
                                     },
@@ -34375,14 +34375,14 @@
                             value: 627,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        19,
+                    sem_stmt_idx: SemaStmtIdx(
+                        18,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        19,
+                        18,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -34424,13 +34424,13 @@
                             value: 627,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        106,
+                    sem_expr_idx: SemaExprIdx(
+                        105,
                     ),
                     hir_lazy_expr_idx: Some(
-                        103,
+                        102,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -34477,13 +34477,13 @@
                             value: 627,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        107,
+                    sem_expr_idx: SemaExprIdx(
+                        106,
                     ),
                     hir_lazy_expr_idx: Some(
-                        104,
+                        103,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -34511,7 +34511,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -34532,14 +34532,14 @@
                             value: 618,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        29,
+                    sem_stmt_idx: SemaStmtIdx(
+                        28,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        29,
+                        28,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -34581,13 +34581,13 @@
                             value: 628,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        120,
+                    sem_expr_idx: SemaExprIdx(
+                        119,
                     ),
                     hir_lazy_expr_idx: Some(
-                        116,
+                        115,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -34615,7 +34615,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                 },
                             ),
                         },
@@ -34636,14 +34636,14 @@
                             value: 618,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        30,
+                    sem_stmt_idx: SemaStmtIdx(
+                        29,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        30,
+                        29,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 22,
                         },
@@ -34685,14 +34685,14 @@
                             value: 3,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        3,
+                    sem_stmt_idx: SemaStmtIdx(
+                        2,
                     ),
                     hir_eager_stmt_idx: Some(
-                        3,
+                        2,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 92,
                         },
@@ -34712,7 +34712,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                     },
                 ),
             },
@@ -34723,7 +34723,7 @@
                             value: 15,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 66,
@@ -34743,7 +34743,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -34764,11 +34764,11 @@
                             value: 670,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        8,
+                    sem_stmt_idx: SemaStmtIdx(
+                        7,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        8,
+                        7,
                     ),
                     lazy_stmt_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -34783,11 +34783,11 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                1..8,
+                                0..7,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -34813,7 +34813,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -34839,14 +34839,14 @@
                             value: 671,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        1,
+                    sem_stmt_idx: SemaStmtIdx(
+                        0,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -34872,7 +34872,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -34898,14 +34898,14 @@
                             value: 671,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        2,
+                    sem_stmt_idx: SemaStmtIdx(
+                        1,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        2,
+                        1,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -34931,7 +34931,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -34957,14 +34957,14 @@
                             value: 671,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        3,
+                    sem_stmt_idx: SemaStmtIdx(
+                        2,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        3,
+                        2,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -34990,7 +34990,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -35016,14 +35016,14 @@
                             value: 671,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        4,
+                    sem_stmt_idx: SemaStmtIdx(
+                        3,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        4,
+                        3,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -35049,7 +35049,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -35075,14 +35075,14 @@
                             value: 671,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        5,
+                    sem_stmt_idx: SemaStmtIdx(
+                        4,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        5,
+                        4,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -35108,7 +35108,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -35134,14 +35134,14 @@
                             value: 671,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        6,
+                    sem_stmt_idx: SemaStmtIdx(
+                        5,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        6,
+                        5,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -35167,7 +35167,7 @@
                                     biological_parent_path: TracePath {
                                         data: TracePathData::ValItem(
                                             ValItemTracePathData {
-                                                val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                                val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             },
                                         ),
                                     },
@@ -35193,14 +35193,14 @@
                             value: 671,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        7,
+                    sem_stmt_idx: SemaStmtIdx(
+                        6,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        7,
+                        6,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -35220,7 +35220,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -35231,7 +35231,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -35270,13 +35270,13 @@
                             value: 671,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        2,
+                    sem_expr_idx: SemaExprIdx(
+                        1,
                     ),
                     hir_lazy_expr_idx: Some(
-                        2,
+                        1,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -35323,13 +35323,13 @@
                             value: 671,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        3,
+                    sem_expr_idx: SemaExprIdx(
+                        2,
                     ),
                     hir_lazy_expr_idx: Some(
-                        3,
+                        2,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -35357,7 +35357,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -35378,14 +35378,14 @@
                             value: 670,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        9,
+                    sem_stmt_idx: SemaStmtIdx(
+                        8,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        9,
+                        8,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -35427,7 +35427,7 @@
                             value: 672,
                         },
                     ),
-                    syn_pattern_expr_idx: 5,
+                    syn_pattern_expr_idx: 4,
                     hir_lazy_pattern_expr_idx: None,
                     hir_lazy_variable_idxs: [
                         (
@@ -35439,11 +35439,11 @@
                                 ),
                             ),
                             Some(
-                                3,
+                                2,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -35485,13 +35485,13 @@
                             value: 672,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        34,
-                    ),
-                    hir_lazy_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         33,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_lazy_expr_idx: Some(
+                        32,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -35516,7 +35516,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -35527,7 +35527,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -35566,13 +35566,13 @@
                             value: 672,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        34,
-                    ),
-                    hir_lazy_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         33,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_lazy_expr_idx: Some(
+                        32,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -35600,7 +35600,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -35621,14 +35621,14 @@
                             value: 670,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        10,
+                    sem_stmt_idx: SemaStmtIdx(
+                        9,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        10,
+                        9,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -35670,13 +35670,13 @@
                             value: 673,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        43,
-                    ),
-                    hir_lazy_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         42,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_lazy_expr_idx: Some(
+                        41,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -35723,13 +35723,13 @@
                             value: 673,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        36,
-                    ),
-                    hir_lazy_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         35,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_lazy_expr_idx: Some(
+                        34,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -35776,13 +35776,13 @@
                             value: 673,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        37,
-                    ),
-                    hir_lazy_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         36,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_lazy_expr_idx: Some(
+                        35,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -35829,13 +35829,13 @@
                             value: 673,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        38,
-                    ),
-                    hir_lazy_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         37,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_lazy_expr_idx: Some(
+                        36,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -35882,13 +35882,13 @@
                             value: 673,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        39,
-                    ),
-                    hir_lazy_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         38,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_lazy_expr_idx: Some(
+                        37,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -35935,13 +35935,13 @@
                             value: 673,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        40,
-                    ),
-                    hir_lazy_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         39,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_lazy_expr_idx: Some(
+                        38,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -35988,13 +35988,13 @@
                             value: 673,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        41,
-                    ),
-                    hir_lazy_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         40,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_lazy_expr_idx: Some(
+                        39,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -36041,13 +36041,13 @@
                             value: 673,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        43,
-                    ),
-                    hir_lazy_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         42,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_lazy_expr_idx: Some(
+                        41,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -36075,7 +36075,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -36096,14 +36096,14 @@
                             value: 670,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        11,
+                    sem_stmt_idx: SemaStmtIdx(
+                        10,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        11,
+                        10,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -36145,13 +36145,13 @@
                             value: 674,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        45,
-                    ),
-                    hir_lazy_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         44,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_lazy_expr_idx: Some(
+                        43,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -36198,13 +36198,13 @@
                             value: 674,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        46,
-                    ),
-                    hir_lazy_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         45,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_lazy_expr_idx: Some(
+                        44,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -36232,7 +36232,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -36253,14 +36253,14 @@
                             value: 670,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        12,
+                    sem_stmt_idx: SemaStmtIdx(
+                        11,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        12,
+                        11,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -36280,7 +36280,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -36291,7 +36291,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -36330,13 +36330,13 @@
                             value: 675,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        50,
-                    ),
-                    hir_lazy_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         49,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_lazy_expr_idx: Some(
+                        48,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -36383,13 +36383,13 @@
                             value: 675,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        51,
-                    ),
-                    hir_lazy_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         50,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_lazy_expr_idx: Some(
+                        49,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -36417,7 +36417,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -36438,14 +36438,14 @@
                             value: 670,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        13,
+                    sem_stmt_idx: SemaStmtIdx(
+                        12,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        13,
+                        12,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -36465,7 +36465,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -36476,7 +36476,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -36515,13 +36515,13 @@
                             value: 676,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        56,
+                    sem_expr_idx: SemaExprIdx(
+                        55,
                     ),
                     hir_lazy_expr_idx: Some(
-                        54,
+                        53,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -36568,13 +36568,13 @@
                             value: 676,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        57,
+                    sem_expr_idx: SemaExprIdx(
+                        56,
                     ),
                     hir_lazy_expr_idx: Some(
-                        55,
+                        54,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -36602,7 +36602,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -36623,14 +36623,14 @@
                             value: 670,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        14,
+                    sem_stmt_idx: SemaStmtIdx(
+                        13,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        14,
+                        13,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -36672,7 +36672,7 @@
                             value: 677,
                         },
                     ),
-                    syn_pattern_expr_idx: 9,
+                    syn_pattern_expr_idx: 8,
                     hir_lazy_pattern_expr_idx: None,
                     hir_lazy_variable_idxs: [
                         (
@@ -36684,11 +36684,11 @@
                                 ),
                             ),
                             Some(
-                                4,
+                                3,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -36708,7 +36708,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -36719,7 +36719,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -36758,13 +36758,13 @@
                             value: 677,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        62,
+                    sem_expr_idx: SemaExprIdx(
+                        61,
                     ),
                     hir_lazy_expr_idx: Some(
-                        59,
+                        58,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -36811,13 +36811,13 @@
                             value: 677,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        63,
+                    sem_expr_idx: SemaExprIdx(
+                        62,
                     ),
                     hir_lazy_expr_idx: Some(
-                        60,
+                        59,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -36845,7 +36845,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -36866,14 +36866,14 @@
                             value: 670,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        15,
+                    sem_stmt_idx: SemaStmtIdx(
+                        14,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        15,
+                        14,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -36915,7 +36915,7 @@
                             value: 678,
                         },
                     ),
-                    syn_pattern_expr_idx: 10,
+                    syn_pattern_expr_idx: 9,
                     hir_lazy_pattern_expr_idx: None,
                     hir_lazy_variable_idxs: [
                         (
@@ -36927,11 +36927,11 @@
                                 ),
                             ),
                             Some(
-                                5,
+                                4,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -36973,13 +36973,13 @@
                             value: 678,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        66,
+                    sem_expr_idx: SemaExprIdx(
+                        65,
                     ),
                     hir_lazy_expr_idx: Some(
-                        63,
+                        62,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -37026,13 +37026,13 @@
                             value: 678,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        68,
+                    sem_expr_idx: SemaExprIdx(
+                        67,
                     ),
                     hir_lazy_expr_idx: Some(
-                        65,
+                        64,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -37079,13 +37079,13 @@
                             value: 678,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        69,
+                    sem_expr_idx: SemaExprIdx(
+                        68,
                     ),
                     hir_lazy_expr_idx: Some(
-                        66,
+                        65,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -37132,13 +37132,13 @@
                             value: 678,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        70,
+                    sem_expr_idx: SemaExprIdx(
+                        69,
                     ),
                     hir_lazy_expr_idx: Some(
-                        67,
+                        66,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -37185,13 +37185,13 @@
                             value: 678,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        72,
+                    sem_expr_idx: SemaExprIdx(
+                        71,
                     ),
                     hir_lazy_expr_idx: Some(
-                        69,
+                        68,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -37238,13 +37238,13 @@
                             value: 678,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        73,
+                    sem_expr_idx: SemaExprIdx(
+                        72,
                     ),
                     hir_lazy_expr_idx: Some(
-                        70,
+                        69,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -37272,7 +37272,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -37293,14 +37293,14 @@
                             value: 670,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        16,
+                    sem_stmt_idx: SemaStmtIdx(
+                        15,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        16,
+                        15,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -37342,7 +37342,7 @@
                             value: 679,
                         },
                     ),
-                    syn_pattern_expr_idx: 11,
+                    syn_pattern_expr_idx: 10,
                     hir_lazy_pattern_expr_idx: None,
                     hir_lazy_variable_idxs: [
                         (
@@ -37354,11 +37354,11 @@
                                 ),
                             ),
                             Some(
-                                6,
+                                5,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -37378,7 +37378,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                     },
                 ),
             },
@@ -37389,7 +37389,7 @@
                             value: 68,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 114,
@@ -37428,13 +37428,13 @@
                             value: 679,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        76,
+                    sem_expr_idx: SemaExprIdx(
+                        75,
                     ),
                     hir_lazy_expr_idx: Some(
-                        73,
+                        72,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -37481,13 +37481,13 @@
                             value: 679,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        77,
+                    sem_expr_idx: SemaExprIdx(
+                        76,
                     ),
                     hir_lazy_expr_idx: Some(
-                        74,
+                        73,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -37512,7 +37512,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                     },
                 ),
             },
@@ -37523,7 +37523,7 @@
                             value: 68,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 114,
@@ -37562,13 +37562,13 @@
                             value: 679,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        79,
+                    sem_expr_idx: SemaExprIdx(
+                        78,
                     ),
                     hir_lazy_expr_idx: Some(
-                        76,
+                        75,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -37615,13 +37615,13 @@
                             value: 679,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        80,
+                    sem_expr_idx: SemaExprIdx(
+                        79,
                     ),
                     hir_lazy_expr_idx: Some(
-                        77,
+                        76,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -37649,7 +37649,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -37670,14 +37670,14 @@
                             value: 670,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        17,
+                    sem_stmt_idx: SemaStmtIdx(
+                        16,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        17,
+                        16,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -37719,7 +37719,7 @@
                             value: 680,
                         },
                     ),
-                    syn_pattern_expr_idx: 12,
+                    syn_pattern_expr_idx: 11,
                     hir_lazy_pattern_expr_idx: None,
                     hir_lazy_variable_idxs: [
                         (
@@ -37731,11 +37731,11 @@
                                 ),
                             ),
                             Some(
-                                7,
+                                6,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -37777,13 +37777,13 @@
                             value: 680,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        82,
+                    sem_expr_idx: SemaExprIdx(
+                        81,
                     ),
                     hir_lazy_expr_idx: Some(
-                        79,
+                        78,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -37830,13 +37830,13 @@
                             value: 680,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        83,
+                    sem_expr_idx: SemaExprIdx(
+                        82,
                     ),
                     hir_lazy_expr_idx: Some(
-                        80,
+                        79,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -37864,7 +37864,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -37885,14 +37885,14 @@
                             value: 670,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        18,
+                    sem_stmt_idx: SemaStmtIdx(
+                        17,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        18,
+                        17,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -37934,13 +37934,13 @@
                             value: 681,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        85,
+                    sem_expr_idx: SemaExprIdx(
+                        84,
                     ),
                     hir_lazy_expr_idx: Some(
-                        82,
+                        81,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -37968,7 +37968,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -37989,14 +37989,14 @@
                             value: 670,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        19,
+                    sem_stmt_idx: SemaStmtIdx(
+                        18,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        19,
+                        18,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -38038,7 +38038,7 @@
                             value: 682,
                         },
                     ),
-                    syn_pattern_expr_idx: 13,
+                    syn_pattern_expr_idx: 12,
                     hir_lazy_pattern_expr_idx: None,
                     hir_lazy_variable_idxs: [
                         (
@@ -38050,11 +38050,11 @@
                                 ),
                             ),
                             Some(
-                                8,
+                                7,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -38096,13 +38096,13 @@
                             value: 682,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        88,
+                    sem_expr_idx: SemaExprIdx(
+                        87,
                     ),
                     hir_lazy_expr_idx: Some(
-                        85,
+                        84,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -38149,13 +38149,13 @@
                             value: 682,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        89,
+                    sem_expr_idx: SemaExprIdx(
+                        88,
                     ),
                     hir_lazy_expr_idx: Some(
-                        86,
+                        85,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -38183,7 +38183,7 @@
                         biological_parent_path: TracePath {
                             data: TracePathData::ValItem(
                                 ValItemTracePathData {
-                                    val_item_path: FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                    val_item_path: FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                 },
                             ),
                         },
@@ -38204,14 +38204,14 @@
                             value: 670,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        20,
+                    sem_stmt_idx: SemaStmtIdx(
+                        19,
                     ),
                     hir_lazy_stmt_idx: Some(
-                        20,
+                        19,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 6,
                         },
@@ -38253,14 +38253,14 @@
                             value: 3,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        4,
+                    sem_stmt_idx: SemaStmtIdx(
+                        3,
                     ),
                     hir_eager_stmt_idx: Some(
-                        4,
+                        3,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 92,
                         },
@@ -38280,7 +38280,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                     },
                 ),
             },
@@ -38291,7 +38291,7 @@
                             value: 287,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 95,
@@ -38330,14 +38330,14 @@
                             value: 737,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        11,
+                    sem_stmt_idx: SemaStmtIdx(
+                        10,
                     ),
                     hir_eager_stmt_idx: Some(
-                        11,
+                        10,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -38357,7 +38357,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -38368,7 +38368,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -38415,13 +38415,13 @@
                             value: 738,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        2,
+                    sem_expr_idx: SemaExprIdx(
+                        1,
                     ),
                     hir_eager_expr_idx: Some(
-                        2,
+                        1,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -38468,14 +38468,14 @@
                             value: 737,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        12,
+                    sem_stmt_idx: SemaStmtIdx(
+                        11,
                     ),
                     hir_eager_stmt_idx: Some(
-                        12,
+                        11,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -38517,7 +38517,7 @@
                             value: 739,
                         },
                     ),
-                    syn_pattern_expr_idx: 1,
+                    syn_pattern_expr_idx: 0,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -38528,11 +38528,11 @@
                                 ),
                             ),
                             Some(
-                                1,
+                                0,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -38547,7 +38547,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                     },
                 ),
             },
@@ -38558,7 +38558,7 @@
                             value: 285,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 90,
@@ -38605,13 +38605,13 @@
                             value: 739,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        6,
+                    sem_expr_idx: SemaExprIdx(
+                        5,
                     ),
                     hir_eager_expr_idx: Some(
-                        6,
+                        5,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -38658,11 +38658,11 @@
                             value: 737,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        13,
+                    sem_stmt_idx: SemaStmtIdx(
+                        12,
                     ),
                     hir_eager_stmt_idx: Some(
-                        13,
+                        12,
                     ),
                     eager_stmt_data_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -38677,11 +38677,11 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                4..8,
+                                3..7,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -38723,14 +38723,14 @@
                             value: 740,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        4,
+                    sem_stmt_idx: SemaStmtIdx(
+                        3,
                     ),
                     hir_eager_stmt_idx: Some(
-                        4,
+                        3,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -38772,14 +38772,14 @@
                             value: 740,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        5,
+                    sem_stmt_idx: SemaStmtIdx(
+                        4,
                     ),
                     hir_eager_stmt_idx: Some(
-                        5,
+                        4,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -38821,11 +38821,11 @@
                             value: 740,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        6,
+                    sem_stmt_idx: SemaStmtIdx(
+                        5,
                     ),
                     hir_eager_stmt_idx: Some(
-                        6,
+                        5,
                     ),
                     eager_stmt_data_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -38840,11 +38840,11 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                1..4,
+                                0..3,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -38886,14 +38886,14 @@
                             value: 740,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        7,
+                    sem_stmt_idx: SemaStmtIdx(
+                        6,
                     ),
                     hir_eager_stmt_idx: Some(
-                        7,
+                        6,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -38943,13 +38943,13 @@
                             value: 740,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        7,
+                    sem_expr_idx: SemaExprIdx(
+                        6,
                     ),
                     hir_eager_expr_idx: Some(
-                        7,
+                        6,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -38996,11 +38996,11 @@
                             value: 737,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        14,
+                    sem_stmt_idx: SemaStmtIdx(
+                        13,
                     ),
                     hir_eager_stmt_idx: Some(
-                        14,
+                        13,
                     ),
                     eager_stmt_data_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -39015,11 +39015,11 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                8..11,
+                                7..10,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -39061,14 +39061,14 @@
                             value: 741,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        8,
+                    sem_stmt_idx: SemaStmtIdx(
+                        7,
                     ),
                     hir_eager_stmt_idx: Some(
-                        8,
+                        7,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -39110,14 +39110,14 @@
                             value: 741,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        9,
+                    sem_stmt_idx: SemaStmtIdx(
+                        8,
                     ),
                     hir_eager_stmt_idx: Some(
-                        9,
+                        8,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -39159,14 +39159,14 @@
                             value: 741,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        10,
+                    sem_stmt_idx: SemaStmtIdx(
+                        9,
                     ),
                     hir_eager_stmt_idx: Some(
-                        10,
+                        9,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -39216,13 +39216,13 @@
                             value: 741,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        36,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         35,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        34,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -39269,14 +39269,14 @@
                             value: 737,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        15,
+                    sem_stmt_idx: SemaStmtIdx(
+                        14,
                     ),
                     hir_eager_stmt_idx: Some(
-                        15,
+                        14,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -39296,7 +39296,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                     },
                 ),
             },
@@ -39307,7 +39307,7 @@
                             value: 286,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 92,
@@ -39354,13 +39354,13 @@
                             value: 742,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        49,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         48,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        47,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -39407,14 +39407,14 @@
                             value: 737,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        16,
+                    sem_stmt_idx: SemaStmtIdx(
+                        15,
                     ),
                     hir_eager_stmt_idx: Some(
-                        16,
+                        15,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -39456,7 +39456,7 @@
                             value: 743,
                         },
                     ),
-                    syn_pattern_expr_idx: 10,
+                    syn_pattern_expr_idx: 9,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -39467,11 +39467,11 @@
                                 ),
                             ),
                             Some(
-                                6,
+                                5,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -39486,7 +39486,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                     },
                 ),
             },
@@ -39497,7 +39497,7 @@
                             value: 286,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 92,
@@ -39544,13 +39544,13 @@
                             value: 743,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        54,
+                    sem_expr_idx: SemaExprIdx(
+                        53,
                     ),
                     hir_eager_expr_idx: Some(
-                        52,
+                        51,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -39597,14 +39597,14 @@
                             value: 737,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        17,
+                    sem_stmt_idx: SemaStmtIdx(
+                        16,
                     ),
                     hir_eager_stmt_idx: Some(
-                        17,
+                        16,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -39646,14 +39646,14 @@
                             value: 737,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        18,
+                    sem_stmt_idx: SemaStmtIdx(
+                        17,
                     ),
                     hir_eager_stmt_idx: Some(
-                        18,
+                        17,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 64,
                         },
@@ -39695,14 +39695,14 @@
                             value: 3,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        5,
+                    sem_stmt_idx: SemaStmtIdx(
+                        4,
                     ),
                     hir_eager_stmt_idx: Some(
-                        5,
+                        4,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 92,
                         },
@@ -39722,7 +39722,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                     },
                 ),
             },
@@ -39733,7 +39733,7 @@
                             value: 316,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 97,
@@ -39772,14 +39772,14 @@
                             value: 765,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        4,
+                    sem_stmt_idx: SemaStmtIdx(
+                        3,
                     ),
                     hir_eager_stmt_idx: Some(
-                        4,
+                        3,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 68,
                         },
@@ -39821,7 +39821,7 @@
                             value: 766,
                         },
                     ),
-                    syn_pattern_expr_idx: 1,
+                    syn_pattern_expr_idx: 0,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -39832,11 +39832,11 @@
                                 ),
                             ),
                             Some(
-                                1,
+                                0,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 68,
                         },
@@ -39851,7 +39851,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -39862,7 +39862,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -39909,13 +39909,13 @@
                             value: 766,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        2,
+                    sem_expr_idx: SemaExprIdx(
+                        1,
                     ),
                     hir_eager_expr_idx: Some(
-                        2,
+                        1,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 68,
                         },
@@ -39940,7 +39940,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -39951,7 +39951,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -39998,13 +39998,13 @@
                             value: 766,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        4,
+                    sem_expr_idx: SemaExprIdx(
+                        3,
                     ),
                     hir_eager_expr_idx: Some(
-                        4,
+                        3,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 68,
                         },
@@ -40051,11 +40051,11 @@
                             value: 765,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        5,
+                    sem_stmt_idx: SemaStmtIdx(
+                        4,
                     ),
                     hir_eager_stmt_idx: Some(
-                        5,
+                        4,
                     ),
                     eager_stmt_data_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -40070,11 +40070,11 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                2..4,
+                                1..3,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 68,
                         },
@@ -40116,11 +40116,11 @@
                             value: 767,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        2,
+                    sem_stmt_idx: SemaStmtIdx(
+                        1,
                     ),
                     hir_eager_stmt_idx: Some(
-                        2,
+                        1,
                     ),
                     eager_stmt_data_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -40135,11 +40135,11 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                1..2,
+                                0..1,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 68,
                         },
@@ -40181,14 +40181,14 @@
                             value: 767,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        3,
+                    sem_stmt_idx: SemaStmtIdx(
+                        2,
                     ),
                     hir_eager_stmt_idx: Some(
-                        3,
+                        2,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 68,
                         },
@@ -40208,7 +40208,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -40219,7 +40219,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -40266,13 +40266,13 @@
                             value: 767,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        7,
+                    sem_expr_idx: SemaExprIdx(
+                        6,
                     ),
                     hir_eager_expr_idx: Some(
-                        7,
+                        6,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 68,
                         },
@@ -40327,13 +40327,13 @@
                             value: 767,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        8,
+                    sem_expr_idx: SemaExprIdx(
+                        7,
                     ),
                     hir_eager_expr_idx: Some(
-                        8,
+                        7,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 68,
                         },
@@ -40380,14 +40380,14 @@
                             value: 765,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        6,
+                    sem_stmt_idx: SemaStmtIdx(
+                        5,
                     ),
                     hir_eager_stmt_idx: Some(
-                        6,
+                        5,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 68,
                         },
@@ -40429,14 +40429,14 @@
                             value: 3,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        6,
+                    sem_stmt_idx: SemaStmtIdx(
+                        5,
                     ),
                     hir_eager_stmt_idx: Some(
-                        6,
+                        5,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 92,
                         },
@@ -40456,7 +40456,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                     },
                 ),
             },
@@ -40467,7 +40467,7 @@
                             value: 177,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 78,
@@ -40506,14 +40506,14 @@
                             value: 779,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        1,
+                    sem_stmt_idx: SemaStmtIdx(
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -40533,7 +40533,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -40544,7 +40544,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -40591,13 +40591,13 @@
                             value: 780,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        2,
+                    sem_expr_idx: SemaExprIdx(
+                        1,
                     ),
                     hir_eager_expr_idx: Some(
-                        2,
+                        1,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -40644,14 +40644,14 @@
                             value: 779,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        2,
+                    sem_stmt_idx: SemaStmtIdx(
+                        1,
                     ),
                     hir_eager_stmt_idx: Some(
-                        2,
+                        1,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -40671,7 +40671,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -40682,7 +40682,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -40729,13 +40729,13 @@
                             value: 781,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        6,
+                    sem_expr_idx: SemaExprIdx(
+                        5,
                     ),
                     hir_eager_expr_idx: Some(
-                        6,
+                        5,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -40782,14 +40782,14 @@
                             value: 779,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        3,
+                    sem_stmt_idx: SemaStmtIdx(
+                        2,
                     ),
                     hir_eager_stmt_idx: Some(
-                        3,
+                        2,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -40831,7 +40831,7 @@
                             value: 782,
                         },
                     ),
-                    syn_pattern_expr_idx: 1,
+                    syn_pattern_expr_idx: 0,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -40842,11 +40842,11 @@
                                 ),
                             ),
                             Some(
-                                1,
+                                0,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -40861,7 +40861,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
@@ -40872,7 +40872,7 @@
                             value: 176,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 77,
@@ -40919,13 +40919,13 @@
                             value: 782,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        10,
+                    sem_expr_idx: SemaExprIdx(
+                        9,
                     ),
                     hir_eager_expr_idx: Some(
-                        10,
+                        9,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -40972,14 +40972,14 @@
                             value: 779,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        4,
+                    sem_stmt_idx: SemaStmtIdx(
+                        3,
                     ),
                     hir_eager_stmt_idx: Some(
-                        4,
+                        3,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -41021,7 +41021,7 @@
                             value: 783,
                         },
                     ),
-                    syn_pattern_expr_idx: 2,
+                    syn_pattern_expr_idx: 1,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -41032,11 +41032,11 @@
                                 ),
                             ),
                             Some(
-                                2,
+                                1,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -41051,7 +41051,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
@@ -41062,7 +41062,7 @@
                             value: 176,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 77,
@@ -41109,13 +41109,13 @@
                             value: 783,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        14,
+                    sem_expr_idx: SemaExprIdx(
+                        13,
                     ),
                     hir_eager_expr_idx: Some(
-                        14,
+                        13,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -41162,14 +41162,14 @@
                             value: 779,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        5,
+                    sem_stmt_idx: SemaStmtIdx(
+                        4,
                     ),
                     hir_eager_stmt_idx: Some(
-                        5,
+                        4,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -41211,7 +41211,7 @@
                             value: 784,
                         },
                     ),
-                    syn_pattern_expr_idx: 3,
+                    syn_pattern_expr_idx: 2,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -41222,11 +41222,11 @@
                                 ),
                             ),
                             Some(
-                                3,
+                                2,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -41241,7 +41241,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
@@ -41252,7 +41252,7 @@
                             value: 176,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 77,
@@ -41299,13 +41299,13 @@
                             value: 784,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        18,
+                    sem_expr_idx: SemaExprIdx(
+                        17,
                     ),
                     hir_eager_expr_idx: Some(
-                        18,
+                        17,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -41352,14 +41352,14 @@
                             value: 779,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        6,
+                    sem_stmt_idx: SemaStmtIdx(
+                        5,
                     ),
                     hir_eager_stmt_idx: Some(
-                        6,
+                        5,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -41409,13 +41409,13 @@
                             value: 785,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        21,
+                    sem_expr_idx: SemaExprIdx(
+                        20,
                     ),
                     hir_eager_expr_idx: Some(
-                        21,
+                        20,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -41462,14 +41462,14 @@
                             value: 779,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        7,
+                    sem_stmt_idx: SemaStmtIdx(
+                        6,
                     ),
                     hir_eager_stmt_idx: Some(
-                        7,
+                        6,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -41519,13 +41519,13 @@
                             value: 786,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        23,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         22,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        21,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -41580,13 +41580,13 @@
                             value: 786,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        25,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         24,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        23,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -41633,14 +41633,14 @@
                             value: 779,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        8,
+                    sem_stmt_idx: SemaStmtIdx(
+                        7,
                     ),
                     hir_eager_stmt_idx: Some(
-                        8,
+                        7,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -41690,13 +41690,13 @@
                             value: 787,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        28,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         27,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        26,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -41743,14 +41743,14 @@
                             value: 779,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        9,
+                    sem_stmt_idx: SemaStmtIdx(
+                        8,
                     ),
                     hir_eager_stmt_idx: Some(
-                        9,
+                        8,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -41792,7 +41792,7 @@
                             value: 788,
                         },
                     ),
-                    syn_pattern_expr_idx: 8,
+                    syn_pattern_expr_idx: 7,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -41803,11 +41803,11 @@
                                 ),
                             ),
                             Some(
-                                4,
+                                3,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -41852,13 +41852,13 @@
                             value: 788,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        30,
+                    sem_expr_idx: SemaExprIdx(
+                        29,
                     ),
                     hir_eager_expr_idx: Some(
-                        28,
+                        27,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -41913,13 +41913,13 @@
                             value: 788,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        32,
+                    sem_expr_idx: SemaExprIdx(
+                        31,
                     ),
                     hir_eager_expr_idx: Some(
-                        30,
+                        29,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -41974,13 +41974,13 @@
                             value: 788,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        34,
+                    sem_expr_idx: SemaExprIdx(
+                        33,
                     ),
                     hir_eager_expr_idx: Some(
-                        32,
+                        31,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -42027,14 +42027,14 @@
                             value: 779,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        10,
+                    sem_stmt_idx: SemaStmtIdx(
+                        9,
                     ),
                     hir_eager_stmt_idx: Some(
-                        10,
+                        9,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -42084,13 +42084,13 @@
                             value: 789,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        35,
+                    sem_expr_idx: SemaExprIdx(
+                        34,
                     ),
                     hir_eager_expr_idx: Some(
-                        33,
+                        32,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -42145,13 +42145,13 @@
                             value: 789,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        38,
+                    sem_expr_idx: SemaExprIdx(
+                        37,
                     ),
                     hir_eager_expr_idx: Some(
-                        36,
+                        35,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -42198,14 +42198,14 @@
                             value: 779,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        11,
+                    sem_stmt_idx: SemaStmtIdx(
+                        10,
                     ),
                     hir_eager_stmt_idx: Some(
-                        11,
+                        10,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -42247,7 +42247,7 @@
                             value: 790,
                         },
                     ),
-                    syn_pattern_expr_idx: 9,
+                    syn_pattern_expr_idx: 8,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -42258,11 +42258,11 @@
                                 ),
                             ),
                             Some(
-                                5,
+                                4,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -42307,13 +42307,13 @@
                             value: 790,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        43,
+                    sem_expr_idx: SemaExprIdx(
+                        42,
                     ),
                     hir_eager_expr_idx: Some(
-                        41,
+                        40,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -42368,13 +42368,13 @@
                             value: 790,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        45,
+                    sem_expr_idx: SemaExprIdx(
+                        44,
                     ),
                     hir_eager_expr_idx: Some(
-                        43,
+                        42,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -42421,14 +42421,14 @@
                             value: 779,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        12,
+                    sem_stmt_idx: SemaStmtIdx(
+                        11,
                     ),
                     hir_eager_stmt_idx: Some(
-                        12,
+                        11,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -42470,7 +42470,7 @@
                             value: 791,
                         },
                     ),
-                    syn_pattern_expr_idx: 10,
+                    syn_pattern_expr_idx: 9,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -42481,11 +42481,11 @@
                                 ),
                             ),
                             Some(
-                                6,
+                                5,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -42530,13 +42530,13 @@
                             value: 791,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        46,
+                    sem_expr_idx: SemaExprIdx(
+                        45,
                     ),
                     hir_eager_expr_idx: Some(
-                        44,
+                        43,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -42591,13 +42591,13 @@
                             value: 791,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        48,
+                    sem_expr_idx: SemaExprIdx(
+                        47,
                     ),
                     hir_eager_expr_idx: Some(
-                        46,
+                        45,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -42644,14 +42644,14 @@
                             value: 779,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        13,
+                    sem_stmt_idx: SemaStmtIdx(
+                        12,
                     ),
                     hir_eager_stmt_idx: Some(
-                        13,
+                        12,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -42693,7 +42693,7 @@
                             value: 792,
                         },
                     ),
-                    syn_pattern_expr_idx: 11,
+                    syn_pattern_expr_idx: 10,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -42704,11 +42704,11 @@
                                 ),
                             ),
                             Some(
-                                7,
+                                6,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -42753,13 +42753,13 @@
                             value: 792,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        49,
+                    sem_expr_idx: SemaExprIdx(
+                        48,
                     ),
                     hir_eager_expr_idx: Some(
-                        47,
+                        46,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -42814,13 +42814,13 @@
                             value: 792,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        51,
+                    sem_expr_idx: SemaExprIdx(
+                        50,
                     ),
                     hir_eager_expr_idx: Some(
-                        49,
+                        48,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -42875,13 +42875,13 @@
                             value: 792,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        50,
+                    sem_expr_idx: SemaExprIdx(
+                        49,
                     ),
                     hir_eager_expr_idx: Some(
-                        48,
+                        47,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -42928,14 +42928,14 @@
                             value: 779,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        14,
+                    sem_stmt_idx: SemaStmtIdx(
+                        13,
                     ),
                     hir_eager_stmt_idx: Some(
-                        14,
+                        13,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -42985,13 +42985,13 @@
                             value: 793,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        52,
+                    sem_expr_idx: SemaExprIdx(
+                        51,
                     ),
                     hir_eager_expr_idx: Some(
-                        50,
+                        49,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -43038,14 +43038,14 @@
                             value: 779,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        15,
+                    sem_stmt_idx: SemaStmtIdx(
+                        14,
                     ),
                     hir_eager_stmt_idx: Some(
-                        15,
+                        14,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -43065,7 +43065,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
                     },
                 ),
             },
@@ -43076,7 +43076,7 @@
                             value: 176,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 77,
@@ -43123,13 +43123,13 @@
                             value: 794,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        56,
+                    sem_expr_idx: SemaExprIdx(
+                        55,
                     ),
                     hir_eager_expr_idx: Some(
-                        54,
+                        53,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -43176,14 +43176,14 @@
                             value: 779,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        16,
+                    sem_stmt_idx: SemaStmtIdx(
+                        15,
                     ),
                     hir_eager_stmt_idx: Some(
-                        16,
+                        15,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -43233,13 +43233,13 @@
                             value: 795,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        59,
+                    sem_expr_idx: SemaExprIdx(
+                        58,
                     ),
                     hir_eager_expr_idx: Some(
-                        57,
+                        56,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -43294,13 +43294,13 @@
                             value: 795,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        61,
+                    sem_expr_idx: SemaExprIdx(
+                        60,
                     ),
                     hir_eager_expr_idx: Some(
-                        59,
+                        58,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -43347,14 +43347,14 @@
                             value: 779,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        17,
+                    sem_stmt_idx: SemaStmtIdx(
+                        16,
                     ),
                     hir_eager_stmt_idx: Some(
-                        17,
+                        16,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 30,
                         },
@@ -43396,14 +43396,14 @@
                             value: 3,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        7,
+                    sem_stmt_idx: SemaStmtIdx(
+                        6,
                     ),
                     hir_eager_stmt_idx: Some(
-                        7,
+                        6,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 92,
                         },
@@ -43423,7 +43423,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                     },
                 ),
             },
@@ -43434,7 +43434,7 @@
                             value: 331,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 101,
@@ -43473,14 +43473,14 @@
                             value: 835,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        15,
+                    sem_stmt_idx: SemaStmtIdx(
+                        14,
                     ),
                     hir_eager_stmt_idx: Some(
-                        15,
+                        14,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -43522,7 +43522,7 @@
                             value: 836,
                         },
                     ),
-                    syn_pattern_expr_idx: 1,
+                    syn_pattern_expr_idx: 0,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -43533,11 +43533,11 @@
                                 ),
                             ),
                             Some(
-                                1,
+                                0,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -43552,7 +43552,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -43563,7 +43563,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -43610,13 +43610,13 @@
                             value: 836,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        2,
+                    sem_expr_idx: SemaExprIdx(
+                        1,
                     ),
                     hir_eager_expr_idx: Some(
-                        2,
+                        1,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -43663,14 +43663,14 @@
                             value: 835,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        16,
+                    sem_stmt_idx: SemaStmtIdx(
+                        15,
                     ),
                     hir_eager_stmt_idx: Some(
-                        16,
+                        15,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -43720,13 +43720,13 @@
                             value: 837,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        3,
+                    sem_expr_idx: SemaExprIdx(
+                        2,
                     ),
                     hir_eager_expr_idx: Some(
-                        3,
+                        2,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -43781,13 +43781,13 @@
                             value: 837,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        4,
+                    sem_expr_idx: SemaExprIdx(
+                        3,
                     ),
                     hir_eager_expr_idx: Some(
-                        4,
+                        3,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -43834,14 +43834,14 @@
                             value: 835,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        17,
+                    sem_stmt_idx: SemaStmtIdx(
+                        16,
                     ),
                     hir_eager_stmt_idx: Some(
-                        17,
+                        16,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -43883,7 +43883,7 @@
                             value: 838,
                         },
                     ),
-                    syn_pattern_expr_idx: 3,
+                    syn_pattern_expr_idx: 2,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -43894,11 +43894,11 @@
                                 ),
                             ),
                             Some(
-                                2,
+                                1,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -43913,7 +43913,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::nine::nine_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                     },
                 ),
             },
@@ -43924,7 +43924,7 @@
                             value: 329,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 99,
@@ -43971,13 +43971,13 @@
                             value: 838,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        9,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         8,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        7,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -44024,14 +44024,14 @@
                             value: 835,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        18,
+                    sem_stmt_idx: SemaStmtIdx(
+                        17,
                     ),
                     hir_eager_stmt_idx: Some(
-                        18,
+                        17,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -44081,13 +44081,13 @@
                             value: 839,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        12,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         11,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        10,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -44134,14 +44134,14 @@
                             value: 835,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        19,
+                    sem_stmt_idx: SemaStmtIdx(
+                        18,
                     ),
                     hir_eager_stmt_idx: Some(
-                        19,
+                        18,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -44183,7 +44183,7 @@
                             value: 840,
                         },
                     ),
-                    syn_pattern_expr_idx: 6,
+                    syn_pattern_expr_idx: 5,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -44194,11 +44194,11 @@
                                 ),
                             ),
                             Some(
-                                3,
+                                2,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -44243,13 +44243,13 @@
                             value: 840,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        14,
+                    sem_expr_idx: SemaExprIdx(
+                        13,
                     ),
                     hir_eager_expr_idx: Some(
-                        12,
+                        11,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -44304,13 +44304,13 @@
                             value: 840,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        16,
+                    sem_expr_idx: SemaExprIdx(
+                        15,
                     ),
                     hir_eager_expr_idx: Some(
-                        14,
+                        13,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -44365,13 +44365,13 @@
                             value: 840,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        17,
+                    sem_expr_idx: SemaExprIdx(
+                        16,
                     ),
                     hir_eager_expr_idx: Some(
-                        15,
+                        14,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -44418,14 +44418,14 @@
                             value: 835,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        20,
+                    sem_stmt_idx: SemaStmtIdx(
+                        19,
                     ),
                     hir_eager_stmt_idx: Some(
-                        20,
+                        19,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -44467,7 +44467,7 @@
                             value: 841,
                         },
                     ),
-                    syn_pattern_expr_idx: 7,
+                    syn_pattern_expr_idx: 6,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -44478,11 +44478,11 @@
                                 ),
                             ),
                             Some(
-                                4,
+                                3,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -44497,7 +44497,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -44508,7 +44508,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -44555,13 +44555,13 @@
                             value: 841,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        19,
+                    sem_expr_idx: SemaExprIdx(
+                        18,
                     ),
                     hir_eager_expr_idx: Some(
-                        17,
+                        16,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -44586,7 +44586,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -44597,7 +44597,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -44644,13 +44644,13 @@
                             value: 841,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        21,
+                    sem_expr_idx: SemaExprIdx(
+                        20,
                     ),
                     hir_eager_expr_idx: Some(
-                        19,
+                        18,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -44697,14 +44697,14 @@
                             value: 835,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        21,
+                    sem_stmt_idx: SemaStmtIdx(
+                        20,
                     ),
                     hir_eager_stmt_idx: Some(
-                        21,
+                        20,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -44754,13 +44754,13 @@
                             value: 842,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        23,
+                    sem_expr_idx: SemaExprIdx(
+                        22,
                     ),
                     hir_eager_expr_idx: Some(
-                        21,
+                        20,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -44807,11 +44807,11 @@
                             value: 835,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        22,
+                    sem_stmt_idx: SemaStmtIdx(
+                        21,
                     ),
                     hir_eager_stmt_idx: Some(
-                        22,
+                        21,
                     ),
                     eager_stmt_data_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -44826,11 +44826,11 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                1..15,
+                                0..14,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -44872,14 +44872,14 @@
                             value: 843,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        1,
+                    sem_stmt_idx: SemaStmtIdx(
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -44921,14 +44921,14 @@
                             value: 843,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        2,
+                    sem_stmt_idx: SemaStmtIdx(
+                        1,
                     ),
                     hir_eager_stmt_idx: Some(
-                        2,
+                        1,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -44970,14 +44970,14 @@
                             value: 843,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        3,
+                    sem_stmt_idx: SemaStmtIdx(
+                        2,
                     ),
                     hir_eager_stmt_idx: Some(
-                        3,
+                        2,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -45019,14 +45019,14 @@
                             value: 843,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        4,
+                    sem_stmt_idx: SemaStmtIdx(
+                        3,
                     ),
                     hir_eager_stmt_idx: Some(
-                        4,
+                        3,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -45068,14 +45068,14 @@
                             value: 843,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        5,
+                    sem_stmt_idx: SemaStmtIdx(
+                        4,
                     ),
                     hir_eager_stmt_idx: Some(
-                        5,
+                        4,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -45117,14 +45117,14 @@
                             value: 843,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        6,
+                    sem_stmt_idx: SemaStmtIdx(
+                        5,
                     ),
                     hir_eager_stmt_idx: Some(
-                        6,
+                        5,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -45166,14 +45166,14 @@
                             value: 843,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        7,
+                    sem_stmt_idx: SemaStmtIdx(
+                        6,
                     ),
                     hir_eager_stmt_idx: Some(
-                        7,
+                        6,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -45215,14 +45215,14 @@
                             value: 843,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        8,
+                    sem_stmt_idx: SemaStmtIdx(
+                        7,
                     ),
                     hir_eager_stmt_idx: Some(
-                        8,
+                        7,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -45264,14 +45264,14 @@
                             value: 843,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        9,
+                    sem_stmt_idx: SemaStmtIdx(
+                        8,
                     ),
                     hir_eager_stmt_idx: Some(
-                        9,
+                        8,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -45313,14 +45313,14 @@
                             value: 843,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        10,
+                    sem_stmt_idx: SemaStmtIdx(
+                        9,
                     ),
                     hir_eager_stmt_idx: Some(
-                        10,
+                        9,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -45362,14 +45362,14 @@
                             value: 843,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        11,
+                    sem_stmt_idx: SemaStmtIdx(
+                        10,
                     ),
                     hir_eager_stmt_idx: Some(
-                        11,
+                        10,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -45411,14 +45411,14 @@
                             value: 843,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        12,
+                    sem_stmt_idx: SemaStmtIdx(
+                        11,
                     ),
                     hir_eager_stmt_idx: Some(
-                        12,
+                        11,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -45460,14 +45460,14 @@
                             value: 843,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        13,
+                    sem_stmt_idx: SemaStmtIdx(
+                        12,
                     ),
                     hir_eager_stmt_idx: Some(
-                        13,
+                        12,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -45509,14 +45509,14 @@
                             value: 843,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        14,
+                    sem_stmt_idx: SemaStmtIdx(
+                        13,
                     ),
                     hir_eager_stmt_idx: Some(
-                        14,
+                        13,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -45566,13 +45566,13 @@
                             value: 843,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        26,
+                    sem_expr_idx: SemaExprIdx(
+                        25,
                     ),
                     hir_eager_expr_idx: Some(
-                        24,
+                        23,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -45627,13 +45627,13 @@
                             value: 843,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        27,
+                    sem_expr_idx: SemaExprIdx(
+                        26,
                     ),
                     hir_eager_expr_idx: Some(
-                        25,
+                        24,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -45680,14 +45680,14 @@
                             value: 835,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        23,
+                    sem_stmt_idx: SemaStmtIdx(
+                        22,
                     ),
                     hir_eager_stmt_idx: Some(
-                        23,
+                        22,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 76,
                         },
@@ -45729,14 +45729,14 @@
                             value: 3,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        8,
+                    sem_stmt_idx: SemaStmtIdx(
+                        7,
                     ),
                     hir_eager_stmt_idx: Some(
-                        8,
+                        7,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 92,
                         },
@@ -45756,7 +45756,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                     },
                 ),
             },
@@ -45767,7 +45767,7 @@
                             value: 283,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 89,
@@ -45806,14 +45806,14 @@
                             value: 880,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        1,
+                    sem_stmt_idx: SemaStmtIdx(
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 52,
                         },
@@ -45855,14 +45855,14 @@
                             value: 3,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        9,
+                    sem_stmt_idx: SemaStmtIdx(
+                        8,
                     ),
                     hir_eager_stmt_idx: Some(
-                        9,
+                        8,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 92,
                         },
@@ -45882,7 +45882,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                     },
                 ),
             },
@@ -45893,7 +45893,7 @@
                             value: 377,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 108,
@@ -45932,14 +45932,14 @@
                             value: 882,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        20,
+                    sem_stmt_idx: SemaStmtIdx(
+                        19,
                     ),
                     hir_eager_stmt_idx: Some(
-                        20,
+                        19,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -45981,7 +45981,7 @@
                             value: 883,
                         },
                     ),
-                    syn_pattern_expr_idx: 1,
+                    syn_pattern_expr_idx: 0,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -45992,11 +45992,11 @@
                                 ),
                             ),
                             Some(
-                                1,
+                                0,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -46011,7 +46011,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                     },
                 ),
             },
@@ -46022,7 +46022,7 @@
                             value: 18,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 115,
@@ -46069,13 +46069,13 @@
                             value: 883,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        2,
+                    sem_expr_idx: SemaExprIdx(
+                        1,
                     ),
                     hir_eager_expr_idx: Some(
-                        2,
+                        1,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -46122,14 +46122,14 @@
                             value: 882,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        21,
+                    sem_stmt_idx: SemaStmtIdx(
+                        20,
                     ),
                     hir_eager_stmt_idx: Some(
-                        21,
+                        20,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -46171,7 +46171,7 @@
                             value: 884,
                         },
                     ),
-                    syn_pattern_expr_idx: 2,
+                    syn_pattern_expr_idx: 1,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -46182,11 +46182,11 @@
                                 ),
                             ),
                             Some(
-                                2,
+                                1,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -46201,7 +46201,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -46212,7 +46212,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -46259,13 +46259,13 @@
                             value: 884,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        4,
+                    sem_expr_idx: SemaExprIdx(
+                        3,
                     ),
                     hir_eager_expr_idx: Some(
-                        4,
+                        3,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -46312,14 +46312,14 @@
                             value: 882,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        22,
+                    sem_stmt_idx: SemaStmtIdx(
+                        21,
                     ),
                     hir_eager_stmt_idx: Some(
-                        22,
+                        21,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -46369,13 +46369,13 @@
                             value: 885,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        5,
+                    sem_expr_idx: SemaExprIdx(
+                        4,
                     ),
                     hir_eager_expr_idx: Some(
-                        5,
+                        4,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -46430,13 +46430,13 @@
                             value: 885,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        6,
+                    sem_expr_idx: SemaExprIdx(
+                        5,
                     ),
                     hir_eager_expr_idx: Some(
-                        6,
+                        5,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -46483,14 +46483,14 @@
                             value: 882,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        23,
+                    sem_stmt_idx: SemaStmtIdx(
+                        22,
                     ),
                     hir_eager_stmt_idx: Some(
-                        23,
+                        22,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -46532,7 +46532,7 @@
                             value: 886,
                         },
                     ),
-                    syn_pattern_expr_idx: 4,
+                    syn_pattern_expr_idx: 3,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -46543,11 +46543,11 @@
                                 ),
                             ),
                             Some(
-                                3,
+                                2,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -46562,7 +46562,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                     },
                 ),
             },
@@ -46573,7 +46573,7 @@
                             value: 376,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 104,
@@ -46620,13 +46620,13 @@
                             value: 886,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        11,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         10,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        9,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -46673,14 +46673,14 @@
                             value: 882,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        24,
+                    sem_stmt_idx: SemaStmtIdx(
+                        23,
                     ),
                     hir_eager_stmt_idx: Some(
-                        24,
+                        23,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -46722,7 +46722,7 @@
                             value: 887,
                         },
                     ),
-                    syn_pattern_expr_idx: 5,
+                    syn_pattern_expr_idx: 4,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -46733,11 +46733,11 @@
                                 ),
                             ),
                             Some(
-                                4,
+                                3,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -46752,7 +46752,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                     },
                 ),
             },
@@ -46763,7 +46763,7 @@
                             value: 376,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 104,
@@ -46810,13 +46810,13 @@
                             value: 887,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        15,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         14,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        13,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -46863,14 +46863,14 @@
                             value: 882,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        25,
+                    sem_stmt_idx: SemaStmtIdx(
+                        24,
                     ),
                     hir_eager_stmt_idx: Some(
-                        25,
+                        24,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -46912,7 +46912,7 @@
                             value: 888,
                         },
                     ),
-                    syn_pattern_expr_idx: 6,
+                    syn_pattern_expr_idx: 5,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -46923,11 +46923,11 @@
                                 ),
                             ),
                             Some(
-                                5,
+                                4,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -46942,7 +46942,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                     },
                 ),
             },
@@ -46953,7 +46953,7 @@
                             value: 376,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 104,
@@ -47000,13 +47000,13 @@
                             value: 888,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        19,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         18,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        17,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -47053,14 +47053,14 @@
                             value: 882,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        26,
+                    sem_stmt_idx: SemaStmtIdx(
+                        25,
                     ),
                     hir_eager_stmt_idx: Some(
-                        26,
+                        25,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -47110,13 +47110,13 @@
                             value: 889,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        22,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         21,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        20,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -47163,14 +47163,14 @@
                             value: 882,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        27,
+                    sem_stmt_idx: SemaStmtIdx(
+                        26,
                     ),
                     hir_eager_stmt_idx: Some(
-                        27,
+                        26,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -47212,7 +47212,7 @@
                             value: 890,
                         },
                     ),
-                    syn_pattern_expr_idx: 7,
+                    syn_pattern_expr_idx: 6,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -47223,11 +47223,11 @@
                                 ),
                             ),
                             Some(
-                                6,
+                                5,
                             ),
                         ),
                     ],
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -47242,7 +47242,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -47253,7 +47253,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -47300,13 +47300,13 @@
                             value: 890,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        26,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         25,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        24,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -47331,7 +47331,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                        val_item_path: FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                     },
                 ),
             },
@@ -47342,7 +47342,7 @@
                             value: 39,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 110,
@@ -47389,13 +47389,13 @@
                             value: 890,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        28,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         27,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        26,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -47442,14 +47442,14 @@
                             value: 882,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        28,
+                    sem_stmt_idx: SemaStmtIdx(
+                        27,
                     ),
                     hir_eager_stmt_idx: Some(
-                        28,
+                        27,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -47499,13 +47499,13 @@
                             value: 891,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        30,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         29,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        28,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -47552,11 +47552,11 @@
                             value: 882,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        29,
+                    sem_stmt_idx: SemaStmtIdx(
+                        28,
                     ),
                     hir_eager_stmt_idx: Some(
-                        29,
+                        28,
                     ),
                     eager_stmt_data_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -47571,11 +47571,11 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                1..15,
+                                0..14,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -47617,14 +47617,14 @@
                             value: 892,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        1,
+                    sem_stmt_idx: SemaStmtIdx(
+                        0,
                     ),
                     hir_eager_stmt_idx: Some(
-                        1,
+                        0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -47666,14 +47666,14 @@
                             value: 892,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        2,
+                    sem_stmt_idx: SemaStmtIdx(
+                        1,
                     ),
                     hir_eager_stmt_idx: Some(
-                        2,
+                        1,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -47715,14 +47715,14 @@
                             value: 892,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        3,
+                    sem_stmt_idx: SemaStmtIdx(
+                        2,
                     ),
                     hir_eager_stmt_idx: Some(
-                        3,
+                        2,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -47764,14 +47764,14 @@
                             value: 892,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        4,
+                    sem_stmt_idx: SemaStmtIdx(
+                        3,
                     ),
                     hir_eager_stmt_idx: Some(
-                        4,
+                        3,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -47813,14 +47813,14 @@
                             value: 892,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        5,
+                    sem_stmt_idx: SemaStmtIdx(
+                        4,
                     ),
                     hir_eager_stmt_idx: Some(
-                        5,
+                        4,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -47862,14 +47862,14 @@
                             value: 892,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        6,
+                    sem_stmt_idx: SemaStmtIdx(
+                        5,
                     ),
                     hir_eager_stmt_idx: Some(
-                        6,
+                        5,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -47911,14 +47911,14 @@
                             value: 892,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        7,
+                    sem_stmt_idx: SemaStmtIdx(
+                        6,
                     ),
                     hir_eager_stmt_idx: Some(
-                        7,
+                        6,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -47960,14 +47960,14 @@
                             value: 892,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        8,
+                    sem_stmt_idx: SemaStmtIdx(
+                        7,
                     ),
                     hir_eager_stmt_idx: Some(
-                        8,
+                        7,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -48009,14 +48009,14 @@
                             value: 892,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        9,
+                    sem_stmt_idx: SemaStmtIdx(
+                        8,
                     ),
                     hir_eager_stmt_idx: Some(
-                        9,
+                        8,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -48058,14 +48058,14 @@
                             value: 892,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        10,
+                    sem_stmt_idx: SemaStmtIdx(
+                        9,
                     ),
                     hir_eager_stmt_idx: Some(
-                        10,
+                        9,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -48107,14 +48107,14 @@
                             value: 892,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        11,
+                    sem_stmt_idx: SemaStmtIdx(
+                        10,
                     ),
                     hir_eager_stmt_idx: Some(
-                        11,
+                        10,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -48156,14 +48156,14 @@
                             value: 892,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        12,
+                    sem_stmt_idx: SemaStmtIdx(
+                        11,
                     ),
                     hir_eager_stmt_idx: Some(
-                        12,
+                        11,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -48205,14 +48205,14 @@
                             value: 892,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        13,
+                    sem_stmt_idx: SemaStmtIdx(
+                        12,
                     ),
                     hir_eager_stmt_idx: Some(
-                        13,
+                        12,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -48254,14 +48254,14 @@
                             value: 892,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        14,
+                    sem_stmt_idx: SemaStmtIdx(
+                        13,
                     ),
                     hir_eager_stmt_idx: Some(
-                        14,
+                        13,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -48311,13 +48311,13 @@
                             value: 892,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        33,
-                    ),
-                    hir_eager_expr_idx: Some(
+                    sem_expr_idx: SemaExprIdx(
                         32,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    hir_eager_expr_idx: Some(
+                        31,
+                    ),
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -48364,11 +48364,11 @@
                             value: 882,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        30,
+                    sem_stmt_idx: SemaStmtIdx(
+                        29,
                     ),
                     hir_eager_stmt_idx: Some(
-                        30,
+                        29,
                     ),
                     eager_stmt_data_sketch: IfBranch {
                         if_regional_token: IfRegionalToken {
@@ -48383,11 +48383,11 @@
                         },
                         stmts: SemaStmtIdxRange(
                             ArenaIdxRange(
-                                15..20,
+                                14..19,
                             ),
                         ),
                     },
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -48429,14 +48429,14 @@
                             value: 893,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        15,
+                    sem_stmt_idx: SemaStmtIdx(
+                        14,
                     ),
                     hir_eager_stmt_idx: Some(
-                        15,
+                        14,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -48478,14 +48478,14 @@
                             value: 893,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        16,
+                    sem_stmt_idx: SemaStmtIdx(
+                        15,
                     ),
                     hir_eager_stmt_idx: Some(
-                        16,
+                        15,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -48527,14 +48527,14 @@
                             value: 893,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        17,
+                    sem_stmt_idx: SemaStmtIdx(
+                        16,
                     ),
                     hir_eager_stmt_idx: Some(
-                        17,
+                        16,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -48576,14 +48576,14 @@
                             value: 893,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        18,
+                    sem_stmt_idx: SemaStmtIdx(
+                        17,
                     ),
                     hir_eager_stmt_idx: Some(
-                        18,
+                        17,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -48625,14 +48625,14 @@
                             value: 893,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        19,
+                    sem_stmt_idx: SemaStmtIdx(
+                        18,
                     ),
                     hir_eager_stmt_idx: Some(
-                        19,
+                        18,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -48682,13 +48682,13 @@
                             value: 893,
                         },
                     ),
-                    sema_expr_idx: SemaExprIdx(
-                        91,
+                    sem_expr_idx: SemaExprIdx(
+                        90,
                     ),
                     hir_eager_expr_idx: Some(
-                        86,
+                        85,
                     ),
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -48735,14 +48735,14 @@
                             value: 882,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        31,
+                    sem_stmt_idx: SemaStmtIdx(
+                        30,
                     ),
                     hir_eager_stmt_idx: Some(
-                        31,
+                        30,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 90,
                         },
@@ -48784,14 +48784,14 @@
                             value: 3,
                         },
                     ),
-                    sema_stmt_idx: SemaStmtIdx(
-                        10,
+                    sem_stmt_idx: SemaStmtIdx(
+                        9,
                     ),
                     hir_eager_stmt_idx: Some(
-                        10,
+                        9,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sema_expr_region: SemaExprRegion(
+                    sem_expr_region: SemaExprRegion(
                         Id {
                             value: 92,
                         },

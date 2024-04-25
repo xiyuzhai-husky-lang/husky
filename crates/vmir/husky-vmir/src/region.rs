@@ -3,7 +3,7 @@ use crate::{
     stmt::VmirStmtArena,
     *,
 };
-use husky_linkage::linkage::Linkage;
+use husky_linkage::linkage::{virtual_linkage_impl::VirtualLinkageImpl, Linkage};
 use husky_task::linktime::VirtualLinktime;
 
 #[salsa::derive_debug_with_db]
@@ -15,7 +15,9 @@ pub struct VmirRegion<LinkageImpl: IsLinkageImpl> {
     vmir_stmt_arena: VmirStmtArena<LinkageImpl>,
 }
 
-pub type VirtualVmirRegion = VmirRegion<Linkage>;
+pub type VirtualVmirRegion = VmirRegion<VirtualLinkageImpl>;
+
+/// # constructors
 
 impl<LinkageImpl: IsLinkageImpl> VmirRegion<LinkageImpl> {
     pub fn new(
@@ -33,10 +35,30 @@ impl<LinkageImpl: IsLinkageImpl> VmirRegion<LinkageImpl> {
     }
 }
 
-pub fn linkage_vmir_region<'a, Linktime: IsLinktime>(
-    db: &'a ::salsa::Db,
+/// # getters
+
+impl<LinkageImpl: IsLinkageImpl> VmirRegion<LinkageImpl> {
+    pub fn linkage(&self) -> Linkage {
+        self.linkage
+    }
+
+    pub fn root_expr(&self) -> VmirExprIdx<LinkageImpl> {
+        self.root_expr
+    }
+
+    pub fn vmir_expr_arena(&self) -> &VmirExprArena<LinkageImpl> {
+        &self.vmir_expr_arena
+    }
+
+    pub fn vmir_stmt_arena(&self) -> &VmirStmtArena<LinkageImpl> {
+        &self.vmir_stmt_arena
+    }
+}
+
+pub(crate) fn linkage_vmir_region<'comptime, Linktime: IsLinktime>(
     linkage: Linkage,
-    linktime: &'a Linktime,
+    db: &'comptime ::salsa::Db,
+    linktime: &'comptime Linktime,
 ) -> Option<VmirRegion<Linktime::LinkageImpl>> {
     let (root_hir_eager_expr_idx, mut builder) = VmirBuilder::new(linkage, db, linktime)?;
     let root_expr = root_hir_eager_expr_idx.to_vmir(&mut builder);
@@ -52,7 +74,7 @@ pub fn linkage_vmir_region<'a, Linktime: IsLinktime>(
 pub fn linkage_virtual_vmir_region(
     db: &::salsa::Db,
     linkage: Linkage,
-) -> Option<&VmirRegion<Linkage>> {
+) -> Option<&VirtualVmirRegion> {
     linkage_virtual_vmir_region_aux(db, linkage).as_ref()
 }
 
@@ -60,7 +82,7 @@ pub fn linkage_virtual_vmir_region(
 pub fn linkage_virtual_vmir_region_aux(
     db: &::salsa::Db,
     linkage: Linkage,
-) -> Option<VmirRegion<Linkage>> {
+) -> Option<VirtualVmirRegion> {
     let (root_hir_eager_expr_idx, mut builder) = VmirBuilder::new(linkage, db, &VirtualLinktime)?;
     let root_expr = root_hir_eager_expr_idx.to_vmir(&mut builder);
     let (vmir_expr_arena, vmir_stmt_arena) = builder.finish();
@@ -76,7 +98,7 @@ pub fn linkage_virtual_vmir_region_aux(
 fn package_linkage_linkage_vmir_regions(
     db: &::salsa::Db,
     package: husky_vfs::PackagePath,
-) -> Vec<(Linkage, Option<&VmirRegion<Linkage>>)> {
+) -> Vec<(Linkage, Option<&VirtualVmirRegion>)> {
     use husky_linkage::linkage::package_linkages;
 
     package_linkages(db, package)

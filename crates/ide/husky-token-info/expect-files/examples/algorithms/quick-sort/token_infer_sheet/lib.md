@@ -9,15 +9,15 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
-                            MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`quick_sort::quick_sort`, `Ritchie(
+                            MajorItemSynNodePath::Form(
+                                FormSynNodePath(`quick_sort::quick_sort`, `Ritchie(
                                     Fn,
                                 )`, (0)),
                             ),
                         ),
                         EntityKind::MajorItem {
-                            module_item_kind: MajorItemKind::Fugitive(
-                                MajorFugitiveKind::Ritchie(
+                            module_item_kind: MajorItemKind::Form(
+                                MajorFormKind::Ritchie(
                                     RitchieItemKind::Fn,
                                 ),
                             ),
@@ -30,11 +30,11 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::TemplateParameter(
-                        1,
+                        0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `T`,
@@ -52,7 +52,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Trait(
                                 TraitPath(`core::cmp::Ord`),
@@ -75,12 +75,12 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
-                        1,
+                        0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::SimpleParenateParameter {
-                            pattern_symbol_idx: 1,
+                        current_variable_idx: 1,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
+                            pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -91,7 +91,27 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            2,
+                            1,
+                        ),
+                    ),
+                    data: TokenInfoData::BoxColon,
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            1,
+                        ),
+                    ),
+                    data: TokenInfoData::BoxColon,
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            1,
                         ),
                     ),
                     data: TokenInfoData::BoxColon,
@@ -102,31 +122,11 @@ Ok(
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
                             2,
-                        ),
-                    ),
-                    data: TokenInfoData::BoxColon,
-                },
-            ),
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            2,
-                        ),
-                    ),
-                    data: TokenInfoData::BoxColon,
-                },
-            ),
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            3,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `T`,
@@ -146,12 +146,370 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
+                        0,
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 0,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            0,
+                        ),
+                    ),
+                    data: TokenInfoData::InheritedSynSymbol {
+                        inherited_syn_symbol_idx: 1,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                            ident: `arr`,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            1,
+                        ),
+                    ),
+                    data: TokenInfoData::Method,
+                },
+            ),
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        0,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Form(
+                                FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                    Fn,
+                                )`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Form(
+                                FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                    Fn,
+                                )`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            11,
+                        ),
+                    ),
+                    data: TokenInfoData::CallPar,
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            3,
+                        ),
+                    ),
+                    data: TokenInfoData::InheritedSynSymbol {
+                        inherited_syn_symbol_idx: 1,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                            ident: `arr`,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            None,
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            6,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 0,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            None,
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::num::isize`, `Extern`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::num::isize`, `Extern`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            11,
+                        ),
+                    ),
+                    data: TokenInfoData::CallPar,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::MajorItem(
+                            MajorItemSynNodePath::Form(
+                                FormSynNodePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                    Fn,
+                                )`, (0)),
+                            ),
+                        ),
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Form(
+                                MajorFormKind::Ritchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                            connection: MajorItemConnectionKind::Connected,
+                        },
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::TemplateParameter(
+                        0,
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::TemplateParameter {
+                            template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                ident_token: IdentRegionalToken {
+                                    ident: `T`,
+                                    regional_token_idx: RegionalTokenIdx(
+                                        4,
+                                    ),
+                                },
+                            },
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        0,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::Ord`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::cmp::Ord`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            None,
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::PatternExpr(
+                        0,
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 1,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
+                            pattern_variable_idx: 0,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            1,
+                        ),
+                    ),
+                    data: TokenInfoData::BoxColon,
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            1,
+                        ),
+                    ),
+                    data: TokenInfoData::BoxColon,
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            1,
+                        ),
+                    ),
+                    data: TokenInfoData::BoxColon,
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            2,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::TemplateParameter {
+                            template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
+                                ident_token: IdentRegionalToken {
+                                    ident: `T`,
+                                    regional_token_idx: RegionalTokenIdx(
+                                        4,
+                                    ),
+                                },
+                            },
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::PatternExpr(
                         1,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 1,
+                        current_variable_idx: 2,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
+                            pattern_variable_idx: 1,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::num::isize`, `Extern`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::num::isize`, `Extern`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::PatternExpr(
+                        2,
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 3,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
+                            pattern_variable_idx: 2,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        2,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::num::isize`, `Extern`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::num::isize`, `Extern`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            0,
+                        ),
+                    ),
+                    data: TokenInfoData::InheritedSynSymbol {
+                        inherited_syn_symbol_idx: 2,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                            ident: `low`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -166,9 +524,25 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 2,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
-                            ident: `arr`,
+                        inherited_syn_symbol_idx: 3,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                            ident: `high`,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::PatternExpr(
+                        0,
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -177,23 +551,11 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            2,
-                        ),
-                    ),
-                    data: TokenInfoData::Method,
-                },
-            ),
-            None,
-            None,
-            Some(
-                TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                            MajorItemPath::Form(
+                                FormPath(`quick_sort::partition`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -201,8 +563,8 @@ Ok(
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                            MajorItemPath::Form(
+                                FormPath(`quick_sort::partition`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -214,7 +576,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            12,
+                            7,
                         ),
                     ),
                     data: TokenInfoData::CallPar,
@@ -228,8 +590,8 @@ Ok(
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 2,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                        inherited_syn_symbol_idx: 1,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                             ident: `arr`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -237,351 +599,6 @@ Ok(
                 },
             ),
             None,
-            None,
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            7,
-                        ),
-                    ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 1,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            None,
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        2,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::num::isize`, `Extern`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::num::isize`, `Extern`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            12,
-                        ),
-                    ),
-                    data: TokenInfoData::CallPar,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
-                    data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::MajorItem(
-                            MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`quick_sort::quick_sort_aux`, `Ritchie(
-                                    Fn,
-                                )`, (0)),
-                            ),
-                        ),
-                        EntityKind::MajorItem {
-                            module_item_kind: MajorItemKind::Fugitive(
-                                MajorFugitiveKind::Ritchie(
-                                    RitchieItemKind::Fn,
-                                ),
-                            ),
-                            connection: MajorItemConnectionKind::Connected,
-                        },
-                    ),
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::TemplateParameter(
-                        1,
-                    ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                            template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
-                                ident_token: IdentRegionalToken {
-                                    ident: `T`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        4,
-                                    ),
-                                },
-                            },
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Trait(
-                                TraitPath(`core::cmp::Ord`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Trait(
-                                TraitPath(`core::cmp::Ord`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            None,
-            None,
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
-                        1,
-                    ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::SimpleParenateParameter {
-                            pattern_symbol_idx: 1,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            2,
-                        ),
-                    ),
-                    data: TokenInfoData::BoxColon,
-                },
-            ),
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            2,
-                        ),
-                    ),
-                    data: TokenInfoData::BoxColon,
-                },
-            ),
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            2,
-                        ),
-                    ),
-                    data: TokenInfoData::BoxColon,
-                },
-            ),
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            3,
-                        ),
-                    ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
-                            template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
-                                ident_token: IdentRegionalToken {
-                                    ident: `T`,
-                                    regional_token_idx: RegionalTokenIdx(
-                                        4,
-                                    ),
-                                },
-                            },
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
-                        2,
-                    ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 3,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::SimpleParenateParameter {
-                            pattern_symbol_idx: 2,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        2,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::num::isize`, `Extern`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::num::isize`, `Extern`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
-                        3,
-                    ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 4,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::SimpleParenateParameter {
-                            pattern_symbol_idx: 3,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        3,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::num::isize`, `Extern`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::num::isize`, `Extern`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            None,
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            1,
-                        ),
-                    ),
-                    data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 3,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
-                            ident: `low`,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            2,
-                        ),
-                    ),
-                    data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 4,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
-                            ident: `high`,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
-                        1,
-                    ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 1,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`quick_sort::partition`, `Ritchie(
-                                    Fn,
-                                )`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`quick_sort::partition`, `Ritchie(
-                                    Fn,
-                                )`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            8,
-                        ),
-                    ),
-                    data: TokenInfoData::CallPar,
-                },
-            ),
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
@@ -591,8 +608,8 @@ Ok(
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
                         inherited_syn_symbol_idx: 2,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
-                            ident: `arr`,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                            ident: `low`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -608,24 +625,7 @@ Ok(
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
                         inherited_syn_symbol_idx: 3,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
-                            ident: `low`,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            7,
-                        ),
-                    ),
-                    data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 4,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                             ident: `high`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -636,7 +636,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            8,
+                            7,
                         ),
                     ),
                     data: TokenInfoData::CallPar,
@@ -645,10 +645,10 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        2,
+                        1,
                         PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                            MajorItemPath::Form(
+                                FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -656,8 +656,8 @@ Ok(
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                            MajorItemPath::Form(
+                                FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -669,12 +669,29 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            15,
+                            14,
                         ),
                     ),
                     data: TokenInfoData::CallPar,
                 },
             ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            9,
+                        ),
+                    ),
+                    data: TokenInfoData::InheritedSynSymbol {
+                        inherited_syn_symbol_idx: 1,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                            ident: `arr`,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
@@ -684,8 +701,8 @@ Ok(
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
                         inherited_syn_symbol_idx: 2,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
-                            ident: `arr`,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                            ident: `low`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -699,27 +716,10 @@ Ok(
                             11,
                         ),
                     ),
-                    data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 3,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
-                            ident: `low`,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            12,
-                        ),
-                    ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 1,
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -731,7 +731,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            15,
+                            14,
                         ),
                     ),
                     data: TokenInfoData::CallPar,
@@ -740,10 +740,10 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        3,
+                        2,
                         PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                            MajorItemPath::Form(
+                                FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -751,8 +751,8 @@ Ok(
                     ),
                     data: TokenInfoData::Entity(
                         EntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                            MajorItemPath::Form(
+                                FormPath(`quick_sort::quick_sort_aux`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -764,7 +764,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            22,
+                            21,
                         ),
                     ),
                     data: TokenInfoData::CallPar,
@@ -774,12 +774,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            17,
+                            16,
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 2,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                        inherited_syn_symbol_idx: 1,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                             ident: `arr`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -791,13 +791,13 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            18,
+                            17,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 1,
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -810,12 +810,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            21,
+                            20,
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 4,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                        inherited_syn_symbol_idx: 3,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                             ident: `high`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -826,7 +826,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            22,
+                            21,
                         ),
                     ),
                     data: TokenInfoData::CallPar,
@@ -838,15 +838,15 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
-                            MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`quick_sort::partition`, `Ritchie(
+                            MajorItemSynNodePath::Form(
+                                FormSynNodePath(`quick_sort::partition`, `Ritchie(
                                     Fn,
                                 )`, (0)),
                             ),
                         ),
                         EntityKind::MajorItem {
-                            module_item_kind: MajorItemKind::Fugitive(
-                                MajorFugitiveKind::Ritchie(
+                            module_item_kind: MajorItemKind::Form(
+                                MajorFormKind::Ritchie(
                                     RitchieItemKind::Fn,
                                 ),
                             ),
@@ -859,11 +859,11 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::TemplateParameter(
-                        1,
+                        0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `T`,
@@ -881,7 +881,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Trait(
                                 TraitPath(`core::cmp::Ord`),
@@ -904,12 +904,12 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
-                        1,
+                        0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::SimpleParenateParameter {
-                            pattern_symbol_idx: 1,
+                        current_variable_idx: 1,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
+                            pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -920,7 +920,27 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            2,
+                            1,
+                        ),
+                    ),
+                    data: TokenInfoData::BoxColon,
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            1,
+                        ),
+                    ),
+                    data: TokenInfoData::BoxColon,
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            1,
                         ),
                     ),
                     data: TokenInfoData::BoxColon,
@@ -931,31 +951,11 @@ Ok(
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
                             2,
-                        ),
-                    ),
-                    data: TokenInfoData::BoxColon,
-                },
-            ),
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            2,
-                        ),
-                    ),
-                    data: TokenInfoData::BoxColon,
-                },
-            ),
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            3,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::TemplateParameter {
                             template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                 ident_token: IdentRegionalToken {
                                     ident: `T`,
@@ -973,104 +973,104 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
-                        2,
-                    ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 3,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::SimpleParenateParameter {
-                            pattern_symbol_idx: 2,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        2,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::num::isize`, `Extern`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::num::isize`, `Extern`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
-                        3,
-                    ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 4,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::SimpleParenateParameter {
-                            pattern_symbol_idx: 3,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        3,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::num::isize`, `Extern`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::num::isize`, `Extern`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        4,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::num::isize`, `Extern`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::num::isize`, `Extern`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
                         1,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 1,
+                        current_variable_idx: 2,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
+                            pattern_variable_idx: 1,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::num::isize`, `Extern`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::num::isize`, `Extern`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::PatternExpr(
+                        2,
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 3,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
+                            pattern_variable_idx: 2,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        2,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::num::isize`, `Extern`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::num::isize`, `Extern`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        3,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::num::isize`, `Extern`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::num::isize`, `Extern`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::PatternExpr(
+                        0,
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -1081,12 +1081,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            2,
+                            1,
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 4,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                        inherited_syn_symbol_idx: 3,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                             ident: `high`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1097,7 +1097,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`core::num::usize`, `Extern`),
@@ -1118,12 +1118,12 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
-                        2,
+                        1,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 2,
+                        current_variable_idx: 1,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 1,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -1134,12 +1134,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            4,
+                            3,
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 3,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                        inherited_syn_symbol_idx: 2,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                             ident: `low`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1153,12 +1153,12 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
-                        3,
+                        2,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 3,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 3,
+                        current_variable_idx: 2,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 2,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -1169,12 +1169,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            7,
+                            6,
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 4,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                        inherited_syn_symbol_idx: 3,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                             ident: `high`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1188,13 +1188,13 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            9,
+                            8,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 2,
+                        current_variable_idx: 1,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 1,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -1207,12 +1207,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            12,
+                            11,
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 2,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                        inherited_syn_symbol_idx: 1,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                             ident: `arr`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1224,13 +1224,159 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            14,
+                            13,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 2,
+                        current_variable_idx: 1,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 1,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::num::usize`, `Extern`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::num::usize`, `Extern`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            16,
+                        ),
+                    ),
+                    data: TokenInfoData::InheritedSynSymbol {
+                        inherited_syn_symbol_idx: 1,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                            ident: `arr`,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            17,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 0,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            20,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 1,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 1,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            23,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 2,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 2,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            26,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 2,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 2,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            29,
+                        ),
+                    ),
+                    data: TokenInfoData::InheritedSynSymbol {
+                        inherited_syn_symbol_idx: 1,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                            ident: `arr`,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            31,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 2,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 2,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -1262,12 +1408,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            17,
+                            34,
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 2,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                        inherited_syn_symbol_idx: 1,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                             ident: `arr`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1279,13 +1425,13 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            18,
+                            35,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 1,
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -1297,31 +1443,13 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            21,
+                            39,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 2,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            24,
-                        ),
-                    ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 3,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 3,
+                        current_variable_idx: 2,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 2,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -1334,13 +1462,30 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            27,
+                            42,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 3,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 3,
+                        current_variable_idx: 1,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 1,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            43,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 2,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 2,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -1349,16 +1494,17 @@ Ok(
             None,
             None,
             None,
+            None,
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            30,
+                            45,
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 2,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                        inherited_syn_symbol_idx: 1,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                             ident: `arr`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1370,13 +1516,24 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            32,
+                            52,
+                        ),
+                    ),
+                    data: TokenInfoData::Method,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            47,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 3,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 3,
+                        current_variable_idx: 1,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 1,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -1403,137 +1560,17 @@ Ok(
                 },
             ),
             None,
-            None,
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            35,
-                        ),
-                    ),
-                    data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 2,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
-                            ident: `arr`,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            36,
+                            50,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 1,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            40,
-                        ),
-                    ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 3,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 3,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            43,
-                        ),
-                    ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 2,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            44,
-                        ),
-                    ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 3,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 3,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            None,
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            46,
-                        ),
-                    ),
-                    data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 2,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
-                            ident: `arr`,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            53,
-                        ),
-                    ),
-                    data: TokenInfoData::Method,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            48,
-                        ),
-                    ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 2,
+                        current_variable_idx: 2,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 2,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -1564,13 +1601,41 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            51,
+                            53,
+                        ),
+                    ),
+                    data: TokenInfoData::InheritedSynSymbol {
+                        inherited_syn_symbol_idx: 1,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                            ident: `arr`,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            60,
+                        ),
+                    ),
+                    data: TokenInfoData::Method,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            55,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 3,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 3,
+                        current_variable_idx: 1,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 1,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -1601,41 +1666,13 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            54,
-                        ),
-                    ),
-                    data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 2,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
-                            ident: `arr`,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            61,
-                        ),
-                    ),
-                    data: TokenInfoData::Method,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            56,
+                            58,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 2,
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -1666,50 +1703,13 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            59,
+                            61,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 1,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        7,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::num::usize`, `Extern`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::num::usize`, `Extern`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            62,
-                        ),
-                    ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 2,
+                        current_variable_idx: 1,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 1,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -1723,15 +1723,15 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
-                            MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+                            MajorItemSynNodePath::Form(
+                                FormSynNodePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                                     Fn,
                                 )`, (0)),
                             ),
                         ),
                         EntityKind::MajorItem {
-                            module_item_kind: MajorItemKind::Fugitive(
-                                MajorFugitiveKind::Ritchie(
+                            module_item_kind: MajorItemKind::Form(
+                                MajorFormKind::Ritchie(
                                     RitchieItemKind::Fn,
                                 ),
                             ),
@@ -1748,12 +1748,12 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
-                        1,
+                        0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 1,
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -1764,7 +1764,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                     ),
                     data: TokenInfoData::VecFunctorBoxPrefix,
@@ -1774,7 +1774,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                     ),
                     data: TokenInfoData::VecFunctorBoxPrefix,
@@ -1783,7 +1783,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`core::num::i32`, `Extern`),
@@ -1830,15 +1830,15 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
-                            MajorItemSynNodePath::Fugitive(
-                                FugitiveSynNodePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+                            MajorItemSynNodePath::Form(
+                                FormSynNodePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                                     Fn,
                                 )`, (0)),
                             ),
                         ),
                         EntityKind::MajorItem {
-                            module_item_kind: MajorItemKind::Fugitive(
-                                MajorFugitiveKind::Ritchie(
+                            module_item_kind: MajorItemKind::Form(
+                                MajorFormKind::Ritchie(
                                     RitchieItemKind::Fn,
                                 ),
                             ),
@@ -1855,12 +1855,12 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
-                        1,
+                        0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 1,
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },

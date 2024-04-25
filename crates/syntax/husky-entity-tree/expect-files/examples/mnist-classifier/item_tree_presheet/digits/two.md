@@ -6,25 +6,25 @@ EntityTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
-                        syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`mnist_classifier::digits::two::two_match`, `Val`, (0)),
+                        syn_node_path: MajorItemSynNodePath::Form(
+                            FormSynNodePath(`mnist_classifier::digits::two::two_match`, `Val`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 45,
+                        ast_idx: 44,
                         ident_token: IdentToken {
                             ident: `two_match`,
                             token_idx: TokenIdx(
                                 6,
                             ),
                         },
-                        block: DefnBlock::Fugitive {
-                            path: FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+                        block: DefnBlock::Form {
+                            path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                             body: Some(
-                                FugitiveBody {
+                                FormBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        1..2,
+                                        0..1,
                                     ),
                                 },
                             ),
@@ -32,8 +32,8 @@ EntityTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`mnist_classifier::digits::two::two_match`, `Val`, (0)),
+                    MajorItemSynNodePath::Form(
+                        FormSynNodePath(`mnist_classifier::digits::two::two_match`, `Val`, (0)),
                     ),
                 ),
                 ident: `two_match`,
@@ -44,29 +44,29 @@ EntityTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
-                        syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`mnist_classifier::digits::two::left_cc_pattern`, `Ritchie(
+                        syn_node_path: MajorItemSynNodePath::Form(
+                            FormSynNodePath(`mnist_classifier::digits::two::left_cc_pattern`, `Ritchie(
                                 Fn,
                             )`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 46,
+                        ast_idx: 45,
                         ident_token: IdentToken {
                             ident: `left_cc_pattern`,
                             token_idx: TokenIdx(
                                 23,
                             ),
                         },
-                        block: DefnBlock::Fugitive {
-                            path: FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `Ritchie(
+                        block: DefnBlock::Form {
+                            path: FormPath(`mnist_classifier::digits::two::left_cc_pattern`, `Ritchie(
                                 Fn,
                             )`),
                             body: Some(
-                                FugitiveBody {
+                                FormBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        2..5,
+                                        1..4,
                                     ),
                                 },
                             ),
@@ -74,8 +74,8 @@ EntityTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`mnist_classifier::digits::two::left_cc_pattern`, `Ritchie(
+                    MajorItemSynNodePath::Form(
+                        FormSynNodePath(`mnist_classifier::digits::two::left_cc_pattern`, `Ritchie(
                             Fn,
                         )`, (0)),
                     ),
@@ -88,29 +88,29 @@ EntityTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
-                        syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`mnist_classifier::digits::two::right_cc_pattern`, `Ritchie(
+                        syn_node_path: MajorItemSynNodePath::Form(
+                            FormSynNodePath(`mnist_classifier::digits::two::right_cc_pattern`, `Ritchie(
                                 Fn,
                             )`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 47,
+                        ast_idx: 46,
                         ident_token: IdentToken {
                             ident: `right_cc_pattern`,
                             token_idx: TokenIdx(
                                 52,
                             ),
                         },
-                        block: DefnBlock::Fugitive {
-                            path: FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `Ritchie(
+                        block: DefnBlock::Form {
+                            path: FormPath(`mnist_classifier::digits::two::right_cc_pattern`, `Ritchie(
                                 Fn,
                             )`),
                             body: Some(
-                                FugitiveBody {
+                                FormBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        5..8,
+                                        4..7,
                                     ),
                                 },
                             ),
@@ -118,8 +118,8 @@ EntityTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`mnist_classifier::digits::two::right_cc_pattern`, `Ritchie(
+                    MajorItemSynNodePath::Form(
+                        FormSynNodePath(`mnist_classifier::digits::two::right_cc_pattern`, `Ritchie(
                             Fn,
                         )`, (0)),
                     ),
@@ -132,29 +132,29 @@ EntityTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
-                        syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
+                        syn_node_path: MajorItemSynNodePath::Form(
+                            FormSynNodePath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
                                 Fn,
                             )`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits::two`,
                         ),
-                        ast_idx: 48,
+                        ast_idx: 47,
                         ident_token: IdentToken {
                             ident: `down_cc_pattern`,
                             token_idx: TokenIdx(
                                 81,
                             ),
                         },
-                        block: DefnBlock::Fugitive {
-                            path: FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
+                        block: DefnBlock::Form {
+                            path: FormPath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
                                 Fn,
                             )`),
                             body: Some(
-                                FugitiveBody {
+                                FormBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        8..11,
+                                        7..10,
                                     ),
                                 },
                             ),
@@ -162,8 +162,8 @@ EntityTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
+                    MajorItemSynNodePath::Form(
+                        FormSynNodePath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
                             Fn,
                         )`, (0)),
                     ),
@@ -176,25 +176,25 @@ EntityTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
-                        syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`mnist_classifier::digits::two::is_two`, `Val`, (0)),
+                        syn_node_path: MajorItemSynNodePath::Form(
+                            FormSynNodePath(`mnist_classifier::digits::two::is_two`, `Val`, (0)),
                         ),
                         visibility: Scope::PubUnder(
                             `mnist_classifier::digits`,
                         ),
-                        ast_idx: 49,
+                        ast_idx: 48,
                         ident_token: IdentToken {
                             ident: `is_two`,
                             token_idx: TokenIdx(
                                 114,
                             ),
                         },
-                        block: DefnBlock::Fugitive {
-                            path: FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
+                        block: DefnBlock::Form {
+                            path: FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                             body: Some(
-                                FugitiveBody {
+                                FormBody {
                                     ast_idx_range: ArenaIdxRange(
-                                        32..44,
+                                        31..43,
                                     ),
                                 },
                             ),
@@ -202,8 +202,8 @@ EntityTreePresheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`mnist_classifier::digits::two::is_two`, `Val`, (0)),
+                    MajorItemSynNodePath::Form(
+                        FormSynNodePath(`mnist_classifier::digits::two::is_two`, `Val`, (0)),
                     ),
                 ),
                 ident: `is_two`,
@@ -216,8 +216,8 @@ EntityTreePresheet {
     once_use_rules: OnceUseRules(
         [
             OnceUseRule {
-                ast_idx: 44,
-                use_expr_idx: 2,
+                ast_idx: 43,
+                use_expr_idx: 1,
                 visibility: Scope::PubUnder(
                     `mnist_classifier::digits::two`,
                 ),
@@ -230,7 +230,7 @@ EntityTreePresheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        1..2,
+                        0..1,
                     ),
                 },
                 parent: None,
@@ -268,7 +268,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 1,
+                            child: 0,
                         },
                     ),
                 },

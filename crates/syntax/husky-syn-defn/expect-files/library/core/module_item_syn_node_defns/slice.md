@@ -8,8 +8,8 @@
                         data: ItemSynNodePathData::MajorItem(
                             MajorItemSynNodePathData::Type(
                                 TypeSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`core::slice::Slice`, `Extern`),
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TypePath(`core::slice::Slice`, `Extern`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -29,8 +29,8 @@
                         data: ItemSynNodePathData::MajorItem(
                             MajorItemSynNodePathData::Type(
                                 TypeSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -56,8 +56,8 @@
                                             data: ItemSynNodePathData::MajorItem(
                                                 MajorItemSynNodePathData::Type(
                                                     TypeSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                        disambiguated_item_path: DisambiguatedItemPath {
+                                                            maybe_ambiguous_item_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -67,16 +67,15 @@
                                     ),
                                 ),
                             ),
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: AttrItemPath(
+                            attr_item_path_result: Ok(
+                                AttrItemPath(
                                     ItemPathId(
                                         Id {
-                                            value: 195,
+                                            value: 232,
                                         },
                                     ),
                                 ),
-                                disambiguator: 0,
-                            },
+                            ),
                         },
                     ),
                 },
@@ -116,8 +115,8 @@
                         data: ItemSynNodePathData::AssocItem(
                             AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(`<core::slice::Slice(0)>::len`, `MethodRitchie(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TypeItemPath(`<core::slice::Slice(0)>::len`, `MethodRitchie(
                                             Fn,
                                         )`),
                                         disambiguator: 0,
@@ -139,8 +138,8 @@
                         data: ItemSynNodePathData::AssocItem(
                             AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(`<core::slice::Slice(0)>::swap`, `MethodRitchie(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TypeItemPath(`<core::slice::Slice(0)>::swap`, `MethodRitchie(
                                             Fn,
                                         )`),
                                         disambiguator: 0,
@@ -180,8 +179,8 @@
                         data: ItemSynNodePathData::AssocItem(
                             AssocItemSynNodePathData::TraitForTypeItem(
                                 TraitForTypeItemSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TraitForTypeItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TraitForTypeItemPath(
                                             `<core::slice::CyclicSlice as core::ops::IntIndex(0)>::Output`,
                                             TraitItemKind::AssocType,
                                         ),
@@ -228,8 +227,8 @@
                         data: ItemSynNodePathData::AssocItem(
                             AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(`<core::slice::CyclicSlice(0)>::ilen`, `MethodRitchie(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TypeItemPath(`<core::slice::CyclicSlice(0)>::ilen`, `MethodRitchie(
                                             Fn,
                                         )`),
                                         disambiguator: 0,
@@ -251,8 +250,8 @@
                         data: ItemSynNodePathData::AssocItem(
                             AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
                                             Fn,
                                         )`),
                                         disambiguator: 0,
@@ -274,8 +273,8 @@
                         data: ItemSynNodePathData::AssocItem(
                             AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
                                             Fn,
                                         )`),
                                         disambiguator: 0,
@@ -297,8 +296,8 @@
                         data: ItemSynNodePathData::AssocItem(
                             AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
                                             Fn,
                                         )`),
                                         disambiguator: 0,
@@ -320,8 +319,8 @@
                         data: ItemSynNodePathData::AssocItem(
                             AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(`<core::slice::CyclicSlice(0)>::last`, `MethodRitchie(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TypeItemPath(`<core::slice::CyclicSlice(0)>::last`, `MethodRitchie(
                                             Fn,
                                         )`),
                                         disambiguator: 0,

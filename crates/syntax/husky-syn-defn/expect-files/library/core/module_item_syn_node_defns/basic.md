@@ -8,8 +8,8 @@
                         data: ItemSynNodePathData::MajorItem(
                             MajorItemSynNodePathData::Type(
                                 TypeSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`core::basic::bool`, `Extern`),
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TypePath(`core::basic::bool`, `Extern`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -35,8 +35,8 @@
                                             data: ItemSynNodePathData::MajorItem(
                                                 MajorItemSynNodePathData::Type(
                                                     TypeSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(`core::basic::bool`, `Extern`),
+                                                        disambiguated_item_path: DisambiguatedItemPath {
+                                                            maybe_ambiguous_item_path: TypePath(`core::basic::bool`, `Extern`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -46,16 +46,15 @@
                                     ),
                                 ),
                             ),
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: AttrItemPath(
+                            attr_item_path_result: Ok(
+                                AttrItemPath(
                                     ItemPathId(
                                         Id {
                                             value: 128,
                                         },
                                     ),
                                 ),
-                                disambiguator: 0,
-                            },
+                            ),
                         },
                     ),
                 },
@@ -71,8 +70,8 @@
                         data: ItemSynNodePathData::MajorItem(
                             MajorItemSynNodePathData::Type(
                                 TypeSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`core::basic::never`, `Extern`),
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TypePath(`core::basic::never`, `Extern`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -98,8 +97,8 @@
                                             data: ItemSynNodePathData::MajorItem(
                                                 MajorItemSynNodePathData::Type(
                                                     TypeSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(`core::basic::never`, `Extern`),
+                                                        disambiguated_item_path: DisambiguatedItemPath {
+                                                            maybe_ambiguous_item_path: TypePath(`core::basic::never`, `Extern`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -109,16 +108,15 @@
                                     ),
                                 ),
                             ),
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: AttrItemPath(
+                            attr_item_path_result: Ok(
+                                AttrItemPath(
                                     ItemPathId(
                                         Id {
                                             value: 129,
                                         },
                                     ),
                                 ),
-                                disambiguator: 0,
-                            },
+                            ),
                         },
                     ),
                 },
@@ -134,8 +132,8 @@
                         data: ItemSynNodePathData::MajorItem(
                             MajorItemSynNodePathData::Type(
                                 TypeSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`core::basic::unit`, `Extern`),
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TypePath(`core::basic::unit`, `Extern`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -161,8 +159,8 @@
                                             data: ItemSynNodePathData::MajorItem(
                                                 MajorItemSynNodePathData::Type(
                                                     TypeSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(`core::basic::unit`, `Extern`),
+                                                        disambiguated_item_path: DisambiguatedItemPath {
+                                                            maybe_ambiguous_item_path: TypePath(`core::basic::unit`, `Extern`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -172,16 +170,15 @@
                                     ),
                                 ),
                             ),
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: AttrItemPath(
+                            attr_item_path_result: Ok(
+                                AttrItemPath(
                                     ItemPathId(
                                         Id {
                                             value: 130,
                                         },
                                     ),
                                 ),
-                                disambiguator: 0,
-                            },
+                            ),
                         },
                     ),
                 },
@@ -197,8 +194,8 @@
                         data: ItemSynNodePathData::MajorItem(
                             MajorItemSynNodePathData::Type(
                                 TypeSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`core::basic::Trait`, `Extern`),
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TypePath(`core::basic::Trait`, `Extern`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -218,8 +215,8 @@
                         data: ItemSynNodePathData::MajorItem(
                             MajorItemSynNodePathData::Type(
                                 TypeSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`core::basic::Module`, `Extern`),
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TypePath(`core::basic::Module`, `Extern`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -239,8 +236,8 @@
                         data: ItemSynNodePathData::MajorItem(
                             MajorItemSynNodePathData::Type(
                                 TypeSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`core::basic::Lifetime`, `Extern`),
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TypePath(`core::basic::Lifetime`, `Extern`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -260,8 +257,8 @@
                         data: ItemSynNodePathData::MajorItem(
                             MajorItemSynNodePathData::Type(
                                 TypeSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`core::basic::Place`, `Extern`),
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TypePath(`core::basic::Place`, `Extern`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -281,8 +278,8 @@
                         data: ItemSynNodePathData::MajorItem(
                             MajorItemSynNodePathData::Type(
                                 TypeSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`core::basic::Universe`, `Extern`),
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TypePath(`core::basic::Universe`, `Extern`),
                                         disambiguator: 0,
                                     },
                                 },

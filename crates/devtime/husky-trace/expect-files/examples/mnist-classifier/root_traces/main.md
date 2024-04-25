@@ -56,7 +56,7 @@
         path: TracePath {
             data: TracePathData::ValItem(
                 ValItemTracePathData {
-                    val_item_path: FugitivePath(`mnist_classifier::main`, `Val`),
+                    val_item_path: FormPath(`mnist_classifier::main`, `Val`),
                 },
             ),
         },
@@ -67,7 +67,7 @@
                         value: 3,
                     },
                 ),
-                val_item_path: FugitivePath(
+                val_item_path: MajorFormPath(
                     ItemPathId(
                         Id {
                             value: 8,

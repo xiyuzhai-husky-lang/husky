@@ -155,8 +155,8 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TraitForTypeItem(
-                    TraitForTypeItemDecTemplate::MethodFn(
-                        TraitForTypeMethodFnDecTemplate {
+                    TraitForTypeItemDecTemplate::MethodRitchie(
+                        TraitForTypeMethodRitchieDecTemplate {
                             self_ty: EntityPath(
                                 Type(
                                     TypePath(

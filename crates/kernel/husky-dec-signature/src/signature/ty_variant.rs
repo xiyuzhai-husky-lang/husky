@@ -12,9 +12,9 @@ use super::*;
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum TypeVariantDecTemplate {
-    Props(EnumPropsVariantDecTemplate),
-    Unit(EnumUnitTypeVariantDecTemplate),
-    Tuple(EnumTupleVariantDecTemplate),
+    EnumProps(EnumPropsVariantDecTemplate),
+    EnumUnit(EnumUnitTypeVariantDecTemplate),
+    EnumTuple(EnumTupleVariantDecTemplate),
 }
 
 impl TypeVariantDecTemplate {}

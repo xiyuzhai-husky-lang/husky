@@ -6,7 +6,7 @@ edition = "2021"
 [dependencies]
 # abstractions
 salsa.workspace = true
-version-stamp = { path = "../../abstractions/version-stamp" }
+version-stamp.workspace = true
 enum-class.workspace = true
 vec-like.workspace = true
 # comptime
@@ -51,8 +51,8 @@ husky-toml-token.workspace = true
 # semantics
 husky-manifest.workspace = true
 husky-corgi-config.workspace = true
-husky-sema-expr.workspace = true
-husky-sema-place-contract.workspace = true
+husky-sem-expr.workspace = true
+husky-sem-place-contract.workspace = true
 # syntax
 husky-ast = { workspace = true, features = ["test_utils"] }
 husky-toml-ast.workspace = true

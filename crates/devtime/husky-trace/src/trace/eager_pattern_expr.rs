@@ -1,6 +1,6 @@
 use husky_coword::IdentPairMap;
-use husky_hir_eager_expr::var::rvar::HirEagerRvarIdx;
-use husky_sema_expr::{helpers::range::sema_expr_range_region, SemaExprRegion};
+use husky_hir_eager_expr::variable::runtime::HirEagerRvarIdx;
+use husky_sem_expr::{helpers::range::sem_expr_range_region, SemaExprRegion};
 
 use crate::registry::assoc_trace::VoidAssocTraceRegistry;
 
@@ -29,7 +29,7 @@ pub struct EagerPatternExprTraceData {
     syn_pattern_expr_idx: SynPatternIdx,
     hir_eager_runtime_symbol_idxs: IdentPairMap<Option<HirEagerRvarIdx>>,
     #[skip_fmt]
-    sema_expr_region: SemaExprRegion,
+    sem_expr_region: SemaExprRegion,
 }
 
 impl Trace {
@@ -38,7 +38,7 @@ impl Trace {
         biological_parent: Trace,
         syn_pattern_expr_idx: SynPatternIdx,
         hir_eager_runtime_symbol_idxs: IdentPairMap<Option<HirEagerRvarIdx>>,
-        sema_expr_region: SemaExprRegion,
+        sem_expr_region: SemaExprRegion,
         eager_pattern_expr_trace_path_registry: &mut TracePathRegistry<EagerPatternExprEssence>,
         db: &::salsa::Db,
     ) -> Self {
@@ -58,7 +58,7 @@ impl Trace {
                 biological_parent: biological_parent.into(),
                 syn_pattern_expr_idx,
                 hir_eager_runtime_symbol_idxs,
-                sema_expr_region,
+                sem_expr_region,
             }
             .into(),
             db,
@@ -68,11 +68,11 @@ impl Trace {
 
 impl EagerPatternExprTraceData {
     pub(super) fn view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
-        let sema_expr_region = self.sema_expr_region;
-        let sema_expr_range_region = sema_expr_range_region(db, sema_expr_region);
-        let sema_expr_range_region_data = sema_expr_range_region.data(db);
-        let region_path = sema_expr_region.path(db);
-        let regional_token_idx_range = sema_expr_range_region_data[self.syn_pattern_expr_idx];
+        let sem_expr_region = self.sem_expr_region;
+        let sem_expr_range_region = sem_expr_range_region(db, sem_expr_region);
+        let sem_expr_range_region_data = sem_expr_range_region.data(db);
+        let region_path = sem_expr_region.path(db);
+        let regional_token_idx_range = sem_expr_range_region_data[self.syn_pattern_expr_idx];
         let token_idx_range = regional_token_idx_range
             .token_idx_range(region_path.regional_token_idx_base(db).unwrap());
         TraceViewLines::new(

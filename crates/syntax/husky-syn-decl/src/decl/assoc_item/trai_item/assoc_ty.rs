@@ -6,22 +6,13 @@ pub struct TraitAssocTypeSynNodeDecl {
     pub syn_node_path: TraitItemSynNodePath,
     #[return_ref]
     pub generics: SynNodeDeclResult<Option<SynTemplateParameterSyndicateList>>,
-    #[return_ref]
-    pub eq_token: SynNodeDeclResult<EqRegionalToken>,
-    pub ty_term_expr_idx: SynExprIdx,
     pub syn_expr_region: SynExprRegion,
 }
 
 /// # getters
 impl TraitAssocTypeSynNodeDecl {
     pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
-        SmallVec::from_iter(
-            self.generics(db)
-                .as_ref()
-                .err()
-                .into_iter()
-                .chain(self.eq_token(db).as_ref().err().into_iter()),
-        )
+        SmallVec::from_iter(self.generics(db).as_ref().err().into_iter())
     }
 }
 
@@ -42,21 +33,8 @@ impl<'a> DeclParser<'a> {
             AllowSelfValue::False,
             None,
         );
-        let eq_token = parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedEqForAssocType);
-        let ty_term_expr_idx = parser.parse_expr_expected2(
-            None,
-            SynExprRootKind::AssocTypeTerm,
-            OriginalSynExprError::ExpectedTypeTermForAssocType,
-        );
         let template_parameters = parser.try_parse_option();
-        TraitAssocTypeSynNodeDecl::new(
-            db,
-            syn_node_path,
-            template_parameters,
-            eq_token,
-            ty_term_expr_idx,
-            parser.finish(),
-        )
+        TraitAssocTypeSynNodeDecl::new(db, syn_node_path, template_parameters, parser.finish())
     }
 }
 
@@ -75,7 +53,7 @@ impl TraitAssocTypeSynDecl {
         _path: TraitItemPath,
         _syn_node_decl: TraitAssocTypeSynNodeDecl,
         _db: &::salsa::Db,
-    ) -> DeclResult<Self> {
+    ) -> SynDeclResult<Self> {
         todo!()
     }
 }

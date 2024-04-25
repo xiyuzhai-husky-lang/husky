@@ -106,8 +106,8 @@
     ),
     (
         MajorItem(
-            Fugitive(
-                FugitivePath(
+            Form(
+                MajorFormPath(
                     ItemPathId(
                         Id {
                             value: 42,
@@ -128,8 +128,8 @@
     ),
     (
         MajorItem(
-            Fugitive(
-                FugitivePath(
+            Form(
+                MajorFormPath(
                     ItemPathId(
                         Id {
                             value: 43,
@@ -150,8 +150,8 @@
     ),
     (
         MajorItem(
-            Fugitive(
-                FugitivePath(
+            Form(
+                MajorFormPath(
                     ItemPathId(
                         Id {
                             value: 44,
@@ -172,8 +172,8 @@
     ),
     (
         MajorItem(
-            Fugitive(
-                FugitivePath(
+            Form(
+                MajorFormPath(
                     ItemPathId(
                         Id {
                             value: 45,
@@ -194,8 +194,8 @@
     ),
     (
         MajorItem(
-            Fugitive(
-                FugitivePath(
+            Form(
+                MajorFormPath(
                     ItemPathId(
                         Id {
                             value: 46,

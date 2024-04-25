@@ -12,8 +12,8 @@ EntityTreeSheet {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -25,7 +25,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
-                        ast_idx: 4,
+                        ast_idx: 3,
                         ident_token: IdentToken {
                             ident: `ConvexComponent`,
                             token_idx: TokenIdx(
@@ -45,8 +45,8 @@ EntityTreeSheet {
                                 data: ItemSynNodePathData::MajorItem(
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: TypePath(`mnist_classifier::line_segment_sketch::convex_component::ConvexComponent`, `Struct`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -67,7 +67,7 @@ EntityTreeSheet {
         [
             EntitySymbolEntry {
                 ident: `ConvexComponent`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch::convex_component`,
                 ),
                 symbol: EntitySymbol::MajorItem {
@@ -78,7 +78,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `concave_component`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch::convex_component`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -98,14 +98,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `convex_component`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch::convex_component`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -125,14 +125,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `convexity`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch::convex_component`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -152,14 +152,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `line_segment`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch::convex_component`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -179,14 +179,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `LineSegmentStroke`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch::convex_component`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -204,14 +204,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `LineSegmentSketch`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch::convex_component`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -229,28 +229,28 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `go_right`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch::convex_component`,
                 ),
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            major_item_path: MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                            major_item_path: MajorItemPath::Form(
+                                FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
                         },
                         path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -258,28 +258,28 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `go_left`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch::convex_component`,
                 ),
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            major_item_path: MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                            major_item_path: MajorItemPath::Form(
+                                FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
                         },
                         path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -287,28 +287,28 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `extend_end`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch::convex_component`,
                 ),
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            major_item_path: MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
+                            major_item_path: MajorItemPath::Form(
+                                FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
                         },
                         path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -316,28 +316,28 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `extend_start`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch::convex_component`,
                 ),
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            major_item_path: MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
+                            major_item_path: MajorItemPath::Form(
+                                FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
                         },
                         path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -345,28 +345,28 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `find_line_segments`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch::convex_component`,
                 ),
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
-                            major_item_path: MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
+                            major_item_path: MajorItemPath::Form(
+                                FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
                         },
                         path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -374,14 +374,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `ConcaveComponent`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch::convex_component`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -399,8 +399,8 @@ EntityTreeSheet {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 164,
-                                use_expr_idx: 1,
+                                ast_idx: 163,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -411,14 +411,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `find_concave_components`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch::convex_component`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -426,27 +426,27 @@ EntityTreeSheet {
                         original_symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
-                                    major_item_path: MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
+                                    major_item_path: MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
                                             Fn,
                                         )`),
                                     ),
                                 },
                                 path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Fugitive(
-                                        FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
+                                    MajorItemPath::Form(
+                                        FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
                                             Fn,
                                         )`),
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 164,
-                                use_expr_idx: 1,
+                                ast_idx: 163,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Fugitive(
-                                FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
+                            MajorItemPath::Form(
+                                FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
                                     Fn,
                                 )`),
                             ),
@@ -454,14 +454,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `LineSegment`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch::convex_component`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -479,8 +479,8 @@ EntityTreeSheet {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 166,
-                                use_expr_idx: 5,
+                                ast_idx: 165,
+                                use_expr_idx: 4,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -491,14 +491,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `LineSegment`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch::convex_component`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -513,52 +513,52 @@ EntityTreeSheet {
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Type(
                                         TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                                    ),
-                                ),
-                                visibility: Scope::PubUnder(
-                                    `mnist_classifier::line_segment_sketch`,
-                                ),
-                                ast_idx: 169,
-                                use_expr_idx: 13,
-                            },
-                        ),
-                        path: PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
-                            ),
-                        ),
-                        visibility: Scope::PubUnder(
-                            `mnist_classifier::line_segment_sketch::convex_component`,
-                        ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
-                    },
-                ),
-            },
-            EntitySymbolEntry {
-                ident: `RawContour`,
-                visibility: Scope::PubUnder(
-                    `mnist_classifier::line_segment_sketch::convex_component`,
-                ),
-                symbol: EntitySymbol::Use(
-                    UseSymbol {
-                        original_symbol: EntitySymbol::Use(
-                            UseSymbol {
-                                original_symbol: EntitySymbol::MajorItem {
-                                    major_item_path: MajorItemPath::Type(
-                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
-                                    ),
-                                },
-                                path: PrincipalEntityPath::MajorItem(
-                                    MajorItemPath::Type(
-                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::line_segment_sketch`,
                                 ),
                                 ast_idx: 168,
-                                use_expr_idx: 10,
+                                use_expr_idx: 12,
+                            },
+                        ),
+                        path: PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment`, `Struct`),
+                            ),
+                        ),
+                        visibility: Scope::PubUnder(
+                            `mnist_classifier::line_segment_sketch::convex_component`,
+                        ),
+                        ast_idx: 2,
+                        use_expr_idx: 0,
+                    },
+                ),
+            },
+            EntitySymbolEntry {
+                ident: `RawContour`,
+                visible_scope: Scope::PubUnder(
+                    `mnist_classifier::line_segment_sketch::convex_component`,
+                ),
+                symbol: EntitySymbol::Use(
+                    UseSymbol {
+                        original_symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::MajorItem {
+                                    major_item_path: MajorItemPath::Type(
+                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                    ),
+                                },
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`mnist_classifier::raw_contour::RawContour`, `Struct`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `mnist_classifier::line_segment_sketch`,
+                                ),
+                                ast_idx: 167,
+                                use_expr_idx: 9,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -569,14 +569,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `Point2d`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch::convex_component`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -596,8 +596,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::line_segment_sketch`,
                                 ),
-                                ast_idx: 167,
-                                use_expr_idx: 7,
+                                ast_idx: 166,
+                                use_expr_idx: 6,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -608,14 +608,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `RelativePoint2d`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch::convex_component`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -635,8 +635,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::line_segment_sketch`,
                                 ),
-                                ast_idx: 167,
-                                use_expr_idx: 7,
+                                ast_idx: 166,
+                                use_expr_idx: 6,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -647,14 +647,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `Vector2d`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch::convex_component`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -674,8 +674,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::line_segment_sketch`,
                                 ),
-                                ast_idx: 167,
-                                use_expr_idx: 7,
+                                ast_idx: 166,
+                                use_expr_idx: 6,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -686,14 +686,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `ClosedRange`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch::convex_component`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -713,8 +713,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::line_segment_sketch`,
                                 ),
-                                ast_idx: 167,
-                                use_expr_idx: 7,
+                                ast_idx: 166,
+                                use_expr_idx: 6,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -725,14 +725,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `BoundingBox`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch::convex_component`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -752,8 +752,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::line_segment_sketch`,
                                 ),
-                                ast_idx: 167,
-                                use_expr_idx: 7,
+                                ast_idx: 166,
+                                use_expr_idx: 6,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -764,14 +764,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `RelativeBoundingBox`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch::convex_component`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -791,8 +791,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `mnist_classifier::line_segment_sketch`,
                                 ),
-                                ast_idx: 167,
-                                use_expr_idx: 7,
+                                ast_idx: 166,
+                                use_expr_idx: 6,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -803,8 +803,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `mnist_classifier::line_segment_sketch::convex_component`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -838,24 +838,24 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 5,
+                    ast_idx: 4,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             22,
                         ),
                     },
-                    trai_expr: 21,
+                    trai_expr: 20,
                     for_token: TokenIdx(
                         24,
                     ),
                     ty_sketch_expr: Path(
-                        22,
+                        21,
                     ),
                     items: Some(
                         TraitForType(
                             TraitForTypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    2..3,
+                                    1..2,
                                 ),
                             },
                         ),
@@ -867,8 +867,8 @@ EntityTreeSheet {
     once_use_rules: OnceUseRules(
         [
             OnceUseRule {
-                ast_idx: 3,
-                use_expr_idx: 3,
+                ast_idx: 2,
+                use_expr_idx: 2,
                 visibility: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch::convex_component`,
                 ),
@@ -881,7 +881,7 @@ EntityTreeSheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        2..3,
+                        1..2,
                     ),
                 },
                 parent: None,
@@ -894,8 +894,8 @@ EntityTreeSheet {
                 },
             },
             OnceUseRule {
-                ast_idx: 3,
-                use_expr_idx: 2,
+                ast_idx: 2,
+                use_expr_idx: 1,
                 visibility: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch::convex_component`,
                 ),
@@ -909,7 +909,7 @@ EntityTreeSheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        1..2,
+                        0..1,
                     ),
                 },
                 parent: Some(
@@ -943,8 +943,8 @@ EntityTreeSheet {
             UseAllRule {
                 parent_module_path: `mnist_classifier::line_segment_sketch`,
                 is_same_crate: true,
-                ast_idx: 3,
-                use_expr_idx: 1,
+                ast_idx: 2,
+                use_expr_idx: 0,
                 visibility: Scope::PubUnder(
                     `mnist_classifier::line_segment_sketch::convex_component`,
                 ),

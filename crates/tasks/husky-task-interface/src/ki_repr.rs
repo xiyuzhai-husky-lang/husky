@@ -15,7 +15,7 @@ impl KiReprInterface {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum ValDomainReprInterface {
+pub enum KiDomainReprInterface {
     /// everything
     Omni,
     /// those where the val repr of type bool is defined and equals true

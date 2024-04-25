@@ -1,4 +1,4 @@
-use husky_linkage::linkage::Linkage;
+use husky_linkage::linkage::{virtual_linkage_impl::VirtualLinkageImpl, Linkage};
 use husky_task_interface::IsLinkageImpl;
 use husky_vfs::linktime_target_path::LinktimeTargetPath;
 
@@ -12,11 +12,11 @@ pub trait IsLinktime: Sized + Send {
 pub struct VirtualLinktime;
 
 impl IsLinktime for VirtualLinktime {
-    type LinkageImpl = Linkage;
+    type LinkageImpl = VirtualLinkageImpl;
 
     #[inline(always)]
     fn linkage_impl(&self, linkage: Linkage, _db: &salsa::Db) -> Self::LinkageImpl {
-        linkage
+        linkage.into()
     }
 
     fn new_linktime(_target_path: LinktimeTargetPath, _db: &salsa::Db) -> Self {

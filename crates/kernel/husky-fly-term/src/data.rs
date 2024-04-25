@@ -7,9 +7,11 @@ pub(crate) use self::hollow::*;
 pub(crate) use self::solid::*;
 
 use crate::*;
-use husky_dec_term::term::HvarIndex;
+use husky_dec_term::term::LambdaVariableIndex;
 use husky_eth_signature::helpers::trai_for_ty::is_ty_term_always_copyable;
-use husky_eth_term::term::{curry::EthCurry, hvar::EthHvar, svar::EthSvar};
+use husky_eth_term::term::{
+    curry::EthCurry, lambda_variable::EthLambdaVariable, symbolic_variable::EthSymbolicVariable,
+};
 use husky_term_prelude::{literal::Literal, ritchie::RitchieKind};
 use husky_vfs::Toolchain;
 
@@ -39,13 +41,13 @@ pub enum FlyTermData<'a> {
         parameter_contracted_tys: &'a [FlyRitchieParameter],
         return_ty: FlyTerm,
     },
-    Symbol {
-        term: EthSvar,
+    SymbolicVariable {
+        symbolic_variable: EthSymbolicVariable,
         ty: FlyTerm,
     },
-    Hvar {
+    LambdaVariable {
         ty: FlyTerm,
-        index: HvarIndex,
+        index: LambdaVariableIndex,
     },
     TypeVariant {
         path: TypeVariantPath,
@@ -117,8 +119,11 @@ impl<'a> FlyTermData<'a> {
                 }
                 RitchieKind::Trait(_) => todo!(),
             },
-            FlyTermData::Symbol { term, ty } => format!("symbol({})", ty.show(db, terms)),
-            FlyTermData::Hvar { ty, index: idx } => {
+            FlyTermData::SymbolicVariable {
+                symbolic_variable: term,
+                ty,
+            } => format!("symbol({})", ty.show(db, terms)),
+            FlyTermData::LambdaVariable { ty, index: idx } => {
                 format!("hvar({idx}, {})", ty.show(db, terms))
             }
             FlyTermData::TypeVariant { path } => format!("{:?}", path.debug(db)),
@@ -150,11 +155,11 @@ pub enum FlyBaseTypeData<'a> {
         parameter_contracted_tys: &'a [FlyRitchieParameter],
         return_ty: FlyTerm,
     },
-    Symbol {
-        symbol: EthSvar,
+    SymbolicVariable {
+        symbolic_variable: EthSymbolicVariable,
     },
-    Hvar {
-        hvar: EthHvar,
+    LambdaVariable {
+        lambda_variable: EthLambdaVariable,
     },
 }
 
@@ -169,7 +174,7 @@ impl FlyTerm {
     pub fn data_inner<'a>(self, db: &'a ::salsa::Db, terms: &'a FlyTerms) -> FlyTermData<'a> {
         match self.base_resolved_inner(terms) {
             FlyTermBase::Eth(term) => ethereal_term_data(db, term),
-            FlyTermBase::Sol(term) => term.data_inner(terms.solid_terms()).into(),
+            FlyTermBase::Sol(term) => term.data_inner(terms.sol_terms()).into(),
             FlyTermBase::Hol(term) => term.fly_data(db, terms),
             FlyTermBase::Place => todo!(),
         }
@@ -189,7 +194,7 @@ impl FlyTerm {
     ) -> FlyBaseTypeData<'a> {
         match self.base_resolved_inner(terms) {
             FlyTermBase::Eth(term) => ethereal_term_fly_base_ty_data(db, term),
-            FlyTermBase::Sol(term) => term.data_inner(terms.solid_terms()).into(),
+            FlyTermBase::Sol(term) => term.data_inner(terms.sol_terms()).into(),
             FlyTermBase::Hol(term) => term.fly_base_ty_data(db, terms),
             FlyTermBase::Place => todo!(),
         }
@@ -242,8 +247,12 @@ impl FlyTerm {
                 RitchieKind::Type(_) => Ok(Some(true)),
                 RitchieKind::Trait(_) => todo!(),
             },
-            FlyBaseTypeData::Symbol { symbol: term } => Ok(Some(false)),
-            FlyBaseTypeData::Hvar { hvar } => todo!(), // ad hoc
+            FlyBaseTypeData::SymbolicVariable {
+                symbolic_variable: term,
+            } => Ok(Some(false)),
+            FlyBaseTypeData::LambdaVariable {
+                lambda_variable: hvar,
+            } => todo!(), // ad hoc
         }
     }
 }

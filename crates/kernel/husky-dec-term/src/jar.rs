@@ -1,7 +1,5 @@
 use crate::*;
 
-use husky_vfs::Toolchain;
-
 pub trait DecTermDb {
     fn dec_term_menu(&self, toolchain: Toolchain) -> DecTermResultRef<&DecTermMenu>;
 }
@@ -14,12 +12,12 @@ impl DecTermDb for ::salsa::Db {
 
 #[salsa::jar]
 pub struct DecTermJar(
-    DecSvar,
+    DecSymbolicVariable,
     DecTermSymbols,
     declarative_term_curry_symbols,
     declarative_term_ritchie_symbols,
-    application_declarative_term_symbols,
-    DecHvar,
+    application_dec_symbolic_variables,
+    DecLambdaVariable,
     DecTermHvars,
     declarative_term_curry_placeholders,
     declarative_term_ritchie_hvars,

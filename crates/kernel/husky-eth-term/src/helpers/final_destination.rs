@@ -1,4 +1,4 @@
-use husky_entity_kind::MajorFugitiveKind;
+use husky_entity_kind::MajorFormKind;
 
 use super::*;
 
@@ -6,14 +6,16 @@ impl EthTerm {
     pub fn final_destination(self, db: &::salsa::Db) -> FinalDestination {
         match self {
             EthTerm::Literal(_) => FinalDestination::AnyDerived,
-            EthTerm::Symbol(_) | EthTerm::Hvar(_) => FinalDestination::AnyOriginal,
+            EthTerm::SymbolicVariable(_) | EthTerm::LambdaVariable(_) => {
+                FinalDestination::AnyOriginal
+            }
             EthTerm::EntityPath(path) => match path {
-                ItemPathTerm::Fugitive(path) => match path.major_fugitive_kind(db) {
-                    MajorFugitiveKind::TypeAlias => todo!(),
-                    MajorFugitiveKind::Ritchie(_)
-                    | MajorFugitiveKind::Val
-                    | MajorFugitiveKind::Formal
-                    | MajorFugitiveKind::Const => FinalDestination::AnyDerived,
+                ItemPathTerm::Form(path) => match path.major_form_kind(db) {
+                    MajorFormKind::TypeAlias => todo!(),
+                    MajorFormKind::Ritchie(_)
+                    | MajorFormKind::Val
+                    | MajorFormKind::Formal
+                    | MajorFormKind::Const => FinalDestination::AnyDerived,
                 },
                 ItemPathTerm::TypeOntology(_) => FinalDestination::TypeOntology,
                 ItemPathTerm::Trait(_)

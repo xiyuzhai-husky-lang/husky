@@ -32,8 +32,12 @@ impl<'a> VfsTestConfig<'a> {
         self.test_name
     }
 
-    pub fn expect_file_extension(&self) -> &FileExtensionConfig {
-        &self.expect_file_extension
+    pub fn expect_file_extension(&self) -> FileExtensionConfig {
+        self.expect_file_extension
+    }
+
+    pub fn adversarial_extension(&self) -> &str {
+        ADVERSARIAL_EXTENSION
     }
 
     pub fn test_domains_config(&self) -> &TestDomainsConfig {

@@ -1,6 +1,6 @@
 use super::*;
 use husky_expr::stmt::{LoopBoundaryKind, LoopStep};
-use husky_sema_expr::stmt::loop_stmt::{
+use husky_sem_expr::stmt::loop_stmt::{
     SemaForBetweenLoopBoundary, SemaForBetweenParticulars, SemaForBetweenRange,
     SemaForextParticulars,
 };
@@ -73,7 +73,7 @@ impl ToHirEager for SemaForextParticulars {
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
         HirEagerForExtParticulars {
             forext_loop_var_ident: self.forext_loop_var_ident,
-            bound_expr_hir_eager_expr_idx: self.bound_expr_sema_expr_idx.to_hir_eager(builder),
+            bound_expr_hir_eager_expr_idx: self.bound_expr_sem_expr_idx.to_hir_eager(builder),
             boundary_kind: self.boundary_kind,
         }
     }

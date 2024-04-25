@@ -1,0 +1,6 @@
+# dune init project logicm
+# OCAMLPARAM: unset
+# Shared cache: disabled
+# Workspace root:
+# /media/xiyuzhai/b9793a86-6738-410f-addc-a29a8a5b461f/repos/husky/playground/logic-monad-ocaml
+# Auto-detected concurrency: 12

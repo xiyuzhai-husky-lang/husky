@@ -47,17 +47,17 @@ pub fn trai_path_for_ty_path_impl_block_eth_templates<'a>(
     })
 }
 /// given a trait path and a ty term, find all the implementation blocks and return their ethereal signature builders
-pub fn trai_path_for_ty_term_impl_block_ethereal_signature_builders<'a>(
+pub fn trai_path_for_ty_term_impl_block_eth_signature_builders<'a>(
     db: &'a ::salsa::Db,
     trai_path: TraitPath,
     ty_term: EthTerm,
-) -> EtherealSignatureResult<SmallVec<[TraitForTypeImplBlockEtherealSignatureBuilder; 2]>> {
+) -> EtherealSignatureResult<SmallVec<[EthTraitForTypeImplBlockSignatureBuilder; 2]>> {
     let application_expansion = ty_term.application_expansion(db);
     let arguments = application_expansion.arguments(db);
     let TermFunctionReduced::TypeOntology(ty_path) = application_expansion.function() else {
         unreachable!()
     };
-    let mut builders: SmallVec<[TraitForTypeImplBlockEtherealSignatureBuilder; 2]> = smallvec![];
+    let mut builders: SmallVec<[EthTraitForTypeImplBlockSignatureBuilder; 2]> = smallvec![];
     for template in trai_path_for_ty_path_impl_block_eth_templates(db, trai_path, ty_path)?.iter() {
         match template.instantiate_ty(db, arguments, ty_term) {
             JustOk(builder) => builders.push(builder),
@@ -75,8 +75,8 @@ pub fn trai_path_for_ty_term_impl_block_ethereal_signature_builder_exists<'a>(
     ty_term: EthTerm,
 ) -> EtherealSignatureResult<bool> {
     match ty_term {
-        EthTerm::Symbol(_) => return Ok(false), // ad hoc
-        EthTerm::Hvar(_) => todo!(),
+        EthTerm::SymbolicVariable(_) => return Ok(false), // ad hoc
+        EthTerm::LambdaVariable(_) => todo!(),
         EthTerm::Ritchie(ritchie) => match ritchie.ritchie_kind(db) {
             RitchieKind::Type(ritchie_ty_kind) => match ritchie_ty_kind {
                 RitchieTypeKind::Item(ritchie_item_kind) => match ritchie_item_kind {

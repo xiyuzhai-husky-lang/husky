@@ -101,17 +101,18 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::line_segment_sketch::concave_component::find_concave_components`, `Ritchie(
                     Fn,
                 )`),
             ),
         ),
         Ok(
             DecTemplate::MajorItem(
-                MajorItemDecTemplate::Fugitive(
-                    FugitiveDecTemplate::Fn(
-                        MajorFnDecTemplate {
+                MajorItemDecTemplate::Form(
+                    MajorFormDecTemplate::Ritchie(
+                        MajorFunctionRitchieDecTemplate {
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameters: DecTemplateParameters {
                                 data: [],
                             },
@@ -200,8 +201,8 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TraitForTypeItem(
-                    TraitForTypeItemDecTemplate::MethodFn(
-                        TraitForTypeMethodFnDecTemplate {
+                    TraitForTypeItemDecTemplate::MethodRitchie(
+                        TraitForTypeMethodRitchieDecTemplate {
                             self_ty: EntityPath(
                                 Type(
                                     TypePath(
@@ -566,8 +567,8 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                    TypeItemDecTemplate::MethodRitchie(
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::line_segment`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -646,8 +647,8 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                    TypeItemDecTemplate::MethodRitchie(
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::start`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -726,8 +727,8 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                    TypeItemDecTemplate::MethodRitchie(
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::end`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -806,8 +807,8 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                    TypeItemDecTemplate::MethodRitchie(
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::displacement`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -886,8 +887,8 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                    TypeItemDecTemplate::MethodRitchie(
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::start_tangent`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -966,8 +967,8 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodFn(
-                        TypeMethodFnDecTemplate {
+                    TypeItemDecTemplate::MethodRitchie(
+                        TypeMethodRitchieDecTemplate {
                             path: TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::end_tangent`, `MethodRitchie(
                                 Fn,
                             )`),

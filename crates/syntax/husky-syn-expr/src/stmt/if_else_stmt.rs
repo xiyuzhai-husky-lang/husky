@@ -72,8 +72,7 @@ impl<'a> SynExprContext<'a> {
                 regional_token_verse_idx: token_verse_idx,
                 body,
             } => {
-                let body_end =
-                    self.fugitive_body_end(body.expect("should be checked in `husky_ast`"));
+                let body_end = self.form_body_end(body.expect("should be checked in `husky_ast`"));
                 let mut parser = self.token_verse_expr_parser(token_verse_idx);
                 SynIfBranch {
                     if_token: parser.try_parse_option().unwrap().unwrap(),
@@ -106,7 +105,7 @@ impl<'a> SynExprContext<'a> {
                 body,
             } => {
                 let body = body.expect("should be checked in `husky_ast`");
-                let body_end = self.fugitive_body_end(body);
+                let body_end = self.form_body_end(body);
                 let mut parser = self.token_verse_expr_parser(token_verse_idx);
                 SynElifBranch {
                     elif_token: parser.try_parse_option().unwrap().unwrap(),

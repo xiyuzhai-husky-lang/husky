@@ -12,9 +12,9 @@
                     HirTemplateParameters(
                         [
                             HirTemplateParameter {
-                                symbol: HirTemplateSvar::Type(
-                                    HirTypeSvar::Type {
-                                        attrs: HirTemplateSvarAttrs {
+                                symbol: HirTemplateVariable::Type(
+                                    HirTypeTemplateVariable::Type {
+                                        attrs: HirTemplateVariableAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -29,6 +29,55 @@
                         ],
                     ),
                 ),
+                rides: [],
+            },
+        ),
+    ),
+    (
+        ItemPath::Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 147,
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::TypeVariant(
+            Room32,
+            TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 2,
+                    },
+                ),
+            ),
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: None,
+                rides: [],
+            },
+        ),
+    ),
+    (
+        ItemPath::TypeVariant(
+            Room32,
+            TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 3,
+                    },
+                ),
+            ),
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: None,
                 rides: [],
             },
         ),
@@ -51,6 +100,55 @@
         ),
     ),
     (
+        ItemPath::Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 148,
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::TypeVariant(
+            Room32,
+            TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 5,
+                    },
+                ),
+            ),
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: None,
+                rides: [],
+            },
+        ),
+    ),
+    (
+        ItemPath::TypeVariant(
+            Room32,
+            TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 6,
+                    },
+                ),
+            ),
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: None,
+                rides: [],
+            },
+        ),
+    ),
+    (
         ItemPath::MajorItem(
             MajorItemPath::Type(
                 TypePath(`malamute::OneVsAllResult`, `Enum`),
@@ -68,9 +166,76 @@
         ),
     ),
     (
+        ItemPath::Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 149,
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::TypeVariant(
+            Room32,
+            TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 8,
+                    },
+                ),
+            ),
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: None,
+                rides: [],
+            },
+        ),
+    ),
+    (
+        ItemPath::TypeVariant(
+            Room32,
+            TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 9,
+                    },
+                ),
+            ),
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: None,
+                rides: [],
+            },
+        ),
+    ),
+    (
+        ItemPath::TypeVariant(
+            Room32,
+            TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 10,
+                    },
+                ),
+            ),
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: None,
+                rides: [],
+            },
+        ),
+    ),
+    (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`malamute::narrow_down`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`malamute::narrow_down`, `Ritchie(
                     Gn,
                 )`),
             ),
@@ -81,9 +246,9 @@
                     HirTemplateParameters(
                         [
                             HirTemplateParameter {
-                                symbol: HirTemplateSvar::Type(
-                                    HirTypeSvar::Type {
-                                        attrs: HirTemplateSvarAttrs {
+                                symbol: HirTemplateVariable::Type(
+                                    HirTypeTemplateVariable::Type {
+                                        attrs: HirTemplateVariableAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -96,19 +261,19 @@
                                 },
                             },
                             HirTemplateParameter {
-                                symbol: HirTemplateSvar::Const(
-                                    HirConstSvar {
-                                        ty: HirType::Svar(
-                                            HirTypeSvar::Type {
-                                                attrs: HirTemplateSvarAttrs {
+                                symbol: HirTemplateVariable::Const(
+                                    HirConstTemplateVariable {
+                                        ty: HirType::Variable(
+                                            HirTypeTemplateVariable::Type {
+                                                attrs: HirTemplateVariableAttrs {
                                                     class: Comptime,
                                                 },
                                                 variance: None,
                                                 disambiguator: 0,
                                             },
                                         ),
-                                        index: HirConstSvarIndex::Other {
-                                            attrs: HirTemplateSvarAttrs {
+                                        index: HirConstTemplateVariableIndex::Other {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Runtime,
                                             },
                                             disambiguator: 0,
@@ -117,9 +282,9 @@
                                 ),
                                 data: HirTemplateParameterData::Constant {
                                     ident: `label`,
-                                    ty: HirType::Svar(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
+                                    ty: HirType::Variable(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
@@ -186,9 +351,9 @@
                     HirTemplateParameters(
                         [
                             HirTemplateParameter {
-                                symbol: HirTemplateSvar::Type(
-                                    HirTypeSvar::Type {
-                                        attrs: HirTemplateSvarAttrs {
+                                symbol: HirTemplateVariable::Type(
+                                    HirTypeTemplateVariable::Type {
+                                        attrs: HirTemplateVariableAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -201,19 +366,19 @@
                                 },
                             },
                             HirTemplateParameter {
-                                symbol: HirTemplateSvar::Const(
-                                    HirConstSvar {
-                                        ty: HirType::Svar(
-                                            HirTypeSvar::Type {
-                                                attrs: HirTemplateSvarAttrs {
+                                symbol: HirTemplateVariable::Const(
+                                    HirConstTemplateVariable {
+                                        ty: HirType::Variable(
+                                            HirTypeTemplateVariable::Type {
+                                                attrs: HirTemplateVariableAttrs {
                                                     class: Comptime,
                                                 },
                                                 variance: None,
                                                 disambiguator: 0,
                                             },
                                         ),
-                                        index: HirConstSvarIndex::Other {
-                                            attrs: HirTemplateSvarAttrs {
+                                        index: HirConstTemplateVariableIndex::Other {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Runtime,
                                             },
                                             disambiguator: 0,
@@ -222,9 +387,9 @@
                                 ),
                                 data: HirTemplateParameterData::Constant {
                                     ident: `label`,
-                                    ty: HirType::Svar(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
+                                    ty: HirType::Variable(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
@@ -280,26 +445,26 @@
                 ),
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::Type(
+                        path: JavPath::Type(
                             TypePath(`malamute::Class`, `Enum`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateSvar::Type(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
+                                    HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
                                             disambiguator: 0,
                                         },
                                     ),
-                                    HirTermSvarResolution::Explicit(
+                                    HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Type(
-                                            HirType::Svar(
-                                                HirTypeSvar::Type {
-                                                    attrs: HirTemplateSvarAttrs {
+                                            HirType::Variable(
+                                                HirTypeTemplateVariable::Type {
+                                                    attrs: HirTemplateVariableAttrs {
                                                         class: Comptime,
                                                     },
                                                     variance: None,
@@ -314,31 +479,31 @@
                         },
                     },
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::Type(
+                        path: JavPath::Type(
                             TypePath(`core::ops::ControlFlow`, `Enum`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateSvar::Type(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
+                                    HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
                                             disambiguator: 0,
                                         },
                                     ),
-                                    HirTermSvarResolution::Explicit(
+                                    HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Type(
                                             HirType::PathLeading(
                                                 HirTypePathLeading {
                                                     ty_path: TypePath(`malamute::Class`, `Enum`),
                                                     template_arguments: [
                                                         HirTemplateArgument::Type(
-                                                            HirType::Svar(
-                                                                HirTypeSvar::Type {
-                                                                    attrs: HirTemplateSvarAttrs {
+                                                            HirType::Variable(
+                                                                HirTypeTemplateVariable::Type {
+                                                                    attrs: HirTemplateVariableAttrs {
                                                                         class: Comptime,
                                                                     },
                                                                     variance: None,
@@ -354,16 +519,16 @@
                                     ),
                                 ),
                                 (
-                                    HirTemplateSvar::Type(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
+                                    HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
                                             disambiguator: 1,
                                         },
                                     ),
-                                    HirTermSvarResolution::Explicit(
+                                    HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Type(
                                             HirType::PathLeading(
                                                 HirTypePathLeading {
@@ -440,22 +605,22 @@
                 ),
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::Type(
+                        path: JavPath::Type(
                             TypePath(`core::ops::ControlFlow`, `Enum`),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateSvar::Type(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
+                                    HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
                                             disambiguator: 0,
                                         },
                                     ),
-                                    HirTermSvarResolution::Explicit(
+                                    HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Type(
                                             HirType::PathLeading(
                                                 HirTypePathLeading {
@@ -468,16 +633,16 @@
                                     ),
                                 ),
                                 (
-                                    HirTemplateSvar::Type(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
+                                    HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
                                             disambiguator: 1,
                                         },
                                     ),
-                                    HirTermSvarResolution::Explicit(
+                                    HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Type(
                                             HirType::PathLeading(
                                                 HirTypePathLeading {

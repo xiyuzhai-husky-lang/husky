@@ -18,7 +18,7 @@ pub enum HirEagerPatternData {
     Literal(Literal),
     /// example: `a`
     Ident {
-        symbol_modifier: Option<SvarModifier>,
+        symbol_modifier: Option<VariableModifier>,
         ident: Ident,
     },
     /// example: `A::B`

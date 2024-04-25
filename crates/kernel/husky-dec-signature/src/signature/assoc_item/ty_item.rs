@@ -1,16 +1,16 @@
-mod assoc_fn;
+mod assoc_ritchie;
 mod assoc_ty;
 mod assoc_val;
 mod memo_field;
-mod method_fn;
-mod method_function;
+mod method_curry;
+mod method_ritchie;
 
-pub use self::assoc_fn::*;
+pub use self::assoc_ritchie::*;
 pub use self::assoc_ty::*;
 pub use self::assoc_val::*;
 pub use self::memo_field::*;
-pub use self::method_fn::*;
-pub use self::method_function::*;
+pub use self::method_curry::*;
+pub use self::method_ritchie::*;
 
 use crate::*;
 
@@ -18,8 +18,8 @@ use crate::*;
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum TypeItemDecTemplate {
-    AssocFn(TypeAssocFnDecTemplate),
-    MethodFn(TypeMethodFnDecTemplate),
+    AssocRitchie(TypeAssocRitchieDecTemplate),
+    MethodRitchie(TypeMethodRitchieDecTemplate),
     AssocType(TypeAssocTypeDecTemplate),
     AssocVal(TypeAssocValDecTemplate),
     MemoizedField(TypeMemoizedFieldDecTemplate),
@@ -29,8 +29,8 @@ pub enum TypeItemDecTemplate {
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum TypeItemDecTemplates {
-    AssocFn(SmallVecImpl<TypeAssocFnDecTemplate>),
-    MethodFn(SmallVecImpl<TypeMethodFnDecTemplate>),
+    AssocRitchie(SmallVecImpl<TypeAssocRitchieDecTemplate>),
+    MethodFn(SmallVecImpl<TypeMethodRitchieDecTemplate>),
     AssocType(SmallVecImpl<TypeAssocTypeDecTemplate>),
     AssocVal(SmallVecImpl<TypeAssocValDecTemplate>),
     MemoizedField(SmallVecImpl<TypeMemoizedFieldDecTemplate>),
@@ -39,8 +39,8 @@ pub enum TypeItemDecTemplates {
 impl TypeItemDecTemplate {
     pub fn template_parameters(self, db: &::salsa::Db) -> &[DeclarativeTemplateParameter] {
         match self {
-            TypeItemDecTemplate::AssocFn(signature) => signature.template_parameters(db),
-            TypeItemDecTemplate::MethodFn(signature) => signature.template_parameters(db),
+            TypeItemDecTemplate::AssocRitchie(signature) => signature.template_parameters(db),
+            TypeItemDecTemplate::MethodRitchie(signature) => signature.template_parameters(db),
             TypeItemDecTemplate::AssocType(signature) => signature.template_parameters(db),
             TypeItemDecTemplate::AssocVal(_) => &[],
             TypeItemDecTemplate::MemoizedField(_) => &[],
@@ -63,11 +63,11 @@ pub(crate) fn ty_item_syn_dec_template(
 ) -> DecSignatureResult<TypeItemDecTemplate> {
     let decl = path.syn_decl(db)?;
     match decl {
-        TypeItemSynDecl::AssocFn(decl) => {
-            TypeAssocFnDecTemplate::from_decl(db, path, decl).map(Into::into)
+        TypeItemSynDecl::AssocRitchie(decl) => {
+            TypeAssocRitchieDecTemplate::from_decl(db, path, decl).map(Into::into)
         }
         TypeItemSynDecl::MethodFn(decl) => {
-            TypeMethodFnDecTemplate::from_decl(db, path, decl).map(Into::into)
+            TypeMethodRitchieDecTemplate::from_decl(db, path, decl).map(Into::into)
         }
         TypeItemSynDecl::AssocType(decl) => {
             TypeAssocTypeDecTemplate::from_decl(db, path, decl).map(Into::into)
@@ -83,8 +83,8 @@ pub(crate) fn ty_item_syn_dec_template(
 
 #[derive(Debug, PartialEq, Eq)]
 pub enum TypeMethodDecTemplates {
-    MethodFn(SmallVecImpl<TypeMethodFnDecTemplate>),
-    MethodFunction(SmallVecImpl<TypeMethodFunctionDecTemplate>),
+    MethodFn(SmallVecImpl<TypeMethodRitchieDecTemplate>),
+    MethodFunction(SmallVecImpl<TypeMethodCurryDecTemplate>),
 }
 
 pub trait HasTypeMethodDecTemplates: Copy {

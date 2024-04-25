@@ -48,7 +48,7 @@ Ok(
                                     },
                                 ),
                                 value: Some(
-                                    1,
+                                    0,
                                 ),
                             },
                             TomlSectionEntry {
@@ -61,7 +61,7 @@ Ok(
                                     },
                                 ),
                                 value: Some(
-                                    2,
+                                    1,
                                 ),
                             },
                             TomlSectionEntry {
@@ -74,7 +74,7 @@ Ok(
                                     },
                                 ),
                                 value: Some(
-                                    3,
+                                    2,
                                 ),
                             },
                             TomlSectionEntry {
@@ -87,7 +87,7 @@ Ok(
                                     },
                                 ),
                                 value: Some(
-                                    4,
+                                    3,
                                 ),
                             },
                         ],
@@ -114,7 +114,7 @@ Ok(
                                     },
                                 ),
                                 value: Some(
-                                    5,
+                                    4,
                                 ),
                             },
                             TomlSectionEntry {
@@ -127,7 +127,7 @@ Ok(
                                     },
                                 ),
                                 value: Some(
-                                    6,
+                                    5,
                                 ),
                             },
                         ],
@@ -139,67 +139,67 @@ Ok(
         line_groups: [
             TomlLineGroup::SectionTitle {
                 title: [
-                    Word(
+                    Coword(
                         "package",
                     ),
                 ],
                 kind: TomlSectionKind::Normal,
             },
             TomlLineGroup::KeyValue(
-                Word(
+                Coword(
                     "name",
+                ),
+                Some(
+                    0,
+                ),
+            ),
+            TomlLineGroup::Err,
+            TomlLineGroup::KeyValue(
+                Coword(
+                    "license",
                 ),
                 Some(
                     1,
                 ),
             ),
-            TomlLineGroup::Err,
             TomlLineGroup::KeyValue(
-                Word(
-                    "license",
+                Coword(
+                    "repository",
                 ),
                 Some(
                     2,
                 ),
             ),
             TomlLineGroup::KeyValue(
-                Word(
-                    "repository",
+                Coword(
+                    "description",
                 ),
                 Some(
                     3,
                 ),
             ),
-            TomlLineGroup::KeyValue(
-                Word(
-                    "description",
-                ),
-                Some(
-                    4,
-                ),
-            ),
             TomlLineGroup::SectionTitle {
                 title: [
-                    Word(
+                    Coword(
                         "lib",
                     ),
                 ],
                 kind: TomlSectionKind::Normal,
             },
             TomlLineGroup::KeyValue(
-                Word(
+                Coword(
                     "test",
                 ),
                 Some(
-                    5,
+                    4,
                 ),
             ),
             TomlLineGroup::KeyValue(
-                Word(
+                Coword(
                     "bench",
                 ),
                 Some(
-                    6,
+                    5,
                 ),
             ),
         ],
@@ -210,14 +210,14 @@ Ok(
                         value: 2,
                     },
                 ): Section(
-                    1,
+                    0,
                 ),
                 Coword(
                     Id {
                         value: 10,
                     },
                 ): Section(
-                    2,
+                    1,
                 ),
             },
         },

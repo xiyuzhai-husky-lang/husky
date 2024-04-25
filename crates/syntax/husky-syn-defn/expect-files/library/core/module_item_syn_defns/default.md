@@ -8,5 +8,15 @@
         ),
         None,
     ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TraitItem(
+                TraitItemPath(`core::default::Default::default`, `AssocRitchie(
+                    Fn,
+                )`),
+            ),
+        ),
+        None,
+    ),
 ]
 ```

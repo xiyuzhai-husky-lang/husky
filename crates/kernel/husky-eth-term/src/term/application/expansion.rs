@@ -5,7 +5,7 @@ impl EthTerm {
         match self {
             EthTerm::Application(term) => term.application_expansion(db),
             EthTerm::EntityPath(path) => match path {
-                ItemPathTerm::Fugitive(_) => todo!(),
+                ItemPathTerm::Form(_) => todo!(),
                 ItemPathTerm::Trait(path) => ApplicationExpansion {
                     function: TermFunctionReduced::Trait(path),
                     arguments: None,

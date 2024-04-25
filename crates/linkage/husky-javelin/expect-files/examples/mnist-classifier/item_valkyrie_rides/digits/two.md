@@ -2,8 +2,8 @@
 [
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::two::two_match`, `Val`),
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
             ),
         ),
         Some(
@@ -68,8 +68,8 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::two::left_cc_pattern`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::two::left_cc_pattern`, `Ritchie(
                     Fn,
                 )`),
             ),
@@ -87,8 +87,8 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::two::right_cc_pattern`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::two::right_cc_pattern`, `Ritchie(
                     Fn,
                 )`),
             ),
@@ -106,8 +106,8 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::two::down_cc_pattern`, `Ritchie(
                     Fn,
                 )`),
             ),
@@ -125,8 +125,8 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
             ),
         ),
         Some(
@@ -134,7 +134,7 @@
                 hir_template_parameters: None,
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TypeItem(
+                        path: JavPath::TypeItem(
                             TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -142,16 +142,16 @@
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateSvar::Type(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
+                                    HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
                                             disambiguator: 0,
                                         },
                                     ),
-                                    HirTermSvarResolution::Explicit(
+                                    HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Type(
                                             HirType::PathLeading(
                                                 HirTypePathLeading {

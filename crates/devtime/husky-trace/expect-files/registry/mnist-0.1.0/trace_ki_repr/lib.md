@@ -5,7 +5,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist::input`, `Val`),
+                        val_item_path: FormPath(`mnist::input`, `Val`),
                     },
                 ),
             },
@@ -16,7 +16,7 @@
                             value: 1,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 14,
@@ -28,11 +28,11 @@
         },
         Some(
             KiRepr {
-                val_domain_repr: Omni,
-                opn: ValOpn::Linkage(
+                ki_domain_repr: Omni,
+                opn: KiOpn::Linkage(
                     Linkage {
                         data: LinkageData::MajorVal {
-                            path: FugitivePath(`mnist::input`, `Val`),
+                            path: FormPath(`mnist::input`, `Val`),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
                                 separator: None,
@@ -42,7 +42,7 @@
                 ),
                 arguments: [],
                 source: KiReprSource::ValItem(
-                    FugitivePath(`mnist::input`, `Val`),
+                    FormPath(`mnist::input`, `Val`),
                 ),
                 caching_class: ValItem,
             },

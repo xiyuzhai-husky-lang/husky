@@ -10,6 +10,16 @@
             TypePath(`core::slice::CyclicSlice`, `Extern`),
         ),
     ),
+    ItemPath::Attr(
+        Room32,
+        AttrItemPath(
+            ItemPathId(
+                Id {
+                    value: 232,
+                },
+            ),
+        ),
+    ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
             TypeImplBlockPath(

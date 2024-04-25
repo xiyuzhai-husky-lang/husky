@@ -8,8 +8,8 @@
                         data: ItemSynNodePathData::MajorItem(
                             MajorItemSynNodePathData::Type(
                                 TypeSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`core::option::Option`, `Enum`),
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TypePath(`core::option::Option`, `Enum`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -35,8 +35,8 @@
                                             data: ItemSynNodePathData::MajorItem(
                                                 MajorItemSynNodePathData::Type(
                                                     TypeSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(`core::option::Option`, `Enum`),
+                                                        disambiguated_item_path: DisambiguatedItemPath {
+                                                            maybe_ambiguous_item_path: TypePath(`core::option::Option`, `Enum`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -46,11 +46,86 @@
                                     ),
                                 ),
                             ),
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: AttrItemPath(
+                            attr_item_path_result: Ok(
+                                AttrItemPath(
                                     ItemPathId(
                                         Id {
-                                            value: 186,
+                                            value: 223,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                },
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemSynNodePath::TypeVariant(
+            Room32,
+            TypeVariantSynNodePath(
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::TypeVariant(
+                        TypeVariantSynNodePathData {
+                            parent_ty_node_path: TypeSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`core::option::Option`, `Enum`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                            disambiguated_item_path: DisambiguatedItemPath {
+                                maybe_ambiguous_item_path: TypeVariantPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 77,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemSynNodePath::TypeVariant(
+            Room32,
+            TypeVariantSynNodePath(
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::TypeVariant(
+                        TypeVariantSynNodePathData {
+                            parent_ty_node_path: TypeSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`core::option::Option`, `Enum`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                            disambiguated_item_path: DisambiguatedItemPath {
+                                maybe_ambiguous_item_path: TypeVariantPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 78,
                                         },
                                     ),
                                 ),

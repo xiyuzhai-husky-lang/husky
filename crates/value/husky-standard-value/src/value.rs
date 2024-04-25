@@ -29,6 +29,7 @@ pub(crate) const REGULAR_VALUE_SIZE_OVER_I64: usize = 4;
 #[derive(Debug)]
 #[repr(u8)]
 pub enum Value {
+    Uninit,
     Invalid,
     Moved,
     Unit(()),
@@ -124,6 +125,7 @@ impl Value {
         T: WeakStatic,
     {
         match self {
+            Value::Uninit => todo!(),
             Value::Invalid => todo!(),
             Value::Moved => todo!(),
             Value::Unit(_) => todo!(),
@@ -217,12 +219,17 @@ impl Value {
 }
 
 impl IsValue for Value {
+    fn new_uninit() -> Self {
+        Value::Uninit
+    }
+
     fn from_enum_u8(index: u8, presenter: EnumU8ValuePresenter) -> Self {
         Value::EnumU8 { index, presenter }
     }
 
     fn share(&'static self) -> Self {
         match *self {
+            Value::Uninit => Value::Uninit,
             Value::Invalid => Value::Invalid,
             Value::Moved => Value::Moved,
             Value::Unit(slf) => Value::Unit(slf),
@@ -344,6 +351,7 @@ impl IsValue for Value {
 
     fn index(self, index: usize) -> Self {
         match self {
+            Value::Uninit => todo!(),
             Value::Invalid => todo!(),
             Value::Moved => todo!(),
             Value::Unit(_) => todo!(),
@@ -388,6 +396,7 @@ impl IsValue for Value {
         value_presentation_synchrotron: &mut ValuePresentationSynchrotron,
     ) -> ValuePresentation {
         match *self {
+            Value::Uninit => todo!(),
             Value::Invalid => unreachable!(),
             Value::Moved => unreachable!(),
             Value::Unit(_) => ValuePresentation::Unit(()),
@@ -431,6 +440,7 @@ impl IsValue for Value {
     fn visualize(&self, visual_synchrotron: &mut VisualSynchrotron) -> Visual {
         use husky_visual_protocol::visualize::Visualize;
         match *self {
+            Value::Uninit => todo!(),
             Value::Invalid => unreachable!(),
             Value::Moved => unreachable!(),
             Value::Unit(_) => todo!(),
@@ -467,6 +477,10 @@ impl IsValue for Value {
             Value::OptionSizedMut(_) => todo!(),
             Value::EnumU8 { .. } => Visual::Void,
         }
+    }
+
+    fn from_str_literal(str_value: Arc<str>) -> Self {
+        todo!()
     }
 }
 

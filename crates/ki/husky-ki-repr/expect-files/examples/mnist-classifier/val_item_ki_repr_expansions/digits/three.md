@@ -1,11 +1,11 @@
 ```rust
 [
     (
-        FugitivePath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
+        FormPath(`mnist_classifier::digits::three::three_fermi_match`, `Val`),
         None,
     ),
     (
-        FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+        FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
         None,
     ),
 ]

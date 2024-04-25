@@ -1,11 +1,11 @@
 pub mod connection;
-pub mod fugitive;
+pub mod form;
 pub mod trai;
 pub mod ty;
 mod utils;
 
 pub use self::connection::*;
-pub use self::fugitive::*;
+pub use self::form::*;
 pub use self::trai::*;
 pub use self::ty::*;
 
@@ -19,7 +19,7 @@ use utils::*;
 pub enum MajorItemPath {
     Type(TypePath),
     Trait(TraitPath),
-    Fugitive(FugitivePath),
+    Form(MajorFormPath),
 }
 
 impl std::ops::Deref for MajorItemPath {
@@ -36,7 +36,7 @@ impl std::ops::Deref for MajorItemPath {
 pub enum MajorItemPathData {
     Type(TypePathData),
     Trait(TraitPathData),
-    Fugitive(FugitivePathData),
+    Form(FormPathData),
 }
 
 impl MajorItemPath {
@@ -50,7 +50,7 @@ impl MajorItemPath {
     pub fn ty_path(self) -> Option<TypePath> {
         match self {
             MajorItemPath::Type(data) => Some(data),
-            MajorItemPath::Trait(_) | MajorItemPath::Fugitive(_) => None,
+            MajorItemPath::Trait(_) | MajorItemPath::Form(_) => None,
         }
     }
 
@@ -65,7 +65,7 @@ impl MajorItemPathData {
         match self {
             MajorItemPathData::Type(slf) => slf.item_path(id).into(),
             MajorItemPathData::Trait(slf) => slf.item_path(id).into(),
-            MajorItemPathData::Fugitive(slf) => slf.item_path(id).into(),
+            MajorItemPathData::Form(slf) => slf.item_path(id).into(),
         }
     }
 
@@ -73,14 +73,14 @@ impl MajorItemPathData {
         match self {
             MajorItemPathData::Type(data) => data.module_path(),
             MajorItemPathData::Trait(data) => data.module_path(),
-            MajorItemPathData::Fugitive(data) => data.module_path(),
+            MajorItemPathData::Form(data) => data.module_path(),
         }
     }
     pub fn ident(self) -> Ident {
         match self {
             MajorItemPathData::Type(data) => data.ident(),
             MajorItemPathData::Trait(data) => data.ident(),
-            MajorItemPathData::Fugitive(data) => data.ident(),
+            MajorItemPathData::Form(data) => data.ident(),
         }
     }
 
@@ -95,8 +95,8 @@ impl MajorItemPathData {
                 module_item_kind: MajorItemKind::Trait,
                 connection: data.connection().kind(),
             },
-            MajorItemPathData::Fugitive(data) => EntityKind::MajorItem {
-                module_item_kind: MajorItemKind::Fugitive(data.fugitive_kind()),
+            MajorItemPathData::Form(data) => EntityKind::MajorItem {
+                module_item_kind: MajorItemKind::Form(data.form_kind()),
                 connection: data.connection().kind(),
             },
         }
@@ -110,7 +110,7 @@ impl salsa::DisplayWithDb for MajorItemPath {
         db: &::salsa::Db,
     ) -> std::fmt::Result {
         match self {
-            MajorItemPath::Fugitive(path) => path.display_fmt_with_db(f, db),
+            MajorItemPath::Form(path) => path.display_fmt_with_db(f, db),
             MajorItemPath::Type(path) => path.display_fmt_with_db(f, db),
             MajorItemPath::Trait(path) => path.display_fmt_with_db(f, db),
         }
