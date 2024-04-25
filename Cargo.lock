@@ -3982,6 +3982,7 @@ dependencies = [
  "husky-fly-term",
  "husky-folding-range",
  "husky-hover",
+ "husky-ide-fmt",
  "husky-manifest",
  "husky-manifest-ast",
  "husky-path-utils",
@@ -3992,7 +3993,6 @@ dependencies = [
  "husky-syn-decl",
  "husky-syn-defn",
  "husky-syn-expr",
- "husky-syn-fmt",
  "husky-term-prelude",
  "husky-text",
  "husky-text-protocol",
@@ -5105,6 +5105,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-ide-fmt"
+version = "0.1.0"
+dependencies = [
+ "husky-ide-fmt",
+ "salsa",
+]
+
+[[package]]
 name = "husky-io-task"
 version = "0.1.0"
 dependencies = [
@@ -5853,6 +5861,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-sem-fmt"
+version = "0.1.0"
+
+[[package]]
 name = "husky-sem-opr"
 version = "0.1.0"
 dependencies = [
@@ -6081,10 +6093,6 @@ dependencies = [
 [[package]]
 name = "husky-syn-fmt"
 version = "0.1.0"
-dependencies = [
- "husky-syn-fmt",
- "salsa",
-]
 
 [[package]]
 name = "husky-syn-opr"

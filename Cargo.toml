@@ -33,8 +33,7 @@ members = [
     "crates/vmir/*",
     "library/core",
     "registry/*",
-    "playground/learn-rusqlite"
-]
+    "playground/learn-rusqlite"]
 resolver = "2"
 
 [workspace.package]
@@ -216,7 +215,7 @@ husky-hover = { path = "crates/ide/husky-hover" }
 husky-folding-range = { path = "crates/ide/husky-folding-range" }
 husky-semantic-token = { path = "crates/ide/husky-semantic-token" }
 husky-token-info = { path = "crates/ide/husky-token-info" }
-husky-syn-fmt = { path = "crates/ide/husky-syn-fmt" }
+husky-ide-fmt = { path = "crates/ide/husky-ide-fmt" }
 # kernel
 husky-coword = { path = "crates/kernel/husky-coword" }
 husky-dec-term = { path = "crates/kernel/husky-dec-term" }
