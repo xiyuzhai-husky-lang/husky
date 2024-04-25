@@ -326,6 +326,14 @@ impl<'a> SemaExprBuilder<'a> {
         self.db
     }
 
+    pub(crate) fn dec_term_region(&self) -> &'a SynExprDecTermRegion {
+        self.dec_term_region
+    }
+
+    pub(crate) fn symbol_terms(&self) -> &SymbolMap<FlyTerm> {
+        &self.symbol_terms
+    }
+
     pub(crate) fn expr_region_data(&self) -> &SynExprRegionData {
         self.syn_expr_region_data
     }
@@ -364,6 +372,10 @@ impl<'a> SemaExprBuilder<'a> {
 
     pub(crate) fn self_ty(&self) -> Option<EthTerm> {
         self.self_ty
+    }
+
+    pub(crate) fn self_place(&self) -> Option<EthSymbolicVariable> {
+        self.self_place
     }
 
     pub(crate) fn self_value_ty(&self) -> Option<FlyTerm> {
