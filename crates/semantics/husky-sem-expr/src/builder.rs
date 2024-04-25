@@ -1,13 +1,10 @@
-mod expect;
-mod expr_term;
 mod symbol;
 #[macro_use]
-mod utils;
+mod helpers;
 mod branch_ty_merger;
-mod pattern_ty;
 
 pub(crate) use self::branch_ty_merger::*;
-pub(crate) use self::utils::*;
+pub(crate) use self::helpers::*;
 
 use self::symbol::*;
 use crate::*;
@@ -381,6 +378,13 @@ impl<'a> SemaExprBuilder<'a> {
     pub(crate) fn self_value_ty(&self) -> Option<FlyTerm> {
         self.self_value_ty
     }
+
+    pub(crate) fn get_pattern_expr_ty(&self, pattern_expr_idx: SynPatternIdx) -> Option<FlyTerm> {
+        self.pattern_expr_ty_infos
+            .get(pattern_expr_idx)
+            .map(|info| info.ty().ok().copied())
+            .flatten()
+    }
 }
 
 /// # mut getters
@@ -422,6 +426,116 @@ impl<'a> SemaExprBuilder<'a> {
 
     pub(crate) fn add_symbol_ty(&mut self, symbol_idx: CurrentVariableIdx, symbol_ty: SymbolType) {
         self.symbol_tys.insert_new(symbol_idx, symbol_ty)
+    }
+
+    /// perform this during finish stage
+    pub(crate) fn infer_expr_term(&mut self, expr: SemaExprIdx) -> Option<FlyTerm> {
+        if let Some(term_result) = self.sem_expr_term_results.get_value(expr) {
+            return term_result.as_ref().ok().copied();
+        }
+        let term_result = self.calc_expr_term(expr);
+        let term = term_result.as_ref().ok().copied();
+        self.save_new_expr_term(expr, term_result);
+        term
+    }
+
+    /// clear all holes before using this
+    pub(super) fn infer_extra_expr_terms_in_preparation_for_hir(&mut self) {
+        for sem_expr_idx in self.sem_expr_arena.index_iter() {
+            self.infer_extra_expr_term_in_preparation_for_hir(sem_expr_idx)
+        }
+    }
+
+    // helpful for hir stage
+    fn infer_extra_expr_term_in_preparation_for_hir(&mut self, sem_expr_idx: SemaExprIdx) {
+        if let Some(_) = self.sem_expr_term_results.get_value(sem_expr_idx) {
+            return;
+        }
+        // ad hoc
+        match sem_expr_idx.data_result(&self.sem_expr_arena) {
+            Ok(SemaExprData::Literal(_, _)) => (),
+            _ => return,
+        }
+        let term_result = self.calc_expr_term(sem_expr_idx);
+        let term = term_result.as_ref().ok().copied();
+        self.save_new_expr_term(sem_expr_idx, term_result)
+    }
+
+    fn save_new_expr_term(
+        &mut self,
+        expr_idx: SemaExprIdx,
+        term_result: SemaExprTermResult<FlyTerm>,
+    ) {
+        self.sem_expr_term_results
+            .insert_new((expr_idx, term_result))
+            .expect("todo")
+    }
+
+    pub(crate) fn infer_new_current_variable_syn_symbol_ty(
+        &mut self,
+        current_variable_idx: CurrentVariableIdx,
+    ) {
+        let Some(ty) = self.calc_new_current_variable_ty(current_variable_idx) else {
+            return;
+        };
+        let modifier =
+            match *self.syn_expr_region_data().variable_region()[current_variable_idx].data() {
+                CurrentVariableData::SimpleClosureParameter {
+                    pattern_variable_idx,
+                    ..
+                }
+                | CurrentVariableData::LetVariable {
+                    pattern_variable_idx,
+                    ..
+                }
+                | CurrentVariableData::BeVariable {
+                    pattern_variable_idx,
+                    ..
+                }
+                | CurrentVariableData::CaseVariable {
+                    pattern_variable_idx,
+                    ..
+                } => self
+                    .expr_region_data()
+                    .pattern_symbol_modifier(pattern_variable_idx),
+                _ => unreachable!(),
+            };
+        let ty = match SymbolType::new_variable_ty(self, current_variable_idx, modifier, ty) {
+            Ok(ty) => ty,
+            Err(_) => todo!(),
+        };
+        self.symbol_tys.insert_new(current_variable_idx, ty)
+    }
+
+    /// used for defn body variables
+    pub(crate) fn infer_variable_pattern_root_and_symbols_ty(
+        &mut self,
+        syn_pattern_root: impl Into<SynPatternRoot>,
+        ty: FlyTerm,
+        symbols: CurrentSynSymbolIdxRange,
+    ) {
+        self.infer_pattern_ty(syn_pattern_root.into().syn_pattern_expr_idx(), ty);
+        for symbol in symbols {
+            self.infer_new_current_variable_syn_symbol_ty(symbol)
+        }
+    }
+
+    /// the way type inference works for patterns is dual to that of expression
+    pub(crate) fn infer_pattern_ty(&mut self, syn_pattern_expr_idx: SynPatternIdx, ty: FlyTerm) {
+        self.pattern_expr_ty_infos
+            .insert_new(syn_pattern_expr_idx, PatternExprTypeInfo::new(Ok(ty)));
+        self.infer_subpattern_tys(syn_pattern_expr_idx, ty)
+    }
+
+    pub(crate) fn infer_new_pattern_symbol_ty(
+        &mut self,
+        pattern_variable_idx: PatternVariableIdx,
+    ) -> Option<FlyTerm> {
+        let ty_result = self.calc_new_pattern_symbol_ty(pattern_variable_idx);
+        let ty = ty_result.as_ref().ok().copied();
+        self.pattern_symbol_ty_infos
+            .insert_new(pattern_variable_idx, PatternSymbolTypeInfo::new(ty_result));
+        ty
     }
 
     pub(crate) fn finish(mut self) -> SemaExprRegion {
