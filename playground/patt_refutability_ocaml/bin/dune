@@ -1,0 +1,4 @@
+(executable
+ (public_name patt_refutability_ocaml)
+ (name main)
+ (libraries patt_refutability_ocaml))
