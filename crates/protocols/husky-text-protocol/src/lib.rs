@@ -1,3 +1,4 @@
+#![feature(step_trait)]
 #![allow(internal_features)]
 #![feature(str_internals)]
 pub mod change;

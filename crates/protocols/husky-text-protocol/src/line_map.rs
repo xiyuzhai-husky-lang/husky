@@ -80,6 +80,10 @@ impl LineMap {
         }
     }
 
+    pub fn all_text_line_range(&self) -> Range<TextLine> {
+        (0.into())..(self.newlines.len().into())
+    }
+
     pub fn position_from_offset(&self, offset: usize) -> TextPosition {
         let row = self.newlines.partition_point(|&it| it <= offset) - 1;
         let line_start_offset = self.newlines[row];

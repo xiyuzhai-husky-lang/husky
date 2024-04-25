@@ -1,19 +1,10 @@
-use super::Text;
+use crate::*;
 use husky_text_protocol::{
     position::{TextLine, TextPosition},
     range::TextRange,
 };
 use ref_index::RefIndex;
 use std::ops::{Range, RangeFrom, RangeInclusive, RangeTo, RangeToInclusive};
-
-#[cfg(test)]
-#[track_caller]
-pub fn run_test_on_text(raw_text: &str, f: impl FnOnce(Text)) {
-    use husky_text_protocol::line_map::LineMap;
-
-    let line_map = &LineMap::new(raw_text);
-    f(Text { raw_text, line_map });
-}
 
 impl<'a> Text<'a> {
     pub fn text_within<R>(self, range: R) -> &'a str
