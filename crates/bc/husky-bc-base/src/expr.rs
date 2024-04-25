@@ -1,8 +1,8 @@
 use crate::var::SymbolId;
 
 pub enum BcExpr {
-    Svar(SymbolId),
-    Hvar(SymbolId),
+    SymbolicVariable(SymbolId),
+    HiddenVariable(SymbolId),
     ForAll { symbol: SymbolId },
     Lambda(SymbolId),
     Composite(BcExprs),

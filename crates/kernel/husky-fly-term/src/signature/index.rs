@@ -61,7 +61,7 @@ fn list_like_index_signature(
         FlyTermData::Hole(hole_kind, _) => match hole_kind {
             HoleKind::UnspecifiedIntegerType => {
                 let expectation =
-                    ExpectCoersion::new_pure(engine, engine.term_menu().usize_ty_ontology().into());
+                    ExpectCoercion::new_pure(engine, engine.term_menu().usize_ty_ontology().into());
                 engine.add_expectation(
                     ExpectationSource::new_expr(expr_idx),
                     index_ty,
@@ -76,8 +76,8 @@ fn list_like_index_signature(
         },
         FlyTermData::Sort(_) => todo!(),
         FlyTermData::Ritchie { .. } => todo!(),
-        FlyTermData::Symbol { .. } => todo!(),
-        FlyTermData::Hvar { .. } => todo!(),
+        FlyTermData::SymbolicVariable { .. } => todo!(),
+        FlyTermData::LambdaVariable { .. } => todo!(),
         FlyTermData::TypeVariant { path } => todo!(),
     }
 }

@@ -5,6 +5,7 @@ pub mod hvar;
 pub mod quary;
 pub mod ritchie;
 pub mod symbol_ty;
+pub mod ty_as_trai_item;
 mod utils;
 
 pub use self::hole::*;
@@ -15,7 +16,8 @@ pub use self::symbol_ty::*;
 
 use crate::*;
 use husky_eth_term::term::{
-    application::EthApplication, curry::EthCurry, hvar::EthHvar, ritchie::EthRitchie, svar::EthSvar,
+    application::EthApplication, curry::EthCurry, lambda_variable::EthLambdaVariable,
+    ritchie::EthRitchie, symbolic_variable::EthSymbolicVariable,
 };
 use husky_term_prelude::literal::Literal;
 
@@ -101,14 +103,14 @@ impl From<Sort> for FlyTerm {
     }
 }
 
-impl From<EthSvar> for FlyTerm {
-    fn from(value: EthSvar) -> Self {
+impl From<EthSymbolicVariable> for FlyTerm {
+    fn from(value: EthSymbolicVariable) -> Self {
         Into::<EthTerm>::into(value).into()
     }
 }
 
-impl From<EthHvar> for FlyTerm {
-    fn from(value: EthHvar) -> Self {
+impl From<EthLambdaVariable> for FlyTerm {
+    fn from(value: EthLambdaVariable) -> Self {
         Into::<EthTerm>::into(value).into()
     }
 }

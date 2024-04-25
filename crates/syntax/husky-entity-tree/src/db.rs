@@ -62,8 +62,6 @@ pub struct EntityTreeJar(
     ParentSuperSymbol,
     // module items
     trai_item_paths,
-    ty_attrs,
-    ty_attr_paths,
     trai_item_syn_nodes,
     // ty_impl_blocks,
     ty_item_syn_node_paths,
@@ -80,6 +78,8 @@ pub struct EntityTreeJar(
     // - trai for ty impl block
     trai_for_ty_impl_block_items,
     // attr
+    item_attr_paths,
+    item_attr_syn_nodes,
     // other
     item_tree_presheet,
     item_tree_crate_bundle,
@@ -91,13 +91,16 @@ pub struct EntityTreeJar(
     // helpers
     crate::helpers::ty_side_trai_for_ty_impl_block_paths_map,
     crate::helpers::TraitOrderedSet,
-    crate::helpers::non_core_crate_prelude_trait_items_table,
-    crate::helpers::module_specific_trait_items_table,
-    crate::helpers::paths::module_item_paths,
+    crate::helpers::non_core_crate_prelude_trait_item_records,
+    crate::helpers::module_specific_trait_item_records,
     crate::helpers::paths::module_item_syn_node_paths,
-    crate::helpers::paths::crate_module_paths,
+    crate::helpers::paths::module_item_paths,
+    crate::helpers::paths::module_test_paths,
     crate::helpers::paths::module_submodule_item_paths,
+    crate::helpers::paths::crate_module_paths,
     crate::helpers::paths::crate_item_paths,
+    crate::helpers::paths::crate_test_paths,
+    crate::helpers::paths::to_test_path,
     crate::helpers::trai_side_derive_any_trai_for_ty_impl_block_paths_map,
     crate::helpers::trai_side_path_leading_trai_for_ty_impl_block_paths_map,
     crate::helpers::tokra_region::SnippetTokraRegion,

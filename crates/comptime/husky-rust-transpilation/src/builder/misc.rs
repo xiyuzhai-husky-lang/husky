@@ -125,7 +125,7 @@ impl<'a, 'b, HirEagerExprRegion> RustTranspilationBuilder<'a, 'b, HirEagerExprRe
         self.write_str(" != 0")
     }
 
-    pub(crate) fn method_fn_ident_mut(&mut self, ident: Ident) {
+    pub(crate) fn method_ritchie_ident_mut(&mut self, ident: Ident) {
         let db = self.db;
         self.write_str(ident.data(db));
         self.write_str("_mut")

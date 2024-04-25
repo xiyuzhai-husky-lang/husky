@@ -23,7 +23,7 @@ fn literal_strings() {
         assert_eq!(
             token,
             TomlTokenData::StringLiteral {
-                val: Arc::new(val.to_owned()),
+                val: Arc::from(val),
                 multiline,
             }
         );
@@ -50,7 +50,7 @@ fn basic_strings() {
         assert_eq!(
             token.data(),
             &TomlTokenData::StringLiteral {
-                val: Arc::new(val.to_owned()),
+                val: Arc::from(val),
                 multiline,
             }
         );

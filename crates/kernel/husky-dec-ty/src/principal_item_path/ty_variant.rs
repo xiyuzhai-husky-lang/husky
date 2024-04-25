@@ -13,7 +13,7 @@ pub fn ty_variant_path_declarative_ty(
         Err(_) => return Err(DerivedDeclarativeTypeError::SignatureError.into()),
     };
     match tmpl {
-        TypeVariantDecTemplate::Props(tmpl) => {
+        TypeVariantDecTemplate::EnumProps(tmpl) => {
             let Ok(parent_ty_template_parameter_variances) =
                 ty_path_variances(db, path.parent_ty_path(db))
             else {
@@ -29,7 +29,7 @@ pub fn ty_variant_path_declarative_ty(
                 tmpl.instance_constructor_ty(db),
             )
         }
-        TypeVariantDecTemplate::Tuple(tmpl) => {
+        TypeVariantDecTemplate::EnumTuple(tmpl) => {
             let Ok(parent_ty_template_parameter_variances) =
                 ty_path_variances(db, path.parent_ty_path(db))
             else {
@@ -45,7 +45,7 @@ pub fn ty_variant_path_declarative_ty(
                 tmpl.instance_constructor_ty(db),
             )
         }
-        TypeVariantDecTemplate::Unit(signature_template) => {
+        TypeVariantDecTemplate::EnumUnit(signature_template) => {
             let Ok(parent_ty_template_parameter_variances) =
                 ty_path_variances(db, path.parent_ty_path(db))
             else {
@@ -93,7 +93,7 @@ fn ty_variant_path_declarative_ty_works() {
                                                     .expect("should be okay at this branch")
                                                     .syn_expr_region(db),
                                             )
-                                            .dec_symbol_region()
+                                            .symbolic_variable_region()
                                             .symbol_name_map();
                                         t.with_symbol_source_map(name_map)
                                     }),
@@ -101,10 +101,6 @@ fn ty_variant_path_declarative_ty_works() {
                             })
                             .collect::<Vec<_>>(),
                     )),
-                    ItemPath::TypeVariant(_, _path) => {
-                        todo!()
-                        // Some((path, ty_variant_path_declarative_ty(db, path)))
-                    }
                     _ => None,
                 })
                 .collect::<Vec<_>>()

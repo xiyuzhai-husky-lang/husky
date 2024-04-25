@@ -1,17 +1,17 @@
 use crate::*;
 use husky_ast::{AstData, AstSheet};
 use husky_regional_token::{RegionalTokenIdx, RegionalTokenIdxBase};
-use husky_sema_opr::prefix::SemaPrefixOpr;
+use husky_sem_opr::prefix::SemaPrefixOpr;
 use husky_syn_decl::decl::HasSynNodeDecl;
 use husky_syn_defn::*;
 
 use husky_ast::HasAstSheet;
 use husky_entity_tree::{helpers::paths::module_item_syn_node_paths, ParentUseExprData};
-use husky_sema_expr::{
+use husky_sem_expr::{
     SemaExprData, SemaExprDb, SemaExprIdx, SemaExprRegionData, SemaHtmlArgumentExpr,
 };
 use husky_syn_expr::{
-    entity_path::{PrincipalEntityPathSynExprIdx, SynPrincipalEntityPathExpr},
+    entity_path::{SynPrincipalEntityPathExpr, SynPrincipalEntityPathSynExprIdx},
     *,
 };
 
@@ -118,6 +118,7 @@ impl<'a> TokenInfoEngine<'a> {
                 TokenInfoSource::AstIdentifiable,
                 TokenInfoData::EntityNode(syn_node_path, item_kind),
             ),
+            AstData::TypeVariant { .. } => (),
             AstData::ImplBlock { .. } => (),
             // ad hoc
             AstData::Attr { .. } => (),
@@ -135,7 +136,7 @@ struct DeclTokenInfoEngine<'a, 'b> {
     token_sheet_data: &'a TokenSheetData,
     ast_sheet: &'a AstSheet,
     syn_expr_region_data: &'a SynExprRegionData,
-    sema_expr_region_data: &'a SemaExprRegionData,
+    sem_expr_region_data: &'a SemaExprRegionData,
     sheet: &'b mut TokenInfoSheet,
     syn_expr_region: ExprRegionLeash,
     regional_token_idx_base: RegionalTokenIdxBase,
@@ -154,7 +155,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             ast_sheet: engine.ast_sheet,
             sheet: &mut engine.sheet,
             syn_expr_region_data,
-            sema_expr_region_data: db.sema_expr_region(syn_expr_region).data(db),
+            sem_expr_region_data: db.sem_expr_region(syn_expr_region).data(db),
             syn_expr_region: syn_expr_region.into(),
             regional_token_idx_base: match syn_expr_region_data.path() {
                 SynNodeRegionPath::Snippet(_) => todo!(),
@@ -189,9 +190,9 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
     }
 
     fn visit_all(mut self) {
-        for (expr_idx, expr) in self.sema_expr_region_data.sema_expr_arena().indexed_iter() {
-            if let Ok(sema_expr_data) = expr.data_result() {
-                self.visit_expr(expr_idx, sema_expr_data)
+        for (expr_idx, expr) in self.sem_expr_region_data.sem_expr_arena().indexed_iter() {
+            if let Ok(sem_expr_data) = expr.data_result() {
+                self.visit_expr(expr_idx, sem_expr_data)
             }
         }
         for (item_path_expr_idx, item_path_expr) in self
@@ -201,34 +202,34 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
         {
             self.visit_item_path_expr(item_path_expr_idx, item_path_expr)
         }
-        for (current_syn_symbol_idx, current_syn_symbol) in self
+        for (current_variable_idx, current_variable) in self
             .syn_expr_region_data
-            .symbol_region()
-            .indexed_current_syn_symbols()
+            .variable_region()
+            .indexed_current_variables()
         {
-            self.visit_current_syn_symbol(current_syn_symbol_idx, current_syn_symbol)
+            self.visit_current_variable(current_variable_idx, current_variable)
         }
     }
 
-    fn visit_expr(&mut self, sema_expr_idx: SemaExprIdx, sema_expr_data: &SemaExprData) {
-        match sema_expr_data {
+    fn visit_expr(&mut self, sem_expr_idx: SemaExprIdx, sem_expr_data: &SemaExprData) {
+        match sem_expr_data {
             SemaExprData::CurrentSynSymbol {
                 regional_token_idx,
-                current_syn_symbol_idx,
-                current_syn_symbol_kind,
+                current_variable_idx,
+                current_variable_kind,
                 ..
             }
             | SemaExprData::FrameVarDecl {
                 regional_token_idx,
-                frame_var_symbol_idx: current_syn_symbol_idx,
-                current_syn_symbol_kind,
+                frame_var_symbol_idx: current_variable_idx,
+                current_variable_kind,
                 ..
             } => self.add(
                 *regional_token_idx,
-                sema_expr_idx,
+                sem_expr_idx,
                 TokenInfoData::CurrentSynSymbol {
-                    current_syn_symbol_idx: *current_syn_symbol_idx,
-                    current_syn_symbol_kind: *current_syn_symbol_kind,
+                    current_variable_idx: *current_variable_idx,
+                    current_variable_kind: *current_variable_kind,
                     syn_expr_region: self.syn_expr_region,
                 },
             ),
@@ -239,7 +240,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                 ..
             } => self.add(
                 *regional_token_idx,
-                sema_expr_idx,
+                sem_expr_idx,
                 TokenInfoData::InheritedSynSymbol {
                     inherited_syn_symbol_idx: *inherited_syn_symbol_idx,
                     syn_expr_region: self.syn_expr_region,
@@ -247,29 +248,29 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                 },
             ),
             SemaExprData::SelfType(regional_token_idx) => {
-                self.add(*regional_token_idx, sema_expr_idx, TokenInfoData::SelfType)
+                self.add(*regional_token_idx, sem_expr_idx, TokenInfoData::SelfType)
             }
             SemaExprData::SelfValue(regional_token_idx) => {
-                self.add(*regional_token_idx, sema_expr_idx, TokenInfoData::SelfValue)
+                self.add(*regional_token_idx, sem_expr_idx, TokenInfoData::SelfValue)
             }
             SemaExprData::Field { ident_token, .. } => self.add(
                 ident_token.regional_token_idx(),
-                sema_expr_idx,
+                sem_expr_idx,
                 TokenInfoData::Field,
             ),
             SemaExprData::MethodApplication { ident_token, .. } => self.add(
                 ident_token.regional_token_idx(),
-                sema_expr_idx,
+                sem_expr_idx,
                 TokenInfoData::Method,
             ),
             SemaExprData::MethodFnCall { ident_token, .. } => self.add(
                 ident_token.regional_token_idx(),
-                sema_expr_idx,
+                sem_expr_idx,
                 TokenInfoData::Method,
             ),
             SemaExprData::MethodGnCall { ident_token, .. } => self.add(
                 ident_token.regional_token_idx(),
-                sema_expr_idx,
+                sem_expr_idx,
                 TokenInfoData::Method,
             ),
             SemaExprData::At {
@@ -293,14 +294,13 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                 SemaPrefixOpr::LeashType | SemaPrefixOpr::RefType | SemaPrefixOpr::OptionType => {
                     self.add(
                         *opr_regional_token_idx,
-                        sema_expr_idx,
+                        sem_expr_idx,
                         TokenInfoData::SemaPrefixTypeOpr,
                     );
                 }
             },
             SemaExprData::Literal(_, _)
             | SemaExprData::PrincipalEntityPath { .. }
-            | SemaExprData::AssocItem { .. }
             | SemaExprData::Binary { .. }
             | SemaExprData::Suffix { .. }
             | SemaExprData::Unveil { .. }
@@ -312,10 +312,12 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             | SemaExprData::Block { .. }
             | SemaExprData::Be { .. } => (),
             SemaExprData::FunctionApplication { .. } => (),
+            SemaExprData::MajorItemPathAssocItem { .. } => (),
+            SemaExprData::AssocItem { .. } => (),
             SemaExprData::Index {
                 owner: _,
                 lbox_regional_token_idx: _,
-                index_sema_list_items: _,
+                index_sem_list_items: _,
                 rbox_regional_token_idx: _,
                 index_dynamic_dispatch: _,
             } => (),
@@ -331,12 +333,12 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             } => {
                 self.add(
                     *lpar_regional_token_idx,
-                    sema_expr_idx,
+                    sem_expr_idx,
                     TokenInfoData::UnitLeftParenthesis,
                 );
                 self.add(
                     *rpar_regional_token_idx,
-                    sema_expr_idx,
+                    sem_expr_idx,
                     TokenInfoData::UnitRightParenthesis,
                 );
             }
@@ -348,7 +350,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             } => {
                 self.add(
                     function_ident.regional_token_idx(),
-                    sema_expr_idx,
+                    sem_expr_idx,
                     TokenInfoData::HtmlFunctionIdent,
                 );
                 for argument in arguments.iter() {
@@ -356,7 +358,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                         SemaHtmlArgumentExpr::Expanded { property_ident, .. }
                         | SemaHtmlArgumentExpr::Shortened { property_ident, .. } => self.add(
                             property_ident.regional_token_idx(),
-                            sema_expr_idx,
+                            sem_expr_idx,
                             TokenInfoData::HtmlPropertyIdent,
                         ),
                     }
@@ -369,12 +371,12 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             } => {
                 self.add(
                     lpar_regional_token_idx,
-                    sema_expr_idx,
+                    sem_expr_idx,
                     TokenInfoData::CallPar,
                 );
                 self.add(
                     rpar_regional_token_idx,
-                    sema_expr_idx,
+                    sem_expr_idx,
                     TokenInfoData::CallPar,
                 );
             }
@@ -383,11 +385,11 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                 regional_token_idx: _,
             } => todo!(),
             SemaExprData::Todo { regional_token_idx } => {
-                self.add(*regional_token_idx, sema_expr_idx, TokenInfoData::Todo)
+                self.add(*regional_token_idx, sem_expr_idx, TokenInfoData::Todo)
             }
             SemaExprData::Unreachable { regional_token_idx } => self.add(
                 *regional_token_idx,
-                sema_expr_idx,
+                sem_expr_idx,
                 TokenInfoData::Unreachable,
             ),
             SemaExprData::VecFunctor {
@@ -396,12 +398,12 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             } => {
                 self.add(
                     *lbox_regional_token_idx,
-                    sema_expr_idx,
+                    sem_expr_idx,
                     TokenInfoData::VecFunctorBoxPrefix,
                 );
                 self.add(
                     *rbox_regional_token_idx,
-                    sema_expr_idx,
+                    sem_expr_idx,
                     TokenInfoData::VecFunctorBoxPrefix,
                 )
             }
@@ -412,12 +414,12 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             } => {
                 self.add(
                     *lbox_regional_token_idx,
-                    sema_expr_idx,
+                    sem_expr_idx,
                     TokenInfoData::ArrayFunctorBoxPrefix,
                 );
                 self.add(
                     *rbox_regional_token_idx,
-                    sema_expr_idx,
+                    sem_expr_idx,
                     TokenInfoData::ArrayFunctorBoxPrefix,
                 )
             }
@@ -429,17 +431,17 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             } => {
                 self.add(
                     *lbox_regional_token_idx,
-                    sema_expr_idx,
+                    sem_expr_idx,
                     TokenInfoData::BoxColon,
                 );
                 self.add(
                     *colon_regional_token_idx,
-                    sema_expr_idx,
+                    sem_expr_idx,
                     TokenInfoData::BoxColon,
                 );
                 self.add(
                     *rbox_regional_token_idx,
-                    sema_expr_idx,
+                    sem_expr_idx,
                     TokenInfoData::BoxColon,
                 )
             }
@@ -450,12 +452,12 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             } => {
                 self.add(
                     *lcurl_regional_token_idx,
-                    sema_expr_idx,
+                    sem_expr_idx,
                     TokenInfoData::NestedBlockCurl,
                 );
                 self.add(
                     rcurl_regional_token.regional_token_idx(),
-                    sema_expr_idx,
+                    sem_expr_idx,
                     TokenInfoData::NestedBlockCurl,
                 )
             }
@@ -471,23 +473,23 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                 }
                 self.add(
                     lvert_regional_token_idx,
-                    sema_expr_idx,
+                    sem_expr_idx,
                     TokenInfoData::ClosureVert,
                 );
                 self.add(
                     rvert_regional_token.regional_token_idx(),
-                    sema_expr_idx,
+                    sem_expr_idx,
                     TokenInfoData::ClosureVert,
                 );
                 if let Some((light_arrow, _, eq)) = return_ty {
                     self.add(
                         light_arrow.regional_token_idx(),
-                        sema_expr_idx,
+                        sem_expr_idx,
                         TokenInfoData::ClosureLightArrow,
                     );
                     self.add(
                         eq.regional_token_idx(),
-                        sema_expr_idx,
+                        sem_expr_idx,
                         TokenInfoData::ClosureEq,
                     );
                 }
@@ -497,7 +499,7 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
 
     fn visit_item_path_expr(
         &mut self,
-        item_path_expr_idx: PrincipalEntityPathSynExprIdx,
+        item_path_expr_idx: SynPrincipalEntityPathSynExprIdx,
         item_path_expr: &SynPrincipalEntityPathExpr,
     ) {
         match item_path_expr {
@@ -529,29 +531,29 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
         }
     }
 
-    fn visit_current_syn_symbol(
+    fn visit_current_variable(
         &mut self,
-        current_syn_symbol_idx: CurrentSynSymbolIdx,
-        current_syn_symbol: &CurrentSynSymbolEntry,
+        current_variable_idx: CurrentVariableIdx,
+        current_variable: &CurrentVariableEntry,
     ) {
-        let current_syn_symbol_kind = current_syn_symbol.kind();
-        match current_syn_symbol_kind {
-            CurrentSynSymbolKind::LetVariable {
-                pattern_symbol_idx: pattern_symbol,
+        let current_variable_kind = current_variable.kind();
+        match current_variable_kind {
+            CurrentVariableKind::LetVariable {
+                pattern_variable_idx: pattern_symbol,
             }
-            | CurrentSynSymbolKind::BeVariable {
-                pattern_symbol_idx: pattern_symbol,
+            | CurrentVariableKind::BeVariable {
+                pattern_variable_idx: pattern_symbol,
             }
-            | CurrentSynSymbolKind::CaseVariable {
-                pattern_symbol_idx: pattern_symbol,
+            | CurrentVariableKind::CaseVariable {
+                pattern_variable_idx: pattern_symbol,
             }
-            | CurrentSynSymbolKind::SimpleParenateParameter {
-                pattern_symbol_idx: pattern_symbol,
+            | CurrentVariableKind::SimpleParenateParameter {
+                pattern_variable_idx: pattern_symbol,
             }
-            | CurrentSynSymbolKind::SimpleClosureParameter {
-                pattern_symbol_idx: pattern_symbol,
+            | CurrentVariableKind::SimpleClosureParameter {
+                pattern_variable_idx: pattern_symbol,
             } => match self.syn_expr_region_data[pattern_symbol] {
-                SynPatternSymbol::Atom(pattern_expr_idx) => {
+                PatternVariable::Atom(pattern_expr_idx) => {
                     match self.syn_expr_region_data[pattern_expr_idx] {
                         SynPatternData::Ident {
                             ident_token,
@@ -560,72 +562,72 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
                             ident_token.regional_token_idx(),
                             pattern_expr_idx,
                             TokenInfoData::CurrentSynSymbol {
-                                current_syn_symbol_idx: current_syn_symbol_idx,
+                                current_variable_idx: current_variable_idx,
                                 syn_expr_region: self.syn_expr_region,
-                                current_syn_symbol_kind,
+                                current_variable_kind: current_variable_kind,
                             },
                         ),
                         _ => unreachable!(),
                     }
                 }
             },
-            CurrentSynSymbolKind::LoopVariable(_) => (),
-            CurrentSynSymbolKind::TemplateParameter {
+            CurrentVariableKind::LoopVariable(_) => (),
+            CurrentVariableKind::TemplateParameter {
                 template_parameter_kind,
             } => match template_parameter_kind {
                 CurrentTemplateParameterSynSymbolKind::Type { ident_token } => self.add(
                     ident_token.regional_token_idx(),
-                    TokenInfoSource::TemplateParameter(current_syn_symbol_idx),
+                    TokenInfoSource::TemplateParameter(current_variable_idx),
                     TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: current_syn_symbol_idx,
+                        current_variable_idx: current_variable_idx,
                         syn_expr_region: self.syn_expr_region,
-                        current_syn_symbol_kind,
+                        current_variable_kind: current_variable_kind,
                     },
                 ),
                 CurrentTemplateParameterSynSymbolKind::Lifetime { label_token } => self.add(
                     label_token.regional_token_idx(),
-                    current_syn_symbol_idx,
+                    current_variable_idx,
                     TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: current_syn_symbol_idx,
+                        current_variable_idx: current_variable_idx,
                         syn_expr_region: self.syn_expr_region,
-                        current_syn_symbol_kind,
+                        current_variable_kind: current_variable_kind,
                     },
                 ),
                 CurrentTemplateParameterSynSymbolKind::Place { label_token } => self.add(
                     label_token.regional_token_idx(),
-                    current_syn_symbol_idx,
+                    current_variable_idx,
                     TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: current_syn_symbol_idx,
+                        current_variable_idx: current_variable_idx,
                         syn_expr_region: self.syn_expr_region,
-                        current_syn_symbol_kind,
+                        current_variable_kind: current_variable_kind,
                     },
                 ),
                 CurrentTemplateParameterSynSymbolKind::Constant { ident_token } => self.add(
                     ident_token.regional_token_idx(),
-                    current_syn_symbol_idx,
+                    current_variable_idx,
                     TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: current_syn_symbol_idx,
+                        current_variable_idx: current_variable_idx,
                         syn_expr_region: self.syn_expr_region,
-                        current_syn_symbol_kind,
+                        current_variable_kind: current_variable_kind,
                     },
                 ),
             },
-            CurrentSynSymbolKind::VariadicParenateParameter { ident_token } => self.add(
+            CurrentVariableKind::VariadicParenateParameter { ident_token } => self.add(
                 ident_token.regional_token_idx(),
-                current_syn_symbol_idx,
+                current_variable_idx,
                 TokenInfoData::CurrentSynSymbol {
-                    current_syn_symbol_idx: current_syn_symbol_idx,
+                    current_variable_idx: current_variable_idx,
                     syn_expr_region: self.syn_expr_region,
-                    current_syn_symbol_kind,
+                    current_variable_kind: current_variable_kind,
                 },
             ),
-            CurrentSynSymbolKind::FieldVariable { ident_token } => self.add(
+            CurrentVariableKind::FieldVariable { ident_token } => self.add(
                 ident_token.regional_token_idx(),
-                current_syn_symbol_idx,
+                current_variable_idx,
                 TokenInfoData::CurrentSynSymbol {
-                    current_syn_symbol_idx: current_syn_symbol_idx,
+                    current_variable_idx: current_variable_idx,
                     syn_expr_region: self.syn_expr_region,
-                    current_syn_symbol_kind,
+                    current_variable_kind: current_variable_kind,
                 },
             ),
         }

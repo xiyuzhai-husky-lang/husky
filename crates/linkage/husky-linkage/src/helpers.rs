@@ -1,5 +1,7 @@
 use crate::*;
-use husky_entity_path::ItemPath;
+use husky_entity_path::{region::RegionPath, ItemPath};
+use husky_hir_defn::HasHirDefn;
+use husky_place::PlaceRegistry;
 
 impl Linkage {
     pub fn path_and_instantiation_for_definition<'db>(
@@ -7,11 +9,7 @@ impl Linkage {
         db: &'db salsa::Db,
     ) -> Option<(ItemPath, &LinInstantiation)> {
         Some(match *self.data(db) {
-            LinkageData::MajorRitchieEager {
-                path,
-                ref instantiation,
-            } => (path.into(), instantiation),
-            LinkageData::MajorRitchieLazy {
+            LinkageData::MajorFunctionRitchie {
                 path,
                 ref instantiation,
             } => (path.into(), instantiation),
@@ -31,7 +29,7 @@ impl Linkage {
                 path,
                 ref instantiation,
             } => (path.into(), instantiation),
-            LinkageData::UnveilAssocFn {
+            LinkageData::UnveilAssocRitchie {
                 path,
                 ref instantiation,
             } => (path.into(), instantiation),
@@ -47,5 +45,16 @@ impl Linkage {
             | LinkageData::TypeDefault { .. }
             | LinkageData::EnumU8ToJsonValue { .. } => return None,
         })
+    }
+
+    pub fn place_registry(self, db: &::salsa::Db) -> Option<&PlaceRegistry> {
+        use husky_sem_expr::helpers::region::sem_expr_region_from_region_path;
+
+        let (path, _) = self.path_and_instantiation_for_definition(db)?;
+        Some(
+            sem_expr_region_from_region_path(RegionPath::Defn(path), db)
+                .data(db)
+                .place_registry(),
+        )
     }
 }

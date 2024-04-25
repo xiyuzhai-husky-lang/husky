@@ -5,9 +5,7 @@ AstSheet {
             AstData::TypeVariant {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        5,
-                    ),
+                    raw: 4,
                 },
                 variant_path: TypeVariantPath(
                     ItemPathId(
@@ -37,9 +35,7 @@ AstSheet {
             AstData::TypeVariant {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        6,
-                    ),
+                    raw: 5,
                 },
                 variant_path: TypeVariantPath(
                     ItemPathId(
@@ -69,9 +65,7 @@ AstSheet {
             AstData::Use {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        1,
-                    ),
+                    raw: 0,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Protected,
@@ -84,9 +78,7 @@ AstSheet {
             AstData::Use {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        2,
-                    ),
+                    raw: 1,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
@@ -110,18 +102,14 @@ AstSheet {
             AstData::Attr {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        3,
-                    ),
+                    raw: 2,
                 },
                 ident: `derive`,
             },
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        4,
-                    ),
+                    raw: 3,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
@@ -157,7 +145,7 @@ AstSheet {
                     variants: Some(
                         TypeVariants {
                             ast_idx_range: ArenaIdxRange(
-                                1..3,
+                                0..2,
                             ),
                         },
                     ),
@@ -166,12 +154,12 @@ AstSheet {
         ],
     },
     top_level_asts: ArenaIdxRange(
-        3..7,
+        2..6,
     ),
     nested_top_level_asts: [],
     siblings: [
         ArenaIdxRange(
-            3..7,
+            2..6,
         ),
     ],
 }

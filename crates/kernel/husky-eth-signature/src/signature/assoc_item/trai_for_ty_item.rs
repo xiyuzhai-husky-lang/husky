@@ -1,32 +1,32 @@
-mod assoc_fn;
+mod assoc_ritchie;
 mod assoc_ty;
 mod assoc_val;
-mod method_fn;
-mod method_function;
+mod method_curry;
+mod method_ritchie;
 
-pub use self::assoc_fn::*;
+pub use self::assoc_ritchie::*;
 pub use self::assoc_ty::*;
 pub use self::assoc_val::*;
-pub use self::method_fn::*;
+pub use self::method_ritchie::*;
 
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[enum_class::from_variants]
 pub enum TraitForTypeItemEthTemplate {
-    AssocFn(TraitForTypeAssocFnEthTemplate),
+    AssocRitchie(TraitForTypeAssocRitchieEthTemplate),
     AssocVal(TraitForTypeAssocValEthTemplate),
     AssocType(TraitForTypeAssocTypeEthTemplate),
-    MethodFn(TraitForTypeMethodFnEthTemplate),
+    MethodRitchie(TraitForTypeMethodRitchieEthTemplate),
 }
 
 impl TraitForTypeItemEthTemplate {
     pub fn self_ty(self, db: &::salsa::Db) -> Option<EthTerm> {
         match self {
-            TraitForTypeItemEthTemplate::AssocFn(_) => None,
+            TraitForTypeItemEthTemplate::AssocRitchie(_) => None,
             TraitForTypeItemEthTemplate::AssocVal(_) => None,
             TraitForTypeItemEthTemplate::AssocType(_) => None,
-            TraitForTypeItemEthTemplate::MethodFn(template) => {
+            TraitForTypeItemEthTemplate::MethodRitchie(template) => {
                 // ad hoc
                 Some(template.self_ty(db))
             }
@@ -36,16 +36,16 @@ impl TraitForTypeItemEthTemplate {
     pub(crate) fn inherit_instantiation_builder(
         self,
         db: &::salsa::Db,
-        impl_block_signature_builder: TraitForTypeImplBlockEtherealSignatureBuilder,
+        impl_block_signature_builder: EthTraitForTypeImplBlockSignatureBuilder,
     ) -> TraitForTypeItemEtherealSignatureBuilder {
         match self {
             TraitForTypeItemEthTemplate::AssocType(item_template) => item_template
                 .inherit_instantiation_builder(db, impl_block_signature_builder)
                 .into(),
-            TraitForTypeItemEthTemplate::MethodFn(item_template) => item_template
+            TraitForTypeItemEthTemplate::MethodRitchie(item_template) => item_template
                 .inherit_instantiation_builder(db, impl_block_signature_builder)
                 .into(),
-            TraitForTypeItemEthTemplate::AssocFn(_) => todo!(),
+            TraitForTypeItemEthTemplate::AssocRitchie(_) => todo!(),
             TraitForTypeItemEthTemplate::AssocVal(_) => todo!(),
         }
     }
@@ -55,7 +55,7 @@ impl TraitForTypeItemEthTemplate {
 #[enum_class::from_variants]
 pub enum TraitForTypeItemEtherealSignatureBuilder {
     AssocType(TraitForTypeAssocTypeEtherealSignatureBuilder),
-    Method(TraitForTypeMethodFnEtherealSignatureBuilder),
+    Method(TraitForTypeMethodRitchieEtherealSignatureBuilder),
 }
 
 impl HasEthTemplate for TraitForTypeItemPath {
@@ -72,9 +72,9 @@ fn trai_for_ty_item_eth_template(
     path: TraitForTypeItemPath,
 ) -> EtherealSignatureResult<TraitForTypeItemEthTemplate> {
     Ok(match path.dec_template(db)? {
-        TraitForTypeItemDecTemplate::AssocFn(_) => todo!(),
-        TraitForTypeItemDecTemplate::MethodFn(dec_template) => {
-            TraitForTypeMethodFnEthTemplate::from_dec(db, path, dec_template)?.into()
+        TraitForTypeItemDecTemplate::AssocRitchie(_) => todo!(),
+        TraitForTypeItemDecTemplate::MethodRitchie(dec_template) => {
+            TraitForTypeMethodRitchieEthTemplate::from_dec(db, path, dec_template)?.into()
         }
         TraitForTypeItemDecTemplate::AssocType(dec_template) => {
             TraitForTypeAssocTypeEthTemplate::from_dec(db, path, dec_template)?.into()

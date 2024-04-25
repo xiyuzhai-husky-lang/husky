@@ -4,10 +4,10 @@ use super::*;
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
 pub enum PathNameRegionalToken {
-    Ident(IdentRegionalToken),
-    CrateRoot(CrateRegionalToken),
+    CrateRootMod(CrateRegionalToken),
     SelfMod(SelfModRegionalToken),
-    Super(SuperRegionalToken),
+    SuperMod(SuperRegionalToken),
+    Ident(IdentRegionalToken),
 }
 
 // crate
@@ -73,11 +73,11 @@ where
                     })))
                 }
                 TokenData::Keyword(Keyword::Pronoun(pronoun)) => match pronoun {
-                    PronounKeyword::Crate => {
-                        Ok(Some(PathNameRegionalToken::CrateRoot(CrateRegionalToken {
+                    PronounKeyword::Crate => Ok(Some(PathNameRegionalToken::CrateRootMod(
+                        CrateRegionalToken {
                             token_idx: regional_token_idx,
-                        })))
-                    }
+                        },
+                    ))),
                     PronounKeyword::SelfType => Ok(None),
                     PronounKeyword::SelfValue => {
                         Ok(Some(PathNameRegionalToken::SelfMod(SelfModRegionalToken {
@@ -85,7 +85,7 @@ where
                         })))
                     }
                     PronounKeyword::Super => {
-                        Ok(Some(PathNameRegionalToken::Super(SuperRegionalToken {
+                        Ok(Some(PathNameRegionalToken::SuperMod(SuperRegionalToken {
                             token_idx: regional_token_idx,
                         })))
                     }
@@ -107,26 +107,26 @@ impl PathNameRegionalToken {
     pub fn regional_token_idx(self) -> RegionalTokenIdx {
         match self {
             PathNameRegionalToken::Ident(token) => token.regional_token_idx(),
-            PathNameRegionalToken::CrateRoot(token) => token.regional_token_idx(),
+            PathNameRegionalToken::CrateRootMod(token) => token.regional_token_idx(),
             PathNameRegionalToken::SelfMod(token) => token.regional_token_idx(),
-            PathNameRegionalToken::Super(token) => token.regional_token_idx(),
+            PathNameRegionalToken::SuperMod(token) => token.regional_token_idx(),
         }
     }
 
-    pub fn ident_token(self) -> Option<IdentRegionalToken> {
+    pub fn ident_regional_token(self) -> Option<IdentRegionalToken> {
         match self {
             PathNameRegionalToken::Ident(ident_token) => Some(ident_token),
-            PathNameRegionalToken::CrateRoot(_)
+            PathNameRegionalToken::CrateRootMod(_)
             | PathNameRegionalToken::SelfMod(_)
-            | PathNameRegionalToken::Super(_) => None,
+            | PathNameRegionalToken::SuperMod(_) => None,
         }
     }
     pub fn ident(self) -> Option<Ident> {
         match self {
             PathNameRegionalToken::Ident(ident_token) => Some(ident_token.ident()),
-            PathNameRegionalToken::CrateRoot(_)
+            PathNameRegionalToken::CrateRootMod(_)
             | PathNameRegionalToken::SelfMod(_)
-            | PathNameRegionalToken::Super(_) => None,
+            | PathNameRegionalToken::SuperMod(_) => None,
         }
     }
 }

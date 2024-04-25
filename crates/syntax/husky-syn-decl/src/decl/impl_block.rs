@@ -93,7 +93,7 @@ impl ImplBlockSynDecl {
 impl HasSynDecl for ImplBlockPath {
     type Decl = ImplBlockSynDecl;
 
-    fn syn_decl(self, db: &::salsa::Db) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &::salsa::Db) -> SynDeclResult<Self::Decl> {
         match self {
             ImplBlockPath::TypeImplBlock(path) => path.syn_decl(db).map(Into::into),
             ImplBlockPath::TraitForTypeImplBlock(path) => path.syn_decl(db).map(Into::into),

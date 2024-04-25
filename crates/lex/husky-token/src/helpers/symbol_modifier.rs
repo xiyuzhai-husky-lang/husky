@@ -10,20 +10,20 @@ pub enum EphemSymbolModifierTokenVerse {
     Tilde(TildeToken),
 }
 
-impl Into<SvarModifier> for EphemSymbolModifierTokenVerse {
+impl Into<VariableModifier> for EphemSymbolModifierTokenVerse {
     #[inline(always)]
-    fn into(self) -> SvarModifier {
+    fn into(self) -> VariableModifier {
         match self {
-            EphemSymbolModifierTokenVerse::Mut(_) => SvarModifier::Mut,
-            EphemSymbolModifierTokenVerse::RefMut(..) => SvarModifier::RefMut,
+            EphemSymbolModifierTokenVerse::Mut(_) => VariableModifier::Mut,
+            EphemSymbolModifierTokenVerse::RefMut(..) => VariableModifier::RefMut,
             EphemSymbolModifierTokenVerse::Ambersand(_, lifetime_token) => {
-                SvarModifier::Ambersand(lifetime_token.map(|t| t.label()))
+                VariableModifier::Ambersand(lifetime_token.map(|t| t.label()))
             }
             EphemSymbolModifierTokenVerse::AmbersandMut(_, lifetime_token, _) => {
-                SvarModifier::AmbersandMut(lifetime_token.map(|t| t.label()))
+                VariableModifier::AmbersandMut(lifetime_token.map(|t| t.label()))
             }
-            EphemSymbolModifierTokenVerse::Le(..) => SvarModifier::Le,
-            EphemSymbolModifierTokenVerse::Tilde(..) => SvarModifier::Tilde,
+            EphemSymbolModifierTokenVerse::Le(..) => VariableModifier::Le,
+            EphemSymbolModifierTokenVerse::Tilde(..) => VariableModifier::Tilde,
         }
     }
 }

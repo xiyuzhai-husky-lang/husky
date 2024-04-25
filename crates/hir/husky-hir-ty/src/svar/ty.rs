@@ -4,9 +4,9 @@ use super::*;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub enum HirTypeSvar {
+pub enum HirTypeTemplateVariable {
     Type {
-        attrs: HirTemplateSvarAttrs,
+        attrs: HirTemplateVariableAttrs,
         variance: Option<Variance>,
         disambiguator: u8,
     },
@@ -15,8 +15,8 @@ pub enum HirTypeSvar {
     SelfPlace,
 }
 
-impl HirTypeSvar {
-    pub(crate) fn from_eth(symbol: EthSvar, db: &::salsa::Db) -> Option<Self> {
+impl HirTypeTemplateVariable {
+    pub(crate) fn from_eth(symbol: EthSymbolicVariable, db: &::salsa::Db) -> Option<Self> {
         Some(match symbol.index(db).inner() {
             EthTermSymbolIndexImpl::ExplicitLifetime {
                 attrs: _,
@@ -32,8 +32,8 @@ impl HirTypeSvar {
                 attrs,
                 variance,
                 disambiguator,
-            } => HirTypeSvar::Type {
-                attrs: HirTemplateSvarAttrs::from_eth(attrs)?,
+            } => HirTypeTemplateVariable::Type {
+                attrs: HirTemplateVariableAttrs::from_eth(attrs)?,
                 variance,
                 disambiguator,
             },
@@ -56,7 +56,7 @@ impl HirTypeSvar {
             EthTermSymbolIndexImpl::EphemOther { disambiguator: _ } => {
                 todo!()
             }
-            EthTermSymbolIndexImpl::SelfType => HirTypeSvar::SelfType,
+            EthTermSymbolIndexImpl::SelfType => HirTypeTemplateVariable::SelfType,
             EthTermSymbolIndexImpl::SelfValue => todo!(),
             EthTermSymbolIndexImpl::SelfLifetime => todo!(),
             EthTermSymbolIndexImpl::SelfPlace => todo!(),

@@ -11,7 +11,7 @@ use smallvec::SmallVec;
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct HirTemplateParameter {
-    symbol: HirTemplateSvar,
+    symbol: HirTemplateVariable,
     data: HirTemplateParameterData,
 }
 
@@ -39,11 +39,12 @@ impl HirTemplateParameter {
         syndicate: &TemplateSynParameterData,
         builder: &HirDeclBuilder,
     ) -> Option<Self> {
-        let EthTerm::Symbol(symbol) = builder.current_syn_symbol_term(syndicate.symbol()) else {
+        let EthTerm::SymbolicVariable(symbol) = builder.current_variable_term(syndicate.symbol())
+        else {
             todo!()
         };
         let db = builder.db();
-        let symbol = HirTemplateSvar::from_eth(symbol, db)?;
+        let symbol = HirTemplateVariable::from_eth(symbol, db)?;
         let data = match *syndicate.variant() {
             TemplateParameterSyndicateVariant::Type {
                 ident_token,
@@ -52,14 +53,14 @@ impl HirTemplateParameter {
                 ident: ident_token.ident(),
                 traits: match *traits {
                     Some(TraitsSyndicate {
-                        ref trait_syn_expr_idxs,
+                        ref trai_syn_expr_idxs,
                         ..
-                    }) => trait_syn_expr_idxs
+                    }) => trai_syn_expr_idxs
                         .iter()
                         .map(|&trai_syn_expr_idx| {
-                            let sema_expr_region_data = &builder.sema_expr_region_data();
-                            let terms = sema_expr_region_data.fly_term_region().terms();
-                            let trai_term = match sema_expr_region_data
+                            let sem_expr_region_data = &builder.sem_expr_region_data();
+                            let terms = sem_expr_region_data.fly_term_region().terms();
+                            let trai_term = match sem_expr_region_data
                                 .syn_root_expr_term(trai_syn_expr_idx)
                                 .expect("some")
                                 .expect("ok")
@@ -101,7 +102,7 @@ impl HirTemplateParameter {
         Some(Self { data, symbol })
     }
 
-    pub fn symbol(&self) -> HirTemplateSvar {
+    pub fn symbol(&self) -> HirTemplateVariable {
         self.symbol
     }
 
@@ -164,31 +165,30 @@ impl std::ops::AddAssign<Self> for HirTemplateParameterStats {
 }
 
 /// for associated items, the parent's template parameters count
-#[salsa::tracked(jar = HirDeclJar)]
+#[salsa::tracked]
 pub fn item_hir_template_parameter_stats(
     db: &::salsa::Db,
     item_path_id: ItemPathId,
 ) -> Option<HirTemplateParameterStats> {
-    let item_path = item_path_id.item_path(db);
+    let path = item_path_id.item_path(db);
     let mut stats = HirTemplateParameterStats {
         tys: 0,
         constants: 0,
         lifetimes: 0,
         places: 0,
     };
-    let hir_decl = item_path.hir_decl(db)?;
-    let Some(template_parameters) = hir_decl.template_parameters(db) else {
-        return Some(HirTemplateParameterStats::default());
-    };
-    for param in template_parameters {
-        match param.data {
-            HirTemplateParameterData::Type { .. } => stats.tys += 1,
-            HirTemplateParameterData::Constant { .. } => stats.constants += 1,
-            HirTemplateParameterData::Lifetime { .. } => stats.lifetimes += 1,
-            HirTemplateParameterData::Place { .. } => stats.places += 1,
+    let hir_decl = path.hir_decl(db)?;
+    if let Some(template_parameters) = hir_decl.template_parameters(db) {
+        for param in template_parameters {
+            match param.data {
+                HirTemplateParameterData::Type { .. } => stats.tys += 1,
+                HirTemplateParameterData::Constant { .. } => stats.constants += 1,
+                HirTemplateParameterData::Lifetime { .. } => stats.lifetimes += 1,
+                HirTemplateParameterData::Place { .. } => stats.places += 1,
+            }
         }
     }
-    match item_path {
+    match path {
         ItemPath::AssocItem(assoc_item_path) => match assoc_item_path {
             AssocItemPath::TypeItem(ty_item_path) => {
                 stats +=
@@ -204,6 +204,10 @@ pub fn item_hir_template_parameter_stats(
                         .unwrap()
             }
         },
+        ItemPath::TypeVariant(_, ty_variant_path) => {
+            stats +=
+                item_hir_template_parameter_stats(db, *ty_variant_path.parent_ty_path(db)).unwrap()
+        }
         _ => (),
     }
     Some(stats)

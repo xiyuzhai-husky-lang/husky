@@ -12,8 +12,8 @@ EntityTreeSheet {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`syntax_errors::ast::A`, `Struct`),
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`syntax_errors::ast::A`, `Struct`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -25,7 +25,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `syntax_errors::ast`,
                         ),
-                        ast_idx: 3,
+                        ast_idx: 2,
                         ident_token: IdentToken {
                             ident: `A`,
                             token_idx: TokenIdx(
@@ -45,8 +45,8 @@ EntityTreeSheet {
                                 data: ItemSynNodePathData::MajorItem(
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`syntax_errors::ast::A`, `Struct`),
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: TypePath(`syntax_errors::ast::A`, `Struct`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -67,7 +67,7 @@ EntityTreeSheet {
         [
             EntitySymbolEntry {
                 ident: `A`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `syntax_errors::ast`,
                 ),
                 symbol: EntitySymbol::MajorItem {
@@ -118,16 +118,16 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 4,
+                    ast_idx: 3,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             7,
                         ),
                     },
-                    ty_expr: 1,
+                    ty_expr: 0,
                     items: TypeItems {
                         ast_idx_range: ArenaIdxRange(
-                            1..2,
+                            0..1,
                         ),
                     },
                 },

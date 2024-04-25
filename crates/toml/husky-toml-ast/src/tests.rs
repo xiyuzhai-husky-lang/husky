@@ -16,5 +16,5 @@ fn manifest_ast_works() {
             FileExtensionConfig::Markdown,
             TestDomainsConfig::TOML,
         ),
-    )
+    );
 }

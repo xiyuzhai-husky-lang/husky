@@ -24,7 +24,7 @@ husky-text-protocol.workspace = true
 husky-eth-term.workspace = true
 husky-eth-signature.workspace = true
 # semantics
-husky-sema-place-contract.workspace = true
+husky-sem-place-contract.workspace = true
 # syntax
 husky-ast.workspace = true
 husky-syn-expr.workspace = true
@@ -57,7 +57,7 @@ husky-corgi-config-ast.workspace = true
 # infer
 husky-manifest.workspace = true
 husky-dec-signature.workspace = true
-husky-sema-expr.workspace = true
+husky-sem-expr.workspace = true
 husky-corgi-config.workspace = true
 husky-hover = { path = ".", features = ["test_utils"] }
 

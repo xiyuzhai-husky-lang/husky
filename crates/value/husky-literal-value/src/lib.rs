@@ -50,11 +50,35 @@ pub enum LiteralValue {
     F32(OrderedFloat<f32>),
     /// 64-bit float literal
     F64(OrderedFloat<f64>),
-    String(Arc<String>),
+    String(Arc<str>),
 }
 
 impl LiteralValue {
     pub fn into_value<Value: IsValue>(&self) -> Value {
-        todo!()
+        match *self {
+            LiteralValue::Unit(_) => todo!(),
+            LiteralValue::Bool(_) => todo!(),
+            LiteralValue::I8(_) => todo!(),
+            LiteralValue::I16(_) => todo!(),
+            LiteralValue::I32(i) => i.into(),
+            LiteralValue::I64(_) => todo!(),
+            LiteralValue::I128(_) => todo!(),
+            LiteralValue::ISize(_) => todo!(),
+            LiteralValue::U8(_) => todo!(),
+            LiteralValue::U16(_) => todo!(),
+            LiteralValue::U32(_) => todo!(),
+            LiteralValue::U64(_) => todo!(),
+            LiteralValue::U128(_) => todo!(),
+            LiteralValue::USize(_) => todo!(),
+            LiteralValue::R8(_) => todo!(),
+            LiteralValue::R16(_) => todo!(),
+            LiteralValue::R32(_) => todo!(),
+            LiteralValue::R64(_) => todo!(),
+            LiteralValue::R128(_) => todo!(),
+            LiteralValue::RSize(_) => todo!(),
+            LiteralValue::F32(_) => todo!(),
+            LiteralValue::F64(_) => todo!(),
+            LiteralValue::String(ref str_value) => Value::from_str_literal(str_value.clone()),
+        }
     }
 }

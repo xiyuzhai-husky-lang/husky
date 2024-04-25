@@ -1,3 +1,5 @@
+use std::sync::Arc;
+
 use husky_value_protocol::presentation::{
     synchrotron::ValuePresentationSynchrotron, EnumU8ValuePresenter, ValuePresentation,
     ValuePresenterCache,
@@ -61,6 +63,7 @@ pub trait IsValue:
     + Into<f64>
     + 'static
 {
+    fn new_uninit() -> Self;
     // the followings are methods that should be implemented.
     // they are commented out because they would probably be done in a way outside of rust trait system
     // fn from_owned<T>(t: T) -> Self;
@@ -75,6 +78,8 @@ pub trait IsValue:
     // fn into_option_ref<'a, T>(self) -> Option<&'a T>;
     // fn from_option_mut<'a, T>(t: Option<&'a mut T>) -> Self;
     // fn into_option_mut<'a, T>(self) -> Option<&'a mut T>;
+    /// `Arc<str>` should be replaced with something better
+    fn from_str_literal(str_value: Arc<str>) -> Self;
     fn from_enum_u8(index: u8, presenter: EnumU8ValuePresenter) -> Self;
     fn share(&'static self) -> Self;
     fn to_bool(self) -> bool;

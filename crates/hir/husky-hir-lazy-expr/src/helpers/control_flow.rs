@@ -143,24 +143,24 @@ impl<'a> HirLazyExprControlFlowRegionBuilder<'a> {
             HirLazyExprData::Unwrap {
                 opd_hir_expr_idx, ..
             } => self.expr_has_control_flow(opd_hir_expr_idx)?,
-            HirLazyExprData::TypeConstructorFnCall {
+            HirLazyExprData::TypeConstructorCall {
                 ref item_groups, ..
             }
-            | HirLazyExprData::TypeVariantConstructorFnCall {
+            | HirLazyExprData::TypeVariantConstructorCall {
                 ref item_groups, ..
             }
-            | HirLazyExprData::FunctionFnItemCall {
+            | HirLazyExprData::FunctionRitchieItemCall {
                 ref item_groups, ..
             }
-            | HirLazyExprData::AssocFunctionFnCall {
+            | HirLazyExprData::AssocFunctionRitchieCall {
                 ref item_groups, ..
             } => self.infer_new_item_groups(item_groups)?,
-            HirLazyExprData::FunctionGnItemCall {
+            HirLazyExprData::FunctionRitchieItemCall {
                 ref item_groups, ..
             } => self.infer_new_item_groups(item_groups)?,
             HirLazyExprData::PropsStructField { owner, .. }
             | HirLazyExprData::MemoizedField { owner, .. } => self.expr_has_control_flow(owner)?,
-            HirLazyExprData::MethodFnCall {
+            HirLazyExprData::MethodRitchieCall {
                 self_argument,
                 ref item_groups,
                 ..
@@ -198,7 +198,7 @@ impl<'a> HirLazyExprControlFlowRegionBuilder<'a> {
             }
             HirLazyExprData::Todo => (),
             HirLazyExprData::Unreachable => (),
-            HirLazyExprData::AssocFn { .. } => (),
+            HirLazyExprData::AssocRitchie { .. } => (),
             HirLazyExprData::As { opd, .. } => self.expr_has_control_flow(opd)?,
         }
         HasControlFlow::False

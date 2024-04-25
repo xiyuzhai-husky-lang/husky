@@ -1,5 +1,6 @@
 use crate::{
     expr::{VmirExprArena, VmirExprIdx},
+    region::VmirRegion,
     stmt::{VmirStmtArena, VmirStmtIdx, VmirStmtIdxRange},
 };
 use husky_linkage::template_argument::qual::LinQual;
@@ -8,8 +9,14 @@ use husky_task_interface::vm_control_flow::LinkageImplVmControlFlow;
 use husky_task_interface::IsLinkageImpl;
 
 pub trait EvalVmir<'comptime, LinkageImpl: IsLinkageImpl> {
-    fn vmir_expr_arena(&self) -> &'comptime VmirExprArena<LinkageImpl>;
-    fn vmir_stmt_arena(&self) -> &'comptime VmirStmtArena<LinkageImpl>;
+    fn db(&self) -> &'comptime ::salsa::Db;
+    fn vmir_region(&self) -> &'comptime VmirRegion<LinkageImpl>;
+    fn vmir_expr_arena(&self) -> &'comptime VmirExprArena<LinkageImpl> {
+        self.vmir_region().vmir_expr_arena()
+    }
+    fn vmir_stmt_arena(&self) -> &'comptime VmirStmtArena<LinkageImpl> {
+        self.vmir_region().vmir_stmt_arena()
+    }
 
     /// wrap the expression evaluation process
     fn eval_expr(
@@ -39,6 +46,8 @@ pub trait EvalVmir<'comptime, LinkageImpl: IsLinkageImpl> {
         f: impl FnOnce(&mut Self) -> LinkageImplVmControlFlow<LinkageImpl>,
     ) -> LinkageImplVmControlFlow<LinkageImpl>;
 
-    /// access variable
-    fn access_variable(&mut self, place_idx: PlaceIdx, qual: LinQual) -> LinkageImpl::Value;
+    /// access place
+    fn access_place(&mut self, place_idx: PlaceIdx, qual: LinQual) -> LinkageImpl::Value;
+
+    fn init_place(&mut self, place_idx: PlaceIdx, value: LinkageImpl::Value);
 }

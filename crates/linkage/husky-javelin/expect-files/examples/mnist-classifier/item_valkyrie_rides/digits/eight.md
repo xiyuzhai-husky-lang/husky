@@ -2,8 +2,8 @@
 [
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
             ),
         ),
         Some(
@@ -68,8 +68,8 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
             ),
         ),
         Some(
@@ -81,8 +81,8 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::eight::big_mouth`, `Ritchie(
                     Fn,
                 )`),
             ),
@@ -96,7 +96,7 @@
                 ),
                 rides: [
                     ValkyrieRide::PathLeading {
-                        javelin_item_path: JavPath::TypeItem(
+                        path: JavPath::TypeItem(
                             TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
                                 Fn,
                             )`),
@@ -104,16 +104,16 @@
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
                                 (
-                                    HirTemplateSvar::Type(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
+                                    HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
                                             disambiguator: 0,
                                         },
                                     ),
-                                    HirTermSvarResolution::Explicit(
+                                    HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Type(
                                             HirType::PathLeading(
                                                 HirTypePathLeading {

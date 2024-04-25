@@ -106,10 +106,10 @@ impl<'db, Linktime: IsLinktime> VmirBuilder<'db, Linktime> {
         self.vmir_expr_arena.alloc_one(expr)
     }
 
-    pub(crate) fn alloc_exprs(
+    pub(crate) fn alloc_exprs_aux(
         &mut self,
         exprs: Vec<VmirExprData<Linktime::LinkageImpl>>,
-    ) -> VmirExprIdxRange<Linktime::LinkageImpl> {
+    ) -> ArenaIdxRange<VmirExprData<Linktime::LinkageImpl>> {
         self.vmir_expr_arena.alloc_batch(exprs)
     }
 

@@ -24,11 +24,11 @@ where
 impl DecTermRewriteCopy for DecTerm {
     fn substitute_copy(self, db: &::salsa::Db, substitution: &DecTermSubstitution) -> Self {
         match self {
-            DecTerm::Hvar(symbol) => match symbol == substitution.src() {
+            DecTerm::LambdaVariable(symbol) => match symbol == substitution.src() {
                 true => substitution.dst(),
                 false => self,
             },
-            DecTerm::Symbol(_)
+            DecTerm::SymbolicVariable(_)
             | DecTerm::Literal(_)
             | DecTerm::EntityPath(_)
             | DecTerm::Category(_)
@@ -38,7 +38,6 @@ impl DecTermRewriteCopy for DecTerm {
             DecTerm::Abstraction(term) => term.substitute_copy(db, substitution).into(),
             DecTerm::Application(term) => term.substitute_copy(db, substitution).into(),
             DecTerm::ApplicationOrRitchieCall(_term) => todo!(),
-            DecTerm::AssocItem(term) => term.substitute_copy(db, substitution).into(),
             DecTerm::TypeAsTraitItem(term) => term.substitute_copy(db, substitution).into(),
             DecTerm::TraitConstraint(term) => term.substitute_copy(db, substitution).into(),
             DecTerm::Ritchie(_) => todo!(),

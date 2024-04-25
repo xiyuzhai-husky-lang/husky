@@ -1,13 +1,13 @@
 ```rust
 [
     (
-        FugitivePath(`mnist::input`, `Val`),
+        FormPath(`mnist::input`, `Val`),
         KiRepr {
-            val_domain_repr: Omni,
-            opn: ValOpn::Linkage(
+            ki_domain_repr: Omni,
+            opn: KiOpn::Linkage(
                 Linkage {
                     data: LinkageData::MajorVal {
-                        path: FugitivePath(`mnist::input`, `Val`),
+                        path: FormPath(`mnist::input`, `Val`),
                         instantiation: LinInstantiation {
                             symbol_resolutions: [],
                             separator: None,
@@ -17,7 +17,7 @@
             ),
             arguments: [],
             source: KiReprSource::ValItem(
-                FugitivePath(`mnist::input`, `Val`),
+                FormPath(`mnist::input`, `Val`),
             ),
             caching_class: ValItem,
         },

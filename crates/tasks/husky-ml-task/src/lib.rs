@@ -12,7 +12,7 @@ use husky_task::{
 };
 use husky_task_interface::{
     ki_control_flow::KiControlFlow,
-    ki_repr::{KiReprInterface, ValDomainReprInterface},
+    ki_repr::{KiDomainReprInterface, KiReprInterface},
     IsDevRuntime,
 };
 use husky_trace_protocol::{
@@ -74,7 +74,7 @@ where
     }
 
     fn calc_figure<DevRuntime: IsDevRuntime<Self::LinkageImpl>>(
-        followed: Option<(TraceId, KiReprInterface, ValDomainReprInterface)>,
+        followed: Option<(TraceId, KiReprInterface, KiDomainReprInterface)>,
         accompanyings: &[(TraceId, KiReprInterface)],
         pedestal: Self::Pedestal,
         runtime: &DevRuntime,
@@ -82,9 +82,9 @@ where
         val_visual_cache: &mut ValVisualCache<Self::Pedestal>,
     ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure {
         let (followed, domain) = match followed {
-            Some((trace_id, var_repr_intreface, val_domain_repr_interface)) => (
+            Some((trace_id, var_repr_intreface, ki_domain_repr_interface)) => (
                 Some((trace_id, var_repr_intreface)),
-                Some(val_domain_repr_interface),
+                Some(ki_domain_repr_interface),
             ),
             None => (None, None),
         };
@@ -108,11 +108,11 @@ where
             MlPedestal::Generic => {
                 let pedestals = (0..49).into_iter().filter_map(|index| {
                         let pedestal = MlPedestal::Specific(InputId::from_index(index));
-                        let Some(val_domain_repr_interface) = domain else {
+                        let Some(ki_domain_repr_interface) = domain else {
                             return Some(pedestal)
                         };
-                        match runtime.eval_val_domain_repr_interface_at_pedestal(
-                            val_domain_repr_interface,
+                        match runtime.eval_ki_domain_repr_interface_at_pedestal(
+                            ki_domain_repr_interface,
                             pedestal
                         ) {
                             KiControlFlow::Continue(_) => Some(pedestal),

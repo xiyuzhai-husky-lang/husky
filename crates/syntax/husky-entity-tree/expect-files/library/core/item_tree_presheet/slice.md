@@ -12,8 +12,8 @@ EntityTreePresheet {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`core::slice::Slice`, `Extern`),
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`core::slice::Slice`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -23,7 +23,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 10,
+                        ast_idx: 9,
                         ident_token: IdentToken {
                             ident: `Slice`,
                             token_idx: TokenIdx(
@@ -43,8 +43,8 @@ EntityTreePresheet {
                                 data: ItemSynNodePathData::MajorItem(
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`core::slice::Slice`, `Extern`),
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: TypePath(`core::slice::Slice`, `Extern`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -66,8 +66,8 @@ EntityTreePresheet {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -77,7 +77,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 13,
+                        ast_idx: 12,
                         ident_token: IdentToken {
                             ident: `CyclicSlice`,
                             token_idx: TokenIdx(
@@ -97,8 +97,8 @@ EntityTreePresheet {
                                 data: ItemSynNodePathData::MajorItem(
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`core::slice::CyclicSlice`, `Extern`),
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: TypePath(`core::slice::CyclicSlice`, `Extern`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -116,8 +116,8 @@ EntityTreePresheet {
     once_use_rules: OnceUseRules(
         [
             OnceUseRule {
-                ast_idx: 9,
-                use_expr_idx: 2,
+                ast_idx: 8,
+                use_expr_idx: 1,
                 visibility: Scope::PubUnder(
                     `core::slice`,
                 ),
@@ -130,7 +130,7 @@ EntityTreePresheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        1..2,
+                        0..1,
                     ),
                 },
                 parent: None,
@@ -168,7 +168,7 @@ EntityTreePresheet {
                     ),
                     children: Ok(
                         UseExprChildren::Single {
-                            child: 1,
+                            child: 0,
                         },
                     ),
                 },

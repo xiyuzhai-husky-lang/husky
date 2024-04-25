@@ -73,14 +73,14 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist::input`, `Val`),
+            MajorItemPath::Form(
+                FormPath(`mnist::input`, `Val`),
             ),
         ),
         Ok(
             DecTemplate::MajorItem(
-                MajorItemDecTemplate::Fugitive(
-                    FugitiveDecTemplate::Ki(
+                MajorItemDecTemplate::Form(
+                    MajorFormDecTemplate::Val(
                         MajorValDecTemplate {
                             return_ty: EntityPath(
                                 Type(
@@ -155,8 +155,8 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TraitForTypeItem(
-                    TraitForTypeItemDecTemplate::MethodFn(
-                        TraitForTypeMethodFnDecTemplate {
+                    TraitForTypeItemDecTemplate::MethodRitchie(
+                        TraitForTypeMethodRitchieDecTemplate {
                             self_ty: EntityPath(
                                 Type(
                                     TypePath(
@@ -251,8 +251,8 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::AssocFn(
-                        TypeAssocFnDecTemplate {
+                    TypeItemDecTemplate::AssocRitchie(
+                        TypeAssocRitchieDecTemplate {
                             path: TypeItemPath(`<mnist::BinaryImage28(0)>::new_zeros`, `AssocRitchie(
                                 Fn,
                             )`),
@@ -426,8 +426,8 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TraitForTypeItem(
-                    TraitForTypeItemDecTemplate::MethodFn(
-                        TraitForTypeMethodFnDecTemplate {
+                    TraitForTypeItemDecTemplate::MethodRitchie(
+                        TraitForTypeMethodRitchieDecTemplate {
                             self_ty: EntityPath(
                                 Type(
                                     TypePath(
@@ -522,8 +522,8 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::AssocFn(
-                        TypeAssocFnDecTemplate {
+                    TypeItemDecTemplate::AssocRitchie(
+                        TypeAssocRitchieDecTemplate {
                             path: TypeItemPath(`<mnist::BinaryGrid28(0)>::new_zeros`, `AssocRitchie(
                                 Fn,
                             )`),

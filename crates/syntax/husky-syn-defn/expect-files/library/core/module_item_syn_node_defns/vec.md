@@ -8,8 +8,8 @@
                         data: ItemSynNodePathData::MajorItem(
                             MajorItemSynNodePathData::Type(
                                 TypeSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`core::vec::Vec`, `Extern`),
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TypePath(`core::vec::Vec`, `Extern`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -35,8 +35,8 @@
                                             data: ItemSynNodePathData::MajorItem(
                                                 MajorItemSynNodePathData::Type(
                                                     TypeSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(`core::vec::Vec`, `Extern`),
+                                                        disambiguated_item_path: DisambiguatedItemPath {
+                                                            maybe_ambiguous_item_path: TypePath(`core::vec::Vec`, `Extern`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -46,16 +46,15 @@
                                     ),
                                 ),
                             ),
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: AttrItemPath(
+                            attr_item_path_result: Ok(
+                                AttrItemPath(
                                     ItemPathId(
                                         Id {
-                                            value: 204,
+                                            value: 241,
                                         },
                                     ),
                                 ),
-                                disambiguator: 0,
-                            },
+                            ),
                         },
                     ),
                 },
@@ -95,8 +94,8 @@
                         data: ItemSynNodePathData::AssocItem(
                             AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
                                             Fn,
                                         )`),
                                         disambiguator: 0,
@@ -118,8 +117,8 @@
                         data: ItemSynNodePathData::AssocItem(
                             AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
                                             Fn,
                                         )`),
                                         disambiguator: 0,
@@ -141,8 +140,8 @@
                         data: ItemSynNodePathData::AssocItem(
                             AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(`<core::vec::Vec(0)>::first`, `MethodRitchie(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TypeItemPath(`<core::vec::Vec(0)>::first`, `MethodRitchie(
                                             Fn,
                                         )`),
                                         disambiguator: 0,
@@ -164,8 +163,8 @@
                         data: ItemSynNodePathData::AssocItem(
                             AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(`<core::vec::Vec(0)>::last`, `MethodRitchie(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TypeItemPath(`<core::vec::Vec(0)>::last`, `MethodRitchie(
                                             Fn,
                                         )`),
                                         disambiguator: 0,
@@ -187,8 +186,8 @@
                         data: ItemSynNodePathData::AssocItem(
                             AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(`<core::vec::Vec(0)>::pop`, `MethodRitchie(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TypeItemPath(`<core::vec::Vec(0)>::pop`, `MethodRitchie(
                                             Fn,
                                         )`),
                                         disambiguator: 0,
@@ -210,8 +209,8 @@
                         data: ItemSynNodePathData::AssocItem(
                             AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(`<core::vec::Vec(0)>::collect_leashes`, `MethodRitchie(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TypeItemPath(`<core::vec::Vec(0)>::collect_leashes`, `MethodRitchie(
                                             Fn,
                                         )`),
                                         disambiguator: 0,
@@ -233,8 +232,8 @@
                         data: ItemSynNodePathData::AssocItem(
                             AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(`<core::vec::Vec(0)>::cyclic_slice_leashed`, `MethodRitchie(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TypeItemPath(`<core::vec::Vec(0)>::cyclic_slice_leashed`, `MethodRitchie(
                                             Fn,
                                         )`),
                                         disambiguator: 0,
@@ -256,8 +255,8 @@
                         data: ItemSynNodePathData::AssocItem(
                             AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(`<core::vec::Vec(0)>::pop_with_largest_opt_f32`, `MethodRitchie(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TypeItemPath(`<core::vec::Vec(0)>::pop_with_largest_opt_f32`, `MethodRitchie(
                                             Fn,
                                         )`),
                                         disambiguator: 0,

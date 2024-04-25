@@ -78,7 +78,7 @@ impl EntityTreeSheet {
     pub fn major_paths<'a>(&'a self, db: &'a ::salsa::Db) -> impl Iterator<Item = ItemPath> + 'a {
         self.major_item_node_table
             .node_paths()
-            .filter_map(|syn_node_path| syn_node_path.path(db))
+            .filter_map(|syn_node_path| syn_node_path.unambiguous_item_path(db))
     }
 
     pub(crate) fn major_item_node(&self, syn_node_path: ItemSynNodePath) -> Option<&ItemSynNode> {
@@ -157,10 +157,12 @@ impl EntityTreeSheet {
     ) -> impl Iterator<Item = TraitForTypeImplBlockPath> + 'a {
         self.impl_block_syn_node_table
             .iter()
-            .filter_map(|(syn_node_path, _)| match syn_node_path.path(db)? {
-                ImplBlockPath::TraitForTypeImplBlock(path) => Some(path),
-                ImplBlockPath::TypeImplBlock(_) => None,
-            })
+            .filter_map(
+                |(syn_node_path, _)| match syn_node_path.unambiguous_item_path(db)? {
+                    ImplBlockPath::TraitForTypeImplBlock(path) => Some(path),
+                    ImplBlockPath::TypeImplBlock(_) => None,
+                },
+            )
     }
 
     pub fn all_impl_block_ill_forms<'a>(

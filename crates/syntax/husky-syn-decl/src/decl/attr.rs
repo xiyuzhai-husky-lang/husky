@@ -6,8 +6,8 @@ pub mod test;
 pub use self::derive::*;
 
 use self::{
-    backprop::BackpropAttrSynNodeDecl,
-    effect::EffectAttrSynNodeDecl,
+    backprop::{BackpropAttrSynDecl, BackpropAttrSynNodeDecl},
+    effect::{EffectAttrSynDecl, EffectAttrSynNodeDecl},
     test::{TestAttrSynDecl, TestAttrSynNodeDecl},
 };
 use super::*;
@@ -53,20 +53,31 @@ impl HasSynNodeDecl for AttrSynNodePath {
 
 #[salsa::tracked(jar = SynDeclJar)]
 fn attr_syn_node_decl(db: &::salsa::Db, syn_node_path: AttrSynNodePath) -> AttrSynNodeDecl {
-    // ad hoc
     let coword_menu = coword_menu(db);
     let attr_ident = syn_node_path.ident(db);
-    if attr_ident == coword_menu.derive_ident() {
-        AttrSynNodeDecl::Derive(DeriveAttrSynNodeDecl::new(db, syn_node_path))
-    } else {
-        todo!()
+    match attr_ident {
+        attr_ident if attr_ident == coword_menu.backprop_ident() => {
+            AttrSynNodeDecl::Backprop(BackpropAttrSynNodeDecl::new(db, syn_node_path))
+        }
+        attr_ident if attr_ident == coword_menu.derive_ident() => {
+            AttrSynNodeDecl::Derive(DeriveAttrSynNodeDecl::new(db, syn_node_path))
+        }
+        attr_ident if attr_ident == coword_menu.effect_ident() => {
+            AttrSynNodeDecl::Effect(EffectAttrSynNodeDecl::new(db, syn_node_path))
+        }
+        attr_ident if attr_ident == coword_menu.test_ident() => {
+            AttrSynNodeDecl::Test(TestAttrSynNodeDecl::new(db, syn_node_path))
+        }
+        _ => todo!(),
     }
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
 pub enum AttrSynDecl {
+    Backprop(BackpropAttrSynDecl),
     Derive(DeriveAttrSynDecl),
+    Effect(EffectAttrSynDecl),
     Test(TestAttrSynDecl),
 }
 
@@ -76,15 +87,21 @@ impl AttrSynDecl {
     fn from_node_decl(
         db: &::salsa::Db,
         path: AttrItemPath,
-        node_decl: AttrSynNodeDecl,
-    ) -> DeclResult<Self> {
-        Ok(match node_decl {
-            AttrSynNodeDecl::Derive(node_decl) => {
-                DeriveAttrSynDecl::from_node_decl(db, path, node_decl)?.into()
+        syn_node_decl: AttrSynNodeDecl,
+    ) -> SynDeclResult<Self> {
+        Ok(match syn_node_decl {
+            AttrSynNodeDecl::Derive(syn_node_decl) => {
+                DeriveAttrSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
-            AttrSynNodeDecl::Backprop(_) => todo!(),
-            AttrSynNodeDecl::Effect(_) => todo!(),
-            AttrSynNodeDecl::Test(node_decl) => TestAttrSynDecl::from_node(node_decl, db)?.into(),
+            AttrSynNodeDecl::Backprop(syn_node_decl) => {
+                BackpropAttrSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+            }
+            AttrSynNodeDecl::Effect(node_decl) => {
+                EffectAttrSynDecl::from_node(path, node_decl, db)?.into()
+            }
+            AttrSynNodeDecl::Test(node_decl) => {
+                TestAttrSynDecl::from_node(path, node_decl, db)?.into()
+            }
         })
     }
 }
@@ -93,15 +110,19 @@ impl AttrSynDecl {
 impl AttrSynDecl {
     pub fn path(self, db: &::salsa::Db) -> AttrItemPath {
         match self {
+            AttrSynDecl::Backprop(slf) => slf.path(db),
             AttrSynDecl::Derive(slf) => slf.path(db),
             AttrSynDecl::Test(slf) => slf.path(db),
+            AttrSynDecl::Effect(slf) => slf.path(db),
         }
     }
 
     pub fn syn_expr_region(self, db: &::salsa::Db) -> SynExprRegion {
         match self {
+            AttrSynDecl::Backprop(slf) => slf.syn_expr_region(db),
             AttrSynDecl::Derive(slf) => slf.syn_expr_region(db),
             AttrSynDecl::Test(slf) => slf.syn_expr_region(db),
+            AttrSynDecl::Effect(slf) => slf.syn_expr_region(db),
         }
     }
 }
@@ -109,13 +130,13 @@ impl AttrSynDecl {
 impl HasSynDecl for AttrItemPath {
     type Decl = AttrSynDecl;
 
-    fn syn_decl(self, db: &::salsa::Db) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &::salsa::Db) -> SynDeclResult<Self::Decl> {
         attr_syn_decl(db, self)
     }
 }
 
 #[salsa::tracked(jar = SynDeclJar)]
-pub(crate) fn attr_syn_decl(db: &::salsa::Db, path: AttrItemPath) -> DeclResult<AttrSynDecl> {
+pub(crate) fn attr_syn_decl(db: &::salsa::Db, path: AttrItemPath) -> SynDeclResult<AttrSynDecl> {
     AttrSynDecl::from_node_decl(db, path, path.syn_node_path(db).syn_node_decl(db))
 }
 

@@ -4,31 +4,31 @@ use vec_like::VecPairMap;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Default, Clone, PartialEq, Eq)]
-pub struct DecSvarNameMap {
-    data: VecPairMap<DecSvar, SymbolName>,
+pub struct DecSymbolicVariableNameMap {
+    data: VecPairMap<DecSymbolicVariable, SymbolName>,
 }
 
-impl DecSvarNameMap {
-    pub fn add(&mut self, symbol: DecSvar, name: SymbolName) {
+impl DecSymbolicVariableNameMap {
+    pub fn add(&mut self, symbol: DecSymbolicVariable, name: SymbolName) {
         self.data.insert((symbol, name))
     }
 
-    pub fn data(&self) -> &VecPairMap<DecSvar, SymbolName> {
+    pub fn data(&self) -> &VecPairMap<DecSymbolicVariable, SymbolName> {
         &self.data
     }
 }
 
-impl std::ops::Index<DecSvar> for DecSvarNameMap {
+impl std::ops::Index<DecSymbolicVariable> for DecSymbolicVariableNameMap {
     type Output = SymbolName;
 
-    fn index(&self, index: DecSvar) -> &Self::Output {
+    fn index(&self, index: DecSymbolicVariable) -> &Self::Output {
         &self.data[index].1
     }
 }
 
 pub struct DecTermWithNameMap<'a> {
     term: DecTerm,
-    name_map: &'a DecSvarNameMap,
+    name_map: &'a DecSymbolicVariableNameMap,
 }
 
 impl<'a> salsa::DisplayWithDb for DecTermWithNameMap<'a> {
@@ -58,7 +58,7 @@ impl<'a> salsa::DebugWithDb for DecTermWithNameMap<'a> {
 impl DecTerm {
     pub fn with_symbol_source_map<'a>(
         self,
-        name_map: &'a DecSvarNameMap,
+        name_map: &'a DecSymbolicVariableNameMap,
     ) -> DecTermWithNameMap<'a> {
         DecTermWithNameMap {
             term: self,

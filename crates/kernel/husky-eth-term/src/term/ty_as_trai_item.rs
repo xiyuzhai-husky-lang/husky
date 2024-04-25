@@ -3,9 +3,10 @@ use husky_coword::Ident;
 
 #[salsa::interned(db = EthTermDb, jar = EthTermJar)]
 pub struct EthTypeAsTraitItem {
-    parent: EthTerm,
-    trai: EthTerm,
-    ident: Ident,
+    pub parent: EthTerm,
+    pub trai: EthTerm,
+    pub ident: Ident,
+    pub trai_item_path: TraitItemPath,
 }
 
 #[test]
@@ -32,6 +33,32 @@ impl EthTypeAsTraitItem {
         _db: &::salsa::Db,
     ) -> std::fmt::Result {
         todo!()
+    }
+}
+
+/// # reduce
+
+impl EthTypeAsTraitItem {
+    pub(in crate::term) fn reduce(self, db: &::salsa::Db) -> EthTerm {
+        reduce_eth_ty_as_trai_item(db, self)
+    }
+}
+
+#[salsa::tracked(jar = EthTermJar)]
+fn reduce_eth_ty_as_trai_item(db: &::salsa::Db, term: EthTypeAsTraitItem) -> EthTerm {
+    match term.parent(db) {
+        EthTerm::Literal(_) => todo!(),
+        EthTerm::SymbolicVariable(_) => term.into(),
+        EthTerm::LambdaVariable(_) => todo!(),
+        EthTerm::EntityPath(_) => todo!(),
+        EthTerm::Category(_) => todo!(),
+        EthTerm::Universe(_) => todo!(),
+        EthTerm::Curry(_) => todo!(),
+        EthTerm::Ritchie(_) => todo!(),
+        EthTerm::Abstraction(_) => todo!(),
+        EthTerm::Application(_) => todo!(),
+        EthTerm::TypeAsTraitItem(_) => todo!(),
+        EthTerm::TraitConstraint(_) => todo!(),
     }
 }
 
@@ -64,6 +91,7 @@ impl EthInstantiate for EthTypeAsTraitItem {
             self.parent(db).instantiate(db, instantiation),
             self.trai(db).instantiate(db, instantiation),
             self.ident(db),
+            self.trai_item_path(db),
         )
     }
 }

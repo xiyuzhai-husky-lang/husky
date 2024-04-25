@@ -14,10 +14,20 @@ keywords.workspace = true
 [dependencies]
 egui = { workspace = true, optional = true }
 # abstractions
+enum-class.workspace = true
 idx-arena.workspace = true
+salsa.workspace = true
 time-capsule.workspace = true
+# kernel
+husky-coword.workspace = true
 # tex
+husky-tex-math-letter.workspace = true
+husky-tex-math-opr.workspace = true
+husky-tex-prelude.workspace = true
 husky-tex-token.workspace = true
+
+[dev-dependencies]
+expect-test.workspace = true
 
 [lints]
 workspace = true

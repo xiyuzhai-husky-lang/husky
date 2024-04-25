@@ -16,11 +16,25 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 164,
+                        value: 170,
                     },
                 ),
             ),
         ),
+    ),
+    (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 134,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
     ),
     (
         MajorItem(
@@ -38,7 +52,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 165,
+                        value: 171,
                     },
                 ),
             ),
@@ -60,7 +74,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 166,
+                        value: 172,
                     },
                 ),
             ),
@@ -72,7 +86,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 246,
+                            value: 256,
                         },
                     ),
                 ),
@@ -82,7 +96,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 167,
+                        value: 173,
                     },
                 ),
             ),

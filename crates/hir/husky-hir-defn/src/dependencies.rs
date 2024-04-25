@@ -3,7 +3,7 @@ use crate::*;
 use husky_entity_tree::helpers::paths::module_item_paths;
 use husky_hir_ty::{
     indirections::{HirIndirection, HirIndirections},
-    instantiation::{HirInstantiation, HirTermSvarResolution},
+    instantiation::{HirInstantiation, HirTermSymbolicVariableResolution},
     ritchie::HirRitchieParameter,
     trai::HirTrait,
     HirTemplateArgument, HirType,
@@ -61,7 +61,7 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
                         self.add_item_path(path.parent_ty_path(db))
                     }
                 },
-                HirEagerExprData::ConstSvar { .. } => (),
+                HirEagerExprData::ConstVariable { .. } => (),
                 HirEagerExprData::Variable(_) => (),
                 HirEagerExprData::Binary { .. } => (),
                 HirEagerExprData::Be { .. } => (),
@@ -72,15 +72,15 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
                     ..
                 } => self.add_item_path(unveil_assoc_fn_path),
                 HirEagerExprData::Unwrap { .. } => (),
-                HirEagerExprData::TypeConstructorFnCall { path, .. } => self.add_item_path(path),
+                HirEagerExprData::TypeConstructorCall { path, .. } => self.add_item_path(path),
                 HirEagerExprData::TypeVariantConstructorCall { path, .. } => {
                     self.add_item_path(path.parent_ty_path(db))
                 }
-                HirEagerExprData::FunctionFnCall { path, .. } => self.add_item_path(path),
-                HirEagerExprData::AssocFunctionFnCall { path, .. } => self.add_item_path(path),
+                HirEagerExprData::FunctionRitchieCall { path, .. } => self.add_item_path(path),
+                HirEagerExprData::AssocFunctionRitchieCall { path, .. } => self.add_item_path(path),
                 HirEagerExprData::PropsStructField { .. } => (),
                 HirEagerExprData::MemoizedField { path, .. } => self.add_item_path(path),
-                HirEagerExprData::MethodFnCall {
+                HirEagerExprData::MethodRitchieCall {
                     path,
                     ref instantiation,
                     ..
@@ -100,7 +100,7 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
                 HirEagerExprData::EmptyHtmlTag { .. } => (),
                 HirEagerExprData::Todo => (),
                 HirEagerExprData::Unreachable => (),
-                HirEagerExprData::AssocFn { assoc_item_path } => {
+                HirEagerExprData::AssocRitchie { assoc_item_path } => {
                     self.add_item_path(assoc_item_path)
                 }
                 HirEagerExprData::As { opd: _, ty } => self.add_hir_ty(ty),
@@ -133,13 +133,13 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
                     ..
                 } => self.add_item_path(unveil_assoc_fn_path),
                 HirLazyExprData::Unwrap { .. } => (),
-                HirLazyExprData::TypeConstructorFnCall { path, .. } => self.add_item_path(path),
-                HirLazyExprData::TypeVariantConstructorFnCall { path, .. } => {
+                HirLazyExprData::TypeConstructorCall { path, .. } => self.add_item_path(path),
+                HirLazyExprData::TypeVariantConstructorCall { path, .. } => {
                     self.add_item_path(path.parent_ty_path(db))
                 }
-                HirLazyExprData::FunctionFnItemCall { path, .. } => self.add_item_path(path),
-                HirLazyExprData::FunctionGnItemCall { path, .. } => self.add_item_path(path),
-                HirLazyExprData::AssocFunctionFnCall { path, .. } => self.add_item_path(path),
+                HirLazyExprData::FunctionRitchieItemCall { path, .. } => self.add_item_path(path),
+                HirLazyExprData::FunctionRitchieItemCall { path, .. } => self.add_item_path(path),
+                HirLazyExprData::AssocFunctionRitchieCall { path, .. } => self.add_item_path(path),
                 HirLazyExprData::PropsStructField { .. } => (),
                 HirLazyExprData::MemoizedField {
                     path,
@@ -151,7 +151,7 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
                     self.add_indirections(indirections);
                     self.add_instantiation(instantiation)
                 }
-                HirLazyExprData::MethodFnCall { path, .. } => {
+                HirLazyExprData::MethodRitchieCall { path, .. } => {
                     // todo!();
                     self.add_item_path(path)
                 }
@@ -167,7 +167,7 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
                 HirLazyExprData::EmptyHtmlTag { .. } => (),
                 HirLazyExprData::Todo => (),
                 HirLazyExprData::Unreachable => (),
-                HirLazyExprData::AssocFn { path } => self.add_item_path(path),
+                HirLazyExprData::AssocRitchie { path } => self.add_item_path(path),
                 HirLazyExprData::As { ty, .. } => self.add_hir_ty(ty),
             }
         }
@@ -186,7 +186,7 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
                 self.add_item_path(hir_ty.ty_path(db));
                 self.add_hir_template_arguments(hir_ty.template_arguments(db))
             }
-            HirType::Svar(_) => (),
+            HirType::Variable(_) => (),
             HirType::TypeAssocType(_) => (),
             HirType::TraitAssocType(_) => (),
             HirType::Ritchie(hir_ty) => {
@@ -262,11 +262,11 @@ impl<'a> HirDefnDependenciesBuilder<'a> {
     fn add_instantiation(&mut self, instantiation: &HirInstantiation) {
         for (_, resolution) in instantiation.iter() {
             match resolution {
-                HirTermSvarResolution::Explicit(hir_template_argument) => {
+                HirTermSymbolicVariableResolution::Explicit(hir_template_argument) => {
                     self.add_hir_template_argument(hir_template_argument)
                 }
-                HirTermSvarResolution::SelfLifetime => (),
-                HirTermSvarResolution::SelfContractedQuary(_) => (),
+                HirTermSymbolicVariableResolution::SelfLifetime => (),
+                HirTermSymbolicVariableResolution::SelfContractedQuary(_) => (),
             }
         }
     }

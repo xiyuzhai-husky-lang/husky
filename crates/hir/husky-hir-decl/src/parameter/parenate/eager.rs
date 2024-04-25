@@ -68,6 +68,16 @@ impl std::ops::Deref for HirEagerParenateParameters {
     }
 }
 
+impl IntoIterator for &HirEagerParenateParameters {
+    type Item = HirEagerParenateParameter;
+
+    type IntoIter = impl Iterator<Item = HirEagerParenateParameter>;
+
+    fn into_iter(self) -> Self::IntoIter {
+        self.iter().copied()
+    }
+}
+
 impl HirEagerParenateParameters {
     pub(crate) fn from_syn(
         syndicates: &[ParenateParameterSyndicate],

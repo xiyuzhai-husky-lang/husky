@@ -7,8 +7,8 @@
                 ItemSynNodePathId {
                     data: ItemSynNodePathData::Submodule(
                         SubmoduleSynNodePathData {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmoduleItemPath(
+                            disambiguated_item_path: DisambiguatedItemPath {
+                                maybe_ambiguous_item_path: SubmoduleItemPath(
                                     ItemPathId(
                                         Id {
                                             value: 1,
@@ -31,8 +31,8 @@
                 ItemSynNodePathId {
                     data: ItemSynNodePathData::Submodule(
                         SubmoduleSynNodePathData {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmoduleItemPath(
+                            disambiguated_item_path: DisambiguatedItemPath {
+                                maybe_ambiguous_item_path: SubmoduleItemPath(
                                     ItemPathId(
                                         Id {
                                             value: 2,
@@ -55,8 +55,8 @@
                 ItemSynNodePathId {
                     data: ItemSynNodePathData::Submodule(
                         SubmoduleSynNodePathData {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmoduleItemPath(
+                            disambiguated_item_path: DisambiguatedItemPath {
+                                maybe_ambiguous_item_path: SubmoduleItemPath(
                                     ItemPathId(
                                         Id {
                                             value: 3,
@@ -79,8 +79,8 @@
                 ItemSynNodePathId {
                     data: ItemSynNodePathData::Submodule(
                         SubmoduleSynNodePathData {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmoduleItemPath(
+                            disambiguated_item_path: DisambiguatedItemPath {
+                                maybe_ambiguous_item_path: SubmoduleItemPath(
                                     ItemPathId(
                                         Id {
                                             value: 4,
@@ -103,8 +103,8 @@
                 ItemSynNodePathId {
                     data: ItemSynNodePathData::Submodule(
                         SubmoduleSynNodePathData {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmoduleItemPath(
+                            disambiguated_item_path: DisambiguatedItemPath {
+                                maybe_ambiguous_item_path: SubmoduleItemPath(
                                     ItemPathId(
                                         Id {
                                             value: 5,
@@ -127,8 +127,8 @@
                 ItemSynNodePathId {
                     data: ItemSynNodePathData::Submodule(
                         SubmoduleSynNodePathData {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmoduleItemPath(
+                            disambiguated_item_path: DisambiguatedItemPath {
+                                maybe_ambiguous_item_path: SubmoduleItemPath(
                                     ItemPathId(
                                         Id {
                                             value: 6,
@@ -151,8 +151,8 @@
                 ItemSynNodePathId {
                     data: ItemSynNodePathData::Submodule(
                         SubmoduleSynNodePathData {
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: SubmoduleItemPath(
+                            disambiguated_item_path: DisambiguatedItemPath {
+                                maybe_ambiguous_item_path: SubmoduleItemPath(
                                     ItemPathId(
                                         Id {
                                             value: 7,
@@ -170,13 +170,13 @@
     ),
     (
         ItemSynNodePath::MajorItem(
-            MajorItemSynNodePath::Fugitive(
-                FugitiveSynNodePath(`mnist_classifier::main`, `Val`, (0)),
+            MajorItemSynNodePath::Form(
+                FormSynNodePath(`mnist_classifier::main`, `Val`, (0)),
             ),
         ),
         Some(
             ItemSynNodeDefn {
-                body: 20,
+                body: 19,
                 syn_expr_region: SynExprRegion {
                     data: SynExprRegionData {
                         parent: Some(
@@ -185,15 +185,15 @@
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`mnist_classifier::main`, `Val`, (0)),
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`mnist_classifier::main`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
-                                    syn_expr_arena: Arena {
+                                    expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 1,
+                                                path_expr_idx: 0,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -203,7 +203,7 @@
                                                 ),
                                             },
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 2,
+                                                path_expr_idx: 1,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -213,8 +213,8 @@
                                                 ),
                                             },
                                             SynExprData::ExplicitApplication {
-                                                function_expr_idx: 1,
-                                                argument_expr_idx: 2,
+                                                function_expr_idx: 0,
+                                                argument_expr_idx: 1,
                                             },
                                         ],
                                     },
@@ -270,194 +270,194 @@
                                             data: [],
                                         },
                                     },
-                                    symbol_region: VariableRegionData {
+                                    variable_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [],
                                         },
                                         allow_self_type: False,
                                         allow_self_value: False,
                                         pattern_ty_constraints: [],
                                     },
-                                    syn_pattern_expr_roots: [],
-                                    syn_expr_roots: [
+                                    pattern_roots: [],
+                                    expr_roots: [
                                         SynExprRoot {
                                             kind: SynExprRootKind::ReturnType,
-                                            syn_expr_idx: 3,
+                                            syn_expr_idx: 2,
                                         },
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
-                                    syn_pattern_to_current_syn_symbol_map: [],
+                                    pattern_to_current_variable_map: [],
                                 },
                             },
                         ),
                         path: SynNodeRegionPath::Defn(
                             ItemSynNodePath::MajorItem(
-                                MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::main`, `Val`, (0)),
+                                MajorItemSynNodePath::Form(
+                                    FormSynNodePath(`mnist_classifier::main`, `Val`, (0)),
                                 ),
                             ),
                         ),
-                        syn_expr_arena: Arena {
+                        expr_arena: Arena {
                             data: [
                                 SynExprData::PrincipalEntityPath {
-                                    path_expr_idx: 1,
+                                    path_expr_idx: 0,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                             ),
                                         ),
                                     ),
                                 },
                                 SynExprData::Suffix {
-                                    opd: 1,
+                                    opd: 0,
                                     opr: UnveilOrComposeWithOption,
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         2,
                                     ),
                                 },
                                 SynExprData::PrincipalEntityPath {
-                                    path_expr_idx: 2,
+                                    path_expr_idx: 1,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                             ),
                                         ),
                                     ),
                                 },
                                 SynExprData::Suffix {
-                                    opd: 3,
+                                    opd: 2,
                                     opr: UnveilOrComposeWithOption,
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         4,
                                     ),
                                 },
                                 SynExprData::PrincipalEntityPath {
-                                    path_expr_idx: 3,
+                                    path_expr_idx: 2,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                             ),
                                         ),
                                     ),
                                 },
                                 SynExprData::Suffix {
-                                    opd: 5,
+                                    opd: 4,
                                     opr: UnveilOrComposeWithOption,
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         6,
                                     ),
                                 },
                                 SynExprData::PrincipalEntityPath {
-                                    path_expr_idx: 4,
+                                    path_expr_idx: 3,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                                             ),
                                         ),
                                     ),
                                 },
                                 SynExprData::Suffix {
-                                    opd: 7,
+                                    opd: 6,
                                     opr: UnveilOrComposeWithOption,
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         8,
                                     ),
                                 },
                                 SynExprData::PrincipalEntityPath {
-                                    path_expr_idx: 5,
+                                    path_expr_idx: 4,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                                             ),
                                         ),
                                     ),
                                 },
                                 SynExprData::Suffix {
-                                    opd: 9,
+                                    opd: 8,
                                     opr: UnveilOrComposeWithOption,
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         10,
                                     ),
                                 },
                                 SynExprData::PrincipalEntityPath {
-                                    path_expr_idx: 6,
+                                    path_expr_idx: 5,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                                             ),
                                         ),
                                     ),
                                 },
                                 SynExprData::Suffix {
-                                    opd: 11,
+                                    opd: 10,
                                     opr: UnveilOrComposeWithOption,
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         12,
                                     ),
                                 },
                                 SynExprData::PrincipalEntityPath {
-                                    path_expr_idx: 7,
+                                    path_expr_idx: 6,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                                             ),
                                         ),
                                     ),
                                 },
                                 SynExprData::Suffix {
-                                    opd: 13,
+                                    opd: 12,
                                     opr: UnveilOrComposeWithOption,
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         14,
                                     ),
                                 },
                                 SynExprData::PrincipalEntityPath {
-                                    path_expr_idx: 8,
+                                    path_expr_idx: 7,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                                             ),
                                         ),
                                     ),
                                 },
                                 SynExprData::Suffix {
-                                    opd: 15,
+                                    opd: 14,
                                     opr: UnveilOrComposeWithOption,
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         16,
                                     ),
                                 },
                                 SynExprData::PrincipalEntityPath {
-                                    path_expr_idx: 9,
+                                    path_expr_idx: 8,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                                             ),
                                         ),
                                     ),
                                 },
                                 SynExprData::Suffix {
-                                    opd: 17,
+                                    opd: 16,
                                     opr: UnveilOrComposeWithOption,
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         18,
                                     ),
                                 },
                                 SynExprData::PrincipalEntityPath {
-                                    path_expr_idx: 11,
+                                    path_expr_idx: 10,
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
                                             TypeVariantPath(
@@ -472,7 +472,7 @@
                                 },
                                 SynExprData::Block {
                                     stmts: ArenaIdxRange(
-                                        1..11,
+                                        0..10,
                                     ),
                                 },
                             ],
@@ -489,8 +489,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::digits::one::is_one`, `Val`),
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::one::is_one`, `Val`),
                                         ),
                                     ),
                                 },
@@ -504,8 +504,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                                         ),
                                     ),
                                 },
@@ -519,8 +519,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::digits::zero::is_zero`, `Val`),
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::zero::is_zero`, `Val`),
                                         ),
                                     ),
                                 },
@@ -534,8 +534,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::digits::seven::is_seven`, `Val`),
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                                         ),
                                     ),
                                 },
@@ -549,8 +549,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::digits::eight::is_eight`, `Val`),
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                                         ),
                                     ),
                                 },
@@ -564,8 +564,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::digits::three::is_three`, `Val`),
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::three::is_three`, `Val`),
                                         ),
                                     ),
                                 },
@@ -579,8 +579,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::digits::nine::is_nine`, `Val`),
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                                         ),
                                     ),
                                 },
@@ -594,8 +594,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                                         ),
                                     ),
                                 },
@@ -609,8 +609,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::digits::two::is_two`, `Val`),
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                                         ),
                                     ),
                                 },
@@ -630,7 +630,7 @@
                                     ),
                                 },
                                 SynPrincipalEntityPathExpr::Subitem {
-                                    parent: 10,
+                                    parent: 9,
                                     colon_colon_token: ColonColonRegionalToken(
                                         RegionalTokenIdx(
                                             20,
@@ -661,61 +661,61 @@
                         stmt_arena: Arena {
                             data: [
                                 SynStmtData::Eval {
-                                    expr_idx: 2,
+                                    expr_idx: 1,
                                     eol_semicolon: Ok(
                                         None,
                                     ),
                                 },
                                 SynStmtData::Eval {
-                                    expr_idx: 4,
+                                    expr_idx: 3,
                                     eol_semicolon: Ok(
                                         None,
                                     ),
                                 },
                                 SynStmtData::Eval {
-                                    expr_idx: 6,
+                                    expr_idx: 5,
                                     eol_semicolon: Ok(
                                         None,
                                     ),
                                 },
                                 SynStmtData::Eval {
-                                    expr_idx: 8,
+                                    expr_idx: 7,
                                     eol_semicolon: Ok(
                                         None,
                                     ),
                                 },
                                 SynStmtData::Eval {
-                                    expr_idx: 10,
+                                    expr_idx: 9,
                                     eol_semicolon: Ok(
                                         None,
                                     ),
                                 },
                                 SynStmtData::Eval {
-                                    expr_idx: 12,
+                                    expr_idx: 11,
                                     eol_semicolon: Ok(
                                         None,
                                     ),
                                 },
                                 SynStmtData::Eval {
-                                    expr_idx: 14,
+                                    expr_idx: 13,
                                     eol_semicolon: Ok(
                                         None,
                                     ),
                                 },
                                 SynStmtData::Eval {
-                                    expr_idx: 16,
+                                    expr_idx: 15,
+                                    eol_semicolon: Ok(
+                                        None,
+                                    ),
+                                },
+                                SynStmtData::Eval {
+                                    expr_idx: 17,
                                     eol_semicolon: Ok(
                                         None,
                                     ),
                                 },
                                 SynStmtData::Eval {
                                     expr_idx: 18,
-                                    eol_semicolon: Ok(
-                                        None,
-                                    ),
-                                },
-                                SynStmtData::Eval {
-                                    expr_idx: 19,
                                     eol_semicolon: Ok(
                                         None,
                                     ),
@@ -737,67 +737,67 @@
                                 data: [],
                             },
                         },
-                        symbol_region: VariableRegionData {
+                        variable_region: VariableRegionData {
                             inherited_syn_symbol_arena: Arena {
                                 data: [],
                             },
-                            current_syn_symbol_arena: Arena {
+                            current_variable_arena: Arena {
                                 data: [],
                             },
                             allow_self_type: False,
                             allow_self_value: False,
                             pattern_ty_constraints: [],
                         },
-                        syn_pattern_expr_roots: [],
-                        syn_expr_roots: [
+                        pattern_roots: [],
+                        expr_roots: [
                             SynExprRoot {
                                 kind: SynExprRootKind::EvalExpr,
-                                syn_expr_idx: 2,
+                                syn_expr_idx: 1,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::EvalExpr,
-                                syn_expr_idx: 4,
+                                syn_expr_idx: 3,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::EvalExpr,
-                                syn_expr_idx: 6,
+                                syn_expr_idx: 5,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::EvalExpr,
-                                syn_expr_idx: 8,
+                                syn_expr_idx: 7,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::EvalExpr,
-                                syn_expr_idx: 10,
+                                syn_expr_idx: 9,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::EvalExpr,
-                                syn_expr_idx: 12,
+                                syn_expr_idx: 11,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::EvalExpr,
-                                syn_expr_idx: 14,
+                                syn_expr_idx: 13,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::EvalExpr,
-                                syn_expr_idx: 16,
+                                syn_expr_idx: 15,
+                            },
+                            SynExprRoot {
+                                kind: SynExprRootKind::EvalExpr,
+                                syn_expr_idx: 17,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::EvalExpr,
                                 syn_expr_idx: 18,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::EvalExpr,
-                                syn_expr_idx: 19,
-                            },
-                            SynExprRoot {
                                 kind: SynExprRootKind::BlockExpr,
-                                syn_expr_idx: 20,
+                                syn_expr_idx: 19,
                             },
                         ],
                         has_self_lifetime: false,
                         has_self_place: false,
-                        syn_pattern_to_current_syn_symbol_map: [],
+                        pattern_to_current_variable_map: [],
                     },
                 },
             },

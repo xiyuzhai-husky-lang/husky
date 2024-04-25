@@ -1,6 +1,6 @@
-pub(crate) mod method_fn;
+pub(crate) mod method_ritchie;
 
-use self::{method_fn::MethodFnFlySignature, quary::FlyQuary};
+use self::{method_ritchie::MethodFnFlySignature, quary::FlyQuary};
 use super::*;
 
 #[salsa::derive_debug_with_db]
@@ -17,8 +17,8 @@ impl MemberSignature for MethodFlySignature {
     }
 }
 
-// impl From<&TraitForTypeMethodFnEtherealSignature> for MethodFlySignature {
-//     fn from(sig: &TraitForTypeMethodFnEtherealSignature) -> Self {
+// impl From<&TraitForTypeMethodRitchieEtherealSignature> for MethodFlySignature {
+//     fn from(sig: &TraitForTypeMethodRitchieEtherealSignature) -> Self {
 //         MethodFlySignature::MethodFn(sig.into())
 //     }
 // }

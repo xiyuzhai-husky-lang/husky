@@ -5,9 +5,7 @@ AstSheet {
             AstData::TypeVariant {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        2,
-                    ),
+                    raw: 1,
                 },
                 variant_path: TypeVariantPath(
                     ItemPathId(
@@ -37,9 +35,7 @@ AstSheet {
             AstData::TypeVariant {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        3,
-                    ),
+                    raw: 2,
                 },
                 variant_path: TypeVariantPath(
                     ItemPathId(
@@ -69,9 +65,7 @@ AstSheet {
             AstData::TypeVariant {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        4,
-                    ),
+                    raw: 3,
                 },
                 variant_path: TypeVariantPath(
                     ItemPathId(
@@ -101,9 +95,7 @@ AstSheet {
             AstData::TypeVariant {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        5,
-                    ),
+                    raw: 4,
                 },
                 variant_path: TypeVariantPath(
                     ItemPathId(
@@ -133,9 +125,7 @@ AstSheet {
             AstData::TypeVariant {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        6,
-                    ),
+                    raw: 5,
                 },
                 variant_path: TypeVariantPath(
                     ItemPathId(
@@ -165,9 +155,7 @@ AstSheet {
             AstData::TypeVariant {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        7,
-                    ),
+                    raw: 6,
                 },
                 variant_path: TypeVariantPath(
                     ItemPathId(
@@ -197,9 +185,7 @@ AstSheet {
             AstData::TypeVariant {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        8,
-                    ),
+                    raw: 7,
                 },
                 variant_path: TypeVariantPath(
                     ItemPathId(
@@ -229,9 +215,7 @@ AstSheet {
             AstData::TypeVariant {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        9,
-                    ),
+                    raw: 8,
                 },
                 variant_path: TypeVariantPath(
                     ItemPathId(
@@ -261,9 +245,7 @@ AstSheet {
             AstData::TypeVariant {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        10,
-                    ),
+                    raw: 9,
                 },
                 variant_path: TypeVariantPath(
                     ItemPathId(
@@ -293,9 +275,7 @@ AstSheet {
             AstData::TypeVariant {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        11,
-                    ),
+                    raw: 10,
                 },
                 variant_path: TypeVariantPath(
                     ItemPathId(
@@ -325,9 +305,7 @@ AstSheet {
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        15,
-                    ),
+                    raw: 14,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Protected,
@@ -362,9 +340,7 @@ AstSheet {
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        17,
-                    ),
+                    raw: 16,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
@@ -403,9 +379,7 @@ AstSheet {
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        19,
-                    ),
+                    raw: 18,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Protected,
@@ -438,9 +412,7 @@ AstSheet {
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        22,
-                    ),
+                    raw: 21,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Protected,
@@ -475,9 +447,7 @@ AstSheet {
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        24,
-                    ),
+                    raw: 23,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
@@ -516,9 +486,7 @@ AstSheet {
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        26,
-                    ),
+                    raw: 25,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Protected,
@@ -551,9 +519,7 @@ AstSheet {
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        1,
-                    ),
+                    raw: 0,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
@@ -589,7 +555,7 @@ AstSheet {
                     variants: Some(
                         TypeVariants {
                             ast_idx_range: ArenaIdxRange(
-                                1..11,
+                                0..10,
                             ),
                         },
                     ),
@@ -598,18 +564,14 @@ AstSheet {
             AstData::Attr {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        12,
-                    ),
+                    raw: 11,
                 },
                 ident: `derive`,
             },
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        13,
-                    ),
+                    raw: 12,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
@@ -648,13 +610,26 @@ AstSheet {
             AstData::ImplBlock {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        14,
-                    ),
+                    raw: 13,
                 },
                 items: Some(
                     TraitForType(
                         TraitForTypeItems {
+                            ast_idx_range: ArenaIdxRange(
+                                10..11,
+                            ),
+                        },
+                    ),
+                ),
+            },
+            AstData::ImplBlock {
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: 15,
+                },
+                items: Some(
+                    Type(
+                        TypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 11..12,
                             ),
@@ -665,32 +640,13 @@ AstSheet {
             AstData::ImplBlock {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        16,
-                    ),
-                },
-                items: Some(
-                    Type(
-                        TypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                12..13,
-                            ),
-                        },
-                    ),
-                ),
-            },
-            AstData::ImplBlock {
-                token_verse_idx: TokenVerseIdx {
-                    lcurl: None,
-                    raw: ShiftedU32(
-                        18,
-                    ),
+                    raw: 17,
                 },
                 items: Some(
                     TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                13..14,
+                                12..13,
                             ),
                         },
                     ),
@@ -699,9 +655,7 @@ AstSheet {
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        20,
-                    ),
+                    raw: 19,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
@@ -740,13 +694,26 @@ AstSheet {
             AstData::ImplBlock {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        21,
-                    ),
+                    raw: 20,
                 },
                 items: Some(
                     TraitForType(
                         TraitForTypeItems {
+                            ast_idx_range: ArenaIdxRange(
+                                13..14,
+                            ),
+                        },
+                    ),
+                ),
+            },
+            AstData::ImplBlock {
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: 22,
+                },
+                items: Some(
+                    Type(
+                        TypeItems {
                             ast_idx_range: ArenaIdxRange(
                                 14..15,
                             ),
@@ -757,32 +724,13 @@ AstSheet {
             AstData::ImplBlock {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        23,
-                    ),
-                },
-                items: Some(
-                    Type(
-                        TypeItems {
-                            ast_idx_range: ArenaIdxRange(
-                                15..16,
-                            ),
-                        },
-                    ),
-                ),
-            },
-            AstData::ImplBlock {
-                token_verse_idx: TokenVerseIdx {
-                    lcurl: None,
-                    raw: ShiftedU32(
-                        25,
-                    ),
+                    raw: 24,
                 },
                 items: Some(
                     TraitForType(
                         TraitForTypeItems {
                             ast_idx_range: ArenaIdxRange(
-                                16..17,
+                                15..16,
                             ),
                         },
                     ),
@@ -791,9 +739,7 @@ AstSheet {
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        27,
-                    ),
+                    raw: 26,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Pub {
@@ -806,8 +752,8 @@ AstSheet {
                     visibility: Scope::Pub,
                 },
                 item_kind: EntityKind::MajorItem {
-                    module_item_kind: MajorItemKind::Fugitive(
-                        MajorFugitiveKind::Val,
+                    module_item_kind: MajorItemKind::Form(
+                        MajorFormKind::Val,
                     ),
                     connection: MajorItemConnectionKind::Connected,
                 },
@@ -824,18 +770,24 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: DefnBlock::Fugitive {
-                    path: FugitivePath(`mnist::input`, `Val`),
+                block: DefnBlock::Form {
+                    path: FormPath(`mnist::input`, `Val`),
                     body: None,
                 },
             },
         ],
     },
     top_level_asts: ArenaIdxRange(
-        17..28,
+        16..27,
     ),
     nested_top_level_asts: [],
     siblings: [
+        ArenaIdxRange(
+            10..10,
+        ),
+        ArenaIdxRange(
+            10..11,
+        ),
         ArenaIdxRange(
             11..11,
         ),
@@ -870,13 +822,7 @@ AstSheet {
             16..16,
         ),
         ArenaIdxRange(
-            16..17,
-        ),
-        ArenaIdxRange(
-            17..17,
-        ),
-        ArenaIdxRange(
-            17..28,
+            16..27,
         ),
     ],
 }

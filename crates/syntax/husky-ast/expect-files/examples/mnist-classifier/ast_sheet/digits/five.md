@@ -5,18 +5,14 @@ AstSheet {
             AstData::BasicStmtOrBranch {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        3,
-                    ),
+                    raw: 2,
                 },
                 body: None,
             },
             AstData::Use {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        1,
-                    ),
+                    raw: 0,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Protected,
@@ -29,9 +25,7 @@ AstSheet {
             AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
-                    raw: ShiftedU32(
-                        2,
-                    ),
+                    raw: 1,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::PubUnder {
@@ -63,8 +57,8 @@ AstSheet {
                     ),
                 },
                 item_kind: EntityKind::MajorItem {
-                    module_item_kind: MajorItemKind::Fugitive(
-                        MajorFugitiveKind::Val,
+                    module_item_kind: MajorItemKind::Form(
+                        MajorFormKind::Val,
                     ),
                     connection: MajorItemConnectionKind::Connected,
                 },
@@ -81,12 +75,12 @@ AstSheet {
                     ),
                     drained: false,
                 },
-                block: DefnBlock::Fugitive {
-                    path: FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+                block: DefnBlock::Form {
+                    path: FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                     body: Some(
-                        FugitiveBody {
+                        FormBody {
                             ast_idx_range: ArenaIdxRange(
-                                1..2,
+                                0..1,
                             ),
                         },
                     ),
@@ -95,18 +89,18 @@ AstSheet {
         ],
     },
     top_level_asts: ArenaIdxRange(
-        2..4,
+        1..3,
     ),
     nested_top_level_asts: [],
     siblings: [
         ArenaIdxRange(
-            1..1,
+            0..0,
         ),
         ArenaIdxRange(
-            1..2,
+            0..1,
         ),
         ArenaIdxRange(
-            2..4,
+            1..3,
         ),
     ],
 }

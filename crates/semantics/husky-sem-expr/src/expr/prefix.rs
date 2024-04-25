@@ -1,0 +1,139 @@
+use super::*;
+use husky_sem_opr::prefix::SemaPrefixOpr;
+use husky_syn_opr::SynPrefixOpr;
+
+impl<'a> SemaExprBuilder<'a> {
+    pub(super) fn build_prefix_sem_expr(
+        &mut self,
+        expr_idx: SynExprIdx,
+        opr: SynPrefixOpr,
+        opd: SynExprIdx,
+        final_destination: FinalDestination,
+    ) -> (
+        SemaExprDataResult<(SemaExprIdx, SemaPrefixOpr)>,
+        SemaExprTypeResult<FlyTerm>,
+    ) {
+        match opr {
+            SynPrefixOpr::Minus => {
+                let (opd_sem_expr_idx, opd_ty) =
+                    self.build_sem_expr_with_ty(opd, ExpectAnyOriginal);
+                let Some(opd_ty) = opd_ty else {
+                    return (
+                        Err(todo!()),
+                        Err(DerivedSemaExprTypeError::PrefixOperandTypeNotInferred.into()),
+                    );
+                };
+                match opd_ty.data(self) {
+                    FlyTermData::Literal(_) => todo!(),
+                    FlyTermData::TypeOntology {
+                        ty_path,
+                        refined_ty_path,
+                        ty_arguments: arguments,
+                        ty_ethereal_term,
+                    } => match refined_ty_path {
+                        Left(PreludeTypePath::Num(num_ty_path)) => {
+                            (Ok((opd_sem_expr_idx, SemaPrefixOpr::Minus)), Ok(opd_ty))
+                        }
+                        _ => todo!(),
+                    },
+                    FlyTermData::Curry {
+                        toolchain,
+                        curry_kind,
+                        variance,
+                        parameter_hvar,
+                        parameter_ty,
+                        return_ty,
+                        ty_ethereal_term,
+                    } => todo!(),
+                    FlyTermData::Hole(hole_kind, _) => match hole_kind {
+                        HoleKind::UnspecifiedIntegerType | HoleKind::UnspecifiedFloatType => {
+                            (Ok((opd_sem_expr_idx, SemaPrefixOpr::Minus)), Ok(opd_ty))
+                        }
+                        HoleKind::ImplicitType => todo!(),
+                        HoleKind::AnyOriginal => todo!(),
+                        HoleKind::AnyDerived => todo!(),
+                    },
+                    FlyTermData::Sort(_) => todo!(),
+                    FlyTermData::Ritchie {
+                        ritchie_kind,
+                        parameter_contracted_tys,
+                        return_ty,
+                        ..
+                    } => todo!(),
+                    FlyTermData::SymbolicVariable { .. } => todo!(),
+                    FlyTermData::LambdaVariable { .. } => todo!(),
+                    FlyTermData::TypeVariant { path } => todo!(),
+                }
+            }
+            SynPrefixOpr::Not => {
+                let opd_sem_expr_idx = self.build_sem_expr(opd, ExpectConditionType);
+                // here we differs from Rust, but agrees with C
+                (
+                    Ok((opd_sem_expr_idx, SemaPrefixOpr::Not)),
+                    Ok(self.term_menu().bool_ty_ontology().into()),
+                )
+            }
+            SynPrefixOpr::Tilde => match final_destination {
+                FinalDestination::Sort => {
+                    let (opd_sem_expr_idx, ty_result) = self.calc_function_application_expr_ty_aux(
+                        expr_idx,
+                        Variance::Covariant,
+                        None,
+                        self.term_menu().ty0().into(),
+                        self.term_menu().ty0().into(),
+                        opd,
+                    );
+                    (Ok((opd_sem_expr_idx, SemaPrefixOpr::LeashType)), ty_result)
+                }
+                FinalDestination::TypeOntology
+                | FinalDestination::AnyOriginal
+                | FinalDestination::AnyDerived => {
+                    let (opd_sem_expr_idx, opd_ty) =
+                        self.build_sem_expr_with_ty(opd, ExpectIntType);
+                    (
+                        Ok((opd_sem_expr_idx, SemaPrefixOpr::BitNot)),
+                        self.calc_bitnot_expr_ty(opd_ty),
+                    )
+                }
+                FinalDestination::Ritchie(_) => todo!(),
+            },
+            SynPrefixOpr::Ref => {
+                let opd_sem_expr_idx = self.build_sem_expr(opd, self.expect_ty0_subtype());
+                // Should consider more cases, could also be taking references
+                (
+                    Ok((opd_sem_expr_idx, SemaPrefixOpr::RefType)),
+                    Ok(self.term_menu().ty0().into()),
+                )
+            }
+            SynPrefixOpr::Option => {
+                // todo!("consider universe");
+                let opd_sem_expr_idx = self.build_sem_expr(opd, self.expect_ty0_subtype());
+                (
+                    Ok((opd_sem_expr_idx, SemaPrefixOpr::OptionType)),
+                    Ok(self.term_menu().ty0().into()),
+                )
+            }
+        }
+    }
+
+    fn calc_bitnot_expr_ty(&mut self, opd_ty: Option<FlyTerm>) -> SemaExprTypeResult<FlyTerm> {
+        let opd_ty = opd_ty.ok_or(DerivedSemaExprTypeError::BitNotOperandTypeNotInferred)?;
+        match opd_ty.data(self) {
+            FlyTermData::TypeOntology {
+                refined_ty_path: Left(prelude_ty_path),
+                ..
+            } => match prelude_ty_path {
+                PreludeTypePath::Num(PreludeNumTypePath::Int(
+                    PreludeIntTypePath::R8
+                    | PreludeIntTypePath::R16
+                    | PreludeIntTypePath::R32
+                    | PreludeIntTypePath::R64
+                    | PreludeIntTypePath::R128
+                    | PreludeIntTypePath::RSize,
+                )) => Ok(opd_ty),
+                _ => Err(OriginalSemaExprTypeError::BitOperationOnlyWorksForRawBitsOrCustom)?,
+            },
+            _ => todo!(),
+        }
+    }
+}

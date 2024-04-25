@@ -37,9 +37,9 @@ use smallvec::*;
 #[salsa::jar]
 pub struct EthTermJar(
     // symbol
-    crate::term::svar::EthSvar,
+    crate::term::symbolic_variable::EthSymbolicVariable,
     // hvar
-    crate::term::hvar::EthHvar,
+    crate::term::lambda_variable::EthLambdaVariable,
     // curry
     crate::term::curry::EthCurry,
     crate::term::curry::term_curry_from_dec,
@@ -56,11 +56,12 @@ pub struct EthTermJar(
     crate::term::application::ethereal_term_from_dec_term_application,
     crate::term::application::ethereal_term_application_declarative_ty,
     // - application reduction
-    crate::term::application::reduction::reduce_term_application,
+    crate::term::application::reduction::reduce_eth_application,
     // - application expansion
     crate::term::application::EtherealApplicationArguments,
     // ty as trait item
     crate::term::ty_as_trai_item::EthTypeAsTraitItem,
+    crate::term::ty_as_trai_item::reduce_eth_ty_as_trai_item,
     // trait constraint
     crate::term::trai_constraint::EthTraitConstraint,
     term_menu,

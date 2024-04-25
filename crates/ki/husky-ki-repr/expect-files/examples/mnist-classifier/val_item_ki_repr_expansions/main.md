@@ -1,7 +1,7 @@
 ```rust
 [
     (
-        FugitivePath(`mnist_classifier::main`, `Val`),
+        FormPath(`mnist_classifier::main`, `Val`),
         None,
     ),
 ]

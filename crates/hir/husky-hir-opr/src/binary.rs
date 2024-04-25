@@ -1,5 +1,5 @@
 use husky_opr::*;
-use husky_sema_opr::binary::SemaBinaryOpr;
+use husky_sem_opr::binary::SemaBinaryOpr;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum HirBinaryOpr {

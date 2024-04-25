@@ -3,13 +3,13 @@ pub mod idx;
 
 use self::{field::FieldPlace, idx::PlaceIdx};
 use crate::*;
-use husky_eth_term::term::svar::EthSvar;
+use husky_eth_term::term::symbolic_variable::EthSymbolicVariable;
 
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum EthPlace {
     Idx(PlaceIdx),
-    Svar(EthSvar),
+    SymbolicVariable(EthSymbolicVariable),
     Field(FieldPlace),
 }
 
@@ -19,7 +19,7 @@ impl EthPlace {
 
         match self {
             EthPlace::Idx(idx) => format!("{:?}", registry[idx].debug_with(db)),
-            EthPlace::Svar(_) => todo!(),
+            EthPlace::SymbolicVariable(_) => todo!(),
             EthPlace::Field(_) => todo!(),
         }
     }

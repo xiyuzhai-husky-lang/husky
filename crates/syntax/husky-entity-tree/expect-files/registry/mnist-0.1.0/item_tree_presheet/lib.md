@@ -12,8 +12,8 @@ EntityTreePresheet {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`mnist::MnistLabel`, `Enum`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -23,7 +23,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 17,
+                        ast_idx: 16,
                         ident_token: IdentToken {
                             ident: `MnistLabel`,
                             token_idx: TokenIdx(
@@ -35,7 +35,7 @@ EntityTreePresheet {
                             variants: Some(
                                 TypeVariants {
                                     ast_idx_range: ArenaIdxRange(
-                                        1..11,
+                                        0..10,
                                     ),
                                 },
                             ),
@@ -49,8 +49,8 @@ EntityTreePresheet {
                                 data: ItemSynNodePathData::MajorItem(
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: TypePath(`mnist::MnistLabel`, `Enum`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -72,8 +72,8 @@ EntityTreePresheet {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`mnist::BinaryImage28`, `Extern`),
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -83,7 +83,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 19,
+                        ast_idx: 18,
                         ident_token: IdentToken {
                             ident: `BinaryImage28`,
                             token_idx: TokenIdx(
@@ -103,8 +103,8 @@ EntityTreePresheet {
                                 data: ItemSynNodePathData::MajorItem(
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist::BinaryImage28`, `Extern`),
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -126,8 +126,8 @@ EntityTreePresheet {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`mnist::BinaryGrid28`, `Extern`),
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -137,7 +137,7 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 23,
+                        ast_idx: 22,
                         ident_token: IdentToken {
                             ident: `BinaryGrid28`,
                             token_idx: TokenIdx(
@@ -157,8 +157,8 @@ EntityTreePresheet {
                                 data: ItemSynNodePathData::MajorItem(
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist::BinaryGrid28`, `Extern`),
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -174,26 +174,26 @@ EntityTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
-                        syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`mnist::input`, `Val`, (0)),
+                        syn_node_path: MajorItemSynNodePath::Form(
+                            FormSynNodePath(`mnist::input`, `Val`, (0)),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 27,
+                        ast_idx: 26,
                         ident_token: IdentToken {
                             ident: `input`,
                             token_idx: TokenIdx(
                                 115,
                             ),
                         },
-                        block: DefnBlock::Fugitive {
-                            path: FugitivePath(`mnist::input`, `Val`),
+                        block: DefnBlock::Form {
+                            path: FormPath(`mnist::input`, `Val`),
                             body: None,
                         },
                     },
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`mnist::input`, `Val`, (0)),
+                    MajorItemSynNodePath::Form(
+                        FormSynNodePath(`mnist::input`, `Val`, (0)),
                     ),
                 ),
                 ident: `input`,

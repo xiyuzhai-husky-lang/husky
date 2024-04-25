@@ -8,7 +8,7 @@ pub use husky_standard_value::{
 
 use super::*;
 use husky_decl_macro_utils::for_all_ritchie_tys;
-use husky_task_interface::ki_repr::ValDomainReprInterface;
+use husky_task_interface::{ki_repr::KiDomainReprInterface, VmArgumentValue};
 use husky_value_protocol::presentation::EnumU8ValuePresenter;
 
 // ad hoc
@@ -43,7 +43,7 @@ where
         /// it's the wrapper's responsibility to properly set ctx to that with generic pedestal
         gn_generic_wrapper: fn(
             DevEvalContext<LinkageImpl<Pedestal>>,
-            ValDomainReprInterface,
+            KiDomainReprInterface,
             &[KiArgumentReprInterface],
         ) -> StandardLinkageImplKiControlFlow,
         /// no need to set ctx
@@ -128,6 +128,14 @@ where
         }
     }
 
+    fn eval_vm(
+        self,
+        arguments: Vec<VmArgumentValue<Self>>,
+        db: &dyn std::any::Any,
+    ) -> husky_task_interface::vm_control_flow::LinkageImplVmControlFlow<Self> {
+        todo!()
+    }
+
     fn enum_u8_value_presenter(self) -> EnumU8ValuePresenter {
         match self {
             LinkageImpl::EnumU8ValuePresenter { presenter } => presenter,
@@ -155,7 +163,7 @@ pub trait IsGnItem {
 
     /// compute `generic_pedestal` here for efficiency
     fn train(
-        val_domain_repr: ValDomainReprInterface,
+        ki_domain_repr: KiDomainReprInterface,
         val_argument_reprs: &[KiArgumentReprInterface],
     ) -> LinkageImplKiControlFlow<Self::LinkageImpl, Self::ValueAtGenericPedestal>;
 
@@ -175,13 +183,13 @@ macro_rules! gn_linkage_impl {
         /// it's the counterpart of generic point in algebraic geometry
         fn gn_generic_wrapper(
             ctx: __DevEvalContext,
-            val_domain_repr: __ValDomainReprInterface,
+            ki_domain_repr: __ValDomainReprInterface,
             val_argument_reprs: &[__KiArgumentReprInterface],
         ) -> __KiControlFlow {
             __with_dev_eval_context(ctx, || {
                 __KiControlFlow::Continue(
                     __ValueLeashTest(<$gn_item as __IsGnItem>::train(
-                        val_domain_repr,
+                        ki_domain_repr,
                         val_argument_reprs,
                     )?)
                     .into_value(),

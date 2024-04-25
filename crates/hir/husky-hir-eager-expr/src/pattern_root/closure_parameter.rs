@@ -1,6 +1,6 @@
 use crate::{HirEagerPatternIdx, ToHirEager};
 use husky_hir_ty::HirType;
-use husky_sema_expr::obelisks::closure_parameter::ClosureParameterObelisk;
+use husky_sem_expr::obelisks::closure_parameter::ClosureParameterObelisk;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum HirEagerClosureParameterPattern {

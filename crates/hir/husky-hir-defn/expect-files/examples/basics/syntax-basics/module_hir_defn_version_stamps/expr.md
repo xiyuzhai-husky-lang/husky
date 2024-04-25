@@ -2,8 +2,8 @@
 [
     (
         MajorItem(
-            Fugitive(
-                FugitivePath(
+            Form(
+                MajorFormPath(
                     ItemPathId(
                         Id {
                             value: 15,
@@ -16,7 +16,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 2,
+                        value: 7,
                     },
                 ),
             ),
@@ -24,8 +24,8 @@
     ),
     (
         MajorItem(
-            Fugitive(
-                FugitivePath(
+            Form(
+                MajorFormPath(
                     ItemPathId(
                         Id {
                             value: 16,
@@ -38,7 +38,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 3,
+                        value: 8,
                     },
                 ),
             ),
@@ -46,8 +46,8 @@
     ),
     (
         MajorItem(
-            Fugitive(
-                FugitivePath(
+            Form(
+                MajorFormPath(
                     ItemPathId(
                         Id {
                             value: 17,
@@ -60,7 +60,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 4,
+                        value: 9,
                     },
                 ),
             ),

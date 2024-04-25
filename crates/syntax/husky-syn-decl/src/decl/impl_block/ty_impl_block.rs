@@ -88,7 +88,7 @@ impl TypeImplBlockSynDecl {
         db: &::salsa::Db,
         path: TypeImplBlockPath,
         syn_node_decl: TypeImplBlockSynNodeDecl,
-    ) -> DeclResult<Self> {
+    ) -> SynDeclResult<Self> {
         let template_parameters = syn_node_decl
             .template_parameter_decl_list(db)
             .as_ref()?
@@ -116,7 +116,7 @@ impl TypeImplBlockSynDecl {
 impl HasSynDecl for TypeImplBlockPath {
     type Decl = TypeImplBlockSynDecl;
 
-    fn syn_decl(self, db: &::salsa::Db) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &::salsa::Db) -> SynDeclResult<Self::Decl> {
         ty_impl_block_syn_decl(db, self)
     }
 }
@@ -127,7 +127,7 @@ pub(crate) fn ty_impl_block_syn_decl(
     // here use path instead of syn_node_path because salsa doesn't support use wrapper type by default
     // maybe add AsId carefully
     path: TypeImplBlockPath,
-) -> DeclResult<TypeImplBlockSynDecl> {
+) -> SynDeclResult<TypeImplBlockSynDecl> {
     let syn_node_path = path.syn_node_path(db);
     let syn_node_decl = syn_node_path.syn_node_decl(db);
     TypeImplBlockSynDecl::from_node_decl(db, path, syn_node_decl)

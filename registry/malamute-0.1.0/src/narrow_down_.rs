@@ -86,7 +86,7 @@ where
     type ValueAtGenericPedestal = NarrowDownInternal<Label>;
 
     fn train(
-        val_domain_repr: __ValDomainReprInterface,
+        ki_domain_repr: __ValDomainReprInterface,
         val_argument_reprs: &[__KiArgumentReprInterface],
     ) -> __KiControlFlow<Self::ValueAtGenericPedestal> {
         debug_assert_eq!(val_argument_reprs.len(), 3);
@@ -107,7 +107,7 @@ where
         };
         debug_assert_eq!(runtime_constants.len(), 1);
         let label: Label = __eval_val_runtime_constant(runtime_constants[0]);
-        let fvf = FlagVectorField::from_features(val_domain_repr, features, label)?;
+        let fvf = FlagVectorField::from_features(ki_domain_repr, features, label)?;
         // let fvf = FlagVectorField::from_registers(&opds[0], &opds[2..], &labels)?;
         // let ntrim = opds[1].value().downcast_i32();
         __KiControlFlow::Continue(NarrowDownInternal {

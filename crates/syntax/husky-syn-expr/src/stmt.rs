@@ -44,7 +44,7 @@ pub enum SynStmtData {
     ForBetween {
         for_token: StmtForRegionalToken,
         particulars: SynForBetweenParticulars,
-        for_loop_var_symbol_idx: CurrentSynSymbolIdx,
+        for_loop_var_symbol_idx: CurrentVariableIdx,
         eol_colon: SynExprResult<EolRegionalToken>,
         block: SynStmtIdxRange,
     },
@@ -93,7 +93,7 @@ pub type SynStmtMap<V> = ArenaMap<SynStmtData, V>;
 
 impl<'a> SynExprContext<'a> {
     pub(crate) fn parse_stmts(&mut self, body: DefnAstIdxRange) -> SynStmtIdxRange {
-        let block_end = self.fugitive_body_end(body);
+        let block_end = self.form_body_end(body);
         let stmts = body
             .into_iter()
             .map(|ast_idx| self.parse_stmt(ast_idx, block_end))

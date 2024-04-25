@@ -1,7 +1,7 @@
 mod any_derived;
 mod any_original;
 mod casting;
-mod coersion;
+mod coercion;
 mod condition_ty;
 mod curry_destination;
 mod final_destination;
@@ -15,7 +15,7 @@ mod subtype;
 pub use self::any_derived::*;
 pub use self::any_original::*;
 pub use self::casting::*;
-pub use self::coersion::*;
+pub use self::coercion::*;
 pub use self::condition_ty::*;
 pub use self::curry_destination::*;
 pub use self::final_destination::*;
@@ -38,7 +38,7 @@ use thiserror::Error;
 #[enum_class::from_variants]
 pub enum Expectation {
     Casting(ExpectCasting),
-    Coersion(ExpectCoersion),
+    Coercion(ExpectCoercion),
     EqsSort(ExpectSort),
     LoopVariableType,
     EqsExactly(ExpectSubtypeOrEqual),
@@ -67,7 +67,7 @@ impl Expectation {
         }
         match self {
             Expectation::Casting(epn) => epn.resolve(db, terms, state),
-            Expectation::Coersion(epn) => epn.resolve(db, terms, state),
+            Expectation::Coercion(epn) => epn.resolve(db, terms, state),
             Expectation::EqsSort(epn) => epn.resolve(db, terms, state),
             Expectation::LoopVariableType => todo!(),
             Expectation::EqsFunctionType(epn) => epn.resolve(db, terms, state),
@@ -192,7 +192,7 @@ pub type FlyTermExpectationIdx = ArenaIdx<FlyTermExpectationEntry>;
 #[enum_class::from_variants]
 pub enum ExpectationOutcome {
     ExplicitlyConvertible(ExpectCastingOutcome),
-    Coersion(ExpectCoersionOutcome),
+    Coercion(ExpectCoercionOutcome),
     EqsSort(Universe),
     Subtype(ExpectSubtypeOutcome),
     EqsFunctionCallType(ExpectEqsFunctionTypeOutcome),
@@ -259,8 +259,8 @@ pub enum OriginalFlyTermExpectationError {
         expected_path: TypePath,
         expectee_path: TypePath,
     },
-    #[error("type path mismatch for coersion")]
-    TypePathMismatchForCoersion {
+    #[error("type path mismatch for coercion")]
+    TypePathMismatchForCoercion {
         contract: Contract,
         ty_expected: FlyTerm,
         expectee: FlyTerm,
@@ -273,8 +273,8 @@ pub enum OriginalFlyTermExpectationError {
     ExpectedSubtype { expectee: FlyTerm },
     #[error("expected function type")]
     ExpectedFunctionType,
-    #[error("ExpectedCoersion")]
-    ExpectedCoersion {
+    #[error("ExpectedCoercion")]
+    ExpectedCoercion {
         expectee: FlyTerm,
         contract: Contract,
         expected: FlyTerm,

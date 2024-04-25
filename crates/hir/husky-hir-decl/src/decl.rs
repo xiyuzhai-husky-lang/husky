@@ -32,7 +32,7 @@ impl HasHirDecl for ItemPath {
             ItemPath::AssocItem(path) => path.hir_decl(db)?.into(),
             ItemPath::TypeVariant(_, path) => path.hir_decl(db)?.into(),
             ItemPath::ImplBlock(path) => path.hir_decl(db)?.into(),
-            ItemPath::Attr(_, _) => todo!(),
+            ItemPath::Attr(_, path) => path.hir_decl(db)?.into(),
         })
     }
 }
@@ -56,8 +56,8 @@ impl HirDecl {
             HirDecl::MajorItem(decl) => decl.template_parameters(db),
             HirDecl::ImplBlock(decl) => Some(decl.template_parameters(db)),
             HirDecl::AssocItem(decl) => decl.template_parameters(db),
-            HirDecl::TypeVariant(_decl) => None,
-            HirDecl::Attr(_) => todo!(),
+            HirDecl::TypeVariant(_) => None,
+            HirDecl::Attr(_) => None,
         }
     }
 

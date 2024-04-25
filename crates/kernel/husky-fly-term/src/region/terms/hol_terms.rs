@@ -274,7 +274,7 @@ impl FlyTerms {
     }
 
     fn fill_hole_aux(&mut self, hole_idx: usize, term: FlyTerm, db: &::salsa::Db) {
-        let hole_entry = &mut self.hollow_terms.entries[hole_idx];
+        let hole_entry = &mut self.hol_terms.entries[hole_idx];
         match hole_entry.data {
             HolTermData::Hole { fill: Some(_), .. } => unreachable!(),
             HolTermData::Hole { ref mut fill, .. } => *fill = Some(term),
@@ -291,7 +291,7 @@ impl FlyTerms {
             FlyTermBase::Hol(_) => (),
             FlyTermBase::Place => todo!(),
         }
-        self.hollow_terms.update_entries(db, &mut self.solid_terms)
+        self.hol_terms.update_entries(db, &mut self.sol_terms)
     }
 
     pub(crate) fn fill_hole_by_force(
@@ -300,7 +300,7 @@ impl FlyTerms {
         db: &::salsa::Db,
         term_menu: &EthTermMenu,
     ) {
-        let hole_entry = &mut self.hollow_terms.entries[hole.idx()];
+        let hole_entry = &mut self.hol_terms.entries[hole.idx()];
         let HolTermData::Hole { hole_kind, .. } = hole_entry.data else {
             unreachable!()
         };
@@ -317,8 +317,8 @@ impl FlyTerms {
 
     pub(in crate::region) fn fill_all_holes(&mut self, db: &::salsa::Db, term_menu: &EthTermMenu) {
         // we know that no new holes are generated
-        for idx in 0..self.hollow_terms.entries.len() {
-            match self.hollow_terms.entries[idx].data {
+        for idx in 0..self.hol_terms.entries.len() {
+            match self.hol_terms.entries[idx].data {
                 HolTermData::Hole {
                     hole_source,
                     hole_kind,

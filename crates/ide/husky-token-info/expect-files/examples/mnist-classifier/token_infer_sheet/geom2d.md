@@ -8,7 +8,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Trait(
                                 TraitPath(`core::fmt::Debug`),
@@ -19,6 +19,26 @@ Ok(
                         EntityPath::MajorItem(
                             MajorItemPath::Trait(
                                 TraitPath(`core::fmt::Debug`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::clone::Clone`),
                             ),
                         ),
                     ),
@@ -29,26 +49,6 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         2,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Trait(
-                                TraitPath(`core::clone::Clone`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Trait(
-                                TraitPath(`core::clone::Clone`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        3,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Trait(
                                 TraitPath(`core::visual::Visualize`),
@@ -78,8 +78,8 @@ Ok(
                                         data: ItemSynNodePathData::MajorItem(
                                             MajorItemSynNodePathData::Type(
                                                 TypeSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -102,11 +102,11 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::TemplateParameter(
-                        1,
+                        0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::FieldVariable {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::FieldVariable {
                             ident_token: IdentRegionalToken {
                                 ident: `x`,
                                 regional_token_idx: RegionalTokenIdx(
@@ -122,7 +122,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`core::num::f32`, `Extern`),
@@ -142,11 +142,11 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::TemplateParameter(
-                        2,
+                        1,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::FieldVariable {
+                        current_variable_idx: 1,
+                        current_variable_kind: CurrentVariableKind::FieldVariable {
                             ident_token: IdentRegionalToken {
                                 ident: `y`,
                                 regional_token_idx: RegionalTokenIdx(
@@ -162,7 +162,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        2,
+                        1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`core::num::f32`, `Extern`),
@@ -184,7 +184,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -214,8 +214,8 @@ Ok(
                                         data: ItemSynNodePathData::AssocItem(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::from_i_shift28`, `AssocRitchie(
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::from_i_shift28`, `AssocRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -241,12 +241,12 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
-                        1,
+                        0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::SimpleParenateParameter {
-                            pattern_symbol_idx: 1,
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
+                            pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -256,7 +256,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`core::num::i32`, `Extern`),
@@ -276,12 +276,12 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
-                        2,
+                        1,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::SimpleParenateParameter {
-                            pattern_symbol_idx: 2,
+                        current_variable_idx: 1,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
+                            pattern_variable_idx: 1,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -291,30 +291,30 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::num::i32`, `Extern`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::num::i32`, `Extern`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         2,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
-                                TypePath(`core::num::i32`, `Extern`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::num::i32`, `Extern`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        3,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
                             ),
                         ),
@@ -332,7 +332,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -352,7 +352,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            14,
+                            13,
                         ),
                     ),
                     data: TokenInfoData::CallPar,
@@ -365,12 +365,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            4,
+                            3,
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 2,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                        inherited_syn_symbol_idx: 1,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                             ident: `shift`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -382,7 +382,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        2,
+                        1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`core::num::f32`, `Extern`),
@@ -406,12 +406,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            10,
+                            9,
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 1,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                        inherited_syn_symbol_idx: 0,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                             ident: `i`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -423,446 +423,9 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        3,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::num::f32`, `Extern`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::num::f32`, `Extern`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            14,
-                        ),
-                    ),
-                    data: TokenInfoData::CallPar,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
-                    data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssocItem(
-                            AssocItemSynNodePath::TypeItem(
-                                TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::vector`, `MethodRitchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
-                            ),
-                        ),
-                        EntityKind::AssocItem {
-                            assoc_item_kind: AssocItemKind::TypeItem(
-                                TypeItemKind::MethodRitchie(
-                                    RitchieItemKind::Fn,
-                                ),
-                            ),
-                        },
-                    ),
-                },
-            ),
-            None,
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            6,
-                        ),
-                    ),
-                    data: TokenInfoData::CallPar,
-                },
-            ),
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            2,
-                        ),
-                    ),
-                    data: TokenInfoData::SelfValue,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            3,
-                        ),
-                    ),
-                    data: TokenInfoData::Field,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            4,
-                        ),
-                    ),
-                    data: TokenInfoData::SelfValue,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            5,
-                        ),
-                    ),
-                    data: TokenInfoData::Field,
-                },
-            ),
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            6,
-                        ),
-                    ),
-                    data: TokenInfoData::CallPar,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
-                    data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssocItem(
-                            AssocItemSynNodePath::TypeItem(
-                                TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::to`, `MethodRitchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
-                            ),
-                        ),
-                        EntityKind::AssocItem {
-                            assoc_item_kind: AssocItemKind::TypeItem(
-                                TypeItemKind::MethodRitchie(
-                                    RitchieItemKind::Fn,
-                                ),
-                            ),
-                        },
-                    ),
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
-                        1,
-                    ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::SimpleParenateParameter {
-                            pattern_symbol_idx: 1,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
                         2,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
-                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            12,
-                        ),
-                    ),
-                    data: TokenInfoData::CallPar,
-                },
-            ),
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            2,
-                        ),
-                    ),
-                    data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 1,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
-                            ident: `other`,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            3,
-                        ),
-                    ),
-                    data: TokenInfoData::Field,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            4,
-                        ),
-                    ),
-                    data: TokenInfoData::SelfValue,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            5,
-                        ),
-                    ),
-                    data: TokenInfoData::Field,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            7,
-                        ),
-                    ),
-                    data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 1,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
-                            ident: `other`,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            8,
-                        ),
-                    ),
-                    data: TokenInfoData::Field,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            9,
-                        ),
-                    ),
-                    data: TokenInfoData::SelfValue,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            10,
-                        ),
-                    ),
-                    data: TokenInfoData::Field,
-                },
-            ),
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            12,
-                        ),
-                    ),
-                    data: TokenInfoData::CallPar,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
-                    data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssocItem(
-                            AssocItemSynNodePath::TypeItem(
-                                TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::norm`, `MethodRitchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
-                            ),
-                        ),
-                        EntityKind::AssocItem {
-                            assoc_item_kind: AssocItemKind::TypeItem(
-                                TypeItemKind::MethodRitchie(
-                                    RitchieItemKind::Fn,
-                                ),
-                            ),
-                        },
-                    ),
-                },
-            ),
-            None,
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
                                 TypePath(`core::num::f32`, `Extern`),
                             ),
                         ),
@@ -876,97 +439,6 @@ Ok(
                     ),
                 },
             ),
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            1,
-                        ),
-                    ),
-                    data: TokenInfoData::SelfValue,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            2,
-                        ),
-                    ),
-                    data: TokenInfoData::Field,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            3,
-                        ),
-                    ),
-                    data: TokenInfoData::SelfValue,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            4,
-                        ),
-                    ),
-                    data: TokenInfoData::Field,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            6,
-                        ),
-                    ),
-                    data: TokenInfoData::SelfValue,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            7,
-                        ),
-                    ),
-                    data: TokenInfoData::Field,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            8,
-                        ),
-                    ),
-                    data: TokenInfoData::SelfValue,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            9,
-                        ),
-                    ),
-                    data: TokenInfoData::Field,
-                },
-            ),
-            None,
-            None,
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
@@ -974,11 +446,9 @@ Ok(
                             13,
                         ),
                     ),
-                    data: TokenInfoData::Method,
+                    data: TokenInfoData::CallPar,
                 },
             ),
-            None,
-            None,
             None,
             Some(
                 TokenInfo {
@@ -991,8 +461,148 @@ Ok(
                                         data: ItemSynNodePathData::AssocItem(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::dist`, `MethodRitchie(
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::vector`, `MethodRitchie(
+                                                            Fn,
+                                                        )`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        EntityKind::AssocItem {
+                            assoc_item_kind: AssocItemKind::TypeItem(
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                        },
+                    ),
+                },
+            ),
+            None,
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        0,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        0,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            5,
+                        ),
+                    ),
+                    data: TokenInfoData::CallPar,
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            1,
+                        ),
+                    ),
+                    data: TokenInfoData::SelfValue,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            2,
+                        ),
+                    ),
+                    data: TokenInfoData::Field,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            3,
+                        ),
+                    ),
+                    data: TokenInfoData::SelfValue,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            4,
+                        ),
+                    ),
+                    data: TokenInfoData::Field,
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            5,
+                        ),
+                    ),
+                    data: TokenInfoData::CallPar,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
+                                TypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::to`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -1018,12 +628,12 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
-                        1,
+                        0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::SimpleParenateParameter {
-                            pattern_symbol_idx: 1,
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
+                            pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -1033,7 +643,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -1054,7 +664,203 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        2,
+                        1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        0,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            11,
+                        ),
+                    ),
+                    data: TokenInfoData::CallPar,
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            1,
+                        ),
+                    ),
+                    data: TokenInfoData::InheritedSynSymbol {
+                        inherited_syn_symbol_idx: 0,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                            ident: `other`,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            2,
+                        ),
+                    ),
+                    data: TokenInfoData::Field,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            3,
+                        ),
+                    ),
+                    data: TokenInfoData::SelfValue,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            4,
+                        ),
+                    ),
+                    data: TokenInfoData::Field,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            6,
+                        ),
+                    ),
+                    data: TokenInfoData::InheritedSynSymbol {
+                        inherited_syn_symbol_idx: 0,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                            ident: `other`,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            7,
+                        ),
+                    ),
+                    data: TokenInfoData::Field,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            8,
+                        ),
+                    ),
+                    data: TokenInfoData::SelfValue,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            9,
+                        ),
+                    ),
+                    data: TokenInfoData::Field,
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            11,
+                        ),
+                    ),
+                    data: TokenInfoData::CallPar,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
+                                TypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::norm`, `MethodRitchie(
+                                                            Fn,
+                                                        )`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        EntityKind::AssocItem {
+                            assoc_item_kind: AssocItemKind::TypeItem(
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                        },
+                    ),
+                },
+            ),
+            None,
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`core::num::f32`, `Extern`),
@@ -1071,11 +877,34 @@ Ok(
                 },
             ),
             None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            0,
+                        ),
+                    ),
+                    data: TokenInfoData::SelfValue,
+                },
+            ),
+            None,
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
                             1,
+                        ),
+                    ),
+                    data: TokenInfoData::Field,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            2,
                         ),
                     ),
                     data: TokenInfoData::SelfValue,
@@ -1089,7 +918,167 @@ Ok(
                             3,
                         ),
                     ),
+                    data: TokenInfoData::Field,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            5,
+                        ),
+                    ),
+                    data: TokenInfoData::SelfValue,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            6,
+                        ),
+                    ),
+                    data: TokenInfoData::Field,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            7,
+                        ),
+                    ),
+                    data: TokenInfoData::SelfValue,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            8,
+                        ),
+                    ),
+                    data: TokenInfoData::Field,
+                },
+            ),
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            12,
+                        ),
+                    ),
                     data: TokenInfoData::Method,
+                },
+            ),
+            None,
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
+                                TypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::dist`, `MethodRitchie(
+                                                            Fn,
+                                                        )`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        EntityKind::AssocItem {
+                            assoc_item_kind: AssocItemKind::TypeItem(
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                        },
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::PatternExpr(
+                        0,
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
+                            pattern_variable_idx: 0,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        0,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::num::f32`, `Extern`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::num::f32`, `Extern`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            0,
+                        ),
+                    ),
+                    data: TokenInfoData::SelfValue,
                 },
             ),
             None,
@@ -1100,9 +1089,20 @@ Ok(
                             2,
                         ),
                     ),
+                    data: TokenInfoData::Method,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            1,
+                        ),
+                    ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 1,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                        inherited_syn_symbol_idx: 0,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                             ident: `other`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -1115,7 +1115,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            4,
+                            3,
                         ),
                     ),
                     data: TokenInfoData::Method,
@@ -1136,8 +1136,8 @@ Ok(
                                         data: ItemSynNodePathData::MajorItem(
                                             MajorItemSynNodePathData::Type(
                                                 TypeSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -1160,11 +1160,11 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::TemplateParameter(
-                        1,
+                        0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::FieldVariable {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::FieldVariable {
                             ident_token: IdentRegionalToken {
                                 ident: `x`,
                                 regional_token_idx: RegionalTokenIdx(
@@ -1180,7 +1180,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`core::num::f32`, `Extern`),
@@ -1200,11 +1200,11 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::TemplateParameter(
-                        2,
+                        1,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::FieldVariable {
+                        current_variable_idx: 1,
+                        current_variable_kind: CurrentVariableKind::FieldVariable {
                             ident_token: IdentRegionalToken {
                                 ident: `y`,
                                 regional_token_idx: RegionalTokenIdx(
@@ -1220,7 +1220,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        2,
+                        1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`core::num::f32`, `Extern`),
@@ -1251,8 +1251,8 @@ Ok(
                                         data: ItemSynNodePathData::MajorItem(
                                             MajorItemSynNodePathData::Type(
                                                 TypeSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -1275,11 +1275,11 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::TemplateParameter(
-                        1,
+                        0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::FieldVariable {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::FieldVariable {
                             ident_token: IdentRegionalToken {
                                 ident: `x`,
                                 regional_token_idx: RegionalTokenIdx(
@@ -1295,7 +1295,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`core::num::f32`, `Extern`),
@@ -1315,11 +1315,11 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::TemplateParameter(
-                        2,
+                        1,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::FieldVariable {
+                        current_variable_idx: 1,
+                        current_variable_kind: CurrentVariableKind::FieldVariable {
                             ident_token: IdentRegionalToken {
                                 ident: `y`,
                                 regional_token_idx: RegionalTokenIdx(
@@ -1335,7 +1335,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        2,
+                        1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`core::num::f32`, `Extern`),
@@ -1357,7 +1357,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -1387,8 +1387,8 @@ Ok(
                                         data: ItemSynNodePathData::AssocItem(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::point`, `MethodRitchie(
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::point`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -1416,7 +1416,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -1436,7 +1436,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -1452,49 +1452,6 @@ Ok(
                     ),
                 },
             ),
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            6,
-                        ),
-                    ),
-                    data: TokenInfoData::CallPar,
-                },
-            ),
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            2,
-                        ),
-                    ),
-                    data: TokenInfoData::SelfValue,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            3,
-                        ),
-                    ),
-                    data: TokenInfoData::Field,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            4,
-                        ),
-                    ),
-                    data: TokenInfoData::SelfValue,
-                },
-            ),
-            None,
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
@@ -1502,309 +1459,9 @@ Ok(
                             5,
                         ),
                     ),
-                    data: TokenInfoData::Field,
-                },
-            ),
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            6,
-                        ),
-                    ),
                     data: TokenInfoData::CallPar,
                 },
             ),
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
-                    data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssocItem(
-                            AssocItemSynNodePath::TypeItem(
-                                TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::to`, `MethodRitchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
-                            ),
-                        ),
-                        EntityKind::AssocItem {
-                            assoc_item_kind: AssocItemKind::TypeItem(
-                                TypeItemKind::MethodRitchie(
-                                    RitchieItemKind::Fn,
-                                ),
-                            ),
-                        },
-                    ),
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
-                        1,
-                    ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::SimpleParenateParameter {
-                            pattern_symbol_idx: 1,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        2,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            12,
-                        ),
-                    ),
-                    data: TokenInfoData::CallPar,
-                },
-            ),
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            2,
-                        ),
-                    ),
-                    data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 1,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
-                            ident: `other`,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            3,
-                        ),
-                    ),
-                    data: TokenInfoData::Field,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            4,
-                        ),
-                    ),
-                    data: TokenInfoData::SelfValue,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            5,
-                        ),
-                    ),
-                    data: TokenInfoData::Field,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            7,
-                        ),
-                    ),
-                    data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 1,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
-                            ident: `other`,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            8,
-                        ),
-                    ),
-                    data: TokenInfoData::Field,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            9,
-                        ),
-                    ),
-                    data: TokenInfoData::SelfValue,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            10,
-                        ),
-                    ),
-                    data: TokenInfoData::Field,
-                },
-            ),
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            12,
-                        ),
-                    ),
-                    data: TokenInfoData::CallPar,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
-                    data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssocItem(
-                            AssocItemSynNodePath::TypeItem(
-                                TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::norm`, `MethodRitchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
-                            ),
-                        ),
-                        EntityKind::AssocItem {
-                            assoc_item_kind: AssocItemKind::TypeItem(
-                                TypeItemKind::MethodRitchie(
-                                    RitchieItemKind::Fn,
-                                ),
-                            ),
-                        },
-                    ),
-                },
-            ),
-            None,
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::num::f32`, `Extern`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::num::f32`, `Extern`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            None,
-            None,
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
@@ -1848,6 +1505,187 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            5,
+                        ),
+                    ),
+                    data: TokenInfoData::CallPar,
+                },
+            ),
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
+                                TypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::to`, `MethodRitchie(
+                                                            Fn,
+                                                        )`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        EntityKind::AssocItem {
+                            assoc_item_kind: AssocItemKind::TypeItem(
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                        },
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::PatternExpr(
+                        0,
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
+                            pattern_variable_idx: 0,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        0,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        0,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            11,
+                        ),
+                    ),
+                    data: TokenInfoData::CallPar,
+                },
+            ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            1,
+                        ),
+                    ),
+                    data: TokenInfoData::InheritedSynSymbol {
+                        inherited_syn_symbol_idx: 0,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                            ident: `other`,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            2,
+                        ),
+                    ),
+                    data: TokenInfoData::Field,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            3,
+                        ),
+                    ),
+                    data: TokenInfoData::SelfValue,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            4,
+                        ),
+                    ),
+                    data: TokenInfoData::Field,
+                },
+            ),
             None,
             Some(
                 TokenInfo {
@@ -1856,7 +1694,13 @@ Ok(
                             6,
                         ),
                     ),
-                    data: TokenInfoData::SelfValue,
+                    data: TokenInfoData::InheritedSynSymbol {
+                        inherited_syn_symbol_idx: 0,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                            ident: `other`,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
                 },
             ),
             None,
@@ -1892,6 +1736,748 @@ Ok(
                     data: TokenInfoData::Field,
                 },
             ),
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            11,
+                        ),
+                    ),
+                    data: TokenInfoData::CallPar,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
+                                TypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::norm`, `MethodRitchie(
+                                                            Fn,
+                                                        )`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        EntityKind::AssocItem {
+                            assoc_item_kind: AssocItemKind::TypeItem(
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                        },
+                    ),
+                },
+            ),
+            None,
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        0,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::num::f32`, `Extern`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::num::f32`, `Extern`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            0,
+                        ),
+                    ),
+                    data: TokenInfoData::SelfValue,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            1,
+                        ),
+                    ),
+                    data: TokenInfoData::Field,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            2,
+                        ),
+                    ),
+                    data: TokenInfoData::SelfValue,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            3,
+                        ),
+                    ),
+                    data: TokenInfoData::Field,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            5,
+                        ),
+                    ),
+                    data: TokenInfoData::SelfValue,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            6,
+                        ),
+                    ),
+                    data: TokenInfoData::Field,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            7,
+                        ),
+                    ),
+                    data: TokenInfoData::SelfValue,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            8,
+                        ),
+                    ),
+                    data: TokenInfoData::Field,
+                },
+            ),
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            12,
+                        ),
+                    ),
+                    data: TokenInfoData::Method,
+                },
+            ),
+            None,
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
+                                TypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::dot`, `MethodRitchie(
+                                                            Fn,
+                                                        )`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        EntityKind::AssocItem {
+                            assoc_item_kind: AssocItemKind::TypeItem(
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                        },
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::PatternExpr(
+                        0,
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
+                            pattern_variable_idx: 0,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        0,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::num::f32`, `Extern`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::num::f32`, `Extern`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            0,
+                        ),
+                    ),
+                    data: TokenInfoData::SelfValue,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            1,
+                        ),
+                    ),
+                    data: TokenInfoData::Field,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            2,
+                        ),
+                    ),
+                    data: TokenInfoData::InheritedSynSymbol {
+                        inherited_syn_symbol_idx: 0,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                            ident: `other`,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            3,
+                        ),
+                    ),
+                    data: TokenInfoData::Field,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            5,
+                        ),
+                    ),
+                    data: TokenInfoData::SelfValue,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            6,
+                        ),
+                    ),
+                    data: TokenInfoData::Field,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            7,
+                        ),
+                    ),
+                    data: TokenInfoData::InheritedSynSymbol {
+                        inherited_syn_symbol_idx: 0,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                            ident: `other`,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            8,
+                        ),
+                    ),
+                    data: TokenInfoData::Field,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
+                                TypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::cross`, `MethodRitchie(
+                                                            Fn,
+                                                        )`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        EntityKind::AssocItem {
+                            assoc_item_kind: AssocItemKind::TypeItem(
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                        },
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::PatternExpr(
+                        0,
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
+                            pattern_variable_idx: 0,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        0,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::num::f32`, `Extern`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::num::f32`, `Extern`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            0,
+                        ),
+                    ),
+                    data: TokenInfoData::SelfValue,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            1,
+                        ),
+                    ),
+                    data: TokenInfoData::Field,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            2,
+                        ),
+                    ),
+                    data: TokenInfoData::InheritedSynSymbol {
+                        inherited_syn_symbol_idx: 0,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                            ident: `other`,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            3,
+                        ),
+                    ),
+                    data: TokenInfoData::Field,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            5,
+                        ),
+                    ),
+                    data: TokenInfoData::SelfValue,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            6,
+                        ),
+                    ),
+                    data: TokenInfoData::Field,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            7,
+                        ),
+                    ),
+                    data: TokenInfoData::InheritedSynSymbol {
+                        inherited_syn_symbol_idx: 0,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                            ident: `other`,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            8,
+                        ),
+                    ),
+                    data: TokenInfoData::Field,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TypeItem(
+                                TypeItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TypeItem(
+                                                TypeItemSynNodePathData {
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::angle`, `MethodRitchie(
+                                                            Fn,
+                                                        )`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        EntityKind::AssocItem {
+                            assoc_item_kind: AssocItemKind::TypeItem(
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                        },
+                    ),
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::PatternExpr(
+                        0,
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
+                            pattern_variable_idx: 0,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        0,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::basic::bool`, `Extern`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::basic::bool`, `Extern`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
+                        1,
+                        PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::num::f32`, `Extern`),
+                            ),
+                        ),
+                    ),
+                    data: TokenInfoData::Entity(
+                        EntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::num::f32`, `Extern`),
+                            ),
+                        ),
+                    ),
+                },
+            ),
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::PatternExpr(
+                        0,
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 0,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            0,
+                        ),
+                    ),
+                    data: TokenInfoData::SelfValue,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            1,
+                        ),
+                    ),
+                    data: TokenInfoData::Field,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            2,
+                        ),
+                    ),
+                    data: TokenInfoData::SelfValue,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            3,
+                        ),
+                    ),
+                    data: TokenInfoData::Method,
+                },
+            ),
+            None,
+            None,
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            7,
+                        ),
+                    ),
+                    data: TokenInfoData::Method,
+                },
+            ),
+            None,
+            None,
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            8,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 0,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            None,
+            None,
+            None,
             None,
             None,
             Some(
@@ -1901,595 +2487,9 @@ Ok(
                             13,
                         ),
                     ),
-                    data: TokenInfoData::Method,
-                },
-            ),
-            None,
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
-                    data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssocItem(
-                            AssocItemSynNodePath::TypeItem(
-                                TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::dot`, `MethodRitchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
-                            ),
-                        ),
-                        EntityKind::AssocItem {
-                            assoc_item_kind: AssocItemKind::TypeItem(
-                                TypeItemKind::MethodRitchie(
-                                    RitchieItemKind::Fn,
-                                ),
-                            ),
-                        },
-                    ),
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
-                        1,
-                    ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::SimpleParenateParameter {
-                            pattern_symbol_idx: 1,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        2,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::num::f32`, `Extern`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::num::f32`, `Extern`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            1,
-                        ),
-                    ),
-                    data: TokenInfoData::SelfValue,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            2,
-                        ),
-                    ),
-                    data: TokenInfoData::Field,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            3,
-                        ),
-                    ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 1,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
-                            ident: `other`,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            4,
-                        ),
-                    ),
-                    data: TokenInfoData::Field,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            6,
-                        ),
-                    ),
-                    data: TokenInfoData::SelfValue,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            7,
-                        ),
-                    ),
-                    data: TokenInfoData::Field,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            8,
-                        ),
-                    ),
-                    data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 1,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
-                            ident: `other`,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            9,
-                        ),
-                    ),
-                    data: TokenInfoData::Field,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
-                    data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssocItem(
-                            AssocItemSynNodePath::TypeItem(
-                                TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::cross`, `MethodRitchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
-                            ),
-                        ),
-                        EntityKind::AssocItem {
-                            assoc_item_kind: AssocItemKind::TypeItem(
-                                TypeItemKind::MethodRitchie(
-                                    RitchieItemKind::Fn,
-                                ),
-                            ),
-                        },
-                    ),
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
-                        1,
-                    ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::SimpleParenateParameter {
-                            pattern_symbol_idx: 1,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        2,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::num::f32`, `Extern`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::num::f32`, `Extern`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            1,
-                        ),
-                    ),
-                    data: TokenInfoData::SelfValue,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            2,
-                        ),
-                    ),
-                    data: TokenInfoData::Field,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            3,
-                        ),
-                    ),
-                    data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 1,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
-                            ident: `other`,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            4,
-                        ),
-                    ),
-                    data: TokenInfoData::Field,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            6,
-                        ),
-                    ),
-                    data: TokenInfoData::SelfValue,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            7,
-                        ),
-                    ),
-                    data: TokenInfoData::Field,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            8,
-                        ),
-                    ),
-                    data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 1,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
-                            ident: `other`,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            9,
-                        ),
-                    ),
-                    data: TokenInfoData::Field,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
-                    data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::AssocItem(
-                            AssocItemSynNodePath::TypeItem(
-                                TypeItemSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::AssocItem(
-                                            AssocItemSynNodePathData::TypeItem(
-                                                TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::angle`, `MethodRitchie(
-                                                            Fn,
-                                                        )`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
-                            ),
-                        ),
-                        EntityKind::AssocItem {
-                            assoc_item_kind: AssocItemKind::TypeItem(
-                                TypeItemKind::MethodRitchie(
-                                    RitchieItemKind::Fn,
-                                ),
-                            ),
-                        },
-                    ),
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
-                        1,
-                    ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::SimpleParenateParameter {
-                            pattern_symbol_idx: 1,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::basic::bool`, `Extern`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::basic::bool`, `Extern`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        2,
-                        PrincipalEntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::num::f32`, `Extern`),
-                            ),
-                        ),
-                    ),
-                    data: TokenInfoData::Entity(
-                        EntityPath::MajorItem(
-                            MajorItemPath::Type(
-                                TypePath(`core::num::f32`, `Extern`),
-                            ),
-                        ),
-                    ),
-                },
-            ),
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
-                        1,
-                    ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 1,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            1,
-                        ),
-                    ),
-                    data: TokenInfoData::SelfValue,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            2,
-                        ),
-                    ),
-                    data: TokenInfoData::Field,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            3,
-                        ),
-                    ),
-                    data: TokenInfoData::SelfValue,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            4,
-                        ),
-                    ),
-                    data: TokenInfoData::Method,
-                },
-            ),
-            None,
-            None,
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            8,
-                        ),
-                    ),
-                    data: TokenInfoData::Method,
-                },
-            ),
-            None,
-            None,
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            9,
-                        ),
-                    ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 1,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            None,
-            None,
-            None,
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            14,
-                        ),
-                    ),
-                    data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 1,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                        inherited_syn_symbol_idx: 0,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                             ident: `is_branch_cut_positive`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -2509,10 +2509,21 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            19,
+                            18,
                         ),
                     ),
                     data: TokenInfoData::SelfValue,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            19,
+                        ),
+                    ),
+                    data: TokenInfoData::Field,
                 },
             ),
             None,
@@ -2523,17 +2534,6 @@ Ok(
                             20,
                         ),
                     ),
-                    data: TokenInfoData::Field,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            21,
-                        ),
-                    ),
                     data: TokenInfoData::Method,
                 },
             ),
@@ -2543,7 +2543,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`core::num::f32`, `Extern`),
@@ -2565,13 +2565,13 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            24,
+                            23,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 1,
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -2582,7 +2582,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            25,
+                            24,
                         ),
                     ),
                     data: TokenInfoData::Method,
@@ -2606,8 +2606,8 @@ Ok(
                                         data: ItemSynNodePathData::AssocItem(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::rotation_direction_to`, `MethodRitchie(
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::rotation_direction_to`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -2633,12 +2633,12 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
-                        1,
+                        0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::SimpleParenateParameter {
-                            pattern_symbol_idx: 1,
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
+                            pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -2648,7 +2648,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -2669,7 +2669,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        2,
+                        1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`core::num::i32`, `Extern`),
@@ -2690,7 +2690,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                     ),
                     data: TokenInfoData::SelfValue,
@@ -2701,7 +2701,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            3,
+                            2,
                         ),
                     ),
                     data: TokenInfoData::Method,
@@ -2712,12 +2712,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            2,
+                            1,
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 1,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                        inherited_syn_symbol_idx: 0,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                             ident: `other`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -2730,7 +2730,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            4,
+                            3,
                         ),
                     ),
                     data: TokenInfoData::Method,
@@ -2750,8 +2750,8 @@ Ok(
                                         data: ItemSynNodePathData::AssocItem(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::angle_to`, `MethodRitchie(
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::angle_to`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -2777,12 +2777,12 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
-                        1,
+                        0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::SimpleParenateParameter {
-                            pattern_symbol_idx: 1,
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
+                            pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -2792,7 +2792,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::Vector2d`, `Struct`),
@@ -2812,12 +2812,12 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
-                        2,
+                        1,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::SimpleParenateParameter {
-                            pattern_symbol_idx: 2,
+                        current_variable_idx: 1,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
+                            pattern_variable_idx: 1,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -2827,7 +2827,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        2,
+                        1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`core::basic::bool`, `Extern`),
@@ -2848,7 +2848,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        3,
+                        2,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`core::num::f32`, `Extern`),
@@ -2869,12 +2869,12 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
-                        1,
+                        0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 1,
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -2885,7 +2885,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                     ),
                     data: TokenInfoData::SelfValue,
@@ -2896,7 +2896,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            2,
+                            1,
                         ),
                     ),
                     data: TokenInfoData::Method,
@@ -2909,13 +2909,13 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            3,
+                            2,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 1,
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -2927,12 +2927,29 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
-                        2,
+                        1,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 2,
+                        current_variable_idx: 1,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 1,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            5,
+                        ),
+                    ),
+                    data: TokenInfoData::InheritedSynSymbol {
+                        inherited_syn_symbol_idx: 0,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                            ident: `other`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -2946,23 +2963,6 @@ Ok(
                             6,
                         ),
                     ),
-                    data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 1,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
-                            ident: `other`,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            7,
-                        ),
-                    ),
                     data: TokenInfoData::Method,
                 },
             ),
@@ -2973,13 +2973,13 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            8,
+                            7,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 2,
+                        current_variable_idx: 1,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 1,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -2991,12 +2991,12 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
-                        3,
+                        2,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 3,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 3,
+                        current_variable_idx: 2,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 2,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -3008,7 +3008,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            11,
+                            10,
                         ),
                     ),
                     data: TokenInfoData::SelfValue,
@@ -3019,7 +3019,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            13,
+                            12,
                         ),
                     ),
                     data: TokenInfoData::Method,
@@ -3030,12 +3030,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            12,
+                            11,
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 1,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                        inherited_syn_symbol_idx: 0,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                             ident: `other`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -3049,30 +3049,30 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
+                            13,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 0,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
                             14,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 1,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            15,
-                        ),
-                    ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 2,
+                        current_variable_idx: 1,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 1,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -3085,7 +3085,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            21,
+                            20,
                         ),
                     ),
                     data: TokenInfoData::Method,
@@ -3099,13 +3099,13 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            22,
+                            21,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 3,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 3,
+                        current_variable_idx: 2,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 2,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -3121,12 +3121,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            27,
+                            26,
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 2,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                        inherited_syn_symbol_idx: 1,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                             ident: `is_branch_cut_positive`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -3145,12 +3145,12 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
-                        4,
+                        3,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 4,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 4,
+                        current_variable_idx: 3,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 3,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -3162,7 +3162,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            32,
+                            31,
                         ),
                     ),
                     data: TokenInfoData::SelfValue,
@@ -3173,7 +3173,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            34,
+                            33,
                         ),
                     ),
                     data: TokenInfoData::Method,
@@ -3184,12 +3184,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            33,
+                            32,
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 1,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                        inherited_syn_symbol_idx: 0,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                             ident: `other`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -3201,7 +3201,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`core::num::f32`, `Extern`),
@@ -3223,13 +3223,13 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            37,
+                            36,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 3,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 3,
+                        current_variable_idx: 2,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 2,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -3240,7 +3240,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            38,
+                            37,
                         ),
                     ),
                     data: TokenInfoData::Method,
@@ -3252,13 +3252,13 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            40,
+                            39,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 4,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 4,
+                        current_variable_idx: 3,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 3,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -3281,8 +3281,8 @@ Ok(
                                         data: ItemSynNodePathData::MajorItem(
                                             MajorItemSynNodePathData::Type(
                                                 TypeSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -3305,11 +3305,11 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::TemplateParameter(
-                        1,
+                        0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::FieldVariable {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::FieldVariable {
                             ident_token: IdentRegionalToken {
                                 ident: `min`,
                                 regional_token_idx: RegionalTokenIdx(
@@ -3325,7 +3325,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`core::num::f32`, `Extern`),
@@ -3345,11 +3345,11 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::TemplateParameter(
-                        2,
+                        1,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::FieldVariable {
+                        current_variable_idx: 1,
+                        current_variable_kind: CurrentVariableKind::FieldVariable {
                             ident_token: IdentRegionalToken {
                                 ident: `max`,
                                 regional_token_idx: RegionalTokenIdx(
@@ -3365,7 +3365,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        2,
+                        1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`core::num::f32`, `Extern`),
@@ -3387,7 +3387,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -3416,8 +3416,8 @@ Ok(
                                         data: ItemSynNodePathData::AssocItem(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`<mnist_classifier::geom2d::ClosedRange(0)>::relative_range`, `MethodRitchie(
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::ClosedRange(0)>::relative_range`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -3443,12 +3443,12 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
-                        1,
+                        0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::SimpleParenateParameter {
-                            pattern_symbol_idx: 1,
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
+                            pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -3458,7 +3458,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -3479,7 +3479,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        2,
+                        1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -3501,10 +3501,21 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                     ),
                     data: TokenInfoData::SelfValue,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            1,
+                        ),
+                    ),
+                    data: TokenInfoData::Field,
                 },
             ),
             None,
@@ -3515,7 +3526,7 @@ Ok(
                             2,
                         ),
                     ),
-                    data: TokenInfoData::Field,
+                    data: TokenInfoData::SelfValue,
                 },
             ),
             None,
@@ -3526,17 +3537,6 @@ Ok(
                             3,
                         ),
                     ),
-                    data: TokenInfoData::SelfValue,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            4,
-                        ),
-                    ),
                     data: TokenInfoData::Field,
                 },
             ),
@@ -3544,15 +3544,26 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
-                        1,
+                        0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 1,
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            5,
+                        ),
+                    ),
+                    data: TokenInfoData::SelfValue,
                 },
             ),
             None,
@@ -3563,7 +3574,7 @@ Ok(
                             6,
                         ),
                     ),
-                    data: TokenInfoData::SelfValue,
+                    data: TokenInfoData::Field,
                 },
             ),
             None,
@@ -3574,7 +3585,7 @@ Ok(
                             7,
                         ),
                     ),
-                    data: TokenInfoData::Field,
+                    data: TokenInfoData::SelfValue,
                 },
             ),
             None,
@@ -3585,17 +3596,6 @@ Ok(
                             8,
                         ),
                     ),
-                    data: TokenInfoData::SelfValue,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            9,
-                        ),
-                    ),
                     data: TokenInfoData::Field,
                 },
             ),
@@ -3603,18 +3603,35 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
-                        2,
+                        1,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 2,
+                        current_variable_idx: 1,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 1,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
                 },
             ),
             None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            10,
+                        ),
+                    ),
+                    data: TokenInfoData::InheritedSynSymbol {
+                        inherited_syn_symbol_idx: 0,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                            ident: `other`,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
             None,
             Some(
                 TokenInfo {
@@ -3623,13 +3640,7 @@ Ok(
                             11,
                         ),
                     ),
-                    data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 1,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
-                            ident: `other`,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
+                    data: TokenInfoData::Field,
                 },
             ),
             None,
@@ -3640,7 +3651,7 @@ Ok(
                             12,
                         ),
                     ),
-                    data: TokenInfoData::Field,
+                    data: TokenInfoData::SelfValue,
                 },
             ),
             None,
@@ -3651,17 +3662,6 @@ Ok(
                             13,
                         ),
                     ),
-                    data: TokenInfoData::SelfValue,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            14,
-                        ),
-                    ),
                     data: TokenInfoData::Field,
                 },
             ),
@@ -3671,13 +3671,13 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            17,
+                            16,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 1,
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -3687,12 +3687,12 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
-                        3,
+                        2,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 3,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 3,
+                        current_variable_idx: 2,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 2,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -3704,12 +3704,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            19,
+                            18,
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 1,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                        inherited_syn_symbol_idx: 0,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                             ident: `other`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -3721,7 +3721,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            20,
+                            19,
                         ),
                     ),
                     data: TokenInfoData::Field,
@@ -3732,7 +3732,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            21,
+                            20,
                         ),
                     ),
                     data: TokenInfoData::SelfValue,
@@ -3743,7 +3743,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            22,
+                            21,
                         ),
                     ),
                     data: TokenInfoData::Field,
@@ -3755,13 +3755,13 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            25,
+                            24,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 1,
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -3770,7 +3770,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -3790,7 +3790,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            30,
+                            29,
                         ),
                     ),
                     data: TokenInfoData::CallPar,
@@ -3800,13 +3800,30 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
+                            27,
+                        ),
+                    ),
+                    data: TokenInfoData::CurrentSynSymbol {
+                        current_variable_idx: 1,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 1,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
                             28,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 2,
+                        current_variable_idx: 2,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 2,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -3820,23 +3837,6 @@ Ok(
                             29,
                         ),
                     ),
-                    data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 3,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 3,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            30,
-                        ),
-                    ),
                     data: TokenInfoData::CallPar,
                 },
             ),
@@ -3852,8 +3852,8 @@ Ok(
                                         data: ItemSynNodePathData::AssocItem(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`<mnist_classifier::geom2d::ClosedRange(0)>::relative_point`, `MethodRitchie(
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::ClosedRange(0)>::relative_point`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -3879,12 +3879,12 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
-                        1,
+                        0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::SimpleParenateParameter {
-                            pattern_symbol_idx: 1,
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
+                            pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -3894,7 +3894,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`core::num::f32`, `Extern`),
@@ -3915,7 +3915,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        2,
+                        1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`core::num::f32`, `Extern`),
@@ -3936,12 +3936,12 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
-                        1,
+                        0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 1,
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -3952,10 +3952,21 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                     ),
                     data: TokenInfoData::SelfValue,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            1,
+                        ),
+                    ),
+                    data: TokenInfoData::Field,
                 },
             ),
             None,
@@ -3966,7 +3977,7 @@ Ok(
                             2,
                         ),
                     ),
-                    data: TokenInfoData::Field,
+                    data: TokenInfoData::SelfValue,
                 },
             ),
             None,
@@ -3977,17 +3988,6 @@ Ok(
                             3,
                         ),
                     ),
-                    data: TokenInfoData::SelfValue,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            4,
-                        ),
-                    ),
                     data: TokenInfoData::Field,
                 },
             ),
@@ -3996,12 +3996,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            6,
+                            5,
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 1,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                        inherited_syn_symbol_idx: 0,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                             ident: `v`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -4013,7 +4013,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            7,
+                            6,
                         ),
                     ),
                     data: TokenInfoData::SelfValue,
@@ -4024,7 +4024,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            8,
+                            7,
                         ),
                     ),
                     data: TokenInfoData::Field,
@@ -4036,13 +4036,13 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            11,
+                            10,
                         ),
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                            pattern_symbol_idx: 1,
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::LetVariable {
+                            pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -4061,8 +4061,8 @@ Ok(
                                         data: ItemSynNodePathData::MajorItem(
                                             MajorItemSynNodePathData::Type(
                                                 TypeSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -4086,11 +4086,11 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::TemplateParameter(
-                        1,
+                        0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::FieldVariable {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::FieldVariable {
                             ident_token: IdentRegionalToken {
                                 ident: `xrange`,
                                 regional_token_idx: RegionalTokenIdx(
@@ -4106,7 +4106,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -4127,11 +4127,11 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::TemplateParameter(
-                        2,
+                        1,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::FieldVariable {
+                        current_variable_idx: 1,
+                        current_variable_kind: CurrentVariableKind::FieldVariable {
                             ident_token: IdentRegionalToken {
                                 ident: `yrange`,
                                 regional_token_idx: RegionalTokenIdx(
@@ -4147,7 +4147,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        2,
+                        1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -4169,7 +4169,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -4198,8 +4198,8 @@ Ok(
                                         data: ItemSynNodePathData::AssocItem(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::relative_bounding_box`, `MethodRitchie(
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::relative_bounding_box`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -4225,12 +4225,12 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
-                        1,
+                        0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::SimpleParenateParameter {
-                            pattern_symbol_idx: 1,
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
+                            pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -4240,7 +4240,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -4261,7 +4261,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        2,
+                        1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -4281,7 +4281,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -4301,7 +4301,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            12,
+                            11,
                         ),
                     ),
                     data: TokenInfoData::CallPar,
@@ -4311,7 +4311,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            2,
+                            1,
                         ),
                     ),
                     data: TokenInfoData::SelfValue,
@@ -4322,38 +4322,10 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            3,
+                            2,
                         ),
                     ),
                     data: TokenInfoData::Field,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            6,
-                        ),
-                    ),
-                    data: TokenInfoData::Method,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            4,
-                        ),
-                    ),
-                    data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 1,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
-                            ident: `other`,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
                 },
             ),
             None,
@@ -4364,40 +4336,6 @@ Ok(
                             5,
                         ),
                     ),
-                    data: TokenInfoData::Field,
-                },
-            ),
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            7,
-                        ),
-                    ),
-                    data: TokenInfoData::SelfValue,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            8,
-                        ),
-                    ),
-                    data: TokenInfoData::Field,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            11,
-                        ),
-                    ),
                     data: TokenInfoData::Method,
                 },
             ),
@@ -4406,12 +4344,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            9,
+                            3,
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 1,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                        inherited_syn_symbol_idx: 0,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                             ident: `other`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -4423,7 +4361,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            10,
+                            4,
                         ),
                     ),
                     data: TokenInfoData::Field,
@@ -4435,7 +4373,69 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            12,
+                            6,
+                        ),
+                    ),
+                    data: TokenInfoData::SelfValue,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            7,
+                        ),
+                    ),
+                    data: TokenInfoData::Field,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            10,
+                        ),
+                    ),
+                    data: TokenInfoData::Method,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            8,
+                        ),
+                    ),
+                    data: TokenInfoData::InheritedSynSymbol {
+                        inherited_syn_symbol_idx: 0,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                            ident: `other`,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            9,
+                        ),
+                    ),
+                    data: TokenInfoData::Field,
+                },
+            ),
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            11,
                         ),
                     ),
                     data: TokenInfoData::CallPar,
@@ -4453,8 +4453,8 @@ Ok(
                                         data: ItemSynNodePathData::AssocItem(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::relative_point`, `MethodRitchie(
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::relative_point`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -4480,12 +4480,12 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::PatternExpr(
-                        1,
+                        0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::SimpleParenateParameter {
-                            pattern_symbol_idx: 1,
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::SimpleParenateParameter {
+                            pattern_variable_idx: 0,
                         },
                         syn_expr_region: ExprRegionLeash(_),
                     },
@@ -4495,7 +4495,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
@@ -4516,7 +4516,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        2,
+                        1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
@@ -4536,7 +4536,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),
@@ -4556,7 +4556,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            12,
+                            11,
                         ),
                     ),
                     data: TokenInfoData::CallPar,
@@ -4566,7 +4566,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            2,
+                            1,
                         ),
                     ),
                     data: TokenInfoData::SelfValue,
@@ -4577,38 +4577,10 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            3,
+                            2,
                         ),
                     ),
                     data: TokenInfoData::Field,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            6,
-                        ),
-                    ),
-                    data: TokenInfoData::Method,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            4,
-                        ),
-                    ),
-                    data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 1,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
-                            ident: `point`,
-                        },
-                        syn_expr_region: ExprRegionLeash(_),
-                    },
                 },
             ),
             None,
@@ -4619,40 +4591,6 @@ Ok(
                             5,
                         ),
                     ),
-                    data: TokenInfoData::Field,
-                },
-            ),
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            7,
-                        ),
-                    ),
-                    data: TokenInfoData::SelfValue,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            8,
-                        ),
-                    ),
-                    data: TokenInfoData::Field,
-                },
-            ),
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
-                            11,
-                        ),
-                    ),
                     data: TokenInfoData::Method,
                 },
             ),
@@ -4661,12 +4599,12 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            9,
+                            3,
                         ),
                     ),
                     data: TokenInfoData::InheritedSynSymbol {
-                        inherited_syn_symbol_idx: 1,
-                        inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                        inherited_syn_symbol_idx: 0,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                             ident: `point`,
                         },
                         syn_expr_region: ExprRegionLeash(_),
@@ -4678,7 +4616,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            10,
+                            4,
                         ),
                     ),
                     data: TokenInfoData::Field,
@@ -4690,7 +4628,69 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            12,
+                            6,
+                        ),
+                    ),
+                    data: TokenInfoData::SelfValue,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            7,
+                        ),
+                    ),
+                    data: TokenInfoData::Field,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            10,
+                        ),
+                    ),
+                    data: TokenInfoData::Method,
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            8,
+                        ),
+                    ),
+                    data: TokenInfoData::InheritedSynSymbol {
+                        inherited_syn_symbol_idx: 0,
+                        inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
+                            ident: `point`,
+                        },
+                        syn_expr_region: ExprRegionLeash(_),
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            9,
+                        ),
+                    ),
+                    data: TokenInfoData::Field,
+                },
+            ),
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::SemaExpr(
+                        SemaExprIdx(
+                            11,
                         ),
                     ),
                     data: TokenInfoData::CallPar,
@@ -4708,8 +4708,8 @@ Ok(
                                         data: ItemSynNodePathData::AssocItem(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::xmin`, `MethodRitchie(
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::xmin`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -4737,7 +4737,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`core::num::f32`, `Extern`),
@@ -4758,7 +4758,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                     ),
                     data: TokenInfoData::SelfValue,
@@ -4769,7 +4769,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            2,
+                            1,
                         ),
                     ),
                     data: TokenInfoData::Field,
@@ -4780,7 +4780,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            3,
+                            2,
                         ),
                     ),
                     data: TokenInfoData::Field,
@@ -4798,8 +4798,8 @@ Ok(
                                         data: ItemSynNodePathData::AssocItem(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::xmax`, `MethodRitchie(
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::xmax`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -4827,7 +4827,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`core::num::f32`, `Extern`),
@@ -4848,7 +4848,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                     ),
                     data: TokenInfoData::SelfValue,
@@ -4859,7 +4859,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            2,
+                            1,
                         ),
                     ),
                     data: TokenInfoData::Field,
@@ -4870,7 +4870,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            3,
+                            2,
                         ),
                     ),
                     data: TokenInfoData::Field,
@@ -4888,8 +4888,8 @@ Ok(
                                         data: ItemSynNodePathData::AssocItem(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::ymin`, `MethodRitchie(
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::ymin`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -4917,7 +4917,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`core::num::f32`, `Extern`),
@@ -4938,7 +4938,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                     ),
                     data: TokenInfoData::SelfValue,
@@ -4949,7 +4949,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            2,
+                            1,
                         ),
                     ),
                     data: TokenInfoData::Field,
@@ -4960,7 +4960,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            3,
+                            2,
                         ),
                     ),
                     data: TokenInfoData::Field,
@@ -4978,8 +4978,8 @@ Ok(
                                         data: ItemSynNodePathData::AssocItem(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::ymax`, `MethodRitchie(
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::ymax`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -5007,7 +5007,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`core::num::f32`, `Extern`),
@@ -5028,7 +5028,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                     ),
                     data: TokenInfoData::SelfValue,
@@ -5039,7 +5039,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            2,
+                            1,
                         ),
                     ),
                     data: TokenInfoData::Field,
@@ -5050,7 +5050,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            3,
+                            2,
                         ),
                     ),
                     data: TokenInfoData::Field,
@@ -5069,8 +5069,8 @@ Ok(
                                         data: ItemSynNodePathData::MajorItem(
                                             MajorItemSynNodePathData::Type(
                                                 TypeSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -5093,11 +5093,11 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::TemplateParameter(
-                        1,
+                        0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 1,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::FieldVariable {
+                        current_variable_idx: 0,
+                        current_variable_kind: CurrentVariableKind::FieldVariable {
                             ident_token: IdentRegionalToken {
                                 ident: `xrange`,
                                 regional_token_idx: RegionalTokenIdx(
@@ -5113,7 +5113,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -5133,11 +5133,11 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::TemplateParameter(
-                        2,
+                        1,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
-                        current_syn_symbol_idx: 2,
-                        current_syn_symbol_kind: CurrentSynSymbolKind::FieldVariable {
+                        current_variable_idx: 1,
+                        current_variable_kind: CurrentVariableKind::FieldVariable {
                             ident_token: IdentRegionalToken {
                                 ident: `yrange`,
                                 regional_token_idx: RegionalTokenIdx(
@@ -5153,7 +5153,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        2,
+                        1,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::ClosedRange`, `Struct`),
@@ -5175,7 +5175,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -5204,8 +5204,8 @@ Ok(
                                         data: ItemSynNodePathData::AssocItem(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::xmin`, `MethodRitchie(
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::xmin`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -5233,7 +5233,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`core::num::f32`, `Extern`),
@@ -5254,7 +5254,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                     ),
                     data: TokenInfoData::SelfValue,
@@ -5265,7 +5265,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            2,
+                            1,
                         ),
                     ),
                     data: TokenInfoData::Field,
@@ -5276,7 +5276,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            3,
+                            2,
                         ),
                     ),
                     data: TokenInfoData::Field,
@@ -5294,8 +5294,8 @@ Ok(
                                         data: ItemSynNodePathData::AssocItem(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::xmax`, `MethodRitchie(
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::xmax`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -5323,7 +5323,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`core::num::f32`, `Extern`),
@@ -5344,7 +5344,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                     ),
                     data: TokenInfoData::SelfValue,
@@ -5355,7 +5355,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            2,
+                            1,
                         ),
                     ),
                     data: TokenInfoData::Field,
@@ -5366,7 +5366,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            3,
+                            2,
                         ),
                     ),
                     data: TokenInfoData::Field,
@@ -5384,8 +5384,8 @@ Ok(
                                         data: ItemSynNodePathData::AssocItem(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::ymin`, `MethodRitchie(
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::ymin`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -5413,7 +5413,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`core::num::f32`, `Extern`),
@@ -5434,7 +5434,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                     ),
                     data: TokenInfoData::SelfValue,
@@ -5445,7 +5445,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            2,
+                            1,
                         ),
                     ),
                     data: TokenInfoData::Field,
@@ -5456,7 +5456,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            3,
+                            2,
                         ),
                     ),
                     data: TokenInfoData::Field,
@@ -5474,8 +5474,8 @@ Ok(
                                         data: ItemSynNodePathData::AssocItem(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::ymax`, `MethodRitchie(
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::ymax`, `MethodRitchie(
                                                             Fn,
                                                         )`),
                                                         disambiguator: 0,
@@ -5503,7 +5503,7 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::SynPrincipalEntityPathExpr(
-                        1,
+                        0,
                         PrincipalEntityPath::MajorItem(
                             MajorItemPath::Type(
                                 TypePath(`core::num::f32`, `Extern`),
@@ -5524,7 +5524,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            1,
+                            0,
                         ),
                     ),
                     data: TokenInfoData::SelfValue,
@@ -5535,7 +5535,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            2,
+                            1,
                         ),
                     ),
                     data: TokenInfoData::Field,
@@ -5546,7 +5546,7 @@ Ok(
                 TokenInfo {
                     src: TokenInfoSource::SemaExpr(
                         SemaExprIdx(
-                            3,
+                            2,
                         ),
                     ),
                     data: TokenInfoData::Field,

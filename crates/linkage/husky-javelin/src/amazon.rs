@@ -1,7 +1,5 @@
 use super::*;
-use crate::{
-    instantiation::JavInstantiation, jar::JavelinJar, javelin::JavelinData, path::JavPath,
-};
+use crate::{instantiation::JavInstantiation, javelin::JavelinData, path::JavPath};
 use husky_entity_path::ItemPath;
 use husky_entity_tree::helpers::paths::{crate_module_paths, module_item_paths};
 use husky_hir_decl::parameter::template::item_hir_template_parameter_stats;
@@ -16,23 +14,23 @@ use vec_like::VecSet;
 pub struct AmazonJavelin(Javelin);
 
 impl AmazonJavelin {
-    pub fn from_item_path(item_path: ItemPath, db: &::salsa::Db) -> Option<Self> {
-        let stats = item_hir_template_parameter_stats(db, *item_path)?;
+    pub fn from_item_path(path: ItemPath, db: &::salsa::Db) -> Option<Self> {
+        let stats = item_hir_template_parameter_stats(db, *path)?;
         if stats.tys + stats.constants > 0 {
             return None;
         }
         Some(AmazonJavelin(Javelin::new(
             db,
             JavelinData::PathLeading {
-                path: JavPath::try_from_item_path(item_path, db)?,
+                path: JavPath::try_from_item_path(path, db)?,
                 // ad hoc consider places
-                instantiation: JavInstantiation::new_amazon(item_path),
+                instantiation: JavInstantiation::new_amazon(path),
             },
         )))
     }
 }
 
-#[salsa::tracked(jar = JavelinJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub(crate) fn package_amazon_javelins(
     db: &::salsa::Db,
     package_path: PackagePath,

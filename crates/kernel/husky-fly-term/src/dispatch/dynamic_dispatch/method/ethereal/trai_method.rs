@@ -1,7 +1,7 @@
-use husky_eth_signature::helpers::trai_for_ty::trai_path_for_ty_term_impl_block_ethereal_signature_builders;
+use husky_eth_signature::helpers::trai_for_ty::trai_path_for_ty_term_impl_block_eth_signature_builders;
 
 use super::*;
-use crate::method_fn::MethodFnFlySignature;
+use crate::method_ritchie::MethodFnFlySignature;
 use husky_eth_term::term::application::TermFunctionReduced;
 use vec_like::SmallVecPairMap;
 
@@ -11,7 +11,7 @@ impl HasFlyTraitMethodDispatch for EthTerm {
         engine: &mut impl FlyTermEngineMut,
         expr_idx: SynExprIdx,
         ident_token: IdentRegionalToken,
-        trai_item_records: TraitInUseItemsWithGivenIdent,
+        trai_item_records: AvailableTraitItemsWithGivenIdent,
         mut indirections: FlyIndirections,
     ) -> FlyTermMaybeResult<FlyMethodDynamicDispatch> {
         let db = engine.db();
@@ -19,17 +19,16 @@ impl HasFlyTraitMethodDispatch for EthTerm {
         let arguments = application_expansion.arguments(db);
         let mut esbuilders_per_trai: SmallVecPairMap<
             TraitPath,
-            SmallVec<[TraitForTypeImplBlockEtherealSignatureBuilder; 2]>,
+            SmallVec<[EthTraitForTypeImplBlockSignatureBuilder; 2]>,
             2,
         > = Default::default();
         let TermFunctionReduced::TypeOntology(ty_path) = application_expansion.function() else {
             unreachable!()
         };
-        for record in trai_item_records.records() {
+        for (trai_path, trai_item_path, range) in trai_item_records {
             // todo: check scope
-            let trai_path = record.trai_path();
             let builders =
-                trai_path_for_ty_term_impl_block_ethereal_signature_builders(db, trai_path, self)?;
+                trai_path_for_ty_term_impl_block_eth_signature_builders(db, trai_path, self)?;
             if !builders.is_empty() {
                 unsafe { esbuilders_per_trai.insert_new_unchecked((trai_path, builders)) }
             }

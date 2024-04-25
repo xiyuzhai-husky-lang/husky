@@ -3,8 +3,8 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavPath::Fugitive(
-                    FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+                path: JavPath::Form(
+                    FormPath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                         Fn,
                     )`),
                 ),
@@ -18,8 +18,8 @@
     AmazonJavelin(
         Javelin {
             data: JavelinData::PathLeading {
-                path: JavPath::Fugitive(
-                    FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+                path: JavPath::Form(
+                    FormPath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                         Fn,
                     )`),
                 ),

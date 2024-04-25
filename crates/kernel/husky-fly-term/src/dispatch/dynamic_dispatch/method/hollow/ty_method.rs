@@ -49,8 +49,12 @@ impl HasFlyTypeMethodDispatch for HolTerm {
                 parameter_contracted_tys,
                 return_ty,
             } => todo!(),
-            FlyBaseTypeData::Symbol { symbol: term } => todo!(),
-            FlyBaseTypeData::Hvar { hvar } => todo!(),
+            FlyBaseTypeData::SymbolicVariable {
+                symbolic_variable: term,
+            } => todo!(),
+            FlyBaseTypeData::LambdaVariable {
+                lambda_variable: hvar,
+            } => todo!(),
         }
     }
 }

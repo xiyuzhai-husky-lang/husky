@@ -12,8 +12,8 @@ EntityTreeCrateBundle {
                                     ItemSynNodePathId {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: SubmoduleItemPath(
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: SubmoduleItemPath(
                                                         ItemPathId(
                                                             Id {
                                                                 value: 1,
@@ -29,7 +29,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `std`,
                                 ),
-                                ast_idx: 1,
+                                ast_idx: 0,
                                 ident_token: IdentToken {
                                     ident: `prelude`,
                                     token_idx: TokenIdx(
@@ -44,8 +44,8 @@ EntityTreeCrateBundle {
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmoduleItemPath(
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(
                                                     ItemPathId(
                                                         Id {
                                                             value: 1,
@@ -71,8 +71,8 @@ EntityTreeCrateBundle {
                                     ItemSynNodePathId {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: SubmoduleItemPath(
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: SubmoduleItemPath(
                                                         ItemPathId(
                                                             Id {
                                                                 value: 2,
@@ -88,7 +88,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `std`,
                                 ),
-                                ast_idx: 2,
+                                ast_idx: 1,
                                 ident_token: IdentToken {
                                     ident: `logic`,
                                     token_idx: TokenIdx(
@@ -103,8 +103,8 @@ EntityTreeCrateBundle {
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmoduleItemPath(
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(
                                                     ItemPathId(
                                                         Id {
                                                             value: 2,
@@ -130,8 +130,8 @@ EntityTreeCrateBundle {
                                     ItemSynNodePathId {
                                         data: ItemSynNodePathData::Submodule(
                                             SubmoduleSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: SubmoduleItemPath(
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: SubmoduleItemPath(
                                                         ItemPathId(
                                                             Id {
                                                                 value: 3,
@@ -147,7 +147,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `std`,
                                 ),
-                                ast_idx: 3,
+                                ast_idx: 2,
                                 ident_token: IdentToken {
                                     ident: `ops`,
                                     token_idx: TokenIdx(
@@ -162,8 +162,8 @@ EntityTreeCrateBundle {
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmoduleItemPath(
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(
                                                     ItemPathId(
                                                         Id {
                                                             value: 3,
@@ -188,7 +188,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `prelude`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `std`,
                         ),
                         symbol: EntitySymbol::Submodule {
@@ -203,7 +203,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `logic`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `std`,
                         ),
                         symbol: EntitySymbol::Submodule {
@@ -218,7 +218,7 @@ EntityTreeCrateBundle {
                     },
                     EntitySymbolEntry {
                         ident: `ops`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `std`,
                         ),
                         symbol: EntitySymbol::Submodule {
@@ -271,8 +271,8 @@ EntityTreeCrateBundle {
             once_use_rules: OnceUseRules(
                 [
                     OnceUseRule {
-                        ast_idx: 1,
-                        use_expr_idx: 3,
+                        ast_idx: 0,
+                        use_expr_idx: 2,
                         visibility: Scope::Pub,
                         variant: OnceUseRuleVariant::Parent {
                             parent_name_token: PathNameToken::Ident(
@@ -284,7 +284,7 @@ EntityTreeCrateBundle {
                                 },
                             ),
                             children: ArenaIdxRange(
-                                2..3,
+                                1..2,
                             ),
                         },
                         parent: None,
@@ -299,8 +299,8 @@ EntityTreeCrateBundle {
                         },
                     },
                     OnceUseRule {
-                        ast_idx: 1,
-                        use_expr_idx: 2,
+                        ast_idx: 0,
+                        use_expr_idx: 1,
                         visibility: Scope::Pub,
                         variant: OnceUseRuleVariant::Parent {
                             parent_name_token: PathNameToken::Ident(
@@ -312,7 +312,7 @@ EntityTreeCrateBundle {
                                 },
                             ),
                             children: ArenaIdxRange(
-                                1..2,
+                                0..1,
                             ),
                         },
                         parent: Some(
@@ -344,8 +344,8 @@ EntityTreeCrateBundle {
                     UseAllRule {
                         parent_module_path: `core::logic`,
                         is_same_crate: false,
-                        ast_idx: 1,
-                        use_expr_idx: 1,
+                        ast_idx: 0,
+                        use_expr_idx: 0,
                         visibility: Scope::Pub,
                         progress: Ok(
                             0,
@@ -368,8 +368,8 @@ EntityTreeCrateBundle {
                                             data: ItemSynNodePathData::MajorItem(
                                                 MajorItemSynNodePathData::Trait(
                                                     TraitSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TraitPath(`std::ops::Add`),
+                                                        disambiguated_item_path: DisambiguatedItemPath {
+                                                            maybe_ambiguous_item_path: TraitPath(`std::ops::Add`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -381,7 +381,7 @@ EntityTreeCrateBundle {
                                 visibility: Scope::PubUnder(
                                     `std::ops`,
                                 ),
-                                ast_idx: 4,
+                                ast_idx: 3,
                                 ident_token: IdentToken {
                                     ident: `Add`,
                                     token_idx: TokenIdx(
@@ -393,7 +393,7 @@ EntityTreeCrateBundle {
                                     items: Some(
                                         TraitItems {
                                             ast_idx_range: ArenaIdxRange(
-                                                1..3,
+                                                0..2,
                                             ),
                                         },
                                     ),
@@ -407,8 +407,8 @@ EntityTreeCrateBundle {
                                         data: ItemSynNodePathData::MajorItem(
                                             MajorItemSynNodePathData::Trait(
                                                 TraitSynNodePathData {
-                                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                        path: TraitPath(`std::ops::Add`),
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TraitPath(`std::ops::Add`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -429,7 +429,7 @@ EntityTreeCrateBundle {
                 [
                     EntitySymbolEntry {
                         ident: `Add`,
-                        visibility: Scope::PubUnder(
+                        visible_scope: Scope::PubUnder(
                             `std::ops`,
                         ),
                         symbol: EntitySymbol::MajorItem {

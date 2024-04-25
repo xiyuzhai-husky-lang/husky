@@ -5,7 +5,7 @@
             path: TracePath {
                 data: TracePathData::ValItem(
                     ValItemTracePathData {
-                        val_item_path: FugitivePath(`mnist::input`, `Val`),
+                        val_item_path: FormPath(`mnist::input`, `Val`),
                     },
                 ),
             },
@@ -16,7 +16,7 @@
                             value: 1,
                         },
                     ),
-                    val_item_path: FugitivePath(
+                    val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
                                 value: 14,

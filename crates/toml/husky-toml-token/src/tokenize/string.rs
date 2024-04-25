@@ -19,7 +19,7 @@ impl<'a> TomlTokenIter<'a> {
                 multiline = true;
             } else {
                 return TomlTokenData::StringLiteral {
-                    val: Default::default(),
+                    val: Arc::from(""),
                     multiline: false,
                 };
             }
@@ -167,8 +167,8 @@ impl MaybeString {
 
     fn into_cow(self, input: &str) -> StringValue {
         match self {
-            MaybeString::NotEscaped(start) => Arc::new(input[start..].to_owned()),
-            MaybeString::Owned(s) => Arc::new(s),
+            MaybeString::NotEscaped(start) => Arc::from(&input[start..]),
+            MaybeString::Owned(s) => Arc::from(s),
         }
     }
 }

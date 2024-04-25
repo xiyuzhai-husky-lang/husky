@@ -8,16 +8,16 @@ use super::*;
 pub(super) fn ethereal_term_data<'a>(db: &'a ::salsa::Db, term: EthTerm) -> FlyTermData<'a> {
     match term {
         EthTerm::Literal(lit) => FlyTermData::Literal(lit),
-        EthTerm::Symbol(term) => FlyTermData::Symbol {
-            term,
+        EthTerm::SymbolicVariable(term) => FlyTermData::SymbolicVariable {
+            symbolic_variable: term,
             ty: term.ty(db).into(),
         },
-        EthTerm::Hvar(term) => FlyTermData::Hvar {
+        EthTerm::LambdaVariable(term) => FlyTermData::LambdaVariable {
             ty: term.ty(db).into(),
             index: term.index(db),
         },
         EthTerm::EntityPath(path) => match path {
-            ItemPathTerm::Fugitive(_) => todo!(),
+            ItemPathTerm::Form(_) => todo!(),
             ItemPathTerm::Trait(_) => todo!(),
             ItemPathTerm::TypeOntology(ty_path) => FlyTermData::TypeOntology {
                 ty_path,
@@ -164,10 +164,14 @@ pub(super) fn ethereal_term_fly_base_ty_data<'a>(
 ) -> FlyBaseTypeData<'a> {
     match term {
         EthTerm::Literal(_) => todo!(),
-        EthTerm::Symbol(symbol) => FlyBaseTypeData::Symbol { symbol },
-        EthTerm::Hvar(hvar) => FlyBaseTypeData::Hvar { hvar },
+        EthTerm::SymbolicVariable(symbol) => FlyBaseTypeData::SymbolicVariable {
+            symbolic_variable: symbol,
+        },
+        EthTerm::LambdaVariable(hvar) => FlyBaseTypeData::LambdaVariable {
+            lambda_variable: hvar,
+        },
         EthTerm::EntityPath(path) => match path {
-            ItemPathTerm::Fugitive(_) => todo!(),
+            ItemPathTerm::Form(_) => todo!(),
             ItemPathTerm::Trait(_) => todo!(),
             ItemPathTerm::TypeOntology(ty_path) => FlyBaseTypeData::TypeOntology {
                 ty_path,

@@ -19,10 +19,12 @@ impl HasDecTemplate for AttrItemPath {
     }
 }
 
-// #[salsa::tracked(jar = DecSignatureJar)]
+#[salsa::tracked(jar = DecSignatureJar)]
 fn attr_dec_template(db: &::salsa::Db, path: AttrItemPath) -> DecSignatureResult<AttrDecTemplate> {
     match path.syn_decl(db)? {
+        AttrSynDecl::Backprop(_) => todo!(),
         AttrSynDecl::Derive(decl) => DeriveAttrDecTemplate::from_decl(decl, db).map(Into::into),
+        AttrSynDecl::Effect(decl) => todo!(),
         AttrSynDecl::Test(decl) => todo!(),
     }
 }

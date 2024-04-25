@@ -13,18 +13,26 @@ impl TranspileToRustWith for AttrHirDefn {
 
 pub(crate) struct Attrs {
     derive_attrs: DeriveAttrs,
+    is_test: bool,
 }
 
 impl Attrs {
     pub(crate) fn new(attr_paths: &[AttrItemPath], builder: &RustTranspilationBuilder) -> Self {
         let db = builder.db();
         let mut derive_attrs = DeriveAttrs::base(builder);
+        let mut is_test = false;
         for attr_path in attr_paths {
             match attr_path.hir_decl(db).unwrap() {
+                AttrHirDecl::Backprop(_) => (),
                 AttrHirDecl::Derive(decl) => derive_attrs.merge(decl.trais(db), db),
+                AttrHirDecl::Effect(_) => (),
+                AttrHirDecl::Test(_) => is_test = true,
             }
         }
-        Self { derive_attrs }
+        Self {
+            derive_attrs,
+            is_test,
+        }
     }
 }
 

@@ -1,17 +1,20 @@
 ```rust
 [
     HirDecl::MajorItem(
-        MajorItemHirDecl::Fugitive(
-            FugitiveHirDecl::FunctionFn(
-                FunctionMajorFnHirDecl {
-                    path: FugitivePath(`syntax_basics::expr::nested`, `Ritchie(
+        MajorItemHirDecl::Form(
+            MajorFormHirDecl::Ritchie(
+                MajorFunctionRitchieHirDecl {
+                    path: FormPath(`syntax_basics::expr::nested`, `Ritchie(
                         Fn,
                     )`),
+                    ritchie_item_kind: RitchieItemKind::Fn,
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    parenate_parameters: HirEagerParenateParameters(
-                        [],
+                    parenate_parameters: HirParenateParameters::Eager(
+                        HirEagerParenateParameters(
+                            [],
+                        ),
                     ),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {
@@ -20,53 +23,32 @@
                             always_copyable: true,
                         },
                     ),
-                    hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`syntax_basics::expr::nested`, `Ritchie(
-                                        Fn,
-                                    )`),
-                                ),
-                            ),
+                    hir_expr_region: Eager(
+                        HirEagerExprRegion(
+                            Id {
+                                value: 7,
+                            },
                         ),
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_arena: Arena {
-                            data: [],
-                        },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
-                            arena: Arena {
-                                data: [],
-                            },
-                        },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
-                            arena: Arena {
-                                data: [],
-                            },
-                            self_value_variable: None,
-                        },
-                    },
+                    ),
                 },
             ),
         ),
     ),
     HirDecl::MajorItem(
-        MajorItemHirDecl::Fugitive(
-            FugitiveHirDecl::FunctionFn(
-                FunctionMajorFnHirDecl {
-                    path: FugitivePath(`syntax_basics::expr::closure_inline`, `Ritchie(
+        MajorItemHirDecl::Form(
+            MajorFormHirDecl::Ritchie(
+                MajorFunctionRitchieHirDecl {
+                    path: FormPath(`syntax_basics::expr::closure_inline`, `Ritchie(
                         Fn,
                     )`),
+                    ritchie_item_kind: RitchieItemKind::Fn,
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    parenate_parameters: HirEagerParenateParameters(
-                        [],
+                    parenate_parameters: HirParenateParameters::Eager(
+                        HirEagerParenateParameters(
+                            [],
+                        ),
                     ),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {
@@ -75,53 +57,32 @@
                             always_copyable: true,
                         },
                     ),
-                    hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`syntax_basics::expr::closure_inline`, `Ritchie(
-                                        Fn,
-                                    )`),
-                                ),
-                            ),
+                    hir_expr_region: Eager(
+                        HirEagerExprRegion(
+                            Id {
+                                value: 8,
+                            },
                         ),
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_arena: Arena {
-                            data: [],
-                        },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
-                            arena: Arena {
-                                data: [],
-                            },
-                        },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
-                            arena: Arena {
-                                data: [],
-                            },
-                            self_value_variable: None,
-                        },
-                    },
+                    ),
                 },
             ),
         ),
     ),
     HirDecl::MajorItem(
-        MajorItemHirDecl::Fugitive(
-            FugitiveHirDecl::FunctionFn(
-                FunctionMajorFnHirDecl {
-                    path: FugitivePath(`syntax_basics::expr::closure_nested`, `Ritchie(
+        MajorItemHirDecl::Form(
+            MajorFormHirDecl::Ritchie(
+                MajorFunctionRitchieHirDecl {
+                    path: FormPath(`syntax_basics::expr::closure_nested`, `Ritchie(
                         Fn,
                     )`),
+                    ritchie_item_kind: RitchieItemKind::Fn,
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
-                    parenate_parameters: HirEagerParenateParameters(
-                        [],
+                    parenate_parameters: HirParenateParameters::Eager(
+                        HirEagerParenateParameters(
+                            [],
+                        ),
                     ),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {
@@ -130,37 +91,13 @@
                             always_copyable: true,
                         },
                     ),
-                    hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Fugitive(
-                                    FugitivePath(`syntax_basics::expr::closure_nested`, `Ritchie(
-                                        Fn,
-                                    )`),
-                                ),
-                            ),
+                    hir_expr_region: Eager(
+                        HirEagerExprRegion(
+                            Id {
+                                value: 9,
+                            },
                         ),
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_arena: Arena {
-                            data: [],
-                        },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
-                            arena: Arena {
-                                data: [],
-                            },
-                        },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
-                            arena: Arena {
-                                data: [],
-                            },
-                            self_value_variable: None,
-                        },
-                    },
+                    ),
                 },
             ),
         ),

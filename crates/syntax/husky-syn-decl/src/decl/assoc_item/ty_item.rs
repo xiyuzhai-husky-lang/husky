@@ -1,14 +1,14 @@
-mod assoc_fn;
+mod assoc_ritchie;
 mod assoc_ty;
 mod assoc_val;
 mod memo_field;
-mod method_fn;
+mod method_ritchie;
 
-pub use self::assoc_fn::*;
+pub use self::assoc_ritchie::*;
 pub use self::assoc_ty::*;
 pub use self::assoc_val::*;
 pub use self::memo_field::*;
-pub use self::method_fn::*;
+pub use self::method_ritchie::*;
 
 use super::*;
 
@@ -18,8 +18,8 @@ use husky_entity_kind::TypeItemKind;
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum TypeItemSynNodeDecl {
-    AssocFn(TypeAssocFnSynNodeDecl),
-    MethodFn(TypeMethodFnSynNodeDecl),
+    AssocRitchie(TypeAssocRitchieSynNodeDecl),
+    MethodFn(TypeMethodRitchieSynNodeDecl),
     AssocType(TypeAssocTypeSynNodeDecl),
     AssocVal(TypeAssocValSynNodeDecl),
     MemoizedField(TypeMemoizedFieldSynNodeDecl),
@@ -34,7 +34,7 @@ impl From<TypeItemSynNodeDecl> for ItemSynNodeDecl {
 impl TypeItemSynNodeDecl {
     pub fn syn_node_path(self, db: &::salsa::Db) -> TypeItemSynNodePath {
         match self {
-            TypeItemSynNodeDecl::AssocFn(syn_node_decl) => syn_node_decl.syn_node_path(db),
+            TypeItemSynNodeDecl::AssocRitchie(syn_node_decl) => syn_node_decl.syn_node_path(db),
             TypeItemSynNodeDecl::MethodFn(syn_node_decl) => syn_node_decl.syn_node_path(db),
             TypeItemSynNodeDecl::AssocType(_) => todo!(),
             TypeItemSynNodeDecl::AssocVal(_) => todo!(),
@@ -44,7 +44,7 @@ impl TypeItemSynNodeDecl {
 
     pub fn syn_expr_region(self, db: &::salsa::Db) -> SynExprRegion {
         match self {
-            TypeItemSynNodeDecl::AssocFn(syn_node_decl) => syn_node_decl.syn_expr_region(db),
+            TypeItemSynNodeDecl::AssocRitchie(syn_node_decl) => syn_node_decl.syn_expr_region(db),
             TypeItemSynNodeDecl::MethodFn(syn_node_decl) => syn_node_decl.syn_expr_region(db),
             TypeItemSynNodeDecl::AssocType(syn_node_decl) => syn_node_decl.syn_expr_region(db),
             TypeItemSynNodeDecl::AssocVal(syn_node_decl) => syn_node_decl.syn_expr_region(db),
@@ -54,7 +54,7 @@ impl TypeItemSynNodeDecl {
 
     pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         match self {
-            TypeItemSynNodeDecl::AssocFn(syn_node_decl) => syn_node_decl.errors(db),
+            TypeItemSynNodeDecl::AssocRitchie(syn_node_decl) => syn_node_decl.errors(db),
             TypeItemSynNodeDecl::MethodFn(syn_node_decl) => syn_node_decl.errors(db),
             TypeItemSynNodeDecl::AssocType(syn_node_decl) => syn_node_decl.errors(db),
             TypeItemSynNodeDecl::AssocVal(syn_node_decl) => syn_node_decl.errors(db),
@@ -102,9 +102,9 @@ impl<'a> DeclParser<'a> {
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum TypeItemSynDecl {
-    AssocFn(TypeAssocFnSynDecl),
-    MethodFn(TypeMethodFnSynDecl),
-    // MethodFunction(TypeMethodFunctionSynDecl),
+    AssocRitchie(TypeAssocRitchieSynDecl),
+    MethodFn(TypeMethodRitchieSynDecl),
+    // MethodFunction(TypeMethodCurrySynDecl),
     AssocType(TypeAssocTypeSynDecl),
     AssocVal(TypeAssocValSynDecl),
     MemoizedField(TypeMemoizedFieldSynDecl),
@@ -119,7 +119,7 @@ impl From<TypeItemSynDecl> for SynDecl {
 impl TypeItemSynDecl {
     pub fn path(self, db: &::salsa::Db) -> TypeItemPath {
         match self {
-            TypeItemSynDecl::AssocFn(slf) => slf.path(db),
+            TypeItemSynDecl::AssocRitchie(slf) => slf.path(db),
             TypeItemSynDecl::MethodFn(slf) => slf.path(db),
             TypeItemSynDecl::AssocType(slf) => slf.path(db),
             TypeItemSynDecl::AssocVal(slf) => slf.path(db),
@@ -129,7 +129,7 @@ impl TypeItemSynDecl {
 
     pub fn template_parameters<'a>(self, db: &'a ::salsa::Db) -> &'a [TemplateSynParameterData] {
         match self {
-            TypeItemSynDecl::AssocFn(slf) => slf.template_parameters(db),
+            TypeItemSynDecl::AssocRitchie(slf) => slf.template_parameters(db),
             TypeItemSynDecl::MethodFn(slf) => slf.template_parameters(db),
             // TypeItemSynDecl::MethodFunction(decl) => todo!(),
             TypeItemSynDecl::AssocType(slf) => slf.template_parameters(db),
@@ -143,7 +143,7 @@ impl TypeItemSynDecl {
         db: &'a ::salsa::Db,
     ) -> Option<&'a [ParenateParameterSyndicate]> {
         match self {
-            TypeItemSynDecl::AssocFn(syn_decl) => Some(syn_decl.parenate_parameters(db)),
+            TypeItemSynDecl::AssocRitchie(syn_decl) => Some(syn_decl.parenate_parameters(db)),
             TypeItemSynDecl::MethodFn(syn_decl) => Some(syn_decl.parenate_parameters(db)),
             TypeItemSynDecl::AssocType(_) => None,
             TypeItemSynDecl::AssocVal(_) => None,
@@ -153,7 +153,7 @@ impl TypeItemSynDecl {
 
     pub fn syn_expr_region(self, db: &::salsa::Db) -> SynExprRegion {
         match self {
-            TypeItemSynDecl::AssocFn(decl) => decl.syn_expr_region(db),
+            TypeItemSynDecl::AssocRitchie(decl) => decl.syn_expr_region(db),
             TypeItemSynDecl::MethodFn(decl) => decl.syn_expr_region(db),
             // TypeItemSynDecl::MethodFunction(decl) => decl.syn_expr_region(db),
             TypeItemSynDecl::AssocType(decl) => decl.syn_expr_region(db),
@@ -167,8 +167,8 @@ impl TypeItemSynDecl {
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum TypeItemDecls {
-    AssocFn(SmallVecImpl<TypeAssocFnSynDecl>),
-    MethodFn(SmallVecImpl<TypeMethodFnSynDecl>),
+    AssocRitchie(SmallVecImpl<TypeAssocRitchieSynDecl>),
+    MethodFn(SmallVecImpl<TypeMethodRitchieSynDecl>),
     MethodFunction(/* adhoc */),
     AssocType(SmallVecImpl<TypeAssocTypeSynDecl>),
     AssocVal(SmallVecImpl<TypeAssocValSynDecl>),
@@ -178,7 +178,7 @@ pub enum TypeItemDecls {
 impl HasSynDecl for TypeItemPath {
     type Decl = TypeItemSynDecl;
 
-    fn syn_decl(self, db: &::salsa::Db) -> DeclResult<Self::Decl> {
+    fn syn_decl(self, db: &::salsa::Db) -> SynDeclResult<Self::Decl> {
         ty_item_syn_decl(db, self)
     }
 }
@@ -187,13 +187,13 @@ impl HasSynDecl for TypeItemPath {
 pub(crate) fn ty_item_syn_decl(
     db: &::salsa::Db,
     path: TypeItemPath,
-) -> DeclResult<TypeItemSynDecl> {
+) -> SynDeclResult<TypeItemSynDecl> {
     match path.syn_node_path(db).syn_node_decl(db) {
-        TypeItemSynNodeDecl::AssocFn(syn_node_decl) => {
-            TypeAssocFnSynDecl::from_node_decl(db, path, syn_node_decl).map(Into::into)
+        TypeItemSynNodeDecl::AssocRitchie(syn_node_decl) => {
+            TypeAssocRitchieSynDecl::from_node_decl(db, path, syn_node_decl).map(Into::into)
         }
         TypeItemSynNodeDecl::MethodFn(syn_node_decl) => {
-            TypeMethodFnSynDecl::from_node_decl(db, path, syn_node_decl).map(Into::into)
+            TypeMethodRitchieSynDecl::from_node_decl(db, path, syn_node_decl).map(Into::into)
         }
         TypeItemSynNodeDecl::AssocType(_) => todo!(),
         TypeItemSynNodeDecl::AssocVal(syn_node_decl) => {

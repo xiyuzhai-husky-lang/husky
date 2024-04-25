@@ -70,7 +70,7 @@ impl<'a> SynExprContext<'a> {
             parent_syn_expr_region: parent_expr_region,
             syn_symbol_context: SynSymbolContextMut::new(
                 module_symbol_context,
-                parent_expr_region.map(|er| er.data(db).symbol_region()),
+                parent_expr_region.map(|er| er.data(db).variable_region()),
                 allow_self_type,
                 allow_self_value,
             ),
@@ -128,9 +128,9 @@ impl<'a> SynExprContext<'a> {
     #[inline(always)]
     pub(crate) fn define_symbol(
         &mut self,
-        variable: CurrentSynSymbolEntry,
+        variable: CurrentVariableEntry,
         ty_constraint: Option<SyndicateTypeConstraint>,
-    ) -> CurrentSynSymbolIdx {
+    ) -> CurrentVariableIdx {
         self.syn_symbol_context
             .define_symbol(variable, ty_constraint)
     }
@@ -138,7 +138,7 @@ impl<'a> SynExprContext<'a> {
     #[inline(always)]
     pub(crate) fn define_symbols(
         &mut self,
-        variables: impl IntoIterator<Item = CurrentSynSymbolEntry>,
+        variables: impl IntoIterator<Item = CurrentVariableEntry>,
         ty_constraint: Option<SyndicateTypeConstraint>,
     ) -> CurrentSynSymbolIdxRange {
         self.syn_symbol_context
@@ -188,7 +188,7 @@ impl<'a> SynExprContext<'a> {
     pub(crate) fn alloc_item_path_expr(
         &mut self,
         expr: SynPrincipalEntityPathExpr,
-    ) -> PrincipalEntityPathSynExprIdx {
+    ) -> SynPrincipalEntityPathSynExprIdx {
         self.syn_principal_entity_path_expr_arena.alloc_one(expr)
     }
 
@@ -220,7 +220,7 @@ impl<'a> SynExprContext<'a> {
 
     pub(crate) fn set_lambda_variable_access_end(
         &mut self,
-        var: CurrentSynSymbolIdx,
+        var: CurrentVariableIdx,
         access_end: RegionalTokenIdxRangeEnd,
     ) {
         self.syn_symbol_context

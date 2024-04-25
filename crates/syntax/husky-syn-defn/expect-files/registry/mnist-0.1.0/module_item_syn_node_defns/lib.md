@@ -8,8 +8,8 @@
                         data: ItemSynNodePathData::MajorItem(
                             MajorItemSynNodePathData::Type(
                                 TypeSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TypePath(`mnist::MnistLabel`, `Enum`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -22,6 +22,386 @@
         None,
     ),
     (
+        ItemSynNodePath::TypeVariant(
+            Room32,
+            TypeVariantSynNodePath(
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::TypeVariant(
+                        TypeVariantSynNodePathData {
+                            parent_ty_node_path: TypeSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                            disambiguated_item_path: DisambiguatedItemPath {
+                                maybe_ambiguous_item_path: TypeVariantPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 2,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemSynNodePath::TypeVariant(
+            Room32,
+            TypeVariantSynNodePath(
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::TypeVariant(
+                        TypeVariantSynNodePathData {
+                            parent_ty_node_path: TypeSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                            disambiguated_item_path: DisambiguatedItemPath {
+                                maybe_ambiguous_item_path: TypeVariantPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 3,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemSynNodePath::TypeVariant(
+            Room32,
+            TypeVariantSynNodePath(
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::TypeVariant(
+                        TypeVariantSynNodePathData {
+                            parent_ty_node_path: TypeSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                            disambiguated_item_path: DisambiguatedItemPath {
+                                maybe_ambiguous_item_path: TypeVariantPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 4,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemSynNodePath::TypeVariant(
+            Room32,
+            TypeVariantSynNodePath(
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::TypeVariant(
+                        TypeVariantSynNodePathData {
+                            parent_ty_node_path: TypeSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                            disambiguated_item_path: DisambiguatedItemPath {
+                                maybe_ambiguous_item_path: TypeVariantPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 5,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemSynNodePath::TypeVariant(
+            Room32,
+            TypeVariantSynNodePath(
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::TypeVariant(
+                        TypeVariantSynNodePathData {
+                            parent_ty_node_path: TypeSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                            disambiguated_item_path: DisambiguatedItemPath {
+                                maybe_ambiguous_item_path: TypeVariantPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 6,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemSynNodePath::TypeVariant(
+            Room32,
+            TypeVariantSynNodePath(
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::TypeVariant(
+                        TypeVariantSynNodePathData {
+                            parent_ty_node_path: TypeSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                            disambiguated_item_path: DisambiguatedItemPath {
+                                maybe_ambiguous_item_path: TypeVariantPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 7,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemSynNodePath::TypeVariant(
+            Room32,
+            TypeVariantSynNodePath(
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::TypeVariant(
+                        TypeVariantSynNodePathData {
+                            parent_ty_node_path: TypeSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                            disambiguated_item_path: DisambiguatedItemPath {
+                                maybe_ambiguous_item_path: TypeVariantPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 8,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemSynNodePath::TypeVariant(
+            Room32,
+            TypeVariantSynNodePath(
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::TypeVariant(
+                        TypeVariantSynNodePathData {
+                            parent_ty_node_path: TypeSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                            disambiguated_item_path: DisambiguatedItemPath {
+                                maybe_ambiguous_item_path: TypeVariantPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 9,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemSynNodePath::TypeVariant(
+            Room32,
+            TypeVariantSynNodePath(
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::TypeVariant(
+                        TypeVariantSynNodePathData {
+                            parent_ty_node_path: TypeSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                            disambiguated_item_path: DisambiguatedItemPath {
+                                maybe_ambiguous_item_path: TypeVariantPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 10,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemSynNodePath::TypeVariant(
+            Room32,
+            TypeVariantSynNodePath(
+                ItemSynNodePathId {
+                    data: ItemSynNodePathData::TypeVariant(
+                        TypeVariantSynNodePathData {
+                            parent_ty_node_path: TypeSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Type(
+                                            TypeSynNodePathData {
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                            disambiguated_item_path: DisambiguatedItemPath {
+                                maybe_ambiguous_item_path: TypeVariantPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 11,
+                                        },
+                                    ),
+                                ),
+                                disambiguator: 0,
+                            },
+                        },
+                    ),
+                },
+            ),
+        ),
+        None,
+    ),
+    (
         ItemSynNodePath::MajorItem(
             MajorItemSynNodePath::Type(
                 TypeSynNodePath(
@@ -29,8 +409,8 @@
                         data: ItemSynNodePathData::MajorItem(
                             MajorItemSynNodePathData::Type(
                                 TypeSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`mnist::BinaryImage28`, `Extern`),
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -56,8 +436,8 @@
                                             data: ItemSynNodePathData::MajorItem(
                                                 MajorItemSynNodePathData::Type(
                                                     TypeSynNodePathData {
-                                                        maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                            path: TypePath(`mnist::BinaryImage28`, `Extern`),
+                                                        disambiguated_item_path: DisambiguatedItemPath {
+                                                            maybe_ambiguous_item_path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -67,16 +447,15 @@
                                     ),
                                 ),
                             ),
-                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                path: AttrItemPath(
+                            attr_item_path_result: Ok(
+                                AttrItemPath(
                                     ItemPathId(
                                         Id {
                                             value: 153,
                                         },
                                     ),
                                 ),
-                                disambiguator: 0,
-                            },
+                            ),
                         },
                     ),
                 },
@@ -92,8 +471,8 @@
                         data: ItemSynNodePathData::MajorItem(
                             MajorItemSynNodePathData::Type(
                                 TypeSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypePath(`mnist::BinaryGrid28`, `Extern`),
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TypePath(`mnist::BinaryGrid28`, `Extern`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -107,8 +486,8 @@
     ),
     (
         ItemSynNodePath::MajorItem(
-            MajorItemSynNodePath::Fugitive(
-                FugitiveSynNodePath(`mnist::input`, `Val`, (0)),
+            MajorItemSynNodePath::Form(
+                FormSynNodePath(`mnist::input`, `Val`, (0)),
             ),
         ),
         None,
@@ -139,8 +518,8 @@
                         data: ItemSynNodePathData::AssocItem(
                             AssocItemSynNodePathData::TraitForTypeItem(
                                 TraitForTypeItemSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TraitForTypeItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TraitForTypeItemPath(
                                             `<mnist::BinaryImage28 as core::visual::Visualize(0)>::visualize`,
                                             TraitItemKind::MethodRitchie(
                                                 RitchieItemKind::Fn,
@@ -189,8 +568,8 @@
                         data: ItemSynNodePathData::AssocItem(
                             AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(`<mnist::BinaryImage28(0)>::new_zeros`, `AssocRitchie(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist::BinaryImage28(0)>::new_zeros`, `AssocRitchie(
                                             Fn,
                                         )`),
                                         disambiguator: 0,
@@ -230,8 +609,8 @@
                         data: ItemSynNodePathData::AssocItem(
                             AssocItemSynNodePathData::TraitForTypeItem(
                                 TraitForTypeItemSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TraitForTypeItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TraitForTypeItemPath(
                                             `<mnist::BinaryImage28 as core::ops::IntIndex(0)>::Output`,
                                             TraitItemKind::AssocType,
                                         ),
@@ -272,8 +651,8 @@
                         data: ItemSynNodePathData::AssocItem(
                             AssocItemSynNodePathData::TraitForTypeItem(
                                 TraitForTypeItemSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TraitForTypeItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TraitForTypeItemPath(
                                             `<mnist::BinaryGrid28 as core::visual::Visualize(0)>::visualize`,
                                             TraitItemKind::MethodRitchie(
                                                 RitchieItemKind::Fn,
@@ -322,8 +701,8 @@
                         data: ItemSynNodePathData::AssocItem(
                             AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TypeItemPath(`<mnist::BinaryGrid28(0)>::new_zeros`, `AssocRitchie(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist::BinaryGrid28(0)>::new_zeros`, `AssocRitchie(
                                             Fn,
                                         )`),
                                         disambiguator: 0,
@@ -363,8 +742,8 @@
                         data: ItemSynNodePathData::AssocItem(
                             AssocItemSynNodePathData::TraitForTypeItem(
                                 TraitForTypeItemSynNodePathData {
-                                    maybe_ambiguous_path: MaybeAmbiguousPath {
-                                        path: TraitForTypeItemPath(
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TraitForTypeItemPath(
                                             `<mnist::BinaryGrid28 as core::ops::IntIndex(0)>::Output`,
                                             TraitItemKind::AssocType,
                                         ),

@@ -1,4 +1,4 @@
-use husky_entity_kind::{MajorFugitiveKind, TraitItemKind, TypeItemKind};
+use husky_entity_kind::{MajorFormKind, TraitItemKind, TypeItemKind};
 use husky_entity_path::{region::RegionPath, AssocItemPath, ItemPath, MajorItemPath};
 use husky_hir_eager_expr::{
     builder::hir_eager_expr_region_with_source_map,
@@ -8,7 +8,7 @@ use husky_hir_lazy_expr::{
     builder::hir_lazy_expr_region_with_source_map,
     helpers::{hir_lazy_body_with_expr_region, hir_lazy_expr_region_from_syn},
 };
-use husky_sema_expr::{helpers::analysis::sema_expr_region_requires_lazy, SemaExprDb};
+use husky_sem_expr::{helpers::analysis::sem_expr_region_requires_lazy, SemaExprDb};
 use husky_syn_expr::SynExprRegion;
 
 use crate::{source_map::HirExprSourceMap, *};
@@ -22,8 +22,8 @@ pub fn hir_body_with_expr_region(
         body: _,
         syn_expr_region,
     } = item_syn_defn(db, path)?;
-    let sema_expr_region = db.sema_expr_region(syn_expr_region);
-    Some(match is_lazy(sema_expr_region, db) {
+    let sem_expr_region = db.sem_expr_region(syn_expr_region);
+    Some(match is_lazy(sem_expr_region, db) {
         true => {
             let (body, expr_region) = hir_lazy_body_with_expr_region(path, db)?;
             (body.into(), expr_region.into())
@@ -36,8 +36,8 @@ pub fn hir_body_with_expr_region(
 }
 
 pub fn hir_expr_region(syn_expr_region: SynExprRegion, db: &::salsa::Db) -> HirExprRegion {
-    let sema_expr_region = db.sema_expr_region(syn_expr_region);
-    match sema_expr_region_requires_lazy(db, sema_expr_region) {
+    let sem_expr_region = db.sem_expr_region(syn_expr_region);
+    match sem_expr_region_requires_lazy(db, sem_expr_region) {
         true => hir_lazy_expr_region_from_syn(syn_expr_region, db).into(),
         false => hir_eager_expr_region(syn_expr_region, db).into(),
     }
@@ -47,21 +47,21 @@ pub fn hir_expr_region_with_source_map(
     syn_expr_region: SynExprRegion,
     db: &::salsa::Db,
 ) -> (HirExprRegion, HirExprSourceMap) {
-    let sema_expr_region = db.sema_expr_region(syn_expr_region);
-    let lazy = is_lazy(sema_expr_region, db);
+    let sem_expr_region = db.sem_expr_region(syn_expr_region);
+    let lazy = is_lazy(sem_expr_region, db);
     if lazy {
         let (hir_lazy_expr_region, source_map) =
-            hir_lazy_expr_region_with_source_map(db, sema_expr_region);
+            hir_lazy_expr_region_with_source_map(db, sem_expr_region);
         (hir_lazy_expr_region.into(), source_map.into())
     } else {
         let (hir_eager_expr_region, source_map) =
-            hir_eager_expr_region_with_source_map(db, sema_expr_region);
+            hir_eager_expr_region_with_source_map(db, sem_expr_region);
         (hir_eager_expr_region.into(), source_map.into())
     }
 }
 
-fn is_lazy(sema_expr_region: husky_sema_expr::SemaExprRegion, db: &salsa::Db) -> bool {
-    match sema_expr_region.path(db) {
+fn is_lazy(sem_expr_region: husky_sem_expr::SemaExprRegion, db: &salsa::Db) -> bool {
+    match sem_expr_region.path(db) {
         RegionPath::Snippet(_) =>
         /* ad hoc */
         {
@@ -69,10 +69,10 @@ fn is_lazy(sema_expr_region: husky_sema_expr::SemaExprRegion, db: &salsa::Db) ->
         }
         RegionPath::Decl(path) | RegionPath::Defn(path) => match path {
             ItemPath::MajorItem(path) => match path {
-                MajorItemPath::Fugitive(path) => match path.major_fugitive_kind(db) {
-                    MajorFugitiveKind::GN | MajorFugitiveKind::QN => true,
-                    MajorFugitiveKind::Val | MajorFugitiveKind::VN | MajorFugitiveKind::TN => {
-                        sema_expr_region_requires_lazy(db, sema_expr_region)
+                MajorItemPath::Form(path) => match path.major_form_kind(db) {
+                    MajorFormKind::GN | MajorFormKind::QN => true,
+                    MajorFormKind::Val | MajorFormKind::VN | MajorFormKind::TN => {
+                        sem_expr_region_requires_lazy(db, sem_expr_region)
                     }
                     _ => false,
                 },
@@ -82,7 +82,7 @@ fn is_lazy(sema_expr_region: husky_sema_expr::SemaExprRegion, db: &salsa::Db) ->
                 AssocItemPath::TypeItem(path) => match path.item_kind(db) {
                     TypeItemKind::AssocRitchie(ritchie_item_kind)
                     | TypeItemKind::MethodRitchie(ritchie_item_kind) => ritchie_item_kind.is_lazy(),
-                    TypeItemKind::AssocVal => sema_expr_region_requires_lazy(db, sema_expr_region),
+                    TypeItemKind::AssocVal => sem_expr_region_requires_lazy(db, sem_expr_region),
                     _ => false,
                 },
                 AssocItemPath::TraitItem(path) => match path.item_kind(db) {
@@ -90,7 +90,7 @@ fn is_lazy(sema_expr_region: husky_sema_expr::SemaExprRegion, db: &salsa::Db) ->
                     | TraitItemKind::MethodRitchie(ritchie_item_kind) => {
                         ritchie_item_kind.is_lazy()
                     }
-                    TraitItemKind::AssocVal => sema_expr_region_requires_lazy(db, sema_expr_region),
+                    TraitItemKind::AssocVal => sem_expr_region_requires_lazy(db, sem_expr_region),
                     _ => false,
                 },
                 AssocItemPath::TraitForTypeItem(path) => match path.item_kind(db) {
@@ -98,7 +98,7 @@ fn is_lazy(sema_expr_region: husky_sema_expr::SemaExprRegion, db: &salsa::Db) ->
                     | TraitItemKind::MethodRitchie(ritchie_item_kind) => {
                         ritchie_item_kind.is_lazy()
                     }
-                    TraitItemKind::AssocVal => sema_expr_region_requires_lazy(db, sema_expr_region),
+                    TraitItemKind::AssocVal => sem_expr_region_requires_lazy(db, sem_expr_region),
                     _ => false,
                 },
             },

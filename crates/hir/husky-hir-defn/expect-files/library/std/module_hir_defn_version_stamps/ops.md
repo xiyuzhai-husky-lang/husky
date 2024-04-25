@@ -22,5 +22,33 @@
             ),
         ),
     ),
+    (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 137,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 138,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
 ]
 ```

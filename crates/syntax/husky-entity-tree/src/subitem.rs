@@ -38,9 +38,7 @@ pub(crate) fn subitem_path(
                     }
                 }
                 MajorItemPath::Trait(_) => Ok(SubitemPath::Assoc),
-                MajorItemPath::Fugitive(_) => {
-                    Err(OriginalEntityTreeError::NoSubitemForFugitive.into())
-                }
+                MajorItemPath::Form(_) => Err(OriginalEntityTreeError::NoSubitemForForm.into()),
             }
         }
     }

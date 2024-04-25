@@ -1,7 +1,15 @@
 [package]
 name = "cargo-rename-extension"
 version.workspace = true
-edition = "2021"
+rust-version.workspace = true
+authors.workspace = true
+edition.workspace = true
+homepage.workspace = true
+repository.workspace = true
+readme.workspace = true
+license.workspace = true
+categories.workspace = true
+keywords.workspace = true
 
 [dependencies]
-clap = { version = "3.2.16", features = ["derive"] }
+clap.workspace = true

@@ -2,14 +2,14 @@
 [
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::five::is_five`, `Val`),
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
             ),
         ),
         Ok(
             DecTemplate::MajorItem(
-                MajorItemDecTemplate::Fugitive(
-                    FugitiveDecTemplate::Ki(
+                MajorItemDecTemplate::Form(
+                    MajorFormDecTemplate::Val(
                         MajorValDecTemplate {
                             return_ty: Application(
                                 DecApplication(

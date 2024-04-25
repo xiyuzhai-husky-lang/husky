@@ -18,6 +18,19 @@
         ),
     ),
     (
+        ItemPath::Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 349,
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
         ItemPath::MajorItem(
             MajorItemPath::Type(
                 TypePath(`mnist_classifier::geom2d::RelativePoint2d`, `Struct`),

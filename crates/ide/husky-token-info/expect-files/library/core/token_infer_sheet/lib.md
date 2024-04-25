@@ -14,8 +14,8 @@ Ok(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmoduleItemPath(
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(
                                                     ItemPathId(
                                                         Id {
                                                             value: 1,
@@ -45,8 +45,8 @@ Ok(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmoduleItemPath(
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(
                                                     ItemPathId(
                                                         Id {
                                                             value: 2,
@@ -76,8 +76,8 @@ Ok(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmoduleItemPath(
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(
                                                     ItemPathId(
                                                         Id {
                                                             value: 3,
@@ -107,8 +107,8 @@ Ok(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmoduleItemPath(
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(
                                                     ItemPathId(
                                                         Id {
                                                             value: 4,
@@ -138,8 +138,8 @@ Ok(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmoduleItemPath(
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(
                                                     ItemPathId(
                                                         Id {
                                                             value: 5,
@@ -169,8 +169,8 @@ Ok(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmoduleItemPath(
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(
                                                     ItemPathId(
                                                         Id {
                                                             value: 6,
@@ -200,8 +200,8 @@ Ok(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmoduleItemPath(
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(
                                                     ItemPathId(
                                                         Id {
                                                             value: 7,
@@ -231,8 +231,8 @@ Ok(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmoduleItemPath(
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(
                                                     ItemPathId(
                                                         Id {
                                                             value: 8,
@@ -262,8 +262,8 @@ Ok(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmoduleItemPath(
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(
                                                     ItemPathId(
                                                         Id {
                                                             value: 9,
@@ -293,8 +293,8 @@ Ok(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmoduleItemPath(
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(
                                                     ItemPathId(
                                                         Id {
                                                             value: 10,
@@ -324,8 +324,8 @@ Ok(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmoduleItemPath(
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(
                                                     ItemPathId(
                                                         Id {
                                                             value: 11,
@@ -355,8 +355,8 @@ Ok(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmoduleItemPath(
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(
                                                     ItemPathId(
                                                         Id {
                                                             value: 12,
@@ -386,8 +386,8 @@ Ok(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmoduleItemPath(
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(
                                                     ItemPathId(
                                                         Id {
                                                             value: 13,
@@ -417,8 +417,8 @@ Ok(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmoduleItemPath(
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(
                                                     ItemPathId(
                                                         Id {
                                                             value: 14,
@@ -448,8 +448,8 @@ Ok(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmoduleItemPath(
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(
                                                     ItemPathId(
                                                         Id {
                                                             value: 15,
@@ -479,8 +479,8 @@ Ok(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmoduleItemPath(
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(
                                                     ItemPathId(
                                                         Id {
                                                             value: 16,
@@ -510,8 +510,8 @@ Ok(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmoduleItemPath(
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(
                                                     ItemPathId(
                                                         Id {
                                                             value: 17,
@@ -541,8 +541,8 @@ Ok(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmoduleItemPath(
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(
                                                     ItemPathId(
                                                         Id {
                                                             value: 18,
@@ -572,8 +572,8 @@ Ok(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::Submodule(
                                         SubmoduleSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: SubmoduleItemPath(
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(
                                                     ItemPathId(
                                                         Id {
                                                             value: 19,
@@ -595,10 +595,10 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::UseExpr(
-                        3,
+                        2,
                     ),
                     data: TokenInfoData::UseExpr {
-                        use_expr_idx: 3,
+                        use_expr_idx: 2,
                         rule_idx: OnceUseRuleIdx(
                             0,
                         ),
@@ -616,10 +616,10 @@ Ok(
             Some(
                 TokenInfo {
                     src: TokenInfoSource::UseExpr(
-                        2,
+                        1,
                     ),
                     data: TokenInfoData::UseExpr {
-                        use_expr_idx: 2,
+                        use_expr_idx: 1,
                         rule_idx: OnceUseRuleIdx(
                             1,
                         ),

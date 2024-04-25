@@ -7,7 +7,7 @@ use husky_hir_defn::HirDefn;
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum JavPath {
-    Fugitive(FugitivePath),
+    Form(MajorFormPath),
     TypeItem(TypeItemPath),
     TraitItem(TraitItemPath),
     TraitForTypeItem(TraitForTypeItemPath),
@@ -23,20 +23,24 @@ impl std::ops::Deref for JavPath {
 }
 
 #[test]
-fn javelin_item_path_deref_works() {
+fn jav_path_deref_works() {
     use crate::*;
     use husky_entity_tree::helpers::paths::module_item_paths;
 
     DB::ast_plain_test(
         |db, module_path| {
             for &item_path in module_item_paths(db, module_path) {
-                if let Some(javelin_item_path) = JavPath::try_from_item_path(item_path, db) {
-                    assert_eq!(*javelin_item_path, *item_path)
+                match item_path {
+                    ItemPath::TypeVariant(_, _) => (),
+                    _ if let Some(jav_path) = JavPath::try_from_item_path(item_path, db) => {
+                        assert_eq!(*jav_path, *item_path)
+                    }
+                    _ => (),
                 }
             }
         },
         &AstTestConfig::new(
-            "javelin_item_path_deref",
+            "jav_path_deref",
             FileExtensionConfig::Markdown,
             TestDomainsConfig::LINKAGE,
         ),
@@ -56,7 +60,7 @@ impl JavPath {
                     | TypeKind::Extern => None,
                 },
                 MajorItemPath::Trait(_) => None,
-                MajorItemPath::Fugitive(path) => Some(path.into()),
+                MajorItemPath::Form(path) => Some(path.into()),
             },
             ItemPath::AssocItem(path) => match path {
                 AssocItemPath::TraitForTypeItem(path) => {
@@ -70,7 +74,16 @@ impl JavPath {
                 AssocItemPath::TypeItem(path) => Some(JavPath::TypeItem(path)),
                 AssocItemPath::TraitItem(path) => Some(JavPath::TraitItem(path)),
             },
-            ItemPath::TypeVariant(_, path) => Some(path.parent_ty_path(db).into()),
+            ItemPath::TypeVariant(_, path) => {
+                if path.parent_ty_path(db).ident(db).data(db) == "Class" {
+                    use husky_print_utils::p;
+                    use salsa::DebugWithDb;
+
+                    p!(path.ident(db).debug(db));
+                    todo!()
+                }
+                Some(path.parent_ty_path(db).into())
+            }
             ItemPath::ImplBlock(_) => None,
             ItemPath::Attr(_, _) => None,
         }

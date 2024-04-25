@@ -1,3 +1,4 @@
+use self::vm_control_flow::LinkageImplVmControlFlow;
 use crate::*;
 use husky_value_protocol::presentation::EnumU8ValuePresenter;
 use serde::Serialize;
@@ -15,6 +16,12 @@ pub trait IsLinkageImpl: Send + Copy + 'static {
         arguments: &[KiArgumentReprInterface],
     ) -> LinkageImplKiControlFlow<Self>;
 
+    fn eval_vm(
+        self,
+        arguments: Vec<VmArgumentValue<Self>>,
+        db: &dyn std::any::Any,
+    ) -> LinkageImplVmControlFlow<Self>;
+
     fn enum_u8_value_presenter(self) -> EnumU8ValuePresenter;
 }
 
@@ -24,3 +31,8 @@ pub type LinkageImplKiControlFlow<LinkageImpl, C = <LinkageImpl as IsLinkageImpl
         <LinkageImpl as IsLinkageImpl>::Value,
         <LinkageImpl as IsLinkageImpl>::Exception,
     >;
+
+pub enum VmArgumentValue<LinkageImpl: IsLinkageImpl> {
+    Simple(LinkageImpl::Value),
+    Variadic(Vec<LinkageImpl::Value>),
+}

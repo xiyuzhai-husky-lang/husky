@@ -100,7 +100,7 @@ impl From<EntityClass> for TokenClass {
         match class {
             EntityClass::Module => TokenClass::ModuleEntity,
             EntityClass::Type => TokenClass::TypeEntity,
-            EntityClass::MajorRitchie => TokenClass::FunctionEntity,
+            EntityClass::MajorFunctionRitchie => TokenClass::FunctionEntity,
             EntityClass::TypeAlias => TokenClass::TypeEntity,
             EntityClass::Val => TokenClass::ValEntity,
             EntityClass::Trait => TokenClass::TraitEntity,

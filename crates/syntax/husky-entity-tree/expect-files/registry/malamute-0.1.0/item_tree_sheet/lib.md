@@ -12,8 +12,8 @@ EntityTreeSheet {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`malamute::Class`, `Enum`),
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`malamute::Class`, `Enum`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -23,7 +23,7 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 24,
+                        ast_idx: 23,
                         ident_token: IdentToken {
                             ident: `Class`,
                             token_idx: TokenIdx(
@@ -35,7 +35,7 @@ EntityTreeSheet {
                             variants: Some(
                                 TypeVariants {
                                     ast_idx_range: ArenaIdxRange(
-                                        1..3,
+                                        0..2,
                                     ),
                                 },
                             ),
@@ -49,8 +49,8 @@ EntityTreeSheet {
                                 data: ItemSynNodePathData::MajorItem(
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`malamute::Class`, `Enum`),
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: TypePath(`malamute::Class`, `Enum`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -72,8 +72,8 @@ EntityTreeSheet {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`malamute::OneVsAll`, `Enum`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -83,7 +83,7 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 26,
+                        ast_idx: 25,
                         ident_token: IdentToken {
                             ident: `OneVsAll`,
                             token_idx: TokenIdx(
@@ -95,7 +95,7 @@ EntityTreeSheet {
                             variants: Some(
                                 TypeVariants {
                                     ast_idx_range: ArenaIdxRange(
-                                        3..5,
+                                        2..4,
                                     ),
                                 },
                             ),
@@ -109,8 +109,8 @@ EntityTreeSheet {
                                 data: ItemSynNodePathData::MajorItem(
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`malamute::OneVsAll`, `Enum`),
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: TypePath(`malamute::OneVsAll`, `Enum`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -132,8 +132,8 @@ EntityTreeSheet {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`malamute::OneVsAllResult`, `Enum`),
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -143,7 +143,7 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 30,
+                        ast_idx: 29,
                         ident_token: IdentToken {
                             ident: `OneVsAllResult`,
                             token_idx: TokenIdx(
@@ -155,7 +155,7 @@ EntityTreeSheet {
                             variants: Some(
                                 TypeVariants {
                                     ast_idx_range: ArenaIdxRange(
-                                        13..16,
+                                        12..15,
                                     ),
                                 },
                             ),
@@ -169,8 +169,8 @@ EntityTreeSheet {
                                 data: ItemSynNodePathData::MajorItem(
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`malamute::OneVsAllResult`, `Enum`),
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -186,21 +186,21 @@ EntityTreeSheet {
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
-                        syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`malamute::narrow_down`, `Ritchie(
+                        syn_node_path: MajorItemSynNodePath::Form(
+                            FormSynNodePath(`malamute::narrow_down`, `Ritchie(
                                 Gn,
                             )`, (0)),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 32,
+                        ast_idx: 31,
                         ident_token: IdentToken {
                             ident: `narrow_down`,
                             token_idx: TokenIdx(
                                 304,
                             ),
                         },
-                        block: DefnBlock::Fugitive {
-                            path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                        block: DefnBlock::Form {
+                            path: FormPath(`malamute::narrow_down`, `Ritchie(
                                 Gn,
                             )`),
                             body: None,
@@ -208,8 +208,8 @@ EntityTreeSheet {
                     },
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`malamute::narrow_down`, `Ritchie(
+                    MajorItemSynNodePath::Form(
+                        FormSynNodePath(`malamute::narrow_down`, `Ritchie(
                             Gn,
                         )`, (0)),
                     ),
@@ -223,7 +223,7 @@ EntityTreeSheet {
         [
             EntitySymbolEntry {
                 ident: `Class`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Type(
                         TypePath(`malamute::Class`, `Enum`),
@@ -232,7 +232,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `OneVsAll`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Type(
                         TypePath(`malamute::OneVsAll`, `Enum`),
@@ -241,7 +241,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `OneVsAllResult`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Type(
                         TypePath(`malamute::OneVsAllResult`, `Enum`),
@@ -250,10 +250,10 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `narrow_down`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
-                    major_item_path: MajorItemPath::Fugitive(
-                        FugitivePath(`malamute::narrow_down`, `Ritchie(
+                    major_item_path: MajorItemPath::Form(
+                        FormPath(`malamute::narrow_down`, `Ritchie(
                             Gn,
                         )`),
                     ),
@@ -289,24 +289,24 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 27,
+                    ast_idx: 26,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             51,
                         ),
                     },
-                    trai_expr: 1,
+                    trai_expr: 0,
                     for_token: TokenIdx(
                         65,
                     ),
                     ty_sketch_expr: Path(
-                        2,
+                        1,
                     ),
                     items: Some(
                         TraitForType(
                             TraitForTypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    6..7,
+                                    5..6,
                                 ),
                             },
                         ),
@@ -341,24 +341,24 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 28,
+                    ast_idx: 27,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             81,
                         ),
                     },
-                    trai_expr: 5,
+                    trai_expr: 4,
                     for_token: TokenIdx(
                         100,
                     ),
                     ty_sketch_expr: Path(
-                        6,
+                        5,
                     ),
                     items: Some(
                         TraitForType(
                             TraitForTypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    11..13,
+                                    10..12,
                                 ),
                             },
                         ),
@@ -393,24 +393,24 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 31,
+                    ast_idx: 30,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             198,
                         ),
                     },
-                    trai_expr: 9,
+                    trai_expr: 8,
                     for_token: TokenIdx(
                         219,
                     ),
                     ty_sketch_expr: Path(
-                        10,
+                        9,
                     ),
                     items: Some(
                         TraitForType(
                             TraitForTypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    21..23,
+                                    20..22,
                                 ),
                             },
                         ),

@@ -3,7 +3,7 @@ use super::*;
 pub(super) fn vfs_expect_test<DB, U>(f: impl Fn(&::salsa::Db, U) -> String, config: &VfsTestConfig)
 where
     DB: VfsTestUtils,
-    U: VfsTestUnit + salsa::DebugWithDb,
+    U: IsVfsTestUnit + salsa::DebugWithDb,
 {
     for test_domain in config.test_domains() {
         for path in collect_package_relative_dirs(&test_domain.src_base()).into_iter() {
@@ -15,7 +15,7 @@ where
                 &path.to_logical_path(&test_domain.src_base()),
             )
             .unwrap();
-            for unit in <U as VfsTestUnit>::collect_from_package_path(db, package_path) {
+            for unit in <U as IsVfsTestUnit>::collect_from_package_path(db, package_path) {
                 let expect_file_path = unit.determine_expect_file_path(
                     db,
                     &path.to_logical_path(&test_domain.expect_files_base()),

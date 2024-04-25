@@ -2,13 +2,13 @@
 [
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
             ),
         ),
         Some(
             ItemSynDefn {
-                body: 6,
+                body: 5,
                 syn_expr_region: SynExprRegion {
                     data: SynExprRegionData {
                         parent: Some(
@@ -17,15 +17,15 @@
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`mnist_classifier::digits::six::six_match`, `Val`, (0)),
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`mnist_classifier::digits::six::six_match`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
-                                    syn_expr_arena: Arena {
+                                    expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 1,
+                                                path_expr_idx: 0,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -73,47 +73,57 @@
                                             data: [],
                                         },
                                     },
-                                    symbol_region: VariableRegionData {
+                                    variable_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [],
                                         },
                                         allow_self_type: False,
                                         allow_self_value: False,
                                         pattern_ty_constraints: [],
                                     },
-                                    syn_pattern_expr_roots: [],
-                                    syn_expr_roots: [
+                                    pattern_roots: [],
+                                    expr_roots: [
                                         SynExprRoot {
                                             kind: SynExprRootKind::ReturnType,
-                                            syn_expr_idx: 1,
+                                            syn_expr_idx: 0,
                                         },
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
-                                    syn_pattern_to_current_syn_symbol_map: [],
+                                    pattern_to_current_variable_map: [],
                                 },
                             },
                         ),
                         path: SynNodeRegionPath::Defn(
                             ItemSynNodePath::MajorItem(
-                                MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::digits::six::six_match`, `Val`, (0)),
+                                MajorItemSynNodePath::Form(
+                                    FormSynNodePath(`mnist_classifier::digits::six::six_match`, `Val`, (0)),
                                 ),
                             ),
                         ),
-                        syn_expr_arena: Arena {
+                        expr_arena: Arena {
                             data: [
+                                SynExprData::PrincipalEntityPath {
+                                    path_expr_idx: 0,
+                                    opt_path: Some(
+                                        PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                                    Fn,
+                                                )`),
+                                            ),
+                                        ),
+                                    ),
+                                },
                                 SynExprData::PrincipalEntityPath {
                                     path_expr_idx: 1,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
-                                                    Fn,
-                                                )`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -122,18 +132,8 @@
                                     path_expr_idx: 2,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                                SynExprData::PrincipalEntityPath {
-                                    path_expr_idx: 3,
-                                    opt_path: Some(
-                                        PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::digits::six::upmost`, `Ritchie(
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::six::upmost`, `Ritchie(
                                                     Fn,
                                                 )`),
                                             ),
@@ -146,7 +146,7 @@
                                     ),
                                     items: [
                                         SynCommaListItem {
-                                            syn_expr_idx: 3,
+                                            syn_expr_idx: 2,
                                             comma_regional_token_idx: None,
                                         },
                                     ],
@@ -155,14 +155,14 @@
                                     ),
                                 },
                                 SynExprData::FunctionApplicationOrCall {
-                                    function: 1,
+                                    function: 0,
                                     template_arguments: None,
                                     lpar_regional_token_idx: RegionalTokenIdx(
                                         2,
                                     ),
                                     items: [
                                         SynCommaListItem {
-                                            syn_expr_idx: 2,
+                                            syn_expr_idx: 1,
                                             comma_regional_token_idx: Some(
                                                 RegionalTokenIdx(
                                                     4,
@@ -170,7 +170,7 @@
                                             ),
                                         },
                                         SynCommaListItem {
-                                            syn_expr_idx: 4,
+                                            syn_expr_idx: 3,
                                             comma_regional_token_idx: None,
                                         },
                                     ],
@@ -180,7 +180,7 @@
                                 },
                                 SynExprData::Block {
                                     stmts: ArenaIdxRange(
-                                        1..2,
+                                        0..1,
                                     ),
                                 },
                             ],
@@ -197,8 +197,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -214,8 +214,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
                                         ),
                                     ),
                                 },
@@ -229,8 +229,338 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::digits::six::upmost`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::six::upmost`, `Ritchie(
+                                                Fn,
+                                            )`),
+                                        ),
+                                    ),
+                                },
+                            ],
+                        },
+                        stmt_arena: Arena {
+                            data: [
+                                SynStmtData::Eval {
+                                    expr_idx: 4,
+                                    eol_semicolon: Ok(
+                                        None,
+                                    ),
+                                },
+                            ],
+                        },
+                        pattern_expr_region: SynPatternExprRegion {
+                            pattern_expr_arena: Arena {
+                                data: [],
+                            },
+                            pattern_expr_contracts: ArenaMap {
+                                data: [],
+                            },
+                            pattern_symbol_arena: Arena {
+                                data: [],
+                            },
+                            pattern_symbol_maps: [],
+                            pattern_symbol_modifiers: ArenaMap {
+                                data: [],
+                            },
+                        },
+                        variable_region: VariableRegionData {
+                            inherited_syn_symbol_arena: Arena {
+                                data: [],
+                            },
+                            current_variable_arena: Arena {
+                                data: [],
+                            },
+                            allow_self_type: False,
+                            allow_self_value: False,
+                            pattern_ty_constraints: [],
+                        },
+                        pattern_roots: [],
+                        expr_roots: [
+                            SynExprRoot {
+                                kind: SynExprRootKind::EvalExpr,
+                                syn_expr_idx: 4,
+                            },
+                            SynExprRoot {
+                                kind: SynExprRootKind::BlockExpr,
+                                syn_expr_idx: 5,
+                            },
+                        ],
+                        has_self_lifetime: false,
+                        has_self_place: false,
+                        pattern_to_current_variable_map: [],
+                    },
+                },
+            },
+        ),
+    ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+            ),
+        ),
+        Some(
+            ItemSynDefn {
+                body: 6,
+                syn_expr_region: SynExprRegion {
+                    data: SynExprRegionData {
+                        parent: Some(
+                            SynExprRegion {
+                                data: SynExprRegionData {
+                                    parent: None,
+                                    path: SynNodeRegionPath::Decl(
+                                        ItemSynNodePath::MajorItem(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`, (0)),
+                                            ),
+                                        ),
+                                    ),
+                                    expr_arena: Arena {
+                                        data: [
+                                            SynExprData::PrincipalEntityPath {
+                                                path_expr_idx: 0,
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
+                                                            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                        ),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    principal_item_path_expr_arena: Arena {
+                                        data: [
+                                            SynPrincipalEntityPathExpr::Root {
+                                                path_name_token: PathNameRegionalToken::Ident(
+                                                    IdentRegionalToken {
+                                                        ident: `FermiMatchResult`,
+                                                        regional_token_idx: RegionalTokenIdx(
+                                                            4,
+                                                        ),
+                                                    },
+                                                ),
+                                                principal_entity_path: PrincipalEntityPath::MajorItem(
+                                                    MajorItemPath::Type(
+                                                        TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
+                                                    ),
+                                                ),
+                                            },
+                                        ],
+                                    },
+                                    stmt_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_region: SynPatternExprRegion {
+                                        pattern_expr_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_expr_contracts: ArenaMap {
+                                            data: [],
+                                        },
+                                        pattern_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        pattern_symbol_maps: [],
+                                        pattern_symbol_modifiers: ArenaMap {
+                                            data: [],
+                                        },
+                                    },
+                                    variable_region: VariableRegionData {
+                                        inherited_syn_symbol_arena: Arena {
+                                            data: [],
+                                        },
+                                        current_variable_arena: Arena {
+                                            data: [],
+                                        },
+                                        allow_self_type: False,
+                                        allow_self_value: False,
+                                        pattern_ty_constraints: [],
+                                    },
+                                    pattern_roots: [],
+                                    expr_roots: [
+                                        SynExprRoot {
+                                            kind: SynExprRootKind::ReturnType,
+                                            syn_expr_idx: 0,
+                                        },
+                                    ],
+                                    has_self_lifetime: false,
+                                    has_self_place: false,
+                                    pattern_to_current_variable_map: [],
+                                },
+                            },
+                        ),
+                        path: SynNodeRegionPath::Defn(
+                            ItemSynNodePath::MajorItem(
+                                MajorItemSynNodePath::Form(
+                                    FormSynNodePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`, (0)),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [
+                                SynExprData::PrincipalEntityPath {
+                                    path_expr_idx: 0,
+                                    opt_path: Some(
+                                        PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                                    Fn,
+                                                )`),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                                SynExprData::PrincipalEntityPath {
+                                    path_expr_idx: 1,
+                                    opt_path: Some(
+                                        PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                                SynExprData::PrincipalEntityPath {
+                                    path_expr_idx: 2,
+                                    opt_path: Some(
+                                        PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::six::upmost`, `Ritchie(
+                                                    Fn,
+                                                )`),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                                SynExprData::PrincipalEntityPath {
+                                    path_expr_idx: 3,
+                                    opt_path: Some(
+                                        PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
+                                                    Fn,
+                                                )`),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                                SynExprData::List {
+                                    lbox_regional_token_idx: RegionalTokenIdx(
+                                        5,
+                                    ),
+                                    items: [
+                                        SynCommaListItem {
+                                            syn_expr_idx: 2,
+                                            comma_regional_token_idx: Some(
+                                                RegionalTokenIdx(
+                                                    7,
+                                                ),
+                                            ),
+                                        },
+                                        SynCommaListItem {
+                                            syn_expr_idx: 3,
+                                            comma_regional_token_idx: None,
+                                        },
+                                    ],
+                                    rbox_regional_token_idx: RegionalTokenIdx(
+                                        9,
+                                    ),
+                                },
+                                SynExprData::FunctionApplicationOrCall {
+                                    function: 0,
+                                    template_arguments: None,
+                                    lpar_regional_token_idx: RegionalTokenIdx(
+                                        2,
+                                    ),
+                                    items: [
+                                        SynCommaListItem {
+                                            syn_expr_idx: 1,
+                                            comma_regional_token_idx: Some(
+                                                RegionalTokenIdx(
+                                                    4,
+                                                ),
+                                            ),
+                                        },
+                                        SynCommaListItem {
+                                            syn_expr_idx: 4,
+                                            comma_regional_token_idx: None,
+                                        },
+                                    ],
+                                    rpar_regional_token_idx: RegionalTokenIdx(
+                                        10,
+                                    ),
+                                },
+                                SynExprData::Block {
+                                    stmts: ArenaIdxRange(
+                                        0..1,
+                                    ),
+                                },
+                            ],
+                        },
+                        principal_item_path_expr_arena: Arena {
+                            data: [
+                                SynPrincipalEntityPathExpr::Root {
+                                    path_name_token: PathNameRegionalToken::Ident(
+                                        IdentRegionalToken {
+                                            ident: `fermi_match`,
+                                            regional_token_idx: RegionalTokenIdx(
+                                                1,
+                                            ),
+                                        },
+                                    ),
+                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
+                                                Fn,
+                                            )`),
+                                        ),
+                                    ),
+                                },
+                                SynPrincipalEntityPathExpr::Root {
+                                    path_name_token: PathNameRegionalToken::Ident(
+                                        IdentRegionalToken {
+                                            ident: `major_concave_components`,
+                                            regional_token_idx: RegionalTokenIdx(
+                                                3,
+                                            ),
+                                        },
+                                    ),
+                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_concave_components`, `Val`),
+                                        ),
+                                    ),
+                                },
+                                SynPrincipalEntityPathExpr::Root {
+                                    path_name_token: PathNameRegionalToken::Ident(
+                                        IdentRegionalToken {
+                                            ident: `upmost`,
+                                            regional_token_idx: RegionalTokenIdx(
+                                                6,
+                                            ),
+                                        },
+                                    ),
+                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::six::upmost`, `Ritchie(
+                                                Fn,
+                                            )`),
+                                        ),
+                                    ),
+                                },
+                                SynPrincipalEntityPathExpr::Root {
+                                    path_name_token: PathNameRegionalToken::Ident(
+                                        IdentRegionalToken {
+                                            ident: `bottom1`,
+                                            regional_token_idx: RegionalTokenIdx(
+                                                8,
+                                            ),
+                                        },
+                                    ),
+                                    principal_entity_path: PrincipalEntityPath::MajorItem(
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
                                                 Fn,
                                             )`),
                                         ),
@@ -263,19 +593,19 @@
                                 data: [],
                             },
                         },
-                        symbol_region: VariableRegionData {
+                        variable_region: VariableRegionData {
                             inherited_syn_symbol_arena: Arena {
                                 data: [],
                             },
-                            current_syn_symbol_arena: Arena {
+                            current_variable_arena: Arena {
                                 data: [],
                             },
                             allow_self_type: False,
                             allow_self_value: False,
                             pattern_ty_constraints: [],
                         },
-                        syn_pattern_expr_roots: [],
-                        syn_expr_roots: [
+                        pattern_roots: [],
+                        expr_roots: [
                             SynExprRoot {
                                 kind: SynExprRootKind::EvalExpr,
                                 syn_expr_idx: 5,
@@ -287,7 +617,7 @@
                         ],
                         has_self_lifetime: false,
                         has_self_place: false,
-                        syn_pattern_to_current_syn_symbol_map: [],
+                        pattern_to_current_variable_map: [],
                     },
                 },
             },
@@ -295,13 +625,13 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
             ),
         ),
         Some(
             ItemSynDefn {
-                body: 7,
+                body: 123,
                 syn_expr_region: SynExprRegion {
                     data: SynExprRegionData {
                         parent: Some(
@@ -310,345 +640,15 @@
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`, (0)),
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`mnist_classifier::digits::six::is_six`, `Val`, (0)),
                                             ),
                                         ),
                                     ),
-                                    syn_expr_arena: Arena {
+                                    expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 1,
-                                                opt_path: Some(
-                                                    PrincipalEntityPath::MajorItem(
-                                                        MajorItemPath::Type(
-                                                            TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                        ),
-                                                    ),
-                                                ),
-                                            },
-                                        ],
-                                    },
-                                    principal_item_path_expr_arena: Arena {
-                                        data: [
-                                            SynPrincipalEntityPathExpr::Root {
-                                                path_name_token: PathNameRegionalToken::Ident(
-                                                    IdentRegionalToken {
-                                                        ident: `FermiMatchResult`,
-                                                        regional_token_idx: RegionalTokenIdx(
-                                                            4,
-                                                        ),
-                                                    },
-                                                ),
-                                                principal_entity_path: PrincipalEntityPath::MajorItem(
-                                                    MajorItemPath::Type(
-                                                        TypePath(`mnist_classifier::fermi::FermiMatchResult`, `Struct`),
-                                                    ),
-                                                ),
-                                            },
-                                        ],
-                                    },
-                                    stmt_arena: Arena {
-                                        data: [],
-                                    },
-                                    pattern_expr_region: SynPatternExprRegion {
-                                        pattern_expr_arena: Arena {
-                                            data: [],
-                                        },
-                                        pattern_expr_contracts: ArenaMap {
-                                            data: [],
-                                        },
-                                        pattern_symbol_arena: Arena {
-                                            data: [],
-                                        },
-                                        pattern_symbol_maps: [],
-                                        pattern_symbol_modifiers: ArenaMap {
-                                            data: [],
-                                        },
-                                    },
-                                    symbol_region: VariableRegionData {
-                                        inherited_syn_symbol_arena: Arena {
-                                            data: [],
-                                        },
-                                        current_syn_symbol_arena: Arena {
-                                            data: [],
-                                        },
-                                        allow_self_type: False,
-                                        allow_self_value: False,
-                                        pattern_ty_constraints: [],
-                                    },
-                                    syn_pattern_expr_roots: [],
-                                    syn_expr_roots: [
-                                        SynExprRoot {
-                                            kind: SynExprRootKind::ReturnType,
-                                            syn_expr_idx: 1,
-                                        },
-                                    ],
-                                    has_self_lifetime: false,
-                                    has_self_place: false,
-                                    syn_pattern_to_current_syn_symbol_map: [],
-                                },
-                            },
-                        ),
-                        path: SynNodeRegionPath::Defn(
-                            ItemSynNodePath::MajorItem(
-                                MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`, (0)),
-                                ),
-                            ),
-                        ),
-                        syn_expr_arena: Arena {
-                            data: [
-                                SynExprData::PrincipalEntityPath {
-                                    path_expr_idx: 1,
-                                    opt_path: Some(
-                                        PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
-                                                    Fn,
-                                                )`),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                                SynExprData::PrincipalEntityPath {
-                                    path_expr_idx: 2,
-                                    opt_path: Some(
-                                        PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                                SynExprData::PrincipalEntityPath {
-                                    path_expr_idx: 3,
-                                    opt_path: Some(
-                                        PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::digits::six::upmost`, `Ritchie(
-                                                    Fn,
-                                                )`),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                                SynExprData::PrincipalEntityPath {
-                                    path_expr_idx: 4,
-                                    opt_path: Some(
-                                        PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
-                                                    Fn,
-                                                )`),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                                SynExprData::List {
-                                    lbox_regional_token_idx: RegionalTokenIdx(
-                                        5,
-                                    ),
-                                    items: [
-                                        SynCommaListItem {
-                                            syn_expr_idx: 3,
-                                            comma_regional_token_idx: Some(
-                                                RegionalTokenIdx(
-                                                    7,
-                                                ),
-                                            ),
-                                        },
-                                        SynCommaListItem {
-                                            syn_expr_idx: 4,
-                                            comma_regional_token_idx: None,
-                                        },
-                                    ],
-                                    rbox_regional_token_idx: RegionalTokenIdx(
-                                        9,
-                                    ),
-                                },
-                                SynExprData::FunctionApplicationOrCall {
-                                    function: 1,
-                                    template_arguments: None,
-                                    lpar_regional_token_idx: RegionalTokenIdx(
-                                        2,
-                                    ),
-                                    items: [
-                                        SynCommaListItem {
-                                            syn_expr_idx: 2,
-                                            comma_regional_token_idx: Some(
-                                                RegionalTokenIdx(
-                                                    4,
-                                                ),
-                                            ),
-                                        },
-                                        SynCommaListItem {
-                                            syn_expr_idx: 5,
-                                            comma_regional_token_idx: None,
-                                        },
-                                    ],
-                                    rpar_regional_token_idx: RegionalTokenIdx(
-                                        10,
-                                    ),
-                                },
-                                SynExprData::Block {
-                                    stmts: ArenaIdxRange(
-                                        1..2,
-                                    ),
-                                },
-                            ],
-                        },
-                        principal_item_path_expr_arena: Arena {
-                            data: [
-                                SynPrincipalEntityPathExpr::Root {
-                                    path_name_token: PathNameRegionalToken::Ident(
-                                        IdentRegionalToken {
-                                            ident: `fermi_match`,
-                                            regional_token_idx: RegionalTokenIdx(
-                                                1,
-                                            ),
-                                        },
-                                    ),
-                                    principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
-                                                Fn,
-                                            )`),
-                                        ),
-                                    ),
-                                },
-                                SynPrincipalEntityPathExpr::Root {
-                                    path_name_token: PathNameRegionalToken::Ident(
-                                        IdentRegionalToken {
-                                            ident: `major_concave_components`,
-                                            regional_token_idx: RegionalTokenIdx(
-                                                3,
-                                            ),
-                                        },
-                                    ),
-                                    principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::major::major_concave_components`, `Val`),
-                                        ),
-                                    ),
-                                },
-                                SynPrincipalEntityPathExpr::Root {
-                                    path_name_token: PathNameRegionalToken::Ident(
-                                        IdentRegionalToken {
-                                            ident: `upmost`,
-                                            regional_token_idx: RegionalTokenIdx(
-                                                6,
-                                            ),
-                                        },
-                                    ),
-                                    principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::digits::six::upmost`, `Ritchie(
-                                                Fn,
-                                            )`),
-                                        ),
-                                    ),
-                                },
-                                SynPrincipalEntityPathExpr::Root {
-                                    path_name_token: PathNameRegionalToken::Ident(
-                                        IdentRegionalToken {
-                                            ident: `bottom1`,
-                                            regional_token_idx: RegionalTokenIdx(
-                                                8,
-                                            ),
-                                        },
-                                    ),
-                                    principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
-                                                Fn,
-                                            )`),
-                                        ),
-                                    ),
-                                },
-                            ],
-                        },
-                        stmt_arena: Arena {
-                            data: [
-                                SynStmtData::Eval {
-                                    expr_idx: 6,
-                                    eol_semicolon: Ok(
-                                        None,
-                                    ),
-                                },
-                            ],
-                        },
-                        pattern_expr_region: SynPatternExprRegion {
-                            pattern_expr_arena: Arena {
-                                data: [],
-                            },
-                            pattern_expr_contracts: ArenaMap {
-                                data: [],
-                            },
-                            pattern_symbol_arena: Arena {
-                                data: [],
-                            },
-                            pattern_symbol_maps: [],
-                            pattern_symbol_modifiers: ArenaMap {
-                                data: [],
-                            },
-                        },
-                        symbol_region: VariableRegionData {
-                            inherited_syn_symbol_arena: Arena {
-                                data: [],
-                            },
-                            current_syn_symbol_arena: Arena {
-                                data: [],
-                            },
-                            allow_self_type: False,
-                            allow_self_value: False,
-                            pattern_ty_constraints: [],
-                        },
-                        syn_pattern_expr_roots: [],
-                        syn_expr_roots: [
-                            SynExprRoot {
-                                kind: SynExprRootKind::EvalExpr,
-                                syn_expr_idx: 6,
-                            },
-                            SynExprRoot {
-                                kind: SynExprRootKind::BlockExpr,
-                                syn_expr_idx: 7,
-                            },
-                        ],
-                        has_self_lifetime: false,
-                        has_self_place: false,
-                        syn_pattern_to_current_syn_symbol_map: [],
-                    },
-                },
-            },
-        ),
-    ),
-    (
-        ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::six::is_six`, `Val`),
-            ),
-        ),
-        Some(
-            ItemSynDefn {
-                body: 124,
-                syn_expr_region: SynExprRegion {
-                    data: SynExprRegionData {
-                        parent: Some(
-                            SynExprRegion {
-                                data: SynExprRegionData {
-                                    parent: None,
-                                    path: SynNodeRegionPath::Decl(
-                                        ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`mnist_classifier::digits::six::is_six`, `Val`, (0)),
-                                            ),
-                                        ),
-                                    ),
-                                    syn_expr_arena: Arena {
-                                        data: [
-                                            SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 1,
+                                                path_expr_idx: 0,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -658,7 +658,7 @@
                                                 ),
                                             },
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 2,
+                                                path_expr_idx: 1,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -668,11 +668,11 @@
                                                 ),
                                             },
                                             SynExprData::ExplicitApplication {
-                                                function_expr_idx: 1,
-                                                argument_expr_idx: 2,
+                                                function_expr_idx: 0,
+                                                argument_expr_idx: 1,
                                             },
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 4,
+                                                path_expr_idx: 3,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::TypeVariant(
                                                         TypeVariantPath(
@@ -686,8 +686,8 @@
                                                 ),
                                             },
                                             SynExprData::ExplicitApplication {
-                                                function_expr_idx: 3,
-                                                argument_expr_idx: 4,
+                                                function_expr_idx: 2,
+                                                argument_expr_idx: 3,
                                             },
                                         ],
                                     },
@@ -739,7 +739,7 @@
                                                 ),
                                             },
                                             SynPrincipalEntityPathExpr::Subitem {
-                                                parent: 3,
+                                                parent: 2,
                                                 colon_colon_token: ColonColonRegionalToken(
                                                     RegionalTokenIdx(
                                                         11,
@@ -785,51 +785,51 @@
                                             data: [],
                                         },
                                     },
-                                    symbol_region: VariableRegionData {
+                                    variable_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [],
                                         },
                                         allow_self_type: False,
                                         allow_self_value: False,
                                         pattern_ty_constraints: [],
                                     },
-                                    syn_pattern_expr_roots: [],
-                                    syn_expr_roots: [
+                                    pattern_roots: [],
+                                    expr_roots: [
                                         SynExprRoot {
                                             kind: SynExprRootKind::ReturnType,
-                                            syn_expr_idx: 5,
+                                            syn_expr_idx: 4,
                                         },
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
-                                    syn_pattern_to_current_syn_symbol_map: [],
+                                    pattern_to_current_variable_map: [],
                                 },
                             },
                         ),
                         path: SynNodeRegionPath::Defn(
                             ItemSynNodePath::MajorItem(
-                                MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::digits::six::is_six`, `Val`, (0)),
+                                MajorItemSynNodePath::Form(
+                                    FormSynNodePath(`mnist_classifier::digits::six::is_six`, `Val`, (0)),
                                 ),
                             ),
                         ),
-                        syn_expr_arena: Arena {
+                        expr_arena: Arena {
                             data: [
                                 SynExprData::PrincipalEntityPath {
-                                    path_expr_idx: 1,
+                                    path_expr_idx: 0,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                                             ),
                                         ),
                                     ),
                                 },
                                 SynExprData::Field {
-                                    owner: 1,
+                                    owner: 0,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         5,
                                     ),
@@ -851,13 +851,13 @@
                                     ),
                                 ),
                                 SynExprData::IndexOrCompositionWithList {
-                                    owner: 2,
+                                    owner: 1,
                                     lbox_regional_token_idx: RegionalTokenIdx(
                                         7,
                                     ),
                                     items: [
                                         SynCommaListItem {
-                                            syn_expr_idx: 3,
+                                            syn_expr_idx: 2,
                                             comma_regional_token_idx: None,
                                         },
                                     ],
@@ -870,39 +870,39 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         11,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                        pattern_symbol_idx: 1,
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
+                                        pattern_variable_idx: 0,
                                     },
                                 },
                                 SynExprData::Be {
-                                    src: 5,
+                                    src: 4,
                                     be_regional_token_idx: RegionalTokenIdx(
                                         12,
                                     ),
                                     target: Ok(
                                         BePatternSyndicate {
                                             pattern_expr_root: BeSynPatternExprRoot {
-                                                syn_pattern_expr_idx: 3,
+                                                syn_pattern_expr_idx: 2,
                                             },
                                             variables: ArenaIdxRange(
-                                                2..2,
+                                                1..1,
                                             ),
                                         },
                                     ),
                                 },
                                 SynExprData::PrincipalEntityPath {
-                                    path_expr_idx: 3,
+                                    path_expr_idx: 2,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                             ),
                                         ),
                                     ),
                                 },
                                 SynExprData::Field {
-                                    owner: 7,
+                                    owner: 6,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         21,
                                     ),
@@ -914,27 +914,27 @@
                                     },
                                 },
                                 SynExprData::PrincipalEntityPath {
-                                    path_expr_idx: 4,
+                                    path_expr_idx: 3,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                             ),
                                         ),
                                     ),
                                 },
                                 SynExprData::PrincipalEntityPath {
-                                    path_expr_idx: 5,
+                                    path_expr_idx: 4,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                             ),
                                         ),
                                     ),
                                 },
                                 SynExprData::Field {
-                                    owner: 9,
+                                    owner: 8,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         27,
                                     ),
@@ -946,7 +946,7 @@
                                     },
                                 },
                                 SynExprData::Field {
-                                    owner: 10,
+                                    owner: 9,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         31,
                                     ),
@@ -958,27 +958,27 @@
                                     },
                                 },
                                 SynExprData::Binary {
-                                    lopd: 11,
+                                    lopd: 10,
                                     opr: SynBinaryOpr::Closed(
                                         BinaryClosedOpr::Sub,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         29,
                                     ),
-                                    ropd: 12,
+                                    ropd: 11,
                                 },
                                 SynExprData::CurrentSynSymbol {
                                     ident: `eff_holes`,
                                     regional_token_idx: RegionalTokenIdx(
                                         34,
                                     ),
-                                    current_syn_symbol_idx: 2,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                        pattern_symbol_idx: 3,
+                                    current_variable_idx: 1,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
+                                        pattern_variable_idx: 2,
                                     },
                                 },
                                 SynExprData::Field {
-                                    owner: 14,
+                                    owner: 13,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         35,
                                     ),
@@ -1000,13 +1000,13 @@
                                     ),
                                 ),
                                 SynExprData::IndexOrCompositionWithList {
-                                    owner: 15,
+                                    owner: 14,
                                     lbox_regional_token_idx: RegionalTokenIdx(
                                         37,
                                     ),
                                     items: [
                                         SynCommaListItem {
-                                            syn_expr_idx: 16,
+                                            syn_expr_idx: 15,
                                             comma_regional_token_idx: None,
                                         },
                                     ],
@@ -1015,27 +1015,27 @@
                                     ),
                                 },
                                 SynExprData::Be {
-                                    src: 17,
+                                    src: 16,
                                     be_regional_token_idx: RegionalTokenIdx(
                                         40,
                                     ),
                                     target: Ok(
                                         BePatternSyndicate {
                                             pattern_expr_root: BeSynPatternExprRoot {
-                                                syn_pattern_expr_idx: 6,
+                                                syn_pattern_expr_idx: 5,
                                             },
                                             variables: ArenaIdxRange(
-                                                4..4,
+                                                3..3,
                                             ),
                                         },
                                     ),
                                 },
                                 SynExprData::PrincipalEntityPath {
-                                    path_expr_idx: 7,
+                                    path_expr_idx: 6,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                            MajorItemPath::Form(
+                                                FormPath(`malamute::narrow_down`, `Ritchie(
                                                     Gn,
                                                 )`),
                                             ),
@@ -1043,17 +1043,17 @@
                                     ),
                                 },
                                 SynExprData::PrincipalEntityPath {
-                                    path_expr_idx: 8,
+                                    path_expr_idx: 7,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                                             ),
                                         ),
                                     ),
                                 },
                                 SynExprData::Field {
-                                    owner: 20,
+                                    owner: 19,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         46,
                                     ),
@@ -1065,17 +1065,17 @@
                                     },
                                 },
                                 SynExprData::PrincipalEntityPath {
-                                    path_expr_idx: 9,
+                                    path_expr_idx: 8,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                                             ),
                                         ),
                                     ),
                                 },
                                 SynExprData::Field {
-                                    owner: 22,
+                                    owner: 21,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         50,
                                     ),
@@ -1097,7 +1097,7 @@
                                     ),
                                 ),
                                 SynExprData::FunctionCall {
-                                    function: 19,
+                                    function: 18,
                                     template_arguments: None,
                                     lpar_regional_token_idx: RegionalTokenIdx(
                                         44,
@@ -1105,7 +1105,7 @@
                                     items: [
                                         SynCallListItem::SimpleOrVariadic(
                                             SynSimpleOrVariadicCallListItem {
-                                                argument_expr_idx: 21,
+                                                argument_expr_idx: 20,
                                                 separator: CallListSeparator::Comma(
                                                     RegionalTokenIdx(
                                                         48,
@@ -1115,7 +1115,7 @@
                                         ),
                                         SynCallListItem::SimpleOrVariadic(
                                             SynSimpleOrVariadicCallListItem {
-                                                argument_expr_idx: 23,
+                                                argument_expr_idx: 22,
                                                 separator: CallListSeparator::Comma(
                                                     RegionalTokenIdx(
                                                         52,
@@ -1129,7 +1129,7 @@
                                                     53,
                                                 ),
                                                 key: `skip`,
-                                                argument_expr_idx: 24,
+                                                argument_expr_idx: 23,
                                                 separator: CallListSeparator::None,
                                             },
                                         ),
@@ -1139,24 +1139,24 @@
                                     ),
                                 },
                                 SynExprData::Suffix {
-                                    opd: 25,
+                                    opd: 24,
                                     opr: UnveilOrComposeWithOption,
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         57,
                                     ),
                                 },
                                 SynExprData::PrincipalEntityPath {
-                                    path_expr_idx: 10,
+                                    path_expr_idx: 9,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                                             ),
                                         ),
                                     ),
                                 },
                                 SynExprData::Field {
-                                    owner: 27,
+                                    owner: 26,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         62,
                                     ),
@@ -1178,13 +1178,13 @@
                                     ),
                                 ),
                                 SynExprData::IndexOrCompositionWithList {
-                                    owner: 28,
+                                    owner: 27,
                                     lbox_regional_token_idx: RegionalTokenIdx(
                                         64,
                                     ),
                                     items: [
                                         SynCommaListItem {
-                                            syn_expr_idx: 29,
+                                            syn_expr_idx: 28,
                                             comma_regional_token_idx: None,
                                         },
                                     ],
@@ -1197,20 +1197,20 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         70,
                                     ),
-                                    current_syn_symbol_idx: 4,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                        pattern_symbol_idx: 5,
+                                    current_variable_idx: 3,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
+                                        pattern_variable_idx: 4,
                                     },
                                 },
                                 SynExprData::Suffix {
-                                    opd: 31,
+                                    opd: 30,
                                     opr: UnwrapOrComposeWithNot,
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         71,
                                     ),
                                 },
                                 SynExprData::MethodApplicationOrCall {
-                                    self_argument: 32,
+                                    self_argument: 31,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         72,
                                     ),
@@ -1234,13 +1234,13 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         79,
                                     ),
-                                    current_syn_symbol_idx: 5,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                        pattern_symbol_idx: 6,
+                                    current_variable_idx: 4,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
+                                        pattern_variable_idx: 5,
                                     },
                                 },
                                 SynExprData::Field {
-                                    owner: 34,
+                                    owner: 33,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         80,
                                     ),
@@ -1256,20 +1256,20 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         85,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                        pattern_symbol_idx: 1,
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
+                                        pattern_variable_idx: 0,
                                     },
                                 },
                                 SynExprData::Suffix {
-                                    opd: 36,
+                                    opd: 35,
                                     opr: UnwrapOrComposeWithNot,
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         86,
                                     ),
                                 },
                                 SynExprData::MethodApplicationOrCall {
-                                    self_argument: 37,
+                                    self_argument: 36,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         87,
                                     ),
@@ -1289,7 +1289,7 @@
                                     ),
                                 },
                                 SynExprData::Field {
-                                    owner: 38,
+                                    owner: 37,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         91,
                                     ),
@@ -1301,17 +1301,17 @@
                                     },
                                 },
                                 SynExprData::PrincipalEntityPath {
-                                    path_expr_idx: 11,
+                                    path_expr_idx: 10,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                                             ),
                                         ),
                                     ),
                                 },
                                 SynExprData::Field {
-                                    owner: 40,
+                                    owner: 39,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         97,
                                     ),
@@ -1323,17 +1323,17 @@
                                     },
                                 },
                                 SynExprData::PrincipalEntityPath {
-                                    path_expr_idx: 12,
+                                    path_expr_idx: 11,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                                             ),
                                         ),
                                     ),
                                 },
                                 SynExprData::Field {
-                                    owner: 42,
+                                    owner: 41,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         101,
                                     ),
@@ -1359,37 +1359,37 @@
                                     ),
                                 ),
                                 SynExprData::Binary {
-                                    lopd: 43,
+                                    lopd: 42,
                                     opr: SynBinaryOpr::Comparison(
                                         BinaryComparisonOpr::Less,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         103,
                                     ),
-                                    ropd: 44,
+                                    ropd: 43,
                                 },
                                 SynExprData::CurrentSynSymbol {
                                     ident: `bottom1_match`,
                                     regional_token_idx: RegionalTokenIdx(
                                         106,
                                     ),
-                                    current_syn_symbol_idx: 4,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                        pattern_symbol_idx: 5,
+                                    current_variable_idx: 3,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
+                                        pattern_variable_idx: 4,
                                     },
                                 },
                                 SynExprData::Be {
-                                    src: 46,
+                                    src: 45,
                                     be_regional_token_idx: RegionalTokenIdx(
                                         107,
                                     ),
                                     target: Ok(
                                         BePatternSyndicate {
                                             pattern_expr_root: BeSynPatternExprRoot {
-                                                syn_pattern_expr_idx: 13,
+                                                syn_pattern_expr_idx: 12,
                                             },
                                             variables: ArenaIdxRange(
-                                                9..9,
+                                                8..8,
                                             ),
                                         },
                                     ),
@@ -1413,9 +1413,9 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         114,
                                     ),
-                                    current_syn_symbol_idx: 6,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                        pattern_symbol_idx: 7,
+                                    current_variable_idx: 5,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
+                                        pattern_variable_idx: 6,
                                     },
                                 },
                                 SynExprData::Prefix {
@@ -1423,24 +1423,24 @@
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         116,
                                     ),
-                                    opd: 48,
+                                    opd: 47,
                                 },
                                 SynExprData::Binary {
-                                    lopd: 49,
+                                    lopd: 48,
                                     opr: SynBinaryOpr::Comparison(
                                         BinaryComparisonOpr::Greater,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         115,
                                     ),
-                                    ropd: 50,
+                                    ropd: 49,
                                 },
                                 SynExprData::PrincipalEntityPath {
-                                    path_expr_idx: 14,
+                                    path_expr_idx: 13,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -1460,21 +1460,21 @@
                                     ),
                                 ),
                                 SynExprData::Binary {
-                                    lopd: 52,
+                                    lopd: 51,
                                     opr: SynBinaryOpr::Comparison(
                                         BinaryComparisonOpr::Less,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         120,
                                     ),
-                                    ropd: 53,
+                                    ropd: 52,
                                 },
                                 SynExprData::PrincipalEntityPath {
-                                    path_expr_idx: 15,
+                                    path_expr_idx: 14,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                            MajorItemPath::Form(
+                                                FormPath(`malamute::narrow_down`, `Ritchie(
                                                     Gn,
                                                 )`),
                                             ),
@@ -1486,9 +1486,9 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         124,
                                     ),
-                                    current_syn_symbol_idx: 7,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                        pattern_symbol_idx: 8,
+                                    current_variable_idx: 6,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
+                                        pattern_variable_idx: 7,
                                     },
                                 },
                                 SynExprData::Literal(
@@ -1502,7 +1502,7 @@
                                     ),
                                 ),
                                 SynExprData::FunctionCall {
-                                    function: 55,
+                                    function: 54,
                                     template_arguments: None,
                                     lpar_regional_token_idx: RegionalTokenIdx(
                                         123,
@@ -1510,7 +1510,7 @@
                                     items: [
                                         SynCallListItem::SimpleOrVariadic(
                                             SynSimpleOrVariadicCallListItem {
-                                                argument_expr_idx: 56,
+                                                argument_expr_idx: 55,
                                                 separator: CallListSeparator::Comma(
                                                     RegionalTokenIdx(
                                                         125,
@@ -1524,7 +1524,7 @@
                                                     126,
                                                 ),
                                                 key: `skip`,
-                                                argument_expr_idx: 57,
+                                                argument_expr_idx: 56,
                                                 separator: CallListSeparator::None,
                                             },
                                         ),
@@ -1534,14 +1534,14 @@
                                     ),
                                 },
                                 SynExprData::Suffix {
-                                    opd: 58,
+                                    opd: 57,
                                     opr: UnveilOrComposeWithOption,
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         130,
                                     ),
                                 },
                                 SynExprData::PrincipalEntityPath {
-                                    path_expr_idx: 17,
+                                    path_expr_idx: 16,
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
                                             TypeVariantPath(
@@ -1555,17 +1555,17 @@
                                     ),
                                 },
                                 SynExprData::PrincipalEntityPath {
-                                    path_expr_idx: 18,
+                                    path_expr_idx: 17,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                             ),
                                         ),
                                     ),
                                 },
                                 SynExprData::Field {
-                                    owner: 61,
+                                    owner: 60,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         139,
                                     ),
@@ -1581,20 +1581,20 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         144,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                        pattern_symbol_idx: 1,
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
+                                        pattern_variable_idx: 0,
                                     },
                                 },
                                 SynExprData::Suffix {
-                                    opd: 63,
+                                    opd: 62,
                                     opr: UnwrapOrComposeWithNot,
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         145,
                                     ),
                                 },
                                 SynExprData::MethodApplicationOrCall {
-                                    self_argument: 64,
+                                    self_argument: 63,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         146,
                                     ),
@@ -1614,7 +1614,7 @@
                                     ),
                                 },
                                 SynExprData::MethodApplicationOrCall {
-                                    self_argument: 62,
+                                    self_argument: 61,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         141,
                                     ),
@@ -1630,7 +1630,7 @@
                                     ),
                                     items: [
                                         SynCommaListItem {
-                                            syn_expr_idx: 65,
+                                            syn_expr_idx: 64,
                                             comma_regional_token_idx: None,
                                         },
                                     ],
@@ -1639,11 +1639,11 @@
                                     ),
                                 },
                                 SynExprData::PrincipalEntityPath {
-                                    path_expr_idx: 19,
+                                    path_expr_idx: 18,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                            MajorItemPath::Form(
+                                                FormPath(`malamute::narrow_down`, `Ritchie(
                                                     Gn,
                                                 )`),
                                             ),
@@ -1655,17 +1655,17 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         153,
                                     ),
-                                    current_syn_symbol_idx: 7,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                        pattern_symbol_idx: 8,
+                                    current_variable_idx: 6,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
+                                        pattern_variable_idx: 7,
                                     },
                                 },
                                 SynExprData::PrincipalEntityPath {
-                                    path_expr_idx: 20,
+                                    path_expr_idx: 19,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -1675,17 +1675,17 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         157,
                                     ),
-                                    current_syn_symbol_idx: 3,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                        pattern_symbol_idx: 4,
+                                    current_variable_idx: 2,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
+                                        pattern_variable_idx: 3,
                                     },
                                 },
                                 SynExprData::PrincipalEntityPath {
-                                    path_expr_idx: 21,
+                                    path_expr_idx: 20,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                             ),
                                         ),
                                     ),
@@ -1701,7 +1701,7 @@
                                     ),
                                 ),
                                 SynExprData::MethodApplicationOrCall {
-                                    self_argument: 71,
+                                    self_argument: 70,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         160,
                                     ),
@@ -1717,7 +1717,7 @@
                                     ),
                                     items: [
                                         SynCommaListItem {
-                                            syn_expr_idx: 72,
+                                            syn_expr_idx: 71,
                                             comma_regional_token_idx: None,
                                         },
                                     ],
@@ -1736,7 +1736,7 @@
                                     ),
                                 ),
                                 SynExprData::FunctionCall {
-                                    function: 67,
+                                    function: 66,
                                     template_arguments: None,
                                     lpar_regional_token_idx: RegionalTokenIdx(
                                         152,
@@ -1744,7 +1744,7 @@
                                     items: [
                                         SynCallListItem::SimpleOrVariadic(
                                             SynSimpleOrVariadicCallListItem {
-                                                argument_expr_idx: 68,
+                                                argument_expr_idx: 67,
                                                 separator: CallListSeparator::Comma(
                                                     RegionalTokenIdx(
                                                         154,
@@ -1754,7 +1754,7 @@
                                         ),
                                         SynCallListItem::SimpleOrVariadic(
                                             SynSimpleOrVariadicCallListItem {
-                                                argument_expr_idx: 69,
+                                                argument_expr_idx: 68,
                                                 separator: CallListSeparator::Comma(
                                                     RegionalTokenIdx(
                                                         156,
@@ -1764,7 +1764,7 @@
                                         ),
                                         SynCallListItem::SimpleOrVariadic(
                                             SynSimpleOrVariadicCallListItem {
-                                                argument_expr_idx: 70,
+                                                argument_expr_idx: 69,
                                                 separator: CallListSeparator::Comma(
                                                     RegionalTokenIdx(
                                                         158,
@@ -1774,7 +1774,7 @@
                                         ),
                                         SynCallListItem::SimpleOrVariadic(
                                             SynSimpleOrVariadicCallListItem {
-                                                argument_expr_idx: 73,
+                                                argument_expr_idx: 72,
                                                 separator: CallListSeparator::Comma(
                                                     RegionalTokenIdx(
                                                         165,
@@ -1788,7 +1788,7 @@
                                                     166,
                                                 ),
                                                 key: `skip`,
-                                                argument_expr_idx: 74,
+                                                argument_expr_idx: 73,
                                                 separator: CallListSeparator::None,
                                             },
                                         ),
@@ -1798,7 +1798,7 @@
                                     ),
                                 },
                                 SynExprData::Suffix {
-                                    opd: 75,
+                                    opd: 74,
                                     opr: UnveilOrComposeWithOption,
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         170,
@@ -1809,13 +1809,13 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         172,
                                     ),
-                                    current_syn_symbol_idx: 9,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                        pattern_symbol_idx: 11,
+                                    current_variable_idx: 8,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
+                                        pattern_variable_idx: 10,
                                     },
                                 },
                                 SynExprData::Field {
-                                    owner: 77,
+                                    owner: 76,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         173,
                                     ),
@@ -1841,17 +1841,31 @@
                                     ),
                                 ),
                                 SynExprData::Binary {
-                                    lopd: 78,
+                                    lopd: 77,
                                     opr: SynBinaryOpr::Comparison(
                                         BinaryComparisonOpr::Less,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         175,
                                     ),
-                                    ropd: 79,
+                                    ropd: 78,
                                 },
                                 SynExprData::PrincipalEntityPath {
-                                    path_expr_idx: 23,
+                                    path_expr_idx: 22,
+                                    opt_path: Some(
+                                        PrincipalEntityPath::TypeVariant(
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 252,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                    ),
+                                },
+                                SynExprData::PrincipalEntityPath {
+                                    path_expr_idx: 24,
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
                                             TypeVariantPath(
@@ -1867,13 +1881,11 @@
                                 SynExprData::PrincipalEntityPath {
                                     path_expr_idx: 25,
                                     opt_path: Some(
-                                        PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 252,
-                                                    },
-                                                ),
+                                        PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Form(
+                                                FormPath(`malamute::narrow_down`, `Ritchie(
+                                                    Gn,
+                                                )`),
                                             ),
                                         ),
                                     ),
@@ -1882,26 +1894,14 @@
                                     path_expr_idx: 26,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`malamute::narrow_down`, `Ritchie(
-                                                    Gn,
-                                                )`),
-                                            ),
-                                        ),
-                                    ),
-                                },
-                                SynExprData::PrincipalEntityPath {
-                                    path_expr_idx: 27,
-                                    opt_path: Some(
-                                        PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                                             ),
                                         ),
                                     ),
                                 },
                                 SynExprData::Field {
-                                    owner: 84,
+                                    owner: 83,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         189,
                                     ),
@@ -1923,7 +1923,7 @@
                                     ),
                                 ),
                                 SynExprData::FunctionCall {
-                                    function: 83,
+                                    function: 82,
                                     template_arguments: None,
                                     lpar_regional_token_idx: RegionalTokenIdx(
                                         187,
@@ -1931,7 +1931,7 @@
                                     items: [
                                         SynCallListItem::SimpleOrVariadic(
                                             SynSimpleOrVariadicCallListItem {
-                                                argument_expr_idx: 85,
+                                                argument_expr_idx: 84,
                                                 separator: CallListSeparator::Comma(
                                                     RegionalTokenIdx(
                                                         191,
@@ -1945,7 +1945,7 @@
                                                     192,
                                                 ),
                                                 key: `skip`,
-                                                argument_expr_idx: 86,
+                                                argument_expr_idx: 85,
                                                 separator: CallListSeparator::None,
                                             },
                                         ),
@@ -1955,24 +1955,24 @@
                                     ),
                                 },
                                 SynExprData::Suffix {
-                                    opd: 87,
+                                    opd: 86,
                                     opr: UnveilOrComposeWithOption,
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         196,
                                     ),
                                 },
                                 SynExprData::PrincipalEntityPath {
-                                    path_expr_idx: 28,
+                                    path_expr_idx: 27,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                                             ),
                                         ),
                                     ),
                                 },
                                 SynExprData::Field {
-                                    owner: 89,
+                                    owner: 88,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         199,
                                     ),
@@ -1998,27 +1998,27 @@
                                     ),
                                 ),
                                 SynExprData::Binary {
-                                    lopd: 90,
+                                    lopd: 89,
                                     opr: SynBinaryOpr::Comparison(
                                         BinaryComparisonOpr::Greater,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         201,
                                     ),
-                                    ropd: 91,
+                                    ropd: 90,
                                 },
                                 SynExprData::PrincipalEntityPath {
-                                    path_expr_idx: 29,
+                                    path_expr_idx: 28,
                                     opt_path: Some(
                                         PrincipalEntityPath::MajorItem(
-                                            MajorItemPath::Fugitive(
-                                                FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                                            MajorItemPath::Form(
+                                                FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                                             ),
                                         ),
                                     ),
                                 },
                                 SynExprData::Field {
-                                    owner: 93,
+                                    owner: 92,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         206,
                                     ),
@@ -2044,27 +2044,27 @@
                                     ),
                                 ),
                                 SynExprData::Binary {
-                                    lopd: 94,
+                                    lopd: 93,
                                     opr: SynBinaryOpr::Comparison(
                                         BinaryComparisonOpr::Less,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         208,
                                     ),
-                                    ropd: 95,
+                                    ropd: 94,
                                 },
                                 SynExprData::CurrentSynSymbol {
                                     ident: `eff_holes`,
                                     regional_token_idx: RegionalTokenIdx(
                                         211,
                                     ),
-                                    current_syn_symbol_idx: 2,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                        pattern_symbol_idx: 3,
+                                    current_variable_idx: 1,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
+                                        pattern_variable_idx: 2,
                                     },
                                 },
                                 SynExprData::Field {
-                                    owner: 97,
+                                    owner: 96,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         212,
                                     ),
@@ -2086,13 +2086,13 @@
                                     ),
                                 ),
                                 SynExprData::IndexOrCompositionWithList {
-                                    owner: 98,
+                                    owner: 97,
                                     lbox_regional_token_idx: RegionalTokenIdx(
                                         214,
                                     ),
                                     items: [
                                         SynCommaListItem {
-                                            syn_expr_idx: 99,
+                                            syn_expr_idx: 98,
                                             comma_regional_token_idx: None,
                                         },
                                     ],
@@ -2101,14 +2101,14 @@
                                     ),
                                 },
                                 SynExprData::Suffix {
-                                    opd: 100,
+                                    opd: 99,
                                     opr: UnwrapOrComposeWithNot,
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         217,
                                     ),
                                 },
                                 SynExprData::Field {
-                                    owner: 101,
+                                    owner: 100,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         218,
                                     ),
@@ -2120,7 +2120,7 @@
                                     },
                                 },
                                 SynExprData::MethodApplicationOrCall {
-                                    self_argument: 102,
+                                    self_argument: 101,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         220,
                                     ),
@@ -2154,27 +2154,27 @@
                                     ),
                                 ),
                                 SynExprData::Binary {
-                                    lopd: 103,
+                                    lopd: 102,
                                     opr: SynBinaryOpr::Comparison(
                                         BinaryComparisonOpr::Less,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         224,
                                     ),
-                                    ropd: 104,
+                                    ropd: 103,
                                 },
                                 SynExprData::CurrentSynSymbol {
                                     ident: `eff_holes`,
                                     regional_token_idx: RegionalTokenIdx(
                                         227,
                                     ),
-                                    current_syn_symbol_idx: 2,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                        pattern_symbol_idx: 3,
+                                    current_variable_idx: 1,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
+                                        pattern_variable_idx: 2,
                                     },
                                 },
                                 SynExprData::Field {
-                                    owner: 106,
+                                    owner: 105,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         228,
                                     ),
@@ -2196,13 +2196,13 @@
                                     ),
                                 ),
                                 SynExprData::IndexOrCompositionWithList {
-                                    owner: 107,
+                                    owner: 106,
                                     lbox_regional_token_idx: RegionalTokenIdx(
                                         230,
                                     ),
                                     items: [
                                         SynCommaListItem {
-                                            syn_expr_idx: 108,
+                                            syn_expr_idx: 107,
                                             comma_regional_token_idx: None,
                                         },
                                     ],
@@ -2211,17 +2211,17 @@
                                     ),
                                 },
                                 SynExprData::Be {
-                                    src: 109,
+                                    src: 108,
                                     be_regional_token_idx: RegionalTokenIdx(
                                         233,
                                     ),
                                     target: Ok(
                                         BePatternSyndicate {
                                             pattern_expr_root: BeSynPatternExprRoot {
-                                                syn_pattern_expr_idx: 16,
+                                                syn_pattern_expr_idx: 15,
                                             },
                                             variables: ArenaIdxRange(
-                                                10..10,
+                                                9..9,
                                             ),
                                         },
                                     ),
@@ -2231,13 +2231,13 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         240,
                                     ),
-                                    current_syn_symbol_idx: 2,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                        pattern_symbol_idx: 3,
+                                    current_variable_idx: 1,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
+                                        pattern_variable_idx: 2,
                                     },
                                 },
                                 SynExprData::Field {
-                                    owner: 111,
+                                    owner: 110,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         241,
                                     ),
@@ -2259,13 +2259,13 @@
                                     ),
                                 ),
                                 SynExprData::IndexOrCompositionWithList {
-                                    owner: 112,
+                                    owner: 111,
                                     lbox_regional_token_idx: RegionalTokenIdx(
                                         243,
                                     ),
                                     items: [
                                         SynCommaListItem {
-                                            syn_expr_idx: 113,
+                                            syn_expr_idx: 112,
                                             comma_regional_token_idx: None,
                                         },
                                     ],
@@ -2274,14 +2274,14 @@
                                     ),
                                 },
                                 SynExprData::Suffix {
-                                    opd: 114,
+                                    opd: 113,
                                     opr: UnwrapOrComposeWithNot,
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         246,
                                     ),
                                 },
                                 SynExprData::Field {
-                                    owner: 115,
+                                    owner: 114,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         247,
                                     ),
@@ -2293,7 +2293,7 @@
                                     },
                                 },
                                 SynExprData::MethodApplicationOrCall {
-                                    self_argument: 116,
+                                    self_argument: 115,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         249,
                                     ),
@@ -2327,23 +2327,23 @@
                                     ),
                                 ),
                                 SynExprData::Binary {
-                                    lopd: 117,
+                                    lopd: 116,
                                     opr: SynBinaryOpr::Comparison(
                                         BinaryComparisonOpr::Less,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         253,
                                     ),
-                                    ropd: 118,
+                                    ropd: 117,
                                 },
                                 SynExprData::CurrentSynSymbol {
                                     ident: `lower_excess`,
                                     regional_token_idx: RegionalTokenIdx(
                                         256,
                                     ),
-                                    current_syn_symbol_idx: 3,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                        pattern_symbol_idx: 4,
+                                    current_variable_idx: 2,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
+                                        pattern_variable_idx: 3,
                                     },
                                 },
                                 SynExprData::Literal(
@@ -2361,17 +2361,17 @@
                                     ),
                                 ),
                                 SynExprData::Binary {
-                                    lopd: 120,
+                                    lopd: 119,
                                     opr: SynBinaryOpr::Comparison(
                                         BinaryComparisonOpr::Greater,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         257,
                                     ),
-                                    ropd: 121,
+                                    ropd: 120,
                                 },
                                 SynExprData::PrincipalEntityPath {
-                                    path_expr_idx: 32,
+                                    path_expr_idx: 31,
                                     opt_path: Some(
                                         PrincipalEntityPath::TypeVariant(
                                             TypeVariantPath(
@@ -2386,7 +2386,7 @@
                                 },
                                 SynExprData::Block {
                                     stmts: ArenaIdxRange(
-                                        20..31,
+                                        19..30,
                                     ),
                                 },
                             ],
@@ -2403,8 +2403,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                                         ),
                                     ),
                                 },
@@ -2437,8 +2437,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                         ),
                                     ),
                                 },
@@ -2452,8 +2452,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                         ),
                                     ),
                                 },
@@ -2467,8 +2467,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                         ),
                                     ),
                                 },
@@ -2501,8 +2501,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`malamute::narrow_down`, `Ritchie(
                                                 Gn,
                                             )`),
                                         ),
@@ -2518,8 +2518,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                                         ),
                                     ),
                                 },
@@ -2533,8 +2533,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                                         ),
                                     ),
                                 },
@@ -2548,8 +2548,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                                         ),
                                     ),
                                 },
@@ -2563,8 +2563,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                                         ),
                                     ),
                                 },
@@ -2578,8 +2578,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                                         ),
                                     ),
                                 },
@@ -2612,8 +2612,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                         ),
                                     ),
                                 },
@@ -2627,8 +2627,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`malamute::narrow_down`, `Ritchie(
                                                 Gn,
                                             )`),
                                         ),
@@ -2650,7 +2650,7 @@
                                     ),
                                 },
                                 SynPrincipalEntityPathExpr::Subitem {
-                                    parent: 16,
+                                    parent: 15,
                                     colon_colon_token: ColonColonRegionalToken(
                                         RegionalTokenIdx(
                                             133,
@@ -2686,8 +2686,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_line_segment_sketch`, `Val`),
                                         ),
                                     ),
                                 },
@@ -2701,8 +2701,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`malamute::narrow_down`, `Ritchie(
                                                 Gn,
                                             )`),
                                         ),
@@ -2718,8 +2718,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::major::ignored_connected_components_row_span_sum_sum`, `Val`),
                                         ),
                                     ),
                                 },
@@ -2733,8 +2733,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::major::major_connected_component`, `Val`),
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::major::major_connected_component`, `Val`),
                                         ),
                                     ),
                                 },
@@ -2754,7 +2754,7 @@
                                     ),
                                 },
                                 SynPrincipalEntityPathExpr::Subitem {
-                                    parent: 22,
+                                    parent: 21,
                                     colon_colon_token: ColonColonRegionalToken(
                                         RegionalTokenIdx(
                                             180,
@@ -2796,7 +2796,7 @@
                                     ),
                                 },
                                 SynPrincipalEntityPathExpr::Subitem {
-                                    parent: 24,
+                                    parent: 23,
                                     colon_colon_token: ColonColonRegionalToken(
                                         RegionalTokenIdx(
                                             184,
@@ -2832,8 +2832,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`malamute::narrow_down`, `Ritchie(
+                                        MajorItemPath::Form(
+                                            FormPath(`malamute::narrow_down`, `Ritchie(
                                                 Gn,
                                             )`),
                                         ),
@@ -2849,8 +2849,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                                         ),
                                     ),
                                 },
@@ -2864,8 +2864,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                                         ),
                                     ),
                                 },
@@ -2879,8 +2879,8 @@
                                         },
                                     ),
                                     principal_entity_path: PrincipalEntityPath::MajorItem(
-                                        MajorItemPath::Fugitive(
-                                            FugitivePath(`mnist_classifier::digits::six::six_match`, `Val`),
+                                        MajorItemPath::Form(
+                                            FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                                         ),
                                     ),
                                 },
@@ -2919,7 +2919,7 @@
                                     ),
                                 },
                                 SynPrincipalEntityPathExpr::Subitem {
-                                    parent: 31,
+                                    parent: 30,
                                     colon_colon_token: ColonColonRegionalToken(
                                         RegionalTokenIdx(
                                             260,
@@ -2955,7 +2955,7 @@
                                             113,
                                         ),
                                     },
-                                    condition: 51,
+                                    condition: 50,
                                 },
                                 SynStmtData::Require {
                                     require_token: RequireRegionalToken {
@@ -2963,10 +2963,10 @@
                                             118,
                                         ),
                                     },
-                                    condition: 54,
+                                    condition: 53,
                                 },
                                 SynStmtData::Eval {
-                                    expr_idx: 59,
+                                    expr_idx: 58,
                                     eol_semicolon: Ok(
                                         None,
                                     ),
@@ -2977,7 +2977,7 @@
                                             131,
                                         ),
                                     },
-                                    result: 60,
+                                    result: 59,
                                 },
                                 SynStmtData::Return {
                                     return_token: ReturnRegionalToken {
@@ -2985,10 +2985,10 @@
                                             178,
                                         ),
                                     },
-                                    result: 81,
+                                    result: 80,
                                 },
                                 SynStmtData::Eval {
-                                    expr_idx: 26,
+                                    expr_idx: 25,
                                     eol_semicolon: Ok(
                                         None,
                                     ),
@@ -2997,6 +2997,35 @@
                                     let_token: LetRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             58,
+                                        ),
+                                    },
+                                    let_variables_pattern: Ok(
+                                        LetPatternSyndicate {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
+                                                syn_pattern_expr_idx: 6,
+                                            },
+                                            variables: ArenaIdxRange(
+                                                3..4,
+                                            ),
+                                            colon_token: Ok(
+                                                None,
+                                            ),
+                                            ty: None,
+                                        },
+                                    ),
+                                    assign_token: Ok(
+                                        EqRegionalToken(
+                                            RegionalTokenIdx(
+                                                60,
+                                            ),
+                                        ),
+                                    ),
+                                    initial_value: 29,
+                                },
+                                SynStmtData::Let {
+                                    let_token: LetRegionalToken {
+                                        regional_token_idx: RegionalTokenIdx(
+                                            67,
                                         ),
                                     },
                                     let_variables_pattern: Ok(
@@ -3016,16 +3045,16 @@
                                     assign_token: Ok(
                                         EqRegionalToken(
                                             RegionalTokenIdx(
-                                                60,
+                                                69,
                                             ),
                                         ),
                                     ),
-                                    initial_value: 30,
+                                    initial_value: 32,
                                 },
                                 SynStmtData::Let {
                                     let_token: LetRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
-                                            67,
+                                            76,
                                         ),
                                     },
                                     let_variables_pattern: Ok(
@@ -3045,16 +3074,16 @@
                                     assign_token: Ok(
                                         EqRegionalToken(
                                             RegionalTokenIdx(
-                                                69,
+                                                78,
                                             ),
                                         ),
                                     ),
-                                    initial_value: 33,
+                                    initial_value: 34,
                                 },
                                 SynStmtData::Let {
                                     let_token: LetRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
-                                            76,
+                                            82,
                                         ),
                                     },
                                     let_variables_pattern: Ok(
@@ -3074,16 +3103,16 @@
                                     assign_token: Ok(
                                         EqRegionalToken(
                                             RegionalTokenIdx(
-                                                78,
+                                                84,
                                             ),
                                         ),
                                     ),
-                                    initial_value: 35,
+                                    initial_value: 38,
                                 },
                                 SynStmtData::Let {
                                     let_token: LetRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
-                                            82,
+                                            93,
                                         ),
                                     },
                                     let_variables_pattern: Ok(
@@ -3103,40 +3132,11 @@
                                     assign_token: Ok(
                                         EqRegionalToken(
                                             RegionalTokenIdx(
-                                                84,
-                                            ),
-                                        ),
-                                    ),
-                                    initial_value: 39,
-                                },
-                                SynStmtData::Let {
-                                    let_token: LetRegionalToken {
-                                        regional_token_idx: RegionalTokenIdx(
-                                            93,
-                                        ),
-                                    },
-                                    let_variables_pattern: Ok(
-                                        LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetPatternSynExprRoot {
-                                                syn_pattern_expr_idx: 11,
-                                            },
-                                            variables: ArenaIdxRange(
-                                                8..9,
-                                            ),
-                                            colon_token: Ok(
-                                                None,
-                                            ),
-                                            ty: None,
-                                        },
-                                    ),
-                                    assign_token: Ok(
-                                        EqRegionalToken(
-                                            RegionalTokenIdx(
                                                 95,
                                             ),
                                         ),
                                     ),
-                                    initial_value: 41,
+                                    initial_value: 40,
                                 },
                                 SynStmtData::Require {
                                     require_token: RequireRegionalToken {
@@ -3144,7 +3144,7 @@
                                             99,
                                         ),
                                     },
-                                    condition: 45,
+                                    condition: 44,
                                 },
                                 SynStmtData::IfElse {
                                     if_branch: SynIfBranch {
@@ -3154,7 +3154,7 @@
                                             ),
                                         },
                                         condition: Ok(
-                                            47,
+                                            46,
                                         ),
                                         eol_colon: Ok(
                                             EolColonRegionalToken {
@@ -3164,7 +3164,7 @@
                                             },
                                         ),
                                         stmts: ArenaIdxRange(
-                                            1..5,
+                                            0..4,
                                         ),
                                     },
                                     elif_branches: [],
@@ -3179,10 +3179,10 @@
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
                                             syn_pattern_expr_root: LetPatternSynExprRoot {
-                                                syn_pattern_expr_idx: 14,
+                                                syn_pattern_expr_idx: 13,
                                             },
                                             variables: ArenaIdxRange(
-                                                9..10,
+                                                8..9,
                                             ),
                                             colon_token: Ok(
                                                 None,
@@ -3197,10 +3197,10 @@
                                             ),
                                         ),
                                     ),
-                                    initial_value: 66,
+                                    initial_value: 65,
                                 },
                                 SynStmtData::Eval {
-                                    expr_idx: 76,
+                                    expr_idx: 75,
                                     eol_semicolon: Ok(
                                         None,
                                     ),
@@ -3213,7 +3213,7 @@
                                             ),
                                         },
                                         condition: Ok(
-                                            80,
+                                            79,
                                         ),
                                         eol_colon: Ok(
                                             EolColonRegionalToken {
@@ -3223,7 +3223,7 @@
                                             },
                                         ),
                                         stmts: ArenaIdxRange(
-                                            5..6,
+                                            4..5,
                                         ),
                                     },
                                     elif_branches: [],
@@ -3235,7 +3235,7 @@
                                             182,
                                         ),
                                     },
-                                    result: 82,
+                                    result: 81,
                                 },
                                 SynStmtData::Require {
                                     require_token: RequireRegionalToken {
@@ -3243,7 +3243,7 @@
                                             204,
                                         ),
                                     },
-                                    condition: 96,
+                                    condition: 95,
                                 },
                                 SynStmtData::Require {
                                     require_token: RequireRegionalToken {
@@ -3251,7 +3251,7 @@
                                             239,
                                         ),
                                     },
-                                    condition: 119,
+                                    condition: 118,
                                 },
                                 SynStmtData::Let {
                                     let_token: LetRegionalToken {
@@ -3262,10 +3262,10 @@
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
                                             syn_pattern_expr_root: LetPatternSynExprRoot {
-                                                syn_pattern_expr_idx: 1,
+                                                syn_pattern_expr_idx: 0,
                                             },
                                             variables: ArenaIdxRange(
-                                                1..2,
+                                                0..1,
                                             ),
                                             colon_token: Ok(
                                                 None,
@@ -3280,7 +3280,7 @@
                                             ),
                                         ),
                                     ),
-                                    initial_value: 4,
+                                    initial_value: 3,
                                 },
                                 SynStmtData::Require {
                                     require_token: RequireRegionalToken {
@@ -3288,12 +3288,41 @@
                                             10,
                                         ),
                                     },
-                                    condition: 6,
+                                    condition: 5,
                                 },
                                 SynStmtData::Let {
                                     let_token: LetRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             17,
+                                        ),
+                                    },
+                                    let_variables_pattern: Ok(
+                                        LetPatternSyndicate {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
+                                                syn_pattern_expr_idx: 3,
+                                            },
+                                            variables: ArenaIdxRange(
+                                                1..2,
+                                            ),
+                                            colon_token: Ok(
+                                                None,
+                                            ),
+                                            ty: None,
+                                        },
+                                    ),
+                                    assign_token: Ok(
+                                        EqRegionalToken(
+                                            RegionalTokenIdx(
+                                                19,
+                                            ),
+                                        ),
+                                    ),
+                                    initial_value: 7,
+                                },
+                                SynStmtData::Let {
+                                    let_token: LetRegionalToken {
+                                        regional_token_idx: RegionalTokenIdx(
+                                            23,
                                         ),
                                     },
                                     let_variables_pattern: Ok(
@@ -3313,40 +3342,11 @@
                                     assign_token: Ok(
                                         EqRegionalToken(
                                             RegionalTokenIdx(
-                                                19,
-                                            ),
-                                        ),
-                                    ),
-                                    initial_value: 8,
-                                },
-                                SynStmtData::Let {
-                                    let_token: LetRegionalToken {
-                                        regional_token_idx: RegionalTokenIdx(
-                                            23,
-                                        ),
-                                    },
-                                    let_variables_pattern: Ok(
-                                        LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetPatternSynExprRoot {
-                                                syn_pattern_expr_idx: 5,
-                                            },
-                                            variables: ArenaIdxRange(
-                                                3..4,
-                                            ),
-                                            colon_token: Ok(
-                                                None,
-                                            ),
-                                            ty: None,
-                                        },
-                                    ),
-                                    assign_token: Ok(
-                                        EqRegionalToken(
-                                            RegionalTokenIdx(
                                                 25,
                                             ),
                                         ),
                                     ),
-                                    initial_value: 13,
+                                    initial_value: 12,
                                 },
                                 SynStmtData::IfElse {
                                     if_branch: SynIfBranch {
@@ -3356,7 +3356,7 @@
                                             ),
                                         },
                                         condition: Ok(
-                                            18,
+                                            17,
                                         ),
                                         eol_colon: Ok(
                                             EolColonRegionalToken {
@@ -3366,14 +3366,14 @@
                                             },
                                         ),
                                         stmts: ArenaIdxRange(
-                                            6..18,
+                                            5..17,
                                         ),
                                     },
                                     elif_branches: [],
                                     else_branch: None,
                                 },
                                 SynStmtData::Eval {
-                                    expr_idx: 88,
+                                    expr_idx: 87,
                                     eol_semicolon: Ok(
                                         None,
                                     ),
@@ -3386,12 +3386,44 @@
                                             ),
                                         },
                                         condition: Ok(
-                                            92,
+                                            91,
                                         ),
                                         eol_colon: Ok(
                                             EolColonRegionalToken {
                                                 regional_token_idx: RegionalTokenIdx(
                                                     203,
+                                                ),
+                                            },
+                                        ),
+                                        stmts: ArenaIdxRange(
+                                            17..18,
+                                        ),
+                                    },
+                                    elif_branches: [],
+                                    else_branch: None,
+                                },
+                                SynStmtData::Require {
+                                    require_token: RequireRegionalToken {
+                                        regional_token_idx: RegionalTokenIdx(
+                                            210,
+                                        ),
+                                    },
+                                    condition: 104,
+                                },
+                                SynStmtData::IfElse {
+                                    if_branch: SynIfBranch {
+                                        if_token: IfRegionalToken {
+                                            regional_token_idx: RegionalTokenIdx(
+                                                226,
+                                            ),
+                                        },
+                                        condition: Ok(
+                                            109,
+                                        ),
+                                        eol_colon: Ok(
+                                            EolColonRegionalToken {
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    238,
                                                 ),
                                             },
                                         ),
@@ -3405,45 +3437,13 @@
                                 SynStmtData::Require {
                                     require_token: RequireRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
-                                            210,
-                                        ),
-                                    },
-                                    condition: 105,
-                                },
-                                SynStmtData::IfElse {
-                                    if_branch: SynIfBranch {
-                                        if_token: IfRegionalToken {
-                                            regional_token_idx: RegionalTokenIdx(
-                                                226,
-                                            ),
-                                        },
-                                        condition: Ok(
-                                            110,
-                                        ),
-                                        eol_colon: Ok(
-                                            EolColonRegionalToken {
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    238,
-                                                ),
-                                            },
-                                        ),
-                                        stmts: ArenaIdxRange(
-                                            19..20,
-                                        ),
-                                    },
-                                    elif_branches: [],
-                                    else_branch: None,
-                                },
-                                SynStmtData::Require {
-                                    require_token: RequireRegionalToken {
-                                        regional_token_idx: RegionalTokenIdx(
                                             255,
                                         ),
                                     },
-                                    condition: 122,
+                                    condition: 121,
                                 },
                                 SynStmtData::Eval {
-                                    expr_idx: 123,
+                                    expr_idx: 122,
                                     eol_semicolon: Ok(
                                         None,
                                     ),
@@ -3472,7 +3472,7 @@
                                         },
                                     },
                                     SynPatternData::TupleTypeVariant {
-                                        path_expr_idx: 2,
+                                        path_expr_idx: 1,
                                         path: TypeVariantPath(
                                             ItemPathId(
                                                 Id {
@@ -3488,7 +3488,7 @@
                                         fields: PunctuatedSmallList {
                                             elements: [
                                                 SynPatternComponent(
-                                                    2,
+                                                    1,
                                                 ),
                                             ],
                                             separators: [],
@@ -3519,7 +3519,7 @@
                                         },
                                     },
                                     SynPatternData::UnitTypeVariant {
-                                        path_expr_idx: 6,
+                                        path_expr_idx: 5,
                                         path: TypeVariantPath(
                                             ItemPathId(
                                                 Id {
@@ -3583,7 +3583,7 @@
                                         },
                                     },
                                     SynPatternData::TupleTypeVariant {
-                                        path_expr_idx: 13,
+                                        path_expr_idx: 12,
                                         path: TypeVariantPath(
                                             ItemPathId(
                                                 Id {
@@ -3599,7 +3599,7 @@
                                         fields: PunctuatedSmallList {
                                             elements: [
                                                 SynPatternComponent(
-                                                    12,
+                                                    11,
                                                 ),
                                             ],
                                             separators: [],
@@ -3630,7 +3630,7 @@
                                         },
                                     },
                                     SynPatternData::TupleTypeVariant {
-                                        path_expr_idx: 30,
+                                        path_expr_idx: 29,
                                         path: TypeVariantPath(
                                             ItemPathId(
                                                 Id {
@@ -3646,7 +3646,7 @@
                                         fields: PunctuatedSmallList {
                                             elements: [
                                                 SynPatternComponent(
-                                                    15,
+                                                    14,
                                                 ),
                                             ],
                                             separators: [],
@@ -3682,41 +3682,41 @@
                             },
                             pattern_symbol_arena: Arena {
                                 data: [
-                                    SynPatternSymbol::Atom(
+                                    PatternVariable::Atom(
+                                        0,
+                                    ),
+                                    PatternVariable::Atom(
                                         1,
                                     ),
-                                    SynPatternSymbol::Atom(
-                                        2,
+                                    PatternVariable::Atom(
+                                        3,
                                     ),
-                                    SynPatternSymbol::Atom(
+                                    PatternVariable::Atom(
                                         4,
                                     ),
-                                    SynPatternSymbol::Atom(
-                                        5,
+                                    PatternVariable::Atom(
+                                        6,
                                     ),
-                                    SynPatternSymbol::Atom(
+                                    PatternVariable::Atom(
                                         7,
                                     ),
-                                    SynPatternSymbol::Atom(
+                                    PatternVariable::Atom(
                                         8,
                                     ),
-                                    SynPatternSymbol::Atom(
+                                    PatternVariable::Atom(
                                         9,
                                     ),
-                                    SynPatternSymbol::Atom(
+                                    PatternVariable::Atom(
                                         10,
                                     ),
-                                    SynPatternSymbol::Atom(
+                                    PatternVariable::Atom(
                                         11,
                                     ),
-                                    SynPatternSymbol::Atom(
-                                        12,
+                                    PatternVariable::Atom(
+                                        13,
                                     ),
-                                    SynPatternSymbol::Atom(
+                                    PatternVariable::Atom(
                                         14,
-                                    ),
-                                    SynPatternSymbol::Atom(
-                                        15,
                                     ),
                                 ],
                             },
@@ -3724,76 +3724,76 @@
                                 [
                                     (
                                         `upmost_match`,
-                                        1,
+                                        0,
                                     ),
                                 ],
                                 [
                                     (
                                         `_`,
-                                        2,
+                                        1,
                                     ),
                                 ],
                                 [],
                                 [
                                     (
                                         `eff_holes`,
-                                        3,
+                                        2,
                                     ),
                                 ],
                                 [
                                     (
                                         `lower_excess`,
-                                        4,
+                                        3,
                                     ),
                                 ],
                                 [],
                                 [
                                     (
                                         `bottom1_match`,
-                                        5,
+                                        4,
                                     ),
                                 ],
                                 [
                                     (
                                         `bottom1_match_dp`,
-                                        6,
+                                        5,
                                     ),
                                 ],
                                 [
                                     (
                                         `bottom1_match_dp_y`,
-                                        7,
+                                        6,
                                     ),
                                 ],
                                 [
                                     (
                                         `upmost_match_dp_y`,
-                                        8,
+                                        7,
                                     ),
                                 ],
                                 [
                                     (
                                         `others`,
-                                        9,
+                                        8,
                                     ),
                                 ],
                                 [
                                     (
                                         `_`,
-                                        10,
+                                        9,
                                     ),
                                 ],
                                 [],
                                 [
                                     (
                                         `rel_upmost_match_end`,
-                                        11,
+                                        10,
                                     ),
                                 ],
                                 [
                                     (
                                         `_`,
-                                        12,
+                                        11,
                                     ),
                                 ],
                                 [],
@@ -3815,13 +3815,13 @@
                                 ],
                             },
                         },
-                        symbol_region: VariableRegionData {
+                        variable_region: VariableRegionData {
                             inherited_syn_symbol_arena: Arena {
                                 data: [],
                             },
-                            current_syn_symbol_arena: Arena {
+                            current_variable_arena: Arena {
                                 data: [
-                                    CurrentSynSymbolEntry {
+                                    CurrentVariableEntry {
                                         modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             3,
@@ -3833,12 +3833,12 @@
                                                 ),
                                             ),
                                         ),
-                                        data: CurrentSynSymbolData::LetVariable {
+                                        data: CurrentVariableData::LetVariable {
                                             ident: `upmost_match`,
-                                            pattern_symbol_idx: 1,
+                                            pattern_variable_idx: 0,
                                         },
                                     },
-                                    CurrentSynSymbolEntry {
+                                    CurrentVariableEntry {
                                         modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             19,
@@ -3850,12 +3850,12 @@
                                                 ),
                                             ),
                                         ),
-                                        data: CurrentSynSymbolData::LetVariable {
+                                        data: CurrentVariableData::LetVariable {
                                             ident: `eff_holes`,
-                                            pattern_symbol_idx: 3,
+                                            pattern_variable_idx: 2,
                                         },
                                     },
-                                    CurrentSynSymbolEntry {
+                                    CurrentVariableEntry {
                                         modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             25,
@@ -3867,12 +3867,12 @@
                                                 ),
                                             ),
                                         ),
-                                        data: CurrentSynSymbolData::LetVariable {
+                                        data: CurrentVariableData::LetVariable {
                                             ident: `lower_excess`,
-                                            pattern_symbol_idx: 4,
+                                            pattern_variable_idx: 3,
                                         },
                                     },
-                                    CurrentSynSymbolEntry {
+                                    CurrentVariableEntry {
                                         modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             60,
@@ -3884,12 +3884,12 @@
                                                 ),
                                             ),
                                         ),
-                                        data: CurrentSynSymbolData::LetVariable {
+                                        data: CurrentVariableData::LetVariable {
                                             ident: `bottom1_match`,
-                                            pattern_symbol_idx: 5,
+                                            pattern_variable_idx: 4,
                                         },
                                     },
-                                    CurrentSynSymbolEntry {
+                                    CurrentVariableEntry {
                                         modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             69,
@@ -3901,12 +3901,12 @@
                                                 ),
                                             ),
                                         ),
-                                        data: CurrentSynSymbolData::LetVariable {
+                                        data: CurrentVariableData::LetVariable {
                                             ident: `bottom1_match_dp`,
-                                            pattern_symbol_idx: 6,
+                                            pattern_variable_idx: 5,
                                         },
                                     },
-                                    CurrentSynSymbolEntry {
+                                    CurrentVariableEntry {
                                         modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             78,
@@ -3918,12 +3918,12 @@
                                                 ),
                                             ),
                                         ),
-                                        data: CurrentSynSymbolData::LetVariable {
+                                        data: CurrentVariableData::LetVariable {
                                             ident: `bottom1_match_dp_y`,
-                                            pattern_symbol_idx: 7,
+                                            pattern_variable_idx: 6,
                                         },
                                     },
-                                    CurrentSynSymbolEntry {
+                                    CurrentVariableEntry {
                                         modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             84,
@@ -3935,12 +3935,12 @@
                                                 ),
                                             ),
                                         ),
-                                        data: CurrentSynSymbolData::LetVariable {
+                                        data: CurrentVariableData::LetVariable {
                                             ident: `upmost_match_dp_y`,
-                                            pattern_symbol_idx: 8,
+                                            pattern_variable_idx: 7,
                                         },
                                     },
-                                    CurrentSynSymbolEntry {
+                                    CurrentVariableEntry {
                                         modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             95,
@@ -3952,12 +3952,12 @@
                                                 ),
                                             ),
                                         ),
-                                        data: CurrentSynSymbolData::LetVariable {
+                                        data: CurrentVariableData::LetVariable {
                                             ident: `others`,
-                                            pattern_symbol_idx: 9,
+                                            pattern_variable_idx: 8,
                                         },
                                     },
-                                    CurrentSynSymbolEntry {
+                                    CurrentVariableEntry {
                                         modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             137,
@@ -3969,9 +3969,9 @@
                                                 ),
                                             ),
                                         ),
-                                        data: CurrentSynSymbolData::LetVariable {
+                                        data: CurrentVariableData::LetVariable {
                                             ident: `rel_upmost_match_end`,
-                                            pattern_symbol_idx: 11,
+                                            pattern_variable_idx: 10,
                                         },
                                     },
                                 ],
@@ -3980,13 +3980,17 @@
                             allow_self_value: False,
                             pattern_ty_constraints: [],
                         },
-                        syn_pattern_expr_roots: [
+                        pattern_roots: [
                             SynPatternRoot {
                                 kind: SynPatternExprRootKind::Let,
-                                syn_pattern_expr_idx: 1,
+                                syn_pattern_expr_idx: 0,
                             },
                             SynPatternRoot {
                                 kind: SynPatternExprRootKind::Be,
+                                syn_pattern_expr_idx: 2,
+                            },
+                            SynPatternRoot {
+                                kind: SynPatternExprRootKind::Let,
                                 syn_pattern_expr_idx: 3,
                             },
                             SynPatternRoot {
@@ -3994,11 +3998,11 @@
                                 syn_pattern_expr_idx: 4,
                             },
                             SynPatternRoot {
-                                kind: SynPatternExprRootKind::Let,
+                                kind: SynPatternExprRootKind::Be,
                                 syn_pattern_expr_idx: 5,
                             },
                             SynPatternRoot {
-                                kind: SynPatternExprRootKind::Be,
+                                kind: SynPatternExprRootKind::Let,
                                 syn_pattern_expr_idx: 6,
                             },
                             SynPatternRoot {
@@ -4018,133 +4022,133 @@
                                 syn_pattern_expr_idx: 10,
                             },
                             SynPatternRoot {
-                                kind: SynPatternExprRootKind::Let,
-                                syn_pattern_expr_idx: 11,
+                                kind: SynPatternExprRootKind::Be,
+                                syn_pattern_expr_idx: 12,
                             },
                             SynPatternRoot {
-                                kind: SynPatternExprRootKind::Be,
+                                kind: SynPatternExprRootKind::Let,
                                 syn_pattern_expr_idx: 13,
                             },
                             SynPatternRoot {
-                                kind: SynPatternExprRootKind::Let,
-                                syn_pattern_expr_idx: 14,
-                            },
-                            SynPatternRoot {
                                 kind: SynPatternExprRootKind::Be,
-                                syn_pattern_expr_idx: 16,
+                                syn_pattern_expr_idx: 15,
                             },
                         ],
-                        syn_expr_roots: [
+                        expr_roots: [
                             SynExprRoot {
                                 kind: SynExprRootKind::LetStmtInitialValue,
-                                syn_expr_idx: 4,
+                                syn_expr_idx: 3,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::Condition,
-                                syn_expr_idx: 6,
+                                syn_expr_idx: 5,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::LetStmtInitialValue,
-                                syn_expr_idx: 8,
+                                syn_expr_idx: 7,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::LetStmtInitialValue,
-                                syn_expr_idx: 13,
+                                syn_expr_idx: 12,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::EvalExpr,
-                                syn_expr_idx: 26,
+                                syn_expr_idx: 25,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::LetStmtInitialValue,
-                                syn_expr_idx: 30,
+                                syn_expr_idx: 29,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::LetStmtInitialValue,
-                                syn_expr_idx: 33,
+                                syn_expr_idx: 32,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::LetStmtInitialValue,
-                                syn_expr_idx: 35,
+                                syn_expr_idx: 34,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::LetStmtInitialValue,
-                                syn_expr_idx: 39,
+                                syn_expr_idx: 38,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::LetStmtInitialValue,
-                                syn_expr_idx: 41,
+                                syn_expr_idx: 40,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::Condition,
-                                syn_expr_idx: 45,
+                                syn_expr_idx: 44,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::Condition,
-                                syn_expr_idx: 51,
+                                syn_expr_idx: 50,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::Condition,
-                                syn_expr_idx: 54,
+                                syn_expr_idx: 53,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::EvalExpr,
-                                syn_expr_idx: 59,
+                                syn_expr_idx: 58,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::ReturnExpr,
-                                syn_expr_idx: 60,
+                                syn_expr_idx: 59,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::LetStmtInitialValue,
-                                syn_expr_idx: 66,
+                                syn_expr_idx: 65,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::EvalExpr,
-                                syn_expr_idx: 76,
+                                syn_expr_idx: 75,
+                            },
+                            SynExprRoot {
+                                kind: SynExprRootKind::ReturnExpr,
+                                syn_expr_idx: 80,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::ReturnExpr,
                                 syn_expr_idx: 81,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::ReturnExpr,
-                                syn_expr_idx: 82,
+                                kind: SynExprRootKind::EvalExpr,
+                                syn_expr_idx: 87,
+                            },
+                            SynExprRoot {
+                                kind: SynExprRootKind::Condition,
+                                syn_expr_idx: 95,
+                            },
+                            SynExprRoot {
+                                kind: SynExprRootKind::Condition,
+                                syn_expr_idx: 104,
+                            },
+                            SynExprRoot {
+                                kind: SynExprRootKind::Condition,
+                                syn_expr_idx: 118,
+                            },
+                            SynExprRoot {
+                                kind: SynExprRootKind::Condition,
+                                syn_expr_idx: 121,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::EvalExpr,
-                                syn_expr_idx: 88,
-                            },
-                            SynExprRoot {
-                                kind: SynExprRootKind::Condition,
-                                syn_expr_idx: 96,
-                            },
-                            SynExprRoot {
-                                kind: SynExprRootKind::Condition,
-                                syn_expr_idx: 105,
-                            },
-                            SynExprRoot {
-                                kind: SynExprRootKind::Condition,
-                                syn_expr_idx: 119,
-                            },
-                            SynExprRoot {
-                                kind: SynExprRootKind::Condition,
                                 syn_expr_idx: 122,
                             },
                             SynExprRoot {
-                                kind: SynExprRootKind::EvalExpr,
-                                syn_expr_idx: 123,
-                            },
-                            SynExprRoot {
                                 kind: SynExprRootKind::BlockExpr,
-                                syn_expr_idx: 124,
+                                syn_expr_idx: 123,
                             },
                         ],
                         has_self_lifetime: false,
                         has_self_place: false,
-                        syn_pattern_to_current_syn_symbol_map: [
+                        pattern_to_current_variable_map: [
                             (
-                                1,
+                                0,
+                                0,
+                            ),
+                            (
+                                2,
                                 1,
                             ),
                             (
@@ -4172,12 +4176,8 @@
                                 7,
                             ),
                             (
-                                9,
+                                10,
                                 8,
-                            ),
-                            (
-                                11,
-                                9,
                             ),
                         ],
                     },
@@ -4187,15 +4187,15 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::six::upmost`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::six::upmost`, `Ritchie(
                     Fn,
                 )`),
             ),
         ),
         Some(
             ItemSynDefn {
-                body: 9,
+                body: 8,
                 syn_expr_region: SynExprRegion {
                     data: SynExprRegionData {
                         parent: Some(
@@ -4204,17 +4204,17 @@
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`mnist_classifier::digits::six::upmost`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`mnist_classifier::digits::six::upmost`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
                                         ),
                                     ),
-                                    syn_expr_arena: Arena {
+                                    expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 1,
+                                                path_expr_idx: 0,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -4228,10 +4228,10 @@
                                                 opr_regional_token_idx: RegionalTokenIdx(
                                                     6,
                                                 ),
-                                                opd: 1,
+                                                opd: 0,
                                             },
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 2,
+                                                path_expr_idx: 1,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -4245,7 +4245,7 @@
                                                 opr_regional_token_idx: RegionalTokenIdx(
                                                     10,
                                                 ),
-                                                opd: 3,
+                                                opd: 2,
                                             },
                                         ],
                                     },
@@ -4307,8 +4307,8 @@
                                         },
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                SynPatternSymbol::Atom(
-                                                    1,
+                                                PatternVariable::Atom(
+                                                    0,
                                                 ),
                                             ],
                                         },
@@ -4316,7 +4316,7 @@
                                             [
                                                 (
                                                     `cc`,
-                                                    1,
+                                                    0,
                                                 ),
                                             ],
                                         ],
@@ -4326,21 +4326,21 @@
                                             ],
                                         },
                                     },
-                                    symbol_region: VariableRegionData {
+                                    variable_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `cc`,
-                                                        pattern_symbol_idx: 1,
+                                                        pattern_variable_idx: 0,
                                                     },
                                                 },
                                             ],
@@ -4351,38 +4351,38 @@
                                             (
                                                 SimpleParenateParameter {
                                                     syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                                        syn_pattern_expr_idx: 1,
+                                                        syn_pattern_expr_idx: 0,
                                                     },
-                                                    ty: 2,
+                                                    ty: 1,
                                                 },
                                                 ArenaIdxRange(
-                                                    1..2,
+                                                    0..1,
                                                 ),
                                             ),
                                         ],
                                     },
-                                    syn_pattern_expr_roots: [
+                                    pattern_roots: [
                                         SynPatternRoot {
                                             kind: SynPatternExprRootKind::Parenate,
-                                            syn_pattern_expr_idx: 1,
+                                            syn_pattern_expr_idx: 0,
                                         },
                                     ],
-                                    syn_expr_roots: [
+                                    expr_roots: [
                                         SynExprRoot {
                                             kind: SynExprRootKind::ExplicitParameterType,
-                                            syn_expr_idx: 2,
+                                            syn_expr_idx: 1,
                                         },
                                         SynExprRoot {
                                             kind: SynExprRootKind::ReturnType,
-                                            syn_expr_idx: 4,
+                                            syn_expr_idx: 3,
                                         },
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
-                                    syn_pattern_to_current_syn_symbol_map: [
+                                    pattern_to_current_variable_map: [
                                         (
-                                            1,
-                                            1,
+                                            0,
+                                            0,
                                         ),
                                     ],
                                 },
@@ -4390,27 +4390,27 @@
                         ),
                         path: SynNodeRegionPath::Defn(
                             ItemSynNodePath::MajorItem(
-                                MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::digits::six::upmost`, `Ritchie(
+                                MajorItemSynNodePath::Form(
+                                    FormSynNodePath(`mnist_classifier::digits::six::upmost`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),
                             ),
                         ),
-                        syn_expr_arena: Arena {
+                        expr_arena: Arena {
                             data: [
                                 SynExprData::InheritedSynSymbol {
                                     ident: `cc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         4,
                                     ),
-                                    inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                    inherited_syn_symbol_idx: 0,
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `cc`,
                                     },
                                 },
                                 SynExprData::MethodApplicationOrCall {
-                                    self_argument: 1,
+                                    self_argument: 0,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         5,
                                     ),
@@ -4434,13 +4434,13 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         10,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                        pattern_symbol_idx: 1,
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
+                                        pattern_variable_idx: 0,
                                     },
                                 },
                                 SynExprData::Field {
-                                    owner: 3,
+                                    owner: 2,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         11,
                                     ),
@@ -4466,27 +4466,27 @@
                                     ),
                                 ),
                                 SynExprData::Binary {
-                                    lopd: 4,
+                                    lopd: 3,
                                     opr: SynBinaryOpr::Comparison(
                                         BinaryComparisonOpr::Greater,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         13,
                                     ),
-                                    ropd: 5,
+                                    ropd: 4,
                                 },
                                 SynExprData::CurrentSynSymbol {
                                     ident: `dp`,
                                     regional_token_idx: RegionalTokenIdx(
                                         15,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                        pattern_symbol_idx: 1,
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
+                                        pattern_variable_idx: 0,
                                     },
                                 },
                                 SynExprData::Field {
-                                    owner: 7,
+                                    owner: 6,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         16,
                                     ),
@@ -4499,7 +4499,7 @@
                                 },
                                 SynExprData::Block {
                                     stmts: ArenaIdxRange(
-                                        1..4,
+                                        0..3,
                                     ),
                                 },
                             ],
@@ -4518,10 +4518,10 @@
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
                                             syn_pattern_expr_root: LetPatternSynExprRoot {
-                                                syn_pattern_expr_idx: 1,
+                                                syn_pattern_expr_idx: 0,
                                             },
                                             variables: ArenaIdxRange(
-                                                1..2,
+                                                0..1,
                                             ),
                                             colon_token: Ok(
                                                 None,
@@ -4536,7 +4536,7 @@
                                             ),
                                         ),
                                     ),
-                                    initial_value: 2,
+                                    initial_value: 1,
                                 },
                                 SynStmtData::Require {
                                     require_token: RequireRegionalToken {
@@ -4544,10 +4544,10 @@
                                             9,
                                         ),
                                     },
-                                    condition: 6,
+                                    condition: 5,
                                 },
                                 SynStmtData::Eval {
-                                    expr_idx: 8,
+                                    expr_idx: 7,
                                     eol_semicolon: Ok(
                                         None,
                                     ),
@@ -4575,8 +4575,8 @@
                             },
                             pattern_symbol_arena: Arena {
                                 data: [
-                                    SynPatternSymbol::Atom(
-                                        1,
+                                    PatternVariable::Atom(
+                                        0,
                                     ),
                                 ],
                             },
@@ -4584,7 +4584,7 @@
                                 [
                                     (
                                         `dp`,
-                                        1,
+                                        0,
                                     ),
                                 ],
                             ],
@@ -4594,23 +4594,20 @@
                                 ],
                             },
                         },
-                        symbol_region: VariableRegionData {
+                        variable_region: VariableRegionData {
                             inherited_syn_symbol_arena: Arena {
                                 data: [
-                                    InheritedSynSymbol {
-                                        parent_symbol_idx: Current(
-                                            1,
-                                        ),
+                                    InheritedVariable {
                                         modifier: Pure,
-                                        kind: InheritedSynSymbolKind::ParenateParameter {
+                                        kind: InheritedVariableKind::Parenate {
                                             ident: `cc`,
                                         },
                                     },
                                 ],
                             },
-                            current_syn_symbol_arena: Arena {
+                            current_variable_arena: Arena {
                                 data: [
-                                    CurrentSynSymbolEntry {
+                                    CurrentVariableEntry {
                                         modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             3,
@@ -4622,9 +4619,9 @@
                                                 ),
                                             ),
                                         ),
-                                        data: CurrentSynSymbolData::LetVariable {
+                                        data: CurrentVariableData::LetVariable {
                                             ident: `dp`,
-                                            pattern_symbol_idx: 1,
+                                            pattern_variable_idx: 0,
                                         },
                                     },
                                 ],
@@ -4633,36 +4630,36 @@
                             allow_self_value: False,
                             pattern_ty_constraints: [],
                         },
-                        syn_pattern_expr_roots: [
+                        pattern_roots: [
                             SynPatternRoot {
                                 kind: SynPatternExprRootKind::Let,
-                                syn_pattern_expr_idx: 1,
+                                syn_pattern_expr_idx: 0,
                             },
                         ],
-                        syn_expr_roots: [
+                        expr_roots: [
                             SynExprRoot {
                                 kind: SynExprRootKind::LetStmtInitialValue,
-                                syn_expr_idx: 2,
+                                syn_expr_idx: 1,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::Condition,
-                                syn_expr_idx: 6,
+                                syn_expr_idx: 5,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::EvalExpr,
-                                syn_expr_idx: 8,
+                                syn_expr_idx: 7,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::BlockExpr,
-                                syn_expr_idx: 9,
+                                syn_expr_idx: 8,
                             },
                         ],
                         has_self_lifetime: false,
                         has_self_place: false,
-                        syn_pattern_to_current_syn_symbol_map: [
+                        pattern_to_current_variable_map: [
                             (
-                                1,
-                                1,
+                                0,
+                                0,
                             ),
                         ],
                     },
@@ -4672,15 +4669,15 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
                     Fn,
                 )`),
             ),
         ),
         Some(
             ItemSynDefn {
-                body: 36,
+                body: 35,
                 syn_expr_region: SynExprRegion {
                     data: SynExprRegionData {
                         parent: Some(
@@ -4689,17 +4686,17 @@
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
                                         ),
                                     ),
-                                    syn_expr_arena: Arena {
+                                    expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 1,
+                                                path_expr_idx: 0,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -4713,10 +4710,10 @@
                                                 opr_regional_token_idx: RegionalTokenIdx(
                                                     6,
                                                 ),
-                                                opd: 1,
+                                                opd: 0,
                                             },
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 2,
+                                                path_expr_idx: 1,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -4730,7 +4727,7 @@
                                                 opr_regional_token_idx: RegionalTokenIdx(
                                                     10,
                                                 ),
-                                                opd: 3,
+                                                opd: 2,
                                             },
                                         ],
                                     },
@@ -4792,8 +4789,8 @@
                                         },
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                SynPatternSymbol::Atom(
-                                                    1,
+                                                PatternVariable::Atom(
+                                                    0,
                                                 ),
                                             ],
                                         },
@@ -4801,7 +4798,7 @@
                                             [
                                                 (
                                                     `cc`,
-                                                    1,
+                                                    0,
                                                 ),
                                             ],
                                         ],
@@ -4811,21 +4808,21 @@
                                             ],
                                         },
                                     },
-                                    symbol_region: VariableRegionData {
+                                    variable_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `cc`,
-                                                        pattern_symbol_idx: 1,
+                                                        pattern_variable_idx: 0,
                                                     },
                                                 },
                                             ],
@@ -4836,38 +4833,38 @@
                                             (
                                                 SimpleParenateParameter {
                                                     syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                                        syn_pattern_expr_idx: 1,
+                                                        syn_pattern_expr_idx: 0,
                                                     },
-                                                    ty: 2,
+                                                    ty: 1,
                                                 },
                                                 ArenaIdxRange(
-                                                    1..2,
+                                                    0..1,
                                                 ),
                                             ),
                                         ],
                                     },
-                                    syn_pattern_expr_roots: [
+                                    pattern_roots: [
                                         SynPatternRoot {
                                             kind: SynPatternExprRootKind::Parenate,
-                                            syn_pattern_expr_idx: 1,
+                                            syn_pattern_expr_idx: 0,
                                         },
                                     ],
-                                    syn_expr_roots: [
+                                    expr_roots: [
                                         SynExprRoot {
                                             kind: SynExprRootKind::ExplicitParameterType,
-                                            syn_expr_idx: 2,
+                                            syn_expr_idx: 1,
                                         },
                                         SynExprRoot {
                                             kind: SynExprRootKind::ReturnType,
-                                            syn_expr_idx: 4,
+                                            syn_expr_idx: 3,
                                         },
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
-                                    syn_pattern_to_current_syn_symbol_map: [
+                                    pattern_to_current_variable_map: [
                                         (
-                                            1,
-                                            1,
+                                            0,
+                                            0,
                                         ),
                                     ],
                                 },
@@ -4875,27 +4872,27 @@
                         ),
                         path: SynNodeRegionPath::Defn(
                             ItemSynNodePath::MajorItem(
-                                MajorItemSynNodePath::Fugitive(
-                                    FugitiveSynNodePath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
+                                MajorItemSynNodePath::Form(
+                                    FormSynNodePath(`mnist_classifier::digits::six::bottom1`, `Ritchie(
                                         Fn,
                                     )`, (0)),
                                 ),
                             ),
                         ),
-                        syn_expr_arena: Arena {
+                        expr_arena: Arena {
                             data: [
                                 SynExprData::InheritedSynSymbol {
                                     ident: `cc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         4,
                                     ),
-                                    inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                    inherited_syn_symbol_idx: 0,
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `cc`,
                                     },
                                 },
                                 SynExprData::MethodApplicationOrCall {
-                                    self_argument: 1,
+                                    self_argument: 0,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         5,
                                     ),
@@ -4919,9 +4916,9 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         10,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                        pattern_symbol_idx: 1,
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
+                                        pattern_variable_idx: 0,
                                     },
                                 },
                                 SynExprData::Literal(
@@ -4939,7 +4936,7 @@
                                     ),
                                 ),
                                 SynExprData::Field {
-                                    owner: 3,
+                                    owner: 2,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         11,
                                     ),
@@ -4955,26 +4952,26 @@
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         14,
                                     ),
-                                    opd: 4,
+                                    opd: 3,
                                 },
                                 SynExprData::Binary {
-                                    lopd: 5,
+                                    lopd: 4,
                                     opr: SynBinaryOpr::Comparison(
                                         BinaryComparisonOpr::Less,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         13,
                                     ),
-                                    ropd: 6,
+                                    ropd: 5,
                                 },
                                 SynExprData::CurrentSynSymbol {
                                     ident: `dp`,
                                     regional_token_idx: RegionalTokenIdx(
                                         19,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                        pattern_symbol_idx: 1,
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
+                                        pattern_variable_idx: 0,
                                     },
                                 },
                                 SynExprData::CurrentSynSymbol {
@@ -4982,13 +4979,13 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         23,
                                     ),
-                                    current_syn_symbol_idx: 1,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                        pattern_symbol_idx: 1,
+                                    current_variable_idx: 0,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
+                                        pattern_variable_idx: 0,
                                     },
                                 },
                                 SynExprData::Field {
-                                    owner: 8,
+                                    owner: 7,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         20,
                                     ),
@@ -5000,7 +4997,7 @@
                                     },
                                 },
                                 SynExprData::Field {
-                                    owner: 9,
+                                    owner: 8,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         24,
                                     ),
@@ -5012,26 +5009,26 @@
                                     },
                                 },
                                 SynExprData::Binary {
-                                    lopd: 10,
+                                    lopd: 9,
                                     opr: SynBinaryOpr::Closed(
                                         BinaryClosedOpr::Div,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         22,
                                     ),
-                                    ropd: 11,
+                                    ropd: 10,
                                 },
                                 SynExprData::Delimitered {
                                     lpar_regional_token_idx: RegionalTokenIdx(
                                         18,
                                     ),
-                                    item: 12,
+                                    item: 11,
                                     rpar_regional_token_idx: RegionalTokenIdx(
                                         26,
                                     ),
                                 },
                                 SynExprData::MethodApplicationOrCall {
-                                    self_argument: 13,
+                                    self_argument: 12,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         27,
                                     ),
@@ -5065,27 +5062,27 @@
                                     ),
                                 ),
                                 SynExprData::Binary {
-                                    lopd: 14,
+                                    lopd: 13,
                                     opr: SynBinaryOpr::Comparison(
                                         BinaryComparisonOpr::Greater,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         31,
                                     ),
-                                    ropd: 15,
+                                    ropd: 14,
                                 },
                                 SynExprData::InheritedSynSymbol {
                                     ident: `cc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         34,
                                     ),
-                                    inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                    inherited_syn_symbol_idx: 0,
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `cc`,
                                     },
                                 },
                                 SynExprData::Field {
-                                    owner: 17,
+                                    owner: 16,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         35,
                                     ),
@@ -5097,7 +5094,7 @@
                                     },
                                 },
                                 SynExprData::MethodApplicationOrCall {
-                                    self_argument: 18,
+                                    self_argument: 17,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         37,
                                     ),
@@ -5131,27 +5128,27 @@
                                     ),
                                 ),
                                 SynExprData::Binary {
-                                    lopd: 19,
+                                    lopd: 18,
                                     opr: SynBinaryOpr::Comparison(
                                         BinaryComparisonOpr::Less,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         41,
                                     ),
-                                    ropd: 20,
+                                    ropd: 19,
                                 },
                                 SynExprData::InheritedSynSymbol {
                                     ident: `cc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         46,
                                     ),
-                                    inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                    inherited_syn_symbol_idx: 0,
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `cc`,
                                     },
                                 },
                                 SynExprData::Field {
-                                    owner: 22,
+                                    owner: 21,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         47,
                                     ),
@@ -5163,7 +5160,7 @@
                                     },
                                 },
                                 SynExprData::Field {
-                                    owner: 23,
+                                    owner: 22,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         49,
                                     ),
@@ -5179,13 +5176,13 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         54,
                                     ),
-                                    inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                    inherited_syn_symbol_idx: 0,
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `cc`,
                                     },
                                 },
                                 SynExprData::MethodApplicationOrCall {
-                                    self_argument: 25,
+                                    self_argument: 24,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         55,
                                     ),
@@ -5205,7 +5202,7 @@
                                     ),
                                 },
                                 SynExprData::MethodApplicationOrCall {
-                                    self_argument: 24,
+                                    self_argument: 23,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         51,
                                     ),
@@ -5221,7 +5218,7 @@
                                     ),
                                     items: [
                                         SynCommaListItem {
-                                            syn_expr_idx: 26,
+                                            syn_expr_idx: 25,
                                             comma_regional_token_idx: None,
                                         },
                                     ],
@@ -5234,13 +5231,13 @@
                                     regional_token_idx: RegionalTokenIdx(
                                         61,
                                     ),
-                                    current_syn_symbol_idx: 2,
-                                    current_syn_symbol_kind: CurrentSynSymbolKind::LetVariable {
-                                        pattern_symbol_idx: 2,
+                                    current_variable_idx: 1,
+                                    current_variable_kind: CurrentVariableKind::LetVariable {
+                                        pattern_variable_idx: 1,
                                     },
                                 },
                                 SynExprData::Field {
-                                    owner: 28,
+                                    owner: 27,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         62,
                                     ),
@@ -5266,27 +5263,27 @@
                                     ),
                                 ),
                                 SynExprData::Binary {
-                                    lopd: 29,
+                                    lopd: 28,
                                     opr: SynBinaryOpr::Comparison(
                                         BinaryComparisonOpr::Greater,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         64,
                                     ),
-                                    ropd: 30,
+                                    ropd: 29,
                                 },
                                 SynExprData::InheritedSynSymbol {
                                     ident: `cc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         67,
                                     ),
-                                    inherited_syn_symbol_idx: 1,
-                                    inherited_syn_symbol_kind: InheritedSynSymbolKind::ParenateParameter {
+                                    inherited_syn_symbol_idx: 0,
+                                    inherited_syn_symbol_kind: InheritedVariableKind::Parenate {
                                         ident: `cc`,
                                     },
                                 },
                                 SynExprData::MethodApplicationOrCall {
-                                    self_argument: 32,
+                                    self_argument: 31,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         68,
                                     ),
@@ -5306,7 +5303,7 @@
                                     ),
                                 },
                                 SynExprData::Field {
-                                    owner: 33,
+                                    owner: 32,
                                     dot_regional_token_idx: RegionalTokenIdx(
                                         72,
                                     ),
@@ -5322,11 +5319,11 @@
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         66,
                                     ),
-                                    opd: 34,
+                                    opd: 33,
                                 },
                                 SynExprData::Block {
                                     stmts: ArenaIdxRange(
-                                        2..8,
+                                        1..7,
                                     ),
                                 },
                             ],
@@ -5342,12 +5339,73 @@
                                             17,
                                         ),
                                     },
-                                    condition: 16,
+                                    condition: 15,
                                 },
                                 SynStmtData::Let {
                                     let_token: LetRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             1,
+                                        ),
+                                    },
+                                    let_variables_pattern: Ok(
+                                        LetPatternSyndicate {
+                                            syn_pattern_expr_root: LetPatternSynExprRoot {
+                                                syn_pattern_expr_idx: 0,
+                                            },
+                                            variables: ArenaIdxRange(
+                                                0..1,
+                                            ),
+                                            colon_token: Ok(
+                                                None,
+                                            ),
+                                            ty: None,
+                                        },
+                                    ),
+                                    assign_token: Ok(
+                                        EqRegionalToken(
+                                            RegionalTokenIdx(
+                                                3,
+                                            ),
+                                        ),
+                                    ),
+                                    initial_value: 1,
+                                },
+                                SynStmtData::IfElse {
+                                    if_branch: SynIfBranch {
+                                        if_token: IfRegionalToken {
+                                            regional_token_idx: RegionalTokenIdx(
+                                                9,
+                                            ),
+                                        },
+                                        condition: Ok(
+                                            6,
+                                        ),
+                                        eol_colon: Ok(
+                                            EolColonRegionalToken {
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    16,
+                                                ),
+                                            },
+                                        ),
+                                        stmts: ArenaIdxRange(
+                                            0..1,
+                                        ),
+                                    },
+                                    elif_branches: [],
+                                    else_branch: None,
+                                },
+                                SynStmtData::Require {
+                                    require_token: RequireRegionalToken {
+                                        regional_token_idx: RegionalTokenIdx(
+                                            33,
+                                        ),
+                                    },
+                                    condition: 20,
+                                },
+                                SynStmtData::Let {
+                                    let_token: LetRegionalToken {
+                                        regional_token_idx: RegionalTokenIdx(
+                                            43,
                                         ),
                                     },
                                     let_variables_pattern: Ok(
@@ -5367,72 +5425,11 @@
                                     assign_token: Ok(
                                         EqRegionalToken(
                                             RegionalTokenIdx(
-                                                3,
-                                            ),
-                                        ),
-                                    ),
-                                    initial_value: 2,
-                                },
-                                SynStmtData::IfElse {
-                                    if_branch: SynIfBranch {
-                                        if_token: IfRegionalToken {
-                                            regional_token_idx: RegionalTokenIdx(
-                                                9,
-                                            ),
-                                        },
-                                        condition: Ok(
-                                            7,
-                                        ),
-                                        eol_colon: Ok(
-                                            EolColonRegionalToken {
-                                                regional_token_idx: RegionalTokenIdx(
-                                                    16,
-                                                ),
-                                            },
-                                        ),
-                                        stmts: ArenaIdxRange(
-                                            1..2,
-                                        ),
-                                    },
-                                    elif_branches: [],
-                                    else_branch: None,
-                                },
-                                SynStmtData::Require {
-                                    require_token: RequireRegionalToken {
-                                        regional_token_idx: RegionalTokenIdx(
-                                            33,
-                                        ),
-                                    },
-                                    condition: 21,
-                                },
-                                SynStmtData::Let {
-                                    let_token: LetRegionalToken {
-                                        regional_token_idx: RegionalTokenIdx(
-                                            43,
-                                        ),
-                                    },
-                                    let_variables_pattern: Ok(
-                                        LetPatternSyndicate {
-                                            syn_pattern_expr_root: LetPatternSynExprRoot {
-                                                syn_pattern_expr_idx: 2,
-                                            },
-                                            variables: ArenaIdxRange(
-                                                2..3,
-                                            ),
-                                            colon_token: Ok(
-                                                None,
-                                            ),
-                                            ty: None,
-                                        },
-                                    ),
-                                    assign_token: Ok(
-                                        EqRegionalToken(
-                                            RegionalTokenIdx(
                                                 45,
                                             ),
                                         ),
                                     ),
-                                    initial_value: 27,
+                                    initial_value: 26,
                                 },
                                 SynStmtData::Require {
                                     require_token: RequireRegionalToken {
@@ -5440,10 +5437,10 @@
                                             60,
                                         ),
                                     },
-                                    condition: 31,
+                                    condition: 30,
                                 },
                                 SynStmtData::Eval {
-                                    expr_idx: 35,
+                                    expr_idx: 34,
                                     eol_semicolon: Ok(
                                         None,
                                     ),
@@ -5481,11 +5478,11 @@
                             },
                             pattern_symbol_arena: Arena {
                                 data: [
-                                    SynPatternSymbol::Atom(
-                                        1,
+                                    PatternVariable::Atom(
+                                        0,
                                     ),
-                                    SynPatternSymbol::Atom(
-                                        2,
+                                    PatternVariable::Atom(
+                                        1,
                                     ),
                                 ],
                             },
@@ -5493,13 +5490,13 @@
                                 [
                                     (
                                         `dp`,
-                                        1,
+                                        0,
                                     ),
                                 ],
                                 [
                                     (
                                         `relative_end`,
-                                        2,
+                                        1,
                                     ),
                                 ],
                             ],
@@ -5510,23 +5507,20 @@
                                 ],
                             },
                         },
-                        symbol_region: VariableRegionData {
+                        variable_region: VariableRegionData {
                             inherited_syn_symbol_arena: Arena {
                                 data: [
-                                    InheritedSynSymbol {
-                                        parent_symbol_idx: Current(
-                                            1,
-                                        ),
+                                    InheritedVariable {
                                         modifier: Pure,
-                                        kind: InheritedSynSymbolKind::ParenateParameter {
+                                        kind: InheritedVariableKind::Parenate {
                                             ident: `cc`,
                                         },
                                     },
                                 ],
                             },
-                            current_syn_symbol_arena: Arena {
+                            current_variable_arena: Arena {
                                 data: [
-                                    CurrentSynSymbolEntry {
+                                    CurrentVariableEntry {
                                         modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             3,
@@ -5538,12 +5532,12 @@
                                                 ),
                                             ),
                                         ),
-                                        data: CurrentSynSymbolData::LetVariable {
+                                        data: CurrentVariableData::LetVariable {
                                             ident: `dp`,
-                                            pattern_symbol_idx: 1,
+                                            pattern_variable_idx: 0,
                                         },
                                     },
-                                    CurrentSynSymbolEntry {
+                                    CurrentVariableEntry {
                                         modifier: Pure,
                                         access_start: RegionalTokenIdx(
                                             45,
@@ -5555,9 +5549,9 @@
                                                 ),
                                             ),
                                         ),
-                                        data: CurrentSynSymbolData::LetVariable {
+                                        data: CurrentVariableData::LetVariable {
                                             ident: `relative_end`,
-                                            pattern_symbol_idx: 2,
+                                            pattern_variable_idx: 1,
                                         },
                                     },
                                 ],
@@ -5566,56 +5560,56 @@
                             allow_self_value: False,
                             pattern_ty_constraints: [],
                         },
-                        syn_pattern_expr_roots: [
+                        pattern_roots: [
+                            SynPatternRoot {
+                                kind: SynPatternExprRootKind::Let,
+                                syn_pattern_expr_idx: 0,
+                            },
                             SynPatternRoot {
                                 kind: SynPatternExprRootKind::Let,
                                 syn_pattern_expr_idx: 1,
                             },
-                            SynPatternRoot {
-                                kind: SynPatternExprRootKind::Let,
-                                syn_pattern_expr_idx: 2,
-                            },
                         ],
-                        syn_expr_roots: [
+                        expr_roots: [
                             SynExprRoot {
                                 kind: SynExprRootKind::LetStmtInitialValue,
-                                syn_expr_idx: 2,
+                                syn_expr_idx: 1,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::Condition,
-                                syn_expr_idx: 16,
+                                syn_expr_idx: 15,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::Condition,
-                                syn_expr_idx: 21,
+                                syn_expr_idx: 20,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::LetStmtInitialValue,
-                                syn_expr_idx: 27,
+                                syn_expr_idx: 26,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::Condition,
-                                syn_expr_idx: 31,
+                                syn_expr_idx: 30,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::EvalExpr,
-                                syn_expr_idx: 35,
+                                syn_expr_idx: 34,
                             },
                             SynExprRoot {
                                 kind: SynExprRootKind::BlockExpr,
-                                syn_expr_idx: 36,
+                                syn_expr_idx: 35,
                             },
                         ],
                         has_self_lifetime: false,
                         has_self_place: false,
-                        syn_pattern_to_current_syn_symbol_map: [
+                        pattern_to_current_variable_map: [
                             (
-                                1,
-                                1,
+                                0,
+                                0,
                             ),
                             (
-                                2,
-                                2,
+                                1,
+                                1,
                             ),
                         ],
                     },

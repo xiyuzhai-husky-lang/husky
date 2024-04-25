@@ -18,9 +18,9 @@ use husky_corgi_config::transpilation_setup::{RustTranspilationSetupData, Transp
 use husky_coword::{Ident, Label};
 use husky_entity_path::{PreludeTypePath, TypePath};
 use husky_hir_eager_expr::{
-    var::{
-        cvar::HirEagerComptimeSvarName,
-        rvar::{HirEagerRuntimeSvarName, HirEagerRvarIdx},
+    variable::{
+        comptime::HirEagerComptimeVariableName,
+        runtime::{HirEagerRuntimeVariableName, HirEagerRvarIdx},
     },
     HirEagerExprArena, HirEagerExprIdx, HirEagerExprRegion, HirEagerPatternArena,
     HirEagerStmtArena,
@@ -28,7 +28,8 @@ use husky_hir_eager_expr::{
 use husky_hir_lazy_expr::{HirLazyExprArena, HirLazyExprRegion, HirLazyStmtArena};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_hir_ty::{
-    trai::HirTrait, HirConstant, HirTemplateArgument, HirTemplateSvar, HirType, HirTypeSvar,
+    trai::HirTrait, HirConstant, HirTemplateArgument, HirTemplateVariable, HirType,
+    HirTypeTemplateVariable,
 };
 use husky_print_utils::p;
 use husky_term_prelude::literal::Literal;
@@ -402,7 +403,7 @@ impl<'a, 'b> RustTranspilationBuilder<'a, 'b, HirEagerExprRegion> {
         self.extension.stmt_arena(self.db)
     }
 
-    fn hir_template_svar(&mut self, symbol: impl Into<HirTemplateSvar>) {
+    fn hir_template_svar(&mut self, symbol: impl Into<HirTemplateVariable>) {
         let hir_comptime_symbol = symbol.into();
         let Some(symbol_name) = self
             .extension
@@ -419,9 +420,9 @@ impl<'a, 'b> RustTranspilationBuilder<'a, 'b, HirEagerExprRegion> {
             todo!()
         };
         match symbol_name {
-            HirEagerComptimeSvarName::SelfType => self.word("Self"),
-            HirEagerComptimeSvarName::Ident(ident) => ident.transpile_to_rust(self),
-            HirEagerComptimeSvarName::Label(label) => label.transpile_to_rust(self),
+            HirEagerComptimeVariableName::SelfType => self.word("Self"),
+            HirEagerComptimeVariableName::Ident(ident) => ident.transpile_to_rust(self),
+            HirEagerComptimeVariableName::Label(label) => label.transpile_to_rust(self),
         }
     }
 
@@ -513,11 +514,11 @@ impl<E> TranspileToRustWith<E> for Label {
     }
 }
 
-impl<E> TranspileToRustWith<E> for HirTemplateSvar {
+impl<E> TranspileToRustWith<E> for HirTemplateVariable {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
         match self {
-            HirTemplateSvar::Type(symbol) => match symbol {
-                HirTypeSvar::Type {
+            HirTemplateVariable::Type(var) => match var {
+                HirTypeTemplateVariable::Type {
                     attrs: _,
                     variance: _,
                     disambiguator,
@@ -527,13 +528,13 @@ impl<E> TranspileToRustWith<E> for HirTemplateSvar {
                     2 => builder.write_str("C"),
                     _ => todo!(),
                 },
-                HirTypeSvar::SelfType => builder.write_str("This"),
-                HirTypeSvar::SelfLifetime => todo!(),
-                HirTypeSvar::SelfPlace => todo!(),
+                HirTypeTemplateVariable::SelfType => builder.write_str("This"),
+                HirTypeTemplateVariable::SelfLifetime => todo!(),
+                HirTypeTemplateVariable::SelfPlace => todo!(),
             },
-            HirTemplateSvar::Const(_) => todo!(),
-            HirTemplateSvar::Lifetime(_) => todo!(),
-            HirTemplateSvar::Quary(_) => todo!(),
+            HirTemplateVariable::Const(_) => todo!(),
+            HirTemplateVariable::Lifetime(_) => todo!(),
+            HirTemplateVariable::Quary(_) => todo!(),
         }
     }
 }
@@ -559,8 +560,8 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirEagerRvarIdx {
             builder.write_str(" ")
         }
         match hir_eager_runtime_symbol_region_data[self].name() {
-            HirEagerRuntimeSvarName::SelfValue => builder.word("self"),
-            HirEagerRuntimeSvarName::Ident(ident) => ident.transpile_to_rust(builder),
+            HirEagerRuntimeVariableName::SelfValue => builder.word("self"),
+            HirEagerRuntimeVariableName::Ident(ident) => ident.transpile_to_rust(builder),
         }
     }
 }

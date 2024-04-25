@@ -5,10 +5,16 @@ use crate::{
 
 use husky_vfs::PackagePath;
 
-#[salsa::interned(db = JavelinDb, jar = JavelinJar, constructor = pub(crate) new)]
+#[salsa::interned(constructor = new_inner)]
 pub struct Javelin {
     #[return_ref]
     pub data: JavelinData,
+}
+
+impl Javelin {
+    pub(crate) fn new(db: &::salsa::Db, data: JavelinData) -> Self {
+        Self::new_inner(db, data)
+    }
 }
 
 #[salsa::derive_debug_with_db]

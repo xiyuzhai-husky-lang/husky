@@ -66,10 +66,10 @@ impl EntitySymbol {
     pub(crate) fn from_node(db: &::salsa::Db, node: &ItemSynNode) -> Option<Self> {
         match node {
             ItemSynNode::Submodule(node) => Some(EntitySymbol::Submodule {
-                submodule_item_path: node.unambiguous_path(db)?,
+                submodule_item_path: node.unambiguous_item_path(db)?,
             }),
             ItemSynNode::MajorItem(node) => Some(EntitySymbol::MajorItem {
-                major_item_path: node.unambiguous_path(db)?,
+                major_item_path: node.unambiguous_item_path(db)?,
             }),
             ItemSynNode::TypeVariant(_) | ItemSynNode::ImplBlock(_) | ItemSynNode::Attr(_) => {
                 unreachable!("these nodes shouldn't have been created at this stage")

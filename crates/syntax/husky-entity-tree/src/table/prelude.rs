@@ -56,7 +56,7 @@ pub(crate) fn none_core_crate_universal_prelude(
     table
         .push(EntitySymbolEntry {
             ident: coword_menu.core_ident(),
-            visibility: Scope::Pub,
+            visible_scope: Scope::Pub,
             symbol: EntitySymbol::UniversalPrelude {
                 item_path: vfs_path_menu.core_root().into(),
             },
@@ -70,7 +70,7 @@ pub(crate) fn none_core_crate_universal_prelude(
                 .iter()
                 .map(|entry| EntitySymbolEntry {
                     ident: entry.ident,
-                    visibility: Scope::Pub,
+                    visible_scope: Scope::Pub,
                     symbol: EntitySymbol::UniversalPrelude {
                         item_path: entry.symbol.principal_entity_path(db),
                     },

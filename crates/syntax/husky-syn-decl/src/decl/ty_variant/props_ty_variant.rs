@@ -58,7 +58,7 @@ impl TypePropsVariantSynDecl {
         db: &::salsa::Db,
         path: TypeVariantPath,
         syn_node_decl: TypePropsVariantSynNodeDecl,
-    ) -> DeclResult<Self> {
+    ) -> SynDeclResult<Self> {
         let fields = SmallVec::from(syn_node_decl.fields(db).as_ref()?.elements());
         syn_node_decl.rcurl(db).as_ref()?;
         Ok(Self::new(

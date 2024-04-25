@@ -2,8 +2,8 @@
 [
     (
         Linkage {
-            data: LinkageData::MajorRitchieEager {
-                path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+            data: LinkageData::MajorFunctionRitchie {
+                path: FormPath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                     Fn,
                 )`),
                 instantiation: LinInstantiation {
@@ -15,8 +15,8 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::MajorRitchieEager {
-                        path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+                    data: LinkageData::MajorFunctionRitchie {
+                        path: FormPath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                             Fn,
                         )`),
                         instantiation: LinInstantiation {
@@ -26,7 +26,7 @@
                     },
                 },
                 root_expr: VmirExprIdx(
-                    13,
+                    12,
                 ),
                 vmir_expr_arena: Arena {
                     data: [
@@ -53,7 +53,7 @@
                         VmirExprData::Prefix {
                             opr: Minus,
                             opd: VmirExprIdx(
-                                1,
+                                0,
                             ),
                         },
                         VmirExprData::Literal {
@@ -87,20 +87,24 @@
                             ),
                         },
                         VmirExprData::Linkage {
-                            linkage_impl: Linkage {
-                                data: LinkageData::VecConstructor {
-                                    element_ty: LinType::PathLeading(
-                                        LinTypePathLeading {
-                                            ty_path: TypePath(`core::num::i32`, `Extern`),
-                                            template_arguments: [],
-                                        },
-                                    ),
+                            linkage_impl: VirtualLinkageImpl(
+                                Linkage {
+                                    data: LinkageData::VecConstructor {
+                                        element_ty: LinType::PathLeading(
+                                            LinTypePathLeading {
+                                                ty_path: TypePath(`core::num::i32`, `Extern`),
+                                                template_arguments: [],
+                                            },
+                                        ),
+                                    },
                                 },
-                            },
+                            ),
                             arguments: [
                                 VmirArgument::Variadic {
-                                    exprs: ArenaIdxRange(
-                                        2..12,
+                                    exprs: VmirExprIdxRange(
+                                        ArenaIdxRange(
+                                            1..11,
+                                        ),
                                     ),
                                 },
                             ],
@@ -108,11 +112,11 @@
                         VmirExprData::Block {
                             stmts: VmirStmtIdxRange(
                                 ArenaIdxRange(
-                                    1..2,
+                                    0..1,
                                 ),
                             ),
                             destroyers: ArenaIdxRange(
-                                1..1,
+                                0..0,
                             ),
                         },
                     ],
@@ -131,10 +135,10 @@
                                 ),
                             },
                             initial_value: VmirExprIdx(
-                                12,
+                                11,
                             ),
-                            coersion: Some(
-                                VmirCoersion::Trivial,
+                            coercion: Some(
+                                VmirCoercion::Trivial,
                             ),
                         },
                     ],
@@ -144,8 +148,8 @@
     ),
     (
         Linkage {
-            data: LinkageData::MajorRitchieEager {
-                path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+            data: LinkageData::MajorFunctionRitchie {
+                path: FormPath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                     Fn,
                 )`),
                 instantiation: LinInstantiation {
@@ -157,8 +161,8 @@
         Some(
             VmirRegion {
                 linkage: Linkage {
-                    data: LinkageData::MajorRitchieEager {
-                        path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+                    data: LinkageData::MajorFunctionRitchie {
+                        path: FormPath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                             Fn,
                         )`),
                         instantiation: LinInstantiation {
@@ -168,7 +172,7 @@
                     },
                 },
                 root_expr: VmirExprIdx(
-                    8,
+                    7,
                 ),
                 vmir_expr_arena: Arena {
                     data: [
@@ -203,34 +207,38 @@
                             ),
                         },
                         VmirExprData::Linkage {
-                            linkage_impl: Linkage {
-                                data: LinkageData::VecConstructor {
-                                    element_ty: LinType::PathLeading(
-                                        LinTypePathLeading {
-                                            ty_path: TypePath(`core::mem::Ref`, `Extern`),
-                                            template_arguments: [
-                                                LinTemplateArgument::Constant(
-                                                    LinConstant(
-                                                        StaticLifetime,
+                            linkage_impl: VirtualLinkageImpl(
+                                Linkage {
+                                    data: LinkageData::VecConstructor {
+                                        element_ty: LinType::PathLeading(
+                                            LinTypePathLeading {
+                                                ty_path: TypePath(`core::mem::Ref`, `Extern`),
+                                                template_arguments: [
+                                                    LinTemplateArgument::Constant(
+                                                        LinConstant(
+                                                            StaticLifetime,
+                                                        ),
                                                     ),
-                                                ),
-                                                LinTemplateArgument::Type(
-                                                    LinType::PathLeading(
-                                                        LinTypePathLeading {
-                                                            ty_path: TypePath(`core::str::str`, `Extern`),
-                                                            template_arguments: [],
-                                                        },
+                                                    LinTemplateArgument::Type(
+                                                        LinType::PathLeading(
+                                                            LinTypePathLeading {
+                                                                ty_path: TypePath(`core::str::str`, `Extern`),
+                                                                template_arguments: [],
+                                                            },
+                                                        ),
                                                     ),
-                                                ),
-                                            ],
-                                        },
-                                    ),
+                                                ],
+                                            },
+                                        ),
+                                    },
                                 },
-                            },
+                            ),
                             arguments: [
                                 VmirArgument::Variadic {
-                                    exprs: ArenaIdxRange(
-                                        1..7,
+                                    exprs: VmirExprIdxRange(
+                                        ArenaIdxRange(
+                                            0..6,
+                                        ),
                                     ),
                                 },
                             ],
@@ -238,11 +246,11 @@
                         VmirExprData::Block {
                             stmts: VmirStmtIdxRange(
                                 ArenaIdxRange(
-                                    1..2,
+                                    0..1,
                                 ),
                             ),
                             destroyers: ArenaIdxRange(
-                                1..1,
+                                0..0,
                             ),
                         },
                     ],
@@ -261,9 +269,9 @@
                                 ),
                             },
                             initial_value: VmirExprIdx(
-                                7,
+                                6,
                             ),
-                            coersion: None,
+                            coercion: None,
                         },
                     ],
                 },

@@ -1,5 +1,5 @@
 use super::*;
-use husky_sema_expr::SemaRitchieArgument;
+use husky_sem_expr::SemaRitchieArgument;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 #[enum_class::from_variants]
@@ -22,7 +22,7 @@ impl<'a> HirLazyExprBuilder<'a> {
     fn new_call_list_item_group(&mut self, pam: &SemaRitchieArgument) -> HirLazyCallListArgument {
         match pam {
             SemaRitchieArgument::Simple(_, item) => {
-                HirLazyCallListArgument::Simple(item.argument_sema_expr_idx().to_hir_lazy(self))
+                HirLazyCallListArgument::Simple(item.argument_sem_expr_idx().to_hir_lazy(self))
             }
             SemaRitchieArgument::Variadic(_, items) => HirLazyCallListArgument::Variadic(
                 items

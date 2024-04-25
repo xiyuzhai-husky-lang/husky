@@ -14,7 +14,7 @@ pub enum JavelinType {
     Ritchie(JavelinRitchieType),
 }
 
-#[salsa::interned(db = JavelinDb, jar = JavelinJar, constructor = new)]
+#[salsa::interned(db = JavelinDb, constructor = new)]
 pub struct JavelinTypePathLeading {
     pub ty_path: TypePath,
     /// phantom arguments are ignored
@@ -22,7 +22,7 @@ pub struct JavelinTypePathLeading {
     pub template_arguments: JavTemplateArguments,
 }
 
-#[salsa::interned(db = JavelinDb, jar = JavelinJar, constructor = new)]
+#[salsa::interned(db = JavelinDb, constructor = new)]
 pub struct JavelinRitchieType {
     pub parameters: SmallVec<[JavelinRitchieParameter; 4]>,
     pub return_ty: JavelinType,
@@ -76,7 +76,7 @@ impl JavelinType {
                 ),
             )
             .into(),
-            HirType::Svar(symbol) => javelin_instantiation.resolve_ty(symbol),
+            HirType::Variable(symbol) => javelin_instantiation.resolve_ty(symbol),
             HirType::TypeAssocType(_) => todo!(),
             HirType::TraitAssocType(_) => todo!(),
             HirType::Ritchie(hir_ty) => JavelinRitchieType::new(

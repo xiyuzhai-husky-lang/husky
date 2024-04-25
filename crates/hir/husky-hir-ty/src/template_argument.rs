@@ -23,17 +23,17 @@ pub enum HirTemplateArgument {
     Vacant,
     Type(HirType),
     Constant(HirConstant),
-    Lifetime(HirLifetimeSvar),
+    Lifetime(HirLifetimeTemplateVariable),
     ContractedQuary(HirContractedQuary),
 }
 
-impl From<HirTemplateSvar> for HirTemplateArgument {
-    fn from(symbol: HirTemplateSvar) -> Self {
+impl From<HirTemplateVariable> for HirTemplateArgument {
+    fn from(symbol: HirTemplateVariable) -> Self {
         match symbol {
-            HirTemplateSvar::Type(symbol) => HirTemplateArgument::Type(symbol.into()),
-            HirTemplateSvar::Const(symbol) => HirTemplateArgument::Constant(symbol.into()),
-            HirTemplateSvar::Lifetime(symbol) => HirTemplateArgument::Lifetime(symbol.into()),
-            HirTemplateSvar::Quary(symbol) => todo!(),
+            HirTemplateVariable::Type(symbol) => HirTemplateArgument::Type(symbol.into()),
+            HirTemplateVariable::Const(symbol) => HirTemplateArgument::Constant(symbol.into()),
+            HirTemplateVariable::Lifetime(symbol) => HirTemplateArgument::Lifetime(symbol.into()),
+            HirTemplateVariable::Quary(symbol) => todo!(),
             // HirTemplateArgument::ContractedQuary(symbol.into()),
         }
     }
@@ -45,10 +45,10 @@ impl HirTemplateArgument {
     pub(crate) fn from_eth(argument: EthTerm, db: &::salsa::Db) -> Option<Self> {
         Some(match argument {
             EthTerm::Literal(lit) => HirConstant::from_term(lit, db).into(),
-            EthTerm::Symbol(symbol) => HirTemplateSvar::from_eth(symbol, db)?.into(),
-            EthTerm::Hvar(_) => todo!(),
+            EthTerm::SymbolicVariable(symbol) => HirTemplateVariable::from_eth(symbol, db)?.into(),
+            EthTerm::LambdaVariable(_) => todo!(),
             EthTerm::EntityPath(path) => match path {
-                ItemPathTerm::Fugitive(_path) => todo!(),
+                ItemPathTerm::Form(_path) => todo!(),
                 ItemPathTerm::Trait(_) => todo!(),
                 ItemPathTerm::TypeOntology(ty_path) => {
                     let always_copyable = is_ty_term_always_copyable(argument, db).unwrap()?;

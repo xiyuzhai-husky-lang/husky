@@ -5,8 +5,8 @@ impl EthTerm {
     pub fn toolchain(self, db: &::salsa::Db) -> Option<Toolchain> {
         match self {
             EthTerm::Literal(_) => None,
-            EthTerm::Symbol(term) => Some(term.toolchain(db)),
-            EthTerm::Hvar(term) => term.toolchain(db),
+            EthTerm::SymbolicVariable(term) => Some(term.toolchain(db)),
+            EthTerm::LambdaVariable(term) => term.toolchain(db),
             EthTerm::EntityPath(path) => Some(path.toolchain(db)),
             EthTerm::Category(_) => None,
             EthTerm::Universe(_) => None,

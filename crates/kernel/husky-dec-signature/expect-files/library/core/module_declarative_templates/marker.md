@@ -14,7 +14,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    svar: DecSvar(
+                                    svar: DecSymbolicVariable(
                                         Id {
                                             value: 5,
                                         },
@@ -42,7 +42,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    svar: DecSvar(
+                                    svar: DecSymbolicVariable(
                                         Id {
                                             value: 5,
                                         },
@@ -70,7 +70,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    svar: DecSvar(
+                                    svar: DecSymbolicVariable(
                                         Id {
                                             value: 5,
                                         },
@@ -91,7 +91,7 @@
                             ),
                         ),
                         self_ty: DeclarativeSelfType::DerivedAny(
-                            DecSvar {
+                            DecSymbolicVariable {
                                 toolchain: Toolchain {
                                     data: ToolchainData::Local {
                                         library_path: VirtualPath {
@@ -110,7 +110,7 @@
                                         },
                                     ),
                                 ),
-                                index: DecTermSymbolIndex(
+                                index: DecSymbolicVariableIndex(
                                     SelfType,
                                 ),
                             },

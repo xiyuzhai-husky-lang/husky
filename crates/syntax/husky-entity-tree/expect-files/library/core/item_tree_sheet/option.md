@@ -12,8 +12,8 @@ EntityTreeSheet {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`core::option::Option`, `Enum`),
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`core::option::Option`, `Enum`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -23,7 +23,7 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 6,
+                        ast_idx: 5,
                         ident_token: IdentToken {
                             ident: `Option`,
                             token_idx: TokenIdx(
@@ -35,7 +35,7 @@ EntityTreeSheet {
                             variants: Some(
                                 TypeVariants {
                                     ast_idx_range: ArenaIdxRange(
-                                        1..3,
+                                        0..2,
                                     ),
                                 },
                             ),
@@ -49,8 +49,8 @@ EntityTreeSheet {
                                 data: ItemSynNodePathData::MajorItem(
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`core::option::Option`, `Enum`),
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: TypePath(`core::option::Option`, `Enum`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -69,7 +69,7 @@ EntityTreeSheet {
         [
             EntitySymbolEntry {
                 ident: `Option`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Type(
                         TypePath(`core::option::Option`, `Enum`),
@@ -78,7 +78,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `Some`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::TypeVariant {
@@ -100,14 +100,14 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 4,
-                        use_expr_idx: 3,
+                        ast_idx: 3,
+                        use_expr_idx: 2,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `None`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::TypeVariant {
@@ -129,14 +129,14 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 4,
-                        use_expr_idx: 3,
+                        ast_idx: 3,
+                        use_expr_idx: 2,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `array`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -156,14 +156,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `basic`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -183,14 +183,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `clone`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -210,14 +210,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `cmp`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -237,14 +237,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `default`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -264,14 +264,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `fmt`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -291,14 +291,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `logic`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -318,14 +318,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `marker`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -345,14 +345,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `mem`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -372,14 +372,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `num`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -399,14 +399,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `ops`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -426,14 +426,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `option`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -453,14 +453,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `prelude`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -480,14 +480,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `raw_bits`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -507,14 +507,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `result`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -534,14 +534,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `vec`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -561,14 +561,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `slice`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -588,14 +588,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `str`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -615,14 +615,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `visual`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -642,14 +642,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `bool`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -669,8 +669,8 @@ EntityTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 1,
-                                        use_expr_idx: 1,
+                                        ast_idx: 0,
+                                        use_expr_idx: 0,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -681,8 +681,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `core`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 1,
+                                ast_idx: 19,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -693,14 +693,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `never`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -720,8 +720,8 @@ EntityTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 1,
-                                        use_expr_idx: 1,
+                                        ast_idx: 0,
+                                        use_expr_idx: 0,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -732,8 +732,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `core`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 1,
+                                ast_idx: 19,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -744,14 +744,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `unit`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -771,8 +771,8 @@ EntityTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 1,
-                                        use_expr_idx: 1,
+                                        ast_idx: 0,
+                                        use_expr_idx: 0,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -783,8 +783,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `core`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 1,
+                                ast_idx: 19,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -795,14 +795,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `Trait`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -822,8 +822,8 @@ EntityTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 1,
-                                        use_expr_idx: 1,
+                                        ast_idx: 0,
+                                        use_expr_idx: 0,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -834,8 +834,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `core`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 1,
+                                ast_idx: 19,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -846,14 +846,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `Module`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -873,8 +873,8 @@ EntityTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 1,
-                                        use_expr_idx: 1,
+                                        ast_idx: 0,
+                                        use_expr_idx: 0,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -885,8 +885,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `core`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 1,
+                                ast_idx: 19,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -897,14 +897,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `Lifetime`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -924,8 +924,8 @@ EntityTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 1,
-                                        use_expr_idx: 1,
+                                        ast_idx: 0,
+                                        use_expr_idx: 0,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -936,8 +936,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `core`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 1,
+                                ast_idx: 19,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -948,14 +948,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `Place`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -975,8 +975,8 @@ EntityTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 1,
-                                        use_expr_idx: 1,
+                                        ast_idx: 0,
+                                        use_expr_idx: 0,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -987,8 +987,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `core`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 1,
+                                ast_idx: 19,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -999,14 +999,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `Universe`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1026,8 +1026,8 @@ EntityTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 1,
-                                        use_expr_idx: 1,
+                                        ast_idx: 0,
+                                        use_expr_idx: 0,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1038,8 +1038,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `core`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 1,
+                                ast_idx: 19,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -1050,14 +1050,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `Default`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1077,8 +1077,8 @@ EntityTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 2,
-                                        use_expr_idx: 4,
+                                        ast_idx: 1,
+                                        use_expr_idx: 3,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1089,8 +1089,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `core`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 1,
+                                ast_idx: 19,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -1101,14 +1101,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `i8`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1128,8 +1128,8 @@ EntityTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 3,
-                                        use_expr_idx: 7,
+                                        ast_idx: 2,
+                                        use_expr_idx: 6,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1140,8 +1140,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `core`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 1,
+                                ast_idx: 19,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -1152,14 +1152,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `i16`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1179,8 +1179,8 @@ EntityTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 3,
-                                        use_expr_idx: 7,
+                                        ast_idx: 2,
+                                        use_expr_idx: 6,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1191,8 +1191,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `core`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 1,
+                                ast_idx: 19,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -1203,14 +1203,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `i32`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1230,8 +1230,8 @@ EntityTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 3,
-                                        use_expr_idx: 7,
+                                        ast_idx: 2,
+                                        use_expr_idx: 6,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1242,8 +1242,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `core`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 1,
+                                ast_idx: 19,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -1254,14 +1254,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `i64`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1281,8 +1281,8 @@ EntityTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 3,
-                                        use_expr_idx: 7,
+                                        ast_idx: 2,
+                                        use_expr_idx: 6,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1293,8 +1293,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `core`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 1,
+                                ast_idx: 19,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -1305,14 +1305,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `i128`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1332,8 +1332,8 @@ EntityTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 3,
-                                        use_expr_idx: 7,
+                                        ast_idx: 2,
+                                        use_expr_idx: 6,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1344,8 +1344,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `core`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 1,
+                                ast_idx: 19,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -1356,14 +1356,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `isize`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1383,8 +1383,8 @@ EntityTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 3,
-                                        use_expr_idx: 7,
+                                        ast_idx: 2,
+                                        use_expr_idx: 6,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1395,8 +1395,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `core`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 1,
+                                ast_idx: 19,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -1407,14 +1407,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `u8`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1434,8 +1434,8 @@ EntityTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 3,
-                                        use_expr_idx: 7,
+                                        ast_idx: 2,
+                                        use_expr_idx: 6,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1446,8 +1446,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `core`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 1,
+                                ast_idx: 19,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -1458,14 +1458,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `u16`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1485,8 +1485,8 @@ EntityTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 3,
-                                        use_expr_idx: 7,
+                                        ast_idx: 2,
+                                        use_expr_idx: 6,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1497,8 +1497,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `core`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 1,
+                                ast_idx: 19,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -1509,14 +1509,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `u32`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1536,8 +1536,8 @@ EntityTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 3,
-                                        use_expr_idx: 7,
+                                        ast_idx: 2,
+                                        use_expr_idx: 6,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1548,8 +1548,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `core`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 1,
+                                ast_idx: 19,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -1560,14 +1560,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `u64`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1587,8 +1587,8 @@ EntityTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 3,
-                                        use_expr_idx: 7,
+                                        ast_idx: 2,
+                                        use_expr_idx: 6,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1599,8 +1599,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `core`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 1,
+                                ast_idx: 19,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -1611,14 +1611,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `u128`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1638,8 +1638,8 @@ EntityTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 3,
-                                        use_expr_idx: 7,
+                                        ast_idx: 2,
+                                        use_expr_idx: 6,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1650,8 +1650,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `core`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 1,
+                                ast_idx: 19,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -1662,14 +1662,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `usize`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1689,8 +1689,8 @@ EntityTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 3,
-                                        use_expr_idx: 7,
+                                        ast_idx: 2,
+                                        use_expr_idx: 6,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1701,8 +1701,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `core`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 1,
+                                ast_idx: 19,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -1713,14 +1713,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `f32`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1740,8 +1740,8 @@ EntityTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 3,
-                                        use_expr_idx: 7,
+                                        ast_idx: 2,
+                                        use_expr_idx: 6,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1752,8 +1752,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `core`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 1,
+                                ast_idx: 19,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -1764,14 +1764,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `f64`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1791,8 +1791,8 @@ EntityTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 3,
-                                        use_expr_idx: 7,
+                                        ast_idx: 2,
+                                        use_expr_idx: 6,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1803,8 +1803,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `core`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 1,
+                                ast_idx: 19,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -1815,14 +1815,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `r32`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1842,8 +1842,8 @@ EntityTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 4,
-                                        use_expr_idx: 10,
+                                        ast_idx: 3,
+                                        use_expr_idx: 9,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1854,8 +1854,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `core`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 1,
+                                ast_idx: 19,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -1866,14 +1866,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `Debug`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1893,8 +1893,8 @@ EntityTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 5,
-                                        use_expr_idx: 13,
+                                        ast_idx: 4,
+                                        use_expr_idx: 12,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1905,8 +1905,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `core`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 1,
+                                ast_idx: 19,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -1917,14 +1917,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `Visualize`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1944,8 +1944,8 @@ EntityTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 6,
-                                        use_expr_idx: 16,
+                                        ast_idx: 5,
+                                        use_expr_idx: 15,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -1956,8 +1956,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `core`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 1,
+                                ast_idx: 19,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -1968,14 +1968,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `Visual`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -1995,8 +1995,8 @@ EntityTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 6,
-                                        use_expr_idx: 16,
+                                        ast_idx: 5,
+                                        use_expr_idx: 15,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2007,8 +2007,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `core`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 1,
+                                ast_idx: 19,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -2019,14 +2019,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `Copy`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2046,8 +2046,8 @@ EntityTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 7,
-                                        use_expr_idx: 19,
+                                        ast_idx: 6,
+                                        use_expr_idx: 18,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2058,8 +2058,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `core`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 1,
+                                ast_idx: 19,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -2070,14 +2070,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `Sized`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2097,8 +2097,8 @@ EntityTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 7,
-                                        use_expr_idx: 19,
+                                        ast_idx: 6,
+                                        use_expr_idx: 18,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2109,8 +2109,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `core`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 1,
+                                ast_idx: 19,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -2121,14 +2121,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `Clone`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2148,8 +2148,8 @@ EntityTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 8,
-                                        use_expr_idx: 22,
+                                        ast_idx: 7,
+                                        use_expr_idx: 21,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2160,8 +2160,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `core`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 1,
+                                ast_idx: 19,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -2172,14 +2172,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `Option`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2199,8 +2199,8 @@ EntityTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 9,
-                                        use_expr_idx: 25,
+                                        ast_idx: 8,
+                                        use_expr_idx: 24,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2211,8 +2211,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `core`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 1,
+                                ast_idx: 19,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -2223,14 +2223,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `Some`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2260,8 +2260,8 @@ EntityTreeSheet {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 4,
-                                                use_expr_idx: 3,
+                                                ast_idx: 3,
+                                                use_expr_idx: 2,
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
@@ -2274,8 +2274,8 @@ EntityTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 9,
-                                        use_expr_idx: 25,
+                                        ast_idx: 8,
+                                        use_expr_idx: 24,
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
@@ -2290,8 +2290,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `core`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 1,
+                                ast_idx: 19,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::TypeVariant(
@@ -2306,14 +2306,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `None`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2343,8 +2343,8 @@ EntityTreeSheet {
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
-                                                ast_idx: 4,
-                                                use_expr_idx: 3,
+                                                ast_idx: 3,
+                                                use_expr_idx: 2,
                                             },
                                         ),
                                         path: PrincipalEntityPath::TypeVariant(
@@ -2357,8 +2357,8 @@ EntityTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 9,
-                                        use_expr_idx: 25,
+                                        ast_idx: 8,
+                                        use_expr_idx: 24,
                                     },
                                 ),
                                 path: PrincipalEntityPath::TypeVariant(
@@ -2373,8 +2373,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `core`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 1,
+                                ast_idx: 19,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::TypeVariant(
@@ -2389,14 +2389,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `PartialEq`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2416,8 +2416,8 @@ EntityTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 10,
-                                        use_expr_idx: 28,
+                                        ast_idx: 9,
+                                        use_expr_idx: 27,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2428,8 +2428,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `core`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 1,
+                                ast_idx: 19,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -2440,14 +2440,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `Eq`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2467,8 +2467,8 @@ EntityTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 10,
-                                        use_expr_idx: 28,
+                                        ast_idx: 9,
+                                        use_expr_idx: 27,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2479,8 +2479,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `core`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 1,
+                                ast_idx: 19,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -2491,14 +2491,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `PartialOrd`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2518,8 +2518,8 @@ EntityTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 10,
-                                        use_expr_idx: 28,
+                                        ast_idx: 9,
+                                        use_expr_idx: 27,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2530,8 +2530,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `core`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 1,
+                                ast_idx: 19,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -2542,14 +2542,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `Ord`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2569,8 +2569,8 @@ EntityTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 10,
-                                        use_expr_idx: 28,
+                                        ast_idx: 9,
+                                        use_expr_idx: 27,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2581,8 +2581,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `core`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 1,
+                                ast_idx: 19,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -2593,14 +2593,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `Slice`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2620,8 +2620,8 @@ EntityTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 11,
-                                        use_expr_idx: 31,
+                                        ast_idx: 10,
+                                        use_expr_idx: 30,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2632,8 +2632,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `core`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 1,
+                                ast_idx: 19,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -2644,14 +2644,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `CyclicSlice`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2671,8 +2671,8 @@ EntityTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 11,
-                                        use_expr_idx: 31,
+                                        ast_idx: 10,
+                                        use_expr_idx: 30,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2683,8 +2683,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `core`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 1,
+                                ast_idx: 19,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -2695,14 +2695,14 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `Vec`,
-                visibility: Scope::PubUnder(
+                visible_scope: Scope::PubUnder(
                     `core::option`,
                 ),
                 symbol: EntitySymbol::Use(
@@ -2722,8 +2722,8 @@ EntityTreeSheet {
                                             ),
                                         ),
                                         visibility: Scope::Pub,
-                                        ast_idx: 12,
-                                        use_expr_idx: 34,
+                                        ast_idx: 11,
+                                        use_expr_idx: 33,
                                     },
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
@@ -2734,8 +2734,8 @@ EntityTreeSheet {
                                 visibility: Scope::PubUnder(
                                     `core`,
                                 ),
-                                ast_idx: 20,
-                                use_expr_idx: 1,
+                                ast_idx: 19,
+                                use_expr_idx: 0,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -2746,8 +2746,8 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core::option`,
                         ),
-                        ast_idx: 3,
-                        use_expr_idx: 1,
+                        ast_idx: 2,
+                        use_expr_idx: 0,
                     },
                 ),
             },
@@ -2757,8 +2757,8 @@ EntityTreeSheet {
     once_use_rules: OnceUseRules(
         [
             OnceUseRule {
-                ast_idx: 3,
-                use_expr_idx: 2,
+                ast_idx: 2,
+                use_expr_idx: 1,
                 visibility: Scope::PubUnder(
                     `core::option`,
                 ),
@@ -2771,7 +2771,7 @@ EntityTreeSheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        1..2,
+                        0..1,
                     ),
                 },
                 parent: None,
@@ -2784,8 +2784,8 @@ EntityTreeSheet {
                 },
             },
             OnceUseRule {
-                ast_idx: 4,
-                use_expr_idx: 4,
+                ast_idx: 3,
+                use_expr_idx: 3,
                 visibility: Scope::Pub,
                 variant: OnceUseRuleVariant::Parent {
                     parent_name_token: PathNameToken::Ident(
@@ -2797,7 +2797,7 @@ EntityTreeSheet {
                         },
                     ),
                     children: ArenaIdxRange(
-                        3..4,
+                        2..3,
                     ),
                 },
                 parent: None,
@@ -2812,8 +2812,8 @@ EntityTreeSheet {
                 },
             },
             OnceUseRule {
-                ast_idx: 4,
-                use_expr_idx: 3,
+                ast_idx: 3,
+                use_expr_idx: 2,
                 visibility: Scope::Pub,
                 variant: OnceUseRuleVariant::UseAllTypeVariants {
                     parent_ty_path: TypePath(`core::option::Option`, `Enum`),
@@ -2843,8 +2843,8 @@ EntityTreeSheet {
             UseAllRule {
                 parent_module_path: `core`,
                 is_same_crate: true,
-                ast_idx: 3,
-                use_expr_idx: 1,
+                ast_idx: 2,
+                use_expr_idx: 0,
                 visibility: Scope::PubUnder(
                     `core::option`,
                 ),

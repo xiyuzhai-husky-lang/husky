@@ -8,7 +8,7 @@ dashmap.workspace = true
 smallvec.workspace = true
 # abstraction
 salsa.workspace = true
-version-stamp = { path = "../../abstractions/version-stamp" }
+version-stamp.workspace = true
 # kernel
 husky-task.workspace = true
 husky-standard-value.workspace = true

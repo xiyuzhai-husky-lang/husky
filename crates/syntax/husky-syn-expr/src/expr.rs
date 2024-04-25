@@ -15,32 +15,39 @@ use parsec::PunctuatedSmallList;
 pub enum SynExprData {
     Literal(RegionalTokenIdx, LiteralTokenData),
     PrincipalEntityPath {
-        path_expr_idx: PrincipalEntityPathSynExprIdx,
+        path_expr_idx: SynPrincipalEntityPathSynExprIdx,
         opt_path: Option<PrincipalEntityPath>,
     },
-    AssocItem {
-        parent_expr_idx: PrincipalEntityPathSynExprIdx,
+    MajorItemPathAssocItem {
+        parent_expr_idx: SynPrincipalEntityPathSynExprIdx,
         parent_path: MajorItemPath,
         colon_colon_regional_token: ColonColonRegionalToken,
         ident_token: IdentRegionalToken,
     },
+    /// more general case
+    AssocItem {
+        parent_expr_idx: SynExprIdx,
+        colon_colon_regional_token_idx: RegionalTokenIdx,
+        ident: Ident,
+        ident_regional_token_idx: RegionalTokenIdx,
+    },
     InheritedSynSymbol {
         ident: Ident,
         regional_token_idx: RegionalTokenIdx,
-        inherited_syn_symbol_idx: InheritedSynSymbolIdx,
-        inherited_syn_symbol_kind: InheritedSynSymbolKind,
+        inherited_syn_symbol_idx: InheritedSymbolicVariableIdx,
+        inherited_syn_symbol_kind: InheritedVariableKind,
     },
     CurrentSynSymbol {
         ident: Ident,
         regional_token_idx: RegionalTokenIdx,
-        current_syn_symbol_idx: CurrentSynSymbolIdx,
-        current_syn_symbol_kind: CurrentSynSymbolKind,
+        current_variable_idx: CurrentVariableIdx,
+        current_variable_kind: CurrentVariableKind,
     },
     FrameVarDecl {
         regional_token_idx: RegionalTokenIdx,
         ident: Ident,
-        frame_var_symbol_idx: CurrentSynSymbolIdx,
-        current_syn_symbol_kind: CurrentSynSymbolKind,
+        frame_var_symbol_idx: CurrentVariableIdx,
+        current_variable_kind: CurrentVariableKind,
     },
     SelfType(RegionalTokenIdx),
     SelfValue(RegionalTokenIdx),
@@ -221,22 +228,22 @@ pub enum SynExprData {
     Err(SynExprError),
 }
 
-impl From<IdentifiableEntityPathExpr> for SynExprData {
-    fn from(expr: IdentifiableEntityPathExpr) -> Self {
+impl From<ItemPathExpr> for SynExprData {
+    fn from(expr: ItemPathExpr) -> Self {
         match expr {
-            IdentifiableEntityPathExpr::Principal {
+            ItemPathExpr::Principal {
                 path_expr_idx,
                 opt_path,
             } => SynExprData::PrincipalEntityPath {
                 path_expr_idx,
                 opt_path,
             },
-            IdentifiableEntityPathExpr::AssocItem {
+            ItemPathExpr::AssocItem {
                 parent_expr_idx,
                 parent_path,
                 colon_colon_regional_token,
                 ident_token,
-            } => SynExprData::AssocItem {
+            } => SynExprData::MajorItemPathAssocItem {
                 parent_expr_idx,
                 parent_path,
                 colon_colon_regional_token,

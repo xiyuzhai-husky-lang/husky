@@ -13,7 +13,7 @@ use husky_fly_term::FlyTermJar;
 use husky_manifest::ManifestJar;
 use husky_manifest_ast::ManifestAstJar;
 
-use husky_sema_expr::SemaExprJar;
+use husky_sem_expr::SemaExprJar;
 use husky_syn_decl::SynDeclJar;
 use husky_syn_defn::SynDefnJar;
 use husky_syn_expr::SynExprJar;
@@ -51,7 +51,7 @@ use husky_toml_token::jar::TomlTokenJar;
     EtherealSignatureJar,
     FlyTermJar,
     SemaExprJar,
-    husky_sema_place_contract::jar::SemaPlaceContractJar,
+    husky_sem_place_contract::jar::SemaPlaceContractJar,
     husky_hir_ty::db::HirTypeJar,
     husky_hir_eager_expr::jar::HirEagerExprJar,
     husky_hir_lazy_expr::jar::HirLazyExprJar,

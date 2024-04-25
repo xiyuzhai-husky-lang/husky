@@ -22,5 +22,19 @@
             ),
         ),
     ),
+    (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 133,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
 ]
 ```

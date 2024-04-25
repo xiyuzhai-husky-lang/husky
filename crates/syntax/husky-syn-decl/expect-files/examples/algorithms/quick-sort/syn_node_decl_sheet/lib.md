@@ -3,19 +3,20 @@ SynNodeDeclSheet {
     decls: [
         (
             ItemSynNodePath::MajorItem(
-                MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath(`quick_sort::quick_sort`, `Ritchie(
+                MajorItemSynNodePath::Form(
+                    FormSynNodePath(`quick_sort::quick_sort`, `Ritchie(
                         Fn,
                     )`, (0)),
                 ),
             ),
             ItemSynNodeDecl::MajorItem(
-                MajorItemSynNodeDecl::Fugitive(
-                    FugitiveSynNodeDecl::Fn(
-                        MajorFnSynNodeDecl {
-                            syn_node_path: FugitiveSynNodePath(`quick_sort::quick_sort`, `Ritchie(
+                MajorItemSynNodeDecl::Form(
+                    FormSynNodeDecl::Ritchie(
+                        MajorFunctionRitchieSynNodeDecl {
+                            syn_node_path: FormSynNodePath(`quick_sort::quick_sort`, `Ritchie(
                                 Fn,
                             )`, (0)),
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameter_obelisk_list: Ok(
                                 Some(
                                     SynTemplateParameterSyndicateList {
@@ -27,7 +28,7 @@ SynNodeDeclSheet {
                                         template_parameters: [
                                             TemplateSynParameterData {
                                                 annotated_variance_token: None,
-                                                symbol: 1,
+                                                symbol: 0,
                                                 variant: TemplateParameterSyndicateVariant::Type {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `T`,
@@ -42,9 +43,9 @@ SynNodeDeclSheet {
                                                                     6,
                                                                 ),
                                                             ),
-                                                            traits_syn_expr_idx: 1,
-                                                            trait_syn_expr_idxs: [
-                                                                1,
+                                                            traits_syn_expr_idx: 0,
+                                                            trai_syn_expr_idxs: [
+                                                                0,
                                                             ],
                                                         },
                                                     ),
@@ -75,17 +76,17 @@ SynNodeDeclSheet {
                                     parenate_parameters: [
                                         ParenateParameterSyndicate::Simple {
                                             syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                                syn_pattern_expr_idx: 1,
+                                                syn_pattern_expr_idx: 0,
                                             },
                                             variables: ArenaIdxRange(
-                                                2..3,
+                                                1..2,
                                             ),
                                             colon: ColonRegionalToken(
                                                 RegionalTokenIdx(
                                                     13,
                                                 ),
                                             ),
-                                            ty: 4,
+                                            ty: 3,
                                         },
                                     ],
                                     commas: [],
@@ -116,17 +117,17 @@ SynNodeDeclSheet {
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`quick_sort::quick_sort`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`quick_sort::quick_sort`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
                                         ),
                                     ),
-                                    syn_expr_arena: Arena {
+                                    expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 1,
+                                                path_expr_idx: 0,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Trait(
@@ -152,8 +153,8 @@ SynNodeDeclSheet {
                                                 regional_token_idx: RegionalTokenIdx(
                                                     17,
                                                 ),
-                                                current_syn_symbol_idx: 1,
-                                                current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                                current_variable_idx: 0,
+                                                current_variable_kind: CurrentVariableKind::TemplateParameter {
                                                     template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `T`,
@@ -165,8 +166,8 @@ SynNodeDeclSheet {
                                                 },
                                             },
                                             SynExprData::ExplicitApplication {
-                                                function_expr_idx: 2,
-                                                argument_expr_idx: 3,
+                                                function_expr_idx: 1,
+                                                argument_expr_idx: 2,
                                             },
                                         ],
                                     },
@@ -226,8 +227,8 @@ SynNodeDeclSheet {
                                         },
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                SynPatternSymbol::Atom(
-                                                    1,
+                                                PatternVariable::Atom(
+                                                    0,
                                                 ),
                                             ],
                                         },
@@ -235,7 +236,7 @@ SynNodeDeclSheet {
                                             [
                                                 (
                                                     `arr`,
-                                                    1,
+                                                    0,
                                                 ),
                                             ],
                                         ],
@@ -245,42 +246,45 @@ SynNodeDeclSheet {
                                             ],
                                         },
                                     },
-                                    symbol_region: VariableRegionData {
+                                    variable_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         6,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::TemplateParameter {
+                                                    data: CurrentVariableData::TemplateParameter {
                                                         syn_attrs: TemplateParameterSynAttrs {
                                                             syn_attrs: [],
                                                         },
                                                         annotated_variance_token: None,
-                                                        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
+                                                        data: CurrentTemplateVariableData::Type {
                                                             ident_token: IdentRegionalToken {
                                                                 ident: `T`,
                                                                 regional_token_idx: RegionalTokenIdx(
                                                                     5,
                                                                 ),
                                                             },
+                                                            trai_syn_expr_idxs: [
+                                                                0,
+                                                            ],
                                                         },
                                                     },
                                                 },
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: RefMut,
                                                     access_start: RegionalTokenIdx(
                                                         13,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `arr`,
-                                                        pattern_symbol_idx: 1,
+                                                        pattern_variable_idx: 0,
                                                     },
                                                 },
                                             ],
@@ -291,44 +295,44 @@ SynNodeDeclSheet {
                                             (
                                                 TemplateTypeParameter,
                                                 ArenaIdxRange(
-                                                    1..2,
+                                                    0..1,
                                                 ),
                                             ),
                                             (
                                                 SimpleParenateParameter {
                                                     syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                                        syn_pattern_expr_idx: 1,
+                                                        syn_pattern_expr_idx: 0,
                                                     },
-                                                    ty: 4,
+                                                    ty: 3,
                                                 },
                                                 ArenaIdxRange(
-                                                    2..3,
+                                                    1..2,
                                                 ),
                                             ),
                                         ],
                                     },
-                                    syn_pattern_expr_roots: [
+                                    pattern_roots: [
                                         SynPatternRoot {
                                             kind: SynPatternExprRootKind::Parenate,
-                                            syn_pattern_expr_idx: 1,
+                                            syn_pattern_expr_idx: 0,
                                         },
                                     ],
-                                    syn_expr_roots: [
+                                    expr_roots: [
                                         SynExprRoot {
-                                            kind: SynExprRootKind::Trait,
-                                            syn_expr_idx: 1,
+                                            kind: SynExprRootKind::TraitInConstraint,
+                                            syn_expr_idx: 0,
                                         },
                                         SynExprRoot {
                                             kind: SynExprRootKind::ExplicitParameterType,
-                                            syn_expr_idx: 4,
+                                            syn_expr_idx: 3,
                                         },
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
-                                    syn_pattern_to_current_syn_symbol_map: [
+                                    pattern_to_current_variable_map: [
                                         (
+                                            0,
                                             1,
-                                            2,
                                         ),
                                     ],
                                 },
@@ -340,19 +344,20 @@ SynNodeDeclSheet {
         ),
         (
             ItemSynNodePath::MajorItem(
-                MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                MajorItemSynNodePath::Form(
+                    FormSynNodePath(`quick_sort::quick_sort_aux`, `Ritchie(
                         Fn,
                     )`, (0)),
                 ),
             ),
             ItemSynNodeDecl::MajorItem(
-                MajorItemSynNodeDecl::Fugitive(
-                    FugitiveSynNodeDecl::Fn(
-                        MajorFnSynNodeDecl {
-                            syn_node_path: FugitiveSynNodePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                MajorItemSynNodeDecl::Form(
+                    FormSynNodeDecl::Ritchie(
+                        MajorFunctionRitchieSynNodeDecl {
+                            syn_node_path: FormSynNodePath(`quick_sort::quick_sort_aux`, `Ritchie(
                                 Fn,
                             )`, (0)),
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameter_obelisk_list: Ok(
                                 Some(
                                     SynTemplateParameterSyndicateList {
@@ -364,7 +369,7 @@ SynNodeDeclSheet {
                                         template_parameters: [
                                             TemplateSynParameterData {
                                                 annotated_variance_token: None,
-                                                symbol: 1,
+                                                symbol: 0,
                                                 variant: TemplateParameterSyndicateVariant::Type {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `T`,
@@ -379,9 +384,9 @@ SynNodeDeclSheet {
                                                                     5,
                                                                 ),
                                                             ),
-                                                            traits_syn_expr_idx: 1,
-                                                            trait_syn_expr_idxs: [
-                                                                1,
+                                                            traits_syn_expr_idx: 0,
+                                                            trai_syn_expr_idxs: [
+                                                                0,
                                                             ],
                                                         },
                                                     ),
@@ -412,6 +417,20 @@ SynNodeDeclSheet {
                                     parenate_parameters: [
                                         ParenateParameterSyndicate::Simple {
                                             syn_pattern_root: ParenateParameterSynPatternExprRoot {
+                                                syn_pattern_expr_idx: 0,
+                                            },
+                                            variables: ArenaIdxRange(
+                                                1..2,
+                                            ),
+                                            colon: ColonRegionalToken(
+                                                RegionalTokenIdx(
+                                                    12,
+                                                ),
+                                            ),
+                                            ty: 3,
+                                        },
+                                        ParenateParameterSyndicate::Simple {
+                                            syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 1,
                                             },
                                             variables: ArenaIdxRange(
@@ -419,7 +438,7 @@ SynNodeDeclSheet {
                                             ),
                                             colon: ColonRegionalToken(
                                                 RegionalTokenIdx(
-                                                    12,
+                                                    19,
                                                 ),
                                             ),
                                             ty: 4,
@@ -433,24 +452,10 @@ SynNodeDeclSheet {
                                             ),
                                             colon: ColonRegionalToken(
                                                 RegionalTokenIdx(
-                                                    19,
-                                                ),
-                                            ),
-                                            ty: 5,
-                                        },
-                                        ParenateParameterSyndicate::Simple {
-                                            syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                                syn_pattern_expr_idx: 3,
-                                            },
-                                            variables: ArenaIdxRange(
-                                                4..5,
-                                            ),
-                                            colon: ColonRegionalToken(
-                                                RegionalTokenIdx(
                                                     23,
                                                 ),
                                             ),
-                                            ty: 6,
+                                            ty: 5,
                                         },
                                     ],
                                     commas: [
@@ -492,17 +497,17 @@ SynNodeDeclSheet {
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`quick_sort::quick_sort_aux`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`quick_sort::quick_sort_aux`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
                                         ),
                                     ),
-                                    syn_expr_arena: Arena {
+                                    expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 1,
+                                                path_expr_idx: 0,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Trait(
@@ -528,8 +533,8 @@ SynNodeDeclSheet {
                                                 regional_token_idx: RegionalTokenIdx(
                                                     16,
                                                 ),
-                                                current_syn_symbol_idx: 1,
-                                                current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                                current_variable_idx: 0,
+                                                current_variable_kind: CurrentVariableKind::TemplateParameter {
                                                     template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `T`,
@@ -541,11 +546,11 @@ SynNodeDeclSheet {
                                                 },
                                             },
                                             SynExprData::ExplicitApplication {
-                                                function_expr_idx: 2,
-                                                argument_expr_idx: 3,
+                                                function_expr_idx: 1,
+                                                argument_expr_idx: 2,
                                             },
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 2,
+                                                path_expr_idx: 1,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -555,7 +560,7 @@ SynNodeDeclSheet {
                                                 ),
                                             },
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 3,
+                                                path_expr_idx: 2,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -672,14 +677,14 @@ SynNodeDeclSheet {
                                         },
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                SynPatternSymbol::Atom(
+                                                PatternVariable::Atom(
+                                                    0,
+                                                ),
+                                                PatternVariable::Atom(
                                                     1,
                                                 ),
-                                                SynPatternSymbol::Atom(
+                                                PatternVariable::Atom(
                                                     2,
-                                                ),
-                                                SynPatternSymbol::Atom(
-                                                    3,
                                                 ),
                                             ],
                                         },
@@ -687,19 +692,19 @@ SynNodeDeclSheet {
                                             [
                                                 (
                                                     `arr`,
-                                                    1,
+                                                    0,
                                                 ),
                                             ],
                                             [
                                                 (
                                                     `low`,
-                                                    2,
+                                                    1,
                                                 ),
                                             ],
                                             [
                                                 (
                                                     `high`,
-                                                    3,
+                                                    2,
                                                 ),
                                             ],
                                         ],
@@ -711,64 +716,67 @@ SynNodeDeclSheet {
                                             ],
                                         },
                                     },
-                                    symbol_region: VariableRegionData {
+                                    variable_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::TemplateParameter {
+                                                    data: CurrentVariableData::TemplateParameter {
                                                         syn_attrs: TemplateParameterSynAttrs {
                                                             syn_attrs: [],
                                                         },
                                                         annotated_variance_token: None,
-                                                        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
+                                                        data: CurrentTemplateVariableData::Type {
                                                             ident_token: IdentRegionalToken {
                                                                 ident: `T`,
                                                                 regional_token_idx: RegionalTokenIdx(
                                                                     4,
                                                                 ),
                                                             },
+                                                            trai_syn_expr_idxs: [
+                                                                0,
+                                                            ],
                                                         },
                                                     },
                                                 },
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: RefMut,
                                                     access_start: RegionalTokenIdx(
                                                         12,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `arr`,
-                                                        pattern_symbol_idx: 1,
+                                                        pattern_variable_idx: 0,
                                                     },
                                                 },
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         19,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `low`,
-                                                        pattern_symbol_idx: 2,
+                                                        pattern_variable_idx: 1,
                                                     },
                                                 },
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         23,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `high`,
-                                                        pattern_symbol_idx: 3,
+                                                        pattern_variable_idx: 2,
                                                     },
                                                 },
                                             ],
@@ -778,6 +786,17 @@ SynNodeDeclSheet {
                                         pattern_ty_constraints: [
                                             (
                                                 TemplateTypeParameter,
+                                                ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                            ),
+                                            (
+                                                SimpleParenateParameter {
+                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
+                                                        syn_pattern_expr_idx: 0,
+                                                    },
+                                                    ty: 3,
+                                                },
                                                 ArenaIdxRange(
                                                     1..2,
                                                 ),
@@ -804,20 +823,13 @@ SynNodeDeclSheet {
                                                     3..4,
                                                 ),
                                             ),
-                                            (
-                                                SimpleParenateParameter {
-                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                                        syn_pattern_expr_idx: 3,
-                                                    },
-                                                    ty: 6,
-                                                },
-                                                ArenaIdxRange(
-                                                    4..5,
-                                                ),
-                                            ),
                                         ],
                                     },
-                                    syn_pattern_expr_roots: [
+                                    pattern_roots: [
+                                        SynPatternRoot {
+                                            kind: SynPatternExprRootKind::Parenate,
+                                            syn_pattern_expr_idx: 0,
+                                        },
                                         SynPatternRoot {
                                             kind: SynPatternExprRootKind::Parenate,
                                             syn_pattern_expr_idx: 1,
@@ -826,15 +838,15 @@ SynNodeDeclSheet {
                                             kind: SynPatternExprRootKind::Parenate,
                                             syn_pattern_expr_idx: 2,
                                         },
-                                        SynPatternRoot {
-                                            kind: SynPatternExprRootKind::Parenate,
-                                            syn_pattern_expr_idx: 3,
-                                        },
                                     ],
-                                    syn_expr_roots: [
+                                    expr_roots: [
                                         SynExprRoot {
-                                            kind: SynExprRootKind::Trait,
-                                            syn_expr_idx: 1,
+                                            kind: SynExprRootKind::TraitInConstraint,
+                                            syn_expr_idx: 0,
+                                        },
+                                        SynExprRoot {
+                                            kind: SynExprRootKind::ExplicitParameterType,
+                                            syn_expr_idx: 3,
                                         },
                                         SynExprRoot {
                                             kind: SynExprRootKind::ExplicitParameterType,
@@ -844,14 +856,14 @@ SynNodeDeclSheet {
                                             kind: SynExprRootKind::ExplicitParameterType,
                                             syn_expr_idx: 5,
                                         },
-                                        SynExprRoot {
-                                            kind: SynExprRootKind::ExplicitParameterType,
-                                            syn_expr_idx: 6,
-                                        },
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
-                                    syn_pattern_to_current_syn_symbol_map: [
+                                    pattern_to_current_variable_map: [
+                                        (
+                                            0,
+                                            1,
+                                        ),
                                         (
                                             1,
                                             2,
@@ -859,10 +871,6 @@ SynNodeDeclSheet {
                                         (
                                             2,
                                             3,
-                                        ),
-                                        (
-                                            3,
-                                            4,
                                         ),
                                     ],
                                 },
@@ -874,19 +882,20 @@ SynNodeDeclSheet {
         ),
         (
             ItemSynNodePath::MajorItem(
-                MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath(`quick_sort::partition`, `Ritchie(
+                MajorItemSynNodePath::Form(
+                    FormSynNodePath(`quick_sort::partition`, `Ritchie(
                         Fn,
                     )`, (0)),
                 ),
             ),
             ItemSynNodeDecl::MajorItem(
-                MajorItemSynNodeDecl::Fugitive(
-                    FugitiveSynNodeDecl::Fn(
-                        MajorFnSynNodeDecl {
-                            syn_node_path: FugitiveSynNodePath(`quick_sort::partition`, `Ritchie(
+                MajorItemSynNodeDecl::Form(
+                    FormSynNodeDecl::Ritchie(
+                        MajorFunctionRitchieSynNodeDecl {
+                            syn_node_path: FormSynNodePath(`quick_sort::partition`, `Ritchie(
                                 Fn,
                             )`, (0)),
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameter_obelisk_list: Ok(
                                 Some(
                                     SynTemplateParameterSyndicateList {
@@ -898,7 +907,7 @@ SynNodeDeclSheet {
                                         template_parameters: [
                                             TemplateSynParameterData {
                                                 annotated_variance_token: None,
-                                                symbol: 1,
+                                                symbol: 0,
                                                 variant: TemplateParameterSyndicateVariant::Type {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `T`,
@@ -913,9 +922,9 @@ SynNodeDeclSheet {
                                                                     5,
                                                                 ),
                                                             ),
-                                                            traits_syn_expr_idx: 1,
-                                                            trait_syn_expr_idxs: [
-                                                                1,
+                                                            traits_syn_expr_idx: 0,
+                                                            trai_syn_expr_idxs: [
+                                                                0,
                                                             ],
                                                         },
                                                     ),
@@ -946,6 +955,20 @@ SynNodeDeclSheet {
                                     parenate_parameters: [
                                         ParenateParameterSyndicate::Simple {
                                             syn_pattern_root: ParenateParameterSynPatternExprRoot {
+                                                syn_pattern_expr_idx: 0,
+                                            },
+                                            variables: ArenaIdxRange(
+                                                1..2,
+                                            ),
+                                            colon: ColonRegionalToken(
+                                                RegionalTokenIdx(
+                                                    12,
+                                                ),
+                                            ),
+                                            ty: 3,
+                                        },
+                                        ParenateParameterSyndicate::Simple {
+                                            syn_pattern_root: ParenateParameterSynPatternExprRoot {
                                                 syn_pattern_expr_idx: 1,
                                             },
                                             variables: ArenaIdxRange(
@@ -953,7 +976,7 @@ SynNodeDeclSheet {
                                             ),
                                             colon: ColonRegionalToken(
                                                 RegionalTokenIdx(
-                                                    12,
+                                                    19,
                                                 ),
                                             ),
                                             ty: 4,
@@ -967,24 +990,10 @@ SynNodeDeclSheet {
                                             ),
                                             colon: ColonRegionalToken(
                                                 RegionalTokenIdx(
-                                                    19,
-                                                ),
-                                            ),
-                                            ty: 5,
-                                        },
-                                        ParenateParameterSyndicate::Simple {
-                                            syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                                syn_pattern_expr_idx: 3,
-                                            },
-                                            variables: ArenaIdxRange(
-                                                4..5,
-                                            ),
-                                            colon: ColonRegionalToken(
-                                                RegionalTokenIdx(
                                                     23,
                                                 ),
                                             ),
-                                            ty: 6,
+                                            ty: 5,
                                         },
                                     ],
                                     commas: [
@@ -1018,7 +1027,7 @@ SynNodeDeclSheet {
                             return_ty: Ok(
                                 Some(
                                     ReturnTypeBeforeColonSyndicate {
-                                        syn_expr_idx: 7,
+                                        syn_expr_idx: 6,
                                     },
                                 ),
                             ),
@@ -1036,17 +1045,17 @@ SynNodeDeclSheet {
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`quick_sort::partition`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`quick_sort::partition`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
                                         ),
                                     ),
-                                    syn_expr_arena: Arena {
+                                    expr_arena: Arena {
                                         data: [
                                             SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 1,
+                                                path_expr_idx: 0,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Trait(
@@ -1072,8 +1081,8 @@ SynNodeDeclSheet {
                                                 regional_token_idx: RegionalTokenIdx(
                                                     16,
                                                 ),
-                                                current_syn_symbol_idx: 1,
-                                                current_syn_symbol_kind: CurrentSynSymbolKind::TemplateParameter {
+                                                current_variable_idx: 0,
+                                                current_variable_kind: CurrentVariableKind::TemplateParameter {
                                                     template_parameter_kind: CurrentTemplateParameterSynSymbolKind::Type {
                                                         ident_token: IdentRegionalToken {
                                                             ident: `T`,
@@ -1085,8 +1094,18 @@ SynNodeDeclSheet {
                                                 },
                                             },
                                             SynExprData::ExplicitApplication {
-                                                function_expr_idx: 2,
-                                                argument_expr_idx: 3,
+                                                function_expr_idx: 1,
+                                                argument_expr_idx: 2,
+                                            },
+                                            SynExprData::PrincipalEntityPath {
+                                                path_expr_idx: 1,
+                                                opt_path: Some(
+                                                    PrincipalEntityPath::MajorItem(
+                                                        MajorItemPath::Type(
+                                                            TypePath(`core::num::isize`, `Extern`),
+                                                        ),
+                                                    ),
+                                                ),
                                             },
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 2,
@@ -1100,16 +1119,6 @@ SynNodeDeclSheet {
                                             },
                                             SynExprData::PrincipalEntityPath {
                                                 path_expr_idx: 3,
-                                                opt_path: Some(
-                                                    PrincipalEntityPath::MajorItem(
-                                                        MajorItemPath::Type(
-                                                            TypePath(`core::num::isize`, `Extern`),
-                                                        ),
-                                                    ),
-                                                ),
-                                            },
-                                            SynExprData::PrincipalEntityPath {
-                                                path_expr_idx: 4,
                                                 opt_path: Some(
                                                     PrincipalEntityPath::MajorItem(
                                                         MajorItemPath::Type(
@@ -1241,14 +1250,14 @@ SynNodeDeclSheet {
                                         },
                                         pattern_symbol_arena: Arena {
                                             data: [
-                                                SynPatternSymbol::Atom(
+                                                PatternVariable::Atom(
+                                                    0,
+                                                ),
+                                                PatternVariable::Atom(
                                                     1,
                                                 ),
-                                                SynPatternSymbol::Atom(
+                                                PatternVariable::Atom(
                                                     2,
-                                                ),
-                                                SynPatternSymbol::Atom(
-                                                    3,
                                                 ),
                                             ],
                                         },
@@ -1256,19 +1265,19 @@ SynNodeDeclSheet {
                                             [
                                                 (
                                                     `arr`,
-                                                    1,
+                                                    0,
                                                 ),
                                             ],
                                             [
                                                 (
                                                     `low`,
-                                                    2,
+                                                    1,
                                                 ),
                                             ],
                                             [
                                                 (
                                                     `high`,
-                                                    3,
+                                                    2,
                                                 ),
                                             ],
                                         ],
@@ -1280,64 +1289,67 @@ SynNodeDeclSheet {
                                             ],
                                         },
                                     },
-                                    symbol_region: VariableRegionData {
+                                    variable_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Const,
                                                     access_start: RegionalTokenIdx(
                                                         5,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::TemplateParameter {
+                                                    data: CurrentVariableData::TemplateParameter {
                                                         syn_attrs: TemplateParameterSynAttrs {
                                                             syn_attrs: [],
                                                         },
                                                         annotated_variance_token: None,
-                                                        template_parameter_variant: CurrentTemplateParameterSynSymbolVariant::Type {
+                                                        data: CurrentTemplateVariableData::Type {
                                                             ident_token: IdentRegionalToken {
                                                                 ident: `T`,
                                                                 regional_token_idx: RegionalTokenIdx(
                                                                     4,
                                                                 ),
                                                             },
+                                                            trai_syn_expr_idxs: [
+                                                                0,
+                                                            ],
                                                         },
                                                     },
                                                 },
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: RefMut,
                                                     access_start: RegionalTokenIdx(
                                                         12,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `arr`,
-                                                        pattern_symbol_idx: 1,
+                                                        pattern_variable_idx: 0,
                                                     },
                                                 },
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         19,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `low`,
-                                                        pattern_symbol_idx: 2,
+                                                        pattern_variable_idx: 1,
                                                     },
                                                 },
-                                                CurrentSynSymbolEntry {
+                                                CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
                                                         23,
                                                     ),
                                                     access_end: None,
-                                                    data: CurrentSynSymbolData::SimpleParenateParameter {
+                                                    data: CurrentVariableData::SimpleParenateParameter {
                                                         ident: `high`,
-                                                        pattern_symbol_idx: 3,
+                                                        pattern_variable_idx: 2,
                                                     },
                                                 },
                                             ],
@@ -1347,6 +1359,17 @@ SynNodeDeclSheet {
                                         pattern_ty_constraints: [
                                             (
                                                 TemplateTypeParameter,
+                                                ArenaIdxRange(
+                                                    0..1,
+                                                ),
+                                            ),
+                                            (
+                                                SimpleParenateParameter {
+                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
+                                                        syn_pattern_expr_idx: 0,
+                                                    },
+                                                    ty: 3,
+                                                },
                                                 ArenaIdxRange(
                                                     1..2,
                                                 ),
@@ -1373,20 +1396,13 @@ SynNodeDeclSheet {
                                                     3..4,
                                                 ),
                                             ),
-                                            (
-                                                SimpleParenateParameter {
-                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                                        syn_pattern_expr_idx: 3,
-                                                    },
-                                                    ty: 6,
-                                                },
-                                                ArenaIdxRange(
-                                                    4..5,
-                                                ),
-                                            ),
                                         ],
                                     },
-                                    syn_pattern_expr_roots: [
+                                    pattern_roots: [
+                                        SynPatternRoot {
+                                            kind: SynPatternExprRootKind::Parenate,
+                                            syn_pattern_expr_idx: 0,
+                                        },
                                         SynPatternRoot {
                                             kind: SynPatternExprRootKind::Parenate,
                                             syn_pattern_expr_idx: 1,
@@ -1395,15 +1411,15 @@ SynNodeDeclSheet {
                                             kind: SynPatternExprRootKind::Parenate,
                                             syn_pattern_expr_idx: 2,
                                         },
-                                        SynPatternRoot {
-                                            kind: SynPatternExprRootKind::Parenate,
-                                            syn_pattern_expr_idx: 3,
-                                        },
                                     ],
-                                    syn_expr_roots: [
+                                    expr_roots: [
                                         SynExprRoot {
-                                            kind: SynExprRootKind::Trait,
-                                            syn_expr_idx: 1,
+                                            kind: SynExprRootKind::TraitInConstraint,
+                                            syn_expr_idx: 0,
+                                        },
+                                        SynExprRoot {
+                                            kind: SynExprRootKind::ExplicitParameterType,
+                                            syn_expr_idx: 3,
                                         },
                                         SynExprRoot {
                                             kind: SynExprRootKind::ExplicitParameterType,
@@ -1414,17 +1430,17 @@ SynNodeDeclSheet {
                                             syn_expr_idx: 5,
                                         },
                                         SynExprRoot {
-                                            kind: SynExprRootKind::ExplicitParameterType,
-                                            syn_expr_idx: 6,
-                                        },
-                                        SynExprRoot {
                                             kind: SynExprRootKind::ReturnType,
-                                            syn_expr_idx: 7,
+                                            syn_expr_idx: 6,
                                         },
                                     ],
                                     has_self_lifetime: false,
                                     has_self_place: false,
-                                    syn_pattern_to_current_syn_symbol_map: [
+                                    pattern_to_current_variable_map: [
+                                        (
+                                            0,
+                                            1,
+                                        ),
                                         (
                                             1,
                                             2,
@@ -1433,10 +1449,6 @@ SynNodeDeclSheet {
                                             2,
                                             3,
                                         ),
-                                        (
-                                            3,
-                                            4,
-                                        ),
                                     ],
                                 },
                             },
@@ -1447,19 +1459,20 @@ SynNodeDeclSheet {
         ),
         (
             ItemSynNodePath::MajorItem(
-                MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+                MajorItemSynNodePath::Form(
+                    FormSynNodePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                         Fn,
                     )`, (0)),
                 ),
             ),
             ItemSynNodeDecl::MajorItem(
-                MajorItemSynNodeDecl::Fugitive(
-                    FugitiveSynNodeDecl::Fn(
-                        MajorFnSynNodeDecl {
-                            syn_node_path: FugitiveSynNodePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+                MajorItemSynNodeDecl::Form(
+                    FormSynNodeDecl::Ritchie(
+                        MajorFunctionRitchieSynNodeDecl {
+                            syn_node_path: FormSynNodePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                                 Fn,
                             )`, (0)),
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameter_obelisk_list: Ok(
                                 None,
                             ),
@@ -1501,14 +1514,14 @@ SynNodeDeclSheet {
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
                                         ),
                                     ),
-                                    syn_expr_arena: Arena {
+                                    expr_arena: Arena {
                                         data: [],
                                     },
                                     principal_item_path_expr_arena: Arena {
@@ -1532,22 +1545,22 @@ SynNodeDeclSheet {
                                             data: [],
                                         },
                                     },
-                                    symbol_region: VariableRegionData {
+                                    variable_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [],
                                         },
                                         allow_self_type: False,
                                         allow_self_value: False,
                                         pattern_ty_constraints: [],
                                     },
-                                    syn_pattern_expr_roots: [],
-                                    syn_expr_roots: [],
+                                    pattern_roots: [],
+                                    expr_roots: [],
                                     has_self_lifetime: false,
                                     has_self_place: false,
-                                    syn_pattern_to_current_syn_symbol_map: [],
+                                    pattern_to_current_variable_map: [],
                                 },
                             },
                         },
@@ -1557,19 +1570,20 @@ SynNodeDeclSheet {
         ),
         (
             ItemSynNodePath::MajorItem(
-                MajorItemSynNodePath::Fugitive(
-                    FugitiveSynNodePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+                MajorItemSynNodePath::Form(
+                    FormSynNodePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                         Fn,
                     )`, (0)),
                 ),
             ),
             ItemSynNodeDecl::MajorItem(
-                MajorItemSynNodeDecl::Fugitive(
-                    FugitiveSynNodeDecl::Fn(
-                        MajorFnSynNodeDecl {
-                            syn_node_path: FugitiveSynNodePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+                MajorItemSynNodeDecl::Form(
+                    FormSynNodeDecl::Ritchie(
+                        MajorFunctionRitchieSynNodeDecl {
+                            syn_node_path: FormSynNodePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                                 Fn,
                             )`, (0)),
+                            ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameter_obelisk_list: Ok(
                                 None,
                             ),
@@ -1611,14 +1625,14 @@ SynNodeDeclSheet {
                                     parent: None,
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
-                                            MajorItemSynNodePath::Fugitive(
-                                                FugitiveSynNodePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+                                            MajorItemSynNodePath::Form(
+                                                FormSynNodePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                                                     Fn,
                                                 )`, (0)),
                                             ),
                                         ),
                                     ),
-                                    syn_expr_arena: Arena {
+                                    expr_arena: Arena {
                                         data: [],
                                     },
                                     principal_item_path_expr_arena: Arena {
@@ -1642,22 +1656,22 @@ SynNodeDeclSheet {
                                             data: [],
                                         },
                                     },
-                                    symbol_region: VariableRegionData {
+                                    variable_region: VariableRegionData {
                                         inherited_syn_symbol_arena: Arena {
                                             data: [],
                                         },
-                                        current_syn_symbol_arena: Arena {
+                                        current_variable_arena: Arena {
                                             data: [],
                                         },
                                         allow_self_type: False,
                                         allow_self_value: False,
                                         pattern_ty_constraints: [],
                                     },
-                                    syn_pattern_expr_roots: [],
-                                    syn_expr_roots: [],
+                                    pattern_roots: [],
+                                    expr_roots: [],
                                     has_self_lifetime: false,
                                     has_self_place: false,
-                                    syn_pattern_to_current_syn_symbol_map: [],
+                                    pattern_to_current_variable_map: [],
                                 },
                             },
                         },

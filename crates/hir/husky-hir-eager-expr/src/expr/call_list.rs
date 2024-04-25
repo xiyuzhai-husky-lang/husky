@@ -1,11 +1,11 @@
 use super::*;
-use crate::coersion::HirEagerCoersion;
+use crate::coercion::HirEagerCoercion;
 use husky_hir_ty::ritchie::HirRitchieSimpleParameter;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[enum_class::from_variants]
 pub enum HirEagerRitchieArgument {
-    Simple(HirRitchieSimpleParameter, HirEagerExprIdx, HirEagerCoersion),
+    Simple(HirRitchieSimpleParameter, HirEagerExprIdx, HirEagerCoercion),
     Variadic,
     Keyed,
 }
@@ -24,11 +24,11 @@ impl<'a> HirEagerExprBuilder<'a> {
         match pam {
             SemaRitchieArgument::Simple(param, item) => HirEagerRitchieArgument::Simple(
                 HirRitchieSimpleParameter::from_fly(param, self.db(), self.fly_terms()),
-                item.argument_sema_expr_idx().to_hir_eager(self),
-                item.coersion_outcome
+                item.argument_sem_expr_idx().to_hir_eager(self),
+                item.coercion_outcome
                     .as_ref()
                     .unwrap()
-                    .coersion()
+                    .coercion()
                     .to_hir_eager(self),
             ),
             SemaRitchieArgument::Variadic(_, _) => todo!(),

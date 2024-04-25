@@ -2,7 +2,7 @@ use crate::*;
 use husky_eth_signature::HasEthTemplate;
 use husky_eth_term::term::{
     application::{EthApplication, TermFunctionReduced},
-    svar::EthTermSymbolIndexImpl,
+    symbolic_variable::EthTermSymbolIndexImpl,
     EthTerm,
 };
 use husky_term_prelude::ItemPathTerm;
@@ -19,10 +19,10 @@ impl HirTrait {
     pub fn from_eth(trai_term: EthTerm, db: &::salsa::Db) -> Self {
         match trai_term {
             EthTerm::Literal(_) => todo!(),
-            EthTerm::Symbol(_) => todo!(),
-            EthTerm::Hvar(_) => todo!(),
+            EthTerm::SymbolicVariable(_) => todo!(),
+            EthTerm::LambdaVariable(_) => todo!(),
             EthTerm::EntityPath(path) => match path {
-                ItemPathTerm::Fugitive(_) => todo!(),
+                ItemPathTerm::Form(_) => todo!(),
                 ItemPathTerm::Trait(trai_path) => Self::new(db, trai_path, smallvec![]),
                 ItemPathTerm::TypeOntology(_) => todo!(),
                 ItemPathTerm::TypeInstance(_) => todo!(),

@@ -15,7 +15,7 @@
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        svar: DecSvar(
+                                        svar: DecSymbolicVariable(
                                             Id {
                                                 value: 3,
                                             },
@@ -52,7 +52,7 @@
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        svar: DecSvar(
+                                        svar: DecSymbolicVariable(
                                             Id {
                                                 value: 4,
                                             },
@@ -61,7 +61,7 @@
                                     },
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        svar: DecSvar(
+                                        svar: DecSymbolicVariable(
                                             Id {
                                                 value: 5,
                                             },
@@ -98,7 +98,7 @@
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        svar: DecSvar(
+                                        svar: DecSymbolicVariable(
                                             Id {
                                                 value: 4,
                                             },
@@ -107,7 +107,7 @@
                                     },
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        svar: DecSvar(
+                                        svar: DecSymbolicVariable(
                                             Id {
                                                 value: 5,
                                             },
@@ -131,22 +131,23 @@
     ),
     (
         ItemPath::MajorItem(
-            MajorItemPath::Fugitive(
-                FugitivePath(`malamute::narrow_down`, `Ritchie(
+            MajorItemPath::Form(
+                FormPath(`malamute::narrow_down`, `Ritchie(
                     Gn,
                 )`),
             ),
         ),
         Ok(
             DecTemplate::MajorItem(
-                MajorItemDecTemplate::Fugitive(
-                    FugitiveDecTemplate::Gn(
-                        MajorGnDecTemplate {
+                MajorItemDecTemplate::Form(
+                    MajorFormDecTemplate::Ritchie(
+                        MajorFunctionRitchieDecTemplate {
+                            ritchie_item_kind: RitchieItemKind::Gn,
                             template_parameters: DecTemplateParameters {
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        svar: DecSvar(
+                                        svar: DecSymbolicVariable(
                                             Id {
                                                 value: 3,
                                             },
@@ -155,7 +156,7 @@
                                     },
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        svar: DecSvar(
+                                        svar: DecSymbolicVariable(
                                             Id {
                                                 value: 6,
                                             },
@@ -229,7 +230,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    svar: DecSvar(
+                                    svar: DecSymbolicVariable(
                                         Id {
                                             value: 4,
                                         },
@@ -238,7 +239,7 @@
                                 },
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    svar: DecSvar(
+                                    svar: DecSymbolicVariable(
                                         Id {
                                             value: 5,
                                         },
@@ -286,8 +287,8 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TraitForTypeItem(
-                    TraitForTypeItemDecTemplate::AssocFn(
-                        TraitForTypeAssocFnDecTemplate {
+                    TraitForTypeItemDecTemplate::AssocRitchie(
+                        TraitForTypeAssocRitchieDecTemplate {
                             self_ty: Application(
                                 DecApplication(
                                     Id {
@@ -328,7 +329,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    svar: DecSvar(
+                                    svar: DecSymbolicVariable(
                                         Id {
                                             value: 3,
                                         },
@@ -337,7 +338,7 @@
                                 },
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    svar: DecSvar(
+                                    svar: DecSymbolicVariable(
                                         Id {
                                             value: 6,
                                         },
@@ -419,8 +420,8 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TraitForTypeItem(
-                    TraitForTypeItemDecTemplate::AssocFn(
-                        TraitForTypeAssocFnDecTemplate {
+                    TraitForTypeItemDecTemplate::AssocRitchie(
+                        TraitForTypeAssocRitchieDecTemplate {
                             self_ty: Application(
                                 DecApplication(
                                     Id {
@@ -474,7 +475,7 @@
                             data: [
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    svar: DecSvar(
+                                    svar: DecSymbolicVariable(
                                         Id {
                                             value: 4,
                                         },
@@ -483,7 +484,7 @@
                                 },
                                 DeclarativeTemplateParameter {
                                     annotated_variance: None,
-                                    svar: DecSvar(
+                                    svar: DecSymbolicVariable(
                                         Id {
                                             value: 5,
                                         },
@@ -565,8 +566,8 @@
         Ok(
             DecTemplate::AssocItem(
                 AssocItemDecTemplate::TraitForTypeItem(
-                    TraitForTypeItemDecTemplate::AssocFn(
-                        TraitForTypeAssocFnDecTemplate {
+                    TraitForTypeItemDecTemplate::AssocRitchie(
+                        TraitForTypeAssocRitchieDecTemplate {
                             self_ty: Application(
                                 DecApplication(
                                     Id {

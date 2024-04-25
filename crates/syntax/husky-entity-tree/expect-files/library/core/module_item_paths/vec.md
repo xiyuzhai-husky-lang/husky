@@ -5,6 +5,16 @@
             TypePath(`core::vec::Vec`, `Extern`),
         ),
     ),
+    ItemPath::Attr(
+        Room32,
+        AttrItemPath(
+            ItemPathId(
+                Id {
+                    value: 241,
+                },
+            ),
+        ),
+    ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
             TypeImplBlockPath(

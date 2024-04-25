@@ -1,6 +1,6 @@
 use crate::*;
-use husky_dec_term::term::DecTermSymbolTypeErrorKind;
-use husky_syn_decl::DeclError;
+use husky_dec_term::term::DecSymbolicVariableTypeErrorKind;
+use husky_syn_decl::SynDeclError;
 use thiserror::Error;
 
 pub type DeclarativeTypeResult<T> = Result<T, DeclarativeTypeError>;
@@ -14,14 +14,14 @@ pub enum DeclarativeTypeError {
     Derived(#[from] DerivedDeclarativeTypeError),
 }
 
-impl From<DecTermSymbolTypeErrorKind> for DeclarativeTypeError {
-    fn from(e: DecTermSymbolTypeErrorKind) -> Self {
+impl From<DecSymbolicVariableTypeErrorKind> for DeclarativeTypeError {
+    fn from(e: DecSymbolicVariableTypeErrorKind) -> Self {
         DerivedDeclarativeTypeError::SymbolType(e).into()
     }
 }
 
-impl From<&DeclError> for DeclarativeTypeError {
-    fn from(_value: &DeclError) -> Self {
+impl From<&SynDeclError> for DeclarativeTypeError {
+    fn from(_value: &SynDeclError) -> Self {
         todo!()
     }
 }
@@ -53,7 +53,7 @@ pub enum DerivedDeclarativeTypeError {
     #[error("trait declaration error")]
     TraitDeclError,
     #[error("form declaration error")]
-    FugitiveDeclError,
+    FormDeclError,
     #[error("type path field declaration error")]
     TypePathFieldDeclError,
     #[error("type path application field declaration error")]
@@ -65,5 +65,5 @@ pub enum DerivedDeclarativeTypeError {
     #[error("TypeItemNotFound")]
     TypeItemNotFound,
     #[error("SymbolType")]
-    SymbolType(DecTermSymbolTypeErrorKind),
+    SymbolType(DecSymbolicVariableTypeErrorKind),
 }

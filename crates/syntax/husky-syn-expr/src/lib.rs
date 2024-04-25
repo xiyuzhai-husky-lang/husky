@@ -12,10 +12,10 @@ mod range;
 mod region;
 pub mod snippet;
 mod stmt;
-pub mod symbol;
 mod syndicates;
 #[cfg(test)]
 mod tests;
+pub mod variable;
 
 pub use self::context::*;
 pub use self::db::*;
@@ -26,8 +26,8 @@ pub use self::pattern::*;
 pub use self::range::*;
 pub use self::region::*;
 pub use self::stmt::*;
-pub use self::symbol::*;
 pub use self::syndicates::*;
+pub use self::variable::*;
 
 use self::entity_path::*;
 use self::snippet::*;
@@ -51,7 +51,7 @@ pub struct SynExprJar(
 pub enum BaseEntityPath {
     None,
     Some(EntityPath),
-    Uncertain {
+    UncertainDueToError {
         inclination: BaseEntityPathInclination,
     },
     SelfType,

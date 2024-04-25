@@ -66,7 +66,7 @@ impl<'a> EntitySymbolTableRef<'a> {
 #[derive(Debug, PartialEq, Eq)]
 pub struct EntitySymbolEntry {
     ident: Ident,
-    visibility: Scope,
+    visible_scope: Scope,
     symbol: EntitySymbol,
 }
 
@@ -75,7 +75,7 @@ impl EntitySymbolEntry {
         let root_module_path = crate_path.root_module_path(db);
         Self {
             ident: coword_menu(db).crate_ident(),
-            visibility: Scope::PubUnder(root_module_path),
+            visible_scope: Scope::PubUnder(root_module_path),
             symbol: EntitySymbol::CrateRoot { root_module_path },
         }
     }
@@ -90,7 +90,7 @@ impl EntitySymbolEntry {
             .expect("should be guaranteed in manifest");
         Ok(Self {
             ident: package_path.ident(db),
-            visibility: Scope::Pub,
+            visible_scope: Scope::Pub,
             symbol: EntitySymbol::PackageDependency {
                 item_path: lib_root_module_path.into(),
             },
@@ -106,7 +106,7 @@ impl EntitySymbolEntry {
         let visibility = rule.visibility();
         Self {
             ident: rule.ident().unwrap(),
-            visibility,
+            visible_scope: visibility,
             symbol: UseSymbol::new(
                 db,
                 original_symbol,
@@ -128,7 +128,7 @@ impl EntitySymbolEntry {
         let visibility = parent_rule.visibility();
         Self {
             ident,
-            visibility,
+            visible_scope: visibility,
             symbol: UseSymbol::new(
                 db,
                 EntitySymbol::TypeVariant { ty_variant_path },
@@ -150,7 +150,7 @@ impl EntitySymbolEntry {
         self.is_visible_from(db, reference_module_path.into())
             .then_some(EntitySymbolEntry {
                 ident: self.ident,
-                visibility: rule.visibility(),
+                visible_scope: rule.visibility(),
                 symbol: UseSymbol::new(
                     db,
                     self.symbol,
@@ -168,7 +168,7 @@ impl EntitySymbolEntry {
         db: &::salsa::Db,
         module_path: ReferenceModulePath,
     ) -> bool {
-        self.visibility.is_visible_from(db, module_path)
+        self.visible_scope.is_visible_from(db, module_path)
     }
 
     pub fn symbol(&self) -> EntitySymbol {
@@ -179,8 +179,8 @@ impl EntitySymbolEntry {
         self.ident
     }
 
-    pub fn visibility(&self) -> Scope {
-        self.visibility
+    pub fn visible_scope(&self) -> Scope {
+        self.visible_scope
     }
 }
 
@@ -251,7 +251,7 @@ impl EntitySymbolEntry {
     fn from_node(db: &::salsa::Db, node_entry: &ItemNodeEntry) -> Option<Self> {
         Some(EntitySymbolEntry {
             ident: node_entry.ident,
-            visibility: node_entry.visibility,
+            visible_scope: node_entry.visibility,
             symbol: EntitySymbol::from_node(db, &node_entry.node)?,
         })
     }

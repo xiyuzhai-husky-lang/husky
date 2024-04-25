@@ -6,13 +6,34 @@ pub struct TestAttrSynNodeDecl {
     pub syn_node_path: AttrSynNodePath,
     pub pound_token: PoundRegionalToken,
     pub test_token: IdentRegionalToken,
-    #[return_ref]
-    pub lpar_token: SynNodeDeclResult<LparRegionalToken>,
-    // todo: Tests
-    #[return_ref]
-    pub rpar_token: SynNodeDeclResult<RparRegionalToken>,
     #[skip_fmt]
     pub syn_expr_region: SynExprRegion,
+}
+
+/// # constructor
+
+impl TestAttrSynNodeDecl {
+    pub(super) fn new(db: &::salsa::Db, syn_node_path: AttrSynNodePath) -> Self {
+        let parser_factory = DeclParser::new(db, syn_node_path.into());
+        let mut parser = parser_factory.expr_parser(
+            syn_node_path
+                .parent_syn_node_path(db)
+                .syn_node_decl(db)
+                .syn_expr_region(db),
+            AllowSelfType::False,
+            AllowSelfValue::False,
+            None,
+        );
+        let pound_token = parser
+            .try_parse_option()
+            .expect("should be guaranteed")
+            .expect("should be guaranteed");
+        let test_token = parser
+            .try_parse_option()
+            .expect("should be guaranteed")
+            .expect("should be guaranteed");
+        Self::new_inner(db, syn_node_path, pound_token, test_token, parser.finish())
+    }
 }
 
 /// # getters
@@ -32,7 +53,12 @@ pub struct TestAttrSynDecl {
 }
 
 impl TestAttrSynDecl {
-    pub(super) fn from_node(node_decl: TestAttrSynNodeDecl, db: &::salsa::Db) -> DeclResult<Self> {
-        todo!()
+    pub(super) fn from_node(
+        path: AttrItemPath,
+        syn_node_decl: TestAttrSynNodeDecl,
+        db: &::salsa::Db,
+    ) -> SynDeclResult<Self> {
+        let syn_expr_region = syn_node_decl.syn_expr_region(db);
+        Ok(Self::new(db, path, syn_expr_region))
     }
 }

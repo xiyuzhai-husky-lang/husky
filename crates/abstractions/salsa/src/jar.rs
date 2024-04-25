@@ -151,6 +151,8 @@ pub enum JarIndex {
     // linkage
     JavelinJar,
     LinkageJar,
+    // namekian
+    NamAstJar,
     // semantics
     SemaExprJar,
     SemaPlaceContractJar,
@@ -165,6 +167,9 @@ pub enum JarIndex {
     SynExprJar,
     TomlAstJar,
     CorgiConfigAstJar,
+    // tex
+    TexAstJar,
+    TexCommandJar,
     // vm
     VmirJar,
 }

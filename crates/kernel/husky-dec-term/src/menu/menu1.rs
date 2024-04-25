@@ -8,8 +8,8 @@ pub struct DecTermMenu1 {
     explicit_covariant_ty0_to_ty0: DecCurry,
     explicit_contravariant_ty0_to_ty0: DecCurry,
     explicit_invariant_ty0_to_ty0: DecCurry,
-    implicit_self_lifetime: DecSvar,
-    implicit_self_place: DecSvar,
+    implicit_self_lifetime: DecSymbolicVariable,
+    implicit_self_place: DecSymbolicVariable,
 }
 
 impl std::ops::Deref for DecTermMenu1 {
@@ -57,17 +57,17 @@ impl DecTermMenu1 {
                 menu0.ty0().into(),
                 menu0.ty0().into(),
             ),
-            implicit_self_lifetime: DecSvar::new(
+            implicit_self_lifetime: DecSymbolicVariable::new(
                 db,
                 toolchain,
                 Ok(menu0.lifetime_ty()),
-                DecTermSymbolIndex::SELF_LIFETIME,
+                DecSymbolicVariableIndex::SELF_LIFETIME,
             ),
-            implicit_self_place: DecSvar::new(
+            implicit_self_place: DecSymbolicVariable::new(
                 db,
                 toolchain,
                 Ok(menu0.place_ty()),
-                DecTermSymbolIndex::SELF_PLACE,
+                DecSymbolicVariableIndex::SELF_PLACE,
             ),
             parent: menu0,
         }
@@ -93,11 +93,11 @@ impl DecTermMenu1 {
         self.static_ref_ty
     }
 
-    pub fn implicit_self_lifetime(&self) -> DecSvar {
+    pub fn auto_self_lifetime(&self) -> DecSymbolicVariable {
         self.implicit_self_lifetime
     }
 
-    pub fn implicit_self_place(&self) -> DecSvar {
+    pub fn auto_self_place(&self) -> DecSymbolicVariable {
         self.implicit_self_place
     }
 }

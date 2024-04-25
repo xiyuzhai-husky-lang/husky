@@ -23,6 +23,19 @@
         ),
     ),
     (
+        Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 395,
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
         MajorItem(
             Type(
                 TypePath(

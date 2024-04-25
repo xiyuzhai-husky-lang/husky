@@ -10,9 +10,9 @@
                         template_parameters: HirTemplateParameters(
                             [
                                 HirTemplateParameter {
-                                    symbol: HirTemplateSvar::Type(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
+                                    symbol: HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
@@ -43,17 +43,17 @@
                             pattern_arena: Arena {
                                 data: [],
                             },
-                            comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                            comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                                 arena: Arena {
                                     data: [
-                                        HirEagerComptimeSvarEntry {
-                                            name: HirEagerComptimeSvarName::Ident(
+                                        HirEagerComptimeVariableEntry {
+                                            name: HirEagerComptimeVariableName::Ident(
                                                 `Label`,
                                             ),
                                             data: Current,
-                                            hir_comptime_symbol: HirTemplateSvar::Type(
-                                                HirTypeSvar::Type {
-                                                    attrs: HirTemplateSvarAttrs {
+                                            hir_comptime_symbol: HirTemplateVariable::Type(
+                                                HirTypeTemplateVariable::Type {
+                                                    attrs: HirTemplateVariableAttrs {
                                                         class: Comptime,
                                                     },
                                                     variance: None,
@@ -64,7 +64,7 @@
                                     ],
                                 },
                             },
-                            runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                            runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                                 arena: Arena {
                                     data: [],
                                 },
@@ -74,6 +74,163 @@
                     },
                 },
             ),
+        ),
+    ),
+    HirDefn::TypeVariant(
+        TypeVariantHirDefn::Tuple(
+            EnumTupleVariantHirDefn {
+                path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 2,
+                        },
+                    ),
+                ),
+                hir_decl: EnumTupleVariantHirDecl {
+                    path: TypeVariantPath(
+                        ItemPathId(
+                            Id {
+                                value: 2,
+                            },
+                        ),
+                    ),
+                    fields: [
+                        EnumTupleVariantField {
+                            ty: HirType::Variable(
+                                HirTypeTemplateVariable::Type {
+                                    attrs: HirTemplateVariableAttrs {
+                                        class: Comptime,
+                                    },
+                                    variance: None,
+                                    disambiguator: 0,
+                                },
+                            ),
+                        },
+                    ],
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        region_path: RegionPath::Decl(
+                            ItemPath::TypeVariant(
+                                Room32,
+                                TypeVariantPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 2,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerComptimeVariableEntry {
+                                        name: HirEagerComptimeVariableName::Ident(
+                                            `Label`,
+                                        ),
+                                        data: Inherited,
+                                        hir_comptime_symbol: HirTemplateVariable::Type(
+                                            HirTypeTemplateVariable::Type {
+                                                attrs: HirTemplateVariableAttrs {
+                                                    class: Comptime,
+                                                },
+                                                variance: None,
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                    },
+                                ],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
+                },
+            },
+        ),
+    ),
+    HirDefn::TypeVariant(
+        TypeVariantHirDefn::Unit(
+            EnumUnitVariantHirDefn {
+                path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 3,
+                        },
+                    ),
+                ),
+                hir_decl: EnumUnitTypeVariantHirDecl {
+                    path: TypeVariantPath(
+                        ItemPathId(
+                            Id {
+                                value: 3,
+                            },
+                        ),
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        region_path: RegionPath::Decl(
+                            ItemPath::TypeVariant(
+                                Room32,
+                                TypeVariantPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 3,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerComptimeVariableEntry {
+                                        name: HirEagerComptimeVariableName::Ident(
+                                            `Label`,
+                                        ),
+                                        data: Inherited,
+                                        hir_comptime_symbol: HirTemplateVariable::Type(
+                                            HirTypeTemplateVariable::Type {
+                                                attrs: HirTemplateVariableAttrs {
+                                                    class: Comptime,
+                                                },
+                                                variance: None,
+                                                disambiguator: 0,
+                                            },
+                                        ),
+                                    },
+                                ],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
+                },
+            },
         ),
     ),
     HirDefn::MajorItem(
@@ -103,12 +260,12 @@
                             pattern_arena: Arena {
                                 data: [],
                             },
-                            comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                            comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                                 arena: Arena {
                                     data: [],
                                 },
                             },
-                            runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                            runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                                 arena: Arena {
                                     data: [],
                                 },
@@ -118,6 +275,118 @@
                     },
                 },
             ),
+        ),
+    ),
+    HirDefn::TypeVariant(
+        TypeVariantHirDefn::Unit(
+            EnumUnitVariantHirDefn {
+                path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 5,
+                        },
+                    ),
+                ),
+                hir_decl: EnumUnitTypeVariantHirDecl {
+                    path: TypeVariantPath(
+                        ItemPathId(
+                            Id {
+                                value: 5,
+                            },
+                        ),
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        region_path: RegionPath::Decl(
+                            ItemPath::TypeVariant(
+                                Room32,
+                                TypeVariantPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 5,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
+                },
+            },
+        ),
+    ),
+    HirDefn::TypeVariant(
+        TypeVariantHirDefn::Unit(
+            EnumUnitVariantHirDefn {
+                path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 6,
+                        },
+                    ),
+                ),
+                hir_decl: EnumUnitTypeVariantHirDecl {
+                    path: TypeVariantPath(
+                        ItemPathId(
+                            Id {
+                                value: 6,
+                            },
+                        ),
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        region_path: RegionPath::Decl(
+                            ItemPath::TypeVariant(
+                                Room32,
+                                TypeVariantPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 6,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
+                },
+            },
         ),
     ),
     HirDefn::MajorItem(
@@ -147,12 +416,12 @@
                             pattern_arena: Arena {
                                 data: [],
                             },
-                            comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                            comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                                 arena: Arena {
                                     data: [],
                                 },
                             },
-                            runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                            runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                                 arena: Arena {
                                     data: [],
                                 },
@@ -164,23 +433,192 @@
             ),
         ),
     ),
+    HirDefn::TypeVariant(
+        TypeVariantHirDefn::Unit(
+            EnumUnitVariantHirDefn {
+                path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 8,
+                        },
+                    ),
+                ),
+                hir_decl: EnumUnitTypeVariantHirDecl {
+                    path: TypeVariantPath(
+                        ItemPathId(
+                            Id {
+                                value: 8,
+                            },
+                        ),
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        region_path: RegionPath::Decl(
+                            ItemPath::TypeVariant(
+                                Room32,
+                                TypeVariantPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 8,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
+                },
+            },
+        ),
+    ),
+    HirDefn::TypeVariant(
+        TypeVariantHirDefn::Unit(
+            EnumUnitVariantHirDefn {
+                path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 9,
+                        },
+                    ),
+                ),
+                hir_decl: EnumUnitTypeVariantHirDecl {
+                    path: TypeVariantPath(
+                        ItemPathId(
+                            Id {
+                                value: 9,
+                            },
+                        ),
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        region_path: RegionPath::Decl(
+                            ItemPath::TypeVariant(
+                                Room32,
+                                TypeVariantPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 9,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
+                },
+            },
+        ),
+    ),
+    HirDefn::TypeVariant(
+        TypeVariantHirDefn::Unit(
+            EnumUnitVariantHirDefn {
+                path: TypeVariantPath(
+                    ItemPathId(
+                        Id {
+                            value: 10,
+                        },
+                    ),
+                ),
+                hir_decl: EnumUnitTypeVariantHirDecl {
+                    path: TypeVariantPath(
+                        ItemPathId(
+                            Id {
+                                value: 10,
+                            },
+                        ),
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        region_path: RegionPath::Decl(
+                            ItemPath::TypeVariant(
+                                Room32,
+                                TypeVariantPath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 10,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
+                },
+            },
+        ),
+    ),
     HirDefn::MajorItem(
-        MajorItemHirDefn::Fugitive(
-            FugitiveHirDefn::FunctionGn(
-                FunctionGnHirDefn {
-                    path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+        MajorItemHirDefn::Form(
+            MajorFormHirDefn::Ritchie(
+                MajorFunctionRitchieHirDefn {
+                    path: FormPath(`malamute::narrow_down`, `Ritchie(
                         Gn,
                     )`),
-                    hir_decl: FunctionGnFugitiveHirDecl {
-                        path: FugitivePath(`malamute::narrow_down`, `Ritchie(
+                    hir_decl: MajorFunctionRitchieHirDecl {
+                        path: FormPath(`malamute::narrow_down`, `Ritchie(
                             Gn,
                         )`),
+                        ritchie_item_kind: RitchieItemKind::Gn,
                         template_parameters: HirTemplateParameters(
                             [
                                 HirTemplateParameter {
-                                    symbol: HirTemplateSvar::Type(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
+                                    symbol: HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
@@ -193,19 +631,19 @@
                                     },
                                 },
                                 HirTemplateParameter {
-                                    symbol: HirTemplateSvar::Const(
-                                        HirConstSvar {
-                                            ty: HirType::Svar(
-                                                HirTypeSvar::Type {
-                                                    attrs: HirTemplateSvarAttrs {
+                                    symbol: HirTemplateVariable::Const(
+                                        HirConstTemplateVariable {
+                                            ty: HirType::Variable(
+                                                HirTypeTemplateVariable::Type {
+                                                    attrs: HirTemplateVariableAttrs {
                                                         class: Comptime,
                                                     },
                                                     variance: None,
                                                     disambiguator: 0,
                                                 },
                                             ),
-                                            index: HirConstSvarIndex::Other {
-                                                attrs: HirTemplateSvarAttrs {
+                                            index: HirConstTemplateVariableIndex::Other {
+                                                attrs: HirTemplateVariableAttrs {
                                                     class: Runtime,
                                                 },
                                                 disambiguator: 0,
@@ -214,9 +652,9 @@
                                     ),
                                     data: HirTemplateParameterData::Constant {
                                         ident: `label`,
-                                        ty: HirType::Svar(
-                                            HirTypeSvar::Type {
-                                                attrs: HirTemplateSvarAttrs {
+                                        ty: HirType::Variable(
+                                            HirTypeTemplateVariable::Type {
+                                                attrs: HirTemplateVariableAttrs {
                                                     class: Comptime,
                                                 },
                                                 variance: None,
@@ -227,35 +665,37 @@
                                 },
                             ],
                         ),
-                        parenate_parameters: HirLazyParenateParameters(
-                            [
-                                Variadic {
-                                    variant: Vec,
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 2,
-                                            },
+                        parenate_parameters: HirParenateParameters::Lazy(
+                            HirLazyParenateParameters(
+                                [
+                                    Variadic {
+                                        variant: Vec,
+                                        ty: PathLeading(
+                                            HirTypePathLeading(
+                                                Id {
+                                                    value: 2,
+                                                },
+                                            ),
                                         ),
-                                    ),
-                                },
-                                Keyed {
-                                    ident: Ident(
-                                        Coword(
-                                            Id {
-                                                value: 36,
-                                            },
+                                    },
+                                    Keyed {
+                                        ident: Ident(
+                                            Coword(
+                                                Id {
+                                                    value: 36,
+                                                },
+                                            ),
                                         ),
-                                    ),
-                                    ty: PathLeading(
-                                        HirTypePathLeading(
-                                            Id {
-                                                value: 3,
-                                            },
+                                        ty: PathLeading(
+                                            HirTypePathLeading(
+                                                Id {
+                                                    value: 3,
+                                                },
+                                            ),
                                         ),
-                                    ),
-                                },
-                            ],
+                                    },
+                                ],
+                            ),
                         ),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
@@ -264,49 +704,15 @@
                                 always_copyable: true,
                             },
                         ),
-                        hir_lazy_expr_region: HirLazyExprRegion {
-                            hir_lazy_expr_arena: Arena {
-                                data: [],
-                            },
-                            hir_lazy_stmt_arena: Arena {
-                                data: [],
-                            },
-                            hir_lazy_pattern_expr_arena: Arena {
-                                data: [],
-                            },
-                            hir_lazy_variable_region: HirLazyVariableRegion {
-                                arena: Arena {
-                                    data: [
-                                        HirLazyVariable {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 34,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                            data: ParenateParameter,
-                                        },
-                                        HirLazyVariable {
-                                            name: Ident(
-                                                Ident(
-                                                    Coword(
-                                                        Id {
-                                                            value: 36,
-                                                        },
-                                                    ),
-                                                ),
-                                            ),
-                                            data: ParenateParameter,
-                                        },
-                                    ],
+                        hir_expr_region: Lazy(
+                            HirLazyExprRegion(
+                                Id {
+                                    value: 1,
                                 },
-                            },
-                        },
+                            ),
+                        ),
                     },
-                    lazy_body_with_hir_lazy_expr_region: None,
+                    body_with_hir_expr_region: None,
                 },
             ),
         ),
@@ -347,12 +753,12 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -365,15 +771,15 @@
     ),
     HirDefn::AssocItem(
         AssocItemHirDefn::TraitForTypeItem(
-            TraitForTypeItemHirDefn::AssocFn(
-                TraitForTypeAssocFnHirDefn {
+            TraitForTypeItemHirDefn::AssocRitchie(
+                TraitForTypeAssocRitchieHirDefn {
                     path: TraitForTypeItemPath(
                         `<malamute::OneVsAll as core::default::Default(0)>::default`,
                         TraitItemKind::AssocRitchie(
                             RitchieItemKind::Fn,
                         ),
                     ),
-                    hir_decl: TraitForTypeAssocFnHirDecl {
+                    hir_decl: TraitForTypeAssocRitchieHirDecl {
                         path: TraitForTypeItemPath(
                             `<malamute::OneVsAll as core::default::Default(0)>::default`,
                             TraitItemKind::AssocRitchie(
@@ -415,29 +821,29 @@
                             pattern_arena: Arena {
                                 data: [],
                             },
-                            comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                            comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                                 arena: Arena {
                                     data: [],
                                 },
                             },
-                            runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                            runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                                 arena: Arena {
                                     data: [
-                                        HirEagerRuntimeSvarEntry {
-                                            name: HirEagerRuntimeSvarName::SelfValue,
-                                            data: HirEagerRuntimeSvarData::SelfValue,
+                                        HirEagerRuntimeVariableEntry {
+                                            name: HirEagerRuntimeVariableName::SelfValue,
+                                            data: HirEagerRuntimeVariableData::SelfValue,
                                         },
                                     ],
                                 },
                                 self_value_variable: Some(
-                                    1,
+                                    0,
                                 ),
                             },
                         },
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            2,
+                            1,
                             HirEagerExprRegion {
                                 region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
@@ -477,7 +883,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
-                                                    1..2,
+                                                    0..1,
                                                 ),
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -494,10 +900,10 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr: 1,
-                                            coersion: Some(
+                                            expr: 0,
+                                            coercion: Some(
                                                 Trivial(
-                                                    TrivialHirEagerCoersion {
+                                                    TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -509,12 +915,12 @@
                                 pattern_arena: Arena {
                                     data: [],
                                 },
-                                comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                                comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                                     arena: Arena {
                                         data: [],
                                     },
                                 },
-                                runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                                runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                                     arena: Arena {
                                         data: [],
                                     },
@@ -535,9 +941,9 @@
                     template_parameters: HirTemplateParameters(
                         [
                             HirTemplateParameter {
-                                symbol: HirTemplateSvar::Type(
-                                    HirTypeSvar::Type {
-                                        attrs: HirTemplateSvarAttrs {
+                                symbol: HirTemplateVariable::Type(
+                                    HirTypeTemplateVariable::Type {
+                                        attrs: HirTemplateVariableAttrs {
                                             class: Comptime,
                                         },
                                         variance: None,
@@ -550,19 +956,19 @@
                                 },
                             },
                             HirTemplateParameter {
-                                symbol: HirTemplateSvar::Const(
-                                    HirConstSvar {
-                                        ty: HirType::Svar(
-                                            HirTypeSvar::Type {
-                                                attrs: HirTemplateSvarAttrs {
+                                symbol: HirTemplateVariable::Const(
+                                    HirConstTemplateVariable {
+                                        ty: HirType::Variable(
+                                            HirTypeTemplateVariable::Type {
+                                                attrs: HirTemplateVariableAttrs {
                                                     class: Comptime,
                                                 },
                                                 variance: None,
                                                 disambiguator: 0,
                                             },
                                         ),
-                                        index: HirConstSvarIndex::Other {
-                                            attrs: HirTemplateSvarAttrs {
+                                        index: HirConstTemplateVariableIndex::Other {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Runtime,
                                             },
                                             disambiguator: 0,
@@ -571,9 +977,9 @@
                                 ),
                                 data: HirTemplateParameterData::Constant {
                                     ident: `label`,
-                                    ty: HirType::Svar(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
+                                    ty: HirType::Variable(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
@@ -603,9 +1009,9 @@
                             ty_path: TypePath(`malamute::Class`, `Enum`),
                             template_arguments: [
                                 HirTemplateArgument::Type(
-                                    HirType::Svar(
-                                        HirTypeSvar::Type {
-                                            attrs: HirTemplateSvarAttrs {
+                                    HirType::Variable(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
                                                 class: Comptime,
                                             },
                                             variance: None,
@@ -634,17 +1040,17 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [
-                                    HirEagerComptimeSvarEntry {
-                                        name: HirEagerComptimeSvarName::Ident(
+                                    HirEagerComptimeVariableEntry {
+                                        name: HirEagerComptimeVariableName::Ident(
                                             `Label`,
                                         ),
                                         data: Current,
-                                        hir_comptime_symbol: HirTemplateSvar::Type(
-                                            HirTypeSvar::Type {
-                                                attrs: HirTemplateSvarAttrs {
+                                        hir_comptime_symbol: HirTemplateVariable::Type(
+                                            HirTypeTemplateVariable::Type {
+                                                attrs: HirTemplateVariableAttrs {
                                                     class: Comptime,
                                                 },
                                                 variance: None,
@@ -652,24 +1058,24 @@
                                             },
                                         ),
                                     },
-                                    HirEagerComptimeSvarEntry {
-                                        name: HirEagerComptimeSvarName::Ident(
+                                    HirEagerComptimeVariableEntry {
+                                        name: HirEagerComptimeVariableName::Ident(
                                             `label`,
                                         ),
                                         data: Current,
-                                        hir_comptime_symbol: HirTemplateSvar::Const(
-                                            HirConstSvar {
-                                                ty: HirType::Svar(
-                                                    HirTypeSvar::Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                        hir_comptime_symbol: HirTemplateVariable::Const(
+                                            HirConstTemplateVariable {
+                                                ty: HirType::Variable(
+                                                    HirTypeTemplateVariable::Type {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
                                                         disambiguator: 0,
                                                     },
                                                 ),
-                                                index: HirConstSvarIndex::Other {
-                                                    attrs: HirTemplateSvarAttrs {
+                                                index: HirConstTemplateVariableIndex::Other {
+                                                    attrs: HirTemplateVariableAttrs {
                                                         class: Runtime,
                                                     },
                                                     disambiguator: 0,
@@ -680,7 +1086,7 @@
                                 ],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -734,17 +1140,17 @@
                             pattern_arena: Arena {
                                 data: [],
                             },
-                            comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                            comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                                 arena: Arena {
                                     data: [
-                                        HirEagerComptimeSvarEntry {
-                                            name: HirEagerComptimeSvarName::Ident(
+                                        HirEagerComptimeVariableEntry {
+                                            name: HirEagerComptimeVariableName::Ident(
                                                 `Label`,
                                             ),
                                             data: Inherited,
-                                            hir_comptime_symbol: HirTemplateSvar::Type(
-                                                HirTypeSvar::Type {
-                                                    attrs: HirTemplateSvarAttrs {
+                                            hir_comptime_symbol: HirTemplateVariable::Type(
+                                                HirTypeTemplateVariable::Type {
+                                                    attrs: HirTemplateVariableAttrs {
                                                         class: Comptime,
                                                     },
                                                     variance: None,
@@ -752,24 +1158,24 @@
                                                 },
                                             ),
                                         },
-                                        HirEagerComptimeSvarEntry {
-                                            name: HirEagerComptimeSvarName::Ident(
+                                        HirEagerComptimeVariableEntry {
+                                            name: HirEagerComptimeVariableName::Ident(
                                                 `label`,
                                             ),
                                             data: Inherited,
-                                            hir_comptime_symbol: HirTemplateSvar::Const(
-                                                HirConstSvar {
-                                                    ty: HirType::Svar(
-                                                        HirTypeSvar::Type {
-                                                            attrs: HirTemplateSvarAttrs {
+                                            hir_comptime_symbol: HirTemplateVariable::Const(
+                                                HirConstTemplateVariable {
+                                                    ty: HirType::Variable(
+                                                        HirTypeTemplateVariable::Type {
+                                                            attrs: HirTemplateVariableAttrs {
                                                                 class: Comptime,
                                                             },
                                                             variance: None,
                                                             disambiguator: 0,
                                                         },
                                                     ),
-                                                    index: HirConstSvarIndex::Other {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                    index: HirConstTemplateVariableIndex::Other {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Runtime,
                                                         },
                                                         disambiguator: 0,
@@ -780,7 +1186,7 @@
                                     ],
                                 },
                             },
-                            runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                            runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                                 arena: Arena {
                                     data: [],
                                 },
@@ -794,15 +1200,15 @@
     ),
     HirDefn::AssocItem(
         AssocItemHirDefn::TraitForTypeItem(
-            TraitForTypeItemHirDefn::AssocFn(
-                TraitForTypeAssocFnHirDefn {
+            TraitForTypeItemHirDefn::AssocRitchie(
+                TraitForTypeAssocRitchieHirDefn {
                     path: TraitForTypeItemPath(
                         `<malamute::Class as core::ops::Unveil(0)>::unveil`,
                         TraitItemKind::AssocRitchie(
                             RitchieItemKind::Fn,
                         ),
                     ),
-                    hir_decl: TraitForTypeAssocFnHirDecl {
+                    hir_decl: TraitForTypeAssocRitchieHirDecl {
                         path: TraitForTypeItemPath(
                             `<malamute::Class as core::ops::Unveil(0)>::unveil`,
                             TraitItemKind::AssocRitchie(
@@ -815,7 +1221,7 @@
                         parenate_parameters: HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 1,
+                                    pattern_expr_idx: 0,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -837,9 +1243,9 @@
                                                 ty_path: TypePath(`malamute::Class`, `Enum`),
                                                 template_arguments: [
                                                     HirTemplateArgument::Type(
-                                                        HirType::Svar(
-                                                            HirTypeSvar::Type {
-                                                                attrs: HirTemplateSvarAttrs {
+                                                        HirType::Variable(
+                                                            HirTypeTemplateVariable::Type {
+                                                                attrs: HirTemplateVariableAttrs {
                                                                     class: Comptime,
                                                                 },
                                                                 variance: None,
@@ -895,17 +1301,17 @@
                                     },
                                 ],
                             },
-                            comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                            comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                                 arena: Arena {
                                     data: [
-                                        HirEagerComptimeSvarEntry {
-                                            name: HirEagerComptimeSvarName::Ident(
+                                        HirEagerComptimeVariableEntry {
+                                            name: HirEagerComptimeVariableName::Ident(
                                                 `Label`,
                                             ),
                                             data: Inherited,
-                                            hir_comptime_symbol: HirTemplateSvar::Type(
-                                                HirTypeSvar::Type {
-                                                    attrs: HirTemplateSvarAttrs {
+                                            hir_comptime_symbol: HirTemplateVariable::Type(
+                                                HirTypeTemplateVariable::Type {
+                                                    attrs: HirTemplateVariableAttrs {
                                                         class: Comptime,
                                                     },
                                                     variance: None,
@@ -913,24 +1319,24 @@
                                                 },
                                             ),
                                         },
-                                        HirEagerComptimeSvarEntry {
-                                            name: HirEagerComptimeSvarName::Ident(
+                                        HirEagerComptimeVariableEntry {
+                                            name: HirEagerComptimeVariableName::Ident(
                                                 `label`,
                                             ),
                                             data: Inherited,
-                                            hir_comptime_symbol: HirTemplateSvar::Const(
-                                                HirConstSvar {
-                                                    ty: HirType::Svar(
-                                                        HirTypeSvar::Type {
-                                                            attrs: HirTemplateSvarAttrs {
+                                            hir_comptime_symbol: HirTemplateVariable::Const(
+                                                HirConstTemplateVariable {
+                                                    ty: HirType::Variable(
+                                                        HirTypeTemplateVariable::Type {
+                                                            attrs: HirTemplateVariableAttrs {
                                                                 class: Comptime,
                                                             },
                                                             variance: None,
                                                             disambiguator: 0,
                                                         },
                                                     ),
-                                                    index: HirConstSvarIndex::Other {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                    index: HirConstTemplateVariableIndex::Other {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Runtime,
                                                         },
                                                         disambiguator: 0,
@@ -941,30 +1347,30 @@
                                     ],
                                 },
                             },
-                            runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                            runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                                 arena: Arena {
                                     data: [
-                                        HirEagerRuntimeSvarEntry {
-                                            name: HirEagerRuntimeSvarName::SelfValue,
-                                            data: HirEagerRuntimeSvarData::SelfValue,
+                                        HirEagerRuntimeVariableEntry {
+                                            name: HirEagerRuntimeVariableName::SelfValue,
+                                            data: HirEagerRuntimeVariableData::SelfValue,
                                         },
-                                        HirEagerRuntimeSvarEntry {
-                                            name: HirEagerRuntimeSvarName::Ident(
+                                        HirEagerRuntimeVariableEntry {
+                                            name: HirEagerRuntimeVariableName::Ident(
                                                 `one_vs_all`,
                                             ),
-                                            data: HirEagerRuntimeSvarData::ParenateParameter,
+                                            data: HirEagerRuntimeVariableData::ParenateParameter,
                                         },
                                     ],
                                 },
                                 self_value_variable: Some(
-                                    1,
+                                    0,
                                 ),
                             },
                         },
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            7,
+                            6,
                             HirEagerExprRegion {
                                 region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
@@ -982,7 +1388,7 @@
                                     data: [
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                1,
+                                                0,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -1007,7 +1413,7 @@
                                             },
                                         },
                                         HirEagerExprEntry {
-                                            data: HirEagerExprData::ConstSvar {
+                                            data: HirEagerExprData::ConstVariable {
                                                 ident: `label`,
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -1031,20 +1437,20 @@
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
                                                         (
-                                                            HirTemplateSvar::Type(
-                                                                HirTypeSvar::Type {
-                                                                    attrs: HirTemplateSvarAttrs {
+                                                            HirTemplateVariable::Type(
+                                                                HirTypeTemplateVariable::Type {
+                                                                    attrs: HirTemplateVariableAttrs {
                                                                         class: Comptime,
                                                                     },
                                                                     variance: None,
                                                                     disambiguator: 0,
                                                                 },
                                                             ),
-                                                            HirTermSvarResolution::Explicit(
+                                                            HirTermSymbolicVariableResolution::Explicit(
                                                                 HirTemplateArgument::Type(
-                                                                    HirType::Svar(
-                                                                        HirTypeSvar::Type {
-                                                                            attrs: HirTemplateSvarAttrs {
+                                                                    HirType::Variable(
+                                                                        HirTypeTemplateVariable::Type {
+                                                                            attrs: HirTemplateVariableAttrs {
                                                                                 class: Comptime,
                                                                             },
                                                                             variance: None,
@@ -1061,9 +1467,9 @@
                                                     Simple(
                                                         HirRitchieSimpleParameter {
                                                             contract: Move,
-                                                            ty: Svar(
+                                                            ty: Variable(
                                                                 Type {
-                                                                    attrs: HirTemplateSvarAttrs {
+                                                                    attrs: HirTemplateVariableAttrs {
                                                                         class: Comptime,
                                                                     },
                                                                     variance: None,
@@ -1071,9 +1477,9 @@
                                                                 },
                                                             ),
                                                         },
-                                                        2,
+                                                        1,
                                                         Trivial(
-                                                            TrivialHirEagerCoersion {
+                                                            TrivialHirEagerCoercion {
                                                                 expectee_quary: Const,
                                                             },
                                                         ),
@@ -1101,25 +1507,25 @@
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
                                                         (
-                                                            HirTemplateSvar::Type(
-                                                                HirTypeSvar::Type {
-                                                                    attrs: HirTemplateSvarAttrs {
+                                                            HirTemplateVariable::Type(
+                                                                HirTypeTemplateVariable::Type {
+                                                                    attrs: HirTemplateVariableAttrs {
                                                                         class: Comptime,
                                                                     },
                                                                     variance: None,
                                                                     disambiguator: 0,
                                                                 },
                                                             ),
-                                                            HirTermSvarResolution::Explicit(
+                                                            HirTermSymbolicVariableResolution::Explicit(
                                                                 HirTemplateArgument::Type(
                                                                     HirType::PathLeading(
                                                                         HirTypePathLeading {
                                                                             ty_path: TypePath(`malamute::Class`, `Enum`),
                                                                             template_arguments: [
                                                                                 HirTemplateArgument::Type(
-                                                                                    HirType::Svar(
-                                                                                        HirTypeSvar::Type {
-                                                                                            attrs: HirTemplateSvarAttrs {
+                                                                                    HirType::Variable(
+                                                                                        HirTypeTemplateVariable::Type {
+                                                                                            attrs: HirTemplateVariableAttrs {
                                                                                                 class: Comptime,
                                                                                             },
                                                                                             variance: None,
@@ -1135,16 +1541,16 @@
                                                             ),
                                                         ),
                                                         (
-                                                            HirTemplateSvar::Type(
-                                                                HirTypeSvar::Type {
-                                                                    attrs: HirTemplateSvarAttrs {
+                                                            HirTemplateVariable::Type(
+                                                                HirTypeTemplateVariable::Type {
+                                                                    attrs: HirTemplateVariableAttrs {
                                                                         class: Comptime,
                                                                     },
                                                                     variance: None,
                                                                     disambiguator: 1,
                                                                 },
                                                             ),
-                                                            HirTermSvarResolution::Explicit(
+                                                            HirTermSymbolicVariableResolution::Explicit(
                                                                 HirTemplateArgument::Type(
                                                                     HirType::PathLeading(
                                                                         HirTypePathLeading {
@@ -1171,9 +1577,9 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        3,
+                                                        2,
                                                         Trivial(
-                                                            TrivialHirEagerCoersion {
+                                                            TrivialHirEagerCoercion {
                                                                 expectee_quary: Transient,
                                                             },
                                                         ),
@@ -1216,25 +1622,25 @@
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
                                                         (
-                                                            HirTemplateSvar::Type(
-                                                                HirTypeSvar::Type {
-                                                                    attrs: HirTemplateSvarAttrs {
+                                                            HirTemplateVariable::Type(
+                                                                HirTypeTemplateVariable::Type {
+                                                                    attrs: HirTemplateVariableAttrs {
                                                                         class: Comptime,
                                                                     },
                                                                     variance: None,
                                                                     disambiguator: 0,
                                                                 },
                                                             ),
-                                                            HirTermSvarResolution::Explicit(
+                                                            HirTermSymbolicVariableResolution::Explicit(
                                                                 HirTemplateArgument::Type(
                                                                     HirType::PathLeading(
                                                                         HirTypePathLeading {
                                                                             ty_path: TypePath(`malamute::Class`, `Enum`),
                                                                             template_arguments: [
                                                                                 HirTemplateArgument::Type(
-                                                                                    HirType::Svar(
-                                                                                        HirTypeSvar::Type {
-                                                                                            attrs: HirTemplateSvarAttrs {
+                                                                                    HirType::Variable(
+                                                                                        HirTypeTemplateVariable::Type {
+                                                                                            attrs: HirTemplateVariableAttrs {
                                                                                                 class: Comptime,
                                                                                             },
                                                                                             variance: None,
@@ -1250,16 +1656,16 @@
                                                             ),
                                                         ),
                                                         (
-                                                            HirTemplateSvar::Type(
-                                                                HirTypeSvar::Type {
-                                                                    attrs: HirTemplateSvarAttrs {
+                                                            HirTemplateVariable::Type(
+                                                                HirTypeTemplateVariable::Type {
+                                                                    attrs: HirTemplateVariableAttrs {
                                                                         class: Comptime,
                                                                     },
                                                                     variance: None,
                                                                     disambiguator: 1,
                                                                 },
                                                             ),
-                                                            HirTermSvarResolution::Explicit(
+                                                            HirTermSymbolicVariableResolution::Explicit(
                                                                 HirTemplateArgument::Type(
                                                                     HirType::PathLeading(
                                                                         HirTypePathLeading {
@@ -1286,9 +1692,9 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        5,
+                                                        4,
                                                         Trivial(
-                                                            TrivialHirEagerCoersion {
+                                                            TrivialHirEagerCoercion {
                                                                 expectee_quary: Transient,
                                                             },
                                                         ),
@@ -1307,7 +1713,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
-                                                    3..4,
+                                                    2..3,
                                                 ),
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -1324,10 +1730,10 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr: 4,
-                                            coersion: Some(
+                                            expr: 3,
+                                            coercion: Some(
                                                 Trivial(
-                                                    TrivialHirEagerCoersion {
+                                                    TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -1335,10 +1741,10 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr: 6,
-                                            coersion: Some(
+                                            expr: 5,
+                                            coercion: Some(
                                                 Trivial(
-                                                    TrivialHirEagerCoersion {
+                                                    TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -1346,18 +1752,18 @@
                                             discarded: false,
                                         },
                                         Match {
-                                            opd: 1,
+                                            opd: 0,
                                             case_branches: [
+                                                HirEagerCaseBranch {
+                                                    pattern: 0,
+                                                    stmts: ArenaIdxRange(
+                                                        0..1,
+                                                    ),
+                                                },
                                                 HirEagerCaseBranch {
                                                     pattern: 1,
                                                     stmts: ArenaIdxRange(
                                                         1..2,
-                                                    ),
-                                                },
-                                                HirEagerCaseBranch {
-                                                    pattern: 2,
-                                                    stmts: ArenaIdxRange(
-                                                        2..3,
                                                     ),
                                                 },
                                             ],
@@ -1396,17 +1802,17 @@
                                         },
                                     ],
                                 },
-                                comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                                comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                                     arena: Arena {
                                         data: [
-                                            HirEagerComptimeSvarEntry {
-                                                name: HirEagerComptimeSvarName::Ident(
+                                            HirEagerComptimeVariableEntry {
+                                                name: HirEagerComptimeVariableName::Ident(
                                                     `Label`,
                                                 ),
                                                 data: Inherited,
-                                                hir_comptime_symbol: HirTemplateSvar::Type(
-                                                    HirTypeSvar::Type {
-                                                        attrs: HirTemplateSvarAttrs {
+                                                hir_comptime_symbol: HirTemplateVariable::Type(
+                                                    HirTypeTemplateVariable::Type {
+                                                        attrs: HirTemplateVariableAttrs {
                                                             class: Comptime,
                                                         },
                                                         variance: None,
@@ -1414,24 +1820,24 @@
                                                     },
                                                 ),
                                             },
-                                            HirEagerComptimeSvarEntry {
-                                                name: HirEagerComptimeSvarName::Ident(
+                                            HirEagerComptimeVariableEntry {
+                                                name: HirEagerComptimeVariableName::Ident(
                                                     `label`,
                                                 ),
                                                 data: Inherited,
-                                                hir_comptime_symbol: HirTemplateSvar::Const(
-                                                    HirConstSvar {
-                                                        ty: HirType::Svar(
-                                                            HirTypeSvar::Type {
-                                                                attrs: HirTemplateSvarAttrs {
+                                                hir_comptime_symbol: HirTemplateVariable::Const(
+                                                    HirConstTemplateVariable {
+                                                        ty: HirType::Variable(
+                                                            HirTypeTemplateVariable::Type {
+                                                                attrs: HirTemplateVariableAttrs {
                                                                     class: Comptime,
                                                                 },
                                                                 variance: None,
                                                                 disambiguator: 0,
                                                             },
                                                         ),
-                                                        index: HirConstSvarIndex::Other {
-                                                            attrs: HirTemplateSvarAttrs {
+                                                        index: HirConstTemplateVariableIndex::Other {
+                                                            attrs: HirTemplateVariableAttrs {
                                                                 class: Runtime,
                                                             },
                                                             disambiguator: 0,
@@ -1442,14 +1848,14 @@
                                         ],
                                     },
                                 },
-                                runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                                runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                                     arena: Arena {
                                         data: [
-                                            HirEagerRuntimeSvarEntry {
-                                                name: HirEagerRuntimeSvarName::Ident(
+                                            HirEagerRuntimeVariableEntry {
+                                                name: HirEagerRuntimeVariableName::Ident(
                                                     `one_vs_all`,
                                                 ),
-                                                data: HirEagerRuntimeSvarData::ParenateParameter,
+                                                data: HirEagerRuntimeVariableData::ParenateParameter,
                                             },
                                         ],
                                     },
@@ -1508,12 +1914,12 @@
                         pattern_arena: Arena {
                             data: [],
                         },
-                        comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
                         },
-                        runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                             arena: Arena {
                                 data: [],
                             },
@@ -1567,12 +1973,12 @@
                             pattern_arena: Arena {
                                 data: [],
                             },
-                            comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                            comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                                 arena: Arena {
                                     data: [],
                                 },
                             },
-                            runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                            runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                                 arena: Arena {
                                     data: [],
                                 },
@@ -1586,15 +1992,15 @@
     ),
     HirDefn::AssocItem(
         AssocItemHirDefn::TraitForTypeItem(
-            TraitForTypeItemHirDefn::AssocFn(
-                TraitForTypeAssocFnHirDefn {
+            TraitForTypeItemHirDefn::AssocRitchie(
+                TraitForTypeAssocRitchieHirDefn {
                     path: TraitForTypeItemPath(
                         `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
                         TraitItemKind::AssocRitchie(
                             RitchieItemKind::Fn,
                         ),
                     ),
-                    hir_decl: TraitForTypeAssocFnHirDecl {
+                    hir_decl: TraitForTypeAssocRitchieHirDecl {
                         path: TraitForTypeItemPath(
                             `<malamute::OneVsAll as core::ops::Unveil(0)>::unveil`,
                             TraitItemKind::AssocRitchie(
@@ -1607,7 +2013,7 @@
                         parenate_parameters: HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 1,
+                                    pattern_expr_idx: 0,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -1675,35 +2081,35 @@
                                     },
                                 ],
                             },
-                            comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                            comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                                 arena: Arena {
                                     data: [],
                                 },
                             },
-                            runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                            runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                                 arena: Arena {
                                     data: [
-                                        HirEagerRuntimeSvarEntry {
-                                            name: HirEagerRuntimeSvarName::SelfValue,
-                                            data: HirEagerRuntimeSvarData::SelfValue,
+                                        HirEagerRuntimeVariableEntry {
+                                            name: HirEagerRuntimeVariableName::SelfValue,
+                                            data: HirEagerRuntimeVariableData::SelfValue,
                                         },
-                                        HirEagerRuntimeSvarEntry {
-                                            name: HirEagerRuntimeSvarName::Ident(
+                                        HirEagerRuntimeVariableEntry {
+                                            name: HirEagerRuntimeVariableName::Ident(
                                                 `one_vs_all_result`,
                                             ),
-                                            data: HirEagerRuntimeSvarData::ParenateParameter,
+                                            data: HirEagerRuntimeVariableData::ParenateParameter,
                                         },
                                     ],
                                 },
                                 self_value_variable: Some(
-                                    1,
+                                    0,
                                 ),
                             },
                         },
                     },
                     eager_body_with_hir_eager_expr_region: Some(
                         (
-                            8,
+                            7,
                             HirEagerExprRegion {
                                 region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
@@ -1721,7 +2127,7 @@
                                     data: [
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Variable(
-                                                1,
+                                                0,
                                             ),
                                             contracted_quary: HirContractedQuary {
                                                 contract: Some(
@@ -1778,16 +2184,16 @@
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
                                                         (
-                                                            HirTemplateSvar::Type(
-                                                                HirTypeSvar::Type {
-                                                                    attrs: HirTemplateSvarAttrs {
+                                                            HirTemplateVariable::Type(
+                                                                HirTypeTemplateVariable::Type {
+                                                                    attrs: HirTemplateVariableAttrs {
                                                                         class: Comptime,
                                                                     },
                                                                     variance: None,
                                                                     disambiguator: 0,
                                                                 },
                                                             ),
-                                                            HirTermSvarResolution::Explicit(
+                                                            HirTermSymbolicVariableResolution::Explicit(
                                                                 HirTemplateArgument::Type(
                                                                     HirType::PathLeading(
                                                                         HirTypePathLeading {
@@ -1800,16 +2206,16 @@
                                                             ),
                                                         ),
                                                         (
-                                                            HirTemplateSvar::Type(
-                                                                HirTypeSvar::Type {
-                                                                    attrs: HirTemplateSvarAttrs {
+                                                            HirTemplateVariable::Type(
+                                                                HirTypeTemplateVariable::Type {
+                                                                    attrs: HirTemplateVariableAttrs {
                                                                         class: Comptime,
                                                                     },
                                                                     variance: None,
                                                                     disambiguator: 1,
                                                                 },
                                                             ),
-                                                            HirTermSvarResolution::Explicit(
+                                                            HirTermSymbolicVariableResolution::Explicit(
                                                                 HirTemplateArgument::Type(
                                                                     HirType::PathLeading(
                                                                         HirTypePathLeading {
@@ -1836,9 +2242,9 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        2,
+                                                        1,
                                                         Trivial(
-                                                            TrivialHirEagerCoersion {
+                                                            TrivialHirEagerCoercion {
                                                                 expectee_quary: Transient,
                                                             },
                                                         ),
@@ -1887,16 +2293,16 @@
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
                                                         (
-                                                            HirTemplateSvar::Type(
-                                                                HirTypeSvar::Type {
-                                                                    attrs: HirTemplateSvarAttrs {
+                                                            HirTemplateVariable::Type(
+                                                                HirTypeTemplateVariable::Type {
+                                                                    attrs: HirTemplateVariableAttrs {
                                                                         class: Comptime,
                                                                     },
                                                                     variance: None,
                                                                     disambiguator: 0,
                                                                 },
                                                             ),
-                                                            HirTermSvarResolution::Explicit(
+                                                            HirTermSymbolicVariableResolution::Explicit(
                                                                 HirTemplateArgument::Type(
                                                                     HirType::PathLeading(
                                                                         HirTypePathLeading {
@@ -1909,16 +2315,16 @@
                                                             ),
                                                         ),
                                                         (
-                                                            HirTemplateSvar::Type(
-                                                                HirTypeSvar::Type {
-                                                                    attrs: HirTemplateSvarAttrs {
+                                                            HirTemplateVariable::Type(
+                                                                HirTypeTemplateVariable::Type {
+                                                                    attrs: HirTemplateVariableAttrs {
                                                                         class: Comptime,
                                                                     },
                                                                     variance: None,
                                                                     disambiguator: 1,
                                                                 },
                                                             ),
-                                                            HirTermSvarResolution::Explicit(
+                                                            HirTermSymbolicVariableResolution::Explicit(
                                                                 HirTemplateArgument::Type(
                                                                     HirType::PathLeading(
                                                                         HirTypePathLeading {
@@ -1945,9 +2351,9 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        4,
+                                                        3,
                                                         Trivial(
-                                                            TrivialHirEagerCoersion {
+                                                            TrivialHirEagerCoercion {
                                                                 expectee_quary: Transient,
                                                             },
                                                         ),
@@ -1990,16 +2396,16 @@
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
                                                         (
-                                                            HirTemplateSvar::Type(
-                                                                HirTypeSvar::Type {
-                                                                    attrs: HirTemplateSvarAttrs {
+                                                            HirTemplateVariable::Type(
+                                                                HirTypeTemplateVariable::Type {
+                                                                    attrs: HirTemplateVariableAttrs {
                                                                         class: Comptime,
                                                                     },
                                                                     variance: None,
                                                                     disambiguator: 0,
                                                                 },
                                                             ),
-                                                            HirTermSvarResolution::Explicit(
+                                                            HirTermSymbolicVariableResolution::Explicit(
                                                                 HirTemplateArgument::Type(
                                                                     HirType::PathLeading(
                                                                         HirTypePathLeading {
@@ -2012,16 +2418,16 @@
                                                             ),
                                                         ),
                                                         (
-                                                            HirTemplateSvar::Type(
-                                                                HirTypeSvar::Type {
-                                                                    attrs: HirTemplateSvarAttrs {
+                                                            HirTemplateVariable::Type(
+                                                                HirTypeTemplateVariable::Type {
+                                                                    attrs: HirTemplateVariableAttrs {
                                                                         class: Comptime,
                                                                     },
                                                                     variance: None,
                                                                     disambiguator: 1,
                                                                 },
                                                             ),
-                                                            HirTermSvarResolution::Explicit(
+                                                            HirTermSymbolicVariableResolution::Explicit(
                                                                 HirTemplateArgument::Type(
                                                                     HirType::PathLeading(
                                                                         HirTypePathLeading {
@@ -2048,9 +2454,9 @@
                                                                 ),
                                                             ),
                                                         },
-                                                        6,
+                                                        5,
                                                         Trivial(
-                                                            TrivialHirEagerCoersion {
+                                                            TrivialHirEagerCoercion {
                                                                 expectee_quary: Transient,
                                                             },
                                                         ),
@@ -2069,7 +2475,7 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::Block {
                                                 stmts: ArenaIdxRange(
-                                                    4..5,
+                                                    3..4,
                                                 ),
                                             },
                                             contracted_quary: HirContractedQuary {
@@ -2086,10 +2492,10 @@
                                 stmt_arena: Arena {
                                     data: [
                                         Eval {
-                                            expr: 3,
-                                            coersion: Some(
+                                            expr: 2,
+                                            coercion: Some(
                                                 Trivial(
-                                                    TrivialHirEagerCoersion {
+                                                    TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -2097,10 +2503,10 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr: 5,
-                                            coersion: Some(
+                                            expr: 4,
+                                            coercion: Some(
                                                 Trivial(
-                                                    TrivialHirEagerCoersion {
+                                                    TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -2108,10 +2514,10 @@
                                             discarded: false,
                                         },
                                         Eval {
-                                            expr: 7,
-                                            coersion: Some(
+                                            expr: 6,
+                                            coercion: Some(
                                                 Trivial(
-                                                    TrivialHirEagerCoersion {
+                                                    TrivialHirEagerCoercion {
                                                         expectee_quary: Transient,
                                                     },
                                                 ),
@@ -2119,8 +2525,14 @@
                                             discarded: false,
                                         },
                                         Match {
-                                            opd: 1,
+                                            opd: 0,
                                             case_branches: [
+                                                HirEagerCaseBranch {
+                                                    pattern: 0,
+                                                    stmts: ArenaIdxRange(
+                                                        0..1,
+                                                    ),
+                                                },
                                                 HirEagerCaseBranch {
                                                     pattern: 1,
                                                     stmts: ArenaIdxRange(
@@ -2131,12 +2543,6 @@
                                                     pattern: 2,
                                                     stmts: ArenaIdxRange(
                                                         2..3,
-                                                    ),
-                                                },
-                                                HirEagerCaseBranch {
-                                                    pattern: 3,
-                                                    stmts: ArenaIdxRange(
-                                                        3..4,
                                                     ),
                                                 },
                                             ],
@@ -2189,19 +2595,19 @@
                                         },
                                     ],
                                 },
-                                comptime_symbol_region_data: HirEagerComptimeSvarRegionData {
+                                comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
                                     arena: Arena {
                                         data: [],
                                     },
                                 },
-                                runtime_symbol_region_data: HirEagerRuntimeSvarRegionData {
+                                runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
                                     arena: Arena {
                                         data: [
-                                            HirEagerRuntimeSvarEntry {
-                                                name: HirEagerRuntimeSvarName::Ident(
+                                            HirEagerRuntimeVariableEntry {
+                                                name: HirEagerRuntimeVariableName::Ident(
                                                     `one_vs_all_result`,
                                                 ),
-                                                data: HirEagerRuntimeSvarData::ParenateParameter,
+                                                data: HirEagerRuntimeVariableData::ParenateParameter,
                                             },
                                         ],
                                     },

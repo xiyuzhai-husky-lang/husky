@@ -12,8 +12,8 @@ use husky_entity_path::region::RegionPath;
 use husky_entity_tree::helpers::tokra_region::HasRegionalTokenIdxBase;
 pub use husky_print_utils::eshow;
 use husky_regional_token::RegionalTokenIdxBase;
-use husky_sema_expr::{
-    helpers::range::{sema_expr_range_region, SemaExprRangeRegionData},
+use husky_sem_expr::{
+    helpers::range::{sem_expr_range_region, SemaExprRangeRegionData},
     SemaExprIdx, SemaExprRegionData,
 };
 use husky_text::{HasText, Text};
@@ -84,8 +84,8 @@ struct HirEagerExprCodespanEmitter<'a> {
     db: &'a ::salsa::Db,
     hir_eager_expr_region: HirEagerExprRegion,
     hir_eager_expr_source_map_data: &'a HirEagerExprSourceMapData,
-    sema_expr_region_data: &'a SemaExprRegionData,
-    sema_expr_range_region_data: &'a SemaExprRangeRegionData,
+    sem_expr_region_data: &'a SemaExprRegionData,
+    sem_expr_range_region_data: &'a SemaExprRangeRegionData,
     ranged_token_sheet: &'a RangedTokenSheet,
     text: Text<'a>,
     region_path: RegionPath,
@@ -106,11 +106,11 @@ impl<'a> HirEagerExprCodespanEmitter<'a> {
         db: &'a ::salsa::Db,
     ) -> Self {
         let region_path = hir_eager_expr_region.region_path(db);
-        let sema_expr_region = hir_eager_expr_region.sema_expr_region(db);
+        let sem_expr_region = hir_eager_expr_region.sem_expr_region(db);
         let hir_eager_expr_source_map_data =
-            hir_eager_expr_source_map_from_sema(sema_expr_region, db).data(db);
-        let sema_expr_region_data = sema_expr_region.data(db);
-        let sema_expr_range_region_data = sema_expr_range_region(db, sema_expr_region).data(db);
+            hir_eager_expr_source_map_from_sema(sem_expr_region, db).data(db);
+        let sem_expr_region_data = sem_expr_region.data(db);
+        let sem_expr_range_region_data = sem_expr_range_region(db, sem_expr_region).data(db);
         let module_path = region_path.module_path(db);
         let regional_token_idx_base = region_path.regional_token_idx_base(db).unwrap();
         let ranged_token_sheet = db.ranged_token_sheet(module_path);
@@ -129,8 +129,8 @@ impl<'a> HirEagerExprCodespanEmitter<'a> {
             db,
             hir_eager_expr_region,
             hir_eager_expr_source_map_data,
-            sema_expr_region_data,
-            sema_expr_range_region_data,
+            sem_expr_region_data,
+            sem_expr_range_region_data,
             text,
             ranged_token_sheet,
             region_path,
@@ -148,9 +148,9 @@ impl<'a> HirEagerExprCodespanEmitter<'a> {
     fn expr_offset_range(&self, expr: HirEagerExprIdx) -> std::ops::Range<usize> {
         let expr: SemaExprIdx = self
             .hir_eager_expr_source_map_data
-            .hir_eager_to_sema_expr_idx(expr);
+            .hir_eager_to_sem_expr_idx(expr);
         let token_idx_range =
-            self.sema_expr_range_region_data[expr].token_idx_range(self.regional_token_idx_base);
+            self.sem_expr_range_region_data[expr].token_idx_range(self.regional_token_idx_base);
         let text_range = self.ranged_token_sheet.tokens_text_range(token_idx_range);
         self.text.offset_range(text_range)
     }

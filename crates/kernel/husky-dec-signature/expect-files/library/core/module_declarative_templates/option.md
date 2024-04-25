@@ -15,7 +15,7 @@
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        svar: DecSvar(
+                                        svar: DecSymbolicVariable(
                                             Id {
                                                 value: 10,
                                             },
@@ -27,7 +27,7 @@
                             self_ty: Application(
                                 DecApplication(
                                     Id {
-                                        value: 28,
+                                        value: 42,
                                     },
                                 ),
                             ),

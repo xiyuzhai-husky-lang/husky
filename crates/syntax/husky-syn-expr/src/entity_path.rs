@@ -16,15 +16,15 @@ where
     pub(crate) fn parse_identifiable_item_path_expr(
         &mut self,
         path_name_token: PathNameRegionalToken,
-        principal_item_path: PrincipalEntityPath,
-    ) -> IdentifiableEntityPathExpr {
+        principal_entity_path: PrincipalEntityPath,
+    ) -> ItemPathExpr {
         let parent_expr_idx =
             self.context_mut()
                 .alloc_item_path_expr(SynPrincipalEntityPathExpr::Root {
                     path_name_token,
-                    principal_entity_path: principal_item_path,
+                    principal_entity_path,
                 });
-        if let Some(major_path) = principal_item_path.major()
+        if let Some(major_path) = principal_entity_path.major()
             && let Some(colon_colon_token) = self.try_parse_err_as_none::<ColonColonRegionalToken>()
         {
             self.parse_subitem_identifiable_path_expr(
@@ -33,19 +33,19 @@ where
                 colon_colon_token,
             )
         } else {
-            IdentifiableEntityPathExpr::Principal {
+            ItemPathExpr::Principal {
                 path_expr_idx: parent_expr_idx,
-                opt_path: Some(principal_item_path),
+                opt_path: Some(principal_entity_path),
             }
         }
     }
 
     fn parse_subitem_identifiable_path_expr(
         &mut self,
-        parent_expr_idx: PrincipalEntityPathSynExprIdx,
+        parent_expr_idx: SynPrincipalEntityPathSynExprIdx,
         parent_path: MajorEntityPath,
         colon_colon_regional_token: ColonColonRegionalToken,
-    ) -> IdentifiableEntityPathExpr {
+    ) -> ItemPathExpr {
         let ident_token: SynExprResult<IdentRegionalToken> =
             self.try_parse_expected(OriginalSynExprError::ExpectIdentAfterScopeResolution);
         let path: SynExprResult<PrincipalEntityPath> = match ident_token {
@@ -58,7 +58,7 @@ where
                             let MajorEntityPath::MajorItem(parent_path) = parent_path else {
                                 unreachable!()
                             };
-                            return IdentifiableEntityPathExpr::AssocItem {
+                            return ItemPathExpr::AssocItem {
                                 parent_expr_idx,
                                 parent_path,
                                 colon_colon_regional_token,
@@ -89,7 +89,7 @@ where
         {
             self.parse_subitem_identifiable_path_expr(path_expr_idx, major_path, colon_colon_token)
         } else {
-            IdentifiableEntityPathExpr::Principal {
+            ItemPathExpr::Principal {
                 path_expr_idx,
                 opt_path,
             }

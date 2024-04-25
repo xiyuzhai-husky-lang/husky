@@ -33,7 +33,7 @@ impl FlyTerm {
             .into(),
             FlyTermDataKind::Solid => todo!(),
             FlyTermDataKind::Hollow => terms
-                .hollow_terms_mut()
+                .hol_terms_mut()
                 .alloc_new(HolTermData::Curry {
                     toolchain,
                     curry_kind,

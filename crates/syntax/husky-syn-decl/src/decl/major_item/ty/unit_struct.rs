@@ -35,7 +35,7 @@ impl UnitStructSynDecl {
         _db: &::salsa::Db,
         _path: TypePath,
         _syn_node_decl: UnitStructSynNodeDecl,
-    ) -> DeclResult<Self> {
+    ) -> SynDeclResult<Self> {
         todo!()
     }
 }

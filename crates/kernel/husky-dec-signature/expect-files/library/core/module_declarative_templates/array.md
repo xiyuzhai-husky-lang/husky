@@ -15,7 +15,7 @@
                                 data: [
                                     DeclarativeTemplateParameter {
                                         annotated_variance: None,
-                                        svar: DecSvar(
+                                        svar: DecSymbolicVariable(
                                             Id {
                                                 value: 3,
                                             },
@@ -26,7 +26,7 @@
                                         annotated_variance: Some(
                                             Covariant,
                                         ),
-                                        svar: DecSvar(
+                                        svar: DecSymbolicVariable(
                                             Id {
                                                 value: 4,
                                             },

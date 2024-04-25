@@ -4,13 +4,20 @@ mod solid;
 
 use super::*;
 use husky_coword::Ident;
+use husky_entity_tree::HasAssocItemPaths;
 use husky_eth_signature::{HasTypeItemTemplates, TypeItemEthTemplates};
+use husky_eth_term::term::{application::TermFunctionReduced, ty_as_trai_item::EthTypeAsTraitItem};
+use vec_like::VecMapGetEntry;
 
 #[derive(Debug, PartialEq, Eq)]
 #[enum_class::from_variants]
 pub enum StaticDispatch {
-    AssocFn(AssocFnFlySignature),
+    AssocRitchie(AssocRitchieFlySignature),
     AssocGn,
+    TypeAsTrait {
+        trai: EthTerm,
+        trai_item_path: TraitItemPath,
+    },
 }
 
 impl FlyTerm {
@@ -31,7 +38,7 @@ impl FlyTerm {
                 ..
             } => match ty_path.ty_item_eth_templates(db, ident) {
                 JustOk(templates) => match templates {
-                    TypeItemEthTemplates::AssocFn(templates) => {
+                    TypeItemEthTemplates::AssocRitchie(templates) => {
                         let dst_ty_arguments: SmallVec<[_; 2]> = ty_arguments.to_smallvec();
                         let signatures: Vec<_> = templates
                             .iter()
@@ -83,7 +90,15 @@ impl FlyTerm {
                 JustErr(_) => todo!(),
                 Nothing => todo!(),
             },
-            FlyTermData::Curry { .. } => todo!(),
+            FlyTermData::Curry {
+                toolchain,
+                curry_kind,
+                variance,
+                parameter_hvar,
+                parameter_ty,
+                return_ty,
+                ty_ethereal_term,
+            } => todo!(),
             FlyTermData::Hole(_, _) => todo!(),
             FlyTermData::Sort(_) => todo!(),
             FlyTermData::Ritchie {
@@ -91,8 +106,37 @@ impl FlyTerm {
                 parameter_contracted_tys,
                 return_ty,
             } => todo!(),
-            FlyTermData::Symbol { .. } => todo!(),
-            FlyTermData::Hvar { .. } => todo!(),
+            FlyTermData::SymbolicVariable {
+                symbolic_variable, ..
+            } => {
+                let Ok(symbolic_variable_obvious_trais) =
+                    engine.symbolic_variable_obvious_trais(symbolic_variable)
+                else {
+                    todo!()
+                };
+                match symbolic_variable_obvious_trais.len() {
+                    0 => todo!(),
+                    1 => {
+                        let trai = symbolic_variable_obvious_trais[0];
+                        let TermFunctionReduced::Trait(trai_path) =
+                            trai.application_expansion(db).function()
+                        else {
+                            unreachable!()
+                        };
+                        let Some(&(_, trai_item_path)) =
+                            trai_path.assoc_item_paths(db).get_entry(ident)
+                        else {
+                            todo!()
+                        };
+                        JustOk(StaticDispatch::TypeAsTrait {
+                            trai,
+                            trai_item_path,
+                        })
+                    }
+                    _ => todo!(),
+                }
+            }
+            FlyTermData::LambdaVariable { ty, index } => todo!(),
             FlyTermData::TypeVariant { path } => todo!(),
         }
     }

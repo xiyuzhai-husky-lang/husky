@@ -19,7 +19,7 @@ pub struct TraitForTypeImplBlockSynNodePathData {
 
 impl TraitForTypeImplBlockSynNodePath {
     pub fn path(self, db: &::salsa::Db) -> TraitForTypeImplBlockPath {
-        match self.0.path(db).expect("no ambiguity") {
+        match self.0.unambiguous_item_path(db).expect("no ambiguity") {
             ItemPath::ImplBlock(ImplBlockPath::TraitForTypeImplBlock(path)) => path,
             _ => unreachable!(),
         }

@@ -5,6 +5,16 @@
             TypePath(`core::raw_bits::r32`, `Extern`),
         ),
     ),
+    ItemPath::Attr(
+        Room32,
+        AttrItemPath(
+            ItemPathId(
+                Id {
+                    value: 224,
+                },
+            ),
+        ),
+    ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
             TypeImplBlockPath(

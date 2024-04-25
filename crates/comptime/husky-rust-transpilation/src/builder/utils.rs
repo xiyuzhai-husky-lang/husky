@@ -7,7 +7,7 @@ impl<'a, 'b> RustTranspilationBuilder<'a, 'b, HirEagerExprRegion> {
         let db = self.db;
         let place_registry = self
             .hir_eager_expr_region()
-            .sema_expr_region(db)
+            .sem_expr_region(db)
             .data(db)
             .place_registry();
         place.show_info(db, place_registry)

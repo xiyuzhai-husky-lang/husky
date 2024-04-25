@@ -5,8 +5,8 @@ use husky_hir_lazy_expr::{
     HirLazyExprData, HirLazyExprIdx, HirLazyExprRegion,
 };
 use husky_ki_repr::expansion::KiReprExpansion;
-use husky_sema_expr::{
-    helpers::range::sema_expr_range_region, SemaExprData, SemaExprRegion, SemaRitchieArgument,
+use husky_sem_expr::{
+    helpers::range::sem_expr_range_region, SemaExprData, SemaExprRegion, SemaRitchieArgument,
 };
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
@@ -26,10 +26,10 @@ pub enum LazyExprEssence {
 pub struct LazyExprTraceData {
     path: TracePath,
     biological_parent: Trace,
-    sema_expr_idx: SemaExprIdx,
+    sem_expr_idx: SemaExprIdx,
     hir_lazy_expr_idx: Option<HirLazyExprIdx>,
     #[skip_fmt]
-    sema_expr_region: SemaExprRegion,
+    sem_expr_region: SemaExprRegion,
     #[skip_fmt]
     hir_lazy_expr_region: HirLazyExprRegion,
     #[skip_fmt]
@@ -40,9 +40,9 @@ impl Trace {
     pub(crate) fn new_lazy_expr(
         biological_parent_path: TracePath,
         biological_parent: Trace,
-        sema_expr_idx: SemaExprIdx,
+        sem_expr_idx: SemaExprIdx,
         hir_lazy_expr_idx: Option<HirLazyExprIdx>,
-        sema_expr_region: SemaExprRegion,
+        sem_expr_region: SemaExprRegion,
         hir_lazy_expr_region: HirLazyExprRegion,
         hir_lazy_expr_source_map: HirLazyExprSourceMap,
         lazy_expr_trace_path_registry: &mut TracePathRegistry<LazyExprEssence>,
@@ -62,9 +62,9 @@ impl Trace {
             LazyExprTraceData {
                 path,
                 biological_parent: biological_parent.into(),
-                sema_expr_idx,
+                sem_expr_idx,
                 hir_lazy_expr_idx,
-                sema_expr_region,
+                sem_expr_region,
                 hir_lazy_expr_region,
                 hir_lazy_expr_source_map,
             }
@@ -76,11 +76,11 @@ impl Trace {
 
 impl LazyExprTraceData {
     pub(super) fn view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
-        let sema_expr_region = self.sema_expr_region;
-        let sema_expr_range_region = sema_expr_range_region(db, sema_expr_region);
-        let sema_expr_range_region_data = sema_expr_range_region.data(db);
-        let region_path = sema_expr_region.path(db);
-        let regional_token_idx_range = sema_expr_range_region_data[self.sema_expr_idx];
+        let sem_expr_region = self.sem_expr_region;
+        let sem_expr_range_region = sem_expr_range_region(db, sem_expr_region);
+        let sem_expr_range_region_data = sem_expr_range_region.data(db);
+        let region_path = sem_expr_region.path(db);
+        let regional_token_idx_range = sem_expr_range_region_data[self.sem_expr_idx];
         let token_idx_range = regional_token_idx_range
             .token_idx_range(region_path.regional_token_idx_base(db).unwrap());
         TraceViewLines::new(
@@ -97,11 +97,10 @@ impl LazyExprTraceData {
             return false;
         };
         match self.hir_lazy_expr_region.hir_lazy_expr_arena(db)[hir_eager_expr_idx] {
-            HirLazyExprData::FunctionFnItemCall { path, .. } => path.hir_defn(db).is_some(),
-            HirLazyExprData::AssocFunctionFnCall { path, .. } => path.hir_defn(db).is_some(),
-            HirLazyExprData::MethodFnCall { path, .. } => path.hir_defn(db).is_some(),
-            HirLazyExprData::AssocFn { path } => path.hir_defn(db).is_some(),
-            HirLazyExprData::FunctionGnItemCall { path, .. } => path.hir_defn(db).is_some(),
+            HirLazyExprData::FunctionRitchieItemCall { path, .. } => path.hir_defn(db).is_some(),
+            HirLazyExprData::AssocFunctionRitchieCall { path, .. } => path.hir_defn(db).is_some(),
+            HirLazyExprData::MethodRitchieCall { path, .. } => path.hir_defn(db).is_some(),
+            HirLazyExprData::AssocRitchie { path } => path.hir_defn(db).is_some(),
             HirLazyExprData::Block { stmts: _ } => unreachable!(),
             _ => false,
         }
@@ -110,18 +109,18 @@ impl LazyExprTraceData {
     pub(super) fn subtraces(&self, trace: Trace, db: &::salsa::Db) -> Vec<Trace> {
         let biological_parent_path = self.path;
         let biological_parent = trace;
-        let sema_expr_idx = self.sema_expr_idx;
+        let sem_expr_idx = self.sem_expr_idx;
         let Some(hir_eager_expr_idx) = self.hir_lazy_expr_idx else {
             return vec![];
         };
-        let sema_expr_region_data = self.sema_expr_region.data(db);
+        let sem_expr_region_data = self.sem_expr_region.data(db);
         let hir_lazy_expr_source_map_data = self.hir_lazy_expr_source_map.data(db);
         match self.hir_lazy_expr_region.hir_lazy_expr_arena(db)[hir_eager_expr_idx] {
-            HirLazyExprData::FunctionFnItemCall { path, .. } => {
+            HirLazyExprData::FunctionRitchieItemCall { path, .. } => {
                 let SemaExprData::FunctionRitchieCall {
                     ref ritchie_parameter_argument_matches,
                     ..
-                } = sema_expr_idx.data(sema_expr_region_data.sema_expr_arena())
+                } = sem_expr_idx.data(sem_expr_region_data.sem_expr_arena())
                 else {
                     unreachable!()
                 };
@@ -143,11 +142,11 @@ impl LazyExprTraceData {
                 );
                 subtraces
             }
-            HirLazyExprData::AssocFunctionFnCall { path, .. } => {
+            HirLazyExprData::AssocFunctionRitchieCall { path, .. } => {
                 let SemaExprData::FunctionRitchieCall {
                     ref ritchie_parameter_argument_matches,
                     ..
-                } = sema_expr_idx.data(sema_expr_region_data.sema_expr_arena())
+                } = sem_expr_idx.data(sem_expr_region_data.sem_expr_arena())
                 else {
                     unreachable!()
                 };
@@ -169,11 +168,11 @@ impl LazyExprTraceData {
                 );
                 subtraces
             }
-            HirLazyExprData::MethodFnCall { path, .. } => {
+            HirLazyExprData::MethodRitchieCall { path, .. } => {
                 let SemaExprData::FunctionRitchieCall {
                     ref ritchie_parameter_argument_matches,
                     ..
-                } = sema_expr_idx.data(sema_expr_region_data.sema_expr_arena())
+                } = sem_expr_idx.data(sem_expr_region_data.sem_expr_arena())
                 else {
                     unreachable!()
                 };
@@ -196,11 +195,11 @@ impl LazyExprTraceData {
                 subtraces
             }
             HirLazyExprData::Block { .. } => unreachable!(),
-            HirLazyExprData::FunctionGnItemCall { path, .. } => {
+            HirLazyExprData::FunctionRitchieItemCall { path, .. } => {
                 let SemaExprData::FunctionRitchieCall {
                     ref ritchie_parameter_argument_matches,
                     ..
-                } = sema_expr_idx.data(sema_expr_region_data.sema_expr_arena())
+                } = sem_expr_idx.data(sem_expr_region_data.sem_expr_arena())
                 else {
                     unreachable!()
                 };
@@ -251,11 +250,11 @@ fn fn_call_lazy_expr_trace_input_traces(
         .map(|m| {
             let data = match m {
                 SemaRitchieArgument::Simple(_, list_item) => {
-                    let sema_expr_idx = list_item.argument_sema_expr_idx();
+                    let sem_expr_idx = list_item.argument_sem_expr_idx();
                     LazyCallInputSketch::Simple {
-                        sema_expr_idx,
+                        sem_expr_idx,
                         hir_lazy_expr_idx: hir_lazy_expr_source_map_data
-                            .sema_to_hir_lazy_expr_idx(sema_expr_idx),
+                            .sem_to_hir_lazy_expr_idx(sem_expr_idx),
                     }
                 }
                 SemaRitchieArgument::Variadic(_, _) => {

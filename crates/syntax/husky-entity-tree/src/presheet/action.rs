@@ -197,9 +197,7 @@ impl<'a> EntityTreePresheetMut<'a> {
             (
                 OnceUseRuleVariant::Parent { .. },
                 PrincipalEntityPath::TypeVariant(_)
-                | PrincipalEntityPath::MajorItem(
-                    MajorItemPath::Trait(_) | MajorItemPath::Fugitive(_),
-                ),
+                | PrincipalEntityPath::MajorItem(MajorItemPath::Trait(_) | MajorItemPath::Form(_)),
             ) => {
                 self.errors.push(
                     OriginalEntityTreeError::InvalidParentPath {
@@ -258,7 +256,7 @@ impl<'a> EntityTreePresheetMut<'a> {
                                             _ => (),
                                         }
                                     }
-                                    MajorItemPath::Trait(_) | MajorItemPath::Fugitive(_) => (),
+                                    MajorItemPath::Trait(_) | MajorItemPath::Form(_) => (),
                                 }
                             }
                             PrincipalEntityPath::TypeVariant(_) => (),

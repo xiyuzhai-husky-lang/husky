@@ -7,7 +7,7 @@ use super::*;
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum DecItemPath {
-    Fugitive(FugitivePath),
+    Form(MajorFormPath),
     Trait(TraitPath),
     Type(TypePath),
     TypeVariant(TypeVariantPath),
@@ -16,7 +16,7 @@ pub enum DecItemPath {
 impl From<ItemPathTerm> for DecItemPath {
     fn from(path: ItemPathTerm) -> Self {
         match path {
-            ItemPathTerm::Fugitive(path) => DecItemPath::Fugitive(path),
+            ItemPathTerm::Form(path) => DecItemPath::Form(path),
             ItemPathTerm::Trait(path) => DecItemPath::Trait(path),
             ItemPathTerm::TypeOntology(path) | ItemPathTerm::TypeInstance(path) => {
                 DecItemPath::Type(path)
@@ -36,12 +36,12 @@ impl DecItemPath {
     pub fn ty_path(self) -> Option<TypePath> {
         match self {
             DecItemPath::Type(path) => Some(path),
-            DecItemPath::Fugitive(_) | DecItemPath::Trait(_) | DecItemPath::TypeVariant(_) => None,
+            DecItemPath::Form(_) | DecItemPath::Trait(_) | DecItemPath::TypeVariant(_) => None,
         }
     }
 }
-impl From<FugitivePath> for DecTerm {
-    fn from(value: FugitivePath) -> Self {
+impl From<MajorFormPath> for DecTerm {
+    fn from(value: MajorFormPath) -> Self {
         DecTerm::EntityPath(value.into())
     }
 }
@@ -64,10 +64,10 @@ impl DecItemPath {
         self,
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
-        _ctx: &DecSvarNameMap,
+        _ctx: &DecSymbolicVariableNameMap,
     ) -> std::fmt::Result {
         match self {
-            DecItemPath::Fugitive(path) => path.display_fmt_with_db(f, db),
+            DecItemPath::Form(path) => path.display_fmt_with_db(f, db),
             DecItemPath::Trait(path) => path.display_fmt_with_db(f, db),
             DecItemPath::Type(path) => path.display_fmt_with_db(f, db),
             DecItemPath::TypeVariant(path) => path.display_fmt_with_db(f, db),

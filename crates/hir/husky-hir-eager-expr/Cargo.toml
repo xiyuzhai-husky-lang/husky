@@ -33,9 +33,9 @@ husky-token-data.workspace = true
 husky-token.workspace = true
 husky-regional-token.workspace = true
 # semantics
-husky-sema-expr.workspace = true
-husky-sema-opr.workspace = true
-husky-sema-place-contract.workspace = true
+husky-sem-expr.workspace = true
+husky-sem-opr.workspace = true
+husky-sem-place-contract.workspace = true
 # syntax
 husky-entity-tree.workspace = true
 # todo: remove this?

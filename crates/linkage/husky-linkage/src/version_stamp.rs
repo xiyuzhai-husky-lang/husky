@@ -42,15 +42,7 @@ impl HasVersionStamp for Linkage {
 fn linkage_version_stamp(db: &::salsa::Db, linkage: Linkage) -> LinkageVersionStamp {
     let mut builder = LinkageVersionStampBuilder::new(linkage, db);
     match *linkage.data(db) {
-        LinkageData::MajorRitchieEager {
-            path,
-            ref instantiation,
-        } => {
-            let hir_defn: HirDefn = path.hir_defn(db).unwrap().into();
-            builder.add(hir_defn);
-            builder.add_instantiation(instantiation)
-        }
-        LinkageData::MajorRitchieLazy {
+        LinkageData::MajorFunctionRitchie {
             path,
             ref instantiation,
         } => {
@@ -90,7 +82,7 @@ fn linkage_version_stamp(db: &::salsa::Db, linkage: Linkage) -> LinkageVersionSt
             builder.add(hir_defn);
             builder.add_instantiation(instantiation)
         }
-        LinkageData::UnveilAssocFn {
+        LinkageData::UnveilAssocRitchie {
             path,
             ref instantiation,
         } => {

@@ -11,13 +11,13 @@ impl TraitSyndicate {
     }
 }
 
-impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TraitSyndicate {
+impl<'a> TryParseOptionFromStream<SynDeclExprParser<'a>> for TraitSyndicate {
     type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut SynDeclExprParser<'a>,
     ) -> SynExprResult<Option<Self>> {
-        if let Some(expr) = ctx.parse_expr_root(None, SynExprRootKind::Trait) {
+        if let Some(expr) = ctx.parse_expr_root(None, SynExprRootKind::PrimalTrait) {
             Ok(Some(TraitSyndicate { syn_expr_idx: expr }))
         } else {
             Ok(None)

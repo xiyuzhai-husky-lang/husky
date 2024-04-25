@@ -16,7 +16,7 @@ pub enum ParenateParameterSyndicate {
         variadic_variant: SynVariadicParameterVariant,
         symbol_modifier_keyword_group: Option<EphemSymbolModifierRegionalTokens>,
         ident_token: IdentRegionalToken,
-        variable: CurrentSynSymbolIdx,
+        variable: CurrentVariableIdx,
         colon: ColonRegionalToken,
         ty: SynExprIdx,
     },
@@ -24,7 +24,7 @@ pub enum ParenateParameterSyndicate {
         syn_pattern_root: ParenateParameterSynPatternExprRoot,
         symbol_modifier_keyword_group: Option<EphemSymbolModifierRegionalTokens>,
         ident_token: IdentRegionalToken,
-        variable: CurrentSynSymbolIdx,
+        variable: CurrentVariableIdx,
         colon: ColonRegionalToken,
         ty: SynExprIdx,
         eq_token: EqRegionalToken,
@@ -58,14 +58,14 @@ impl<'a> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateParameterSy
             let access_start = ctx.state().next_regional_token_idx();
             let variables = symbols
                 .iter()
-                .map(|(ident, pattern_symbol_idx)| {
-                    CurrentSynSymbolEntry::new(
+                .map(|(ident, pattern_variable_idx)| {
+                    CurrentVariableEntry::new(
                         ctx.pattern_expr_region(),
                         access_start,
                         None,
-                        CurrentSynSymbolData::SimpleParenateParameter {
+                        CurrentVariableData::SimpleParenateParameter {
                             ident: *ident,
-                            pattern_symbol_idx: *pattern_symbol_idx,
+                            pattern_variable_idx: *pattern_variable_idx,
                         },
                     )
                 })
@@ -132,11 +132,11 @@ impl<'a> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateParameterSy
                 ctx.try_parse_option::<EphemSymbolModifierRegionalTokens>()?;
             let ident_token = ctx
                 .try_parse_expected::<IdentRegionalToken, _>(OriginalSynExprError::ExpectedIdent)?;
-            let variable = CurrentSynSymbolEntry::new(
+            let variable = CurrentVariableEntry::new(
                 ctx.pattern_expr_region(),
                 access_start,
                 None,
-                CurrentSynSymbolData::VariadicParenateParameter {
+                CurrentVariableData::VariadicParenateParameter {
                     ident_token,
                     symbol_modifier_keyword_group,
                 },

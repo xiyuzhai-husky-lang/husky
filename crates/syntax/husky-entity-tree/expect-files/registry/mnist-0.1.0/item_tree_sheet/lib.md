@@ -12,8 +12,8 @@ EntityTreeSheet {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`mnist::MnistLabel`, `Enum`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -23,7 +23,7 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 17,
+                        ast_idx: 16,
                         ident_token: IdentToken {
                             ident: `MnistLabel`,
                             token_idx: TokenIdx(
@@ -35,7 +35,7 @@ EntityTreeSheet {
                             variants: Some(
                                 TypeVariants {
                                     ast_idx_range: ArenaIdxRange(
-                                        1..11,
+                                        0..10,
                                     ),
                                 },
                             ),
@@ -49,8 +49,8 @@ EntityTreeSheet {
                                 data: ItemSynNodePathData::MajorItem(
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist::MnistLabel`, `Enum`),
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: TypePath(`mnist::MnistLabel`, `Enum`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -72,8 +72,8 @@ EntityTreeSheet {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`mnist::BinaryImage28`, `Extern`),
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -83,7 +83,7 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 19,
+                        ast_idx: 18,
                         ident_token: IdentToken {
                             ident: `BinaryImage28`,
                             token_idx: TokenIdx(
@@ -103,8 +103,8 @@ EntityTreeSheet {
                                 data: ItemSynNodePathData::MajorItem(
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist::BinaryImage28`, `Extern`),
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: TypePath(`mnist::BinaryImage28`, `Extern`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -126,8 +126,8 @@ EntityTreeSheet {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
-                                                maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                    path: TypePath(`mnist::BinaryGrid28`, `Extern`),
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -137,7 +137,7 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 23,
+                        ast_idx: 22,
                         ident_token: IdentToken {
                             ident: `BinaryGrid28`,
                             token_idx: TokenIdx(
@@ -157,8 +157,8 @@ EntityTreeSheet {
                                 data: ItemSynNodePathData::MajorItem(
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
-                                            maybe_ambiguous_path: MaybeAmbiguousPath {
-                                                path: TypePath(`mnist::BinaryGrid28`, `Extern`),
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: TypePath(`mnist::BinaryGrid28`, `Extern`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -174,26 +174,26 @@ EntityTreeSheet {
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
-                        syn_node_path: MajorItemSynNodePath::Fugitive(
-                            FugitiveSynNodePath(`mnist::input`, `Val`, (0)),
+                        syn_node_path: MajorItemSynNodePath::Form(
+                            FormSynNodePath(`mnist::input`, `Val`, (0)),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 27,
+                        ast_idx: 26,
                         ident_token: IdentToken {
                             ident: `input`,
                             token_idx: TokenIdx(
                                 115,
                             ),
                         },
-                        block: DefnBlock::Fugitive {
-                            path: FugitivePath(`mnist::input`, `Val`),
+                        block: DefnBlock::Form {
+                            path: FormPath(`mnist::input`, `Val`),
                             body: None,
                         },
                     },
                 ),
                 syn_node_path: ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Fugitive(
-                        FugitiveSynNodePath(`mnist::input`, `Val`, (0)),
+                    MajorItemSynNodePath::Form(
+                        FormSynNodePath(`mnist::input`, `Val`, (0)),
                     ),
                 ),
                 ident: `input`,
@@ -205,7 +205,7 @@ EntityTreeSheet {
         [
             EntitySymbolEntry {
                 ident: `MnistLabel`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Type(
                         TypePath(`mnist::MnistLabel`, `Enum`),
@@ -214,7 +214,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `BinaryImage28`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Type(
                         TypePath(`mnist::BinaryImage28`, `Extern`),
@@ -223,7 +223,7 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `BinaryGrid28`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Type(
                         TypePath(`mnist::BinaryGrid28`, `Extern`),
@@ -232,10 +232,10 @@ EntityTreeSheet {
             },
             EntitySymbolEntry {
                 ident: `input`,
-                visibility: Scope::Pub,
+                visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
-                    major_item_path: MajorItemPath::Fugitive(
-                        FugitivePath(`mnist::input`, `Val`),
+                    major_item_path: MajorItemPath::Form(
+                        FormPath(`mnist::input`, `Val`),
                     ),
                 },
             },
@@ -269,24 +269,24 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 20,
+                    ast_idx: 19,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             35,
                         ),
                     },
-                    trai_expr: 1,
+                    trai_expr: 0,
                     for_token: TokenIdx(
                         37,
                     ),
                     ty_sketch_expr: Path(
-                        2,
+                        1,
                     ),
                     items: Some(
                         TraitForType(
                             TraitForTypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    11..12,
+                                    10..11,
                                 ),
                             },
                         ),
@@ -333,16 +333,16 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 21,
+                    ast_idx: 20,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             47,
                         ),
                     },
-                    ty_expr: 3,
+                    ty_expr: 2,
                     items: TypeItems {
                         ast_idx_range: ArenaIdxRange(
-                            12..13,
+                            11..12,
                         ),
                     },
                 },
@@ -375,24 +375,24 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 22,
+                    ast_idx: 21,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             59,
                         ),
                     },
-                    trai_expr: 6,
+                    trai_expr: 5,
                     for_token: TokenIdx(
                         65,
                     ),
                     ty_sketch_expr: Path(
-                        7,
+                        6,
                     ),
                     items: Some(
                         TraitForType(
                             TraitForTypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    13..14,
+                                    12..13,
                                 ),
                             },
                         ),
@@ -427,24 +427,24 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 24,
+                    ast_idx: 23,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             76,
                         ),
                     },
-                    trai_expr: 8,
+                    trai_expr: 7,
                     for_token: TokenIdx(
                         78,
                     ),
                     ty_sketch_expr: Path(
-                        9,
+                        8,
                     ),
                     items: Some(
                         TraitForType(
                             TraitForTypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    14..15,
+                                    13..14,
                                 ),
                             },
                         ),
@@ -491,16 +491,16 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 25,
+                    ast_idx: 24,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             88,
                         ),
                     },
-                    ty_expr: 10,
+                    ty_expr: 9,
                     items: TypeItems {
                         ast_idx_range: ArenaIdxRange(
-                            15..16,
+                            14..15,
                         ),
                     },
                 },
@@ -533,24 +533,24 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 26,
+                    ast_idx: 25,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
                             100,
                         ),
                     },
-                    trai_expr: 13,
+                    trai_expr: 12,
                     for_token: TokenIdx(
                         106,
                     ),
                     ty_sketch_expr: Path(
-                        14,
+                        13,
                     ),
                     items: Some(
                         TraitForType(
                             TraitForTypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    16..17,
+                                    15..16,
                                 ),
                             },
                         ),

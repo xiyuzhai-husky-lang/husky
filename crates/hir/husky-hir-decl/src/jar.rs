@@ -9,22 +9,22 @@ pub struct HirDeclJar(
     // assoc_items
     // - type items
     // ty_item_hir_decl,
-    crate::decl::TypeMethodFnHirDecl,
+    crate::decl::TypeMethodRitchieHirDecl,
     crate::decl::TypeMemoFieldHirDecl,
-    crate::decl::TypeAssocFnHirDecl,
+    crate::decl::TypeAssocRitchieHirDecl,
     crate::decl::TypeAssocValHirDecl,
     crate::decl::TypeAssocTypeHirDecl,
     // - trait items
-    crate::decl::TraitAssocFnHirDecl,
+    crate::decl::TraitAssocRitchieHirDecl,
     crate::decl::TraitAssocTypeHirDecl,
     crate::decl::TraitAssocValHirDecl,
     crate::decl::TraitMethodFnHirDecl,
     // - trait for type
     crate::decl::trai_for_ty_item_hir_decl,
-    crate::decl::TraitForTypeAssocFnHirDecl,
+    crate::decl::TraitForTypeAssocRitchieHirDecl,
     crate::decl::TraitForTypeAssocTypeHirDecl,
     crate::decl::TraitForTypeAssocValHirDecl,
-    crate::decl::TraitForTypeMethodFnHirDecl,
+    crate::decl::TraitForTypeMethodRitchieHirDecl,
     // ty
     crate::decl::ty_hir_decl,
     crate::decl::EnumHirDecl,
@@ -36,12 +36,11 @@ pub struct HirDeclJar(
     // trai
     crate::decl::trai_hir_decl,
     crate::decl::TraitHirDecl,
-    // fugitive
-    crate::decl::fugitive_hir_decl,
-    crate::decl::FunctionMajorFnHirDecl,
-    crate::decl::FunctionGnFugitiveHirDecl,
-    crate::decl::TypeAliasHirDecl,
-    crate::decl::ValFugitiveHirDecl,
+    // major form
+    crate::decl::major_form_hir_decl,
+    crate::decl::MajorFunctionRitchieHirDecl,
+    crate::decl::MajorTypeAliasHirDecl,
+    crate::decl::MajorValHirDecl,
     // ty variant
     crate::decl::ty_variant_hir_decl,
     crate::decl::EnumTupleVariantHirDecl,
@@ -55,7 +54,10 @@ pub struct HirDeclJar(
     crate::decl::trai_for_ty_impl_block_hir_decl,
     crate::decl::TraitForTypeImplBlockHirDecl,
     // attr
-    crate::decl::DeriveAttrHirDecl,
+    crate::decl::attr::backprop::BackpropAttrHirDecl,
+    crate::decl::attr::derive::DeriveAttrHirDecl,
+    crate::decl::attr::effect::EffectAttrHirDecl,
+    crate::decl::attr::test::TestAttrHirDecl,
     // helpers
     crate::helpers::enum_ty_has_only_unit_variants,
 );

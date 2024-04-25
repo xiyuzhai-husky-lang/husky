@@ -71,7 +71,7 @@ impl HasHirDecl for TypePath {
     }
 }
 
-#[salsa::tracked(jar = HirDeclJar)]
+#[salsa::tracked]
 fn ty_hir_decl(db: &::salsa::Db, path: TypePath) -> Option<TypeHirDecl> {
     match path.syn_decl(db).expect("no errors for hir stage") {
         TypeSynDecl::Enum(syn_decl) => Some(EnumHirDecl::from_syn(path, syn_decl, db).into()),

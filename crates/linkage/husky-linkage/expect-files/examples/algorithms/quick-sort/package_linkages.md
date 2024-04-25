@@ -1,8 +1,8 @@
 ```rust
 [
     Linkage {
-        data: LinkageData::MajorRitchieEager {
-            path: FugitivePath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
+        data: LinkageData::MajorFunctionRitchie {
+            path: FormPath(`quick_sort::quick_sort_works_for_integers`, `Ritchie(
                 Fn,
             )`),
             instantiation: LinInstantiation {
@@ -12,8 +12,8 @@
         },
     },
     Linkage {
-        data: LinkageData::MajorRitchieEager {
-            path: FugitivePath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
+        data: LinkageData::MajorFunctionRitchie {
+            path: FormPath(`quick_sort::quick_sort_works_for_strs`, `Ritchie(
                 Fn,
             )`),
             instantiation: LinInstantiation {

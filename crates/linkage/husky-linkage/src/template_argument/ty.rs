@@ -35,7 +35,7 @@ impl LinkageInstantiate for HirType {
                     .map(|&arg| LinTemplateArgument::from_hir(arg, Some(lin_instantiation), db))
                     .collect(),
             )),
-            HirType::Svar(slf) => match lin_instantiation.resolve(slf.into()) {
+            HirType::Variable(slf) => match lin_instantiation.resolve(slf.into()) {
                 LinTermSymbolResolution::Explicit(arg) => match arg {
                     LinTemplateArgument::Vacant => todo!(),
                     LinTemplateArgument::Type(linkage_ty) => linkage_ty,
@@ -147,7 +147,7 @@ impl LinType {
                 ),
             )
             .into(),
-            HirType::Svar(symbol) => match lin_instantiation {
+            HirType::Variable(symbol) => match lin_instantiation {
                 Some(lin_instantiation) => match lin_instantiation.resolve(symbol.into()) {
                     LinTermSymbolResolution::Explicit(arg) => match arg {
                         LinTemplateArgument::Vacant => todo!(),
