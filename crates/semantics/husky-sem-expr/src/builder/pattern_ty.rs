@@ -16,14 +16,14 @@ impl<'a> SemaExprBuilder<'a> {
         }
     }
 
-    /// the way type inference works for pattern expressions is dual to that of regular expression
+    /// the way type inference works for patterns is dual to that of expression
     fn infer_pattern_ty(&mut self, syn_pattern_expr_idx: SynPatternIdx, ty: FlyTerm) {
         self.pattern_expr_ty_infos
             .insert_new(syn_pattern_expr_idx, PatternExprTypeInfo::new(Ok(ty)));
         self.infer_subpattern_tys(syn_pattern_expr_idx, ty)
     }
 
-    /// subpattern expressions get its type from its parent
+    /// subpatterns get its type from its parent
     fn infer_subpattern_tys(&mut self, pattern_expr_idx: SynPatternIdx, ty: FlyTerm) {
         match self.syn_expr_region_data[pattern_expr_idx] {
             SynPatternData::Literal { .. } => (), // there is no subpattern to infer

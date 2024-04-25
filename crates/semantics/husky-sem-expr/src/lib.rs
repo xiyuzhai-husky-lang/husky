@@ -11,7 +11,8 @@ pub mod jar;
 // mod info;
 pub mod helpers;
 pub mod obelisks;
-mod region;
+pub mod pattern;
+pub mod region;
 pub mod stmt;
 #[cfg(test)]
 mod tests;
