@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
+#[salsa::tracked]
 pub struct IllFormedItemSynNodeDecl {
     #[id]
     pub syn_node_path: IllFormedItemSynNodePath,

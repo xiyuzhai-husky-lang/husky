@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
+#[salsa::tracked]
 pub struct TraitForTypeAssocValSynNodeDecl {
     #[id]
     pub path: TraitForTypeItemPath,
@@ -15,7 +15,7 @@ impl TraitForTypeAssocValSynNodeDecl {
     }
 }
 
-#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
+#[salsa::tracked]
 pub struct TraitForTypeAssocValSynDecl {
     #[id]
     pub path: TraitForTypeItemPath,

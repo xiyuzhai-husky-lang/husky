@@ -1,11 +1,11 @@
 #![feature(result_flattening)]
 #![feature(let_chains)]
 mod context;
-mod db;
 pub mod entity_path;
 mod error;
 mod expr;
 pub mod helpers;
+pub mod jar;
 mod parser;
 mod pattern;
 mod range;
@@ -18,9 +18,9 @@ mod tests;
 pub mod variable;
 
 pub use self::context::*;
-pub use self::db::*;
 pub use self::error::*;
 pub use self::expr::*;
+pub use self::jar::*;
 pub use self::parser::*;
 pub use self::pattern::*;
 pub use self::range::*;
@@ -30,7 +30,6 @@ pub use self::syndicates::*;
 pub use self::variable::*;
 
 use self::entity_path::*;
-use self::snippet::*;
 use husky_coword::*;
 use husky_entity_path::{EntityPath, MajorItemPath, PrincipalEntityPath};
 use husky_entity_tree::*;
@@ -39,13 +38,6 @@ use husky_syn_opr::*;
 use husky_term_prelude::*;
 use husky_token_data::*;
 use smallvec::SmallVec;
-
-#[salsa::jar]
-pub struct SynExprJar(
-    SynExprRegion,
-    parse_expr_from_snippet,
-    syn_expr_range_region,
-);
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum BaseEntityPath {

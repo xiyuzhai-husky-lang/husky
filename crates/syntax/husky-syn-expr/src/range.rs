@@ -9,6 +9,12 @@ pub struct SynExprRangeRegion {
     stmt_ranges: SynStmtMap<RegionalTokenIdxRange>,
 }
 
+impl SynExprRegion {
+    pub fn range_region(self, db: &::salsa::Db) -> &SynExprRangeRegion {
+        syn_expr_range_region(db, self)
+    }
+}
+
 #[salsa::tracked(jar = SynExprJar, return_ref)]
 pub(crate) fn syn_expr_range_region(
     db: &::salsa::Db,

@@ -127,7 +127,7 @@ pub enum JarIndex {
     FoldingRangeJar,
     HoverJar,
     SemanticTokenJar,
-    SyntaxFormatJar,
+    IdeFmtJar,
     TokenInfoJar,
     // kernel
     CowordJar,
