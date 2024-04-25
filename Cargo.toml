@@ -33,7 +33,7 @@ members = [
     "crates/vmir/*",
     "library/core",
     "registry/*",
-    "playground/learn-rusqlite"]
+    "playground/learn-rusqlite", "playground/goodstein-rs"]
 resolver = "2"
 
 [workspace.package]
