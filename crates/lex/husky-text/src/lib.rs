@@ -6,7 +6,9 @@ mod line_map;
 mod tests;
 
 use self::jar::*;
-use husky_text_protocol::{line_map::*, range::*};
+#[cfg(test)]
+use self::tests::*;
+use husky_text_protocol::{line_map::*, position::TextLine, range::*};
 use husky_vfs::ModulePath;
 use line_map::module_text_line_map;
 
@@ -14,6 +16,14 @@ use line_map::module_text_line_map;
 pub struct Text<'a> {
     raw_text: &'a str,
     line_map: &'a LineMap,
+}
+
+impl<'a> Text<'a> {
+    pub fn indexed_lines(self) -> impl Iterator<Item = (TextLine, &'a str)> {
+        self.line_map
+            .all_text_line_range()
+            .map(move |text_line| (text_line, self.text_within(text_line)))
+    }
 }
 
 pub trait HasText: Copy {
