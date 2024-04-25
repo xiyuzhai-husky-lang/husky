@@ -1,5 +1,7 @@
 use super::*;
 
+/// # type
+
 impl<'a> SemaExprBuilder<'a> {
     pub(super) fn calc_function_application_expr_ty(
         &mut self,
@@ -110,5 +112,25 @@ impl<'a> SemaExprBuilder<'a> {
                 .map_err(Into::into),
         };
         return (argument_sem_expr_idx, ty_result);
+    }
+}
+
+/// # term
+
+impl<'a> SemaExprBuilder<'a> {
+    pub(crate) fn calc_explicit_application_expr_term(
+        &mut self,
+        function: SemaExprIdx,
+        argument: SemaExprIdx,
+    ) -> SemaExprTermResult<FlyTerm> {
+        // todo: implicit arguments
+        let function = self
+            .infer_expr_term(function)
+            .ok_or(DerivedSemaExprTermError::ExplicitApplicationFunctionTermNotInferred)?;
+        let argument = self
+            .infer_expr_term(argument)
+            .ok_or(DerivedSemaExprTermError::ExplicitApplicationArgumentTermNotInferred)?;
+        FlyTerm::new_application(self, function, argument)
+            .map_err(|e| DerivedSemaExprTermError::ExplicitApplicationTerm(e).into())
     }
 }

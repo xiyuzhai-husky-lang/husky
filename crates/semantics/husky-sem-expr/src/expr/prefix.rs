@@ -2,6 +2,8 @@ use super::*;
 use husky_sem_opr::prefix::SemaPrefixOpr;
 use husky_syn_opr::SynPrefixOpr;
 
+/// # type
+
 impl<'a> SemaExprBuilder<'a> {
     pub(super) fn build_prefix_sem_expr(
         &mut self,
@@ -134,6 +136,39 @@ impl<'a> SemaExprBuilder<'a> {
                 _ => Err(OriginalSemaExprTypeError::BitOperationOnlyWorksForRawBitsOrCustom)?,
             },
             _ => todo!(),
+        }
+    }
+}
+
+/// # term
+
+impl<'a> SemaExprBuilder<'a> {
+    pub(super) fn calc_prefix_expr_term(
+        &mut self,
+        expr_idx: SemaExprIdx,
+        opr: SemaPrefixOpr,
+        opd: SemaExprIdx,
+    ) -> SemaExprTermResult<FlyTerm> {
+        let Some(opd_term) = self.infer_expr_term(opd) else {
+            return Err(DerivedSemaExprTermError::PrefixOprTermNotInferred.into());
+        };
+        match opr {
+            SemaPrefixOpr::Minus => todo!(),
+            SemaPrefixOpr::Not => todo!(),
+            SemaPrefixOpr::BitNot => todo!(),
+            SemaPrefixOpr::LeashType => Ok(FlyTerm::new_leashed(self, opd_term)?),
+            SemaPrefixOpr::RefType => {
+                // let opd_ty = self.infer
+                // match
+                todo!()
+            }
+            SemaPrefixOpr::OptionType => {
+                Ok(
+                    FlyTerm::new_application(self, self.term_menu().option_ty_ontology(), opd_term)
+                        .map_err(|e| DerivedSemaExprTermError::OptionApplicationTerm(e))?
+                        .into(),
+                )
+            }
         }
     }
 }
