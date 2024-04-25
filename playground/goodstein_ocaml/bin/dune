@@ -1,0 +1,6 @@
+(executable
+ (public_name goodstein_ocaml)
+ (name main)
+ (preprocess
+  (pps ppx_deriving.std ppx_inline_test))
+ (libraries goodstein_ocaml))
