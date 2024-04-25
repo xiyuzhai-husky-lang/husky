@@ -23,36 +23,49 @@ impl<'a> CommentInjector<'a> {
 /// # actions
 
 impl<'a> CommentInjector<'a> {
+    /// it should be guaranteed that the `text_line` should be valid in the sense
+    /// - it's not empty
+    /// - it's not comment
     pub fn inject(&mut self, text_line: impl Into<TextLine>, content: impl AsRef<str>) {
         let text_line = text_line.into();
-        assert!(!self.skip_line(text_line));
+        assert!(self.is_line_valid(text_line));
         let injection = &mut self.injections[text_line.0 as usize];
-        let indent_slice =
-            TextCharIter::new(self.text.text_within(text_line)).next_str_slice_while(|c| c == ' ');
+        let text_line_content = self
+            .text
+            .text_within(text_line)
+            .trim_end_matches("\n")
+            .trim_end_matches("\r\n");
+        let mut indent_slice =
+            TextCharIter::new(text_line_content).next_str_slice_while(|c| c == ' ');
+        if indent_slice.len() == text_line_content.len() {
+            indent_slice = "";
+        }
         let content = content.as_ref();
         for line in content.lines() {
             *injection += indent_slice;
             *injection += "//";
             *injection += self.prefix;
             *injection += line;
+            injection.push('\n');
         }
     }
 
-    fn skip_line(&self, text_line: TextLine) -> bool {
-        let line = self.text.text_within(text_line);
-        if line.starts_with("//") {
-            if line[2..].starts_with(self.prefix) {
-                return true;
-            }
+    fn is_line_valid(&self, text_line: TextLine) -> bool {
+        let line = self.text.text_within(text_line).trim();
+        if line.is_empty() {
+            return false;
         }
-        false
+        if line.starts_with("//") {
+            return false;
+        }
+        true
     }
 
     pub fn finish(self) -> String {
         let mut result = String::new();
         self.text.indexed_lines().zip(&self.injections).for_each(
             |((text_line, text_line_content), injection)| {
-                if !self.skip_line(text_line) {
+                if self.is_line_valid(text_line) {
                     result += &injection;
                     if result.len() > 0 && !result.ends_with('\n') && text_line_content.len() > 0 {
                         result.push('\n')
@@ -132,7 +145,7 @@ world"#,
 }
 
 #[test]
-fn inject_multiple_lines() {
+fn inject_multiple_lines_works() {
     t(
         r#"Line 1
 Line 2
@@ -147,7 +160,7 @@ Line 3"#,
 }
 
 #[test]
-fn inject_with_special_characters() {
+fn inject_with_special_characters_works() {
     t(
         r#"Special chars here:"#,
         &[(0, "chars: #@$%^&*()")],
@@ -157,18 +170,21 @@ Special chars here:"#,
 }
 
 #[test]
-fn inject_into_empty_file() {
-    t("", &[(0, "insert into empty")], "//? insert into empty");
+#[should_panic]
+fn inject_into_empty_file_fails() {
+    t("", &[(0, "insert into empty")], "//? insert into empty\n");
 }
 
 #[test]
-fn inject_on_empty_line() {
+#[should_panic]
+fn inject_on_empty_line_fails() {
     t(
         r#"
 
 "#,
         &[(0, "comment on empty line")],
-        r#"//? comment on empty line
+        r#"
+//? comment on empty line
 
 "#,
     );
@@ -212,4 +228,16 @@ Two
 //? last first
 Three"#,
     );
+}
+
+#[test]
+#[should_panic]
+fn blank_line_injection_fails() {
+    t("  \n", &[(0, "ignore blanks")], "//? ignore blanks\n  \n");
+}
+
+#[test]
+#[should_panic]
+fn comment_injection_fails() {
+    t("//  \n", &[(0, "ignore blanks")], "//? ignore blanks\n  \n");
 }
