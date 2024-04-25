@@ -1,5 +1,5 @@
 [package]
-name = "husky-syn-fmt"
+name = "husky-ide-fmt"
 version.workspace = true
 edition = "2021"
 
@@ -7,7 +7,7 @@ edition = "2021"
 salsa.workspace = true
 
 [dev-dependencies]
-husky-syn-fmt = { path = ".", features = ["test_utils"] }
+husky-ide-fmt = { path = ".", features = ["test_utils"] }
 
 [features]
 test_utils = ["salsa/test_utils"]
