@@ -4,7 +4,7 @@ use husky_entity_tree::SynNodeRegionPath;
 use husky_fly_term::FlyTermRegion;
 use husky_regional_token::{RegionalTokenIdxBase, RegionalTokenIdxRange, RegionalTokenStreamState};
 use husky_sem_expr::*;
-use husky_syn_expr::{SynExprDb, SynExprIdx, SynExprRangeRegion, SynExprRegion};
+use husky_syn_expr::{SynExprIdx, SynExprRangeRegion, SynExprRegion};
 use husky_token::{verse::idx::TokenVerseIdx, TokenDb, TokenIdx, TokenIdxRange, TokenStreamState};
 
 pub(crate) struct SheetDiagnosticsContext<'a> {
@@ -72,7 +72,7 @@ impl<'a> RegionDiagnosticsContext<'a> {
         let module_path = syn_expr_region_data.path().module_path(db);
         let ranged_token_sheet = db.ranged_token_sheet(module_path);
         let sem_expr_region_data = db.sem_expr_region(syn_expr_region).data(db);
-        let expr_range_region = db.expr_range_region(syn_expr_region);
+        let syn_expr_range_region = syn_expr_region.range_region(db);
         let regional_token_idx_base = match syn_expr_region_data.path() {
             SynNodeRegionPath::Snippet(_) => todo!(),
             SynNodeRegionPath::Decl(path) => path.decl_regional_token_idx_base(db),
@@ -82,7 +82,7 @@ impl<'a> RegionDiagnosticsContext<'a> {
             db,
             ranged_token_sheet,
             sem_expr_region_data,
-            expr_range_region,
+            expr_range_region: syn_expr_range_region,
             regional_token_idx_base,
         }
     }

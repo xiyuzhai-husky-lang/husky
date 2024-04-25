@@ -15,7 +15,7 @@ pub use husky_ast::test_utils::*;
     husky_corgi_config::CorgiConfigJar,
     husky_corgi_config_ast::CorgiConfigAstJar,
     husky_manifest::ManifestJar,
-    husky_syn_expr::SynExprJar,
+    husky_syn_expr::jar::SynExprJar,
     husky_syn_defn::SynDefnJar,
     husky_syn_decl::SynDeclJar,
     husky_term_prelude::TermPreludeJar,

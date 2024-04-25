@@ -2,7 +2,7 @@ use super::*;
 use parsec::{PunctuatedSmallList, TryParseFromStream};
 
 // todo: GADT
-#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
+#[salsa::tracked]
 pub struct TypePropsVariantSynNodeDecl {
     #[id]
     pub syn_node_path: TypeVariantSynNodePath,
@@ -45,7 +45,7 @@ impl TypePropsVariantSynNodeDecl {
     }
 }
 
-#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
+#[salsa::tracked]
 pub struct TypePropsVariantSynDecl {
     #[id]
     pub path: TypeVariantPath,

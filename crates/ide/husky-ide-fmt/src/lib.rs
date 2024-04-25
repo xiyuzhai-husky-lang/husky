@@ -1,2 +1,1 @@
-#[salsa::jar]
-pub struct SyntaxFormatJar();
+pub mod jar;

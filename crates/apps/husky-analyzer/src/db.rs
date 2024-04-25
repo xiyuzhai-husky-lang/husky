@@ -27,7 +27,7 @@ use salsa::snapshot::SnapshotClone;
     husky_corgi_config_ast::CorgiConfigAstJar,
     husky_manifest_ast::ManifestAstJar,
     husky_entity_tree::EntityTreeJar,
-    husky_syn_expr::SynExprJar,
+    husky_syn_expr::jar::SynExprJar,
     husky_syn_decl::SynDeclJar,
     husky_syn_defn::SynDefnJar,
     // semantics
@@ -39,7 +39,7 @@ use salsa::snapshot::SnapshotClone;
     husky_folding_range::FoldingRangeJar,
     husky_semantic_token::SemanticTokenJar,
     husky_hover::HoverJar,
-    husky_syn_fmt::SyntaxFormatJar,
+    husky_ide_fmt::jar::IdeFmtJar,
     husky_diagnostics::DiagnosticsJar,
 )]
 pub struct AnalyzerDb;

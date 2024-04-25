@@ -1,20 +1,21 @@
 #![feature(iter_advance_by)]
 #![feature(let_chains)]
-pub mod db;
 pub mod decl;
 pub mod error;
+pub mod jar;
 pub mod parameter;
 pub mod parser;
 pub mod sheet;
 #[cfg(test)]
 mod tests;
 
-pub use self::db::*;
 pub use self::error::*;
+pub use self::jar::*;
 pub use self::parameter::*;
 pub use self::sheet::*;
 
 use self::decl::*;
+use self::jar::SynDeclJar as Jar;
 use self::parser::*;
 #[cfg(test)]
 use self::tests::*;

@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar, constructor = new)]
+#[salsa::tracked(constructor = new)]
 pub struct SynNodeDeclSheet {
     #[return_ref]
     pub decls: Vec<(ItemSynNodePath, ItemSynNodeDecl)>,
@@ -17,7 +17,7 @@ impl HasSynNodeDeclSheet for ModulePath {
 }
 
 // useful for diagnostics and testing
-#[salsa::tracked(jar = SynDeclJar)]
+#[salsa::tracked]
 pub fn syn_node_decl_sheet(db: &::salsa::Db, path: ModulePath) -> SynNodeDeclSheet {
     let item_tree_sheet = db.item_syn_tree_sheet(path);
     let mut decls: Vec<(ItemSynNodePath, ItemSynNodeDecl)> = Default::default();

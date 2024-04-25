@@ -10,7 +10,7 @@ use husky_eth_signature::EtherealSignatureJar;
 use husky_manifest::ManifestJar;
 use husky_manifest_ast::ManifestAstJar;
 use husky_syn_decl::SynDeclJar;
-use husky_syn_expr::SynExprJar;
+use husky_syn_expr::jar::SynExprJar;
 use husky_term_prelude::TermPreludeJar;
 use husky_token::TokenJar;
 use husky_toml_ast::TomlAstJar;

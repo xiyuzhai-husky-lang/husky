@@ -114,7 +114,7 @@ impl<'a> TryParseOptionFromStream<SynDeclExprParser<'a>> for BackpropAttrArgumen
 
 /// # syn decl
 
-#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
+#[salsa::tracked]
 pub struct BackpropAttrSynDecl {
     #[id]
     pub path: AttrItemPath,
