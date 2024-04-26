@@ -9,6 +9,8 @@ rustc_apfloat.workspace = true
 rustc-hash.workspace = true
 rustc_index.workspace = true
 tracing.workspace = true
+# abstractions
+rustc_data_structures.workspace = true
 # utils
 husky-lifetime-utils.workspace = true
 

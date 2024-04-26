@@ -718,12 +718,7 @@ use rustc_index::bit_set::BitSet;
 use smallvec::{smallvec, SmallVec};
 use std::fmt;
 
-#[cfg(feature = "rustc")]
 use rustc_data_structures::stack::ensure_sufficient_stack;
-#[cfg(not(feature = "rustc"))]
-pub fn ensure_sufficient_stack<R>(f: impl FnOnce() -> R) -> R {
-    f()
-}
 
 /// Context that provides information for usefulness checking.
 struct UsefulnessCtxt<'a, Ctx: IsPatternAnalyisContext> {

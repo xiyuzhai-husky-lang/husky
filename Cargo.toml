@@ -192,6 +192,7 @@ original-error = { path = "crates/abstractions/original-error" }
 parsec = { path = "crates/abstractions/parsec" }
 propagate = { path = "crates/abstractions/propagate" }
 rustc_arena = { path = "crates/abstractions/rustc_arena" }
+rustc_data_structures = { path = "crates/abstractions/rustc_data_structures" }
 rustc_index = { path = "crates/abstractions/rustc_index" }
 rustc_index_macros = { path = "crates/abstractions/rustc_index_macros" }
 rustc_macros = { path = "crates/abstractions/rustc_macros" }
