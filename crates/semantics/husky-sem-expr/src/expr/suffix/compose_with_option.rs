@@ -1,25 +1,19 @@
 use super::*;
 use husky_sem_opr::suffix::SemaSuffixOpr;
 
-impl<'a> SemaExprBuilder<'a> {
+impl<'a> SemExprBuilder<'a> {
     pub(super) fn calc_compose_with_option_expr_ty(
         &mut self,
         opd: SynExprIdx,
         final_destination: FinalDestination,
-    ) -> (
-        SemaExprDataResult<SemaExprData>,
-        SemaExprTypeResult<FlyTerm>,
-    ) {
+    ) -> (SemExprDataResult<SemExprData>, SemExprTypeResult<FlyTerm>) {
         todo!()
     }
 
     pub(super) fn calc_compose_with_option_expr_ty_given_opd_ty(
         &mut self,
         opd_ty: FlyTerm,
-    ) -> (
-        SemaExprDataResult<SemaSuffixOpr>,
-        SemaExprTypeResult<FlyTerm>,
-    ) {
+    ) -> (SemExprDataResult<SemaSuffixOpr>, SemExprTypeResult<FlyTerm>) {
         match opd_ty.data(self) {
             FlyTermData::Literal(_) => todo!(),
             FlyTermData::TypeOntology {

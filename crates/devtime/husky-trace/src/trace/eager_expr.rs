@@ -5,7 +5,7 @@ use husky_hir_eager_expr::{
     HirEagerExprSourceMapData,
 };
 use husky_sem_expr::{
-    helpers::range::sem_expr_range_region, SemaExprData, SemaExprRegion, SemaRitchieArgument,
+    helpers::range::sem_expr_range_region, SemExprData, SemExprRegion, SemaRitchieArgument,
 };
 use husky_syn_decl::decl::HasSynDecl;
 
@@ -28,10 +28,10 @@ pub enum EagerExprEssence {
 pub struct EagerExprTraceData {
     path: TracePath,
     biological_parent: Trace,
-    sem_expr_idx: SemaExprIdx,
+    sem_expr_idx: SemExprIdx,
     hir_eager_expr_idx: Option<HirEagerExprIdx>,
     #[skip_fmt]
-    sem_expr_region: SemaExprRegion,
+    sem_expr_region: SemExprRegion,
     #[skip_fmt]
     hir_eager_expr_region: HirEagerExprRegion,
     #[skip_fmt]
@@ -42,9 +42,9 @@ impl Trace {
     pub(crate) fn new_eager_expr(
         biological_parent_path: TracePath,
         biological_parent: Trace,
-        sem_expr_idx: SemaExprIdx,
+        sem_expr_idx: SemExprIdx,
         hir_eager_expr_idx: Option<HirEagerExprIdx>,
-        sem_expr_region: SemaExprRegion,
+        sem_expr_region: SemExprRegion,
         hir_eager_expr_region: HirEagerExprRegion,
         hir_eager_expr_source_map: HirEagerExprSourceMap,
         eager_expr_trace_path_registry: &mut TracePathRegistry<EagerExprEssence>,
@@ -122,7 +122,7 @@ impl EagerExprTraceData {
         let hir_eager_expr_source_map_data = self.hir_eager_expr_source_map.data(db);
         match *self.hir_eager_expr_region.expr_arena(db)[hir_eager_expr_idx].data() {
             HirEagerExprData::FunctionRitchieCall { path, .. } => {
-                let SemaExprData::FunctionRitchieCall {
+                let SemExprData::FunctionRitchieCall {
                     ref ritchie_parameter_argument_matches,
                     ..
                 } = sem_expr_idx.data(caller_sem_expr_region_data.sem_expr_arena())
@@ -151,7 +151,7 @@ impl EagerExprTraceData {
                 subtraces
             }
             HirEagerExprData::AssocFunctionRitchieCall { path, .. } => {
-                let SemaExprData::FunctionRitchieCall {
+                let SemExprData::FunctionRitchieCall {
                     ref ritchie_parameter_argument_matches,
                     ..
                 } = sem_expr_idx.data(caller_sem_expr_region_data.sem_expr_arena())
@@ -180,7 +180,7 @@ impl EagerExprTraceData {
                 subtraces
             }
             HirEagerExprData::MethodRitchieCall { path, .. } => {
-                let SemaExprData::MethodFnCall {
+                let SemExprData::MethodFnCall {
                     ref ritchie_parameter_argument_matches,
                     ..
                 } = sem_expr_idx.data(caller_sem_expr_region_data.sem_expr_arena())
@@ -219,7 +219,7 @@ fn fn_call_eager_expr_trace_input_traces(
     trace_path: TracePath,
     trace: Trace,
     ritchie_parameter_argument_matches: &[SemaRitchieArgument],
-    caller_sem_expr_region: SemaExprRegion,
+    caller_sem_expr_region: SemExprRegion,
     caller_hir_eager_expr_source_map_data: &HirEagerExprSourceMapData,
     callee_syn_expr_region: SynExprRegion,
     db: &::salsa::Db,

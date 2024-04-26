@@ -16,7 +16,7 @@ use husky_hir_ty::{
     indirections::HirIndirections, instantiation::HirInstantiation,
     place_contract_site::HirPlaceContractSite, HirConstTemplateVariable, HirType,
 };
-use husky_sem_expr::{SemaExprData, SemaExprIdx};
+use husky_sem_expr::{SemExprData, SemExprIdx};
 use husky_sem_opr::binary::SemaBinaryOpr;
 use husky_term_prelude::literal::Literal;
 use idx_arena::ArenaRef;
@@ -132,25 +132,25 @@ pub enum HirLazyExprData {
     },
 }
 
-impl ToHirLazy for SemaExprIdx {
+impl ToHirLazy for SemExprIdx {
     type Output = HirLazyExprIdx;
 
     fn to_hir_lazy(&self, builder: &mut HirLazyExprBuilder) -> Self::Output {
         let place_contract_site =
             HirPlaceContractSite::from_sema(&builder.sem_place_contract_region()[*self]);
         let hir_lazy_expr = match *self.data(builder.sem_expr_arena_ref()) {
-            SemaExprData::Literal(_, _) => {
+            SemExprData::Literal(_, _) => {
                 let EthTerm::Literal(lit) = builder.expr_term(*self) else {
                     unreachable!()
                 };
                 HirLazyExprData::Literal(lit)
             }
-            SemaExprData::PrincipalEntityPath { path, .. } => {
+            SemExprData::PrincipalEntityPath { path, .. } => {
                 HirLazyExprData::PrincipalEntityPath(path)
             }
-            SemaExprData::MajorItemPathAssocItem { .. } => todo!(),
-            SemaExprData::AssocItem { .. } => todo!(),
-            SemaExprData::InheritedSynSymbol {
+            SemExprData::MajorItemPathAssocItem { .. } => todo!(),
+            SemExprData::AssocItem { .. } => todo!(),
+            SemExprData::InheritedSynSymbol {
                 inherited_syn_symbol_idx,
                 ..
             } => HirLazyExprData::Variable(
@@ -158,7 +158,7 @@ impl ToHirLazy for SemaExprIdx {
                     .inherited_syn_symbol_to_hir_lazy_variable(inherited_syn_symbol_idx)
                     .unwrap(),
             ),
-            SemaExprData::CurrentSynSymbol {
+            SemExprData::CurrentSynSymbol {
                 current_variable_idx,
                 ..
             } => HirLazyExprData::Variable(
@@ -166,7 +166,7 @@ impl ToHirLazy for SemaExprIdx {
                     .current_variable_to_hir_lazy_variable(current_variable_idx)
                     .unwrap(),
             ),
-            SemaExprData::FrameVarDecl {
+            SemExprData::FrameVarDecl {
                 frame_var_symbol_idx,
                 ..
             } => HirLazyExprData::Variable(
@@ -174,9 +174,9 @@ impl ToHirLazy for SemaExprIdx {
                     .current_variable_to_hir_lazy_variable(frame_var_symbol_idx)
                     .unwrap(),
             ),
-            SemaExprData::SelfType(_) => todo!(),
-            SemaExprData::SelfValue(_) => todo!(),
-            SemaExprData::Binary {
+            SemExprData::SelfType(_) => todo!(),
+            SemExprData::SelfValue(_) => todo!(),
+            SemExprData::Binary {
                 lopd, opr, ropd, ..
             } => match opr {
                 SemaBinaryOpr::As => HirLazyExprData::As {
@@ -189,7 +189,7 @@ impl ToHirLazy for SemaExprIdx {
                     ropd: ropd.to_hir_lazy(builder),
                 },
             },
-            SemaExprData::Be {
+            SemExprData::Be {
                 src,
                 be_regional_token_idx: _,
                 ref target,
@@ -197,7 +197,7 @@ impl ToHirLazy for SemaExprIdx {
                 src: src.to_hir_lazy(builder),
                 pattern: target.to_hir_lazy(builder),
             },
-            SemaExprData::Prefix {
+            SemExprData::Prefix {
                 opr,
                 opd: opd_sem_expr_idx,
                 ..
@@ -210,7 +210,7 @@ impl ToHirLazy for SemaExprIdx {
                 ),
                 opd_hir_expr_idx: opd_sem_expr_idx.to_hir_lazy(builder),
             },
-            SemaExprData::Suffix {
+            SemExprData::Suffix {
                 opd: opd_sem_expr_idx,
                 opr,
                 ..
@@ -220,7 +220,7 @@ impl ToHirLazy for SemaExprIdx {
                     opd_hir_expr_idx: opd_sem_expr_idx.to_hir_lazy(builder),
                 },
             },
-            SemaExprData::Unveil {
+            SemExprData::Unveil {
                 ref unveil_output_ty_signature,
                 unveil_assoc_fn_path,
                 opd_sem_expr_idx,
@@ -233,18 +233,18 @@ impl ToHirLazy for SemaExprIdx {
                 ),
                 opd_hir_expr_idx: opd_sem_expr_idx.to_hir_lazy(builder),
             },
-            SemaExprData::Unwrap {
+            SemExprData::Unwrap {
                 opd_sem_expr_idx, ..
             } => HirLazyExprData::Unwrap {
                 opd_hir_expr_idx: opd_sem_expr_idx.to_hir_lazy(builder),
             },
-            SemaExprData::FunctionApplication {
+            SemExprData::FunctionApplication {
                 function_sem_expr_idx: _,
                 argument_sem_expr_idx: _,
             } => {
                 todo!()
             }
-            SemaExprData::FunctionRitchieCall {
+            SemExprData::FunctionRitchieCall {
                 function_sem_expr_idx,
                 ref ritchie_parameter_argument_matches,
                 ..
@@ -253,7 +253,7 @@ impl ToHirLazy for SemaExprIdx {
                 let item_groups =
                     builder.new_call_list_item_groups(ritchie_parameter_argument_matches);
                 match *builder.sem_expr_arena_ref()[function_sem_expr_idx].data() {
-                    SemaExprData::PrincipalEntityPath {
+                    SemExprData::PrincipalEntityPath {
                         path,
                         // only None if `path` is an ontology constructor
                         instantiation: Some(ref instantiation),
@@ -307,11 +307,11 @@ impl ToHirLazy for SemaExprIdx {
                             }
                         }
                     }
-                    SemaExprData::MajorItemPathAssocItem { .. } => todo!(),
+                    SemExprData::MajorItemPathAssocItem { .. } => todo!(),
                     _ => todo!(),
                 }
             }
-            SemaExprData::Ritchie {
+            SemExprData::Ritchie {
                 ritchie_kind_regional_token_idx: _,
                 ritchie_kind: _,
                 lpar_token: _,
@@ -320,7 +320,7 @@ impl ToHirLazy for SemaExprIdx {
                 light_arrow_token: _,
                 return_ty_sem_expr_idx: _,
             } => todo!(),
-            SemaExprData::Field {
+            SemExprData::Field {
                 self_argument: owner,
                 self_ty: owner_ty,
                 ident_token,
@@ -353,7 +353,7 @@ impl ToHirLazy for SemaExprIdx {
                     }
                 }
             },
-            SemaExprData::MethodApplication {
+            SemExprData::MethodApplication {
                 self_argument: _,
                 dot_regional_token_idx: _,
                 ident_token: _,
@@ -364,7 +364,7 @@ impl ToHirLazy for SemaExprIdx {
             } => {
                 todo!()
             }
-            SemaExprData::MethodFnCall {
+            SemExprData::MethodFnCall {
                 self_argument_sem_expr_idx,
                 ident_token,
                 ref dispatch,
@@ -389,22 +389,22 @@ impl ToHirLazy for SemaExprIdx {
                     indirections: HirIndirections::from_fly(dispatch.indirections()),
                 }
             }
-            SemaExprData::MethodGnCall { .. } => {
+            SemExprData::MethodGnCall { .. } => {
                 todo!()
             }
-            SemaExprData::TemplateInstantiation {
+            SemExprData::TemplateInstantiation {
                 template: _,
                 template_arguments: _,
             } => todo!(),
-            SemaExprData::At { .. } => unreachable!("this is a type"),
-            SemaExprData::Unit { .. } => HirLazyExprData::Literal(().into()),
-            SemaExprData::Delimitered { item, .. } => return item.to_hir_lazy(builder),
-            SemaExprData::NewTuple {
+            SemExprData::At { .. } => unreachable!("this is a type"),
+            SemExprData::Unit { .. } => HirLazyExprData::Literal(().into()),
+            SemExprData::Delimitered { item, .. } => return item.to_hir_lazy(builder),
+            SemExprData::NewTuple {
                 lpar_regional_token_idx: _,
                 items: _,
                 rpar_regional_token_idx: _,
             } => todo!(),
-            SemaExprData::Index {
+            SemExprData::Index {
                 owner: owner_sem_expr_idx,
                 ref index_sem_list_items,
                 ..
@@ -415,10 +415,10 @@ impl ToHirLazy for SemaExprIdx {
                     .map(|item| item.sem_expr_idx.to_hir_lazy(builder))
                     .collect(),
             },
-            SemaExprData::CompositionWithList { .. } => {
+            SemExprData::CompositionWithList { .. } => {
                 todo!()
             }
-            SemaExprData::NewList {
+            SemExprData::NewList {
                 ref items,
                 element_ty,
                 ..
@@ -430,45 +430,45 @@ impl ToHirLazy for SemaExprIdx {
                 element_ty: HirType::from_fly(element_ty, builder.db(), builder.fly_terms())
                     .unwrap(),
             },
-            SemaExprData::BoxColonList {
+            SemExprData::BoxColonList {
                 lbox_regional_token_idx: _,
                 colon_regional_token_idx: _,
                 items: _,
                 rbox_regional_token_idx: _,
             } => todo!(),
-            SemaExprData::Block { stmts } => HirLazyExprData::Block {
+            SemExprData::Block { stmts } => HirLazyExprData::Block {
                 stmts: stmts.to_hir_lazy(builder),
             },
-            SemaExprData::EmptyHtmlTag {
+            SemExprData::EmptyHtmlTag {
                 empty_html_bra_idx: _,
                 function_ident: _,
                 arguments: _,
                 empty_html_ket: _,
             } => todo!(),
-            SemaExprData::Sorry {
+            SemExprData::Sorry {
                 regional_token_idx: _,
             } => todo!(),
-            SemaExprData::Todo {
+            SemExprData::Todo {
                 regional_token_idx: _,
             } => todo!(),
-            SemaExprData::Unreachable {
+            SemExprData::Unreachable {
                 regional_token_idx: _,
             } => todo!(),
-            SemaExprData::VecFunctor {
+            SemExprData::VecFunctor {
                 lbox_regional_token_idx: _,
                 rbox_regional_token_idx: _,
             } => todo!(),
-            SemaExprData::ArrayFunctor {
+            SemExprData::ArrayFunctor {
                 lbox_regional_token_idx: _,
                 items: _,
                 rbox_regional_token_idx: _,
             } => todo!(),
-            SemaExprData::NestedBlock {
+            SemExprData::NestedBlock {
                 lcurl_regional_token_idx,
                 stmts,
                 rcurl_regional_token,
             } => todo!(),
-            SemaExprData::Closure { .. } => todo!(),
+            SemExprData::Closure { .. } => todo!(),
         };
         builder.alloc_expr(*self, hir_lazy_expr)
     }

@@ -2,7 +2,7 @@ use crate::*;
 use husky_entity_kind::EntityKind;
 use husky_entity_path::{EntityPath, PrincipalEntityPath};
 use husky_entity_tree::{OnceUseRuleIdx, UseExprIdx, UseOneRuleState};
-use husky_sem_expr::SemaExprIdx;
+use husky_sem_expr::SemExprIdx;
 use husky_syn_expr::{
     entity_path::SynPrincipalEntityPathSynExprIdx, CurrentVariableIdx, CurrentVariableKind,
     InheritedSymbolicVariableIdx, InheritedVariableKind, SynExprRegion, SynPatternIdx,
@@ -22,7 +22,7 @@ pub struct TokenInfo {
 #[enum_class::from_variants]
 pub enum TokenInfoSource {
     UseExpr(UseExprIdx),
-    SemaExpr(SemaExprIdx),
+    SemExpr(SemExprIdx),
     SynPrincipalEntityPathExpr(SynPrincipalEntityPathSynExprIdx, PrincipalEntityPath),
     PatternExpr(SynPatternIdx),
     // todo: add #[skip] attribute

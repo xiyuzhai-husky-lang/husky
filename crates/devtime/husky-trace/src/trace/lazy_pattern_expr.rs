@@ -5,7 +5,7 @@ use husky_hir_lazy_expr::{
     variable::HirLazyVariableIdx, HirLazyExprRegion, HirLazyPatternExpr, HirLazyPatternExprIdx,
 };
 use husky_ki_repr::expansion::KiReprExpansion;
-use husky_sem_expr::{helpers::range::sem_expr_range_region, SemaExprRegion};
+use husky_sem_expr::{helpers::range::sem_expr_range_region, SemExprRegion};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub struct LazyPatternExprTracePath(TracePath);
@@ -31,7 +31,7 @@ pub struct LazyPatternExprTraceData {
     hir_lazy_pattern_expr_idx: Option<HirLazyPatternExprIdx>,
     hir_lazy_variable_idxs: IdentPairMap<Option<HirLazyVariableIdx>>,
     #[skip_fmt]
-    sem_expr_region: SemaExprRegion,
+    sem_expr_region: SemExprRegion,
     #[skip_fmt]
     hir_lazy_expr_region: HirLazyExprRegion,
 }
@@ -43,7 +43,7 @@ impl Trace {
         syn_pattern_expr_idx: SynPatternIdx,
         hir_lazy_pattern_expr_idx: Option<HirLazyPatternExprIdx>,
         hir_lazy_variable_idxs: IdentPairMap<Option<HirLazyVariableIdx>>,
-        sem_expr_region: SemaExprRegion,
+        sem_expr_region: SemExprRegion,
         hir_lazy_expr_region: HirLazyExprRegion,
         lazy_expr_trace_path_registry: &mut TracePathRegistry<LazyPatternExprEssence>,
         db: &::salsa::Db,

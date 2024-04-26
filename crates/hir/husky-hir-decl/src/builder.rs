@@ -6,7 +6,7 @@ use husky_hir_expr::{
 };
 use husky_hir_lazy_expr::HirLazyPatternExprIdx;
 use husky_hir_ty::{db::HirTypeDb, menu::HirTypeMenu, trai::HirTrait, HirType};
-use husky_sem_expr::{SemaExprDb, SemaExprRegionData};
+use husky_sem_expr::{SemExprDb, SemExprRegionData};
 use husky_syn_expr::{
     CurrentVariableIdx, ReturnTypeBeforeColonSyndicate, ReturnTypeBeforeEqSyndicate, SynExprIdx,
     SynExprRegion, SynExprRegionData, SynPatternRoot,
@@ -16,7 +16,7 @@ pub(crate) struct HirDeclBuilder<'a> {
     db: &'a ::salsa::Db,
     hir_ty_menu: &'a HirTypeMenu,
     syn_expr_region_data: &'a SynExprRegionData,
-    sem_expr_region_data: &'a SemaExprRegionData,
+    sem_expr_region_data: &'a SemExprRegionData,
     hir_expr_region: HirExprRegion,
     hir_expr_source_map: HirExprSourceMap,
 }
@@ -158,7 +158,7 @@ impl<'a> HirDeclBuilder<'a> {
         self.syn_expr_region_data
     }
 
-    pub(crate) fn sem_expr_region_data(&self) -> &'a SemaExprRegionData {
+    pub(crate) fn sem_expr_region_data(&self) -> &'a SemExprRegionData {
         self.sem_expr_region_data
     }
 }

@@ -1,17 +1,17 @@
 use super::*;
 
-impl<'a> SemaExprBuilder<'a> {
+impl<'a> SemExprBuilder<'a> {
     pub(super) fn calc_binary_comparison_expr_ty(
         &mut self,
         lopd: SynExprIdx,
         opr: BinaryComparisonOpr,
         ropd: SynExprIdx,
     ) -> (
-        SemaExprIdx,
+        SemExprIdx,
         SemaBinaryOpr,
-        SemaExprIdx,
-        SemaExprDataResult<SemaBinaryOprDynamicDispatch>,
-        SemaExprTypeResult<FlyTerm>,
+        SemExprIdx,
+        SemExprDataResult<SemaBinaryOprDynamicDispatch>,
+        SemExprTypeResult<FlyTerm>,
     ) {
         let (lopd_sem_expr_idx, lopd_ty) = self.build_sem_expr_with_ty(lopd, ExpectAnyOriginal);
         let ropd_sem_expr_idx = match lopd_ty {

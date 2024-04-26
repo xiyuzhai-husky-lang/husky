@@ -9,7 +9,7 @@ use crate::{coercion::HirEagerCoercion, *};
 use husky_expr::stmt::ConditionConversion;
 use husky_fly_term::ExpectationOutcome;
 use husky_hir_ty::ritchie::HirContract;
-use husky_sem_expr::{stmt::condition::SemaCondition, SemaStmtData, SemaStmtIdx, SemaStmtIdxRange};
+use husky_sem_expr::{stmt::condition::SemaCondition, SemStmtData, SemStmtIdx, SemStmtIdxRange};
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum HirEagerStmtData {
@@ -72,12 +72,12 @@ pub type HirEagerStmtIdx = ArenaIdx<HirEagerStmtData>;
 pub type HirEagerStmtIdxRange = ArenaIdxRange<HirEagerStmtData>;
 pub type HirEagerStmtMap<V> = ArenaMap<HirEagerStmtData, V>;
 
-impl ToHirEager for SemaStmtIdx {
+impl ToHirEager for SemStmtIdx {
     type Output = Option<HirEagerStmtData>;
 
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
         Some(match self.data(builder.sem_stmt_arena_ref()) {
-            &SemaStmtData::Let {
+            &SemStmtData::Let {
                 ref let_pattern_sem_obelisk,
                 contract,
                 initial_value_sem_expr_idx,
@@ -91,7 +91,7 @@ impl ToHirEager for SemaStmtIdx {
                     .as_ref()
                     .map(|coercion_outcome| coercion_outcome.coercion().to_hir_eager(builder)),
             },
-            SemaStmtData::Return {
+            SemStmtData::Return {
                 result,
                 ref coercion_outcome,
                 ..
@@ -103,14 +103,14 @@ impl ToHirEager for SemaStmtIdx {
                     .coercion()
                     .to_hir_eager(builder),
             },
-            SemaStmtData::Require { condition, .. } => HirEagerStmtData::Require {
+            SemStmtData::Require { condition, .. } => HirEagerStmtData::Require {
                 condition: condition.to_hir_eager(builder),
             },
-            SemaStmtData::Assert { condition, .. } => HirEagerStmtData::Assert {
+            SemStmtData::Assert { condition, .. } => HirEagerStmtData::Assert {
                 condition: condition.to_hir_eager(builder),
             },
-            SemaStmtData::Break { break_token: _ } => HirEagerStmtData::Break,
-            SemaStmtData::Eval {
+            SemStmtData::Break { break_token: _ } => HirEagerStmtData::Break,
+            SemStmtData::Eval {
                 sem_expr_idx,
                 outcome,
                 eol_semicolon,
@@ -124,7 +124,7 @@ impl ToHirEager for SemaStmtIdx {
                     _ => None,
                 },
             },
-            SemaStmtData::ForBetween {
+            SemStmtData::ForBetween {
                 ref particulars,
                 for_loop_var_symbol_idx: _frame_var_symbol_idx,
                 stmts: ref block,
@@ -133,8 +133,8 @@ impl ToHirEager for SemaStmtIdx {
                 particulars: particulars.to_hir_eager(builder),
                 stmts: block.to_hir_eager(builder),
             },
-            SemaStmtData::ForIn { .. } => todo!(),
-            SemaStmtData::Forext {
+            SemStmtData::ForIn { .. } => todo!(),
+            SemStmtData::Forext {
                 ref particulars,
                 stmts: ref block,
                 ..
@@ -142,7 +142,7 @@ impl ToHirEager for SemaStmtIdx {
                 particulars: particulars.to_hir_eager(builder),
                 stmts: block.to_hir_eager(builder),
             },
-            SemaStmtData::While {
+            SemStmtData::While {
                 condition,
                 stmts: block,
                 ..
@@ -150,7 +150,7 @@ impl ToHirEager for SemaStmtIdx {
                 condition: condition.to_hir_eager(builder),
                 stmts: block.to_hir_eager(builder),
             },
-            SemaStmtData::DoWhile {
+            SemStmtData::DoWhile {
                 condition,
                 stmts: block,
                 ..
@@ -158,7 +158,7 @@ impl ToHirEager for SemaStmtIdx {
                 condition: condition.to_hir_eager(builder),
                 stmts: block.to_hir_eager(builder),
             },
-            SemaStmtData::IfElse {
+            SemStmtData::IfElse {
                 ref if_branch,
                 ref elif_branches,
                 ref else_branch,
@@ -167,7 +167,7 @@ impl ToHirEager for SemaStmtIdx {
                 elif_branches: elif_branches.to_hir_eager(builder),
                 else_branch: else_branch.to_hir_eager(builder),
             },
-            SemaStmtData::Match {
+            SemStmtData::Match {
                 match_opd,
                 case_branches,
                 ..
@@ -179,11 +179,11 @@ impl ToHirEager for SemaStmtIdx {
     }
 }
 
-impl ToHirEager for SemaStmtIdxRange {
+impl ToHirEager for SemStmtIdxRange {
     type Output = HirEagerStmtIdxRange;
 
     fn to_hir_eager(&self, builder: &mut HirEagerExprBuilder) -> Self::Output {
-        let mut sem_stmt_indices: Vec<SemaStmtIdx> = vec![];
+        let mut sem_stmt_indices: Vec<SemStmtIdx> = vec![];
         let mut hir_eager_stmts: Vec<HirEagerStmtData> = vec![];
         for sem_stmt_idx in self {
             match sem_stmt_idx.to_hir_eager(builder) {

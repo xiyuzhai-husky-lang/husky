@@ -2,25 +2,22 @@ use super::*;
 
 /// # type
 
-impl<'a> SemaExprBuilder<'a> {
+impl<'a> SemExprBuilder<'a> {
     pub(super) fn calc_function_application_expr_ty(
         &mut self,
         expr_idx: SynExprIdx,
         function_syn_expr_idx: SynExprIdx,
         argument_syn_expr_idx: SynExprIdx,
         final_destination: FinalDestination,
-    ) -> (
-        SemaExprDataResult<SemaExprData>,
-        SemaExprTypeResult<FlyTerm>,
-    ) {
+    ) -> (SemExprDataResult<SemExprData>, SemExprTypeResult<FlyTerm>) {
         let (function_sem_expr_idx, function_ty_outcome) = self.build_sem_expr_with_outcome(
             function_syn_expr_idx,
             ExpectEqsFunctionType::new(final_destination),
         );
         let Some(function_ty_outcome) = function_ty_outcome else {
             return (
-                Err(DerivedSemaExprDataError::ExplicitApplicationFunctionTypeNotInferred.into()),
-                Err(DerivedSemaExprTypeError::ExplicitApplicationFunctionTypeNotInferred.into()),
+                Err(DerivedSemExprDataError::ExplicitApplicationFunctionTypeNotInferred.into()),
+                Err(DerivedSemExprTypeError::ExplicitApplicationFunctionTypeNotInferred.into()),
             );
         };
         match function_ty_outcome.variant() {
@@ -40,7 +37,7 @@ impl<'a> SemaExprBuilder<'a> {
                         argument_syn_expr_idx,
                     );
                 (
-                    Ok(SemaExprData::FunctionApplication {
+                    Ok(SemExprData::FunctionApplication {
                         function_sem_expr_idx,
                         argument_sem_expr_idx,
                     }),
@@ -51,11 +48,11 @@ impl<'a> SemaExprBuilder<'a> {
                 let argument_sem_expr_idx =
                     self.build_sem_expr(argument_syn_expr_idx, ExpectAnyDerived);
                 (
-                    Ok(SemaExprData::FunctionApplication {
+                    Ok(SemExprData::FunctionApplication {
                         function_sem_expr_idx,
                         argument_sem_expr_idx,
                     }),
-                    Err(OriginalSemaExprTypeError::ExpectedCurryButGotRitchieInstead.into()),
+                    Err(OriginalSemExprTypeError::ExpectedCurryButGotRitchieInstead.into()),
                 )
             }
         }
@@ -70,7 +67,7 @@ impl<'a> SemaExprBuilder<'a> {
         parameter_ty: FlyTerm,
         return_ty: FlyTerm,
         argument_syn_expr_idx: SynExprIdx,
-    ) -> (SemaExprIdx, SemaExprTypeResult<FlyTerm>) {
+    ) -> (SemExprIdx, SemExprTypeResult<FlyTerm>) {
         let (argument_sem_expr_idx, argument_ty) = self.build_sem_expr_with_ty(
             argument_syn_expr_idx,
             ExpectCurryDestination::new(parameter_ty),
@@ -78,7 +75,7 @@ impl<'a> SemaExprBuilder<'a> {
         let Some(argument_ty) = argument_ty else {
             return (
                 argument_sem_expr_idx,
-                Err(DerivedSemaExprTypeError::UnableToInferFunctionApplicationArgumentType.into()),
+                Err(DerivedSemExprTypeError::UnableToInferFunctionApplicationArgumentType.into()),
             );
         };
         let shift =
@@ -94,7 +91,7 @@ impl<'a> SemaExprBuilder<'a> {
                         argument_term,
                     )),
                     None => Err(
-                        DerivedSemaExprTypeError::UnableToInferArgumentTermForDependentType.into(),
+                        DerivedSemExprTypeError::UnableToInferArgumentTermForDependentType.into(),
                     ),
                 },
                 None => Ok(return_ty),
@@ -117,20 +114,20 @@ impl<'a> SemaExprBuilder<'a> {
 
 /// # term
 
-impl<'a> SemaExprBuilder<'a> {
+impl<'a> SemExprBuilder<'a> {
     pub(crate) fn calc_explicit_application_expr_term(
         &mut self,
-        function: SemaExprIdx,
-        argument: SemaExprIdx,
-    ) -> SemaExprTermResult<FlyTerm> {
+        function: SemExprIdx,
+        argument: SemExprIdx,
+    ) -> SemExprTermResult<FlyTerm> {
         // todo: implicit arguments
         let function = self
             .infer_expr_term(function)
-            .ok_or(DerivedSemaExprTermError::ExplicitApplicationFunctionTermNotInferred)?;
+            .ok_or(DerivedSemExprTermError::ExplicitApplicationFunctionTermNotInferred)?;
         let argument = self
             .infer_expr_term(argument)
-            .ok_or(DerivedSemaExprTermError::ExplicitApplicationArgumentTermNotInferred)?;
+            .ok_or(DerivedSemExprTermError::ExplicitApplicationArgumentTermNotInferred)?;
         FlyTerm::new_application(self, function, argument)
-            .map_err(|e| DerivedSemaExprTermError::ExplicitApplicationTerm(e).into())
+            .map_err(|e| DerivedSemExprTermError::ExplicitApplicationTerm(e).into())
     }
 }

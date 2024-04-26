@@ -1,17 +1,14 @@
 use super::*;
 use husky_regional_token::{EqRegionalToken, LetRegionalToken};
 
-impl<'a> SemaExprBuilder<'a> {
+impl<'a> SemExprBuilder<'a> {
     pub(super) fn build_let_stmt(
         &mut self,
         let_token: LetRegionalToken,
         let_pattern_syn_obelisk: &'a SynExprResult<LetPatternSyndicate>,
         eq_token: &SynExprResult<EqRegionalToken>,
         initial_value: SynExprIdx,
-    ) -> (
-        SemaExprDataResult<SemaStmtData>,
-        SemaExprTypeResult<FlyTerm>,
-    ) {
+    ) -> (SemExprDataResult<SemStmtData>, SemExprTypeResult<FlyTerm>) {
         let (let_pattern_sem_obelisk, annotated_pattern_ty) = match let_pattern_syn_obelisk.as_ref()
         {
             Ok(let_pattern_syn_obelisk) => {
@@ -30,8 +27,8 @@ impl<'a> SemaExprBuilder<'a> {
             }
             Err(_) => {
                 return (
-                    Err(DerivedSemaExprDataError::SynPatternError.into()),
-                    Err(DerivedSemaExprTypeError::SynPatternError.into()),
+                    Err(DerivedSemExprDataError::SynPatternError.into()),
+                    Err(DerivedSemExprTypeError::SynPatternError.into()),
                 )
             }
         };
@@ -88,7 +85,7 @@ impl<'a> SemaExprBuilder<'a> {
             Err(_) => todo!(),
         };
         (
-            Ok(SemaStmtData::Let {
+            Ok(SemStmtData::Let {
                 let_token,
                 let_pattern_sem_obelisk,
                 contract,

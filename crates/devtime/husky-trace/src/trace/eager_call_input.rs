@@ -1,7 +1,7 @@
 use super::*;
 use crate::registry::assoc_trace::VoidAssocTraceRegistry;
 use husky_hir_eager_expr::HirEagerExprIdx;
-use husky_sem_expr::{helpers::range::sem_expr_range_region, SemaExprRegion};
+use husky_sem_expr::{helpers::range::sem_expr_range_region, SemExprRegion};
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct EagerCallInputTracePathData {
@@ -15,7 +15,7 @@ pub struct EagerCallInputTraceData {
     biological_parent: Trace,
     input_sketch: EagerCallInputSketch,
     #[skip_fmt]
-    caller_sem_expr_region: SemaExprRegion,
+    caller_sem_expr_region: SemExprRegion,
     #[skip_fmt]
     callee_syn_expr_region: SynExprRegion,
 }
@@ -24,7 +24,7 @@ pub struct EagerCallInputTraceData {
 pub enum EagerCallInputSketch {
     Simple {
         // parameter_syn_pattern_expr_idx: SynPatternExprIdx,
-        argument_sem_expr_idx: SemaExprIdx,
+        argument_sem_expr_idx: SemExprIdx,
         argument_hir_eager_expr_idx: Option<HirEagerExprIdx>,
     },
     Variadic,
@@ -36,7 +36,7 @@ impl Trace {
         biological_parent_path: TracePath,
         biological_parent: Trace,
         input_sketch: EagerCallInputSketch,
-        caller_sem_expr_region: SemaExprRegion,
+        caller_sem_expr_region: SemExprRegion,
         callee_syn_expr_region: SynExprRegion,
         db: &::salsa::Db,
     ) -> Self {

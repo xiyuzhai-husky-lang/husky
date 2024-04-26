@@ -8,7 +8,7 @@ use husky_hir_lazy_expr::{
     builder::hir_lazy_expr_region_with_source_map,
     helpers::{hir_lazy_body_with_expr_region, hir_lazy_expr_region_from_syn},
 };
-use husky_sem_expr::{helpers::analysis::sem_expr_region_requires_lazy, SemaExprDb};
+use husky_sem_expr::{helpers::analysis::sem_expr_region_requires_lazy, SemExprDb};
 use husky_syn_expr::SynExprRegion;
 
 use crate::{source_map::HirExprSourceMap, *};
@@ -60,7 +60,7 @@ pub fn hir_expr_region_with_source_map(
     }
 }
 
-fn is_lazy(sem_expr_region: husky_sem_expr::SemaExprRegion, db: &salsa::Db) -> bool {
+fn is_lazy(sem_expr_region: husky_sem_expr::SemExprRegion, db: &salsa::Db) -> bool {
     match sem_expr_region.path(db) {
         RegionPath::Snippet(_) =>
         /* ad hoc */

@@ -1,6 +1,6 @@
 use super::*;
 
-impl<'a> SemaExprBuilder<'a> {
+impl<'a> SemExprBuilder<'a> {
     pub(super) fn build_function_application_or_call_sem_expr(
         &mut self,
         syn_expr_idx: SynExprIdx,
@@ -10,10 +10,7 @@ impl<'a> SemaExprBuilder<'a> {
         lpar_regional_token_idx: RegionalTokenIdx,
         items: &[SynCommaListItem],
         rpar_regional_token_idx: RegionalTokenIdx,
-    ) -> (
-        SemaExprDataResult<SemaExprData>,
-        SemaExprTypeResult<FlyTerm>,
-    ) {
+    ) -> (SemExprDataResult<SemExprData>, SemExprTypeResult<FlyTerm>) {
         let (function_sem_expr_idx, outcome) = self.build_sem_expr_with_outcome(
             function_syn_expr_idx,
             ExpectEqsFunctionType::new(expr_ty_expectation.final_destination(self)),
@@ -24,14 +21,13 @@ impl<'a> SemaExprBuilder<'a> {
             }
             return (
                 Err(
-                    DerivedSemaExprDataError::ApplicationOrRitchieCallFunctionTypeNotInferred {
+                    DerivedSemExprDataError::ApplicationOrRitchieCallFunctionTypeNotInferred {
                         function_sem_expr_idx,
                     }
                     .into(),
                 ),
                 Err(
-                    DerivedSemaExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred
-                        .into(),
+                    DerivedSemExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred.into(),
                 ),
             );
         };
@@ -49,7 +45,7 @@ impl<'a> SemaExprBuilder<'a> {
                     Err(_) => return todo!(),
                 };
                 (
-                    Ok(SemaExprData::FunctionRitchieCall {
+                    Ok(SemExprData::FunctionRitchieCall {
                         function_sem_expr_idx,
                         ritchie_ty_kind,
                         template_arguments: template_arguments.map(|_| todo!()),
@@ -82,7 +78,7 @@ impl<'a> SemaExprBuilder<'a> {
                     _ => todo!(),
                 };
                 (
-                    Ok(SemaExprData::FunctionApplication {
+                    Ok(SemExprData::FunctionApplication {
                         function_sem_expr_idx,
                         argument_sem_expr_idx,
                     }),
@@ -101,10 +97,7 @@ impl<'a> SemaExprBuilder<'a> {
         lpar_regional_token_idx: RegionalTokenIdx,
         items: &[SynCallListItem],
         rpar_regional_token_idx: RegionalTokenIdx,
-    ) -> (
-        SemaExprDataResult<SemaExprData>,
-        SemaExprTypeResult<FlyTerm>,
-    ) {
+    ) -> (SemExprDataResult<SemExprData>, SemExprTypeResult<FlyTerm>) {
         let (function_sem_expr_idx, outcome) = self.build_sem_expr_with_outcome(
             function_syn_expr_idx,
             ExpectEqsRitchieType::new(final_destination),
@@ -116,8 +109,7 @@ impl<'a> SemaExprBuilder<'a> {
             return (
                 Err(todo!()),
                 Err(
-                    DerivedSemaExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred
-                        .into(),
+                    DerivedSemExprTypeError::ApplicationOrRitchieCallFunctionTypeNotInferred.into(),
                 ),
             );
         };
@@ -131,7 +123,7 @@ impl<'a> SemaExprBuilder<'a> {
         };
         let ritchie_ty_kind = function_expectation_outcome.ritchie_ty_kind();
         let return_ty = function_expectation_outcome.return_ty();
-        let data = SemaExprData::FunctionRitchieCall {
+        let data = SemExprData::FunctionRitchieCall {
             function_sem_expr_idx,
             ritchie_ty_kind,
             template_arguments: template_arguments.map(|_| todo!()),

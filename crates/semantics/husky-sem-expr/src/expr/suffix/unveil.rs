@@ -12,15 +12,12 @@ use husky_eth_term::term::{
 use maybe_result::*;
 use vec_like::VecMapGetEntry;
 
-impl<'a> SemaExprBuilder<'a> {
+impl<'a> SemExprBuilder<'a> {
     pub(super) fn calc_unveil_expr_ty(
         &mut self,
         opd_syn_expr_idx: SynExprIdx,
         opr_regional_token_idx: RegionalTokenIdx,
-    ) -> (
-        SemaExprDataResult<SemaExprData>,
-        SemaExprTypeResult<FlyTerm>,
-    ) {
+    ) -> (SemExprDataResult<SemExprData>, SemExprTypeResult<FlyTerm>) {
         let db = self.db();
         self.unveiler.initialize_if_not(self.return_ty(), db);
         match self.unveiler {
@@ -37,7 +34,7 @@ impl<'a> SemaExprBuilder<'a> {
                     ExpectCoercion::new(Contract::Move, opd_ty.into()),
                 );
                 (
-                    Ok(SemaExprData::Unveil {
+                    Ok(SemExprData::Unveil {
                         opd_sem_expr_idx,
                         opr_regional_token_idx,
                         unveil_output_ty_signature,
@@ -82,7 +79,7 @@ impl<'a> SemaExprBuilder<'a> {
                                 Ok(assoc_output_template) => assoc_output_template,
                                 Err(e) => {
                                     return (
-                                        Err(DerivedSemaExprDataError::UnveilOutputTemplate {
+                                        Err(DerivedSemExprDataError::UnveilOutputTemplate {
                                             opd_sem_expr_idx,
                                             e,
                                         }
@@ -98,7 +95,7 @@ impl<'a> SemaExprBuilder<'a> {
                             };
                             let ty_term = unveil_output_ty_signature.ty_term().into();
                             (
-                                Ok(SemaExprData::Unveil {
+                                Ok(SemExprData::Unveil {
                                     opd_sem_expr_idx,
                                     opr_regional_token_idx,
                                     unveil_assoc_fn_path: unveil_assoc_fn_path(
@@ -121,11 +118,11 @@ impl<'a> SemaExprBuilder<'a> {
             }
             Unveiler::Nothing => (
                 Err(todo!()),
-                Err(OriginalSemaExprTypeError::CannotUnveil.into()),
+                Err(OriginalSemExprTypeError::CannotUnveil.into()),
             ),
             Unveiler::ErrUnableToInferReturnTypeForUnveiling => (
                 Err(todo!()),
-                Err(DerivedSemaExprTypeError::UnableToInferReturnTypeForUnveiling.into()),
+                Err(DerivedSemExprTypeError::UnableToInferReturnTypeForUnveiling.into()),
             ),
             Unveiler::ErrEtherealSignature(e) => (Err(todo!()), Err(e.into())),
             Unveiler::Uninitialized => unreachable!(),
@@ -135,10 +132,7 @@ impl<'a> SemaExprBuilder<'a> {
     pub(super) fn calc_unveil_expr_ty_given_opd_ty(
         &mut self,
         opd_ty: FlyTerm,
-    ) -> (
-        SemaExprDataResult<SemaSuffixOpr>,
-        SemaExprTypeResult<FlyTerm>,
-    ) {
+    ) -> (SemExprDataResult<SemaSuffixOpr>, SemExprTypeResult<FlyTerm>) {
         todo!()
     }
 }
@@ -242,7 +236,7 @@ fn unveil_impl_block_signature_templates(
     }
 }
 
-#[salsa::tracked(jar = SemaExprJar, return_ref)]
+#[salsa::tracked(jar = SemExprJar, return_ref)]
 fn ty_ontology_path_unveil_impl_block_signature_templates(
     db: &::salsa::Db,
     ty_path: TypePath,
@@ -255,7 +249,7 @@ fn ty_ontology_path_unveil_impl_block_signature_templates(
     )
 }
 
-#[salsa::tracked(jar = SemaExprJar, return_ref)]
+#[salsa::tracked(jar = SemExprJar, return_ref)]
 fn ty_ontology_application_unveil_impl_block_signature_templates(
     db: &::salsa::Db,
     ty_target: EthApplication,

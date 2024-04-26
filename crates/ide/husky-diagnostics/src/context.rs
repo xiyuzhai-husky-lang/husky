@@ -61,7 +61,7 @@ impl<'a> SheetDiagnosticsContext<'a> {
 pub(crate) struct RegionDiagnosticsContext<'a> {
     db: &'a ::salsa::Db,
     ranged_token_sheet: &'a RangedTokenSheet,
-    sem_expr_region_data: &'a SemaExprRegionData,
+    sem_expr_region_data: &'a SemExprRegionData,
     expr_range_region: &'a SynExprRangeRegion,
     regional_token_idx_base: RegionalTokenIdxBase,
 }
@@ -91,7 +91,7 @@ impl<'a> RegionDiagnosticsContext<'a> {
         self.db
     }
 
-    pub(crate) fn sem_expr_region_data(&self) -> &SemaExprRegionData {
+    pub(crate) fn sem_expr_region_data(&self) -> &SemExprRegionData {
         self.sem_expr_region_data
     }
 

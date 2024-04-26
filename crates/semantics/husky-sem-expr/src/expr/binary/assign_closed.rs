@@ -2,7 +2,7 @@ use husky_fly_term::quary::FlyQuary;
 
 use super::*;
 
-impl<'a> SemaExprBuilder<'a> {
+impl<'a> SemExprBuilder<'a> {
     pub(super) fn calc_binary_assign_closed_expr_ty(
         &mut self,
         expr_idx: SynExprIdx,
@@ -10,11 +10,11 @@ impl<'a> SemaExprBuilder<'a> {
         opr: BinaryClosedOpr,
         ropd: SynExprIdx,
     ) -> (
-        SemaExprIdx,
+        SemExprIdx,
         SemaBinaryOpr,
-        SemaExprIdx,
-        SemaExprDataResult<SemaBinaryOprDynamicDispatch>,
-        SemaExprTypeResult<FlyTerm>,
+        SemExprIdx,
+        SemExprDataResult<SemaBinaryOprDynamicDispatch>,
+        SemExprTypeResult<FlyTerm>,
     ) {
         // let expr_eval_lifetime = self
         //     .fly_term_region

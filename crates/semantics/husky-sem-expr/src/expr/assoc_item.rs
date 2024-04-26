@@ -4,15 +4,15 @@ use husky_eth_signature::{HasEthTemplate, TypeVariantEthTemplate};
 use husky_regional_token::IdentRegionalToken;
 use maybe_result::*;
 
-impl<'a> SemaExprBuilder<'a> {
+impl<'a> SemExprBuilder<'a> {
     pub(super) fn calc_major_item_path_assoc_item_ty(
         &mut self,
         expr_idx: SynExprIdx,
         parent_path: MajorItemPath,
         ident_token: IdentRegionalToken,
     ) -> (
-        SemaExprDataResult<StaticDispatch>,
-        SemaExprTypeResult<FlyTerm>,
+        SemExprDataResult<StaticDispatch>,
+        SemExprTypeResult<FlyTerm>,
     ) {
         let parent_term: FlyTerm = match parent_path {
             MajorItemPath::Type(path) => {
@@ -34,13 +34,13 @@ impl<'a> SemaExprBuilder<'a> {
     pub(super) fn calc_assoc_item_ty(
         &mut self,
         expr_idx: SynExprIdx,
-        parent_expr: SemaExprIdx,
+        parent_expr: SemExprIdx,
         colon_colon_regional_token_idx: RegionalTokenIdx,
         ident: Ident,
         ident_regional_token_idx: RegionalTokenIdx,
     ) -> (
-        SemaExprDataResult<StaticDispatch>,
-        SemaExprTypeResult<FlyTerm>,
+        SemExprDataResult<StaticDispatch>,
+        SemExprTypeResult<FlyTerm>,
     ) {
         let Some(parent_term) = self.infer_expr_term(parent_expr) else {
             todo!()
@@ -55,8 +55,8 @@ impl<'a> SemaExprBuilder<'a> {
         ident: Ident,
         ident_regional_token_idx: RegionalTokenIdx,
     ) -> (
-        Result<StaticDispatch, SemaExprDataError>,
-        Result<FlyTerm, SemaExprTypeError>,
+        Result<StaticDispatch, SemExprDataError>,
+        Result<FlyTerm, SemExprTypeError>,
     ) {
         let db = self.db();
         match parent_term.static_dispatch(self, expr_idx, ident, /*ad hoc */ &[]) {

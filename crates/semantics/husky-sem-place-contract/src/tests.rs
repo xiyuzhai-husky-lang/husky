@@ -25,7 +25,7 @@ pub use husky_ast::test_utils::*;
     husky_eth_term::EthTermJar,
     husky_eth_signature::EtherealSignatureJar,
     husky_fly_term::FlyTermJar,
-    husky_sem_expr::SemaExprJar,
+    husky_sem_expr::SemExprJar,
     crate::Jar
 )]
 #[derive(Default)]

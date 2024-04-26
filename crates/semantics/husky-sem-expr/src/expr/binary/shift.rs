@@ -1,6 +1,6 @@
 use super::*;
 
-impl<'a> SemaExprBuilder<'a> {
+impl<'a> SemExprBuilder<'a> {
     pub(super) fn calc_binary_shift_expr_ty(
         &mut self,
         lopd: SynExprIdx,
@@ -8,11 +8,11 @@ impl<'a> SemaExprBuilder<'a> {
         opr: BinaryShiftOpr,
         menu: &EthTermMenu,
     ) -> (
-        SemaExprIdx,
+        SemExprIdx,
         SemaBinaryOpr,
-        SemaExprIdx,
-        SemaExprDataResult<SemaBinaryOprDynamicDispatch>,
-        SemaExprTypeResult<FlyTerm>,
+        SemExprIdx,
+        SemExprDataResult<SemaBinaryOprDynamicDispatch>,
+        SemExprTypeResult<FlyTerm>,
     ) {
         // todo: don't use resolved
         let (lopd_sem_expr_idx, lopd_ty) = self.build_sem_expr_with_ty(lopd, ExpectAnyOriginal);
@@ -34,7 +34,7 @@ impl<'a> SemaExprBuilder<'a> {
                 SemaBinaryOpr::Shift(opr),
                 ropd_sem_expr_idx,
                 todo!(),
-                Err(DerivedSemaExprTypeError::BinaryOperationLeftOperandTypeNotInferred.into()),
+                Err(DerivedSemExprTypeError::BinaryOperationLeftOperandTypeNotInferred.into()),
             );
         };
         match lopd_ty.data(self) {
@@ -77,7 +77,7 @@ impl<'a> SemaExprBuilder<'a> {
     // pub(super) fn calc_num_ty_binary_shift_ropd_ty(
     //     &mut self,
     //     ropd: SynExprIdx,
-    // ) -> SemaExprTypeResult<()> {
+    // ) -> SemExprTypeResult<()> {
     //     match ropd_ty.data(self) {
     //         FlyTermData::Literal(_) => todo!(),
     //         FlyTermData::TypeOntology {

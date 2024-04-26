@@ -2,7 +2,7 @@ use super::*;
 use husky_fly_term::{dispatch::HasFlyMethodDispatch, signature::MethodFlySignature};
 use husky_regional_token::IdentRegionalToken;
 
-impl<'a> SemaExprBuilder<'a> {
+impl<'a> SemExprBuilder<'a> {
     pub(super) fn calc_method_application_or_call_ty(
         &mut self,
         expr_idx: SynExprIdx,
@@ -13,10 +13,7 @@ impl<'a> SemaExprBuilder<'a> {
         lpar_regional_token_idx: RegionalTokenIdx,
         list_items: &[SynCommaListItem],
         rpar_regional_token_idx: RegionalTokenIdx,
-    ) -> (
-        SemaExprDataResult<SemaExprData>,
-        SemaExprTypeResult<FlyTerm>,
-    ) {
+    ) -> (SemExprDataResult<SemExprData>, SemExprTypeResult<FlyTerm>) {
         let (self_argument_sem_expr_idx, self_argument_ty, outcome) =
             self.build_sem_expr_with_ty_and_outcome(self_argument, ExpectAnyOriginal);
         let Some(self_expr_ty) = self_argument_ty else {
@@ -28,17 +25,17 @@ impl<'a> SemaExprBuilder<'a> {
                 .map(|list_item| self.build_sem_expr(list_item.syn_expr_idx(), ExpectAnyDerived))
                 .collect();
             return (
-                Err(DerivedSemaExprDataError::MethodOwnerTypeNotInferred {
+                Err(DerivedSemExprDataError::MethodOwnerTypeNotInferred {
                     self_argument_sem_expr_idx,
                     list_item_sem_expr_idxs: list_items,
                 }
                 .into()),
-                Err(DerivedSemaExprTypeError::MethodOwnerTypeNotInferred.into()),
+                Err(DerivedSemExprTypeError::MethodOwnerTypeNotInferred.into()),
             );
         };
         let method_dynamic_dispatch = match self_expr_ty
             .method_dispatch(self, expr_idx, ident_token)
-            .into_result_or(OriginalSemaExprDataError::NoSuchMethod {
+            .into_result_or(OriginalSemExprDataError::NoSuchMethod {
                 self_expr_ty,
                 ident_token,
             }) {
@@ -57,7 +54,7 @@ impl<'a> SemaExprBuilder<'a> {
                     Err(_) => todo!(),
                 };
                 (
-                    Ok(SemaExprData::MethodFnCall {
+                    Ok(SemExprData::MethodFnCall {
                         self_argument_sem_expr_idx,
                         self_contract: signature.self_value_parameter.contract,
                         dot_regional_token_idx,

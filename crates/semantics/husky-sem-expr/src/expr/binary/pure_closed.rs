@@ -1,6 +1,6 @@
 use super::*;
 
-impl<'a> SemaExprBuilder<'a> {
+impl<'a> SemExprBuilder<'a> {
     pub(super) fn calc_binary_closed_expr_ty(
         &mut self,
         lopd: SynExprIdx,
@@ -8,11 +8,11 @@ impl<'a> SemaExprBuilder<'a> {
         opr: BinaryClosedOpr,
         menu: &EthTermMenu,
     ) -> (
-        SemaExprIdx,
+        SemExprIdx,
         SemaBinaryOpr,
-        SemaExprIdx,
-        SemaExprDataResult<SemaBinaryOprDynamicDispatch>,
-        SemaExprTypeResult<FlyTerm>,
+        SemExprIdx,
+        SemExprDataResult<SemaBinaryOprDynamicDispatch>,
+        SemExprTypeResult<FlyTerm>,
     ) {
         let lopd_syn_expr_idx = lopd;
         let (lopd, lopd_ty) = self.build_sem_expr_with_ty(lopd, ExpectAnyOriginal);
@@ -28,7 +28,7 @@ impl<'a> SemaExprBuilder<'a> {
                 SemaBinaryOpr::Closed(opr),
                 ropd,
                 todo!(),
-                Err(DerivedSemaExprTypeError::BinaryOperationLeftOperandTypeNotInferred.into()),
+                Err(DerivedSemExprTypeError::BinaryOperationLeftOperandTypeNotInferred.into()),
             );
         };
         let ropd = self.build_sem_expr(ropd, ExpectCoercion::new_pure(self, lopd_ty));

@@ -11,7 +11,7 @@ use husky_fly_term::{
 use husky_regional_token::IdentRegionalToken;
 use maybe_result::*;
 
-impl<'a> SemaExprBuilder<'a> {
+impl<'a> SemExprBuilder<'a> {
     /// only returns None for Option<FlyInstantiation> if this is an ontology constructor
     pub(super) fn calc_principal_item_path_expr_ty(
         &mut self,
@@ -20,8 +20,8 @@ impl<'a> SemaExprBuilder<'a> {
         expr_ty_expectation: &impl ExpectFlyTerm,
         ty_path_disambiguation: TypePathDisambiguation,
     ) -> (
-        SemaExprDataResult<Option<FlyInstantiation>>,
-        SemaExprTypeResult<FlyTerm>,
+        SemExprDataResult<Option<FlyInstantiation>>,
+        SemExprTypeResult<FlyTerm>,
     ) {
         let db = self.db();
         match path {
@@ -51,7 +51,7 @@ impl<'a> SemaExprBuilder<'a> {
                             (
                                 Ok(Some(instantiation)),
                                 instance_constructor_ty
-                                    .ok_or(OriginalSemaExprTypeError::NoConstructor { path }.into())
+                                    .ok_or(OriginalSemExprTypeError::NoConstructor { path }.into())
                                     .map(Into::into),
                             )
                         }
@@ -127,7 +127,7 @@ impl<'a> SemaExprBuilder<'a> {
         &mut self,
         path: TypeVariantPath,
         expr_ty_expectation: &impl ExpectFlyTerm,
-    ) -> SemaExprTypeResult<FlyTerm> {
+    ) -> SemExprTypeResult<FlyTerm> {
         let db = self.db();
         let parent_ty_path = path.parent_ty_path(db);
         match path.eth_template(db)? {

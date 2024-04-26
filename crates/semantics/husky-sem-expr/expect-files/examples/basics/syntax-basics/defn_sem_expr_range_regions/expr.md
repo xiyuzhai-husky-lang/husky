@@ -1,7 +1,7 @@
 ```rust
 [
-    SemaExprRangeRegion {
-        data: SemaExprRangeRegionData {
+    SemExprRangeRegion {
+        data: SemExprRangeRegionData {
             principal_entity_path_expr_ranges: [],
             pattern_expr_ranges: [
                 RegionalTokenIdxRange {
@@ -55,7 +55,7 @@
                     ),
                 },
             ],
-            stmt_ranges: SemaStmtMap(
+            stmt_ranges: SemStmtMap(
                 [
                     RegionalTokenIdxRange {
                         start: RegionalTokenIdxRangeStart(
@@ -73,8 +73,8 @@
             ),
         },
     },
-    SemaExprRangeRegion {
-        data: SemaExprRangeRegionData {
+    SemExprRangeRegion {
+        data: SemExprRangeRegionData {
             principal_entity_path_expr_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
@@ -201,7 +201,7 @@
                     ),
                 },
             ],
-            stmt_ranges: SemaStmtMap(
+            stmt_ranges: SemStmtMap(
                 [
                     RegionalTokenIdxRange {
                         start: RegionalTokenIdxRangeStart(
@@ -219,8 +219,8 @@
             ),
         },
     },
-    SemaExprRangeRegion {
-        data: SemaExprRangeRegionData {
+    SemExprRangeRegion {
+        data: SemExprRangeRegionData {
             principal_entity_path_expr_ranges: [
                 RegionalTokenIdxRange {
                     start: RegionalTokenIdxRangeStart(
@@ -359,7 +359,7 @@
                     ),
                 },
             ],
-            stmt_ranges: SemaStmtMap(
+            stmt_ranges: SemStmtMap(
                 [
                     RegionalTokenIdxRange {
                         start: RegionalTokenIdxRangeStart(

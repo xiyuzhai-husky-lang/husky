@@ -1,7 +1,7 @@
 ```rust
 [
-    SemaExprRangeRegion {
-        data: SemaExprRangeRegionData {
+    SemExprRangeRegion {
+        data: SemExprRangeRegionData {
             principal_entity_path_expr_ranges: [],
             pattern_expr_ranges: [],
             expr_ranges: [
@@ -54,7 +54,7 @@
                     ),
                 },
             ],
-            stmt_ranges: SemaStmtMap(
+            stmt_ranges: SemStmtMap(
                 [
                     RegionalTokenIdxRange {
                         start: RegionalTokenIdxRangeStart(

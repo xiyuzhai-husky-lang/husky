@@ -23,7 +23,7 @@ use husky_vfs::Toolchain;
 use husky_vfs::VfsPathMenu;
 use vec_like::{SmallVecPairMap, SmallVecSet, VecPairMap};
 
-pub(crate) struct SemaExprBuilder<'a> {
+pub(crate) struct SemExprBuilder<'a> {
     db: &'a ::salsa::Db,
     toolchain: Toolchain,
     item_path_menu: &'a ItemPathMenu,
@@ -33,11 +33,11 @@ pub(crate) struct SemaExprBuilder<'a> {
     regional_tokens_data: RegionalTokensData<'a>,
     dec_term_region: &'a SynExprDecTermRegion,
     place_registry: PlaceRegistry,
-    sem_expr_arena: SemaExprArena,
-    sem_stmt_arena: SemaStmtArena,
-    pub(crate) sem_expr_roots: VecPairMap<SynExprIdx, (SemaExprIdx, SynExprRootKind)>,
+    sem_expr_arena: SemExprArena,
+    sem_stmt_arena: SemStmtArena,
+    pub(crate) sem_expr_roots: VecPairMap<SynExprIdx, (SemExprIdx, SynExprRootKind)>,
     fly_term_region: FlyTermRegion,
-    sem_expr_term_results: VecPairMap<SemaExprIdx, SemaExprTermResult<FlyTerm>>,
+    sem_expr_term_results: VecPairMap<SemExprIdx, SemExprTermResult<FlyTerm>>,
     symbol_terms: SymbolMap<FlyTerm>,
     symbol_tys: SymbolMap<SymbolType>,
     pattern_expr_ty_infos: SynPatternMap<PatternExprTypeInfo>,
@@ -57,7 +57,7 @@ pub(crate) struct SemaExprBuilder<'a> {
 
 /// # constructors
 
-impl<'a> SemaExprBuilder<'a> {
+impl<'a> SemExprBuilder<'a> {
     pub(crate) fn new(db: &'a ::salsa::Db, syn_expr_region: SynExprRegion) -> Self {
         let syn_expr_region_data = syn_expr_region.data(db);
         // todo: improve this
@@ -141,8 +141,8 @@ impl<'a> SemaExprBuilder<'a> {
             dec_term_region,
             obvious_trais_map,
             place_registry: stack_location_registry,
-            sem_expr_arena: SemaExprArena::default(),
-            sem_stmt_arena: SemaStmtArena::default(),
+            sem_expr_arena: SemExprArena::default(),
+            sem_stmt_arena: SemStmtArena::default(),
             sem_expr_roots: Default::default(),
             fly_term_region: FlyTermRegion::new(
                 parent_sem_expr_region.map(|r| r.data(db).fly_term_region()),
@@ -275,7 +275,7 @@ fn calc_self_value_ty(
 
 /// # getters
 
-impl<'a> FlyTermEngine<'a> for SemaExprBuilder<'a> {
+impl<'a> FlyTermEngine<'a> for SemExprBuilder<'a> {
     fn db(&self) -> &'a ::salsa::Db {
         self.db
     }
@@ -310,7 +310,7 @@ impl<'a> FlyTermEngine<'a> for SemaExprBuilder<'a> {
     }
 }
 
-impl<'a> std::ops::Index<SynExprIdx> for SemaExprBuilder<'a> {
+impl<'a> std::ops::Index<SynExprIdx> for SemExprBuilder<'a> {
     type Output = SynExprData;
 
     fn index(&self, index: SynExprIdx) -> &Self::Output {
@@ -318,7 +318,7 @@ impl<'a> std::ops::Index<SynExprIdx> for SemaExprBuilder<'a> {
     }
 }
 
-impl<'a> SemaExprBuilder<'a> {
+impl<'a> SemExprBuilder<'a> {
     pub(crate) fn db(&self) -> &'a ::salsa::Db {
         self.db
     }
@@ -355,7 +355,7 @@ impl<'a> SemaExprBuilder<'a> {
         self.syn_expr_region_data
     }
 
-    pub(crate) fn sem_expr_arena(&self) -> &SemaExprArena {
+    pub(crate) fn sem_expr_arena(&self) -> &SemExprArena {
         &self.sem_expr_arena
     }
 
@@ -389,7 +389,7 @@ impl<'a> SemaExprBuilder<'a> {
 
 /// # mut getters
 
-impl<'a> FlyTermEngineMut<'a> for SemaExprBuilder<'a> {
+impl<'a> FlyTermEngineMut<'a> for SemExprBuilder<'a> {
     fn place_registry_mut(&mut self) -> &mut PlaceRegistry {
         &mut self.place_registry
     }
@@ -401,7 +401,7 @@ impl<'a> FlyTermEngineMut<'a> for SemaExprBuilder<'a> {
 
 /// # actions
 
-impl<'a> SemaExprBuilder<'a> {
+impl<'a> SemExprBuilder<'a> {
     pub(crate) fn infer_all(&mut self) {
         self.infer_current_parameter_symbols();
         self.build_all_exprs()
@@ -409,10 +409,10 @@ impl<'a> SemaExprBuilder<'a> {
 
     pub(crate) fn alloc_expr(
         &mut self,
-        data_result: Result<SemaExprData, SemaExprDataError>,
-        immediate_ty_result: Result<FlyTerm, SemaExprTypeError>,
+        data_result: Result<SemExprData, SemExprDataError>,
+        immediate_ty_result: Result<FlyTerm, SemExprTypeError>,
         expectation_idx_and_ty: Option<(FlyTermExpectationIdx, FlyTerm)>,
-    ) -> SemaExprIdx {
+    ) -> SemExprIdx {
         let expr =
             self.sem_expr_arena
                 .alloc_one(data_result, immediate_ty_result, expectation_idx_and_ty);
@@ -420,7 +420,7 @@ impl<'a> SemaExprBuilder<'a> {
         expr
     }
 
-    pub(crate) fn alloc_stmt_batch(&mut self, batch: SemaStmtBatch) -> SemaStmtIdxRange {
+    pub(crate) fn alloc_stmt_batch(&mut self, batch: SemStmtBatch) -> SemStmtIdxRange {
         self.sem_stmt_arena.alloc_batch(batch)
     }
 
@@ -429,7 +429,7 @@ impl<'a> SemaExprBuilder<'a> {
     }
 
     /// perform this during finish stage
-    pub(crate) fn infer_expr_term(&mut self, expr: SemaExprIdx) -> Option<FlyTerm> {
+    pub(crate) fn infer_expr_term(&mut self, expr: SemExprIdx) -> Option<FlyTerm> {
         if let Some(term_result) = self.sem_expr_term_results.get_value(expr) {
             return term_result.as_ref().ok().copied();
         }
@@ -447,13 +447,13 @@ impl<'a> SemaExprBuilder<'a> {
     }
 
     // helpful for hir stage
-    fn infer_extra_expr_term_in_preparation_for_hir(&mut self, sem_expr_idx: SemaExprIdx) {
+    fn infer_extra_expr_term_in_preparation_for_hir(&mut self, sem_expr_idx: SemExprIdx) {
         if let Some(_) = self.sem_expr_term_results.get_value(sem_expr_idx) {
             return;
         }
         // ad hoc
         match sem_expr_idx.data_result(&self.sem_expr_arena) {
-            Ok(SemaExprData::Literal(_, _)) => (),
+            Ok(SemExprData::Literal(_, _)) => (),
             _ => return,
         }
         let term_result = self.calc_expr_term(sem_expr_idx);
@@ -463,8 +463,8 @@ impl<'a> SemaExprBuilder<'a> {
 
     fn save_new_expr_term(
         &mut self,
-        expr_idx: SemaExprIdx,
-        term_result: SemaExprTermResult<FlyTerm>,
+        expr_idx: SemExprIdx,
+        term_result: SemExprTermResult<FlyTerm>,
     ) {
         self.sem_expr_term_results
             .insert_new((expr_idx, term_result))
@@ -538,12 +538,12 @@ impl<'a> SemaExprBuilder<'a> {
         ty
     }
 
-    pub(crate) fn finish(mut self) -> SemaExprRegion {
+    pub(crate) fn finish(mut self) -> SemExprRegion {
         let db = self.db;
         self.fly_term_region
             .finalize_unresolved_term_table(db, self.term_menu);
         self.infer_extra_expr_terms_in_preparation_for_hir();
-        SemaExprRegion::new(
+        SemExprRegion::new(
             self.syn_expr_region_data
                 .path()
                 .region_path(db)

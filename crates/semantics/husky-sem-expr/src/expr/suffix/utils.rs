@@ -1,7 +1,7 @@
 use super::*;
 use husky_sem_opr::suffix::SemaSuffixOpr;
 
-impl<'a> SemaExprBuilder<'a> {
+impl<'a> SemExprBuilder<'a> {
     pub(super) fn calc_ambiguous_suffix_expr_ty<F1, F2, F3>(
         &mut self,
         opd: SynExprIdx,
@@ -10,33 +10,21 @@ impl<'a> SemaExprBuilder<'a> {
         naive_suffix_f_given_opd_ty: F1,
         naive_suffix_f: F2,
         application_composition_f_given_opd_ty: F3,
-    ) -> (
-        SemaExprDataResult<SemaExprData>,
-        SemaExprTypeResult<FlyTerm>,
-    )
+    ) -> (SemExprDataResult<SemExprData>, SemExprTypeResult<FlyTerm>)
     where
         F1: FnOnce(
             &mut Self,
             FlyTerm,
-        ) -> (
-            SemaExprDataResult<SemaSuffixOpr>,
-            SemaExprTypeResult<FlyTerm>,
-        ),
+        ) -> (SemExprDataResult<SemaSuffixOpr>, SemExprTypeResult<FlyTerm>),
         F2: FnOnce(
             &mut Self,
             SynExprIdx,
             RegionalTokenIdx,
-        ) -> (
-            SemaExprDataResult<SemaExprData>,
-            SemaExprTypeResult<FlyTerm>,
-        ),
+        ) -> (SemExprDataResult<SemExprData>, SemExprTypeResult<FlyTerm>),
         F3: FnOnce(
             &mut Self,
             FlyTerm,
-        ) -> (
-            SemaExprDataResult<SemaSuffixOpr>,
-            SemaExprTypeResult<FlyTerm>,
-        ),
+        ) -> (SemExprDataResult<SemaSuffixOpr>, SemExprTypeResult<FlyTerm>),
     {
         match final_destination {
             FinalDestination::Sort => {
@@ -49,7 +37,7 @@ impl<'a> SemaExprBuilder<'a> {
                             let (sem_opr_result, ty_result) =
                                 naive_suffix_f_given_opd_ty(self, opd_ty);
                             (
-                                sem_opr_result.map(|opr| SemaExprData::Suffix {
+                                sem_opr_result.map(|opr| SemExprData::Suffix {
                                     opd: opd_sem_expr_idx,
                                     opr,
                                     opr_regional_token_idx,
@@ -71,7 +59,7 @@ impl<'a> SemaExprBuilder<'a> {
                     },
                     None => (
                         todo!(),
-                        Err(DerivedSemaExprTypeError::UnableToInferSuffixOperandType.into()),
+                        Err(DerivedSemExprTypeError::UnableToInferSuffixOperandType.into()),
                     ),
                 }
             }

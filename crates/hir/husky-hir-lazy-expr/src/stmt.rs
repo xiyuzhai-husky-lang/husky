@@ -5,7 +5,7 @@ pub use self::branch_stmt::*;
 use crate::*;
 use husky_expr::stmt::ConditionConversion;
 use husky_hir_ty::HirType;
-use husky_sem_expr::{stmt::condition::SemaCondition, SemaStmtData, SemaStmtIdx, SemaStmtIdxRange};
+use husky_sem_expr::{stmt::condition::SemaCondition, SemStmtData, SemStmtIdx, SemStmtIdxRange};
 use idx_arena::ArenaRef;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
@@ -43,12 +43,12 @@ pub type HirLazyStmtIdx = ArenaIdx<HirLazyStmtData>;
 pub type HirLazyStmtIdxRange = ArenaIdxRange<HirLazyStmtData>;
 pub type HirLazyStmtMap<V> = ArenaMap<HirLazyStmtData, V>;
 
-impl ToHirLazy for SemaStmtIdx {
+impl ToHirLazy for SemStmtIdx {
     type Output = Option<HirLazyStmtData>;
 
     fn to_hir_lazy(&self, builder: &mut HirLazyExprBuilder) -> Self::Output {
         Some(match self.data(builder.sem_stmt_arena_ref()) {
-            SemaStmtData::Let {
+            SemStmtData::Let {
                 let_token: _,
                 let_pattern_sem_obelisk: let_variables_pattern,
                 initial_value_sem_expr_idx: initial_value,
@@ -57,10 +57,10 @@ impl ToHirLazy for SemaStmtIdx {
                 pattern: builder.new_let_variables_pattern(let_variables_pattern),
                 initial_value: initial_value.to_hir_lazy(builder),
             },
-            SemaStmtData::Return { result, .. } => HirLazyStmtData::Return {
+            SemStmtData::Return { result, .. } => HirLazyStmtData::Return {
                 result: result.to_hir_lazy(builder),
             },
-            SemaStmtData::Require {
+            SemStmtData::Require {
                 require_token: _,
                 condition,
             } => HirLazyStmtData::Require {
@@ -71,13 +71,13 @@ impl ToHirLazy for SemaStmtIdx {
                 )
                 .unwrap(),
             },
-            SemaStmtData::Assert {
+            SemStmtData::Assert {
                 assert_token: _,
                 condition,
             } => HirLazyStmtData::Assert {
                 condition: condition.to_hir_lazy(builder),
             },
-            SemaStmtData::Eval {
+            SemStmtData::Eval {
                 sem_expr_idx: expr_idx,
                 outcome: _,
                 eol_semicolon,
@@ -85,13 +85,13 @@ impl ToHirLazy for SemaStmtIdx {
                 expr_idx: expr_idx.to_hir_lazy(builder),
                 discarded: eol_semicolon.is_some(),
             },
-            SemaStmtData::Break { .. } => unreachable!(),
-            SemaStmtData::ForBetween { .. } => unreachable!(),
-            SemaStmtData::ForIn { .. } => unreachable!(),
-            SemaStmtData::Forext { .. } => unreachable!(),
-            SemaStmtData::While { .. } => unreachable!(),
-            SemaStmtData::DoWhile { .. } => unreachable!(),
-            SemaStmtData::IfElse {
+            SemStmtData::Break { .. } => unreachable!(),
+            SemStmtData::ForBetween { .. } => unreachable!(),
+            SemStmtData::ForIn { .. } => unreachable!(),
+            SemStmtData::Forext { .. } => unreachable!(),
+            SemStmtData::While { .. } => unreachable!(),
+            SemStmtData::DoWhile { .. } => unreachable!(),
+            SemStmtData::IfElse {
                 ref if_branch,
                 ref elif_branches,
                 ref else_branch,
@@ -105,16 +105,16 @@ impl ToHirLazy for SemaStmtIdx {
                     .as_ref()
                     .map(|else_branch| else_branch.to_hir_lazy(builder)),
             },
-            SemaStmtData::Match { .. } => todo!(),
+            SemStmtData::Match { .. } => todo!(),
         })
     }
 }
 
-impl ToHirLazy for SemaStmtIdxRange {
+impl ToHirLazy for SemStmtIdxRange {
     type Output = HirLazyStmtIdxRange;
 
     fn to_hir_lazy(&self, builder: &mut HirLazyExprBuilder) -> Self::Output {
-        let mut sem_stmt_indices: Vec<SemaStmtIdx> = vec![];
+        let mut sem_stmt_indices: Vec<SemStmtIdx> = vec![];
         let mut hir_lazy_stmts: Vec<HirLazyStmtData> = vec![];
         for sem_stmt_idx in self {
             match sem_stmt_idx.to_hir_lazy(builder) {

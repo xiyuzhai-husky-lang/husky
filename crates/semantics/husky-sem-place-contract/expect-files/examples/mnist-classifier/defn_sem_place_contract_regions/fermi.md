@@ -1,7 +1,7 @@
 ```rust
 [
     SemaPlaceContractRegion {
-        expr_sites: SemaExprMap(
+        expr_sites: SemExprMap(
             ArenaMap {
                 data: [
                     Some(
@@ -175,7 +175,7 @@
         ),
     },
     SemaPlaceContractRegion {
-        expr_sites: SemaExprMap(
+        expr_sites: SemExprMap(
             ArenaMap {
                 data: [
                     None,
@@ -288,7 +288,7 @@
         ),
     },
     SemaPlaceContractRegion {
-        expr_sites: SemaExprMap(
+        expr_sites: SemExprMap(
             ArenaMap {
                 data: [
                     None,
@@ -401,7 +401,7 @@
         ),
     },
     SemaPlaceContractRegion {
-        expr_sites: SemaExprMap(
+        expr_sites: SemExprMap(
             ArenaMap {
                 data: [
                     None,
