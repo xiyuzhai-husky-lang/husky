@@ -5883,7 +5883,7 @@ dependencies = [
  "husky-entity-path",
  "husky-fly-term",
  "husky-lifetime-utils",
- "pattern-analysis",
+ "rustc-pattern-analysis",
 ]
 
 [[package]]
@@ -8493,20 +8493,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8835116a5c179084a830efb3adc117ab007512b535bc1a21c991d3b32a6b44dd"
 
 [[package]]
-name = "pattern-analysis"
-version = "0.0.0"
-dependencies = [
- "husky-lifetime-utils",
- "rustc-hash",
- "rustc_apfloat",
- "rustc_index",
- "smallvec",
- "tracing",
- "tracing-subscriber",
- "tracing-tree",
-]
-
-[[package]]
 name = "peeking_take_while"
 version = "0.1.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -9110,6 +9096,20 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "08d43f7aa6b08d49f382cde6a7982047c3426db949b1424bc4b7ec9ae12c6ce2"
 
 [[package]]
+name = "rustc-pattern-analysis"
+version = "0.0.0"
+dependencies = [
+ "husky-lifetime-utils",
+ "rustc-hash",
+ "rustc_apfloat",
+ "rustc_index",
+ "smallvec",
+ "tracing",
+ "tracing-subscriber",
+ "tracing-tree",
+]
+
+[[package]]
 name = "rustc_apfloat"
 version = "0.2.0+llvm-462a31f5a5ab"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -9134,6 +9134,16 @@ dependencies = [
 
 [[package]]
 name = "rustc_index_macros"
+version = "0.0.0"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 2.0.55",
+ "synstructure",
+]
+
+[[package]]
+name = "rustc_macros"
 version = "0.0.0"
 dependencies = [
  "proc-macro2",

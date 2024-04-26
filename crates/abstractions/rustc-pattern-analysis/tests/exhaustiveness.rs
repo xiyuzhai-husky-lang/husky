@@ -1,6 +1,6 @@
 //! Test exhaustiveness checking.
 use common::*;
-use pattern_analysis::{
+use rustc_pattern_analysis::{
     pattern::{DeconstructedPattern, WitnessPattern},
     usefulness::PlaceValidity,
     MatchArm,

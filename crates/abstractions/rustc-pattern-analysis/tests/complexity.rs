@@ -1,6 +1,6 @@
 //! Test the pattern complexity limit.
 use common::*;
-use pattern_analysis::{pattern::DeconstructedPattern, usefulness::PlaceValidity, MatchArm};
+use rustc_pattern_analysis::{pattern::DeconstructedPattern, usefulness::PlaceValidity, MatchArm};
 
 #[macro_use]
 mod common;

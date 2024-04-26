@@ -1,5 +1,5 @@
 use husky_lifetime_utils::capture::Captures;
-use pattern_analysis::{
+use rustc_pattern_analysis::{
     constructor::{
         Constructor, ConstructorSet, IntRange, MaybeInfiniteInt, RangeEnd, VariantVisibility,
     },
@@ -96,7 +96,7 @@ pub fn compute_match_usefulness<'p>(
     complexity_limit: Option<usize>,
 ) -> Result<UsefulnessReport<'p, Ctx>, ()> {
     init_tracing();
-    pattern_analysis::usefulness::compute_match_usefulness(
+    rustc_pattern_analysis::usefulness::compute_match_usefulness(
         &Ctx,
         arms,
         ty,
@@ -187,7 +187,7 @@ macro_rules! pats {
     // Parse `type; ..`
     ($ty:expr; $($rest:tt)*) => {{
         #[allow(unused_imports)]
-        use pattern_analysis::{
+        use rustc_pattern_analysis::{
             constructor::{Constructor, IntRange, MaybeInfiniteInt, RangeEnd},
             pattern::DeconstructedPattern,
         };
