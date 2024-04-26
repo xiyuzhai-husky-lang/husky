@@ -41,7 +41,7 @@ impl<'p, Ctx: IsPatternAnalyisContext> PatternColumn<'p, Ctx> {
         }
     }
 
-    pub fn head_ty(&self) -> Option<&Ctx::PatternType> {
+    pub fn head_ty(&self) -> Option<&Ctx::Type> {
         self.patterns.first().map(|pat| pat.ty())
     }
     pub fn iter<'a>(
@@ -54,7 +54,7 @@ impl<'p, Ctx: IsPatternAnalyisContext> PatternColumn<'p, Ctx> {
     pub fn analyze_constructors(
         &self,
         ctx: &Ctx,
-        ty: &Ctx::PatternType,
+        ty: &Ctx::Type,
     ) -> Result<SplitConstructorSet<Ctx>, Ctx::Error> {
         let column_constructors = self.patterns.iter().map(|p| p.constructor());
         let constructors_for_ty = ctx.constructors_for_ty(ty)?;
@@ -69,7 +69,7 @@ impl<'p, Ctx: IsPatternAnalyisContext> PatternColumn<'p, Ctx> {
     pub fn specialize(
         &self,
         ctx: &Ctx,
-        ty: &Ctx::PatternType,
+        ty: &Ctx::Type,
         constructor: &Constructor<Ctx>,
     ) -> Vec<PatternColumn<'p, Ctx>> {
         let arity = constructor.arity(ctx, ty);

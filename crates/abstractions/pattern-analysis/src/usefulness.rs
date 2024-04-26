@@ -753,7 +753,7 @@ impl<'a, Ctx: IsPatternAnalyisContext> UsefulnessCtxt<'a, Ctx> {
 struct PlaceCtxt<'a, Ctx: IsPatternAnalyisContext> {
     ctx: &'a Ctx,
     /// Type of the place under investigation.
-    ty: &'a Ctx::PatternType,
+    ty: &'a Ctx::Type,
 }
 
 impl<'a, Ctx: IsPatternAnalyisContext> Copy for PlaceCtxt<'a, Ctx> {}
@@ -832,7 +832,7 @@ impl fmt::Display for PlaceValidity {
 /// the constructors in the matrix.
 struct PlaceInfo<Ctx: IsPatternAnalyisContext> {
     /// The type of the place.
-    ty: Ctx::PatternType,
+    ty: Ctx::Type,
     /// Whether the place is a private uninhabited field. If so we skip this field during analysis
     /// so that we don't observe its emptiness.
     private_uninhabited: bool,
@@ -1180,11 +1180,7 @@ impl<'p, Ctx: IsPatternAnalyisContext> Matrix<'p, Ctx> {
     }
 
     /// Build a new matrix from an iterator of `MatchArm`s.
-    fn new(
-        arms: &[MatchArm<'p, Ctx>],
-        scrut_ty: Ctx::PatternType,
-        scrut_validity: PlaceValidity,
-    ) -> Self {
+    fn new(arms: &[MatchArm<'p, Ctx>], scrut_ty: Ctx::Type, scrut_validity: PlaceValidity) -> Self {
         let place_info = PlaceInfo {
             ty: scrut_ty,
             private_uninhabited: false,
@@ -1849,7 +1845,7 @@ pub struct UsefulnessReport<'p, Ctx: IsPatternAnalyisContext> {
 pub fn compute_match_usefulness<'p, Ctx: IsPatternAnalyisContext>(
     tycx: &Ctx,
     arms: &[MatchArm<'p, Ctx>],
-    scrut_ty: Ctx::PatternType,
+    scrut_ty: Ctx::Type,
     scrut_validity: PlaceValidity,
     complexity_limit: Option<usize>,
 ) -> Result<UsefulnessReport<'p, Ctx>, Ctx::Error> {

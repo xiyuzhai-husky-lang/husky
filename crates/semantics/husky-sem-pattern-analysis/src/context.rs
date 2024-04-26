@@ -1,16 +1,16 @@
-use self::error::SemPatternAnalysisError;
+use self::error::FlyPatternAnalysisError;
 use crate::*;
-use husky_entity_path::{TypeVariantIndex, TypeVariantPath};
+use husky_entity_path::TypeVariantIndex;
 use husky_fly_term::FlyTerm;
 use husky_lifetime_utils::capture::Captures;
 
 #[derive(Debug)]
-pub struct SemPatternAnalysisContext {}
+pub struct FlyPatternAnalysisContext {}
 
-impl IsPatternAnalyisContext for SemPatternAnalysisContext {
-    type PatternType = FlyTerm;
+impl IsPatternAnalyisContext for FlyPatternAnalysisContext {
+    type Type = FlyTerm;
 
-    type Error = SemPatternAnalysisError;
+    type Error = FlyPatternAnalysisError;
 
     type VariantIdx = TypeVariantIndex;
 
@@ -31,7 +31,7 @@ impl IsPatternAnalyisContext for SemPatternAnalysisContext {
     fn constructor_arity(
         &self,
         constructor: &pattern_analysis::constructor::Constructor<Self>,
-        ty: &Self::PatternType,
+        ty: &Self::Type,
     ) -> usize {
         todo!()
     }
@@ -39,8 +39,8 @@ impl IsPatternAnalyisContext for SemPatternAnalysisContext {
     fn constructor_field_tys<'a>(
         &'a self,
         constructor: &'a pattern_analysis::constructor::Constructor<Self>,
-        ty: &'a Self::PatternType,
-    ) -> impl Iterator<Item = (Self::PatternType, pattern_analysis::PrivateUninhabitedField)>
+        ty: &'a Self::Type,
+    ) -> impl Iterator<Item = (Self::Type, pattern_analysis::PrivateUninhabitedField)>
            + ExactSizeIterator
            + Captures<'a> {
         [].into_iter().map(|_: i32| todo!())
@@ -48,7 +48,7 @@ impl IsPatternAnalyisContext for SemPatternAnalysisContext {
 
     fn constructors_for_ty(
         &self,
-        ty: &Self::PatternType,
+        ty: &Self::Type,
     ) -> Result<pattern_analysis::constructor::ConstructorSet<Self>, Self::Error> {
         todo!()
     }
@@ -56,7 +56,7 @@ impl IsPatternAnalyisContext for SemPatternAnalysisContext {
     fn write_variant_name(
         f: &mut std::fmt::Formatter<'_>,
         constructor: &pattern_analysis::constructor::Constructor<Self>,
-        ty: &Self::PatternType,
+        ty: &Self::Type,
     ) -> std::fmt::Result {
         todo!()
     }
