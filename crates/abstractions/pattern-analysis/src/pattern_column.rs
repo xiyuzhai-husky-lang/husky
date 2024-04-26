@@ -1,5 +1,5 @@
 use crate::constructor::{Constructor, SplitConstructorSet};
-use crate::pattern::{DeconstructedPattern, PatOrWild};
+use crate::pattern::{DeconstructedPattern, UserPatternOrDerivedWildcard};
 use crate::{IsPatternAnalyisContext, MatchArm};
 use husky_lifetime_utils::capture::Captures;
 
@@ -22,13 +22,13 @@ impl<'p, Ctx: IsPatternAnalyisContext> PatternColumn<'p, Ctx> {
         let patterns = Vec::with_capacity(arms.len());
         let mut column = PatternColumn { patterns };
         for arm in arms {
-            column.expand_and_push(PatOrWild::Pat(arm.pat));
+            column.expand_and_push(UserPatternOrDerivedWildcard::UserPattern(arm.pat));
         }
         column
     }
     /// Pushes a pattern onto the column, expanding any or-patterns into its subpatterns.
     /// Internal method, prefer [`PatternColumn::new`].
-    fn expand_and_push(&mut self, pat: PatOrWild<'p, Ctx>) {
+    fn expand_and_push(&mut self, pat: UserPatternOrDerivedWildcard<'p, Ctx>) {
         // We flatten or-patterns and skip algorithm-generated wildcards.
         if pat.is_or_pat() {
             self.patterns.extend(

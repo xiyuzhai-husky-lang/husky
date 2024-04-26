@@ -711,7 +711,7 @@
 
 use self::PlaceValidity::*;
 use crate::constructor::{Constructor, ConstructorSet, IntRange};
-use crate::pattern::{DeconstructedPattern, PatId, PatOrWild, WitnessPat};
+use crate::pattern::{DeconstructedPattern, PatId, UserPatternOrDerivedWildcard, WitnessPattern};
 use crate::{Captures, IsPatternAnalyisContext, MatchArm, PrivateUninhabitedField};
 use rustc_hash::FxHashSet;
 use rustc_index::bit_set::BitSet;
@@ -776,8 +776,8 @@ impl<'a, Ctx: IsPatternAnalyisContext> PlaceCtxt<'a, Ctx> {
     fn constructor_arity(&self, constructor: &Constructor<Ctx>) -> usize {
         self.ctx.constructor_arity(constructor, self.ty)
     }
-    fn wild_from_ctor(&self, constructor: Constructor<Ctx>) -> WitnessPat<Ctx> {
-        WitnessPat::wild_from_ctor(self.ctx, constructor, self.ty.clone())
+    fn wild_from_ctor(&self, constructor: Constructor<Ctx>) -> WitnessPattern<Ctx> {
+        WitnessPattern::derive_wildcard_from_constructor(self.ctx, constructor, self.ty.clone())
     }
 }
 
@@ -959,7 +959,7 @@ impl<Ctx: IsPatternAnalyisContext> Clone for PlaceInfo<Ctx> {
 // - Ctx global compilation context
 struct PatStack<'p, Ctx: IsPatternAnalyisContext> {
     // Rows of len 1 are very common, which is why `SmallVec[_; 2]` works well.
-    pats: SmallVec<[PatOrWild<'p, Ctx>; 2]>,
+    pats: SmallVec<[UserPatternOrDerivedWildcard<'p, Ctx>; 2]>,
     /// Sometimes we know that as far as this row is concerned, the current case is already handled
     /// by a different, more general, case. When the case is irrelevant for all rows this allows us
     /// to skip a case entirely. This is purely an optimization. See at the top for details.
@@ -978,7 +978,7 @@ impl<'p, Ctx: IsPatternAnalyisContext> Clone for PatStack<'p, Ctx> {
 impl<'p, Ctx: IsPatternAnalyisContext> PatStack<'p, Ctx> {
     fn from_pattern(pat: &'p DeconstructedPattern<Ctx>) -> Self {
         PatStack {
-            pats: smallvec![PatOrWild::Pat(pat)],
+            pats: smallvec![UserPatternOrDerivedWildcard::UserPattern(pat)],
             relevant: true,
         }
     }
@@ -991,11 +991,11 @@ impl<'p, Ctx: IsPatternAnalyisContext> PatStack<'p, Ctx> {
         self.pats.len()
     }
 
-    fn head(&self) -> PatOrWild<'p, Ctx> {
+    fn head(&self) -> UserPatternOrDerivedWildcard<'p, Ctx> {
         self.pats[0]
     }
 
-    fn iter(&self) -> impl Iterator<Item = PatOrWild<'p, Ctx>> + Captures<'_> {
+    fn iter(&self) -> impl Iterator<Item = UserPatternOrDerivedWildcard<'p, Ctx>> + Captures<'_> {
         self.pats.iter().copied()
     }
 
@@ -1086,11 +1086,11 @@ impl<'p, Ctx: IsPatternAnalyisContext> MatrixRow<'p, Ctx> {
         self.pats.len()
     }
 
-    fn head(&self) -> PatOrWild<'p, Ctx> {
+    fn head(&self) -> UserPatternOrDerivedWildcard<'p, Ctx> {
         self.pats.head()
     }
 
-    fn iter(&self) -> impl Iterator<Item = PatOrWild<'p, Ctx>> + Captures<'_> {
+    fn iter(&self) -> impl Iterator<Item = UserPatternOrDerivedWildcard<'p, Ctx>> + Captures<'_> {
         self.pats.iter()
     }
 
@@ -1226,7 +1226,9 @@ impl<'p, Ctx: IsPatternAnalyisContext> Matrix<'p, Ctx> {
     }
 
     /// Iterate over the first pattern of each row.
-    fn heads(&self) -> impl Iterator<Item = PatOrWild<'p, Ctx>> + Clone + Captures<'_> {
+    fn heads(
+        &self,
+    ) -> impl Iterator<Item = UserPatternOrDerivedWildcard<'p, Ctx>> + Clone + Captures<'_> {
         self.rows().map(|r| r.head())
     }
 
@@ -1393,7 +1395,7 @@ impl<'p, Ctx: IsPatternAnalyisContext> fmt::Debug for Matrix<'p, Ctx> {
 ///
 /// See the top of the file for more detailed explanations and examples.
 #[derive(Debug)]
-struct WitnessStack<Ctx: IsPatternAnalyisContext>(Vec<WitnessPat<Ctx>>);
+struct WitnessStack<Ctx: IsPatternAnalyisContext>(Vec<WitnessPattern<Ctx>>);
 
 impl<Ctx: IsPatternAnalyisContext> Clone for WitnessStack<Ctx> {
     fn clone(&self) -> Self {
@@ -1403,13 +1405,13 @@ impl<Ctx: IsPatternAnalyisContext> Clone for WitnessStack<Ctx> {
 
 impl<Ctx: IsPatternAnalyisContext> WitnessStack<Ctx> {
     /// Asserts that the witness contains a single pattern, and returns it.
-    fn single_pattern(self) -> WitnessPat<Ctx> {
+    fn single_pattern(self) -> WitnessPattern<Ctx> {
         assert_eq!(self.0.len(), 1);
         self.0.into_iter().next().unwrap()
     }
 
     /// Reverses specialization by the `Missing` constructor by pushing a whole new pattern.
-    fn push_pattern(&mut self, pat: WitnessPat<Ctx>) {
+    fn push_pattern(&mut self, pat: WitnessPattern<Ctx>) {
         self.0.push(pat);
     }
 
@@ -1444,11 +1446,12 @@ impl<Ctx: IsPatternAnalyisContext> WitnessStack<Ctx> {
         {
             // Convert a `Union { a: p, b: q }` witness into `Union { a: p }` and `Union { b: q }`.
             // First add `Union { .. }` to `self`.
-            self.0.push(WitnessPat::wild_from_ctor(
-                pcx.ctx,
-                constructor.clone(),
-                pcx.ty.clone(),
-            ));
+            self.0
+                .push(WitnessPattern::derive_wildcard_from_constructor(
+                    pcx.ctx,
+                    constructor.clone(),
+                    pcx.ty.clone(),
+                ));
             fields
                 .into_iter()
                 .enumerate()
@@ -1461,8 +1464,11 @@ impl<Ctx: IsPatternAnalyisContext> WitnessStack<Ctx> {
                 })
                 .collect()
         } else {
-            self.0
-                .push(WitnessPat::new(constructor.clone(), fields, pcx.ty.clone()));
+            self.0.push(WitnessPattern::new(
+                constructor.clone(),
+                fields,
+                pcx.ty.clone(),
+            ));
             smallvec![self]
         }
     }
@@ -1501,12 +1507,12 @@ impl<Ctx: IsPatternAnalyisContext> WitnessMatrix<Ctx> {
         self.0.is_empty()
     }
     /// Asserts that there is a single column and returns the patterns in it.
-    fn single_column(self) -> Vec<WitnessPat<Ctx>> {
+    fn single_column(self) -> Vec<WitnessPattern<Ctx>> {
         self.0.into_iter().map(|w| w.single_pattern()).collect()
     }
 
     /// Reverses specialization by the `Missing` constructor by pushing a whole new pattern.
-    fn push_pattern(&mut self, pat: WitnessPat<Ctx>) {
+    fn push_pattern(&mut self, pat: WitnessPattern<Ctx>) {
         for witness in self.0.iter_mut() {
             witness.push_pattern(pat.clone())
         }
@@ -1576,7 +1582,9 @@ fn collect_overlapping_range_endpoints<'p, Ctx: IsPatternAnalyisContext>(
     // information. It doesn't contain the column that contains the range; that can be found in
     // `matrix`.
     for (child_row_id, child_row) in specialized_matrix.rows().enumerate() {
-        let PatOrWild::Pat(pat) = matrix.rows[child_row.parent_row].head() else {
+        let UserPatternOrDerivedWildcard::UserPattern(pat) =
+            matrix.rows[child_row.parent_row].head()
+        else {
             continue;
         };
         let Constructor::IntRange(this_range) = pat.constructor() else {
@@ -1635,7 +1643,9 @@ fn collect_non_contiguous_range_endpoints<'p, Ctx: IsPatternAnalyisContext>(
     let mut oneafter: SmallVec<[_; 1]> = Default::default();
     // Look through the column for ranges near the gap.
     for pat in matrix.heads() {
-        let PatOrWild::Pat(pat) = pat else { continue };
+        let UserPatternOrDerivedWildcard::UserPattern(pat) = pat else {
+            continue;
+        };
         let Constructor::IntRange(this_range) = pat.constructor() else {
             continue;
         };
@@ -1760,7 +1770,7 @@ fn compute_exhaustiveness_and_usefulness<'a, 'p, Ctx: IsPatternAnalyisContext>(
     // Record usefulness in the patterns.
     for row in matrix.rows() {
         if row.useful {
-            if let PatOrWild::Pat(pat) = row.head() {
+            if let UserPatternOrDerivedWildcard::UserPattern(pat) = row.head() {
                 let newly_useful = mcx.useful_subpatterns.insert(pat.uid);
                 if newly_useful {
                     debug!("newly useful: {pat:?}");
@@ -1834,7 +1844,7 @@ pub struct UsefulnessReport<'p, Ctx: IsPatternAnalyisContext> {
     pub arm_usefulness: Vec<(MatchArm<'p, Ctx>, Usefulness<'p, Ctx>)>,
     /// If the match is exhaustive, this is empty. If not, this contains witnesses for the lack of
     /// exhaustiveness.
-    pub non_exhaustiveness_witnesses: Vec<WitnessPat<Ctx>>,
+    pub non_exhaustiveness_witnesses: Vec<WitnessPattern<Ctx>>,
     /// For each arm, a set of indices of arms above it that have non-empty intersection, i.e. there
     /// is a value matched by both arms. This may miss real intersections.
     pub arm_intersections: Vec<BitSet<usize>>,
