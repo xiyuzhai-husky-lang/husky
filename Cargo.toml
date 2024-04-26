@@ -67,6 +67,7 @@ lto = false
 arc-swap = "1.4.0"
 atomic_enum = "0.3.0"
 axum = { version = "0.7.4" }
+bit-set = "0.5.3"
 cargo = "0.78"
 cargo-manifest = "0.14"
 chinese-number = { version = "0.7.2", default-features = false, features = [
@@ -86,7 +87,6 @@ crossbeam = "0.8.1"
 crossbeam-channel = "0.5.0"
 crossbeam-utils = { version = "0.8", default-features = false }
 ctrlc = "3.4.1"
-comemo = { git = "https://github.com/typst/comemo", rev = "ddb3773" }
 csv = "1"
 dashmap = "5.5.1"
 dirs = "5"
@@ -142,8 +142,9 @@ relative-path = "1.7.2"
 # is why it is not a default feature -- it could become hard to disable.
 rusqlite = { version = "0.30.0", features = ["bundled"] }
 rust-optimal-transport = { version = "0.2", features = ["blas"] }
-rustc_version = "0.4"
+rustc_apfloat = "0.2.0"
 rustc-hash = "1.1.0"
+rustc_version = "0.4"
 serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
 serde_with = "3.4.0"
@@ -180,6 +181,8 @@ original-error = { path = "crates/abstractions/original-error" }
 parsec = { path = "crates/abstractions/parsec" }
 propagate = { path = "crates/abstractions/propagate" }
 ref-index = { path = "crates/abstractions/ref-index" }
+rustc_index = { path = "crates/abstractions/rustc_index" }
+rustc_index_macros = { path = "crates/abstractions/rustc_index_macros" }
 salsa = { path = "crates/abstractions/salsa" }
 salsa-macros = { path = "crates/abstractions/salsa-macros" }
 serde-impl = { path = "crates/abstractions/serde-impl" }

@@ -1,0 +1,18 @@
+[package]
+name = "pattern-analysis"
+version = "0.0.0"
+edition = "2021"
+
+[dependencies]
+smallvec.workspace = true
+rustc_apfloat.workspace = true
+rustc-hash.workspace = true
+rustc_index.workspace = true
+tracing.workspace = true
+# tidy-alphabetical-end
+
+[dev-dependencies]
+tracing-subscriber = { version = "0.3.3", default-features = false, features = ["fmt", "env-filter", "ansi"] }
+tracing-tree = "0.3.0"
+
+[features]
