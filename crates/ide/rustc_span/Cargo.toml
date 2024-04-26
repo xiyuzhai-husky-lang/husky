@@ -1,0 +1,21 @@
+[package]
+name = "rustc_span"
+version = "0.0.0"
+edition = "2021"
+
+[dependencies]
+# tidy-alphabetical-start
+indexmap = { version = "2.0.0" }
+itoa = "1.0"
+md5 = { package = "md-5", version = "0.10.0" }
+rustc_arena.workspace = true
+rustc_data_structures.workspace = true
+rustc_index.workspace = true
+rustc_macros.workspace = true
+rustc_serialize.workspace = true
+scoped-tls = "1.0"
+sha1 = "0.10.0"
+sha2 = "0.10.1"
+tracing = "0.1"
+unicode-width = "0.1.4"
+# tidy-alphabetical-end
