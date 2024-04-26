@@ -1,9 +1,11 @@
+use husky_lifetime_utils::capture::Captures;
 use pattern_analysis::{
     constructor::{
         Constructor, ConstructorSet, IntRange, MaybeInfiniteInt, RangeEnd, VariantVisibility,
     },
+    context::PatternContext,
     usefulness::{PlaceValidity, UsefulnessReport},
-    Captures, MatchArm, PatCx, PrivateUninhabitedField,
+    MatchArm, PrivateUninhabitedField,
 };
 
 /// Sets up `tracing` for easier debugging. Tries to look like the `rustc` setup.
@@ -42,7 +44,7 @@ pub enum Ty {
 
 /// The important logic.
 impl Ty {
-    pub fn sub_tys(&self, ctor: &Constructor<Cx>) -> Vec<Self> {
+    pub fn sub_tys(&self, ctor: &Constructor<Ctx>) -> Vec<Self> {
         use Constructor::*;
         match (ctor, *self) {
             (Struct, Ty::Tuple(tys)) => tys.iter().copied().collect(),
@@ -53,7 +55,7 @@ impl Ty {
         }
     }
 
-    pub fn ctor_set(&self) -> ConstructorSet<Cx> {
+    pub fn ctor_set(&self) -> ConstructorSet<Ctx> {
         match *self {
             Ty::Bool => ConstructorSet::Bool,
             Ty::U8 => ConstructorSet::Integers {
@@ -75,7 +77,7 @@ impl Ty {
     pub fn write_variant_name(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        ctor: &Constructor<Cx>,
+        ctor: &Constructor<Ctx>,
     ) -> std::fmt::Result {
         match (*self, ctor) {
             (Ty::Tuple(..), _) => Ok(()),
@@ -88,14 +90,14 @@ impl Ty {
 
 /// Compute usefulness in our simple context (and set up tracing for easier debugging).
 pub fn compute_match_usefulness<'p>(
-    arms: &[MatchArm<'p, Cx>],
+    arms: &[MatchArm<'p, Ctx>],
     ty: Ty,
     scrut_validity: PlaceValidity,
     complexity_limit: Option<usize>,
-) -> Result<UsefulnessReport<'p, Cx>, ()> {
+) -> Result<UsefulnessReport<'p, Ctx>, ()> {
     init_tracing();
     pattern_analysis::usefulness::compute_match_usefulness(
-        &Cx,
+        &Ctx,
         arms,
         ty,
         scrut_validity,
@@ -104,16 +106,16 @@ pub fn compute_match_usefulness<'p>(
 }
 
 #[derive(Debug)]
-pub struct Cx;
+pub struct Ctx;
 
 /// The context for pattern analysis. Forwards anything interesting to `Ty` methods.
-impl PatCx for Cx {
-    type Ty = Ty;
+impl PatternContext for Ctx {
+    type PatternType = Ty;
     type Error = ();
     type VariantIdx = usize;
-    type StrLit = ();
-    type ArmData = ();
-    type PatData = ();
+    type StringLiteral = ();
+    type MatchArmData = ();
+    type PatternDataExtra = ();
 
     fn is_exhaustive_patterns_feature_on(&self) -> bool {
         false
@@ -123,29 +125,33 @@ impl PatCx for Cx {
         false
     }
 
-    fn ctor_arity(&self, ctor: &Constructor<Self>, ty: &Self::Ty) -> usize {
+    fn ctor_arity(&self, ctor: &Constructor<Self>, ty: &Self::PatternType) -> usize {
         ty.sub_tys(ctor).len()
     }
 
     fn ctor_sub_tys<'a>(
         &'a self,
         ctor: &'a Constructor<Self>,
-        ty: &'a Self::Ty,
-    ) -> impl Iterator<Item = (Self::Ty, PrivateUninhabitedField)> + ExactSizeIterator + Captures<'a>
-    {
+        ty: &'a Self::PatternType,
+    ) -> impl Iterator<Item = (Self::PatternType, PrivateUninhabitedField)>
+           + ExactSizeIterator
+           + Captures<'a> {
         ty.sub_tys(ctor)
             .into_iter()
             .map(|ty| (ty, PrivateUninhabitedField(false)))
     }
 
-    fn ctors_for_ty(&self, ty: &Self::Ty) -> Result<ConstructorSet<Self>, Self::Error> {
+    fn constructors_for_ty(
+        &self,
+        ty: &Self::PatternType,
+    ) -> Result<ConstructorSet<Self>, Self::Error> {
         Ok(ty.ctor_set())
     }
 
     fn write_variant_name(
         f: &mut std::fmt::Formatter<'_>,
         ctor: &Constructor<Self>,
-        ty: &Self::Ty,
+        ty: &Self::PatternType,
     ) -> std::fmt::Result {
         ty.write_variant_name(f, ctor)
     }

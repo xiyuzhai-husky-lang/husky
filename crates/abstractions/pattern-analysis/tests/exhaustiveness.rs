@@ -10,7 +10,7 @@ use pattern_analysis::{
 mod common;
 
 /// Analyze a match made of these patterns.
-fn check(patterns: Vec<DeconstructedPat<Cx>>) -> Vec<WitnessPat<Cx>> {
+fn check(patterns: Vec<DeconstructedPat<Ctx>>) -> Vec<WitnessPat<Ctx>> {
     let ty = *patterns[0].ty();
     let arms: Vec<_> = patterns
         .iter()
@@ -26,7 +26,7 @@ fn check(patterns: Vec<DeconstructedPat<Cx>>) -> Vec<WitnessPat<Cx>> {
 }
 
 #[track_caller]
-fn assert_exhaustive(patterns: Vec<DeconstructedPat<Cx>>) {
+fn assert_exhaustive(patterns: Vec<DeconstructedPat<Ctx>>) {
     let witnesses = check(patterns);
     if !witnesses.is_empty() {
         panic!("non-exaustive match: missing {witnesses:?}");
@@ -34,7 +34,7 @@ fn assert_exhaustive(patterns: Vec<DeconstructedPat<Cx>>) {
 }
 
 #[track_caller]
-fn assert_non_exhaustive(patterns: Vec<DeconstructedPat<Cx>>) {
+fn assert_non_exhaustive(patterns: Vec<DeconstructedPat<Ctx>>) {
     let witnesses = check(patterns);
     assert!(!witnesses.is_empty())
 }

@@ -7,7 +7,7 @@ mod common;
 
 /// Analyze a match made of these patterns. Ignore the report; we only care whether we exceeded the
 /// limit or not.
-fn check(patterns: &[DeconstructedPat<Cx>], complexity_limit: usize) -> Result<(), ()> {
+fn check(patterns: &[DeconstructedPat<Ctx>], complexity_limit: usize) -> Result<(), ()> {
     let ty = *patterns[0].ty();
     let arms: Vec<_> = patterns
         .iter()
@@ -28,7 +28,7 @@ fn check(patterns: &[DeconstructedPat<Cx>], complexity_limit: usize) -> Result<(
 
 /// Asserts that analyzing this match takes exactly `complexity` steps.
 #[track_caller]
-fn assert_complexity(patterns: Vec<DeconstructedPat<Cx>>, complexity: usize) {
+fn assert_complexity(patterns: Vec<DeconstructedPat<Ctx>>, complexity: usize) {
     assert!(check(&patterns, complexity).is_ok());
     assert!(check(&patterns, complexity - 1).is_err());
 }
@@ -44,7 +44,7 @@ fn assert_complexity(patterns: Vec<DeconstructedPat<Cx>>, complexity: usize) {
 ///     _ => {}
 /// }
 /// ```
-fn diagonal_match(arity: usize) -> Vec<DeconstructedPat<Cx>> {
+fn diagonal_match(arity: usize) -> Vec<DeconstructedPat<Ctx>> {
     let struct_ty = Ty::BigStruct {
         arity,
         ty: &Ty::Bool,
@@ -73,7 +73,7 @@ fn diagonal_match(arity: usize) -> Vec<DeconstructedPat<Cx>> {
 ///     _ => {}
 /// }
 /// ```
-fn diagonal_exponential_match(arity: usize) -> Vec<DeconstructedPat<Cx>> {
+fn diagonal_exponential_match(arity: usize) -> Vec<DeconstructedPat<Ctx>> {
     let struct_ty = Ty::BigStruct {
         arity,
         ty: &Ty::Bool,
@@ -109,7 +109,7 @@ fn test_diagonal_struct_match() {
 ///     _ => {}
 /// }
 /// ```
-fn big_enum(arity: usize) -> Vec<DeconstructedPat<Cx>> {
+fn big_enum(arity: usize) -> Vec<DeconstructedPat<Ctx>> {
     let enum_ty = Ty::BigEnum {
         arity,
         ty: &Ty::Bool,

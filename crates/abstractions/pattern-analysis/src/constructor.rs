@@ -190,7 +190,7 @@ use self::Constructor::*;
 use self::MaybeInfiniteInt::*;
 use self::SliceKind::*;
 
-use crate::PatCx;
+use crate::PatternContext;
 
 /// Whether we have seen a constructor in the column or not.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
@@ -299,7 +299,10 @@ impl IntRange {
     #[inline]
     pub fn from_singleton(x: MaybeInfiniteInt) -> IntRange {
         // `unwrap()` is ok on a finite value
-        IntRange { lo: x, hi: x.plus_one().unwrap() }
+        IntRange {
+            lo: x,
+            hi: x.plus_one().unwrap(),
+        }
     }
 
     /// Construct a range with these boundaries.
@@ -322,7 +325,10 @@ impl IntRange {
 
     fn intersection(&self, other: &Self) -> Option<Self> {
         if self.lo < other.hi && other.lo < self.hi {
-            Some(IntRange { lo: max(self.lo, other.lo), hi: min(self.hi, other.hi) })
+            Some(IntRange {
+                lo: max(self.lo, other.lo),
+                hi: min(self.hi, other.hi),
+            })
         } else {
             None
         }
@@ -408,7 +414,10 @@ impl IntRange {
             .map(move |(prev_bdy, paren_count, bdy)| {
                 use Presence::*;
                 let presence = if paren_count > 0 { Seen } else { Unseen };
-                let range = IntRange { lo: prev_bdy, hi: bdy };
+                let range = IntRange {
+                    lo: prev_bdy,
+                    hi: bdy,
+                };
                 (presence, range)
             })
     }
@@ -644,15 +653,18 @@ impl Slice {
             }
         };
 
-        smaller_lengths.map(FixedLen).chain(once(max_slice)).map(move |kind| {
-            let arity = kind.arity();
-            let seen = if min_var_len <= arity || seen_fixed_lens.contains(arity) {
-                Presence::Seen
-            } else {
-                Presence::Unseen
-            };
-            (seen, Slice::new(self.array_len, kind))
-        })
+        smaller_lengths
+            .map(FixedLen)
+            .chain(once(max_slice))
+            .map(move |kind| {
+                let arity = kind.arity();
+                let seen = if min_var_len <= arity || seen_fixed_lens.contains(arity) {
+                    Presence::Seen
+                } else {
+                    Presence::Unseen
+                };
+                (seen, Slice::new(self.array_len, kind))
+            })
     }
 }
 
@@ -676,11 +688,11 @@ impl OpaqueId {
 /// constructor. `Constructor::apply` reconstructs the pattern from a pair of `Constructor` and
 /// `Fields`.
 #[derive(Debug)]
-pub enum Constructor<Cx: PatCx> {
+pub enum Constructor<Ctx: PatternContext> {
     /// Tuples and structs.
     Struct,
     /// Enum variants.
-    Variant(Cx::VariantIdx),
+    Variant(Ctx::VariantIdx),
     /// References
     Ref,
     /// Array and slice patterns.
@@ -695,7 +707,7 @@ pub enum Constructor<Cx: PatCx> {
     F32Range(IeeeFloat<SingleS>, IeeeFloat<SingleS>, RangeEnd),
     F64Range(IeeeFloat<DoubleS>, IeeeFloat<DoubleS>, RangeEnd),
     /// String literals. Strings are not quite the same as `&[u8]` so we treat them separately.
-    Str(Cx::StrLit),
+    Str(Ctx::StringLiteral),
     /// Constants that must not be matched structurally. They are treated as black boxes for the
     /// purposes of exhaustiveness: we must not inspect them, and they don't count towards making a
     /// match exhaustive.
@@ -725,7 +737,7 @@ pub enum Constructor<Cx: PatCx> {
     PrivateUninhabited,
 }
 
-impl<Cx: PatCx> Clone for Constructor<Cx> {
+impl<Ctx: PatternContext> Clone for Constructor<Ctx> {
     fn clone(&self) -> Self {
         match self {
             Constructor::Struct => Constructor::Struct,
@@ -750,12 +762,12 @@ impl<Cx: PatCx> Clone for Constructor<Cx> {
     }
 }
 
-impl<Cx: PatCx> Constructor<Cx> {
+impl<Ctx: PatternContext> Constructor<Ctx> {
     pub(crate) fn is_non_exhaustive(&self) -> bool {
         matches!(self, NonExhaustive)
     }
 
-    pub(crate) fn as_variant(&self) -> Option<Cx::VariantIdx> {
+    pub(crate) fn as_variant(&self) -> Option<Ctx::VariantIdx> {
         match self {
             Variant(i) => Some(*i),
             _ => None,
@@ -782,7 +794,7 @@ impl<Cx: PatCx> Constructor<Cx> {
 
     /// The number of fields for this constructor. This must be kept in sync with
     /// `Fields::wildcards`.
-    pub(crate) fn arity(&self, cx: &Cx, ty: &Cx::Ty) -> usize {
+    pub(crate) fn arity(&self, cx: &Ctx, ty: &Ctx::PatternType) -> usize {
         cx.ctor_arity(self, ty)
     }
 
@@ -791,7 +803,7 @@ impl<Cx: PatCx> Constructor<Cx> {
     /// this checks for inclusion.
     // We inline because this has a single call site in `Matrix::specialize_constructor`.
     #[inline]
-    pub(crate) fn is_covered_by(&self, cx: &Cx, other: &Self) -> Result<bool, Cx::Error> {
+    pub(crate) fn is_covered_by(&self, cx: &Ctx, other: &Self) -> Result<bool, Ctx::Error> {
         Ok(match (self, other) {
             (Wildcard, _) => {
                 return Err(cx.bug(format_args!(
@@ -851,7 +863,7 @@ impl<Cx: PatCx> Constructor<Cx> {
     pub(crate) fn fmt_fields(
         &self,
         f: &mut fmt::Formatter<'_>,
-        ty: &Cx::Ty,
+        ty: &Ctx::PatternType,
         mut fields: impl Iterator<Item = impl fmt::Debug>,
     ) -> fmt::Result {
         let mut first = true;
@@ -867,7 +879,7 @@ impl<Cx: PatCx> Constructor<Cx> {
 
         match self {
             Struct | Variant(_) | UnionField => {
-                Cx::write_variant_name(f, self, ty)?;
+                Ctx::write_variant_name(f, self, ty)?;
                 // Without `cx`, we can't know which field corresponds to which, so we can't
                 // get the names of the fields. Instead we just display everything as a tuple
                 // struct, which should be good enough.
@@ -943,12 +955,15 @@ pub enum VariantVisibility {
 /// In terms of division of responsibility, [`ConstructorSet::split`] handles all of the
 /// `exhaustive_patterns` feature.
 #[derive(Debug)]
-pub enum ConstructorSet<Cx: PatCx> {
+pub enum ConstructorSet<Ctx: PatternContext> {
     /// The type is a tuple or struct. `empty` tracks whether the type is empty.
     Struct { empty: bool },
     /// This type has the following list of constructors. If `variants` is empty and
     /// `non_exhaustive` is false, don't use this; use `NoConstructors` instead.
-    Variants { variants: IndexVec<Cx::VariantIdx, VariantVisibility>, non_exhaustive: bool },
+    Variants {
+        variants: IndexVec<Ctx::VariantIdx, VariantVisibility>,
+        non_exhaustive: bool,
+    },
     /// The type is `&T`.
     Ref,
     /// The type is a union.
@@ -957,11 +972,17 @@ pub enum ConstructorSet<Cx: PatCx> {
     Bool,
     /// The type is spanned by integer values. The range or ranges give the set of allowed values.
     /// The second range is only useful for `char`.
-    Integers { range_1: IntRange, range_2: Option<IntRange> },
+    Integers {
+        range_1: IntRange,
+        range_2: Option<IntRange>,
+    },
     /// The type is matched by slices. `array_len` is the compile-time length of the array, if
     /// known. If `subtype_is_empty`, all constructors are empty except possibly the zero-length
     /// slice `[]`.
-    Slice { array_len: Option<usize>, subtype_is_empty: bool },
+    Slice {
+        array_len: Option<usize>,
+        subtype_is_empty: bool,
+    },
     /// The constructors cannot be listed, and the type cannot be matched exhaustively. E.g. `str`,
     /// floats.
     Unlistable,
@@ -991,23 +1012,23 @@ pub enum ConstructorSet<Cx: PatCx> {
 /// of the `ConstructorSet` for the type, yet if we forgot to include them in `present` we would be
 /// ignoring any row with `Opaque`s in the algorithm. Hence the importance of point 4.
 #[derive(Debug)]
-pub struct SplitConstructorSet<Cx: PatCx> {
-    pub present: SmallVec<[Constructor<Cx>; 1]>,
-    pub missing: Vec<Constructor<Cx>>,
-    pub missing_empty: Vec<Constructor<Cx>>,
+pub struct SplitConstructorSet<Ctx: PatternContext> {
+    pub present: SmallVec<[Constructor<Ctx>; 1]>,
+    pub missing: Vec<Constructor<Ctx>>,
+    pub missing_empty: Vec<Constructor<Ctx>>,
 }
 
-impl<Cx: PatCx> ConstructorSet<Cx> {
+impl<Ctx: PatternContext> ConstructorSet<Ctx> {
     /// This analyzes a column of constructors to 1/ determine which constructors of the type (if
     /// any) are missing; 2/ split constructors to handle non-trivial intersections e.g. on ranges
     /// or slices. This can get subtle; see [`SplitConstructorSet`] for details of this operation
     /// and its invariants.
     pub fn split<'a>(
         &self,
-        ctors: impl Iterator<Item = &'a Constructor<Cx>> + Clone,
-    ) -> SplitConstructorSet<Cx>
+        ctors: impl Iterator<Item = &'a Constructor<Ctx>> + Clone,
+    ) -> SplitConstructorSet<Ctx>
     where
-        Cx: 'a,
+        Ctx: 'a,
     {
         let mut present: SmallVec<[_; 1]> = SmallVec::new();
         // Empty constructors found missing.
@@ -1048,7 +1069,10 @@ impl<Cx: PatCx> ConstructorSet<Cx> {
                     missing.push(UnionField);
                 }
             }
-            ConstructorSet::Variants { variants, non_exhaustive } => {
+            ConstructorSet::Variants {
+                variants,
+                non_exhaustive,
+            } => {
                 let mut seen_set = BitSet::new_empty(variants.len());
                 for idx in seen.iter().filter_map(|c| c.as_variant()) {
                     seen_set.insert(idx);
@@ -1098,8 +1122,11 @@ impl<Cx: PatCx> ConstructorSet<Cx> {
                 }
             }
             ConstructorSet::Integers { range_1, range_2 } => {
-                let seen_ranges: Vec<_> =
-                    seen.iter().filter_map(|ctor| ctor.as_int_range()).copied().collect();
+                let seen_ranges: Vec<_> = seen
+                    .iter()
+                    .filter_map(|ctor| ctor.as_int_range())
+                    .copied()
+                    .collect();
                 for (seen, splitted_range) in range_1.split(seen_ranges.iter().cloned()) {
                     match seen {
                         Presence::Unseen => missing.push(IntRange(splitted_range)),
@@ -1115,7 +1142,10 @@ impl<Cx: PatCx> ConstructorSet<Cx> {
                     }
                 }
             }
-            ConstructorSet::Slice { array_len, subtype_is_empty } => {
+            ConstructorSet::Slice {
+                array_len,
+                subtype_is_empty,
+            } => {
                 let seen_slices = seen.iter().filter_map(|c| c.as_slice());
                 let base_slice = Slice::new(*array_len, VarLen(0, 0));
                 for (seen, splitted_slice) in base_slice.split(seen_slices) {
@@ -1148,7 +1178,11 @@ impl<Cx: PatCx> ConstructorSet<Cx> {
             }
         }
 
-        SplitConstructorSet { present, missing, missing_empty }
+        SplitConstructorSet {
+            present,
+            missing,
+            missing_empty,
+        }
     }
 
     /// Whether this set only contains empty constructors.
@@ -1161,15 +1195,19 @@ impl<Cx: PatCx> ConstructorSet<Cx> {
             | ConstructorSet::Unlistable => false,
             ConstructorSet::NoConstructors => true,
             ConstructorSet::Struct { empty } => *empty,
-            ConstructorSet::Variants { variants, non_exhaustive } => {
+            ConstructorSet::Variants {
+                variants,
+                non_exhaustive,
+            } => {
                 !*non_exhaustive
                     && variants
                         .iter()
                         .all(|visibility| matches!(visibility, VariantVisibility::Empty))
             }
-            ConstructorSet::Slice { array_len, subtype_is_empty } => {
-                *subtype_is_empty && matches!(array_len, Some(1..))
-            }
+            ConstructorSet::Slice {
+                array_len,
+                subtype_is_empty,
+            } => *subtype_is_empty && matches!(array_len, Some(1..)),
         }
     }
 }
