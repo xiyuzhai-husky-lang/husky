@@ -794,7 +794,7 @@ impl<Ctx: IsPatternAnalyisContext> Constructor<Ctx> {
 
     /// The number of fields for this constructor. This must be kept in sync with
     /// `Fields::wildcards`.
-    pub(crate) fn arity(&self, ctx: &Ctx, ty: &Ctx::PatternType) -> usize {
+    pub(crate) fn arity(&self, ctx: &Ctx, ty: &Ctx::Type) -> usize {
         ctx.constructor_arity(self, ty)
     }
 
@@ -863,7 +863,7 @@ impl<Ctx: IsPatternAnalyisContext> Constructor<Ctx> {
     pub(crate) fn fmt_fields(
         &self,
         f: &mut fmt::Formatter<'_>,
-        ty: &Ctx::PatternType,
+        ty: &Ctx::Type,
         mut fields: impl Iterator<Item = impl fmt::Debug>,
     ) -> fmt::Result {
         let mut first = true;

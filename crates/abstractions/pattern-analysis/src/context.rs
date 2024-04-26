@@ -19,7 +19,7 @@ use std::fmt;
 /// Most of the crate is parameterized on a type that implements this trait.
 pub trait IsPatternAnalyisContext: Sized + fmt::Debug {
     /// The type of a pattern.
-    type PatternType: Clone + fmt::Debug;
+    type Type: Clone + fmt::Debug;
     /// Errors that can abort analysis.
     type Error: fmt::Debug;
     /// The index of an enum variant.
@@ -35,31 +35,26 @@ pub trait IsPatternAnalyisContext: Sized + fmt::Debug {
     fn is_min_exhaustive_patterns_feature_on(&self) -> bool;
 
     /// The number of fields for this constructor.
-    fn constructor_arity(&self, constructor: &Constructor<Self>, ty: &Self::PatternType) -> usize;
+    fn constructor_arity(&self, constructor: &Constructor<Self>, ty: &Self::Type) -> usize;
 
     /// The types of the fields for this constructor. The result must contain `constructor_arity()` fields.
     fn constructor_field_tys<'a>(
         &'a self,
         constructor: &'a Constructor<Self>,
-        ty: &'a Self::PatternType,
-    ) -> impl Iterator<Item = (Self::PatternType, PrivateUninhabitedField)>
-           + ExactSizeIterator
-           + Captures<'a>;
+        ty: &'a Self::Type,
+    ) -> impl Iterator<Item = (Self::Type, PrivateUninhabitedField)> + ExactSizeIterator + Captures<'a>;
 
     /// The set of all the constructors for `ty`.
     ///
     /// This must follow the invariants of `ConstructorSet`
-    fn constructors_for_ty(
-        &self,
-        ty: &Self::PatternType,
-    ) -> Result<ConstructorSet<Self>, Self::Error>;
+    fn constructors_for_ty(&self, ty: &Self::Type) -> Result<ConstructorSet<Self>, Self::Error>;
 
     /// Write the name of the variant represented by `pat`. Used for the best-effort `Debug` impl of
     /// `DeconstructedPattern`. Only invoqued when `pat.constructor()` is `Struct | Variant(_) | UnionField`.
     fn write_variant_name(
         f: &mut fmt::Formatter<'_>,
         constructor: &crate::constructor::Constructor<Self>,
-        ty: &Self::PatternType,
+        ty: &Self::Type,
     ) -> fmt::Result;
 
     /// Raise a bug.

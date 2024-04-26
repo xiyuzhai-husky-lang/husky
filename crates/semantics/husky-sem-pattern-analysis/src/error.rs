@@ -1,2 +1,2 @@
 #[derive(Debug)]
-pub enum SemPatternAnalysisError {}
+pub enum FlyPatternAnalysisError {}

@@ -36,7 +36,7 @@ pub struct DeconstructedPattern<Ctx: IsPatternAnalyisContext> {
     /// }` this would be the total number of fields of the struct.
     /// This is also the same as `self.constructor.arity(self.ty)`.
     arity: usize,
-    ty: Ctx::PatternType,
+    ty: Ctx::Type,
     /// Extra data to store in a pattern.
     data: Ctx::PatternDataExtra,
     /// Globally-unique id used to track usefulness at the level of subpatterns.
@@ -48,7 +48,7 @@ impl<Ctx: IsPatternAnalyisContext> DeconstructedPattern<Ctx> {
         constructor: Constructor<Ctx>,
         fields: Vec<IndexedPat<Ctx>>,
         arity: usize,
-        ty: Ctx::PatternType,
+        ty: Ctx::Type,
         data: Ctx::PatternDataExtra,
     ) -> Self {
         DeconstructedPattern {
@@ -72,7 +72,7 @@ impl<Ctx: IsPatternAnalyisContext> DeconstructedPattern<Ctx> {
     pub fn constructor(&self) -> &Constructor<Ctx> {
         &self.constructor
     }
-    pub fn ty(&self) -> &Ctx::PatternType {
+    pub fn ty(&self) -> &Ctx::Type {
         &self.ty
     }
     /// Returns the extra data stored in a pattern.
@@ -239,7 +239,7 @@ impl<'p, Ctx: IsPatternAnalyisContext> fmt::Debug for PatOrWild<'p, Ctx> {
 pub struct WitnessPat<Ctx: IsPatternAnalyisContext> {
     constructor: Constructor<Ctx>,
     pub(crate) fields: Vec<WitnessPat<Ctx>>,
-    ty: Ctx::PatternType,
+    ty: Ctx::Type,
 }
 
 impl<Ctx: IsPatternAnalyisContext> Clone for WitnessPat<Ctx> {
@@ -253,11 +253,7 @@ impl<Ctx: IsPatternAnalyisContext> Clone for WitnessPat<Ctx> {
 }
 
 impl<Ctx: IsPatternAnalyisContext> WitnessPat<Ctx> {
-    pub(crate) fn new(
-        constructor: Constructor<Ctx>,
-        fields: Vec<Self>,
-        ty: Ctx::PatternType,
-    ) -> Self {
+    pub(crate) fn new(constructor: Constructor<Ctx>, fields: Vec<Self>, ty: Ctx::Type) -> Self {
         Self {
             constructor,
             fields,
@@ -265,7 +261,7 @@ impl<Ctx: IsPatternAnalyisContext> WitnessPat<Ctx> {
         }
     }
     /// Create a wildcard pattern for this type. If the type is empty, we create a `!` pattern.
-    pub(crate) fn wildcard(ctx: &Ctx, ty: Ctx::PatternType) -> Self {
+    pub(crate) fn wildcard(ctx: &Ctx, ty: Ctx::Type) -> Self {
         let is_empty = ctx
             .constructors_for_ty(&ty)
             .is_ok_and(|ctors| ctors.all_empty());
@@ -276,11 +272,7 @@ impl<Ctx: IsPatternAnalyisContext> WitnessPat<Ctx> {
     /// Construct a pattern that matches everything that starts with this constructor.
     /// For example, if `constructor` is a `Constructor::Variant` for `Option::Some`, we get the pattern
     /// `Some(_)`.
-    pub(crate) fn wild_from_ctor(
-        ctx: &Ctx,
-        constructor: Constructor<Ctx>,
-        ty: Ctx::PatternType,
-    ) -> Self {
+    pub(crate) fn wild_from_ctor(ctx: &Ctx, constructor: Constructor<Ctx>, ty: Ctx::Type) -> Self {
         if matches!(constructor, Wildcard) {
             return Self::wildcard(ctx, ty);
         }
@@ -295,7 +287,7 @@ impl<Ctx: IsPatternAnalyisContext> WitnessPat<Ctx> {
     pub fn constructor(&self) -> &Constructor<Ctx> {
         &self.constructor
     }
-    pub fn ty(&self) -> &Ctx::PatternType {
+    pub fn ty(&self) -> &Ctx::Type {
         &self.ty
     }
 

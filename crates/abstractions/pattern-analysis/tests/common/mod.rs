@@ -110,7 +110,7 @@ pub struct Ctx;
 
 /// The context for pattern analysis. Forwards anything interesting to `Ty` methods.
 impl IsPatternAnalyisContext for Ctx {
-    type PatternType = Ty;
+    type Type = Ty;
     type Error = ();
     type VariantIdx = usize;
     type StringLiteral = ();
@@ -125,33 +125,29 @@ impl IsPatternAnalyisContext for Ctx {
         false
     }
 
-    fn constructor_arity(&self, constructor: &Constructor<Self>, ty: &Self::PatternType) -> usize {
+    fn constructor_arity(&self, constructor: &Constructor<Self>, ty: &Self::Type) -> usize {
         ty.sub_tys(constructor).len()
     }
 
     fn constructor_field_tys<'a>(
         &'a self,
         constructor: &'a Constructor<Self>,
-        ty: &'a Self::PatternType,
-    ) -> impl Iterator<Item = (Self::PatternType, PrivateUninhabitedField)>
-           + ExactSizeIterator
-           + Captures<'a> {
+        ty: &'a Self::Type,
+    ) -> impl Iterator<Item = (Self::Type, PrivateUninhabitedField)> + ExactSizeIterator + Captures<'a>
+    {
         ty.sub_tys(constructor)
             .into_iter()
             .map(|ty| (ty, PrivateUninhabitedField(false)))
     }
 
-    fn constructors_for_ty(
-        &self,
-        ty: &Self::PatternType,
-    ) -> Result<ConstructorSet<Self>, Self::Error> {
+    fn constructors_for_ty(&self, ty: &Self::Type) -> Result<ConstructorSet<Self>, Self::Error> {
         Ok(ty.constructor_set())
     }
 
     fn write_variant_name(
         f: &mut std::fmt::Formatter<'_>,
         constructor: &Constructor<Self>,
-        ty: &Self::PatternType,
+        ty: &Self::Type,
     ) -> std::fmt::Result {
         ty.write_variant_name(f, constructor)
     }
