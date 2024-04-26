@@ -1,6 +1,6 @@
 use self::error::SemPatternAnalysisError;
 use crate::*;
-use husky_entity_path::TypeVariantPath;
+use husky_entity_path::{TypeVariantIndex, TypeVariantPath};
 use husky_fly_term::FlyTerm;
 use husky_lifetime_utils::capture::Captures;
 
@@ -12,7 +12,7 @@ impl IsPatternAnalyisContext for SemPatternAnalysisContext {
 
     type Error = SemPatternAnalysisError;
 
-    type VariantIdx = TypeVariantPath;
+    type VariantIdx = TypeVariantIndex;
 
     type StringLiteral = ();
 

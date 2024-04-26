@@ -28,6 +28,12 @@ impl Idx for TypeVariantIndex {
     }
 }
 
+impl TypeVariantIndex {
+    pub fn raw(self) -> usize {
+        self.0
+    }
+}
+
 pub struct TypeVariantRegistry {
     next_index: TypeVariantIndex,
 }

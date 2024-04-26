@@ -1,6 +1,6 @@
 use self::vm_control_flow::LinkageImplVmControlFlow;
 use crate::*;
-use husky_value_protocol::presentation::EnumU8ValuePresenter;
+use husky_value_protocol::presentation::EnumUnitValuePresenter;
 use serde::Serialize;
 
 pub trait IsLinkageImpl: Send + Copy + 'static {
@@ -22,7 +22,7 @@ pub trait IsLinkageImpl: Send + Copy + 'static {
         db: &dyn std::any::Any,
     ) -> LinkageImplVmControlFlow<Self>;
 
-    fn enum_u8_value_presenter(self) -> EnumU8ValuePresenter;
+    fn enum_index_value_presenter(self) -> EnumUnitValuePresenter;
 }
 
 pub type LinkageImplKiControlFlow<LinkageImpl, C = <LinkageImpl as IsLinkageImpl>::Value> =

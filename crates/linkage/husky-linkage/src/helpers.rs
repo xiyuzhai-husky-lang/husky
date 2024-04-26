@@ -43,7 +43,7 @@ impl Linkage {
             | LinkageData::Index
             | LinkageData::VecConstructor { .. }
             | LinkageData::TypeDefault { .. }
-            | LinkageData::EnumU8ToJsonValue { .. } => return None,
+            | LinkageData::EnumUnitToJsonValue { .. } => return None,
         })
     }
 

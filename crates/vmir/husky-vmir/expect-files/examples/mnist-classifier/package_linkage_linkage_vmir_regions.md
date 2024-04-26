@@ -4752,7 +4752,7 @@
     ),
     (
         Linkage {
-            data: LinkageData::EnumU8ToJsonValue {
+            data: LinkageData::EnumUnitToJsonValue {
                 ty_path: TypePath(`mnist_classifier::raw_contour::Direction`, `Enum`),
             },
         },
