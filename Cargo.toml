@@ -180,6 +180,7 @@ maybe-result = { path = "crates/abstractions/maybe-result" }
 original-error = { path = "crates/abstractions/original-error" }
 parsec = { path = "crates/abstractions/parsec" }
 pattern-analysis = { path = "crates/abstractions/pattern-analysis" }
+rustc_graphviz = { path = "crates/abstractions/rustc_graphviz" }
 propagate = { path = "crates/abstractions/propagate" }
 ref-index = { path = "crates/abstractions/ref-index" }
 rustc_index = { path = "crates/abstractions/rustc_index" }
