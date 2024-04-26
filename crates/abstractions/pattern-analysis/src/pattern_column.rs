@@ -53,11 +53,11 @@ impl<'p, Ctx: PatternContext> PatternColumn<'p, Ctx> {
     /// Do constructor splitting on the constructors of the column.
     pub fn analyze_constructors(
         &self,
-        cx: &Ctx,
+        ctx: &Ctx,
         ty: &Ctx::PatternType,
     ) -> Result<SplitConstructorSet<Ctx>, Ctx::Error> {
         let column_constructors = self.patterns.iter().map(|p| p.constructor());
-        let constructors_for_ty = cx.constructors_for_ty(ty)?;
+        let constructors_for_ty = ctx.constructors_for_ty(ty)?;
         Ok(constructors_for_ty.split(column_constructors))
     }
 
@@ -68,11 +68,11 @@ impl<'p, Ctx: PatternContext> PatternColumn<'p, Ctx> {
     /// which may change the lengths.
     pub fn specialize(
         &self,
-        cx: &Ctx,
+        ctx: &Ctx,
         ty: &Ctx::PatternType,
         constructor: &Constructor<Ctx>,
     ) -> Vec<PatternColumn<'p, Ctx>> {
-        let arity = constructor.arity(cx, ty);
+        let arity = constructor.arity(ctx, ty);
         if arity == 0 {
             return Vec::new();
         }
@@ -87,7 +87,7 @@ impl<'p, Ctx: PatternContext> PatternColumn<'p, Ctx> {
             .collect();
         let relevant_patterns = self.patterns.iter().filter(|pat| {
             constructor
-                .is_covered_by(cx, pat.constructor())
+                .is_covered_by(ctx, pat.constructor())
                 .unwrap_or(false)
         });
         for pat in relevant_patterns {

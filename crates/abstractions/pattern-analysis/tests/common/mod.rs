@@ -55,7 +55,7 @@ impl Ty {
         }
     }
 
-    pub fn ctor_set(&self) -> ConstructorSet<Ctx> {
+    pub fn constructor_set(&self) -> ConstructorSet<Ctx> {
         match *self {
             Ty::Bool => ConstructorSet::Bool,
             Ty::U8 => ConstructorSet::Integers {
@@ -125,11 +125,11 @@ impl PatternContext for Ctx {
         false
     }
 
-    fn ctor_arity(&self, constructor: &Constructor<Self>, ty: &Self::PatternType) -> usize {
+    fn constructor_arity(&self, constructor: &Constructor<Self>, ty: &Self::PatternType) -> usize {
         ty.sub_tys(constructor).len()
     }
 
-    fn ctor_sub_tys<'a>(
+    fn constructor_field_tys<'a>(
         &'a self,
         constructor: &'a Constructor<Self>,
         ty: &'a Self::PatternType,
@@ -145,7 +145,7 @@ impl PatternContext for Ctx {
         &self,
         ty: &Self::PatternType,
     ) -> Result<ConstructorSet<Self>, Self::Error> {
-        Ok(ty.ctor_set())
+        Ok(ty.constructor_set())
     }
 
     fn write_variant_name(
@@ -292,12 +292,12 @@ macro_rules! pats {
         // Silly dance to work with both a vec and `iter::repeat()`.
         let ty = *(&sub_tys).clone().into_iter().nth(index).unwrap();
         let constructor = $constructor;
-        let ctor_sub_tys = &ty.sub_tys(&constructor);
+        let constructor_sub_tys = &ty.sub_tys(&constructor);
         #[allow(unused_mut)]
         let mut fields = Vec::new();
         // Parse subpatterns (note the leading comma).
-        pats!(@fields(idx:0, vec:fields, sub_tys:ctor_sub_tys) ,$($fields)*);
-        let arity = ctor_sub_tys.len();
+        pats!(@fields(idx:0, vec:fields, sub_tys:constructor_sub_tys) ,$($fields)*);
+        let arity = constructor_sub_tys.len();
         let pat = DeconstructedPattern::new(constructor, fields, arity, ty, ()).at_index(index);
         $vec.push(pat);
 
