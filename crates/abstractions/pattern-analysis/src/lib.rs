@@ -4,127 +4,32 @@
 #![allow(rustc::diagnostic_outside_of_impl)]
 
 pub mod constructor;
-#[cfg(feature = "rustc")]
-pub mod errors;
-#[cfg(feature = "rustc")]
-pub(crate) mod lints;
+pub mod context;
 pub mod pat;
 pub mod pat_column;
-#[cfg(feature = "rustc")]
-pub mod rustc;
 pub mod usefulness;
 
 #[macro_use]
 extern crate tracing;
-#[cfg(feature = "rustc")]
-#[macro_use]
-extern crate rustc_middle;
 
-#[cfg(feature = "rustc")]
-rustc_fluent_macro::fluent_messages! { "../messages.ftl" }
-
-use std::fmt;
-
-use rustc_index::Idx;
-#[cfg(feature = "rustc")]
-use rustc_middle::ty::Ty;
-#[cfg(feature = "rustc")]
-use rustc_span::ErrorGuaranteed;
-
-use crate::constructor::{Constructor, ConstructorSet, IntRange};
+use self::context::*;
 use crate::pat::DeconstructedPat;
-use crate::pat_column::PatternColumn;
-
-pub trait Captures<'a> {}
-impl<'a, T: ?Sized> Captures<'a> for T {}
+use husky_lifetime_utils::capture::Captures;
 
 /// `bool` newtype that indicates whether this is a privately uninhabited field that we should skip
 /// during analysis.
 #[derive(Copy, Clone, Debug, PartialEq, Eq)]
 pub struct PrivateUninhabitedField(pub bool);
 
-/// Context that provides type information about constructors.
-///
-/// Most of the crate is parameterized on a type that implements this trait.
-pub trait PatCx: Sized + fmt::Debug {
-    /// The type of a pattern.
-    type Ty: Clone + fmt::Debug;
-    /// Errors that can abort analysis.
-    type Error: fmt::Debug;
-    /// The index of an enum variant.
-    type VariantIdx: Clone + Idx + fmt::Debug;
-    /// A string literal
-    type StrLit: Clone + PartialEq + fmt::Debug;
-    /// Extra data to store in a match arm.
-    type ArmData: Copy + Clone + fmt::Debug;
-    /// Extra data to store in a pattern.
-    type PatData: Clone;
-
-    fn is_exhaustive_patterns_feature_on(&self) -> bool;
-    fn is_min_exhaustive_patterns_feature_on(&self) -> bool;
-
-    /// The number of fields for this constructor.
-    fn ctor_arity(&self, ctor: &Constructor<Self>, ty: &Self::Ty) -> usize;
-
-    /// The types of the fields for this constructor. The result must contain `ctor_arity()` fields.
-    fn ctor_sub_tys<'a>(
-        &'a self,
-        ctor: &'a Constructor<Self>,
-        ty: &'a Self::Ty,
-    ) -> impl Iterator<Item = (Self::Ty, PrivateUninhabitedField)> + ExactSizeIterator + Captures<'a>;
-
-    /// The set of all the constructors for `ty`.
-    ///
-    /// This must follow the invariants of `ConstructorSet`
-    fn ctors_for_ty(&self, ty: &Self::Ty) -> Result<ConstructorSet<Self>, Self::Error>;
-
-    /// Write the name of the variant represented by `pat`. Used for the best-effort `Debug` impl of
-    /// `DeconstructedPat`. Only invoqued when `pat.ctor()` is `Struct | Variant(_) | UnionField`.
-    fn write_variant_name(
-        f: &mut fmt::Formatter<'_>,
-        ctor: &crate::constructor::Constructor<Self>,
-        ty: &Self::Ty,
-    ) -> fmt::Result;
-
-    /// Raise a bug.
-    fn bug(&self, fmt: fmt::Arguments<'_>) -> Self::Error;
-
-    /// Lint that the range `pat` overlapped with all the ranges in `overlaps_with`, where the range
-    /// they overlapped over is `overlaps_on`. We only detect singleton overlaps.
-    /// The default implementation does nothing.
-    fn lint_overlapping_range_endpoints(
-        &self,
-        _pat: &DeconstructedPat<Self>,
-        _overlaps_on: IntRange,
-        _overlaps_with: &[&DeconstructedPat<Self>],
-    ) {
-    }
-
-    /// The maximum pattern complexity limit was reached.
-    fn complexity_exceeded(&self) -> Result<(), Self::Error>;
-
-    /// Lint that there is a gap `gap` between `pat` and all of `gapped_with` such that the gap is
-    /// not matched by another range. If `gapped_with` is empty, then `gap` is `T::MAX`. We only
-    /// detect singleton gaps.
-    /// The default implementation does nothing.
-    fn lint_non_contiguous_range_endpoints(
-        &self,
-        _pat: &DeconstructedPat<Self>,
-        _gap: IntRange,
-        _gapped_with: &[&DeconstructedPat<Self>],
-    ) {
-    }
-}
-
 /// The arm of a match expression.
 #[derive(Debug)]
-pub struct MatchArm<'p, Cx: PatCx> {
-    pub pat: &'p DeconstructedPat<Cx>,
+pub struct MatchArm<'p, Ctx: PatternContext> {
+    pub pat: &'p DeconstructedPat<Ctx>,
     pub has_guard: bool,
-    pub arm_data: Cx::ArmData,
+    pub arm_data: Ctx::MatchArmData,
 }
 
-impl<'p, Cx: PatCx> Clone for MatchArm<'p, Cx> {
+impl<'p, Ctx: PatternContext> Clone for MatchArm<'p, Ctx> {
     fn clone(&self) -> Self {
         Self {
             pat: self.pat,
@@ -134,7 +39,7 @@ impl<'p, Cx: PatCx> Clone for MatchArm<'p, Cx> {
     }
 }
 
-impl<'p, Cx: PatCx> Copy for MatchArm<'p, Cx> {}
+impl<'p, Ctx: PatternContext> Copy for MatchArm<'p, Ctx> {}
 
 /// The entrypoint for this crate. Computes whether a match is exhaustive and which of its arms are
 /// useful, and runs some lints.

@@ -5,7 +5,7 @@ use std::fmt;
 use smallvec::{smallvec, SmallVec};
 
 use crate::constructor::{Constructor, Slice, SliceKind};
-use crate::{PatCx, PrivateUninhabitedField};
+use crate::{PatternContext, PrivateUninhabitedField};
 
 use self::Constructor::*;
 
@@ -21,40 +21,47 @@ impl PatId {
 }
 
 /// A pattern with an index denoting which field it corresponds to.
-pub struct IndexedPat<Cx: PatCx> {
+pub struct IndexedPat<Ctx: PatternContext> {
     pub idx: usize,
-    pub pat: DeconstructedPat<Cx>,
+    pub pat: DeconstructedPat<Ctx>,
 }
 
 /// Values and patterns can be represented as a constructor applied to some fields. This represents
 /// a pattern in this form. A `DeconstructedPat` will almost always come from user input; the only
 /// exception are some `Wildcard`s introduced during pattern lowering.
-pub struct DeconstructedPat<Cx: PatCx> {
-    ctor: Constructor<Cx>,
-    fields: Vec<IndexedPat<Cx>>,
+pub struct DeconstructedPat<Ctx: PatternContext> {
+    ctor: Constructor<Ctx>,
+    fields: Vec<IndexedPat<Ctx>>,
     /// The number of fields in this pattern. E.g. if the pattern is `SomeStruct { field12: true, ..
     /// }` this would be the total number of fields of the struct.
     /// This is also the same as `self.ctor.arity(self.ty)`.
     arity: usize,
-    ty: Cx::Ty,
+    ty: Ctx::PatternType,
     /// Extra data to store in a pattern.
-    data: Cx::PatData,
+    data: Ctx::PatternDataExtra,
     /// Globally-unique id used to track usefulness at the level of subpatterns.
     pub(crate) uid: PatId,
 }
 
-impl<Cx: PatCx> DeconstructedPat<Cx> {
+impl<Ctx: PatternContext> DeconstructedPat<Ctx> {
     pub fn new(
-        ctor: Constructor<Cx>,
-        fields: Vec<IndexedPat<Cx>>,
+        ctor: Constructor<Ctx>,
+        fields: Vec<IndexedPat<Ctx>>,
         arity: usize,
-        ty: Cx::Ty,
-        data: Cx::PatData,
+        ty: Ctx::PatternType,
+        data: Ctx::PatternDataExtra,
     ) -> Self {
-        DeconstructedPat { ctor, fields, arity, ty, data, uid: PatId::new() }
+        DeconstructedPat {
+            ctor,
+            fields,
+            arity,
+            ty,
+            data,
+            uid: PatId::new(),
+        }
     }
 
-    pub fn at_index(self, idx: usize) -> IndexedPat<Cx> {
+    pub fn at_index(self, idx: usize) -> IndexedPat<Ctx> {
         IndexedPat { idx, pat: self }
     }
 
@@ -62,21 +69,21 @@ impl<Cx: PatCx> DeconstructedPat<Cx> {
         matches!(self.ctor, Or)
     }
 
-    pub fn ctor(&self) -> &Constructor<Cx> {
+    pub fn ctor(&self) -> &Constructor<Ctx> {
         &self.ctor
     }
-    pub fn ty(&self) -> &Cx::Ty {
+    pub fn ty(&self) -> &Ctx::PatternType {
         &self.ty
     }
     /// Returns the extra data stored in a pattern.
-    pub fn data(&self) -> &Cx::PatData {
+    pub fn data(&self) -> &Ctx::PatternDataExtra {
         &self.data
     }
     pub fn arity(&self) -> usize {
         self.arity
     }
 
-    pub fn iter_fields<'a>(&'a self) -> impl Iterator<Item = &'a IndexedPat<Cx>> {
+    pub fn iter_fields<'a>(&'a self) -> impl Iterator<Item = &'a IndexedPat<Ctx>> {
         self.fields.iter()
     }
 
@@ -84,9 +91,9 @@ impl<Cx: PatCx> DeconstructedPat<Cx> {
     /// `other_ctor` can be different from `self.ctor`, but must be covered by it.
     pub(crate) fn specialize<'a>(
         &'a self,
-        other_ctor: &Constructor<Cx>,
+        other_ctor: &Constructor<Ctx>,
         other_ctor_arity: usize,
-    ) -> SmallVec<[PatOrWild<'a, Cx>; 2]> {
+    ) -> SmallVec<[PatOrWild<'a, Ctx>; 2]> {
         if matches!(other_ctor, PrivateUninhabited) {
             // Skip this column.
             return smallvec![];
@@ -99,9 +106,10 @@ impl<Cx: PatCx> DeconstructedPat<Cx> {
             // The only non-trivial case: two slices of different arity. `other_ctor` is guaranteed
             // to have a larger arity, so we adjust the indices of the patterns in the suffix so
             // that they are correctly positioned in the larger slice.
-            Slice(Slice { kind: SliceKind::VarLen(prefix, _), .. })
-                if self.arity != other_ctor_arity =>
-            {
+            Slice(Slice {
+                kind: SliceKind::VarLen(prefix, _),
+                ..
+            }) if self.arity != other_ctor_arity => {
                 for ipat in &self.fields {
                     let new_idx = if ipat.idx < prefix {
                         ipat.idx
@@ -136,7 +144,7 @@ impl<Cx: PatCx> DeconstructedPat<Cx> {
 }
 
 /// This is best effort and not good enough for a `Display` impl.
-impl<Cx: PatCx> fmt::Debug for DeconstructedPat<Cx> {
+impl<Ctx: PatternContext> fmt::Debug for DeconstructedPat<Ctx> {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         let mut fields: Vec<_> = (0..self.arity).map(|_| PatOrWild::Wild).collect();
         for ipat in self.iter_fields() {
@@ -150,14 +158,14 @@ impl<Cx: PatCx> fmt::Debug for DeconstructedPat<Cx> {
 /// algorithm. Do not use `Wild` to represent a wildcard pattern comping from user input.
 ///
 /// This is morally `Option<&'p DeconstructedPat>` where `None` is interpreted as a wildcard.
-pub(crate) enum PatOrWild<'p, Cx: PatCx> {
+pub(crate) enum PatOrWild<'p, Ctx: PatternContext> {
     /// A non-user-provided wildcard, created during specialization.
     Wild,
     /// A user-provided pattern.
-    Pat(&'p DeconstructedPat<Cx>),
+    Pat(&'p DeconstructedPat<Ctx>),
 }
 
-impl<'p, Cx: PatCx> Clone for PatOrWild<'p, Cx> {
+impl<'p, Ctx: PatternContext> Clone for PatOrWild<'p, Ctx> {
     fn clone(&self) -> Self {
         match self {
             PatOrWild::Wild => PatOrWild::Wild,
@@ -166,16 +174,16 @@ impl<'p, Cx: PatCx> Clone for PatOrWild<'p, Cx> {
     }
 }
 
-impl<'p, Cx: PatCx> Copy for PatOrWild<'p, Cx> {}
+impl<'p, Ctx: PatternContext> Copy for PatOrWild<'p, Ctx> {}
 
-impl<'p, Cx: PatCx> PatOrWild<'p, Cx> {
-    pub(crate) fn as_pat(&self) -> Option<&'p DeconstructedPat<Cx>> {
+impl<'p, Ctx: PatternContext> PatOrWild<'p, Ctx> {
+    pub(crate) fn as_pat(&self) -> Option<&'p DeconstructedPat<Ctx>> {
         match self {
             PatOrWild::Wild => None,
             PatOrWild::Pat(pat) => Some(pat),
         }
     }
-    pub(crate) fn ctor(self) -> &'p Constructor<Cx> {
+    pub(crate) fn ctor(self) -> &'p Constructor<Ctx> {
         match self {
             PatOrWild::Wild => &Wildcard,
             PatOrWild::Pat(pat) => pat.ctor(),
@@ -204,9 +212,9 @@ impl<'p, Cx: PatCx> PatOrWild<'p, Cx> {
     /// `other_ctor` can be different from `self.ctor`, but must be covered by it.
     pub(crate) fn specialize(
         &self,
-        other_ctor: &Constructor<Cx>,
+        other_ctor: &Constructor<Ctx>,
         ctor_arity: usize,
-    ) -> SmallVec<[PatOrWild<'p, Cx>; 2]> {
+    ) -> SmallVec<[PatOrWild<'p, Ctx>; 2]> {
         match self {
             PatOrWild::Wild => (0..ctor_arity).map(|_| PatOrWild::Wild).collect(),
             PatOrWild::Pat(pat) => pat.specialize(other_ctor, ctor_arity),
@@ -214,7 +222,7 @@ impl<'p, Cx: PatCx> PatOrWild<'p, Cx> {
     }
 }
 
-impl<'p, Cx: PatCx> fmt::Debug for PatOrWild<'p, Cx> {
+impl<'p, Ctx: PatternContext> fmt::Debug for PatOrWild<'p, Ctx> {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
             PatOrWild::Wild => write!(f, "_"),
@@ -225,25 +233,31 @@ impl<'p, Cx: PatCx> fmt::Debug for PatOrWild<'p, Cx> {
 
 /// Same idea as `DeconstructedPat`, except this is a fictitious pattern built up for diagnostics
 /// purposes. As such they don't use interning and can be cloned.
-pub struct WitnessPat<Cx: PatCx> {
-    ctor: Constructor<Cx>,
-    pub(crate) fields: Vec<WitnessPat<Cx>>,
-    ty: Cx::Ty,
+pub struct WitnessPat<Ctx: PatternContext> {
+    ctor: Constructor<Ctx>,
+    pub(crate) fields: Vec<WitnessPat<Ctx>>,
+    ty: Ctx::PatternType,
 }
 
-impl<Cx: PatCx> Clone for WitnessPat<Cx> {
+impl<Ctx: PatternContext> Clone for WitnessPat<Ctx> {
     fn clone(&self) -> Self {
-        Self { ctor: self.ctor.clone(), fields: self.fields.clone(), ty: self.ty.clone() }
+        Self {
+            ctor: self.ctor.clone(),
+            fields: self.fields.clone(),
+            ty: self.ty.clone(),
+        }
     }
 }
 
-impl<Cx: PatCx> WitnessPat<Cx> {
-    pub(crate) fn new(ctor: Constructor<Cx>, fields: Vec<Self>, ty: Cx::Ty) -> Self {
+impl<Ctx: PatternContext> WitnessPat<Ctx> {
+    pub(crate) fn new(ctor: Constructor<Ctx>, fields: Vec<Self>, ty: Ctx::PatternType) -> Self {
         Self { ctor, fields, ty }
     }
     /// Create a wildcard pattern for this type. If the type is empty, we create a `!` pattern.
-    pub(crate) fn wildcard(cx: &Cx, ty: Cx::Ty) -> Self {
-        let is_empty = cx.ctors_for_ty(&ty).is_ok_and(|ctors| ctors.all_empty());
+    pub(crate) fn wildcard(cx: &Ctx, ty: Ctx::PatternType) -> Self {
+        let is_empty = cx
+            .constructors_for_ty(&ty)
+            .is_ok_and(|ctors| ctors.all_empty());
         let ctor = if is_empty { Never } else { Wildcard };
         Self::new(ctor, Vec::new(), ty)
     }
@@ -251,7 +265,7 @@ impl<Cx: PatCx> WitnessPat<Cx> {
     /// Construct a pattern that matches everything that starts with this constructor.
     /// For example, if `ctor` is a `Constructor::Variant` for `Option::Some`, we get the pattern
     /// `Some(_)`.
-    pub(crate) fn wild_from_ctor(cx: &Cx, ctor: Constructor<Cx>, ty: Cx::Ty) -> Self {
+    pub(crate) fn wild_from_ctor(cx: &Ctx, ctor: Constructor<Ctx>, ty: Ctx::PatternType) -> Self {
         if matches!(ctor, Wildcard) {
             return Self::wildcard(cx, ty);
         }
@@ -263,10 +277,10 @@ impl<Cx: PatCx> WitnessPat<Cx> {
         Self::new(ctor, fields, ty)
     }
 
-    pub fn ctor(&self) -> &Constructor<Cx> {
+    pub fn ctor(&self) -> &Constructor<Ctx> {
         &self.ctor
     }
-    pub fn ty(&self) -> &Cx::Ty {
+    pub fn ty(&self) -> &Ctx::PatternType {
         &self.ty
     }
 
@@ -278,13 +292,13 @@ impl<Cx: PatCx> WitnessPat<Cx> {
         }
     }
 
-    pub fn iter_fields(&self) -> impl Iterator<Item = &WitnessPat<Cx>> {
+    pub fn iter_fields(&self) -> impl Iterator<Item = &WitnessPat<Ctx>> {
         self.fields.iter()
     }
 }
 
 /// This is best effort and not good enough for a `Display` impl.
-impl<Cx: PatCx> fmt::Debug for WitnessPat<Cx> {
+impl<Ctx: PatternContext> fmt::Debug for WitnessPat<Ctx> {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         self.ctor().fmt_fields(f, self.ty(), self.fields.iter())
     }

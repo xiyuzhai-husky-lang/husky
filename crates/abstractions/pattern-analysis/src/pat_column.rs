@@ -1,6 +1,7 @@
 use crate::constructor::{Constructor, SplitConstructorSet};
 use crate::pat::{DeconstructedPat, PatOrWild};
-use crate::{Captures, MatchArm, PatCx};
+use crate::{MatchArm, PatternContext};
+use husky_lifetime_utils::capture::Captures;
 
 /// A column of patterns in a match, where a column is the intuitive notion of "subpatterns that
 /// inspect the same subvalue/place".
@@ -11,13 +12,13 @@ use crate::{Captures, MatchArm, PatCx};
 ///
 /// This is not used in the usefulness algorithm; only in lints.
 #[derive(Debug)]
-pub struct PatternColumn<'p, Cx: PatCx> {
+pub struct PatternColumn<'p, Ctx: PatternContext> {
     /// This must not contain an or-pattern. `expand_and_push` takes care to expand them.
-    patterns: Vec<&'p DeconstructedPat<Cx>>,
+    patterns: Vec<&'p DeconstructedPat<Ctx>>,
 }
 
-impl<'p, Cx: PatCx> PatternColumn<'p, Cx> {
-    pub fn new(arms: &[MatchArm<'p, Cx>]) -> Self {
+impl<'p, Ctx: PatternContext> PatternColumn<'p, Ctx> {
+    pub fn new(arms: &[MatchArm<'p, Ctx>]) -> Self {
         let patterns = Vec::with_capacity(arms.len());
         let mut column = PatternColumn { patterns };
         for arm in arms {
@@ -27,32 +28,34 @@ impl<'p, Cx: PatCx> PatternColumn<'p, Cx> {
     }
     /// Pushes a pattern onto the column, expanding any or-patterns into its subpatterns.
     /// Internal method, prefer [`PatternColumn::new`].
-    fn expand_and_push(&mut self, pat: PatOrWild<'p, Cx>) {
+    fn expand_and_push(&mut self, pat: PatOrWild<'p, Ctx>) {
         // We flatten or-patterns and skip algorithm-generated wildcards.
         if pat.is_or_pat() {
             self.patterns.extend(
-                pat.flatten_or_pat().into_iter().filter_map(|pat_or_wild| pat_or_wild.as_pat()),
+                pat.flatten_or_pat()
+                    .into_iter()
+                    .filter_map(|pat_or_wild| pat_or_wild.as_pat()),
             )
         } else if let Some(pat) = pat.as_pat() {
             self.patterns.push(pat)
         }
     }
 
-    pub fn head_ty(&self) -> Option<&Cx::Ty> {
+    pub fn head_ty(&self) -> Option<&Ctx::PatternType> {
         self.patterns.first().map(|pat| pat.ty())
     }
-    pub fn iter<'a>(&'a self) -> impl Iterator<Item = &'p DeconstructedPat<Cx>> + Captures<'a> {
+    pub fn iter<'a>(&'a self) -> impl Iterator<Item = &'p DeconstructedPat<Ctx>> + Captures<'a> {
         self.patterns.iter().copied()
     }
 
     /// Do constructor splitting on the constructors of the column.
     pub fn analyze_ctors(
         &self,
-        cx: &Cx,
-        ty: &Cx::Ty,
-    ) -> Result<SplitConstructorSet<Cx>, Cx::Error> {
+        cx: &Ctx,
+        ty: &Ctx::PatternType,
+    ) -> Result<SplitConstructorSet<Ctx>, Ctx::Error> {
         let column_ctors = self.patterns.iter().map(|p| p.ctor());
-        let ctors_for_ty = cx.ctors_for_ty(ty)?;
+        let ctors_for_ty = cx.constructors_for_ty(ty)?;
         Ok(ctors_for_ty.split(column_ctors))
     }
 
@@ -63,10 +66,10 @@ impl<'p, Cx: PatCx> PatternColumn<'p, Cx> {
     /// which may change the lengths.
     pub fn specialize(
         &self,
-        cx: &Cx,
-        ty: &Cx::Ty,
-        ctor: &Constructor<Cx>,
-    ) -> Vec<PatternColumn<'p, Cx>> {
+        cx: &Ctx,
+        ty: &Ctx::PatternType,
+        ctor: &Constructor<Ctx>,
+    ) -> Vec<PatternColumn<'p, Ctx>> {
         let arity = ctor.arity(cx, ty);
         if arity == 0 {
             return Vec::new();
@@ -75,10 +78,15 @@ impl<'p, Cx: PatCx> PatternColumn<'p, Cx> {
         // We specialize the column by `ctor`. This gives us `arity`-many columns of patterns. These
         // columns may have different lengths in the presence of or-patterns (this is why we can't
         // reuse `Matrix`).
-        let mut specialized_columns: Vec<_> =
-            (0..arity).map(|_| Self { patterns: Vec::new() }).collect();
-        let relevant_patterns =
-            self.patterns.iter().filter(|pat| ctor.is_covered_by(cx, pat.ctor()).unwrap_or(false));
+        let mut specialized_columns: Vec<_> = (0..arity)
+            .map(|_| Self {
+                patterns: Vec::new(),
+            })
+            .collect();
+        let relevant_patterns = self
+            .patterns
+            .iter()
+            .filter(|pat| ctor.is_covered_by(cx, pat.ctor()).unwrap_or(false));
         for pat in relevant_patterns {
             let specialized = pat.specialize(ctor, arity);
             for (subpat, column) in specialized.into_iter().zip(&mut specialized_columns) {

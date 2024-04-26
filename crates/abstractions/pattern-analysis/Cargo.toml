@@ -9,7 +9,8 @@ rustc_apfloat.workspace = true
 rustc-hash.workspace = true
 rustc_index.workspace = true
 tracing.workspace = true
-# tidy-alphabetical-end
+# utils
+husky-lifetime-utils.workspace = true
 
 [dev-dependencies]
 tracing-subscriber = { version = "0.3.3", default-features = false, features = ["fmt", "env-filter", "ansi"] }

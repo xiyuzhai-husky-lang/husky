@@ -6,7 +6,7 @@ use pattern_analysis::{pat::DeconstructedPat, usefulness::PlaceValidity, MatchAr
 mod common;
 
 /// Analyze a match made of these patterns and returns the computed arm intersections.
-fn check(patterns: Vec<DeconstructedPat<Cx>>) -> Vec<Vec<usize>> {
+fn check(patterns: Vec<DeconstructedPat<Ctx>>) -> Vec<Vec<usize>> {
     let ty = *patterns[0].ty();
     let arms: Vec<_> = patterns
         .iter()
@@ -26,7 +26,7 @@ fn check(patterns: Vec<DeconstructedPat<Cx>>) -> Vec<Vec<usize>> {
 }
 
 #[track_caller]
-fn assert_intersects(patterns: Vec<DeconstructedPat<Cx>>, intersects: &[&[usize]]) {
+fn assert_intersects(patterns: Vec<DeconstructedPat<Ctx>>, intersects: &[&[usize]]) {
     let computed_intersects = check(patterns);
     assert_eq!(computed_intersects, intersects);
 }
