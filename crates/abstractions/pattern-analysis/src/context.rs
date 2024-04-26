@@ -35,10 +35,10 @@ pub trait PatternContext: Sized + fmt::Debug {
     fn is_min_exhaustive_patterns_feature_on(&self) -> bool;
 
     /// The number of fields for this constructor.
-    fn ctor_arity(&self, constructor: &Constructor<Self>, ty: &Self::PatternType) -> usize;
+    fn constructor_arity(&self, constructor: &Constructor<Self>, ty: &Self::PatternType) -> usize;
 
-    /// The types of the fields for this constructor. The result must contain `ctor_arity()` fields.
-    fn ctor_sub_tys<'a>(
+    /// The types of the fields for this constructor. The result must contain `constructor_arity()` fields.
+    fn constructor_field_tys<'a>(
         &'a self,
         constructor: &'a Constructor<Self>,
         ty: &'a Self::PatternType,

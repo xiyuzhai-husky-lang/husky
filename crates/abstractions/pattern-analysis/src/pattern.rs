@@ -92,7 +92,7 @@ impl<Ctx: PatternContext> DeconstructedPattern<Ctx> {
     pub(crate) fn specialize<'a>(
         &'a self,
         other_ctor: &Constructor<Ctx>,
-        other_ctor_arity: usize,
+        other_constructor_arity: usize,
     ) -> SmallVec<[PatOrWild<'a, Ctx>; 2]> {
         if matches!(other_ctor, PrivateUninhabited) {
             // Skip this column.
@@ -100,7 +100,9 @@ impl<Ctx: PatternContext> DeconstructedPattern<Ctx> {
         }
 
         // Start with a slice of wildcards of the appropriate length.
-        let mut fields: SmallVec<[_; 2]> = (0..other_ctor_arity).map(|_| PatOrWild::Wild).collect();
+        let mut fields: SmallVec<[_; 2]> = (0..other_constructor_arity)
+            .map(|_| PatOrWild::Wild)
+            .collect();
         // Fill `fields` with our fields. The arities are known to be compatible.
         match self.constructor {
             // The only non-trivial case: two slices of different arity. `other_ctor` is guaranteed
@@ -109,13 +111,13 @@ impl<Ctx: PatternContext> DeconstructedPattern<Ctx> {
             Slice(Slice {
                 kind: SliceKind::VarLen(prefix, _),
                 ..
-            }) if self.arity != other_ctor_arity => {
+            }) if self.arity != other_constructor_arity => {
                 for ipat in &self.fields {
                     let new_idx = if ipat.idx < prefix {
                         ipat.idx
                     } else {
                         // Adjust the indices in the suffix.
-                        ipat.idx + other_ctor_arity - self.arity
+                        ipat.idx + other_constructor_arity - self.arity
                     };
                     fields[new_idx] = PatOrWild::Pat(&ipat.pat);
                 }
@@ -214,11 +216,11 @@ impl<'p, Ctx: PatternContext> PatOrWild<'p, Ctx> {
     pub(crate) fn specialize(
         &self,
         other_ctor: &Constructor<Ctx>,
-        ctor_arity: usize,
+        constructor_arity: usize,
     ) -> SmallVec<[PatOrWild<'p, Ctx>; 2]> {
         match self {
-            PatOrWild::Wild => (0..ctor_arity).map(|_| PatOrWild::Wild).collect(),
-            PatOrWild::Pat(pat) => pat.specialize(other_ctor, ctor_arity),
+            PatOrWild::Wild => (0..constructor_arity).map(|_| PatOrWild::Wild).collect(),
+            PatOrWild::Pat(pat) => pat.specialize(other_ctor, constructor_arity),
         }
     }
 }
@@ -263,8 +265,8 @@ impl<Ctx: PatternContext> WitnessPat<Ctx> {
         }
     }
     /// Create a wildcard pattern for this type. If the type is empty, we create a `!` pattern.
-    pub(crate) fn wildcard(cx: &Ctx, ty: Ctx::PatternType) -> Self {
-        let is_empty = cx
+    pub(crate) fn wildcard(ctx: &Ctx, ty: Ctx::PatternType) -> Self {
+        let is_empty = ctx
             .constructors_for_ty(&ty)
             .is_ok_and(|ctors| ctors.all_empty());
         let constructor = if is_empty { Never } else { Wildcard };
@@ -275,17 +277,17 @@ impl<Ctx: PatternContext> WitnessPat<Ctx> {
     /// For example, if `constructor` is a `Constructor::Variant` for `Option::Some`, we get the pattern
     /// `Some(_)`.
     pub(crate) fn wild_from_ctor(
-        cx: &Ctx,
+        ctx: &Ctx,
         constructor: Constructor<Ctx>,
         ty: Ctx::PatternType,
     ) -> Self {
         if matches!(constructor, Wildcard) {
-            return Self::wildcard(cx, ty);
+            return Self::wildcard(ctx, ty);
         }
-        let fields = cx
-            .ctor_sub_tys(&constructor, &ty)
+        let fields = ctx
+            .constructor_field_tys(&constructor, &ty)
             .filter(|(_, PrivateUninhabitedField(skip))| !skip)
-            .map(|(ty, _)| Self::wildcard(cx, ty))
+            .map(|(ty, _)| Self::wildcard(ctx, ty))
             .collect();
         Self::new(constructor, fields, ty)
     }

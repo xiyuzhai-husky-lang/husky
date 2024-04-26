@@ -538,7 +538,7 @@
 //! These considerations only affects certain places, namely those that can contain non-valid data
 //! without UB. These are: pointer dereferences, reference dereferences, and union field accesses.
 //! We track in the algorithm whether a given place is known to contain valid data. This is done
-//! first by inspecting the scrutinee syntactically (which gives us `cx.known_valid_scrutinee`), and
+//! first by inspecting the scrutinee syntactically (which gives us `ctx.known_valid_scrutinee`), and
 //! then by tracking validity of each column of the matrix (which correspond to places) as we
 //! recurse into subpatterns. That second part is done through [`PlaceValidity`], most notably
 //! [`PlaceValidity::specialize`].
@@ -751,7 +751,7 @@ impl<'a, Ctx: PatternContext> UsefulnessCtxt<'a, Ctx> {
 
 /// Context that provides information local to a place under investigation.
 struct PlaceCtxt<'a, Ctx: PatternContext> {
-    cx: &'a Ctx,
+    ctx: &'a Ctx,
     /// Type of the place under investigation.
     ty: &'a Ctx::PatternType,
 }
@@ -760,7 +760,7 @@ impl<'a, Ctx: PatternContext> Copy for PlaceCtxt<'a, Ctx> {}
 impl<'a, Ctx: PatternContext> Clone for PlaceCtxt<'a, Ctx> {
     fn clone(&self) -> Self {
         Self {
-            cx: self.cx,
+            ctx: self.ctx,
             ty: self.ty,
         }
     }
@@ -773,11 +773,11 @@ impl<'a, Ctx: PatternContext> fmt::Debug for PlaceCtxt<'a, Ctx> {
 }
 
 impl<'a, Ctx: PatternContext> PlaceCtxt<'a, Ctx> {
-    fn ctor_arity(&self, constructor: &Constructor<Ctx>) -> usize {
-        self.cx.ctor_arity(constructor, self.ty)
+    fn constructor_arity(&self, constructor: &Constructor<Ctx>) -> usize {
+        self.ctx.constructor_arity(constructor, self.ty)
     }
     fn wild_from_ctor(&self, constructor: Constructor<Ctx>) -> WitnessPat<Ctx> {
-        WitnessPat::wild_from_ctor(self.cx, constructor, self.ty.clone())
+        WitnessPat::wild_from_ctor(self.ctx, constructor, self.ty.clone())
     }
 }
 
@@ -847,19 +847,19 @@ impl<Ctx: PatternContext> PlaceInfo<Ctx> {
     /// constructor.
     fn specialize<'a>(
         &'a self,
-        cx: &'a Ctx,
+        ctx: &'a Ctx,
         constructor: &'a Constructor<Ctx>,
     ) -> impl Iterator<Item = Self> + ExactSizeIterator + Captures<'a> {
-        let ctor_sub_tys = cx.ctor_sub_tys(constructor, &self.ty);
-        let ctor_sub_validity = self.validity.specialize(constructor);
-        ctor_sub_tys.map(
-            move |(ty, PrivateUninhabitedField(private_uninhabited))| PlaceInfo {
+        let constructor_sub_tys = ctx.constructor_field_tys(constructor, &self.ty);
+        let constructor_sub_validity = self.validity.specialize(constructor);
+        constructor_sub_tys.map(move |(ty, PrivateUninhabitedField(private_uninhabited))| {
+            PlaceInfo {
                 ty,
                 private_uninhabited,
-                validity: ctor_sub_validity,
+                validity: constructor_sub_validity,
                 is_scrutinee: false,
-            },
-        )
+            }
+        })
     }
 
     /// This analyzes a column of constructors corresponding to the current place. It returns a pair
@@ -872,7 +872,7 @@ impl<Ctx: PatternContext> PlaceInfo<Ctx> {
     /// purposes.
     fn split_column_constructors<'a>(
         &self,
-        cx: &Ctx,
+        ctx: &Ctx,
         ctors: impl Iterator<Item = &'a Constructor<Ctx>> + Clone,
     ) -> Result<(SmallVec<[Constructor<Ctx>; 1]>, Vec<Constructor<Ctx>>), Ctx::Error>
     where
@@ -884,7 +884,7 @@ impl<Ctx: PatternContext> PlaceInfo<Ctx> {
             return Ok((smallvec![Constructor::PrivateUninhabited], vec![]));
         }
 
-        let constructors_for_ty = cx.constructors_for_ty(&self.ty)?;
+        let constructors_for_ty = ctx.constructors_for_ty(&self.ty)?;
         debug!(?constructors_for_ty);
 
         // We treat match scrutinees of type `!` or `EmptyEnum` differently.
@@ -894,13 +894,13 @@ impl<Ctx: PatternContext> PlaceInfo<Ctx> {
         // it is guaranteed unreachable by the opsem (i.e. if the place is `known_valid`).
         let empty_arms_are_unreachable = self.validity.is_known_valid()
             && (is_toplevel_exception
-                || cx.is_exhaustive_patterns_feature_on()
-                || cx.is_min_exhaustive_patterns_feature_on());
+                || ctx.is_exhaustive_patterns_feature_on()
+                || ctx.is_min_exhaustive_patterns_feature_on());
         // Whether empty patterns can be omitted for exhaustiveness. We ignore place validity in the
         // toplevel exception and `exhaustive_patterns` cases for backwards compatibility.
         let can_omit_empty_arms = empty_arms_are_unreachable
             || is_toplevel_exception
-            || cx.is_exhaustive_patterns_feature_on();
+            || ctx.is_exhaustive_patterns_feature_on();
 
         // Analyze the constructors present in this column.
         let mut split_set = constructors_for_ty.split(ctors);
@@ -1013,33 +1013,33 @@ impl<'p, Ctx: PatternContext> PatStack<'p, Ctx> {
     /// Only call if `constructor.is_covered_by(self.head().constructor())` is true.
     fn pop_head_constructor(
         &self,
-        cx: &Ctx,
+        ctx: &Ctx,
         constructor: &Constructor<Ctx>,
-        ctor_arity: usize,
-        ctor_is_relevant: bool,
+        constructor_arity: usize,
+        constructor_is_relevant: bool,
     ) -> Result<PatStack<'p, Ctx>, Ctx::Error> {
         let head_pat = self.head();
         if head_pat
             .as_pat()
-            .is_some_and(|pat| pat.arity() > ctor_arity)
+            .is_some_and(|pat| pat.arity() > constructor_arity)
         {
             // Arity can be smaller in case of variable-length slices, but mustn't be larger.
-            return Err(cx.bug(format_args!(
-                "uncaught type error: pattern {:?} has inconsistent arity (expected arity <= {ctor_arity})",
+            return Err(ctx.bug(format_args!(
+                "uncaught type error: pattern {:?} has inconsistent arity (expected arity <= {constructor_arity})",
                 head_pat.as_pat().unwrap()
             )));
         }
         // We pop the head pattern and push the new fields extracted from the arguments of
         // `self.head()`.
-        let mut new_pats = head_pat.specialize(constructor, ctor_arity);
+        let mut new_pats = head_pat.specialize(constructor, constructor_arity);
         new_pats.extend_from_slice(&self.pats[1..]);
         // `constructor` is relevant for this row if it is the actual constructor of this row, or if the
         // row has a wildcard and `constructor` is relevant for wildcards.
-        let ctor_is_relevant =
-            !matches!(self.head().constructor(), Constructor::Wildcard) || ctor_is_relevant;
+        let constructor_is_relevant =
+            !matches!(self.head().constructor(), Constructor::Wildcard) || constructor_is_relevant;
         Ok(PatStack {
             pats: new_pats,
-            relevant: self.relevant && ctor_is_relevant,
+            relevant: self.relevant && constructor_is_relevant,
         })
     }
 }
@@ -1112,16 +1112,19 @@ impl<'p, Ctx: PatternContext> MatrixRow<'p, Ctx> {
     /// Only call if `constructor.is_covered_by(self.head().constructor())` is true.
     fn pop_head_constructor(
         &self,
-        cx: &Ctx,
+        ctx: &Ctx,
         constructor: &Constructor<Ctx>,
-        ctor_arity: usize,
-        ctor_is_relevant: bool,
+        constructor_arity: usize,
+        constructor_is_relevant: bool,
         parent_row: usize,
     ) -> Result<MatrixRow<'p, Ctx>, Ctx::Error> {
         Ok(MatrixRow {
-            pats: self
-                .pats
-                .pop_head_constructor(cx, constructor, ctor_arity, ctor_is_relevant)?,
+            pats: self.pats.pop_head_constructor(
+                ctx,
+                constructor,
+                constructor_arity,
+                constructor_is_relevant,
+            )?,
             parent_row,
             is_under_guard: self.is_under_guard,
             useful: false,
@@ -1236,9 +1239,9 @@ impl<'p, Ctx: PatternContext> Matrix<'p, Ctx> {
         &self,
         pcx: &PlaceCtxt<'_, Ctx>,
         constructor: &Constructor<Ctx>,
-        ctor_is_relevant: bool,
+        constructor_is_relevant: bool,
     ) -> Result<Matrix<'p, Ctx>, Ctx::Error> {
-        let subfield_place_info = self.place_info[0].specialize(pcx.cx, constructor);
+        let subfield_place_info = self.place_info[0].specialize(pcx.ctx, constructor);
         let arity = subfield_place_info.len();
         let specialized_place_info = subfield_place_info
             .chain(self.place_info[1..].iter().cloned())
@@ -1246,12 +1249,17 @@ impl<'p, Ctx: PatternContext> Matrix<'p, Ctx> {
         let mut matrix = Matrix {
             rows: Vec::new(),
             place_info: specialized_place_info,
-            wildcard_row_is_relevant: self.wildcard_row_is_relevant && ctor_is_relevant,
+            wildcard_row_is_relevant: self.wildcard_row_is_relevant && constructor_is_relevant,
         };
         for (i, row) in self.rows().enumerate() {
-            if constructor.is_covered_by(pcx.cx, row.head().constructor())? {
-                let new_row =
-                    row.pop_head_constructor(pcx.cx, constructor, arity, ctor_is_relevant, i)?;
+            if constructor.is_covered_by(pcx.ctx, row.head().constructor())? {
+                let new_row = row.pop_head_constructor(
+                    pcx.ctx,
+                    constructor,
+                    arity,
+                    constructor_is_relevant,
+                    i,
+                )?;
                 matrix.expand_and_push(new_row);
             }
         }
@@ -1429,7 +1437,7 @@ impl<Ctx: PatternContext> WitnessStack<Ctx> {
         constructor: &Constructor<Ctx>,
     ) -> SmallVec<[Self; 1]> {
         let len = self.0.len();
-        let arity = pcx.ctor_arity(constructor);
+        let arity = pcx.constructor_arity(constructor);
         let fields: Vec<_> = self.0.drain((len - arity)..).rev().collect();
         if matches!(constructor, Constructor::UnionField)
             && fields
@@ -1441,7 +1449,7 @@ impl<Ctx: PatternContext> WitnessStack<Ctx> {
             // Convert a `Union { a: p, b: q }` witness into `Union { a: p }` and `Union { b: q }`.
             // First add `Union { .. }` to `self`.
             self.0.push(WitnessPat::wild_from_ctor(
-                pcx.cx,
+                pcx.ctx,
                 constructor.clone(),
                 pcx.ty.clone(),
             ));
@@ -1557,7 +1565,7 @@ impl<Ctx: PatternContext> WitnessMatrix<Ctx> {
 /// We can however get false negatives because exhaustiveness does not explore all cases. See the
 /// section on relevancy at the top of the file.
 fn collect_overlapping_range_endpoints<'p, Ctx: PatternContext>(
-    cx: &Ctx,
+    ctx: &Ctx,
     overlap_range: IntRange,
     matrix: &Matrix<'p, Ctx>,
     specialized_matrix: &Matrix<'p, Ctx>,
@@ -1594,7 +1602,7 @@ fn collect_overlapping_range_endpoints<'p, Ctx: PatternContext>(
                     .map(|&(_, pat)| pat)
                     .collect();
                 if !overlaps_with.is_empty() {
-                    cx.lint_overlapping_range_endpoints(pat, overlap_range, &overlaps_with);
+                    ctx.lint_overlapping_range_endpoints(pat, overlap_range, &overlaps_with);
                 }
             }
             suffixes.push((child_row_id, pat))
@@ -1610,7 +1618,7 @@ fn collect_overlapping_range_endpoints<'p, Ctx: PatternContext>(
                     .map(|&(_, pat)| pat)
                     .collect();
                 if !overlaps_with.is_empty() {
-                    cx.lint_overlapping_range_endpoints(pat, overlap_range, &overlaps_with);
+                    ctx.lint_overlapping_range_endpoints(pat, overlap_range, &overlaps_with);
                 }
             }
             prefixes.push((child_row_id, pat))
@@ -1620,7 +1628,7 @@ fn collect_overlapping_range_endpoints<'p, Ctx: PatternContext>(
 
 /// Collect ranges that have a singleton gap between them.
 fn collect_non_contiguous_range_endpoints<'p, Ctx: PatternContext>(
-    cx: &Ctx,
+    ctx: &Ctx,
     gap_range: &IntRange,
     matrix: &Matrix<'p, Ctx>,
 ) {
@@ -1643,7 +1651,7 @@ fn collect_non_contiguous_range_endpoints<'p, Ctx: PatternContext>(
     }
 
     for pat_before in onebefore {
-        cx.lint_non_contiguous_range_endpoints(pat_before, *gap_range, oneafter.as_slice());
+        ctx.lint_non_contiguous_range_endpoints(pat_before, *gap_range, oneafter.as_slice());
     }
 }
 
@@ -1702,7 +1710,7 @@ fn compute_exhaustiveness_and_usefulness<'a, 'p, Ctx: PatternContext>(
         place.split_column_constructors(mcx.tycx, ctors)?;
 
     let ty = &place.ty.clone(); // Clone it out so we can mutate `matrix` later.
-    let pcx = &PlaceCtxt { cx: mcx.tycx, ty };
+    let pcx = &PlaceCtxt { ctx: mcx.tycx, ty };
     let mut ret = WitnessMatrix::empty();
     for constructor in split_constructors {
         // Dig into rows that match `constructor`.
@@ -1710,9 +1718,10 @@ fn compute_exhaustiveness_and_usefulness<'a, 'p, Ctx: PatternContext>(
         // `constructor` is *irrelevant* if there's another constructor in `split_constructors` that matches
         // strictly fewer rows. In that case we can sometimes skip it. See the top of the file for
         // details.
-        let ctor_is_relevant =
+        let constructor_is_relevant =
             matches!(constructor, Constructor::Missing) || missing_constructors.is_empty();
-        let mut spec_matrix = matrix.specialize_constructor(pcx, &constructor, ctor_is_relevant)?;
+        let mut spec_matrix =
+            matrix.specialize_constructor(pcx, &constructor, constructor_is_relevant)?;
         let mut witnesses = ensure_sufficient_stack(|| {
             compute_exhaustiveness_and_usefulness(mcx, &mut spec_matrix)
         })?;
@@ -1844,14 +1853,15 @@ pub fn compute_match_usefulness<'p, Ctx: PatternContext>(
     scrut_validity: PlaceValidity,
     complexity_limit: Option<usize>,
 ) -> Result<UsefulnessReport<'p, Ctx>, Ctx::Error> {
-    let mut cx = UsefulnessCtxt {
+    let mut ctx = UsefulnessCtxt {
         tycx,
         useful_subpatterns: FxHashSet::default(),
         complexity_limit,
         complexity_level: 0,
     };
     let mut matrix = Matrix::new(arms, scrut_ty, scrut_validity);
-    let non_exhaustiveness_witnesses = compute_exhaustiveness_and_usefulness(&mut cx, &mut matrix)?;
+    let non_exhaustiveness_witnesses =
+        compute_exhaustiveness_and_usefulness(&mut ctx, &mut matrix)?;
 
     let non_exhaustiveness_witnesses: Vec<_> = non_exhaustiveness_witnesses.single_column();
     let arm_usefulness: Vec<_> = arms
@@ -1859,7 +1869,7 @@ pub fn compute_match_usefulness<'p, Ctx: PatternContext>(
         .copied()
         .map(|arm| {
             debug!(?arm);
-            let usefulness = collect_pattern_usefulness(&cx.useful_subpatterns, arm.pat);
+            let usefulness = collect_pattern_usefulness(&ctx.useful_subpatterns, arm.pat);
             debug!(?usefulness);
             (arm, usefulness)
         })

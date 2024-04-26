@@ -794,8 +794,8 @@ impl<Ctx: PatternContext> Constructor<Ctx> {
 
     /// The number of fields for this constructor. This must be kept in sync with
     /// `Fields::wildcards`.
-    pub(crate) fn arity(&self, cx: &Ctx, ty: &Ctx::PatternType) -> usize {
-        cx.ctor_arity(self, ty)
+    pub(crate) fn arity(&self, ctx: &Ctx, ty: &Ctx::PatternType) -> usize {
+        ctx.constructor_arity(self, ty)
     }
 
     /// Returns whether `self` is covered by `other`, i.e. whether `self` is a subset of `other`.
@@ -803,10 +803,10 @@ impl<Ctx: PatternContext> Constructor<Ctx> {
     /// this checks for inclusion.
     // We inline because this has a single call site in `Matrix::specialize_constructor`.
     #[inline]
-    pub(crate) fn is_covered_by(&self, cx: &Ctx, other: &Self) -> Result<bool, Ctx::Error> {
+    pub(crate) fn is_covered_by(&self, ctx: &Ctx, other: &Self) -> Result<bool, Ctx::Error> {
         Ok(match (self, other) {
             (Wildcard, _) => {
-                return Err(cx.bug(format_args!(
+                return Err(ctx.bug(format_args!(
                     "Constructor splitting should not have returned `Wildcard`"
                 )));
             }
@@ -853,7 +853,7 @@ impl<Ctx: PatternContext> Constructor<Ctx> {
             (Opaque(..), _) | (_, Opaque(..)) => false,
 
             _ => {
-                return Err(cx.bug(format_args!(
+                return Err(ctx.bug(format_args!(
                     "trying to compare incompatible constructors {self:?} and {other:?}"
                 )));
             }
@@ -880,7 +880,7 @@ impl<Ctx: PatternContext> Constructor<Ctx> {
         match self {
             Struct | Variant(_) | UnionField => {
                 Ctx::write_variant_name(f, self, ty)?;
-                // Without `cx`, we can't know which field corresponds to which, so we can't
+                // Without `ctx`, we can't know which field corresponds to which, so we can't
                 // get the names of the fields. Instead we just display everything as a tuple
                 // struct, which should be good enough.
                 write!(f, "(")?;
