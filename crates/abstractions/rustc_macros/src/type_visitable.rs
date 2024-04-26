@@ -27,7 +27,12 @@ pub fn type_visitable_derive(mut s: synstructure::Structure<'_>) -> proc_macro2:
         !ignored
     });
 
-    if !s.ast().generics.lifetimes().any(|lt| lt.lifetime.ident == "tcx") {
+    if !s
+        .ast()
+        .generics
+        .lifetimes()
+        .any(|lt| lt.lifetime.ident == "tcx")
+    {
         s.add_impl_generic(parse_quote! { 'tcx });
     }
 

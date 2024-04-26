@@ -5,7 +5,11 @@ use quote::quote;
 pub(crate) fn current_version(_input: TokenStream) -> TokenStream {
     let env_var = "CFG_RELEASE";
     TokenStream::from(match RustcVersion::parse_cfg_release(env_var) {
-        Ok(RustcVersion { major, minor, patch }) => quote!(
+        Ok(RustcVersion {
+            major,
+            minor,
+            patch,
+        }) => quote!(
             // The produced literal has type `rustc_session::RustcVersion`.
             Self { major: #major, minor: #minor, patch: #patch }
         ),
@@ -33,6 +37,10 @@ impl RustcVersion {
         let major = components.next()?.parse().ok()?;
         let minor = components.next()?.parse().ok()?;
         let patch = components.next().unwrap_or("0").parse().ok()?;
-        Some(RustcVersion { major, minor, patch })
+        Some(RustcVersion {
+            major,
+            minor,
+            patch,
+        })
     }
 }

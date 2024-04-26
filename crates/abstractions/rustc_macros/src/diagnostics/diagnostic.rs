@@ -39,13 +39,21 @@ impl<'a> DiagnosticDerive<'a> {
                     return DiagnosticDeriveError::ErrorHandled.to_compile_error();
                 }
                 Some(slug)
-                    if let Some(Mismatch { slug_name, crate_name, slug_prefix }) =
-                        Mismatch::check(slug) =>
+                    if let Some(Mismatch {
+                        slug_name,
+                        crate_name,
+                        slug_prefix,
+                    }) = Mismatch::check(slug) =>
                 {
-                    span_err(slug.span().unwrap(), "diagnostic slug and crate name do not match")
-                        .note(format!("slug is `{slug_name}` but the crate name is `{crate_name}`"))
-                        .help(format!("expected a slug starting with `{slug_prefix}_...`"))
-                        .emit();
+                    span_err(
+                        slug.span().unwrap(),
+                        "diagnostic slug and crate name do not match",
+                    )
+                    .note(format!(
+                        "slug is `{slug_name}` but the crate name is `{crate_name}`"
+                    ))
+                    .help(format!("expected a slug starting with `{slug_prefix}_...`"))
+                    .emit();
                     return DiagnosticDeriveError::ErrorHandled.to_compile_error();
                 }
                 Some(slug) => {
@@ -134,13 +142,21 @@ impl<'a> LintDiagnosticDerive<'a> {
                     DiagnosticDeriveError::ErrorHandled.to_compile_error()
                 }
                 Some(slug)
-                    if let Some(Mismatch { slug_name, crate_name, slug_prefix }) =
-                        Mismatch::check(slug) =>
+                    if let Some(Mismatch {
+                        slug_name,
+                        crate_name,
+                        slug_prefix,
+                    }) = Mismatch::check(slug) =>
                 {
-                    span_err(slug.span().unwrap(), "diagnostic slug and crate name do not match")
-                        .note(format!("slug is `{slug_name}` but the crate name is `{crate_name}`"))
-                        .help(format!("expected a slug starting with `{slug_prefix}_...`"))
-                        .emit();
+                    span_err(
+                        slug.span().unwrap(),
+                        "diagnostic slug and crate name do not match",
+                    )
+                    .note(format!(
+                        "slug is `{slug_name}` but the crate name is `{crate_name}`"
+                    ))
+                    .help(format!("expected a slug starting with `{slug_prefix}_...`"))
+                    .emit();
                     DiagnosticDeriveError::ErrorHandled.to_compile_error()
                 }
                 Some(slug) => {
@@ -188,11 +204,17 @@ impl Mismatch {
         let crate_name = std::env::var("CARGO_CRATE_NAME").ok()?;
 
         // If we're not in a "rustc_" crate, bail.
-        let Some(("rustc", slug_prefix)) = crate_name.split_once('_') else { return None };
+        let Some(("rustc", slug_prefix)) = crate_name.split_once('_') else {
+            return None;
+        };
 
         let slug_name = slug.segments.first()?.ident.to_string();
         if !slug_name.starts_with(slug_prefix) {
-            Some(Mismatch { slug_name, slug_prefix: slug_prefix.to_string(), crate_name })
+            Some(Mismatch {
+                slug_name,
+                slug_prefix: slug_prefix.to_string(),
+                crate_name,
+            })
         } else {
             None
         }
@@ -203,7 +225,11 @@ impl Mismatch {
 /// exist on this structure.
 fn generate_test(slug: &syn::Path, structure: &Structure<'_>) -> TokenStream {
     // FIXME: We can't identify variables in a subdiagnostic
-    for field in structure.variants().iter().flat_map(|v| v.ast().fields.iter()) {
+    for field in structure
+        .variants()
+        .iter()
+        .flat_map(|v| v.ast().fields.iter())
+    {
         for attr_name in field.attrs.iter().filter_map(|at| at.path().get_ident()) {
             if attr_name == "subdiagnostic" {
                 return quote!();
@@ -221,7 +247,12 @@ fn generate_test(slug: &syn::Path, structure: &Structure<'_>) -> TokenStream {
     let variables: Vec<_> = structure
         .variants()
         .iter()
-        .flat_map(|v| v.ast().fields.iter().filter_map(|f| f.ident.as_ref().map(|i| i.to_string())))
+        .flat_map(|v| {
+            v.ast()
+                .fields
+                .iter()
+                .filter_map(|f| f.ident.as_ref().map(|i| i.to_string()))
+        })
         .collect();
     // tidy errors on `#[test]` outside of test files, so we use `#[test ]` to work around this
     quote! {

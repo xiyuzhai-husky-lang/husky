@@ -16,7 +16,10 @@ mod kw {
 fn check_attributes(attrs: Vec<Attribute>) -> Result<Vec<Attribute>> {
     let inner = |attr: Attribute| {
         if !attr.path().is_ident("doc") {
-            Err(Error::new(attr.span(), "attributes not supported on queries"))
+            Err(Error::new(
+                attr.span(),
+                "attributes not supported on queries",
+            ))
         } else if attr.style != AttrStyle::Outer {
             Err(Error::new(
                 attr.span(),
@@ -64,7 +67,14 @@ impl Parse for Query {
             doc_comments.push(doc_comment_from_desc(&modifiers.desc.1)?);
         }
 
-        Ok(Query { doc_comments, modifiers, name, key, arg, result })
+        Ok(Query {
+            doc_comments,
+            modifiers,
+            name,
+            key,
+            arg,
+            result,
+        })
     }
 }
 
@@ -230,15 +240,19 @@ fn doc_comment_from_desc(list: &Punctuated<Expr, token::Comma>) -> Result<Attrib
     use ::syn::*;
     let mut iter = list.iter();
     let format_str: String = match iter.next() {
-        Some(&Expr::Lit(ExprLit { lit: Lit::Str(ref lit_str), .. })) => {
+        Some(&Expr::Lit(ExprLit {
+            lit: Lit::Str(ref lit_str),
+            ..
+        })) => {
             lit_str.value().replace("`{}`", "{}") // We add them later anyways for consistency
         }
         _ => return Err(Error::new(list.span(), "Expected a string literal")),
     };
     let mut fmt_fragments = format_str.split("{}");
     let mut doc_string = fmt_fragments.next().unwrap().to_string();
-    iter.map(::quote::ToTokens::to_token_stream).zip(fmt_fragments).for_each(
-        |(tts, next_fmt_fragment)| {
+    iter.map(::quote::ToTokens::to_token_stream)
+        .zip(fmt_fragments)
+        .for_each(|(tts, next_fmt_fragment)| {
             use ::core::fmt::Write;
             write!(
                 &mut doc_string,
@@ -247,8 +261,7 @@ fn doc_comment_from_desc(list: &Punctuated<Expr, token::Comma>) -> Result<Attrib
                 next_fmt_fragment,
             )
             .unwrap();
-        },
-    );
+        });
     let doc_string = format!("[query description - consider adding a doc-comment!] {doc_string}");
     Ok(parse_quote! { #[doc = #doc_string] })
 }
@@ -259,11 +272,19 @@ fn add_query_desc_cached_impl(
     descs: &mut proc_macro2::TokenStream,
     cached: &mut proc_macro2::TokenStream,
 ) {
-    let Query { name, key, modifiers, .. } = &query;
+    let Query {
+        name,
+        key,
+        modifiers,
+        ..
+    } = &query;
 
     // Find out if we should cache the query on disk
     let cache = if let Some((args, expr)) = modifiers.cache.as_ref() {
-        let tcx = args.as_ref().map(|t| quote! { #t }).unwrap_or_else(|| quote! { _ });
+        let tcx = args
+            .as_ref()
+            .map(|t| quote! { #t })
+            .unwrap_or_else(|| quote! { _ });
         // expr is a `Block`, meaning that `{ #expr }` gets expanded
         // to `{ { stmts... } }`, which triggers the `unused_braces` lint.
         // we're taking `key` by reference, but some rustc types usually prefer being passed by value
@@ -316,7 +337,12 @@ pub fn rustc_queries(input: TokenStream) -> TokenStream {
     let mut feedable_queries = quote! {};
 
     for query in queries.0 {
-        let Query { name, arg, modifiers, .. } = &query;
+        let Query {
+            name,
+            arg,
+            modifiers,
+            ..
+        } = &query;
         let result_full = &query.result;
         let result = match query.result {
             ReturnType::Default => quote! { -> () },
@@ -370,7 +396,10 @@ pub fn rustc_queries(input: TokenStream) -> TokenStream {
         });
 
         if modifiers.feedable.is_some() {
-            assert!(modifiers.anon.is_none(), "Query {name} cannot be both `feedable` and `anon`.");
+            assert!(
+                modifiers.anon.is_none(),
+                "Query {name} cannot be both `feedable` and `anon`."
+            );
             assert!(
                 modifiers.eval_always.is_none(),
                 "Query {name} cannot be both `feedable` and `eval_always`."
@@ -381,7 +410,11 @@ pub fn rustc_queries(input: TokenStream) -> TokenStream {
             });
         }
 
-        add_query_desc_cached_impl(&query, &mut query_description_stream, &mut query_cached_stream);
+        add_query_desc_cached_impl(
+            &query,
+            &mut query_description_stream,
+            &mut query_cached_stream,
+        );
     }
 
     TokenStream::from(quote! {

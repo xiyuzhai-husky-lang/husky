@@ -13,7 +13,12 @@ pub(crate) fn extension(
     input: proc_macro::TokenStream,
 ) -> proc_macro::TokenStream {
     let ExtensionAttr { vis, trait_ } = parse_macro_input!(attr as ExtensionAttr);
-    let Impl { attrs, generics, self_ty, items } = parse_macro_input!(input as Impl);
+    let Impl {
+        attrs,
+        generics,
+        self_ty,
+        items,
+    } = parse_macro_input!(input as Impl);
     let headers: Vec<_> = items
         .iter()
         .map(|item| match item {
@@ -149,6 +154,11 @@ impl Parse for Impl {
             items.push(content.parse()?);
         }
 
-        Ok(Impl { attrs, generics, self_ty, items })
+        Ok(Impl {
+            attrs,
+            generics,
+            self_ty,
+            items,
+        })
     }
 }

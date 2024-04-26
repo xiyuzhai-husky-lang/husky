@@ -49,7 +49,11 @@ pub(crate) fn type_matches_path(ty: &Type, name: &[&str]) -> bool {
 
 /// Checks whether the type `ty` is `()`.
 pub(crate) fn type_is_unit(ty: &Type) -> bool {
-    if let Type::Tuple(TypeTuple { elems, .. }) = ty { elems.is_empty() } else { false }
+    if let Type::Tuple(TypeTuple { elems, .. }) = ty {
+        elems.is_empty()
+    } else {
+        false
+    }
 }
 
 /// Checks whether the type `ty` is `bool`.
@@ -629,8 +633,9 @@ impl SubdiagnosticVariant {
             _ => {
                 // Recover old `#[(multipart_)suggestion_*]` syntaxes
                 // FIXME(#100717): remove
-                if let Some(suggestion_kind) =
-                    name.strip_prefix("suggestion").and_then(SuggestionKind::from_suffix)
+                if let Some(suggestion_kind) = name
+                    .strip_prefix("suggestion")
+                    .and_then(SuggestionKind::from_suffix)
                 {
                     if suggestion_kind != SuggestionKind::Normal {
                         invalid_attr(attr)
@@ -646,8 +651,9 @@ impl SubdiagnosticVariant {
                         code_field: new_code_ident(),
                         code_init: TokenStream::new(),
                     }
-                } else if let Some(suggestion_kind) =
-                    name.strip_prefix("multipart_suggestion").and_then(SuggestionKind::from_suffix)
+                } else if let Some(suggestion_kind) = name
+                    .strip_prefix("multipart_suggestion")
+                    .and_then(SuggestionKind::from_suffix)
                 {
                     if suggestion_kind != SuggestionKind::Normal {
                         invalid_attr(attr)
@@ -685,7 +691,11 @@ impl SubdiagnosticVariant {
                     | SubdiagnosticKind::Help
                     | SubdiagnosticKind::Warn
                     | SubdiagnosticKind::MultipartSuggestion { .. } => {
-                        return Ok(Some(SubdiagnosticVariant { kind, slug: None, no_span: false }));
+                        return Ok(Some(SubdiagnosticVariant {
+                            kind,
+                            slug: None,
+                            no_span: false,
+                        }));
                     }
                     SubdiagnosticKind::Suggestion { .. } => {
                         throw_span_err!(span, "suggestion without `code = \"...\"`")
@@ -828,7 +838,8 @@ impl SubdiagnosticVariant {
                 };
             }
             SubdiagnosticKind::MultipartSuggestion {
-                suggestion_kind: ref mut kind_field, ..
+                suggestion_kind: ref mut kind_field,
+                ..
             } => {
                 if let Some(kind) = suggestion_kind.value() {
                     *kind_field = kind;
@@ -840,7 +851,11 @@ impl SubdiagnosticVariant {
             | SubdiagnosticKind::Warn => {}
         }
 
-        Ok(Some(SubdiagnosticVariant { kind, slug, no_span }))
+        Ok(Some(SubdiagnosticVariant {
+            kind,
+            slug,
+            no_span,
+        }))
     }
 }
 

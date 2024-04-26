@@ -8,7 +8,10 @@ struct Attributes {
 }
 
 fn parse_attributes(field: &syn::Field) -> Attributes {
-    let mut attrs = Attributes { ignore: false, project: None };
+    let mut attrs = Attributes {
+        ignore: false,
+        project: None,
+    };
     for attr in &field.attrs {
         let meta = &attr.meta;
         if !meta.path().is_ident("stable_hasher") {

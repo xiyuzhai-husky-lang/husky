@@ -68,7 +68,11 @@ impl DiagnosticDeriveKind {
         match ast.data {
             syn::Data::Struct(..) | syn::Data::Enum(..) => (),
             syn::Data::Union(..) => {
-                span_err(span, "diagnostic derives can only be used on structs and enums").emit();
+                span_err(
+                    span,
+                    "diagnostic derives can only be used on structs and enums",
+                )
+                .emit();
             }
         }
 
@@ -116,7 +120,8 @@ impl DiagnosticDeriveVariantBuilder {
         let ast = variant.ast();
         let attrs = &ast.attrs;
         let preamble = attrs.iter().map(|attr| {
-            self.generate_structure_code_for_attr(attr).unwrap_or_else(|v| v.to_compile_error())
+            self.generate_structure_code_for_attr(attr)
+                .unwrap_or_else(|v| v.to_compile_error())
         });
 
         quote! {
@@ -129,11 +134,19 @@ impl DiagnosticDeriveVariantBuilder {
     pub(crate) fn body(&mut self, variant: &VariantInfo<'_>) -> TokenStream {
         let mut body = quote! {};
         // Generate `arg` calls first..
-        for binding in variant.bindings().iter().filter(|bi| should_generate_arg(bi.ast())) {
+        for binding in variant
+            .bindings()
+            .iter()
+            .filter(|bi| should_generate_arg(bi.ast()))
+        {
             body.extend(self.generate_field_code(binding));
         }
         // ..and then subdiagnostic additions.
-        for binding in variant.bindings().iter().filter(|bi| !should_generate_arg(bi.ast())) {
+        for binding in variant
+            .bindings()
+            .iter()
+            .filter(|bi| !should_generate_arg(bi.ast()))
+        {
             body.extend(self.generate_field_attrs_code(binding));
         }
         body
@@ -280,7 +293,10 @@ impl DiagnosticDeriveVariantBuilder {
                     name == "primary_span" && matches!(inner_ty, FieldInnerTy::Vec(_));
                 let (binding, needs_destructure) = if needs_clone {
                     // `primary_span` can accept a `Vec<Span>` so don't destructure that.
-                    (quote_spanned! {inner_ty.span()=> #field_binding.clone() }, false)
+                    (
+                        quote_spanned! {inner_ty.span()=> #field_binding.clone() },
+                        false,
+                    )
                 } else {
                     (quote_spanned! {inner_ty.span()=> #field_binding }, true)
                 };
@@ -288,7 +304,11 @@ impl DiagnosticDeriveVariantBuilder {
                 let generated_code = self
                     .generate_inner_field_code(
                         attr,
-                        FieldInfo { binding: binding_info, ty: inner_ty, span: &field.span() },
+                        FieldInfo {
+                            binding: binding_info,
+                            ty: inner_ty,
+                            span: &field.span(),
+                        },
                         binding,
                     )
                     .unwrap_or_else(|v| v.to_compile_error());
@@ -475,12 +495,16 @@ impl DiagnosticDeriveVariantBuilder {
                 Ok((span, Some((applicability, applicability_span))))
             }
             // If `ty` isn't a `Span` or `(Span, Applicability)` then emit an error.
-            _ => throw_span_err!(info.span.unwrap(), "wrong field type for suggestion", |diag| {
-                diag.help(
-                    "`#[suggestion(...)]` should be applied to fields of type `Span` or \
+            _ => throw_span_err!(
+                info.span.unwrap(),
+                "wrong field type for suggestion",
+                |diag| {
+                    diag.help(
+                        "`#[suggestion(...)]` should be applied to fields of type `Span` or \
                      `(Span, Applicability)`",
-                )
-            }),
+                    )
+                }
+            ),
         }
     }
 }
