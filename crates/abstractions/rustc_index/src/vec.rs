@@ -54,7 +54,10 @@ impl<I: Idx, T> IndexVec<I, T> {
     /// Constructs a new `IndexVec<I, T>` from a `Vec<T>`.
     #[inline]
     pub const fn from_raw(raw: Vec<T>) -> Self {
-        IndexVec { raw, _marker: PhantomData }
+        IndexVec {
+            raw,
+            _marker: PhantomData,
+        }
     }
 
     #[inline]
@@ -130,7 +133,10 @@ impl<I: Idx, T> IndexVec<I, T> {
     pub fn into_iter_enumerated(
         self,
     ) -> impl DoubleEndedIterator<Item = (I, T)> + ExactSizeIterator {
-        self.raw.into_iter().enumerate().map(|(n, t)| (I::new(n), t))
+        self.raw
+            .into_iter()
+            .enumerate()
+            .map(|(n, t)| (I::new(n), t))
     }
 
     #[inline]
@@ -148,7 +154,10 @@ impl<I: Idx, T> IndexVec<I, T> {
             std::ops::Bound::Excluded(i) => i.checked_add(1).unwrap(),
             std::ops::Bound::Unbounded => 0,
         };
-        self.raw.drain(range).enumerate().map(move |(n, t)| (I::new(begin + n), t))
+        self.raw
+            .drain(range)
+            .enumerate()
+            .map(move |(n, t)| (I::new(begin + n), t))
     }
 
     #[inline]
@@ -201,7 +210,8 @@ impl<I: Idx, T> IndexVec<I, Option<T>> {
 
     #[inline]
     pub fn get_or_insert_with(&mut self, index: I, value: impl FnOnce() -> T) -> &mut T {
-        self.ensure_contains_elem(index, || None).get_or_insert_with(value)
+        self.ensure_contains_elem(index, || None)
+            .get_or_insert_with(value)
     }
 
     #[inline]

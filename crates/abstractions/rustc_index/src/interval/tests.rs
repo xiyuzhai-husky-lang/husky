@@ -50,27 +50,42 @@ fn insert() {
     let mut set = IntervalSet::new(300);
     set.insert_range(0..10u32);
     set.insert_range(3..5);
-    assert_eq!(set.iter().collect::<Vec<_>>(), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+    assert_eq!(
+        set.iter().collect::<Vec<_>>(),
+        [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    );
 
     let mut set = IntervalSet::new(300);
     set.insert_range(0..10u32);
     set.insert_range(0..3);
-    assert_eq!(set.iter().collect::<Vec<_>>(), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+    assert_eq!(
+        set.iter().collect::<Vec<_>>(),
+        [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    );
 
     let mut set = IntervalSet::new(300);
     set.insert_range(0..10u32);
     set.insert_range(0..10);
-    assert_eq!(set.iter().collect::<Vec<_>>(), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+    assert_eq!(
+        set.iter().collect::<Vec<_>>(),
+        [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    );
 
     let mut set = IntervalSet::new(300);
     set.insert_range(0..10u32);
     set.insert_range(5..10);
-    assert_eq!(set.iter().collect::<Vec<_>>(), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+    assert_eq!(
+        set.iter().collect::<Vec<_>>(),
+        [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    );
 
     let mut set = IntervalSet::new(300);
     set.insert_range(0..10u32);
     set.insert_range(5..13);
-    assert_eq!(set.iter().collect::<Vec<_>>(), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]);
+    assert_eq!(
+        set.iter().collect::<Vec<_>>(),
+        [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+    );
 }
 
 #[test]
@@ -86,14 +101,26 @@ fn insert_range() {
             assert!(range.contains(&i));
         }
         for i in range.clone() {
-            assert!(set.contains(i), "A: {} in {:?}, inserted {:?}", i, set, range);
+            assert!(
+                set.contains(i),
+                "A: {} in {:?}, inserted {:?}",
+                i,
+                set,
+                range
+            );
         }
         set.insert_range(range.clone());
         for i in set.iter() {
             assert!(range.contains(&i), "{} in {:?}", i, set);
         }
         for i in range.clone() {
-            assert!(set.contains(i), "B: {} in {:?}, inserted {:?}", i, set, range);
+            assert!(
+                set.contains(i),
+                "B: {} in {:?}, inserted {:?}",
+                i,
+                set,
+                range
+            );
         }
     }
     check(10..10);
