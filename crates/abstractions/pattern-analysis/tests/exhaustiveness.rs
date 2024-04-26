@@ -1,7 +1,7 @@
 //! Test exhaustiveness checking.
 use common::*;
 use pattern_analysis::{
-    pattern::{DeconstructedPattern, WitnessPat},
+    pattern::{DeconstructedPattern, WitnessPattern},
     usefulness::PlaceValidity,
     MatchArm,
 };
@@ -10,7 +10,7 @@ use pattern_analysis::{
 mod common;
 
 /// Analyze a match made of these patterns.
-fn check(patterns: Vec<DeconstructedPattern<Ctx>>) -> Vec<WitnessPat<Ctx>> {
+fn check(patterns: Vec<DeconstructedPattern<Ctx>>) -> Vec<WitnessPattern<Ctx>> {
     let ty = *patterns[0].ty();
     let arms: Vec<_> = patterns
         .iter()

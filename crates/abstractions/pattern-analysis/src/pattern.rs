@@ -1,13 +1,10 @@
 //! As explained in [`crate::usefulness`], values and patterns are made from constructors applied to
 //! fields. This file defines types that represent patterns in this way.
-use std::fmt;
-
-use smallvec::{smallvec, SmallVec};
-
+use self::Constructor::*;
 use crate::constructor::{Constructor, Slice, SliceKind};
 use crate::{IsPatternAnalyisContext, PrivateUninhabitedField};
-
-use self::Constructor::*;
+use smallvec::{smallvec, SmallVec};
+use std::fmt;
 
 /// A globally unique id to distinguish patterns.
 #[derive(Copy, Clone, Debug, PartialEq, Eq, Hash)]
@@ -93,7 +90,7 @@ impl<Ctx: IsPatternAnalyisContext> DeconstructedPattern<Ctx> {
         &'a self,
         other_ctor: &Constructor<Ctx>,
         other_constructor_arity: usize,
-    ) -> SmallVec<[PatOrWild<'a, Ctx>; 2]> {
+    ) -> SmallVec<[UserPatternOrDerivedWildcard<'a, Ctx>; 2]> {
         if matches!(other_ctor, PrivateUninhabited) {
             // Skip this column.
             return smallvec![];
@@ -101,7 +98,7 @@ impl<Ctx: IsPatternAnalyisContext> DeconstructedPattern<Ctx> {
 
         // Start with a slice of wildcards of the appropriate length.
         let mut fields: SmallVec<[_; 2]> = (0..other_constructor_arity)
-            .map(|_| PatOrWild::Wild)
+            .map(|_| UserPatternOrDerivedWildcard::DerivedWildcard)
             .collect();
         // Fill `fields` with our fields. The arities are known to be compatible.
         match self.constructor {
@@ -119,12 +116,12 @@ impl<Ctx: IsPatternAnalyisContext> DeconstructedPattern<Ctx> {
                         // Adjust the indices in the suffix.
                         ipat.idx + other_constructor_arity - self.arity
                     };
-                    fields[new_idx] = PatOrWild::Pat(&ipat.pat);
+                    fields[new_idx] = UserPatternOrDerivedWildcard::UserPattern(&ipat.pat);
                 }
             }
             _ => {
                 for ipat in &self.fields {
-                    fields[ipat.idx] = PatOrWild::Pat(&ipat.pat);
+                    fields[ipat.idx] = UserPatternOrDerivedWildcard::UserPattern(&ipat.pat);
                 }
             }
         }
@@ -148,9 +145,11 @@ impl<Ctx: IsPatternAnalyisContext> DeconstructedPattern<Ctx> {
 /// This is best effort and not good enough for a `Display` impl.
 impl<Ctx: IsPatternAnalyisContext> fmt::Debug for DeconstructedPattern<Ctx> {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        let mut fields: Vec<_> = (0..self.arity).map(|_| PatOrWild::Wild).collect();
+        let mut fields: Vec<_> = (0..self.arity)
+            .map(|_| UserPatternOrDerivedWildcard::DerivedWildcard)
+            .collect();
         for ipat in self.iter_fields() {
-            fields[ipat.idx] = PatOrWild::Pat(&ipat.pat);
+            fields[ipat.idx] = UserPatternOrDerivedWildcard::UserPattern(&ipat.pat);
         }
         self.constructor()
             .fmt_fields(f, self.ty(), fields.into_iter())
@@ -161,51 +160,57 @@ impl<Ctx: IsPatternAnalyisContext> fmt::Debug for DeconstructedPattern<Ctx> {
 /// algorithm. Do not use `Wild` to represent a wildcard pattern comping from user input.
 ///
 /// This is morally `Option<&'p DeconstructedPattern>` where `None` is interpreted as a wildcard.
-pub(crate) enum PatOrWild<'p, Ctx: IsPatternAnalyisContext> {
+pub(crate) enum UserPatternOrDerivedWildcard<'p, Ctx: IsPatternAnalyisContext> {
     /// A non-user-provided wildcard, created during specialization.
-    Wild,
+    DerivedWildcard,
     /// A user-provided pattern.
-    Pat(&'p DeconstructedPattern<Ctx>),
+    UserPattern(&'p DeconstructedPattern<Ctx>),
 }
 
-impl<'p, Ctx: IsPatternAnalyisContext> Clone for PatOrWild<'p, Ctx> {
+impl<'p, Ctx: IsPatternAnalyisContext> Clone for UserPatternOrDerivedWildcard<'p, Ctx> {
     fn clone(&self) -> Self {
         match self {
-            PatOrWild::Wild => PatOrWild::Wild,
-            PatOrWild::Pat(pat) => PatOrWild::Pat(pat),
+            UserPatternOrDerivedWildcard::DerivedWildcard => {
+                UserPatternOrDerivedWildcard::DerivedWildcard
+            }
+            UserPatternOrDerivedWildcard::UserPattern(pat) => {
+                UserPatternOrDerivedWildcard::UserPattern(pat)
+            }
         }
     }
 }
 
-impl<'p, Ctx: IsPatternAnalyisContext> Copy for PatOrWild<'p, Ctx> {}
+impl<'p, Ctx: IsPatternAnalyisContext> Copy for UserPatternOrDerivedWildcard<'p, Ctx> {}
 
-impl<'p, Ctx: IsPatternAnalyisContext> PatOrWild<'p, Ctx> {
+impl<'p, Ctx: IsPatternAnalyisContext> UserPatternOrDerivedWildcard<'p, Ctx> {
     pub(crate) fn as_pat(&self) -> Option<&'p DeconstructedPattern<Ctx>> {
         match self {
-            PatOrWild::Wild => None,
-            PatOrWild::Pat(pat) => Some(pat),
+            UserPatternOrDerivedWildcard::DerivedWildcard => None,
+            UserPatternOrDerivedWildcard::UserPattern(pat) => Some(pat),
         }
     }
     pub(crate) fn constructor(self) -> &'p Constructor<Ctx> {
         match self {
-            PatOrWild::Wild => &Wildcard,
-            PatOrWild::Pat(pat) => pat.constructor(),
+            UserPatternOrDerivedWildcard::DerivedWildcard => &Wildcard,
+            UserPatternOrDerivedWildcard::UserPattern(pat) => pat.constructor(),
         }
     }
 
     pub(crate) fn is_or_pat(&self) -> bool {
         match self {
-            PatOrWild::Wild => false,
-            PatOrWild::Pat(pat) => pat.is_or_pat(),
+            UserPatternOrDerivedWildcard::DerivedWildcard => false,
+            UserPatternOrDerivedWildcard::UserPattern(pat) => pat.is_or_pat(),
         }
     }
 
     /// Expand this (possibly-nested) or-pattern into its alternatives.
     pub(crate) fn flatten_or_pat(self) -> SmallVec<[Self; 1]> {
         match self {
-            PatOrWild::Pat(pat) if pat.is_or_pat() => pat
+            UserPatternOrDerivedWildcard::UserPattern(pat) if pat.is_or_pat() => pat
                 .iter_fields()
-                .flat_map(|ipat| PatOrWild::Pat(&ipat.pat).flatten_or_pat())
+                .flat_map(|ipat| {
+                    UserPatternOrDerivedWildcard::UserPattern(&ipat.pat).flatten_or_pat()
+                })
                 .collect(),
             _ => smallvec![self],
         }
@@ -217,32 +222,36 @@ impl<'p, Ctx: IsPatternAnalyisContext> PatOrWild<'p, Ctx> {
         &self,
         other_ctor: &Constructor<Ctx>,
         constructor_arity: usize,
-    ) -> SmallVec<[PatOrWild<'p, Ctx>; 2]> {
+    ) -> SmallVec<[UserPatternOrDerivedWildcard<'p, Ctx>; 2]> {
         match self {
-            PatOrWild::Wild => (0..constructor_arity).map(|_| PatOrWild::Wild).collect(),
-            PatOrWild::Pat(pat) => pat.specialize(other_ctor, constructor_arity),
+            UserPatternOrDerivedWildcard::DerivedWildcard => (0..constructor_arity)
+                .map(|_| UserPatternOrDerivedWildcard::DerivedWildcard)
+                .collect(),
+            UserPatternOrDerivedWildcard::UserPattern(pat) => {
+                pat.specialize(other_ctor, constructor_arity)
+            }
         }
     }
 }
 
-impl<'p, Ctx: IsPatternAnalyisContext> fmt::Debug for PatOrWild<'p, Ctx> {
+impl<'p, Ctx: IsPatternAnalyisContext> fmt::Debug for UserPatternOrDerivedWildcard<'p, Ctx> {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
-            PatOrWild::Wild => write!(f, "_"),
-            PatOrWild::Pat(pat) => pat.fmt(f),
+            UserPatternOrDerivedWildcard::DerivedWildcard => write!(f, "_"),
+            UserPatternOrDerivedWildcard::UserPattern(pat) => pat.fmt(f),
         }
     }
 }
 
 /// Same idea as `DeconstructedPattern`, except this is a fictitious pattern built up for diagnostics
 /// purposes. As such they don't use interning and can be cloned.
-pub struct WitnessPat<Ctx: IsPatternAnalyisContext> {
+pub struct WitnessPattern<Ctx: IsPatternAnalyisContext> {
     constructor: Constructor<Ctx>,
-    pub(crate) fields: Vec<WitnessPat<Ctx>>,
+    pub(crate) fields: Vec<WitnessPattern<Ctx>>,
     ty: Ctx::Type,
 }
 
-impl<Ctx: IsPatternAnalyisContext> Clone for WitnessPat<Ctx> {
+impl<Ctx: IsPatternAnalyisContext> Clone for WitnessPattern<Ctx> {
     fn clone(&self) -> Self {
         Self {
             constructor: self.constructor.clone(),
@@ -252,7 +261,7 @@ impl<Ctx: IsPatternAnalyisContext> Clone for WitnessPat<Ctx> {
     }
 }
 
-impl<Ctx: IsPatternAnalyisContext> WitnessPat<Ctx> {
+impl<Ctx: IsPatternAnalyisContext> WitnessPattern<Ctx> {
     pub(crate) fn new(constructor: Constructor<Ctx>, fields: Vec<Self>, ty: Ctx::Type) -> Self {
         Self {
             constructor,
@@ -272,7 +281,11 @@ impl<Ctx: IsPatternAnalyisContext> WitnessPat<Ctx> {
     /// Construct a pattern that matches everything that starts with this constructor.
     /// For example, if `constructor` is a `Constructor::Variant` for `Option::Some`, we get the pattern
     /// `Some(_)`.
-    pub(crate) fn wild_from_ctor(ctx: &Ctx, constructor: Constructor<Ctx>, ty: Ctx::Type) -> Self {
+    pub(crate) fn derive_wildcard_from_constructor(
+        ctx: &Ctx,
+        constructor: Constructor<Ctx>,
+        ty: Ctx::Type,
+    ) -> Self {
         if matches!(constructor, Wildcard) {
             return Self::wildcard(ctx, ty);
         }
@@ -299,13 +312,13 @@ impl<Ctx: IsPatternAnalyisContext> WitnessPat<Ctx> {
         }
     }
 
-    pub fn iter_fields(&self) -> impl Iterator<Item = &WitnessPat<Ctx>> {
+    pub fn iter_fields(&self) -> impl Iterator<Item = &WitnessPattern<Ctx>> {
         self.fields.iter()
     }
 }
 
 /// This is best effort and not good enough for a `Display` impl.
-impl<Ctx: IsPatternAnalyisContext> fmt::Debug for WitnessPat<Ctx> {
+impl<Ctx: IsPatternAnalyisContext> fmt::Debug for WitnessPattern<Ctx> {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         self.constructor()
             .fmt_fields(f, self.ty(), self.fields.iter())
