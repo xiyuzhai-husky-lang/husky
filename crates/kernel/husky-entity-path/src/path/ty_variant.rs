@@ -9,11 +9,15 @@ pub struct TypeVariantPath(ItemPathId);
 
 impl Idx for TypeVariantPath {
     fn new(idx: usize) -> Self {
-        todo!()
+        use salsa::AsId;
+
+        let id: u32 = idx.try_into().unwrap();
+        let item_path_id = ItemPathId::from_id(salsa::Id::from_u32(id));
+        Self(item_path_id)
     }
 
     fn index(self) -> usize {
-        todo!()
+        self.0 .0.as_u32() as usize
     }
 }
 
