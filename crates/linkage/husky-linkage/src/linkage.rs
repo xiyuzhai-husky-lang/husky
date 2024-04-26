@@ -98,14 +98,14 @@ pub enum LinkageData {
     TypeDefault {
         ty: LinType,
     },
-    EnumU8ToJsonValue {
+    EnumUnitToJsonValue {
         ty_path: TypePath,
     },
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum LinkageField {
-    Tuple { index: u8 },
+    Tuple { index: usize },
     Props { ident: Ident },
 }
 
@@ -290,8 +290,8 @@ impl Linkage {
         )
     }
 
-    pub fn new_enum_u8_presenter(ty_path: TypePath, db: &::salsa::Db) -> Self {
-        Self::new(db, LinkageData::EnumU8ToJsonValue { ty_path })
+    pub fn new_enum_index_presenter(ty_path: TypePath, db: &::salsa::Db) -> Self {
+        Self::new(db, LinkageData::EnumUnitToJsonValue { ty_path })
     }
 }
 

@@ -35,8 +35,8 @@ pub enum ValuePresentation {
     AdHoc(String),
 }
 
-pub type EnumU8ValuePresenter =
-    fn(u8, &mut ValuePresenterCache, &mut ValuePresentationSynchrotron) -> ValuePresentation;
+pub type EnumUnitValuePresenter =
+    fn(usize, &mut ValuePresenterCache, &mut ValuePresentationSynchrotron) -> ValuePresentation;
 
 #[derive(Default)]
 pub struct ValuePresenterCache {}

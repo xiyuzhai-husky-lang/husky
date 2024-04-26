@@ -208,8 +208,8 @@ impl TranspileToRustWith<()> for Linkage {
                         }),
                 }
             }),
-            LinkageData::EnumU8ToJsonValue { ty_path } => builder
-                .macro_call(RustMacroName::EnumU8Presenter, |builder| {
+            LinkageData::EnumUnitToJsonValue { ty_path } => builder
+                .macro_call(RustMacroName::EnumUnitPresenter, |builder| {
                     ty_path.transpile_to_rust(builder)
                 }),
             LinkageData::StructConstructor {

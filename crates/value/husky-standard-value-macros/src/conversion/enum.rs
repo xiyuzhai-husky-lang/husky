@@ -67,9 +67,10 @@ pub(super) fn enum_value_conversion(item: syn::ItemEnum) -> TokenStream {
 
             impl #generics __FromValue for #self_ty {
                 fn from_value_aux(value: __Value, _value_stands: Option<&mut __ValueStands>) -> Self {
-                    let __Value::EnumU8 { index, .. } = value else {
+                    let __Value::EnumUnit { index, .. } = value else {
                         unreachable!()
                     };
+                    let index: u8 = index.try_into().unwrap();
                     unsafe {
                         std::mem::transmute(index)
                     }
@@ -78,7 +79,9 @@ pub(super) fn enum_value_conversion(item: syn::ItemEnum) -> TokenStream {
 
             impl #generics __IntoValue for #self_ty {
                 fn into_value(self) -> __Value {
-                    __Value::from_enum_u8(unsafe { std::mem::transmute(self) }, |index: u8, _, _| {
+                    let index: u8 = unsafe { std::mem::transmute(self) };
+                    __Value::from_enum_index(index as usize, |index: usize, _, _| {
+                        let index: u8 = index.try_into().unwrap();
                         let slf: Self = unsafe { std::mem::transmute(index) };
                         __ValuePresentation::AdHoc(format!("{slf:?}"))
                     })
