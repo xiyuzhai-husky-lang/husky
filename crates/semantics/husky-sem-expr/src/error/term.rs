@@ -2,41 +2,41 @@ use super::*;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Error, PartialEq, Eq)]
-pub enum SemaExprTermError {
+pub enum SemExprTermError {
     #[error("original expr term error: {0}")]
-    Original(#[from] OriginalSemaExprTermError),
+    Original(#[from] OriginalSemExprTermError),
     #[error("derived expr term error: {0}")]
-    Derived(#[from] DerivedSemaExprTermError),
+    Derived(#[from] DerivedSemExprTermError),
 }
 
-impl From<EthTermError> for SemaExprTermError {
+impl From<EthTermError> for SemExprTermError {
     fn from(value: EthTermError) -> Self {
         todo!()
     }
 }
 
-impl From<FlyTermError> for SemaExprTermError {
+impl From<FlyTermError> for SemExprTermError {
     fn from(value: FlyTermError) -> Self {
         todo!()
     }
 }
 
-impl From<&SemaExprDataError> for SemaExprTermError {
-    fn from(value: &SemaExprDataError) -> Self {
-        DerivedSemaExprTermError::ExprError.into()
+impl From<&SemExprDataError> for SemExprTermError {
+    fn from(value: &SemExprDataError) -> Self {
+        DerivedSemExprTermError::ExprError.into()
     }
 }
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Error, PartialEq, Eq)]
-pub enum OriginalSemaExprTermError {
+pub enum OriginalSemExprTermError {
     #[error("todo")]
     Todo,
 }
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Error, PartialEq, Eq)]
-pub enum DerivedSemaExprTermError {
+pub enum DerivedSemExprTermError {
     #[error("expr error")]
     ExprError,
     #[error("todo")]
@@ -60,7 +60,7 @@ pub enum DerivedSemaExprTermError {
     #[error("explicit application argument term not inferred")]
     ExplicitApplicationArgumentTermNotInferred,
     #[error("expr type error")]
-    SemaExprError,
+    SemExprError,
     #[error("literal type not resolved")]
     LiteralTypeNotResolved,
     #[error("TypeInfoNotInferred")]
@@ -69,5 +69,5 @@ pub enum DerivedSemaExprTermError {
     SelfTypeTermNotInferred,
 }
 
-pub type SemaExprTermResult<T> = Result<T, SemaExprTermError>;
-pub type SemaExprTermResultRef<'a, T> = Result<T, &'a SemaExprTermError>;
+pub type SemExprTermResult<T> = Result<T, SemExprTermError>;
+pub type SemExprTermResultRef<'a, T> = Result<T, &'a SemExprTermError>;

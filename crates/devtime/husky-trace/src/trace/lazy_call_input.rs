@@ -17,7 +17,7 @@ pub struct LazyCallInputTraceData {
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub enum LazyCallInputSketch {
     Simple {
-        sem_expr_idx: SemaExprIdx,
+        sem_expr_idx: SemExprIdx,
         hir_lazy_expr_idx: Option<HirLazyExprIdx>,
     },
     Variadic,

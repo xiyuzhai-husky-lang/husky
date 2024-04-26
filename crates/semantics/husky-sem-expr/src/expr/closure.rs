@@ -3,7 +3,7 @@ use husky_syn_expr::closure_parameter::ClosureParameterSyndicate;
 use husky_term_prelude::ritchie::RitchieClosureKind;
 
 // todo: closure types are unique
-impl<'a> SemaExprBuilder<'a> {
+impl<'a> SemExprBuilder<'a> {
     pub(super) fn build_closure_expr(
         &mut self,
         closure_kind_regional_token_idx: Option<RegionalTokenIdx>,
@@ -13,10 +13,7 @@ impl<'a> SemaExprBuilder<'a> {
         return_ty_syn_expr: Option<(LightArrowRegionalToken, SynExprIdx, EqRegionalToken)>,
         body: SynExprIdx,
         expr_ty_expectation: &impl ExpectFlyTerm,
-    ) -> (
-        SemaExprDataResult<SemaExprData>,
-        SemaExprTypeResult<FlyTerm>,
-    ) {
+    ) -> (SemExprDataResult<SemExprData>, SemExprTypeResult<FlyTerm>) {
         let ritchie_kind: RitchieKind = RitchieClosureKind::Fn.into();
         let destination = expr_ty_expectation.destination();
         let return_ty = return_ty_syn_expr.map(|(light_arrow, return_ty_syn_expr, eq)| {
@@ -30,7 +27,7 @@ impl<'a> SemaExprBuilder<'a> {
             .iter()
             .map(|param| self.build_closure_parameter_obelisk(param))
             .collect();
-        let mut param_tys: SemaExprTypeResult<Vec<FlyRitchieParameter>> = Ok(vec![]);
+        let mut param_tys: SemExprTypeResult<Vec<FlyRitchieParameter>> = Ok(vec![]);
         let (body, return_ty_term) =
             match destination {
                 FlyTermDestination::Specific(destination)
@@ -107,11 +104,11 @@ impl<'a> SemaExprBuilder<'a> {
             .map(|param_tys| match return_ty_term {
                 Some(return_ty) => FlyTerm::new_ritchie(self, ritchie_kind, param_tys, return_ty)
                     .map_err(Into::into),
-                None => Err(DerivedSemaExprTypeError::ClosureReturnTypeNotInferred.into()),
+                None => Err(DerivedSemExprTypeError::ClosureReturnTypeNotInferred.into()),
             })
             .flatten();
         (
-            Ok(SemaExprData::Closure {
+            Ok(SemExprData::Closure {
                 closure_kind_regional_token_idx,
                 lvert_regional_token_idx,
                 parameter_obelisks: parameter_obelisk,

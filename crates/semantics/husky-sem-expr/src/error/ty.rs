@@ -2,34 +2,34 @@ use super::*;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Error, PartialEq, Eq)]
-pub enum SemaExprTypeError {
+pub enum SemExprTypeError {
     #[error("original {0}")]
-    Original(#[from] OriginalSemaExprTypeError),
+    Original(#[from] OriginalSemExprTypeError),
     #[error("derived {0}")]
-    Derived(#[from] DerivedSemaExprTypeError),
+    Derived(#[from] DerivedSemExprTypeError),
 }
 
-impl From<EtherealSignatureError> for SemaExprTypeError {
+impl From<EtherealSignatureError> for SemExprTypeError {
     fn from(e: EtherealSignatureError) -> Self {
-        SemaExprTypeError::Derived(e.into())
+        SemExprTypeError::Derived(e.into())
     }
 }
 
-impl From<EthTermError> for SemaExprTypeError {
+impl From<EthTermError> for SemExprTypeError {
     fn from(e: EthTermError) -> Self {
-        SemaExprTypeError::Derived(e.into())
+        SemExprTypeError::Derived(e.into())
     }
 }
 
-impl From<FlyTermError> for SemaExprTypeError {
+impl From<FlyTermError> for SemExprTypeError {
     fn from(e: FlyTermError) -> Self {
-        SemaExprTypeError::Derived(e.into())
+        SemExprTypeError::Derived(e.into())
     }
 }
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Error, PartialEq, Eq)]
-pub enum OriginalSemaExprTypeError {
+pub enum OriginalSemExprTypeError {
     #[error("unresolved term")]
     UnresolvedTerm,
     #[error("type method type error")]
@@ -72,13 +72,13 @@ pub enum OriginalSemaExprTypeError {
     ClosureParameterTypeNotInferred,
 }
 
-impl OriginalError for OriginalSemaExprTypeError {
-    type Error = SemaExprTypeError;
+impl OriginalError for OriginalSemExprTypeError {
+    type Error = SemExprTypeError;
 }
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Error, PartialEq, Eq)]
-pub enum DerivedSemaExprTypeError {
+pub enum DerivedSemExprTypeError {
     #[error("field type error {0}")]
     FieldTypeTermError(EthTermError),
     #[error("type method type error {0}")]
@@ -183,5 +183,5 @@ pub enum DerivedSemaExprTypeError {
     ClosureReturnTypeNotInferred,
 }
 
-pub type SemaExprTypeResult<T> = Result<T, SemaExprTypeError>;
-pub type SemaExprTypeResultRef<'a, T> = Result<T, &'a SemaExprTypeError>;
+pub type SemExprTypeResult<T> = Result<T, SemExprTypeError>;
+pub type SemExprTypeResultRef<'a, T> = Result<T, &'a SemExprTypeError>;

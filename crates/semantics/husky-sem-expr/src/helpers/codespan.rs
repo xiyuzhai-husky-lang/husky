@@ -1,8 +1,8 @@
 pub use codespan_reporting::diagnostic::Severity;
 pub use husky_print_utils::eshow;
 
-use super::range::{sem_expr_range_region, SemaExprRangeRegionData};
-use crate::{SemaExprIdx, SemaExprRegion, SemaExprRegionData};
+use super::range::{sem_expr_range_region, SemExprRangeRegionData};
+use crate::{SemExprIdx, SemExprRegion, SemExprRegionData};
 use codespan_reporting::diagnostic::{Diagnostic, Label};
 use codespan_reporting::files::SimpleFiles;
 use codespan_reporting::term::termcolor::{ColorChoice, StandardStream};
@@ -62,23 +62,23 @@ fn convert_expr_message_works() {
 }
 
 pub fn emit_note_on_sem_expr_codespan(
-    sem_expr_region: SemaExprRegion,
+    sem_expr_region: SemExprRegion,
     severity: Severity,
     title: impl Into<String>,
     db: &::salsa::Db,
-    expr_messages: impl IntoIterator<Item = (SemaExprIdx, String)>,
+    expr_messages: impl IntoIterator<Item = (SemExprIdx, String)>,
 ) {
-    let mut emitter = SemaExprCodespanEmitter::new(sem_expr_region, severity, title, db);
+    let mut emitter = SemExprCodespanEmitter::new(sem_expr_region, severity, title, db);
     for (expr, message) in expr_messages {
         emitter.add_expr(expr, message);
     }
     emitter.emit_to_stderr();
 }
 
-struct SemaExprCodespanEmitter<'a> {
+struct SemExprCodespanEmitter<'a> {
     db: &'a ::salsa::Db,
-    sem_expr_region_data: &'a SemaExprRegionData,
-    sem_expr_range_region_data: &'a SemaExprRangeRegionData,
+    sem_expr_region_data: &'a SemExprRegionData,
+    sem_expr_range_region_data: &'a SemExprRangeRegionData,
     ranged_token_sheet: &'a RangedTokenSheet,
     text: Text<'a>,
     region_path: RegionPath,
@@ -91,9 +91,9 @@ struct SemaExprCodespanEmitter<'a> {
 }
 
 /// # constructor
-impl<'a> SemaExprCodespanEmitter<'a> {
+impl<'a> SemExprCodespanEmitter<'a> {
     fn new(
-        sem_expr_region: SemaExprRegion,
+        sem_expr_region: SemExprRegion,
         severity: Severity,
         title: impl Into<String>,
         db: &'a ::salsa::Db,
@@ -132,8 +132,8 @@ impl<'a> SemaExprCodespanEmitter<'a> {
 }
 
 /// # getters
-impl<'a> SemaExprCodespanEmitter<'a> {
-    fn expr_offset_range(&self, expr: SemaExprIdx) -> std::ops::Range<usize> {
+impl<'a> SemExprCodespanEmitter<'a> {
+    fn expr_offset_range(&self, expr: SemExprIdx) -> std::ops::Range<usize> {
         let token_idx_range =
             self.sem_expr_range_region_data[expr].token_idx_range(self.regional_token_idx_base);
         let text_range = self.ranged_token_sheet.tokens_text_range(token_idx_range);
@@ -142,8 +142,8 @@ impl<'a> SemaExprCodespanEmitter<'a> {
 }
 
 /// # actions
-impl<'a> SemaExprCodespanEmitter<'a> {
-    fn add_expr(&mut self, expr: SemaExprIdx, message: String) {
+impl<'a> SemExprCodespanEmitter<'a> {
+    fn add_expr(&mut self, expr: SemExprIdx, message: String) {
         let offset_range = self.expr_offset_range(expr);
         self.diagnostic = Some(
             std::mem::take(&mut self.diagnostic)

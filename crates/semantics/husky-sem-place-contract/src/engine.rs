@@ -1,22 +1,22 @@
 use crate::{region::SemaPlaceContractRegion, site::SemaPlaceContractSite};
 use husky_place::place::EthPlace;
-use husky_sem_expr::{SemaExprIdx, SemaExprMap, SemaExprRegion, SemaExprRegionData};
+use husky_sem_expr::{SemExprIdx, SemExprMap, SemExprRegion, SemExprRegionData};
 
 pub struct PlaceContractEngine<'a> {
     db: &'a ::salsa::Db,
-    sem_expr_region: SemaExprRegion,
-    sem_expr_region_data: &'a SemaExprRegionData,
-    expr_sites: SemaExprMap<SemaPlaceContractSite>,
+    sem_expr_region: SemExprRegion,
+    sem_expr_region_data: &'a SemExprRegionData,
+    expr_sites: SemExprMap<SemaPlaceContractSite>,
 }
 
 impl<'a> PlaceContractEngine<'a> {
-    pub fn new(db: &'a ::salsa::Db, sem_expr_region: SemaExprRegion) -> Self {
+    pub fn new(db: &'a ::salsa::Db, sem_expr_region: SemExprRegion) -> Self {
         let sem_expr_region_data = sem_expr_region.data(db);
         Self {
             db,
             sem_expr_region,
             sem_expr_region_data,
-            expr_sites: SemaExprMap::new(sem_expr_region_data.sem_expr_arena()),
+            expr_sites: SemExprMap::new(sem_expr_region_data.sem_expr_arena()),
         }
     }
 
@@ -24,15 +24,15 @@ impl<'a> PlaceContractEngine<'a> {
         self.db
     }
 
-    pub(crate) fn sem_expr_region(&self) -> SemaExprRegion {
+    pub(crate) fn sem_expr_region(&self) -> SemExprRegion {
         self.sem_expr_region
     }
 
-    pub(crate) fn sem_expr_region_data(&self) -> &'a SemaExprRegionData {
+    pub(crate) fn sem_expr_region_data(&self) -> &'a SemExprRegionData {
         self.sem_expr_region_data
     }
 
-    pub(crate) fn place(&self, expr: SemaExprIdx) -> Option<EthPlace> {
+    pub(crate) fn place(&self, expr: SemExprIdx) -> Option<EthPlace> {
         match expr.ty(self.sem_expr_region_data.sem_expr_arena2()).quary() {
             Some(quary) => quary.place(),
             None => None,
@@ -42,7 +42,7 @@ impl<'a> PlaceContractEngine<'a> {
 
 /// # actions
 impl<'a> PlaceContractEngine<'a> {
-    pub(crate) fn set_expr_site(&mut self, expr: SemaExprIdx, site: SemaPlaceContractSite) {
+    pub(crate) fn set_expr_site(&mut self, expr: SemExprIdx, site: SemaPlaceContractSite) {
         self.expr_sites.insert_new(expr, site)
     }
 

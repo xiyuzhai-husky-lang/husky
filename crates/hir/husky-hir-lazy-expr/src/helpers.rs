@@ -2,7 +2,7 @@ pub mod control_flow;
 
 use crate::{source_map::HirLazyExprSourceMap, *};
 use husky_entity_path::ItemPath;
-use husky_sem_expr::{SemaExprDb, SemaExprRegion};
+use husky_sem_expr::{SemExprDb, SemExprRegion};
 use husky_syn_defn::item_syn_defn;
 use husky_syn_defn::ItemSynDefn;
 use husky_syn_expr::SynExprRegion;
@@ -44,7 +44,7 @@ pub fn hir_lazy_expr_source_map_from_syn(
 }
 
 pub fn hir_lazy_expr_region_from_sema(
-    sem_expr_region: SemaExprRegion,
+    sem_expr_region: SemExprRegion,
     db: &::salsa::Db,
 ) -> HirLazyExprRegion {
     hir_lazy_expr_region_with_source_map(db, sem_expr_region).0

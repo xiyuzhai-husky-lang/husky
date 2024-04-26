@@ -11,7 +11,7 @@ use husky_sem_opr::suffix::SemaSuffixOpr;
 use husky_syn_opr::SynSuffixOpr;
 use maybe_result::*;
 
-impl<'a> SemaExprBuilder<'a> {
+impl<'a> SemExprBuilder<'a> {
     pub(super) fn calc_suffix_expr_ty(
         &mut self,
         expr_idx: SynExprIdx,
@@ -19,16 +19,13 @@ impl<'a> SemaExprBuilder<'a> {
         opr: SynSuffixOpr,
         opr_regional_token_idx: RegionalTokenIdx,
         final_destination: FinalDestination,
-    ) -> (
-        SemaExprDataResult<SemaExprData>,
-        SemaExprTypeResult<FlyTerm>,
-    ) {
+    ) -> (SemExprDataResult<SemExprData>, SemExprTypeResult<FlyTerm>) {
         match opr {
             SynSuffixOpr::Incr => {
                 let (opd_sem_expr_idx, opd_ty) =
                     self.build_sem_expr_with_ty(opd_syn_expr_idx, ExpectNumType);
                 (
-                    Ok(SemaExprData::Suffix {
+                    Ok(SemExprData::Suffix {
                         opd: opd_sem_expr_idx,
                         opr: SemaSuffixOpr::Incr,
                         opr_regional_token_idx,
@@ -40,7 +37,7 @@ impl<'a> SemaExprBuilder<'a> {
                 let (opd_sem_expr_idx, opd_ty) =
                     self.build_sem_expr_with_ty(opd_syn_expr_idx, ExpectNumType);
                 (
-                    Ok(SemaExprData::Suffix {
+                    Ok(SemExprData::Suffix {
                         opd: opd_sem_expr_idx,
                         opr: SemaSuffixOpr::Decr,
                         opr_regional_token_idx,
@@ -67,7 +64,7 @@ impl<'a> SemaExprBuilder<'a> {
         }
     }
 
-    fn calc_incr_or_decr_expr_ty(&mut self, _: Option<FlyTerm>) -> SemaExprTypeResult<FlyTerm> {
+    fn calc_incr_or_decr_expr_ty(&mut self, _: Option<FlyTerm>) -> SemExprTypeResult<FlyTerm> {
         Ok(self.term_menu().unit_ty_ontology().into())
     }
 }

@@ -13,8 +13,8 @@ use husky_entity_tree::helpers::tokra_region::HasRegionalTokenIdxBase;
 pub use husky_print_utils::eshow;
 use husky_regional_token::RegionalTokenIdxBase;
 use husky_sem_expr::{
-    helpers::range::{sem_expr_range_region, SemaExprRangeRegionData},
-    SemaExprIdx, SemaExprRegionData,
+    helpers::range::{sem_expr_range_region, SemExprRangeRegionData},
+    SemExprIdx, SemExprRegionData,
 };
 use husky_text::{HasText, Text};
 use husky_token::{RangedTokenSheet, TokenDb};
@@ -84,8 +84,8 @@ struct HirEagerExprCodespanEmitter<'a> {
     db: &'a ::salsa::Db,
     hir_eager_expr_region: HirEagerExprRegion,
     hir_eager_expr_source_map_data: &'a HirEagerExprSourceMapData,
-    sem_expr_region_data: &'a SemaExprRegionData,
-    sem_expr_range_region_data: &'a SemaExprRangeRegionData,
+    sem_expr_region_data: &'a SemExprRegionData,
+    sem_expr_range_region_data: &'a SemExprRangeRegionData,
     ranged_token_sheet: &'a RangedTokenSheet,
     text: Text<'a>,
     region_path: RegionPath,
@@ -146,7 +146,7 @@ impl<'a> HirEagerExprCodespanEmitter<'a> {
 /// # getters
 impl<'a> HirEagerExprCodespanEmitter<'a> {
     fn expr_offset_range(&self, expr: HirEagerExprIdx) -> std::ops::Range<usize> {
-        let expr: SemaExprIdx = self
+        let expr: SemExprIdx = self
             .hir_eager_expr_source_map_data
             .hir_eager_to_sem_expr_idx(expr);
         let token_idx_range =

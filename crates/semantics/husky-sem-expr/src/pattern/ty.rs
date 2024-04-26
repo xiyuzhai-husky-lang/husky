@@ -1,6 +1,6 @@
 use super::*;
 
-impl<'a> SemaExprBuilder<'a> {
+impl<'a> SemExprBuilder<'a> {
     /// subpatterns get its type from its parent
     pub(crate) fn infer_subpattern_tys(&mut self, pattern_expr_idx: SynPatternIdx, ty: FlyTerm) {
         match self.syn_expr_region_data()[pattern_expr_idx] {
@@ -81,7 +81,7 @@ impl<'a> SemaExprBuilder<'a> {
         match self.syn_expr_region_data()[pattern_variable_idx] {
             PatternVariable::Atom(pattern_expr_idx) => self
                 .get_pattern_expr_ty(pattern_expr_idx)
-                .ok_or(DerivedPatternSymbolTypeError::PatternSemaExprError.into()),
+                .ok_or(DerivedPatternSymbolTypeError::PatternSemExprError.into()),
         }
     }
 }

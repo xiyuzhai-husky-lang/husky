@@ -8,8 +8,8 @@ use husky_regional_token::{
     RegionalTokenIdxRange, StmtForRegionalToken,
 };
 use husky_sem_expr::{
-    helpers::range::sem_expr_range_region, SemaExprData, SemaExprDb, SemaExprRegion, SemaStmtData,
-    SemaStmtIdx, SemaStmtIdxRange,
+    helpers::range::sem_expr_range_region, SemExprData, SemExprDb, SemExprRegion, SemStmtData,
+    SemStmtIdx, SemStmtIdxRange,
 };
 use husky_syn_defn::ItemSynDefn;
 use husky_token_info::TokenInfoSource;
@@ -45,11 +45,11 @@ pub enum EagerStmtEssence {
 pub struct EagerStmtTraceData {
     pub path: TracePath,
     pub biological_parent: Trace,
-    pub sem_stmt_idx: SemaStmtIdx,
+    pub sem_stmt_idx: SemStmtIdx,
     pub hir_eager_stmt_idx: Option<HirEagerStmtIdx>,
     pub eager_stmt_data_sketch: EagerStmtDataSketch,
     #[skip_fmt]
-    pub sem_expr_region: SemaExprRegion,
+    pub sem_expr_region: SemExprRegion,
     #[skip_fmt]
     pub hir_eager_expr_region: HirEagerExprRegion,
 }
@@ -60,28 +60,28 @@ pub enum EagerStmtDataSketch {
     IfBranch {
         if_regional_token: IfRegionalToken,
         eol_colon_regional_token: EolColonRegionalToken,
-        stmts: SemaStmtIdxRange,
+        stmts: SemStmtIdxRange,
     },
     ElifBranch {
         elif_branch_idx: u8,
         elif_regional_token: ElifRegionalToken,
         eol_colon_regional_token: EolColonRegionalToken,
-        stmts: SemaStmtIdxRange,
+        stmts: SemStmtIdxRange,
     },
     ElseBranch {
         else_regional_token: ElseRegionalToken,
         eol_colon_regional_token: EolColonRegionalToken,
-        stmts: SemaStmtIdxRange,
+        stmts: SemStmtIdxRange,
     },
     ForIn {
         for_regional_token: StmtForRegionalToken,
         eol_colon_regional_token: EolRegionalToken,
-        stmts: SemaStmtIdxRange,
+        stmts: SemStmtIdxRange,
     },
     ForBetween {
         for_regional_token: StmtForRegionalToken,
         eol_colon_regional_token: EolRegionalToken,
-        stmts: SemaStmtIdxRange,
+        stmts: SemStmtIdxRange,
     },
 }
 
@@ -91,9 +91,9 @@ impl Trace {
         biological_parent: Trace,
         essence: EagerStmtEssence,
         registry: &mut crate::registry::trace_path::TracePathRegistry<EagerStmtEssence>,
-        sem_stmt_idx: SemaStmtIdx,
+        sem_stmt_idx: SemStmtIdx,
         eager_stmt_data_sketch: EagerStmtDataSketch,
-        sem_expr_region: SemaExprRegion,
+        sem_expr_region: SemExprRegion,
         db: &::salsa::Db,
     ) -> Self {
         let path = TracePath::new(
@@ -141,8 +141,7 @@ impl Trace {
         let sem_expr_region = db.sem_expr_region(syn_expr_region);
         let sem_expr_region_data = sem_expr_region.data(db);
         let body = sem_expr_region_data.syn_root_to_sem_expr_idx(body);
-        let SemaExprData::Block { stmts } = *body.data(sem_expr_region_data.sem_expr_arena())
-        else {
+        let SemExprData::Block { stmts } = *body.data(sem_expr_region_data.sem_expr_arena()) else {
             unreachable!()
         };
         Self::new_eager_stmts(parent_trace_path, parent_trace, stmts, sem_expr_region, db)
@@ -151,8 +150,8 @@ impl Trace {
     pub(crate) fn new_eager_stmts(
         parent_trace_path: TracePath,
         parent_trace: Trace,
-        stmts: husky_sem_expr::SemaStmtIdxRange,
-        sem_expr_region: husky_sem_expr::SemaExprRegion,
+        stmts: husky_sem_expr::SemStmtIdxRange,
+        sem_expr_region: husky_sem_expr::SemExprRegion,
         db: &::salsa::Db,
     ) -> Vec<Trace> {
         let mut registry = TracePathRegistry::<EagerStmtEssence>::default();
@@ -160,7 +159,7 @@ impl Trace {
         let sem_stmt_arena = sem_expr_region.data(db).sem_stmt_arena();
         for stmt in stmts {
             match stmt.data(sem_stmt_arena) {
-                SemaStmtData::Let { .. } => {
+                SemStmtData::Let { .. } => {
                     let essence = EagerStmtEssence::Let {};
                     let eager_stmt_trace = Trace::new_eager_stmt(
                         parent_trace_path,
@@ -174,7 +173,7 @@ impl Trace {
                     );
                     subtraces.push(eager_stmt_trace.into())
                 }
-                SemaStmtData::Return { .. } => {
+                SemStmtData::Return { .. } => {
                     let essence = EagerStmtEssence::Return {};
                     let eager_stmt_trace = Trace::new_eager_stmt(
                         parent_trace_path,
@@ -188,7 +187,7 @@ impl Trace {
                     );
                     subtraces.push(eager_stmt_trace.into())
                 }
-                SemaStmtData::Require {
+                SemStmtData::Require {
                     require_token: _,
                     condition: _,
                 } => {
@@ -205,7 +204,7 @@ impl Trace {
                     );
                     subtraces.push(eager_stmt_trace.into())
                 }
-                SemaStmtData::Assert {
+                SemStmtData::Assert {
                     assert_token: _,
                     condition: _,
                 } => {
@@ -222,7 +221,7 @@ impl Trace {
                     );
                     subtraces.push(eager_stmt_trace.into())
                 }
-                SemaStmtData::Break { break_token: _ } => {
+                SemStmtData::Break { break_token: _ } => {
                     let path_data = EagerStmtEssence::Break {};
                     let eager_stmt_trace = Trace::new_eager_stmt(
                         parent_trace_path,
@@ -236,7 +235,7 @@ impl Trace {
                     );
                     subtraces.push(eager_stmt_trace.into())
                 }
-                SemaStmtData::Eval { .. } => {
+                SemStmtData::Eval { .. } => {
                     let path_data = EagerStmtEssence::Eval {};
                     let eager_stmt_trace = Trace::new_eager_stmt(
                         parent_trace_path,
@@ -250,7 +249,7 @@ impl Trace {
                     );
                     subtraces.push(eager_stmt_trace.into())
                 }
-                &SemaStmtData::ForBetween {
+                &SemStmtData::ForBetween {
                     for_token,
                     eol_colon,
                     stmts: block,
@@ -272,7 +271,7 @@ impl Trace {
                     )
                     .into(),
                 ),
-                &SemaStmtData::ForIn {
+                &SemStmtData::ForIn {
                     for_token,
                     range: _,
                     eol_colon,
@@ -294,26 +293,26 @@ impl Trace {
                     )
                     .into(),
                 ),
-                SemaStmtData::Forext {
+                SemStmtData::Forext {
                     forext_token: _,
                     particulars: _,
                     eol_colon: _,
                     stmts: _,
                 } => todo!(),
-                SemaStmtData::While {
+                SemStmtData::While {
                     while_token: _,
                     condition: _,
                     eol_colon: _,
                     stmts: _,
                 } => todo!(),
-                SemaStmtData::DoWhile {
+                SemStmtData::DoWhile {
                     do_token: _,
                     while_token: _,
                     condition: _,
                     eol_colon: _,
                     stmts: _,
                 } => todo!(),
-                SemaStmtData::IfElse {
+                SemStmtData::IfElse {
                     if_branch: sem_if_branch,
                     elif_branches: sem_elif_branches,
                     else_branch: sem_else_branch,
@@ -377,7 +376,7 @@ impl Trace {
                         );
                     }
                 }
-                SemaStmtData::Match { .. } => todo!(),
+                SemStmtData::Match { .. } => todo!(),
             }
         }
         subtraces
@@ -466,19 +465,19 @@ impl EagerStmtTraceData {
 
 struct EagerStmtAssocTraceRegistry<'a> {
     parent_trace: Trace,
-    sem_expr_region: SemaExprRegion,
+    sem_expr_region: SemExprRegion,
     hir_eager_expr_region: HirEagerExprRegion,
     syn_expr_region_data: &'a SynExprRegionData,
     hir_eager_expr_source_map: HirEagerExprSourceMap,
     hir_eager_expr_source_map_data: &'a HirEagerExprSourceMapData,
     eager_expr_trace_path_registry: TracePathRegistry<EagerExprEssence>,
-    eager_expr_traces_issued: VecPairMap<SemaExprIdx, Trace>,
+    eager_expr_traces_issued: VecPairMap<SemExprIdx, Trace>,
     eager_pattern_expr_trace_path_registry: TracePathRegistry<EagerPatternExprEssence>,
     eager_pattern_expr_traces_issued: VecPairMap<SynPatternIdx, Trace>,
 }
 
 impl<'a> EagerStmtAssocTraceRegistry<'a> {
-    fn new(parent_trace: Trace, sem_expr_region: SemaExprRegion, db: &'a ::salsa::Db) -> Self {
+    fn new(parent_trace: Trace, sem_expr_region: SemExprRegion, db: &'a ::salsa::Db) -> Self {
         let (hir_eager_expr_region, hir_eager_expr_source_map) =
             hir_eager_expr_region_with_source_map(db, sem_expr_region);
         EagerStmtAssocTraceRegistry {
@@ -504,7 +503,7 @@ impl<'a> IsAssocTraceRegistry for EagerStmtAssocTraceRegistry<'a> {
     ) -> Option<Trace> {
         match source {
             TokenInfoSource::UseExpr(_) => None,
-            TokenInfoSource::SemaExpr(sem_expr_idx) => Some(
+            TokenInfoSource::SemExpr(sem_expr_idx) => Some(
                 self.eager_expr_traces_issued
                     .get_value_copied_or_insert_with(sem_expr_idx, || {
                         let hir_eager_expr_idx = self

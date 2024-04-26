@@ -9,17 +9,17 @@ use husky_term_prelude::symbol::SymbolName;
 use salsa::fmt::WithFmtContext;
 use vec_like::{VecMap, VecPairMap};
 
-#[salsa::tracked(db = SemaExprDb, jar = SemaExprJar, constructor = new_inner)]
-pub struct SemaExprRegion {
+#[salsa::tracked(db = SemExprDb, jar = SemExprJar, constructor = new_inner)]
+pub struct SemExprRegion {
     #[id]
     pub path: RegionPath,
     #[skip_fmt]
     pub syn_expr_region: SynExprRegion,
     #[return_ref]
-    pub data: SemaExprRegionData,
+    pub data: SemExprRegionData,
 }
 
-impl WithFmtContext for SemaExprRegion {
+impl WithFmtContext for SemExprRegion {
     fn with_fmt_context(
         &self,
         f: impl FnOnce() -> ::std::fmt::Result,
@@ -32,10 +32,10 @@ impl WithFmtContext for SemaExprRegion {
     }
 }
 
-#[salsa::tracked(jar = SemaExprJar)]
+#[salsa::tracked(jar = SemExprJar)]
 fn sem_expr_region_eth_term_fmt_context(
     db: &::salsa::Db,
-    region: SemaExprRegion,
+    region: SemExprRegion,
 ) -> EthTermFmtContext {
     let syn_expr_region_data = region.syn_expr_region(db).data(db);
     let sem_expr_region_data = region.data(db);
@@ -72,17 +72,17 @@ fn sem_expr_region_eth_term_fmt_context(
     EthTermFmtContext::new(db, sem_expr_region_data.path, symbol_names)
 }
 
-impl SemaExprRegion {
+impl SemExprRegion {
     pub(crate) fn new(
         path: RegionPath,
         place_registry: PlaceRegistry,
         syn_expr_region: SynExprRegion,
-        sem_expr_arena: SemaExprArena,
-        sem_stmt_arena: SemaStmtArena,
-        sem_expr_roots: VecPairMap<SynExprIdx, (SemaExprIdx, SynExprRootKind)>,
+        sem_expr_arena: SemExprArena,
+        sem_stmt_arena: SemStmtArena,
+        sem_expr_roots: VecPairMap<SynExprIdx, (SemExprIdx, SynExprRootKind)>,
         pattern_expr_ty_infos: SynPatternMap<PatternExprTypeInfo>,
         pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
-        sem_expr_terms: VecPairMap<SemaExprIdx, SemaExprTermResult<FlyTerm>>,
+        sem_expr_terms: VecPairMap<SemExprIdx, SemExprTermResult<FlyTerm>>,
         symbol_tys: SymbolMap<SymbolType>,
         symbol_terms: SymbolMap<FlyTerm>,
         fly_term_region: FlyTermRegion,
@@ -90,11 +90,11 @@ impl SemaExprRegion {
         self_ty: Option<EthTerm>,
         db: &::salsa::Db,
     ) -> Self {
-        SemaExprRegion::new_inner(
+        SemExprRegion::new_inner(
             db,
             path,
             syn_expr_region,
-            SemaExprRegionData {
+            SemExprRegionData {
                 path,
                 place_registry,
                 sem_expr_arena,
@@ -115,15 +115,15 @@ impl SemaExprRegion {
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub struct SemaExprRegionData {
+pub struct SemExprRegionData {
     path: RegionPath,
     place_registry: PlaceRegistry,
-    sem_expr_arena: SemaExprArena,
-    sem_stmt_arena: SemaStmtArena,
-    sem_expr_roots: VecPairMap<SynExprIdx, (SemaExprIdx, SynExprRootKind)>,
+    sem_expr_arena: SemExprArena,
+    sem_stmt_arena: SemStmtArena,
+    sem_expr_roots: VecPairMap<SynExprIdx, (SemExprIdx, SynExprRootKind)>,
     syn_pattern_expr_ty_infos: SynPatternMap<PatternExprTypeInfo>,
     syn_pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
-    sem_expr_terms: VecPairMap<SemaExprIdx, SemaExprTermResult<FlyTerm>>,
+    sem_expr_terms: VecPairMap<SemExprIdx, SemExprTermResult<FlyTerm>>,
     symbol_tys: SymbolMap<SymbolType>,
     symbol_terms: SymbolMap<FlyTerm>,
     fly_term_region: FlyTermRegion,
@@ -131,37 +131,34 @@ pub struct SemaExprRegionData {
     self_ty: Option<EthTerm>,
 }
 
-impl SemaExprRegionData {
+impl SemExprRegionData {
     pub fn path(&self) -> RegionPath {
         self.path
     }
 
-    pub fn syn_root_to_sem_expr_idx(&self, syn_expr_root: SynExprIdx) -> SemaExprIdx {
+    pub fn syn_root_to_sem_expr_idx(&self, syn_expr_root: SynExprIdx) -> SemExprIdx {
         (self.sem_expr_roots[syn_expr_root].1).0
     }
 
     pub fn sem_expr_roots<'a>(
         &'a self,
-    ) -> impl Iterator<Item = (SemaExprIdx, SynExprRootKind)> + 'a {
+    ) -> impl Iterator<Item = (SemExprIdx, SynExprRootKind)> + 'a {
         self.sem_expr_roots.iter().map(|&(_, root)| root)
     }
 
-    pub fn sem_expr_arena(&self) -> SemaExprArenaRef {
+    pub fn sem_expr_arena(&self) -> SemExprArenaRef {
         self.sem_expr_arena.arena_ref()
     }
 
-    pub fn sem_expr_arena2(&self) -> &SemaExprArena {
+    pub fn sem_expr_arena2(&self) -> &SemExprArena {
         &self.sem_expr_arena
     }
 
-    pub fn sem_stmt_arena(&self) -> SemaStmtArenaRef {
+    pub fn sem_stmt_arena(&self) -> SemStmtArenaRef {
         self.sem_stmt_arena.arena_ref()
     }
 
-    pub fn sem_expr_term(
-        &self,
-        sem_expr_idx: SemaExprIdx,
-    ) -> Option<SemaExprTermResultRef<FlyTerm>> {
+    pub fn sem_expr_term(&self, sem_expr_idx: SemExprIdx) -> Option<SemExprTermResultRef<FlyTerm>> {
         Some(
             self.sem_expr_terms
                 .get_value(sem_expr_idx)?
@@ -174,7 +171,7 @@ impl SemaExprRegionData {
     pub fn syn_root_expr_term(
         &self,
         syn_expr_root: SynExprIdx,
-    ) -> Option<SemaExprTermResultRef<FlyTerm>> {
+    ) -> Option<SemExprTermResultRef<FlyTerm>> {
         self.sem_expr_term(self.syn_root_to_sem_expr_idx(syn_expr_root))
     }
 
@@ -194,7 +191,7 @@ impl SemaExprRegionData {
         self.path
     }
 
-    pub fn sem_expr_terms(&self) -> &VecPairMap<SemaExprIdx, SemaExprTermResult<FlyTerm>> {
+    pub fn sem_expr_terms(&self) -> &VecPairMap<SemExprIdx, SemExprTermResult<FlyTerm>> {
         &self.sem_expr_terms
     }
 
@@ -223,9 +220,9 @@ impl SemaExprRegionData {
     }
 }
 
-#[salsa::tracked(jar = SemaExprJar)]
-pub(crate) fn sem_expr_region(db: &::salsa::Db, syn_expr_region: SynExprRegion) -> SemaExprRegion {
-    let mut engine = SemaExprBuilder::new(db, syn_expr_region);
+#[salsa::tracked(jar = SemExprJar)]
+pub(crate) fn sem_expr_region(db: &::salsa::Db, syn_expr_region: SynExprRegion) -> SemExprRegion {
+    let mut engine = SemExprBuilder::new(db, syn_expr_region);
     engine.infer_all();
     engine.finish()
 }
@@ -233,15 +230,15 @@ pub(crate) fn sem_expr_region(db: &::salsa::Db, syn_expr_region: SynExprRegion) 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct PatternExprTypeInfo {
-    ty: PatternSemaExprResult<FlyTerm>,
+    ty: PatternSemExprResult<FlyTerm>,
 }
 
 impl PatternExprTypeInfo {
-    pub(crate) fn new(ty: PatternSemaExprResult<FlyTerm>) -> Self {
+    pub(crate) fn new(ty: PatternSemExprResult<FlyTerm>) -> Self {
         Self { ty }
     }
 
-    pub(crate) fn ty(&self) -> Result<&FlyTerm, &PatternSemaExprError> {
+    pub(crate) fn ty(&self) -> Result<&FlyTerm, &PatternSemExprError> {
         self.ty.as_ref()
     }
 }

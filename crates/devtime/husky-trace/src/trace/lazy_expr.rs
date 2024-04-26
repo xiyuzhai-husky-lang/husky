@@ -6,7 +6,7 @@ use husky_hir_lazy_expr::{
 };
 use husky_ki_repr::expansion::KiReprExpansion;
 use husky_sem_expr::{
-    helpers::range::sem_expr_range_region, SemaExprData, SemaExprRegion, SemaRitchieArgument,
+    helpers::range::sem_expr_range_region, SemExprData, SemExprRegion, SemaRitchieArgument,
 };
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
@@ -26,10 +26,10 @@ pub enum LazyExprEssence {
 pub struct LazyExprTraceData {
     path: TracePath,
     biological_parent: Trace,
-    sem_expr_idx: SemaExprIdx,
+    sem_expr_idx: SemExprIdx,
     hir_lazy_expr_idx: Option<HirLazyExprIdx>,
     #[skip_fmt]
-    sem_expr_region: SemaExprRegion,
+    sem_expr_region: SemExprRegion,
     #[skip_fmt]
     hir_lazy_expr_region: HirLazyExprRegion,
     #[skip_fmt]
@@ -40,9 +40,9 @@ impl Trace {
     pub(crate) fn new_lazy_expr(
         biological_parent_path: TracePath,
         biological_parent: Trace,
-        sem_expr_idx: SemaExprIdx,
+        sem_expr_idx: SemExprIdx,
         hir_lazy_expr_idx: Option<HirLazyExprIdx>,
-        sem_expr_region: SemaExprRegion,
+        sem_expr_region: SemExprRegion,
         hir_lazy_expr_region: HirLazyExprRegion,
         hir_lazy_expr_source_map: HirLazyExprSourceMap,
         lazy_expr_trace_path_registry: &mut TracePathRegistry<LazyExprEssence>,
@@ -117,7 +117,7 @@ impl LazyExprTraceData {
         let hir_lazy_expr_source_map_data = self.hir_lazy_expr_source_map.data(db);
         match self.hir_lazy_expr_region.hir_lazy_expr_arena(db)[hir_eager_expr_idx] {
             HirLazyExprData::FunctionRitchieItemCall { path, .. } => {
-                let SemaExprData::FunctionRitchieCall {
+                let SemExprData::FunctionRitchieCall {
                     ref ritchie_parameter_argument_matches,
                     ..
                 } = sem_expr_idx.data(sem_expr_region_data.sem_expr_arena())
@@ -143,7 +143,7 @@ impl LazyExprTraceData {
                 subtraces
             }
             HirLazyExprData::AssocFunctionRitchieCall { path, .. } => {
-                let SemaExprData::FunctionRitchieCall {
+                let SemExprData::FunctionRitchieCall {
                     ref ritchie_parameter_argument_matches,
                     ..
                 } = sem_expr_idx.data(sem_expr_region_data.sem_expr_arena())
@@ -169,7 +169,7 @@ impl LazyExprTraceData {
                 subtraces
             }
             HirLazyExprData::MethodRitchieCall { path, .. } => {
-                let SemaExprData::FunctionRitchieCall {
+                let SemExprData::FunctionRitchieCall {
                     ref ritchie_parameter_argument_matches,
                     ..
                 } = sem_expr_idx.data(sem_expr_region_data.sem_expr_arena())
@@ -196,7 +196,7 @@ impl LazyExprTraceData {
             }
             HirLazyExprData::Block { .. } => unreachable!(),
             HirLazyExprData::FunctionRitchieItemCall { path, .. } => {
-                let SemaExprData::FunctionRitchieCall {
+                let SemExprData::FunctionRitchieCall {
                     ref ritchie_parameter_argument_matches,
                     ..
                 } = sem_expr_idx.data(sem_expr_region_data.sem_expr_arena())

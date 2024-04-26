@@ -1,3 +1,4 @@
+use crate::SemExprBuilder;
 use husky_syn_expr::SynPatternIdx;
 
 struct PatternProduct {
@@ -10,6 +11,8 @@ struct PatternChoices {
 
 pub enum RefutationTarget {}
 
-fn refute(choices: PatternChoices, target: RefutationTarget) -> PatternChoices {
-    todo!()
+impl<'a> SemExprBuilder<'a> {
+    fn refute(choices: PatternChoices, target: RefutationTarget) -> PatternChoices {
+        todo!()
+    }
 }

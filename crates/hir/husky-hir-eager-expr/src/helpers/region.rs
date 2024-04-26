@@ -1,5 +1,5 @@
 use super::*;
-use husky_sem_expr::{helpers::region::sem_expr_region_from_region_path, SemaExprRegion};
+use husky_sem_expr::{helpers::region::sem_expr_region_from_region_path, SemExprRegion};
 use husky_syn_defn::item_syn_defn;
 use husky_syn_defn::ItemSynDefn;
 
@@ -31,14 +31,14 @@ pub fn hir_eager_expr_region(
 }
 
 pub fn hir_eager_expr_source_map_from_sema(
-    sem_expr_region: SemaExprRegion,
+    sem_expr_region: SemExprRegion,
     db: &::salsa::Db,
 ) -> HirEagerExprSourceMap {
     hir_eager_expr_region_with_source_map(db, sem_expr_region).1
 }
 
 impl HirEagerExprRegion {
-    pub fn sem_expr_region(self, db: &::salsa::Db) -> SemaExprRegion {
+    pub fn sem_expr_region(self, db: &::salsa::Db) -> SemExprRegion {
         let region_path = self.region_path(db);
         sem_expr_region_from_region_path(region_path, db)
     }

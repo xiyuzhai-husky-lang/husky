@@ -154,7 +154,7 @@ pub enum JarIndex {
     // namekian
     NamAstJar,
     // semantics
-    SemaExprJar,
+    SemExprJar,
     SemaPlaceContractJar,
     // super
     SuperNodeJar,
