@@ -9120,6 +9120,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "rustc_arena"
+version = "0.0.0"
+dependencies = [
+ "smallvec",
+]
+
+[[package]]
 name = "rustc_graphviz"
 version = "0.0.0"
 

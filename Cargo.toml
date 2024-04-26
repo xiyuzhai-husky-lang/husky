@@ -179,6 +179,7 @@ is = { path = "crates/abstractions/is" }
 maybe-result = { path = "crates/abstractions/maybe-result" }
 original-error = { path = "crates/abstractions/original-error" }
 parsec = { path = "crates/abstractions/parsec" }
+rustc_arena = { path = "crates/rustc_arena" }
 rustc_macros = { path = "crates/rustc_macros" }
 rustc-pattern-analysis = { path = "crates/abstractions/rustc-pattern-analysis" }
 rustc_graphviz = { path = "crates/abstractions/rustc_graphviz" }
