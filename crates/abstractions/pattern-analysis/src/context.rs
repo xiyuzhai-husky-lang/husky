@@ -1,6 +1,6 @@
 use crate::constructor::IntRange;
 
-use crate::pat::DeconstructedPat;
+use crate::pattern::DeconstructedPattern;
 
 use crate::constructor::ConstructorSet;
 
@@ -35,12 +35,12 @@ pub trait PatternContext: Sized + fmt::Debug {
     fn is_min_exhaustive_patterns_feature_on(&self) -> bool;
 
     /// The number of fields for this constructor.
-    fn ctor_arity(&self, ctor: &Constructor<Self>, ty: &Self::PatternType) -> usize;
+    fn ctor_arity(&self, constructor: &Constructor<Self>, ty: &Self::PatternType) -> usize;
 
     /// The types of the fields for this constructor. The result must contain `ctor_arity()` fields.
     fn ctor_sub_tys<'a>(
         &'a self,
-        ctor: &'a Constructor<Self>,
+        constructor: &'a Constructor<Self>,
         ty: &'a Self::PatternType,
     ) -> impl Iterator<Item = (Self::PatternType, PrivateUninhabitedField)>
            + ExactSizeIterator
@@ -55,10 +55,10 @@ pub trait PatternContext: Sized + fmt::Debug {
     ) -> Result<ConstructorSet<Self>, Self::Error>;
 
     /// Write the name of the variant represented by `pat`. Used for the best-effort `Debug` impl of
-    /// `DeconstructedPat`. Only invoqued when `pat.ctor()` is `Struct | Variant(_) | UnionField`.
+    /// `DeconstructedPattern`. Only invoqued when `pat.constructor()` is `Struct | Variant(_) | UnionField`.
     fn write_variant_name(
         f: &mut fmt::Formatter<'_>,
-        ctor: &crate::constructor::Constructor<Self>,
+        constructor: &crate::constructor::Constructor<Self>,
         ty: &Self::PatternType,
     ) -> fmt::Result;
 
@@ -70,9 +70,9 @@ pub trait PatternContext: Sized + fmt::Debug {
     /// The default implementation does nothing.
     fn lint_overlapping_range_endpoints(
         &self,
-        _pat: &DeconstructedPat<Self>,
+        _pat: &DeconstructedPattern<Self>,
         _overlaps_on: IntRange,
-        _overlaps_with: &[&DeconstructedPat<Self>],
+        _overlaps_with: &[&DeconstructedPattern<Self>],
     ) {
     }
 
@@ -85,9 +85,9 @@ pub trait PatternContext: Sized + fmt::Debug {
     /// The default implementation does nothing.
     fn lint_non_contiguous_range_endpoints(
         &self,
-        _pat: &DeconstructedPat<Self>,
+        _pat: &DeconstructedPattern<Self>,
         _gap: IntRange,
-        _gapped_with: &[&DeconstructedPat<Self>],
+        _gapped_with: &[&DeconstructedPattern<Self>],
     ) {
     }
 }

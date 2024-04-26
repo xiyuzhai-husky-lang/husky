@@ -1,7 +1,7 @@
 //! Test exhaustiveness checking.
 use common::*;
 use pattern_analysis::{
-    pat::{DeconstructedPat, WitnessPat},
+    pattern::{DeconstructedPattern, WitnessPat},
     usefulness::PlaceValidity,
     MatchArm,
 };
@@ -10,7 +10,7 @@ use pattern_analysis::{
 mod common;
 
 /// Analyze a match made of these patterns.
-fn check(patterns: Vec<DeconstructedPat<Ctx>>) -> Vec<WitnessPat<Ctx>> {
+fn check(patterns: Vec<DeconstructedPattern<Ctx>>) -> Vec<WitnessPat<Ctx>> {
     let ty = *patterns[0].ty();
     let arms: Vec<_> = patterns
         .iter()
@@ -26,7 +26,7 @@ fn check(patterns: Vec<DeconstructedPat<Ctx>>) -> Vec<WitnessPat<Ctx>> {
 }
 
 #[track_caller]
-fn assert_exhaustive(patterns: Vec<DeconstructedPat<Ctx>>) {
+fn assert_exhaustive(patterns: Vec<DeconstructedPattern<Ctx>>) {
     let witnesses = check(patterns);
     if !witnesses.is_empty() {
         panic!("non-exaustive match: missing {witnesses:?}");
@@ -34,7 +34,7 @@ fn assert_exhaustive(patterns: Vec<DeconstructedPat<Ctx>>) {
 }
 
 #[track_caller]
-fn assert_non_exhaustive(patterns: Vec<DeconstructedPat<Ctx>>) {
+fn assert_non_exhaustive(patterns: Vec<DeconstructedPattern<Ctx>>) {
     let witnesses = check(patterns);
     assert!(!witnesses.is_empty())
 }
