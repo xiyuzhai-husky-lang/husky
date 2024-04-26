@@ -158,9 +158,11 @@ serde = { version = "1.0.106", features = ["derive"] }
 serde_json = { version = "1.0.48", features = ["preserve_order"] }
 serde_with = "3.4.0"
 # turn on "union" to guarantee the size of SmallVec is unaffected by dependencies
-smallvec = { version = "1.12", features = ["union", "serde"] }
+smallvec = { version = "1.12", features = ["union", "serde", "const_generics", "may_dangle"] }
 stacker = "0.1.15"
 syn = { version = "2.0.38", features = ["full", "extra-traits", "visit-mut"] }
+tempfile = "3.2"
+thin-vec = "0.2.12"
 thiserror = "1.0.37"
 threadpool = "1.7.1"
 tokio = { version = "1.32.0", features = ["full"] }
@@ -188,14 +190,15 @@ is = { path = "crates/abstractions/is" }
 maybe-result = { path = "crates/abstractions/maybe-result" }
 original-error = { path = "crates/abstractions/original-error" }
 parsec = { path = "crates/abstractions/parsec" }
-rustc_arena = { path = "crates/rustc_arena" }
-rustc_macros = { path = "crates/rustc_macros" }
-rustc-pattern-analysis = { path = "crates/abstractions/rustc-pattern-analysis" }
-rustc_graphviz = { path = "crates/abstractions/rustc_graphviz" }
 propagate = { path = "crates/abstractions/propagate" }
-ref-index = { path = "crates/abstractions/ref-index" }
+rustc_arena = { path = "crates/abstractions/rustc_arena" }
 rustc_index = { path = "crates/abstractions/rustc_index" }
 rustc_index_macros = { path = "crates/abstractions/rustc_index_macros" }
+rustc_macros = { path = "crates/abstractions/rustc_macros" }
+rustc-pattern-analysis = { path = "crates/abstractions/rustc-pattern-analysis" }
+rustc_serialize = { path = "crates/abstractions/rustc_serialize" }
+rustc_graphviz = { path = "crates/abstractions/rustc_graphviz" }
+ref-index = { path = "crates/abstractions/ref-index" }
 salsa = { path = "crates/abstractions/salsa" }
 salsa-macros = { path = "crates/abstractions/salsa-macros" }
 serde-impl = { path = "crates/abstractions/serde-impl" }
