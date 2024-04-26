@@ -17,7 +17,7 @@ use std::fmt;
 /// Context that provides type information about constructors.
 ///
 /// Most of the crate is parameterized on a type that implements this trait.
-pub trait PatternContext: Sized + fmt::Debug {
+pub trait IsPatternAnalyisContext: Sized + fmt::Debug {
     /// The type of a pattern.
     type PatternType: Clone + fmt::Debug;
     /// Errors that can abort analysis.

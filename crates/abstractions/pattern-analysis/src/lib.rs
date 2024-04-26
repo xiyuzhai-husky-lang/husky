@@ -23,13 +23,13 @@ pub struct PrivateUninhabitedField(pub bool);
 
 /// The arm of a match expression.
 #[derive(Debug)]
-pub struct MatchArm<'p, Ctx: PatternContext> {
+pub struct MatchArm<'p, Ctx: IsPatternAnalyisContext> {
     pub pat: &'p DeconstructedPattern<Ctx>,
     pub has_guard: bool,
     pub arm_data: Ctx::MatchArmData,
 }
 
-impl<'p, Ctx: PatternContext> Clone for MatchArm<'p, Ctx> {
+impl<'p, Ctx: IsPatternAnalyisContext> Clone for MatchArm<'p, Ctx> {
     fn clone(&self) -> Self {
         Self {
             pat: self.pat,
@@ -39,4 +39,4 @@ impl<'p, Ctx: PatternContext> Clone for MatchArm<'p, Ctx> {
     }
 }
 
-impl<'p, Ctx: PatternContext> Copy for MatchArm<'p, Ctx> {}
+impl<'p, Ctx: IsPatternAnalyisContext> Copy for MatchArm<'p, Ctx> {}

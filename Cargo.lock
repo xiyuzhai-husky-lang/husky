@@ -4578,6 +4578,7 @@ dependencies = [
  "husky-vfs",
  "once_cell",
  "optional",
+ "rustc_index",
  "salsa",
  "thiserror",
  "url",
@@ -5878,6 +5879,12 @@ dependencies = [
 [[package]]
 name = "husky-sem-pattern-analysis"
 version = "0.1.0"
+dependencies = [
+ "husky-entity-path",
+ "husky-fly-term",
+ "husky-lifetime-utils",
+ "pattern-analysis",
+]
 
 [[package]]
 name = "husky-sem-place-contract"

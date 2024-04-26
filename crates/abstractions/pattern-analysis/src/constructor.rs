@@ -190,7 +190,7 @@ use self::Constructor::*;
 use self::MaybeInfiniteInt::*;
 use self::SliceKind::*;
 
-use crate::PatternContext;
+use crate::IsPatternAnalyisContext;
 
 /// Whether we have seen a constructor in the column or not.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
@@ -688,7 +688,7 @@ impl OpaqueId {
 /// constructor. `Constructor::apply` reconstructs the pattern from a pair of `Constructor` and
 /// `Fields`.
 #[derive(Debug)]
-pub enum Constructor<Ctx: PatternContext> {
+pub enum Constructor<Ctx: IsPatternAnalyisContext> {
     /// Tuples and structs.
     Struct,
     /// Enum variants.
@@ -737,7 +737,7 @@ pub enum Constructor<Ctx: PatternContext> {
     PrivateUninhabited,
 }
 
-impl<Ctx: PatternContext> Clone for Constructor<Ctx> {
+impl<Ctx: IsPatternAnalyisContext> Clone for Constructor<Ctx> {
     fn clone(&self) -> Self {
         match self {
             Constructor::Struct => Constructor::Struct,
@@ -762,7 +762,7 @@ impl<Ctx: PatternContext> Clone for Constructor<Ctx> {
     }
 }
 
-impl<Ctx: PatternContext> Constructor<Ctx> {
+impl<Ctx: IsPatternAnalyisContext> Constructor<Ctx> {
     pub(crate) fn is_non_exhaustive(&self) -> bool {
         matches!(self, NonExhaustive)
     }
@@ -955,7 +955,7 @@ pub enum VariantVisibility {
 /// In terms of division of responsibility, [`ConstructorSet::split`] handles all of the
 /// `exhaustive_patterns` feature.
 #[derive(Debug)]
-pub enum ConstructorSet<Ctx: PatternContext> {
+pub enum ConstructorSet<Ctx: IsPatternAnalyisContext> {
     /// The type is a tuple or struct. `empty` tracks whether the type is empty.
     Struct { empty: bool },
     /// This type has the following list of constructors. If `variants` is empty and
@@ -1012,13 +1012,13 @@ pub enum ConstructorSet<Ctx: PatternContext> {
 /// of the `ConstructorSet` for the type, yet if we forgot to include them in `present` we would be
 /// ignoring any row with `Opaque`s in the algorithm. Hence the importance of point 4.
 #[derive(Debug)]
-pub struct SplitConstructorSet<Ctx: PatternContext> {
+pub struct SplitConstructorSet<Ctx: IsPatternAnalyisContext> {
     pub present: SmallVec<[Constructor<Ctx>; 1]>,
     pub missing: Vec<Constructor<Ctx>>,
     pub missing_empty: Vec<Constructor<Ctx>>,
 }
 
-impl<Ctx: PatternContext> ConstructorSet<Ctx> {
+impl<Ctx: IsPatternAnalyisContext> ConstructorSet<Ctx> {
     /// This analyzes a column of constructors to 1/ determine which constructors of the type (if
     /// any) are missing; 2/ split constructors to handle non-trivial intersections e.g. on ranges
     /// or slices. This can get subtle; see [`SplitConstructorSet`] for details of this operation
