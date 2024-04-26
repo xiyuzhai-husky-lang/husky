@@ -3,7 +3,7 @@ use pattern_analysis::{
     constructor::{
         Constructor, ConstructorSet, IntRange, MaybeInfiniteInt, RangeEnd, VariantVisibility,
     },
-    context::PatternContext,
+    context::IsPatternAnalyisContext,
     usefulness::{PlaceValidity, UsefulnessReport},
     MatchArm, PrivateUninhabitedField,
 };
@@ -109,7 +109,7 @@ pub fn compute_match_usefulness<'p>(
 pub struct Ctx;
 
 /// The context for pattern analysis. Forwards anything interesting to `Ty` methods.
-impl PatternContext for Ctx {
+impl IsPatternAnalyisContext for Ctx {
     type PatternType = Ty;
     type Error = ();
     type VariantIdx = usize;

@@ -1,6 +1,6 @@
 use crate::constructor::{Constructor, SplitConstructorSet};
 use crate::pattern::{DeconstructedPattern, PatOrWild};
-use crate::{MatchArm, PatternContext};
+use crate::{IsPatternAnalyisContext, MatchArm};
 use husky_lifetime_utils::capture::Captures;
 
 /// A column of patterns in a match, where a column is the intuitive notion of "subpatterns that
@@ -12,12 +12,12 @@ use husky_lifetime_utils::capture::Captures;
 ///
 /// This is not used in the usefulness algorithm; only in lints.
 #[derive(Debug)]
-pub struct PatternColumn<'p, Ctx: PatternContext> {
+pub struct PatternColumn<'p, Ctx: IsPatternAnalyisContext> {
     /// This must not contain an or-pattern. `expand_and_push` takes care to expand them.
     patterns: Vec<&'p DeconstructedPattern<Ctx>>,
 }
 
-impl<'p, Ctx: PatternContext> PatternColumn<'p, Ctx> {
+impl<'p, Ctx: IsPatternAnalyisContext> PatternColumn<'p, Ctx> {
     pub fn new(arms: &[MatchArm<'p, Ctx>]) -> Self {
         let patterns = Vec::with_capacity(arms.len());
         let mut column = PatternColumn { patterns };

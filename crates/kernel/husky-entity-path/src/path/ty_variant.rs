@@ -1,10 +1,21 @@
 use crate::*;
+use rustc_index::Idx;
 
 #[salsa::derive_debug_with_db]
 #[salsa::as_id(jar = EntityPathJar)]
 #[salsa::deref_id]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct TypeVariantPath(ItemPathId);
+
+impl Idx for TypeVariantPath {
+    fn new(idx: usize) -> Self {
+        todo!()
+    }
+
+    fn index(self) -> usize {
+        todo!()
+    }
+}
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

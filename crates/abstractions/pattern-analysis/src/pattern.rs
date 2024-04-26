@@ -5,7 +5,7 @@ use std::fmt;
 use smallvec::{smallvec, SmallVec};
 
 use crate::constructor::{Constructor, Slice, SliceKind};
-use crate::{PatternContext, PrivateUninhabitedField};
+use crate::{IsPatternAnalyisContext, PrivateUninhabitedField};
 
 use self::Constructor::*;
 
@@ -21,7 +21,7 @@ impl PatId {
 }
 
 /// A pattern with an index denoting which field it corresponds to.
-pub struct IndexedPat<Ctx: PatternContext> {
+pub struct IndexedPat<Ctx: IsPatternAnalyisContext> {
     pub idx: usize,
     pub pat: DeconstructedPattern<Ctx>,
 }
@@ -29,7 +29,7 @@ pub struct IndexedPat<Ctx: PatternContext> {
 /// Values and patterns can be represented as a constructor applied to some fields. This represents
 /// a pattern in this form. A `DeconstructedPattern` will almost always come from user input; the only
 /// exception are some `Wildcard`s introduced during pattern lowering.
-pub struct DeconstructedPattern<Ctx: PatternContext> {
+pub struct DeconstructedPattern<Ctx: IsPatternAnalyisContext> {
     constructor: Constructor<Ctx>,
     fields: Vec<IndexedPat<Ctx>>,
     /// The number of fields in this pattern. E.g. if the pattern is `SomeStruct { field12: true, ..
@@ -43,7 +43,7 @@ pub struct DeconstructedPattern<Ctx: PatternContext> {
     pub(crate) uid: PatId,
 }
 
-impl<Ctx: PatternContext> DeconstructedPattern<Ctx> {
+impl<Ctx: IsPatternAnalyisContext> DeconstructedPattern<Ctx> {
     pub fn new(
         constructor: Constructor<Ctx>,
         fields: Vec<IndexedPat<Ctx>>,
@@ -146,7 +146,7 @@ impl<Ctx: PatternContext> DeconstructedPattern<Ctx> {
 }
 
 /// This is best effort and not good enough for a `Display` impl.
-impl<Ctx: PatternContext> fmt::Debug for DeconstructedPattern<Ctx> {
+impl<Ctx: IsPatternAnalyisContext> fmt::Debug for DeconstructedPattern<Ctx> {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         let mut fields: Vec<_> = (0..self.arity).map(|_| PatOrWild::Wild).collect();
         for ipat in self.iter_fields() {
@@ -161,14 +161,14 @@ impl<Ctx: PatternContext> fmt::Debug for DeconstructedPattern<Ctx> {
 /// algorithm. Do not use `Wild` to represent a wildcard pattern comping from user input.
 ///
 /// This is morally `Option<&'p DeconstructedPattern>` where `None` is interpreted as a wildcard.
-pub(crate) enum PatOrWild<'p, Ctx: PatternContext> {
+pub(crate) enum PatOrWild<'p, Ctx: IsPatternAnalyisContext> {
     /// A non-user-provided wildcard, created during specialization.
     Wild,
     /// A user-provided pattern.
     Pat(&'p DeconstructedPattern<Ctx>),
 }
 
-impl<'p, Ctx: PatternContext> Clone for PatOrWild<'p, Ctx> {
+impl<'p, Ctx: IsPatternAnalyisContext> Clone for PatOrWild<'p, Ctx> {
     fn clone(&self) -> Self {
         match self {
             PatOrWild::Wild => PatOrWild::Wild,
@@ -177,9 +177,9 @@ impl<'p, Ctx: PatternContext> Clone for PatOrWild<'p, Ctx> {
     }
 }
 
-impl<'p, Ctx: PatternContext> Copy for PatOrWild<'p, Ctx> {}
+impl<'p, Ctx: IsPatternAnalyisContext> Copy for PatOrWild<'p, Ctx> {}
 
-impl<'p, Ctx: PatternContext> PatOrWild<'p, Ctx> {
+impl<'p, Ctx: IsPatternAnalyisContext> PatOrWild<'p, Ctx> {
     pub(crate) fn as_pat(&self) -> Option<&'p DeconstructedPattern<Ctx>> {
         match self {
             PatOrWild::Wild => None,
@@ -225,7 +225,7 @@ impl<'p, Ctx: PatternContext> PatOrWild<'p, Ctx> {
     }
 }
 
-impl<'p, Ctx: PatternContext> fmt::Debug for PatOrWild<'p, Ctx> {
+impl<'p, Ctx: IsPatternAnalyisContext> fmt::Debug for PatOrWild<'p, Ctx> {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         match self {
             PatOrWild::Wild => write!(f, "_"),
@@ -236,13 +236,13 @@ impl<'p, Ctx: PatternContext> fmt::Debug for PatOrWild<'p, Ctx> {
 
 /// Same idea as `DeconstructedPattern`, except this is a fictitious pattern built up for diagnostics
 /// purposes. As such they don't use interning and can be cloned.
-pub struct WitnessPat<Ctx: PatternContext> {
+pub struct WitnessPat<Ctx: IsPatternAnalyisContext> {
     constructor: Constructor<Ctx>,
     pub(crate) fields: Vec<WitnessPat<Ctx>>,
     ty: Ctx::PatternType,
 }
 
-impl<Ctx: PatternContext> Clone for WitnessPat<Ctx> {
+impl<Ctx: IsPatternAnalyisContext> Clone for WitnessPat<Ctx> {
     fn clone(&self) -> Self {
         Self {
             constructor: self.constructor.clone(),
@@ -252,7 +252,7 @@ impl<Ctx: PatternContext> Clone for WitnessPat<Ctx> {
     }
 }
 
-impl<Ctx: PatternContext> WitnessPat<Ctx> {
+impl<Ctx: IsPatternAnalyisContext> WitnessPat<Ctx> {
     pub(crate) fn new(
         constructor: Constructor<Ctx>,
         fields: Vec<Self>,
@@ -313,7 +313,7 @@ impl<Ctx: PatternContext> WitnessPat<Ctx> {
 }
 
 /// This is best effort and not good enough for a `Display` impl.
-impl<Ctx: PatternContext> fmt::Debug for WitnessPat<Ctx> {
+impl<Ctx: IsPatternAnalyisContext> fmt::Debug for WitnessPat<Ctx> {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         self.constructor()
             .fmt_fields(f, self.ty(), self.fields.iter())

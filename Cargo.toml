@@ -179,6 +179,7 @@ is = { path = "crates/abstractions/is" }
 maybe-result = { path = "crates/abstractions/maybe-result" }
 original-error = { path = "crates/abstractions/original-error" }
 parsec = { path = "crates/abstractions/parsec" }
+pattern-analysis = { path = "crates/abstractions/pattern-analysis" }
 propagate = { path = "crates/abstractions/propagate" }
 ref-index = { path = "crates/abstractions/ref-index" }
 rustc_index = { path = "crates/abstractions/rustc_index" }

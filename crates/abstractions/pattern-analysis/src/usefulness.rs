@@ -712,7 +712,7 @@
 use self::PlaceValidity::*;
 use crate::constructor::{Constructor, ConstructorSet, IntRange};
 use crate::pattern::{DeconstructedPattern, PatId, PatOrWild, WitnessPat};
-use crate::{Captures, MatchArm, PatternContext, PrivateUninhabitedField};
+use crate::{Captures, IsPatternAnalyisContext, MatchArm, PrivateUninhabitedField};
 use rustc_hash::FxHashSet;
 use rustc_index::bit_set::BitSet;
 use smallvec::{smallvec, SmallVec};
@@ -726,7 +726,7 @@ pub fn ensure_sufficient_stack<R>(f: impl FnOnce() -> R) -> R {
 }
 
 /// Context that provides information for usefulness checking.
-struct UsefulnessCtxt<'a, Ctx: PatternContext> {
+struct UsefulnessCtxt<'a, Ctx: IsPatternAnalyisContext> {
     /// The context for type information.
     tycx: &'a Ctx,
     /// Collect the patterns found useful during usefulness checking. This is used to lint
@@ -736,7 +736,7 @@ struct UsefulnessCtxt<'a, Ctx: PatternContext> {
     complexity_level: usize,
 }
 
-impl<'a, Ctx: PatternContext> UsefulnessCtxt<'a, Ctx> {
+impl<'a, Ctx: IsPatternAnalyisContext> UsefulnessCtxt<'a, Ctx> {
     fn increase_complexity_level(&mut self, complexity_add: usize) -> Result<(), Ctx::Error> {
         self.complexity_level += complexity_add;
         if self
@@ -750,14 +750,14 @@ impl<'a, Ctx: PatternContext> UsefulnessCtxt<'a, Ctx> {
 }
 
 /// Context that provides information local to a place under investigation.
-struct PlaceCtxt<'a, Ctx: PatternContext> {
+struct PlaceCtxt<'a, Ctx: IsPatternAnalyisContext> {
     ctx: &'a Ctx,
     /// Type of the place under investigation.
     ty: &'a Ctx::PatternType,
 }
 
-impl<'a, Ctx: PatternContext> Copy for PlaceCtxt<'a, Ctx> {}
-impl<'a, Ctx: PatternContext> Clone for PlaceCtxt<'a, Ctx> {
+impl<'a, Ctx: IsPatternAnalyisContext> Copy for PlaceCtxt<'a, Ctx> {}
+impl<'a, Ctx: IsPatternAnalyisContext> Clone for PlaceCtxt<'a, Ctx> {
     fn clone(&self) -> Self {
         Self {
             ctx: self.ctx,
@@ -766,13 +766,13 @@ impl<'a, Ctx: PatternContext> Clone for PlaceCtxt<'a, Ctx> {
     }
 }
 
-impl<'a, Ctx: PatternContext> fmt::Debug for PlaceCtxt<'a, Ctx> {
+impl<'a, Ctx: IsPatternAnalyisContext> fmt::Debug for PlaceCtxt<'a, Ctx> {
     fn fmt(&self, fmt: &mut fmt::Formatter<'_>) -> fmt::Result {
         fmt.debug_struct("PlaceCtxt").field("ty", self.ty).finish()
     }
 }
 
-impl<'a, Ctx: PatternContext> PlaceCtxt<'a, Ctx> {
+impl<'a, Ctx: IsPatternAnalyisContext> PlaceCtxt<'a, Ctx> {
     fn constructor_arity(&self, constructor: &Constructor<Ctx>) -> usize {
         self.ctx.constructor_arity(constructor, self.ty)
     }
@@ -807,7 +807,7 @@ impl PlaceValidity {
     ///
     /// Pending further opsem decisions, the current behavior is: validity is preserved, except
     /// inside `&` and union fields where validity is reset to `MaybeInvalid`.
-    fn specialize<Ctx: PatternContext>(self, constructor: &Constructor<Ctx>) -> Self {
+    fn specialize<Ctx: IsPatternAnalyisContext>(self, constructor: &Constructor<Ctx>) -> Self {
         // We preserve validity except when we go inside a reference or a union field.
         if matches!(constructor, Constructor::Ref | Constructor::UnionField) {
             // Validity of `x: &T` does not imply validity of `*x: T`.
@@ -830,7 +830,7 @@ impl fmt::Display for PlaceValidity {
 
 /// Data about a place under investigation. Its methods contain a lot of the logic used to analyze
 /// the constructors in the matrix.
-struct PlaceInfo<Ctx: PatternContext> {
+struct PlaceInfo<Ctx: IsPatternAnalyisContext> {
     /// The type of the place.
     ty: Ctx::PatternType,
     /// Whether the place is a private uninhabited field. If so we skip this field during analysis
@@ -842,7 +842,7 @@ struct PlaceInfo<Ctx: PatternContext> {
     is_scrutinee: bool,
 }
 
-impl<Ctx: PatternContext> PlaceInfo<Ctx> {
+impl<Ctx: IsPatternAnalyisContext> PlaceInfo<Ctx> {
     /// Given a constructor for the current place, we return one `PlaceInfo` for each field of the
     /// constructor.
     fn specialize<'a>(
@@ -942,7 +942,7 @@ impl<Ctx: PatternContext> PlaceInfo<Ctx> {
     }
 }
 
-impl<Ctx: PatternContext> Clone for PlaceInfo<Ctx> {
+impl<Ctx: IsPatternAnalyisContext> Clone for PlaceInfo<Ctx> {
     fn clone(&self) -> Self {
         Self {
             ty: self.ty.clone(),
@@ -957,7 +957,7 @@ impl<Ctx: PatternContext> Clone for PlaceInfo<Ctx> {
 // The three lifetimes are:
 // - 'p coming from the input
 // - Ctx global compilation context
-struct PatStack<'p, Ctx: PatternContext> {
+struct PatStack<'p, Ctx: IsPatternAnalyisContext> {
     // Rows of len 1 are very common, which is why `SmallVec[_; 2]` works well.
     pats: SmallVec<[PatOrWild<'p, Ctx>; 2]>,
     /// Sometimes we know that as far as this row is concerned, the current case is already handled
@@ -966,7 +966,7 @@ struct PatStack<'p, Ctx: PatternContext> {
     relevant: bool,
 }
 
-impl<'p, Ctx: PatternContext> Clone for PatStack<'p, Ctx> {
+impl<'p, Ctx: IsPatternAnalyisContext> Clone for PatStack<'p, Ctx> {
     fn clone(&self) -> Self {
         Self {
             pats: self.pats.clone(),
@@ -975,7 +975,7 @@ impl<'p, Ctx: PatternContext> Clone for PatStack<'p, Ctx> {
     }
 }
 
-impl<'p, Ctx: PatternContext> PatStack<'p, Ctx> {
+impl<'p, Ctx: IsPatternAnalyisContext> PatStack<'p, Ctx> {
     fn from_pattern(pat: &'p DeconstructedPattern<Ctx>) -> Self {
         PatStack {
             pats: smallvec![PatOrWild::Pat(pat)],
@@ -1044,7 +1044,7 @@ impl<'p, Ctx: PatternContext> PatStack<'p, Ctx> {
     }
 }
 
-impl<'p, Ctx: PatternContext> fmt::Debug for PatStack<'p, Ctx> {
+impl<'p, Ctx: IsPatternAnalyisContext> fmt::Debug for PatStack<'p, Ctx> {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         // We pretty-print similarly to the `Debug` impl of `Matrix`.
         write!(f, "+")?;
@@ -1057,7 +1057,7 @@ impl<'p, Ctx: PatternContext> fmt::Debug for PatStack<'p, Ctx> {
 
 /// A row of the matrix.
 #[derive(Clone)]
-struct MatrixRow<'p, Ctx: PatternContext> {
+struct MatrixRow<'p, Ctx: IsPatternAnalyisContext> {
     // The patterns in the row.
     pats: PatStack<'p, Ctx>,
     /// Whether the original arm had a guard. This is inherited when specializing.
@@ -1077,7 +1077,7 @@ struct MatrixRow<'p, Ctx: PatternContext> {
     intersects: BitSet<usize>,
 }
 
-impl<'p, Ctx: PatternContext> MatrixRow<'p, Ctx> {
+impl<'p, Ctx: IsPatternAnalyisContext> MatrixRow<'p, Ctx> {
     fn is_empty(&self) -> bool {
         self.pats.is_empty()
     }
@@ -1133,7 +1133,7 @@ impl<'p, Ctx: PatternContext> MatrixRow<'p, Ctx> {
     }
 }
 
-impl<'p, Ctx: PatternContext> fmt::Debug for MatrixRow<'p, Ctx> {
+impl<'p, Ctx: IsPatternAnalyisContext> fmt::Debug for MatrixRow<'p, Ctx> {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         self.pats.fmt(f)
     }
@@ -1150,7 +1150,7 @@ impl<'p, Ctx: PatternContext> fmt::Debug for MatrixRow<'p, Ctx> {
 /// specializing `(,)` and `Some` on a pattern of type `(Option<u32>, bool)`, the first column of
 /// the matrix will correspond to `scrutinee.0.Some.0` and the second column to `scrutinee.1`.
 #[derive(Clone)]
-struct Matrix<'p, Ctx: PatternContext> {
+struct Matrix<'p, Ctx: IsPatternAnalyisContext> {
     /// Vector of rows. The rows must form a rectangular 2D array. Moreover, all the patterns of
     /// each column must have the same type. Each column corresponds to a place within the
     /// scrutinee.
@@ -1163,7 +1163,7 @@ struct Matrix<'p, Ctx: PatternContext> {
     wildcard_row_is_relevant: bool,
 }
 
-impl<'p, Ctx: PatternContext> Matrix<'p, Ctx> {
+impl<'p, Ctx: IsPatternAnalyisContext> Matrix<'p, Ctx> {
     /// Pushes a new row to the matrix. If the row starts with an or-pattern, this recursively
     /// expands it. Internal method, prefer [`Matrix::new`].
     fn expand_and_push(&mut self, mut row: MatrixRow<'p, Ctx>) {
@@ -1296,7 +1296,7 @@ impl<'p, Ctx: PatternContext> Matrix<'p, Ctx> {
 /// + _     + [_, _, tail @ ..] +
 /// | ✓     | ?                 | // validity
 /// ```
-impl<'p, Ctx: PatternContext> fmt::Debug for Matrix<'p, Ctx> {
+impl<'p, Ctx: IsPatternAnalyisContext> fmt::Debug for Matrix<'p, Ctx> {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         write!(f, "\n")?;
 
@@ -1397,15 +1397,15 @@ impl<'p, Ctx: PatternContext> fmt::Debug for Matrix<'p, Ctx> {
 ///
 /// See the top of the file for more detailed explanations and examples.
 #[derive(Debug)]
-struct WitnessStack<Ctx: PatternContext>(Vec<WitnessPat<Ctx>>);
+struct WitnessStack<Ctx: IsPatternAnalyisContext>(Vec<WitnessPat<Ctx>>);
 
-impl<Ctx: PatternContext> Clone for WitnessStack<Ctx> {
+impl<Ctx: IsPatternAnalyisContext> Clone for WitnessStack<Ctx> {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
 
-impl<Ctx: PatternContext> WitnessStack<Ctx> {
+impl<Ctx: IsPatternAnalyisContext> WitnessStack<Ctx> {
     /// Asserts that the witness contains a single pattern, and returns it.
     fn single_pattern(self) -> WitnessPat<Ctx> {
         assert_eq!(self.0.len(), 1);
@@ -1482,15 +1482,15 @@ impl<Ctx: PatternContext> WitnessStack<Ctx> {
 /// Just as the `Matrix` starts with a single column, by the end of the algorithm, this has a single
 /// column, which contains the patterns that are missing for the match to be exhaustive.
 #[derive(Debug)]
-struct WitnessMatrix<Ctx: PatternContext>(Vec<WitnessStack<Ctx>>);
+struct WitnessMatrix<Ctx: IsPatternAnalyisContext>(Vec<WitnessStack<Ctx>>);
 
-impl<Ctx: PatternContext> Clone for WitnessMatrix<Ctx> {
+impl<Ctx: IsPatternAnalyisContext> Clone for WitnessMatrix<Ctx> {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
 
-impl<Ctx: PatternContext> WitnessMatrix<Ctx> {
+impl<Ctx: IsPatternAnalyisContext> WitnessMatrix<Ctx> {
     /// New matrix with no witnesses.
     fn empty() -> Self {
         WitnessMatrix(Vec::new())
@@ -1564,7 +1564,7 @@ impl<Ctx: PatternContext> WitnessMatrix<Ctx> {
 ///
 /// We can however get false negatives because exhaustiveness does not explore all cases. See the
 /// section on relevancy at the top of the file.
-fn collect_overlapping_range_endpoints<'p, Ctx: PatternContext>(
+fn collect_overlapping_range_endpoints<'p, Ctx: IsPatternAnalyisContext>(
     ctx: &Ctx,
     overlap_range: IntRange,
     matrix: &Matrix<'p, Ctx>,
@@ -1627,7 +1627,7 @@ fn collect_overlapping_range_endpoints<'p, Ctx: PatternContext>(
 }
 
 /// Collect ranges that have a singleton gap between them.
-fn collect_non_contiguous_range_endpoints<'p, Ctx: PatternContext>(
+fn collect_non_contiguous_range_endpoints<'p, Ctx: IsPatternAnalyisContext>(
     ctx: &Ctx,
     gap_range: &IntRange,
     matrix: &Matrix<'p, Ctx>,
@@ -1670,7 +1670,7 @@ fn collect_non_contiguous_range_endpoints<'p, Ctx: PatternContext>(
 ///     (using `apply_constructor` and by updating `row.useful` for each parent row).
 /// This is all explained at the top of the file.
 #[instrument(level = "debug", skip(mcx), ret)]
-fn compute_exhaustiveness_and_usefulness<'a, 'p, Ctx: PatternContext>(
+fn compute_exhaustiveness_and_usefulness<'a, 'p, Ctx: IsPatternAnalyisContext>(
     mcx: &mut UsefulnessCtxt<'a, Ctx>,
     matrix: &mut Matrix<'p, Ctx>,
 ) -> Result<WitnessMatrix<Ctx>, Ctx::Error> {
@@ -1778,7 +1778,7 @@ fn compute_exhaustiveness_and_usefulness<'a, 'p, Ctx: PatternContext>(
 
 /// Indicates whether or not a given arm is useful.
 #[derive(Clone, Debug)]
-pub enum Usefulness<'p, Ctx: PatternContext> {
+pub enum Usefulness<'p, Ctx: IsPatternAnalyisContext> {
     /// The arm is useful. This additionally carries a set of or-pattern branches that have been
     /// found to be redundant despite the overall arm being useful. Used only in the presence of
     /// or-patterns, otherwise it stays empty.
@@ -1789,11 +1789,11 @@ pub enum Usefulness<'p, Ctx: PatternContext> {
 }
 
 /// Report whether this pattern was found useful, and its subpatterns that were not useful if any.
-fn collect_pattern_usefulness<'p, Ctx: PatternContext>(
+fn collect_pattern_usefulness<'p, Ctx: IsPatternAnalyisContext>(
     useful_subpatterns: &FxHashSet<PatId>,
     pat: &'p DeconstructedPattern<Ctx>,
 ) -> Usefulness<'p, Ctx> {
-    fn pat_is_useful<'p, Ctx: PatternContext>(
+    fn pat_is_useful<'p, Ctx: IsPatternAnalyisContext>(
         useful_subpatterns: &FxHashSet<PatId>,
         pat: &'p DeconstructedPattern<Ctx>,
     ) -> bool {
@@ -1833,7 +1833,7 @@ fn collect_pattern_usefulness<'p, Ctx: PatternContext>(
 }
 
 /// The output of checking a match for exhaustiveness and arm usefulness.
-pub struct UsefulnessReport<'p, Ctx: PatternContext> {
+pub struct UsefulnessReport<'p, Ctx: IsPatternAnalyisContext> {
     /// For each arm of the input, whether that arm is useful after the arms above it.
     pub arm_usefulness: Vec<(MatchArm<'p, Ctx>, Usefulness<'p, Ctx>)>,
     /// If the match is exhaustive, this is empty. If not, this contains witnesses for the lack of
@@ -1846,7 +1846,7 @@ pub struct UsefulnessReport<'p, Ctx: PatternContext> {
 
 /// Computes whether a match is exhaustive and which of its arms are useful.
 #[instrument(skip(tycx, arms), level = "debug")]
-pub fn compute_match_usefulness<'p, Ctx: PatternContext>(
+pub fn compute_match_usefulness<'p, Ctx: IsPatternAnalyisContext>(
     tycx: &Ctx,
     arms: &[MatchArm<'p, Ctx>],
     scrut_ty: Ctx::PatternType,
