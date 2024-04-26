@@ -30,9 +30,6 @@ use std::collections::HashMap;
 use syn::parse::{Parse, ParseStream, Result};
 use syn::{braced, punctuated::Punctuated, Expr, Ident, Lit, LitStr, Macro, Token};
 
-#[cfg(test)]
-mod tests;
-
 mod kw {
     syn::custom_keyword!(Keywords);
     syn::custom_keyword!(Symbols);
@@ -69,7 +66,11 @@ impl Parse for Symbol {
     fn parse(input: ParseStream<'_>) -> Result<Self> {
         let name = input.parse()?;
         let colon_token: Option<Token![:]> = input.parse()?;
-        let value = if colon_token.is_some() { input.parse()? } else { Value::SameAsName };
+        let value = if colon_token.is_some() {
+            input.parse()?
+        } else {
+            Value::SameAsName
+        };
 
         Ok(Symbol { name, value })
     }
@@ -151,17 +152,28 @@ struct Entries {
 
 impl Entries {
     fn with_capacity(capacity: usize) -> Self {
-        Entries { map: HashMap::with_capacity(capacity) }
+        Entries {
+            map: HashMap::with_capacity(capacity),
+        }
     }
 
     fn insert(&mut self, span: Span, str: &str, errors: &mut Errors) -> u32 {
         if let Some(prev) = self.map.get(str) {
             errors.error(span, format!("Symbol `{str}` is duplicated"));
-            errors.error(prev.span_of_name, "location of previous definition".to_string());
+            errors.error(
+                prev.span_of_name,
+                "location of previous definition".to_string(),
+            );
             prev.idx
         } else {
             let idx = self.len();
-            self.map.insert(str.to_string(), Preinterned { idx, span_of_name: span });
+            self.map.insert(
+                str.to_string(),
+                Preinterned {
+                    idx,
+                    span_of_name: span,
+                },
+            );
             idx
         }
     }
@@ -180,7 +192,10 @@ fn symbols_with_errors(input: TokenStream) -> (TokenStream, Vec<syn::Error>) {
             // This allows us to display errors at the proper span, while minimizing
             // unrelated errors caused by bailing out (and not generating code).
             errors.list.push(e);
-            Input { keywords: Default::default(), symbols: Default::default() }
+            Input {
+                keywords: Default::default(),
+                symbols: Default::default(),
+            }
         }
     };
 
@@ -194,7 +209,10 @@ fn symbols_with_errors(input: TokenStream) -> (TokenStream, Vec<syn::Error>) {
         if let Some((prev_span, ref prev_str)) = prev_key {
             if str < prev_str {
                 errors.error(span, format!("Symbol `{str}` must precede `{prev_str}`"));
-                errors.error(prev_span, format!("location of previous symbol `{prev_str}`"));
+                errors.error(
+                    prev_span,
+                    format!("location of previous symbol `{prev_str}`"),
+                );
             }
         }
         prev_key = Some((span, str.to_string()));

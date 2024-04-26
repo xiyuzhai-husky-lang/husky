@@ -594,7 +594,11 @@ where
     let mut content_attrs = Vec::new();
     let font;
     if let Some(fontname) = options.iter().find_map(|option| {
-        if let RenderOption::Fontname(fontname) = option { Some(fontname) } else { None }
+        if let RenderOption::Fontname(fontname) = option {
+            Some(fontname)
+        } else {
+            None
+        }
     }) {
         font = format!(r#"fontname="{fontname}""#);
         graph_attrs.push(&font[..]);

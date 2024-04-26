@@ -5,7 +5,12 @@ use syn::spanned::Spanned;
 
 pub fn type_decodable_derive(mut s: synstructure::Structure<'_>) -> proc_macro2::TokenStream {
     let decoder_ty = quote! { __D };
-    let bound = if s.ast().generics.lifetimes().any(|lt| lt.lifetime.ident == "tcx") {
+    let bound = if s
+        .ast()
+        .generics
+        .lifetimes()
+        .any(|lt| lt.lifetime.ident == "tcx")
+    {
         quote! { <I = ::rustc_middle::ty::TyCtxt<'tcx>> }
     } else if s.ast().generics.type_params().any(|ty| ty.ident == "I") {
         quote! { <I = I> }
@@ -21,7 +26,12 @@ pub fn type_decodable_derive(mut s: synstructure::Structure<'_>) -> proc_macro2:
 }
 
 pub fn meta_decodable_derive(mut s: synstructure::Structure<'_>) -> proc_macro2::TokenStream {
-    if !s.ast().generics.lifetimes().any(|lt| lt.lifetime.ident == "tcx") {
+    if !s
+        .ast()
+        .generics
+        .lifetimes()
+        .any(|lt| lt.lifetime.ident == "tcx")
+    {
         s.add_impl_generic(parse_quote! { 'tcx });
     }
     s.add_impl_generic(parse_quote! { '__a });
@@ -110,7 +120,10 @@ fn decodable_body(
 }
 
 fn decode_field(field: &syn::Field) -> proc_macro2::TokenStream {
-    let field_span = field.ident.as_ref().map_or(field.ty.span(), |ident| ident.span());
+    let field_span = field
+        .ident
+        .as_ref()
+        .map_or(field.ty.span(), |ident| ident.span());
 
     let decode_inner_method = if let syn::Type::Reference(_) = field.ty {
         quote! { ::rustc_middle::ty::codec::RefDecodable::decode }
@@ -124,7 +137,12 @@ fn decode_field(field: &syn::Field) -> proc_macro2::TokenStream {
 }
 
 pub fn type_encodable_derive(mut s: synstructure::Structure<'_>) -> proc_macro2::TokenStream {
-    let bound = if s.ast().generics.lifetimes().any(|lt| lt.lifetime.ident == "tcx") {
+    let bound = if s
+        .ast()
+        .generics
+        .lifetimes()
+        .any(|lt| lt.lifetime.ident == "tcx")
+    {
         quote! { <I = ::rustc_middle::ty::TyCtxt<'tcx>> }
     } else if s.ast().generics.type_params().any(|ty| ty.ident == "I") {
         quote! { <I = I> }
@@ -141,7 +159,12 @@ pub fn type_encodable_derive(mut s: synstructure::Structure<'_>) -> proc_macro2:
 }
 
 pub fn meta_encodable_derive(mut s: synstructure::Structure<'_>) -> proc_macro2::TokenStream {
-    if !s.ast().generics.lifetimes().any(|lt| lt.lifetime.ident == "tcx") {
+    if !s
+        .ast()
+        .generics
+        .lifetimes()
+        .any(|lt| lt.lifetime.ident == "tcx")
+    {
         s.add_impl_generic(parse_quote! {'tcx});
     }
     s.add_impl_generic(parse_quote! { '__a });

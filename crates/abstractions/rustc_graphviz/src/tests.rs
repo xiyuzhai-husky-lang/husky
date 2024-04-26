@@ -14,7 +14,12 @@ struct Edge {
 }
 
 fn edge(from: usize, to: usize, label: &'static str, style: Style) -> Edge {
-    Edge { from, to, label, style }
+    Edge {
+        from,
+        to,
+        label,
+        style,
+    }
 }
 
 struct LabelledGraph {
@@ -91,7 +96,9 @@ impl LabelledGraph {
 
 impl LabelledGraphWithEscStrs {
     fn new(name: &'static str, node_labels: Trivial, edges: Vec<Edge>) -> LabelledGraphWithEscStrs {
-        LabelledGraphWithEscStrs { graph: LabelledGraph::new(name, node_labels, edges, None) }
+        LabelledGraphWithEscStrs {
+            graph: LabelledGraph::new(name, node_labels, edges, None),
+        }
     }
 }
 
