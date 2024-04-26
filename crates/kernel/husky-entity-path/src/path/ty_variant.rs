@@ -7,20 +7,6 @@ use rustc_index::Idx;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct TypeVariantPath(ItemPathId);
 
-impl Idx for TypeVariantPath {
-    fn new(idx: usize) -> Self {
-        use salsa::AsId;
-
-        let id: u32 = idx.try_into().unwrap();
-        let item_path_id = ItemPathId::from_id(salsa::Id::from_u32(id));
-        Self(item_path_id)
-    }
-
-    fn index(self) -> usize {
-        self.0 .0.as_u32() as usize
-    }
-}
-
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct TypeVariantPathData {
@@ -30,8 +16,16 @@ pub struct TypeVariantPathData {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum TypeVariantIndex {
-    U8(u8),
+pub struct TypeVariantIndex(usize);
+
+impl Idx for TypeVariantIndex {
+    fn new(idx: usize) -> Self {
+        Self(idx)
+    }
+
+    fn index(self) -> usize {
+        self.0
+    }
 }
 
 pub struct TypeVariantRegistry {
@@ -41,14 +35,14 @@ pub struct TypeVariantRegistry {
 impl TypeVariantRegistry {
     pub fn new_u8() -> Self {
         Self {
-            next_index: TypeVariantIndex::U8(0),
+            next_index: TypeVariantIndex(0),
         }
     }
 
     fn issue_next(&mut self) -> TypeVariantIndex {
         match self.next_index {
-            TypeVariantIndex::U8(ref mut next_raw) => {
-                TypeVariantIndex::U8(std::mem::replace(next_raw, *next_raw + 1))
+            TypeVariantIndex(ref mut next_raw) => {
+                TypeVariantIndex(std::mem::replace(next_raw, *next_raw + 1))
             }
         }
     }
