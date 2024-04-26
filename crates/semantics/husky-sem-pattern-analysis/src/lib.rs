@@ -1,7 +1,7 @@
 pub mod context;
 pub mod error;
 
-use pattern_analysis::context::IsPatternAnalyisContext;
+use rustc_pattern_analysis::context::IsPatternAnalyisContext;
 
 /// The entrypoint for this crate. Computes whether a match is exhaustive and which of its arms are
 /// useful, and runs some lints.

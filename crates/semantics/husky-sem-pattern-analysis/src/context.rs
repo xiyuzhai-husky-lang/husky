@@ -30,7 +30,7 @@ impl IsPatternAnalyisContext for FlyPatternAnalysisContext {
 
     fn constructor_arity(
         &self,
-        constructor: &pattern_analysis::constructor::Constructor<Self>,
+        constructor: &rustc_pattern_analysis::constructor::Constructor<Self>,
         ty: &Self::Type,
     ) -> usize {
         todo!()
@@ -38,9 +38,9 @@ impl IsPatternAnalyisContext for FlyPatternAnalysisContext {
 
     fn constructor_field_tys<'a>(
         &'a self,
-        constructor: &'a pattern_analysis::constructor::Constructor<Self>,
+        constructor: &'a rustc_pattern_analysis::constructor::Constructor<Self>,
         ty: &'a Self::Type,
-    ) -> impl Iterator<Item = (Self::Type, pattern_analysis::PrivateUninhabitedField)>
+    ) -> impl Iterator<Item = (Self::Type, rustc_pattern_analysis::PrivateUninhabitedField)>
            + ExactSizeIterator
            + Captures<'a> {
         [].into_iter().map(|_: i32| todo!())
@@ -49,13 +49,13 @@ impl IsPatternAnalyisContext for FlyPatternAnalysisContext {
     fn constructors_for_ty(
         &self,
         ty: &Self::Type,
-    ) -> Result<pattern_analysis::constructor::ConstructorSet<Self>, Self::Error> {
+    ) -> Result<rustc_pattern_analysis::constructor::ConstructorSet<Self>, Self::Error> {
         todo!()
     }
 
     fn write_variant_name(
         f: &mut std::fmt::Formatter<'_>,
-        constructor: &pattern_analysis::constructor::Constructor<Self>,
+        constructor: &rustc_pattern_analysis::constructor::Constructor<Self>,
         ty: &Self::Type,
     ) -> std::fmt::Result {
         todo!()

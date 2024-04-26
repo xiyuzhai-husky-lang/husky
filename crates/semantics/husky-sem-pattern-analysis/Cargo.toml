@@ -13,7 +13,7 @@ keywords.workspace = true
 
 [dependencies]
 # abstractions
-pattern-analysis.workspace = true
+rustc-pattern-analysis.workspace = true
 # kernel
 husky-entity-path.workspace = true
 husky-fly-term.workspace = true
