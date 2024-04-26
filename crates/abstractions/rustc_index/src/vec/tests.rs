@@ -21,9 +21,15 @@ fn index_size_is_optimized() {
     // Uses 0xFFFF_FFFE
     assert_eq!(size_of::<Option<Option<Option<Option<MyIdx>>>>>(), 4);
     // Uses 0xFFFF_FFFF
-    assert_eq!(size_of::<Option<Option<Option<Option<Option<MyIdx>>>>>>(), 4);
+    assert_eq!(
+        size_of::<Option<Option<Option<Option<Option<MyIdx>>>>>>(),
+        4
+    );
     // Uses a tag
-    assert_eq!(size_of::<Option<Option<Option<Option<Option<Option<MyIdx>>>>>>>(), 8);
+    assert_eq!(
+        size_of::<Option<Option<Option<Option<Option<Option<MyIdx>>>>>>>(),
+        8
+    );
 }
 
 #[test]

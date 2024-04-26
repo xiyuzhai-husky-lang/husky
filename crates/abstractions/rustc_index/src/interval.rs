@@ -45,7 +45,11 @@ fn inclusive_end<T: Idx>(domain: usize, range: impl RangeBounds<T>) -> Option<u3
 
 impl<I: Idx> IntervalSet<I> {
     pub fn new(domain: usize) -> IntervalSet<I> {
-        IntervalSet { map: SmallVec::new(), domain, _data: PhantomData }
+        IntervalSet {
+            map: SmallVec::new(),
+            domain,
+            _data: PhantomData,
+        }
     }
 
     pub fn clear(&mut self) {
@@ -64,7 +68,9 @@ impl<I: Idx> IntervalSet<I> {
     where
         I: Step,
     {
-        self.map.iter().map(|&(start, end)| I::new(start as usize)..I::new(end as usize + 1))
+        self.map
+            .iter()
+            .map(|&(start, end)| I::new(start as usize)..I::new(end as usize + 1))
     }
 
     /// Returns true if we increased the number of elements present.
@@ -220,7 +226,11 @@ impl<I: Idx> IntervalSet<I> {
             return None;
         };
         let (_, prev_end) = &self.map[last];
-        if start <= *prev_end { Some(I::new(std::cmp::min(*prev_end, end) as usize)) } else { None }
+        if start <= *prev_end {
+            Some(I::new(std::cmp::min(*prev_end, end) as usize))
+        } else {
+            None
+        }
     }
 
     pub fn insert_all(&mut self) {
@@ -280,7 +290,10 @@ where
 
 impl<R: Idx, C: Step + Idx> SparseIntervalMatrix<R, C> {
     pub fn new(column_size: usize) -> SparseIntervalMatrix<R, C> {
-        SparseIntervalMatrix { rows: IndexVec::new(), column_size }
+        SparseIntervalMatrix {
+            rows: IndexVec::new(),
+            column_size,
+        }
     }
 
     pub fn rows(&self) -> impl Iterator<Item = R> {
@@ -292,7 +305,8 @@ impl<R: Idx, C: Step + Idx> SparseIntervalMatrix<R, C> {
     }
 
     fn ensure_row(&mut self, row: R) -> &mut IntervalSet<C> {
-        self.rows.ensure_contains_elem(row, || IntervalSet::new(self.column_size))
+        self.rows
+            .ensure_contains_elem(row, || IntervalSet::new(self.column_size))
     }
 
     pub fn union_row(&mut self, row: R, from: &IntervalSet<C>) -> bool

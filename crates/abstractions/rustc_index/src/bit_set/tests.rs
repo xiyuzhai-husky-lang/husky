@@ -26,7 +26,10 @@ fn bitset_iter_works() {
     bitset.insert(65);
     bitset.insert(66);
     bitset.insert(99);
-    assert_eq!(bitset.iter().collect::<Vec<_>>(), [1, 10, 19, 62, 63, 64, 65, 66, 99]);
+    assert_eq!(
+        bitset.iter().collect::<Vec<_>>(),
+        [1, 10, 19, 62, 63, 64, 65, 66, 99]
+    );
 }
 
 #[test]
@@ -105,7 +108,10 @@ fn hybrid_bitset() {
         assert!(dense10.insert(i));
     }
     assert!(!dense10.is_empty());
-    assert_eq!(dense10.iter().collect::<Vec<_>>(), [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+    assert_eq!(
+        dense10.iter().collect::<Vec<_>>(),
+        [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    );
 
     let mut dense256 = HybridBitSet::new_empty(256);
     assert!(dense256.is_empty());
@@ -168,7 +174,14 @@ fn hybrid_bitset() {
 fn chunked_bitset() {
     let mut b0 = ChunkedBitSet::<usize>::new_empty(0);
     let b0b = b0.clone();
-    assert_eq!(b0, ChunkedBitSet { domain_size: 0, chunks: Box::new([]), marker: PhantomData });
+    assert_eq!(
+        b0,
+        ChunkedBitSet {
+            domain_size: 0,
+            chunks: Box::new([]),
+            marker: PhantomData
+        }
+    );
 
     // There are no valid insert/remove/contains operations on a 0-domain
     // bitset, but we can test `union`.
@@ -183,7 +196,11 @@ fn chunked_bitset() {
     let mut b1 = ChunkedBitSet::<usize>::new_empty(1);
     assert_eq!(
         b1,
-        ChunkedBitSet { domain_size: 1, chunks: Box::new([Zeros(1)]), marker: PhantomData }
+        ChunkedBitSet {
+            domain_size: 1,
+            chunks: Box::new([Zeros(1)]),
+            marker: PhantomData
+        }
     );
 
     b1.assert_valid();
@@ -205,7 +222,11 @@ fn chunked_bitset() {
     let mut b100 = ChunkedBitSet::<usize>::new_filled(100);
     assert_eq!(
         b100,
-        ChunkedBitSet { domain_size: 100, chunks: Box::new([Ones(100)]), marker: PhantomData }
+        ChunkedBitSet {
+            domain_size: 100,
+            chunks: Box::new([Ones(100)]),
+            marker: PhantomData
+        }
     );
 
     b100.assert_valid();
@@ -314,7 +335,13 @@ fn chunked_bitset() {
         b10000,
         ChunkedBitSet {
             domain_size: 10000,
-            chunks: Box::new([Zeros(2048), Zeros(2048), Zeros(2048), Zeros(2048), Zeros(1808),]),
+            chunks: Box::new([
+                Zeros(2048),
+                Zeros(2048),
+                Zeros(2048),
+                Zeros(2048),
+                Zeros(1808),
+            ]),
             marker: PhantomData,
         }
     );
