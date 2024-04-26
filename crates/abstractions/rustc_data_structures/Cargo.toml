@@ -1,0 +1,42 @@
+[package]
+name = "rustc_data_structures"
+version = "0.0.0"
+edition = "2021"
+
+[dependencies]
+# tidy-alphabetical-start
+arrayvec.workspace = true
+bitflags.workspace = true   
+either.workspace = true   
+elsa.workspace = true   
+ena.workspace = true   
+indexmap.workspace = true   
+jobserver_crate.workspace = true   
+libc.workspace = true   
+measureme.workspace = true   
+rustc-hash.workspace = true
+rustc-rayon = { workspace = true   , optional = true }
+rustc-rayon-core = { workspace = true   , optional = true }
+smallvec.workspace = true
+stacker.workspace = true
+tempfile.workspace = true
+thin-vec.workspace = true
+tracing.workspace = true
+parking_lot.workspace = true
+# abstractions
+rustc_arena .workspace = true
+rustc_graphviz.workspace = true
+rustc_index.workspace = true
+rustc_macros.workspace = true
+rustc_serialize.workspace = true
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+memmap2 = "0.2.1"
+
+[target.'cfg(any(target_arch = "powerpc", target_arch = "mips"))'.dependencies]
+portable-atomic = "1.5.1"
+
+[features]
+# tidy-alphabetical-start
+rustc_use_parallel_compiler = ["indexmap/rustc-rayon", "rustc-rayon", "rustc-rayon-core"]
+# tidy-alphabetical-end
