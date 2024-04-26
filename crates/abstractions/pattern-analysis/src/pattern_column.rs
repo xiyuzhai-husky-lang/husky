@@ -1,5 +1,5 @@
 use crate::constructor::{Constructor, SplitConstructorSet};
-use crate::pat::{DeconstructedPat, PatOrWild};
+use crate::pattern::{DeconstructedPattern, PatOrWild};
 use crate::{MatchArm, PatternContext};
 use husky_lifetime_utils::capture::Captures;
 
@@ -14,7 +14,7 @@ use husky_lifetime_utils::capture::Captures;
 #[derive(Debug)]
 pub struct PatternColumn<'p, Ctx: PatternContext> {
     /// This must not contain an or-pattern. `expand_and_push` takes care to expand them.
-    patterns: Vec<&'p DeconstructedPat<Ctx>>,
+    patterns: Vec<&'p DeconstructedPattern<Ctx>>,
 }
 
 impl<'p, Ctx: PatternContext> PatternColumn<'p, Ctx> {
@@ -44,38 +44,40 @@ impl<'p, Ctx: PatternContext> PatternColumn<'p, Ctx> {
     pub fn head_ty(&self) -> Option<&Ctx::PatternType> {
         self.patterns.first().map(|pat| pat.ty())
     }
-    pub fn iter<'a>(&'a self) -> impl Iterator<Item = &'p DeconstructedPat<Ctx>> + Captures<'a> {
+    pub fn iter<'a>(
+        &'a self,
+    ) -> impl Iterator<Item = &'p DeconstructedPattern<Ctx>> + Captures<'a> {
         self.patterns.iter().copied()
     }
 
     /// Do constructor splitting on the constructors of the column.
-    pub fn analyze_ctors(
+    pub fn analyze_constructors(
         &self,
         cx: &Ctx,
         ty: &Ctx::PatternType,
     ) -> Result<SplitConstructorSet<Ctx>, Ctx::Error> {
-        let column_ctors = self.patterns.iter().map(|p| p.ctor());
-        let ctors_for_ty = cx.constructors_for_ty(ty)?;
-        Ok(ctors_for_ty.split(column_ctors))
+        let column_constructors = self.patterns.iter().map(|p| p.constructor());
+        let constructors_for_ty = cx.constructors_for_ty(ty)?;
+        Ok(constructors_for_ty.split(column_constructors))
     }
 
     /// Does specialization: given a constructor, this takes the patterns from the column that match
     /// the constructor, and outputs their fields.
     /// This returns one column per field of the constructor. They usually all have the same length
-    /// (the number of patterns in `self` that matched `ctor`), except that we expand or-patterns
+    /// (the number of patterns in `self` that matched `constructor`), except that we expand or-patterns
     /// which may change the lengths.
     pub fn specialize(
         &self,
         cx: &Ctx,
         ty: &Ctx::PatternType,
-        ctor: &Constructor<Ctx>,
+        constructor: &Constructor<Ctx>,
     ) -> Vec<PatternColumn<'p, Ctx>> {
-        let arity = ctor.arity(cx, ty);
+        let arity = constructor.arity(cx, ty);
         if arity == 0 {
             return Vec::new();
         }
 
-        // We specialize the column by `ctor`. This gives us `arity`-many columns of patterns. These
+        // We specialize the column by `constructor`. This gives us `arity`-many columns of patterns. These
         // columns may have different lengths in the presence of or-patterns (this is why we can't
         // reuse `Matrix`).
         let mut specialized_columns: Vec<_> = (0..arity)
@@ -83,12 +85,13 @@ impl<'p, Ctx: PatternContext> PatternColumn<'p, Ctx> {
                 patterns: Vec::new(),
             })
             .collect();
-        let relevant_patterns = self
-            .patterns
-            .iter()
-            .filter(|pat| ctor.is_covered_by(cx, pat.ctor()).unwrap_or(false));
+        let relevant_patterns = self.patterns.iter().filter(|pat| {
+            constructor
+                .is_covered_by(cx, pat.constructor())
+                .unwrap_or(false)
+        });
         for pat in relevant_patterns {
-            let specialized = pat.specialize(ctor, arity);
+            let specialized = pat.specialize(constructor, arity);
             for (subpat, column) in specialized.into_iter().zip(&mut specialized_columns) {
                 column.expand_and_push(subpat);
             }

@@ -147,7 +147,7 @@
 //! ```
 //!
 //! Whether specialization returns something or not is given by [`Constructor::is_covered_by`].
-//! Specialization of a pattern is computed in [`DeconstructedPat::specialize`]. Specialization for
+//! Specialization of a pattern is computed in [`DeconstructedPattern::specialize`]. Specialization for
 //! a pattern-tuple is computed in [`PatStack::pop_head_constructor`]. Finally, specialization for a
 //! set of pattern-tuples is computed in [`Matrix::specialize_constructor`].
 //!
@@ -242,7 +242,7 @@
 //! Therefore `usefulness(tp_1, tp_2, tq)` returns the single witness-tuple `[Variant2(Some(true), 0)]`.
 //!
 //!
-//! Computing the set of constructors for a type is done in [`PatCx::ctors_for_ty`]. See
+//! Computing the set of constructors for a type is done in [`PatCx::constructors_for_ty`]. See
 //! the following sections for more accurate versions of the algorithm and corresponding links.
 //!
 //!
@@ -711,7 +711,7 @@
 
 use self::PlaceValidity::*;
 use crate::constructor::{Constructor, ConstructorSet, IntRange};
-use crate::pat::{DeconstructedPat, PatId, PatOrWild, WitnessPat};
+use crate::pattern::{DeconstructedPattern, PatId, PatOrWild, WitnessPat};
 use crate::{Captures, MatchArm, PatternContext, PrivateUninhabitedField};
 use rustc_hash::FxHashSet;
 use rustc_index::bit_set::BitSet;
@@ -773,11 +773,11 @@ impl<'a, Ctx: PatternContext> fmt::Debug for PlaceCtxt<'a, Ctx> {
 }
 
 impl<'a, Ctx: PatternContext> PlaceCtxt<'a, Ctx> {
-    fn ctor_arity(&self, ctor: &Constructor<Ctx>) -> usize {
-        self.cx.ctor_arity(ctor, self.ty)
+    fn ctor_arity(&self, constructor: &Constructor<Ctx>) -> usize {
+        self.cx.ctor_arity(constructor, self.ty)
     }
-    fn wild_from_ctor(&self, ctor: Constructor<Ctx>) -> WitnessPat<Ctx> {
-        WitnessPat::wild_from_ctor(self.cx, ctor, self.ty.clone())
+    fn wild_from_ctor(&self, constructor: Constructor<Ctx>) -> WitnessPat<Ctx> {
+        WitnessPat::wild_from_ctor(self.cx, constructor, self.ty.clone())
     }
 }
 
@@ -802,14 +802,14 @@ impl PlaceValidity {
     }
 
     /// If the place has validity given by `self` and we read that the value at the place has
-    /// constructor `ctor`, this computes what we can assume about the validity of the constructor
+    /// constructor `constructor`, this computes what we can assume about the validity of the constructor
     /// fields.
     ///
     /// Pending further opsem decisions, the current behavior is: validity is preserved, except
     /// inside `&` and union fields where validity is reset to `MaybeInvalid`.
-    fn specialize<Ctx: PatternContext>(self, ctor: &Constructor<Ctx>) -> Self {
+    fn specialize<Ctx: PatternContext>(self, constructor: &Constructor<Ctx>) -> Self {
         // We preserve validity except when we go inside a reference or a union field.
-        if matches!(ctor, Constructor::Ref | Constructor::UnionField) {
+        if matches!(constructor, Constructor::Ref | Constructor::UnionField) {
             // Validity of `x: &T` does not imply validity of `*x: T`.
             MaybeInvalid
         } else {
@@ -848,10 +848,10 @@ impl<Ctx: PatternContext> PlaceInfo<Ctx> {
     fn specialize<'a>(
         &'a self,
         cx: &'a Ctx,
-        ctor: &'a Constructor<Ctx>,
+        constructor: &'a Constructor<Ctx>,
     ) -> impl Iterator<Item = Self> + ExactSizeIterator + Captures<'a> {
-        let ctor_sub_tys = cx.ctor_sub_tys(ctor, &self.ty);
-        let ctor_sub_validity = self.validity.specialize(ctor);
+        let ctor_sub_tys = cx.ctor_sub_tys(constructor, &self.ty);
+        let ctor_sub_validity = self.validity.specialize(constructor);
         ctor_sub_tys.map(
             move |(ty, PrivateUninhabitedField(private_uninhabited))| PlaceInfo {
                 ty,
@@ -863,14 +863,14 @@ impl<Ctx: PatternContext> PlaceInfo<Ctx> {
     }
 
     /// This analyzes a column of constructors corresponding to the current place. It returns a pair
-    /// `(split_ctors, missing_ctors)`.
+    /// `(split_constructors, missing_constructors)`.
     ///
-    /// `split_ctors` is a splitted list of constructors that cover the whole type. This will be
+    /// `split_constructors` is a splitted list of constructors that cover the whole type. This will be
     /// used to specialize the matrix.
     ///
-    /// `missing_ctors` is a list of the constructors not found in the column, for reporting
+    /// `missing_constructors` is a list of the constructors not found in the column, for reporting
     /// purposes.
-    fn split_column_ctors<'a>(
+    fn split_column_constructors<'a>(
         &self,
         cx: &Ctx,
         ctors: impl Iterator<Item = &'a Constructor<Ctx>> + Clone,
@@ -884,12 +884,12 @@ impl<Ctx: PatternContext> PlaceInfo<Ctx> {
             return Ok((smallvec![Constructor::PrivateUninhabited], vec![]));
         }
 
-        let ctors_for_ty = cx.constructors_for_ty(&self.ty)?;
-        debug!(?ctors_for_ty);
+        let constructors_for_ty = cx.constructors_for_ty(&self.ty)?;
+        debug!(?constructors_for_ty);
 
         // We treat match scrutinees of type `!` or `EmptyEnum` differently.
         let is_toplevel_exception =
-            self.is_scrutinee && matches!(ctors_for_ty, ConstructorSet::NoConstructors);
+            self.is_scrutinee && matches!(constructors_for_ty, ConstructorSet::NoConstructors);
         // Whether empty patterns are counted as useful or not. We only warn an empty arm unreachable if
         // it is guaranteed unreachable by the opsem (i.e. if the place is `known_valid`).
         let empty_arms_are_unreachable = self.validity.is_known_valid()
@@ -903,42 +903,42 @@ impl<Ctx: PatternContext> PlaceInfo<Ctx> {
             || cx.is_exhaustive_patterns_feature_on();
 
         // Analyze the constructors present in this column.
-        let mut split_set = ctors_for_ty.split(ctors);
+        let mut split_set = constructors_for_ty.split(ctors);
         debug!(?split_set);
         let all_missing = split_set.present.is_empty();
 
         // Build the set of constructors we will specialize with. It must cover the whole type, so
         // we add `Missing` to represent the missing ones. This is explained under "Constructor
         // Splitting" at the top of this file.
-        let mut split_ctors = split_set.present;
+        let mut split_constructors = split_set.present;
         if !(split_set.missing.is_empty()
             && (split_set.missing_empty.is_empty() || empty_arms_are_unreachable))
         {
-            split_ctors.push(Constructor::Missing);
+            split_constructors.push(Constructor::Missing);
         }
 
         // Which empty constructors are considered missing. We ensure that
-        // `!missing_ctors.is_empty() => split_ctors.contains(Missing)`. The converse usually holds
+        // `!missing_constructors.is_empty() => split_constructors.contains(Missing)`. The converse usually holds
         // except when `!self.validity.is_known_valid()`.
-        let mut missing_ctors = split_set.missing;
+        let mut missing_constructors = split_set.missing;
         if !can_omit_empty_arms {
-            missing_ctors.append(&mut split_set.missing_empty);
+            missing_constructors.append(&mut split_set.missing_empty);
         }
 
         // Whether we should report "Enum::A and Enum::C are missing" or "_ is missing". At the top
         // level we prefer to list all constructors.
-        let report_individual_missing_ctors = self.is_scrutinee || !all_missing;
-        if !missing_ctors.is_empty() && !report_individual_missing_ctors {
+        let report_individual_missing_constructors = self.is_scrutinee || !all_missing;
+        if !missing_constructors.is_empty() && !report_individual_missing_constructors {
             // Report `_` as missing.
-            missing_ctors = vec![Constructor::Wildcard];
-        } else if missing_ctors.iter().any(|c| c.is_non_exhaustive()) {
+            missing_constructors = vec![Constructor::Wildcard];
+        } else if missing_constructors.iter().any(|c| c.is_non_exhaustive()) {
             // We need to report a `_` anyway, so listing other constructors would be redundant.
             // `NonExhaustive` is displayed as `_` just like `Wildcard`, but it will be picked
             // up by diagnostics to add a note about why `_` is required here.
-            missing_ctors = vec![Constructor::NonExhaustive];
+            missing_constructors = vec![Constructor::NonExhaustive];
         }
 
-        Ok((split_ctors, missing_ctors))
+        Ok((split_constructors, missing_constructors))
     }
 }
 
@@ -976,7 +976,7 @@ impl<'p, Ctx: PatternContext> Clone for PatStack<'p, Ctx> {
 }
 
 impl<'p, Ctx: PatternContext> PatStack<'p, Ctx> {
-    fn from_pattern(pat: &'p DeconstructedPat<Ctx>) -> Self {
+    fn from_pattern(pat: &'p DeconstructedPattern<Ctx>) -> Self {
         PatStack {
             pats: smallvec![PatOrWild::Pat(pat)],
             relevant: true,
@@ -1009,12 +1009,12 @@ impl<'p, Ctx: PatternContext> PatStack<'p, Ctx> {
         })
     }
 
-    /// This computes `specialize(ctor, self)`. See top of the file for explanations.
-    /// Only call if `ctor.is_covered_by(self.head().ctor())` is true.
+    /// This computes `specialize(constructor, self)`. See top of the file for explanations.
+    /// Only call if `constructor.is_covered_by(self.head().constructor())` is true.
     fn pop_head_constructor(
         &self,
         cx: &Ctx,
-        ctor: &Constructor<Ctx>,
+        constructor: &Constructor<Ctx>,
         ctor_arity: usize,
         ctor_is_relevant: bool,
     ) -> Result<PatStack<'p, Ctx>, Ctx::Error> {
@@ -1031,12 +1031,12 @@ impl<'p, Ctx: PatternContext> PatStack<'p, Ctx> {
         }
         // We pop the head pattern and push the new fields extracted from the arguments of
         // `self.head()`.
-        let mut new_pats = head_pat.specialize(ctor, ctor_arity);
+        let mut new_pats = head_pat.specialize(constructor, ctor_arity);
         new_pats.extend_from_slice(&self.pats[1..]);
-        // `ctor` is relevant for this row if it is the actual constructor of this row, or if the
-        // row has a wildcard and `ctor` is relevant for wildcards.
+        // `constructor` is relevant for this row if it is the actual constructor of this row, or if the
+        // row has a wildcard and `constructor` is relevant for wildcards.
         let ctor_is_relevant =
-            !matches!(self.head().ctor(), Constructor::Wildcard) || ctor_is_relevant;
+            !matches!(self.head().constructor(), Constructor::Wildcard) || ctor_is_relevant;
         Ok(PatStack {
             pats: new_pats,
             relevant: self.relevant && ctor_is_relevant,
@@ -1108,12 +1108,12 @@ impl<'p, Ctx: PatternContext> MatrixRow<'p, Ctx> {
         })
     }
 
-    /// This computes `specialize(ctor, self)`. See top of the file for explanations.
-    /// Only call if `ctor.is_covered_by(self.head().ctor())` is true.
+    /// This computes `specialize(constructor, self)`. See top of the file for explanations.
+    /// Only call if `constructor.is_covered_by(self.head().constructor())` is true.
     fn pop_head_constructor(
         &self,
         cx: &Ctx,
-        ctor: &Constructor<Ctx>,
+        constructor: &Constructor<Ctx>,
         ctor_arity: usize,
         ctor_is_relevant: bool,
         parent_row: usize,
@@ -1121,7 +1121,7 @@ impl<'p, Ctx: PatternContext> MatrixRow<'p, Ctx> {
         Ok(MatrixRow {
             pats: self
                 .pats
-                .pop_head_constructor(cx, ctor, ctor_arity, ctor_is_relevant)?,
+                .pop_head_constructor(cx, constructor, ctor_arity, ctor_is_relevant)?,
             parent_row,
             is_under_guard: self.is_under_guard,
             useful: false,
@@ -1231,14 +1231,14 @@ impl<'p, Ctx: PatternContext> Matrix<'p, Ctx> {
         self.rows().map(|r| r.head())
     }
 
-    /// This computes `specialize(ctor, self)`. See top of the file for explanations.
+    /// This computes `specialize(constructor, self)`. See top of the file for explanations.
     fn specialize_constructor(
         &self,
         pcx: &PlaceCtxt<'_, Ctx>,
-        ctor: &Constructor<Ctx>,
+        constructor: &Constructor<Ctx>,
         ctor_is_relevant: bool,
     ) -> Result<Matrix<'p, Ctx>, Ctx::Error> {
-        let subfield_place_info = self.place_info[0].specialize(pcx.cx, ctor);
+        let subfield_place_info = self.place_info[0].specialize(pcx.cx, constructor);
         let arity = subfield_place_info.len();
         let specialized_place_info = subfield_place_info
             .chain(self.place_info[1..].iter().cloned())
@@ -1249,8 +1249,9 @@ impl<'p, Ctx: PatternContext> Matrix<'p, Ctx> {
             wildcard_row_is_relevant: self.wildcard_row_is_relevant && ctor_is_relevant,
         };
         for (i, row) in self.rows().enumerate() {
-            if ctor.is_covered_by(pcx.cx, row.head().ctor())? {
-                let new_row = row.pop_head_constructor(pcx.cx, ctor, arity, ctor_is_relevant, i)?;
+            if constructor.is_covered_by(pcx.cx, row.head().constructor())? {
+                let new_row =
+                    row.pop_head_constructor(pcx.cx, constructor, arity, ctor_is_relevant, i)?;
                 matrix.expand_and_push(new_row);
             }
         }
@@ -1414,26 +1415,26 @@ impl<Ctx: PatternContext> WitnessStack<Ctx> {
     ///
     /// Examples:
     /// ```text
-    /// ctor: tuple of 2 elements
+    /// constructor: tuple of 2 elements
     /// pats: [false, "foo", _, true]
     /// result: [(false, "foo"), _, true]
     ///
-    /// ctor: Enum::Variant { a: (bool, &'static str), b: usize}
+    /// constructor: Enum::Variant { a: (bool, &'static str), b: usize}
     /// pats: [(false, "foo"), _, true]
     /// result: [Enum::Variant { a: (false, "foo"), b: _ }, true]
     /// ```
     fn apply_constructor(
         mut self,
         pcx: &PlaceCtxt<'_, Ctx>,
-        ctor: &Constructor<Ctx>,
+        constructor: &Constructor<Ctx>,
     ) -> SmallVec<[Self; 1]> {
         let len = self.0.len();
-        let arity = pcx.ctor_arity(ctor);
+        let arity = pcx.ctor_arity(constructor);
         let fields: Vec<_> = self.0.drain((len - arity)..).rev().collect();
-        if matches!(ctor, Constructor::UnionField)
+        if matches!(constructor, Constructor::UnionField)
             && fields
                 .iter()
-                .filter(|p| !matches!(p.ctor(), Constructor::Wildcard))
+                .filter(|p| !matches!(p.constructor(), Constructor::Wildcard))
                 .count()
                 >= 2
         {
@@ -1441,13 +1442,13 @@ impl<Ctx: PatternContext> WitnessStack<Ctx> {
             // First add `Union { .. }` to `self`.
             self.0.push(WitnessPat::wild_from_ctor(
                 pcx.cx,
-                ctor.clone(),
+                constructor.clone(),
                 pcx.ty.clone(),
             ));
             fields
                 .into_iter()
                 .enumerate()
-                .filter(|(_, p)| !matches!(p.ctor(), Constructor::Wildcard))
+                .filter(|(_, p)| !matches!(p.constructor(), Constructor::Wildcard))
                 .map(|(i, p)| {
                     let mut ret = self.clone();
                     // Fill the `i`th field of the union with `p`.
@@ -1457,7 +1458,7 @@ impl<Ctx: PatternContext> WitnessStack<Ctx> {
                 .collect()
         } else {
             self.0
-                .push(WitnessPat::new(ctor.clone(), fields, pcx.ty.clone()));
+                .push(WitnessPat::new(constructor.clone(), fields, pcx.ty.clone()));
             smallvec![self]
         }
     }
@@ -1507,23 +1508,23 @@ impl<Ctx: PatternContext> WitnessMatrix<Ctx> {
         }
     }
 
-    /// Reverses specialization by `ctor`. See the section on `unspecialize` at the top of the file.
+    /// Reverses specialization by `constructor`. See the section on `unspecialize` at the top of the file.
     fn apply_constructor(
         &mut self,
         pcx: &PlaceCtxt<'_, Ctx>,
-        missing_ctors: &[Constructor<Ctx>],
-        ctor: &Constructor<Ctx>,
+        missing_constructors: &[Constructor<Ctx>],
+        constructor: &Constructor<Ctx>,
     ) {
         if self.is_empty() {
             return;
         }
-        if matches!(ctor, Constructor::Missing) {
+        if matches!(constructor, Constructor::Missing) {
             // We got the special `Missing` constructor that stands for the constructors not present
             // in the match. For each missing constructor `c`, we add a `c(_, _, _)` witness
             // appropriately filled with wildcards.
             let mut ret = Self::empty();
-            for ctor in missing_ctors {
-                let pat = pcx.wild_from_ctor(ctor.clone());
+            for constructor in missing_constructors {
+                let pat = pcx.wild_from_ctor(constructor.clone());
                 // Clone `self` and add `c(_, _, _)` to each of its witnesses.
                 let mut wit_matrix = self.clone();
                 wit_matrix.push_pattern(pat);
@@ -1533,7 +1534,7 @@ impl<Ctx: PatternContext> WitnessMatrix<Ctx> {
         } else {
             // Any other constructor we unspecialize as expected.
             for witness in std::mem::take(&mut self.0) {
-                self.0.extend(witness.apply_constructor(pcx, ctor));
+                self.0.extend(witness.apply_constructor(pcx, constructor));
             }
         }
     }
@@ -1567,14 +1568,14 @@ fn collect_overlapping_range_endpoints<'p, Ctx: PatternContext>(
     // Ranges that look like `overlap..=hi`.
     let mut suffixes: SmallVec<[_; 1]> = Default::default();
     // Iterate on patterns that contained `overlap`. We iterate on `specialized_matrix` which
-    // contains only rows that matched the current `ctor` as well as accurate intersection
+    // contains only rows that matched the current `constructor` as well as accurate intersection
     // information. It doesn't contain the column that contains the range; that can be found in
     // `matrix`.
     for (child_row_id, child_row) in specialized_matrix.rows().enumerate() {
         let PatOrWild::Pat(pat) = matrix.rows[child_row.parent_row].head() else {
             continue;
         };
-        let Constructor::IntRange(this_range) = pat.ctor() else {
+        let Constructor::IntRange(this_range) = pat.constructor() else {
             continue;
         };
         // Don't lint when one of the ranges is a singleton.
@@ -1631,7 +1632,7 @@ fn collect_non_contiguous_range_endpoints<'p, Ctx: PatternContext>(
     // Look through the column for ranges near the gap.
     for pat in matrix.heads() {
         let PatOrWild::Pat(pat) = pat else { continue };
-        let Constructor::IntRange(this_range) = pat.ctor() else {
+        let Constructor::IntRange(this_range) = pat.constructor() else {
             continue;
         };
         if gap == this_range.hi {
@@ -1696,31 +1697,33 @@ fn compute_exhaustiveness_and_usefulness<'a, 'p, Ctx: PatternContext>(
     };
 
     // Analyze the constructors present in this column.
-    let ctors = matrix.heads().map(|p| p.ctor());
-    let (split_ctors, missing_ctors) = place.split_column_ctors(mcx.tycx, ctors)?;
+    let ctors = matrix.heads().map(|p| p.constructor());
+    let (split_constructors, missing_constructors) =
+        place.split_column_constructors(mcx.tycx, ctors)?;
 
     let ty = &place.ty.clone(); // Clone it out so we can mutate `matrix` later.
     let pcx = &PlaceCtxt { cx: mcx.tycx, ty };
     let mut ret = WitnessMatrix::empty();
-    for ctor in split_ctors {
-        // Dig into rows that match `ctor`.
-        debug!("specialize({:?})", ctor);
-        // `ctor` is *irrelevant* if there's another constructor in `split_ctors` that matches
+    for constructor in split_constructors {
+        // Dig into rows that match `constructor`.
+        debug!("specialize({:?})", constructor);
+        // `constructor` is *irrelevant* if there's another constructor in `split_constructors` that matches
         // strictly fewer rows. In that case we can sometimes skip it. See the top of the file for
         // details.
-        let ctor_is_relevant = matches!(ctor, Constructor::Missing) || missing_ctors.is_empty();
-        let mut spec_matrix = matrix.specialize_constructor(pcx, &ctor, ctor_is_relevant)?;
+        let ctor_is_relevant =
+            matches!(constructor, Constructor::Missing) || missing_constructors.is_empty();
+        let mut spec_matrix = matrix.specialize_constructor(pcx, &constructor, ctor_is_relevant)?;
         let mut witnesses = ensure_sufficient_stack(|| {
             compute_exhaustiveness_and_usefulness(mcx, &mut spec_matrix)
         })?;
 
         // Transform witnesses for `spec_matrix` into witnesses for `matrix`.
-        witnesses.apply_constructor(pcx, &missing_ctors, &ctor);
+        witnesses.apply_constructor(pcx, &missing_constructors, &constructor);
         // Accumulate the found witnesses.
         ret.extend(witnesses);
 
         // Detect ranges that overlap on their endpoints.
-        if let Constructor::IntRange(overlap_range) = ctor {
+        if let Constructor::IntRange(overlap_range) = constructor {
             if overlap_range.is_singleton()
                 && spec_matrix.rows.len() >= 2
                 && spec_matrix
@@ -1736,11 +1739,11 @@ fn compute_exhaustiveness_and_usefulness<'a, 'p, Ctx: PatternContext>(
     }
 
     // Detect singleton gaps between ranges.
-    if missing_ctors
+    if missing_constructors
         .iter()
         .any(|c| matches!(c, Constructor::IntRange(..)))
     {
-        for missing in &missing_ctors {
+        for missing in &missing_constructors {
             if let Constructor::IntRange(gap) = missing {
                 if gap.is_singleton() {
                     collect_non_contiguous_range_endpoints(mcx.tycx, gap, matrix);
@@ -1770,7 +1773,7 @@ pub enum Usefulness<'p, Ctx: PatternContext> {
     /// The arm is useful. This additionally carries a set of or-pattern branches that have been
     /// found to be redundant despite the overall arm being useful. Used only in the presence of
     /// or-patterns, otherwise it stays empty.
-    Useful(Vec<&'p DeconstructedPat<Ctx>>),
+    Useful(Vec<&'p DeconstructedPattern<Ctx>>),
     /// The arm is redundant and can be removed without changing the behavior of the match
     /// expression.
     Redundant,
@@ -1779,11 +1782,11 @@ pub enum Usefulness<'p, Ctx: PatternContext> {
 /// Report whether this pattern was found useful, and its subpatterns that were not useful if any.
 fn collect_pattern_usefulness<'p, Ctx: PatternContext>(
     useful_subpatterns: &FxHashSet<PatId>,
-    pat: &'p DeconstructedPat<Ctx>,
+    pat: &'p DeconstructedPattern<Ctx>,
 ) -> Usefulness<'p, Ctx> {
     fn pat_is_useful<'p, Ctx: PatternContext>(
         useful_subpatterns: &FxHashSet<PatId>,
-        pat: &'p DeconstructedPat<Ctx>,
+        pat: &'p DeconstructedPattern<Ctx>,
     ) -> bool {
         if useful_subpatterns.contains(&pat.uid) {
             true

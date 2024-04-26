@@ -40,7 +40,7 @@
 //! - That have no non-trivial intersection with any of the constructors in the column (i.e. they're
 //!     each either disjoint with or covered by any given column constructor).
 //!
-//! We compute this in two steps: first [`PatCx::ctors_for_ty`] determines the
+//! We compute this in two steps: first [`PatCx::constructors_for_ty`] determines the
 //! set of all possible constructors for the type. Then [`ConstructorSet::split`] looks at the
 //! column of constructors and splits the set into groups accordingly. The precise invariants of
 //! [`ConstructorSet::split`] is described in [`SplitConstructorSet`].
@@ -136,7 +136,7 @@
 //! the algorithm can't distinguish them from a nonempty constructor. The only known case where this
 //! could happen is the `[..]` pattern on `[!; N]` with `N > 0` so we must take care to not emit it.
 //!
-//! This is all handled by [`PatCx::ctors_for_ty`] and
+//! This is all handled by [`PatCx::constructors_for_ty`] and
 //! [`ConstructorSet::split`]. The invariants of [`SplitConstructorSet`] are also of interest.
 //!
 //!
@@ -1037,11 +1037,11 @@ impl<Ctx: PatternContext> ConstructorSet<Ctx> {
         let mut missing = Vec::new();
         // Constructors in `ctors`, except wildcards and opaques.
         let mut seen = Vec::new();
-        for ctor in ctors.cloned() {
-            match ctor {
-                Opaque(..) => present.push(ctor),
+        for constructor in ctors.cloned() {
+            match constructor {
+                Opaque(..) => present.push(constructor),
                 Wildcard => {} // discard wildcards
-                _ => seen.push(ctor),
+                _ => seen.push(constructor),
             }
         }
 
@@ -1080,15 +1080,15 @@ impl<Ctx: PatternContext> ConstructorSet<Ctx> {
                 let mut skipped_a_hidden_variant = false;
 
                 for (idx, visibility) in variants.iter_enumerated() {
-                    let ctor = Variant(idx);
+                    let constructor = Variant(idx);
                     if seen_set.contains(idx) {
-                        present.push(ctor);
+                        present.push(constructor);
                     } else {
                         // We only put visible variants directly into `missing`.
                         match visibility {
-                            VariantVisibility::Visible => missing.push(ctor),
+                            VariantVisibility::Visible => missing.push(constructor),
                             VariantVisibility::Hidden => skipped_a_hidden_variant = true,
-                            VariantVisibility::Empty => missing_empty.push(ctor),
+                            VariantVisibility::Empty => missing_empty.push(constructor),
                         }
                     }
                 }
@@ -1103,7 +1103,7 @@ impl<Ctx: PatternContext> ConstructorSet<Ctx> {
             ConstructorSet::Bool => {
                 let mut seen_false = false;
                 let mut seen_true = false;
-                for b in seen.iter().filter_map(|ctor| ctor.as_bool()) {
+                for b in seen.iter().filter_map(|constructor| constructor.as_bool()) {
                     if b {
                         seen_true = true;
                     } else {
@@ -1124,7 +1124,7 @@ impl<Ctx: PatternContext> ConstructorSet<Ctx> {
             ConstructorSet::Integers { range_1, range_2 } => {
                 let seen_ranges: Vec<_> = seen
                     .iter()
-                    .filter_map(|ctor| ctor.as_int_range())
+                    .filter_map(|constructor| constructor.as_int_range())
                     .copied()
                     .collect();
                 for (seen, splitted_range) in range_1.split(seen_ranges.iter().cloned()) {
@@ -1149,16 +1149,16 @@ impl<Ctx: PatternContext> ConstructorSet<Ctx> {
                 let seen_slices = seen.iter().filter_map(|c| c.as_slice());
                 let base_slice = Slice::new(*array_len, VarLen(0, 0));
                 for (seen, splitted_slice) in base_slice.split(seen_slices) {
-                    let ctor = Slice(splitted_slice);
+                    let constructor = Slice(splitted_slice);
                     match seen {
-                        Presence::Seen => present.push(ctor),
+                        Presence::Seen => present.push(constructor),
                         Presence::Unseen => {
                             if *subtype_is_empty && splitted_slice.arity() != 0 {
                                 // We have subpatterns of an empty type, so the constructor is
                                 // empty.
-                                missing_empty.push(ctor);
+                                missing_empty.push(constructor);
                             } else {
-                                missing.push(ctor);
+                                missing.push(constructor);
                             }
                         }
                     }

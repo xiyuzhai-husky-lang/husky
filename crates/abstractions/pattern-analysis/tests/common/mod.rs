@@ -44,14 +44,14 @@ pub enum Ty {
 
 /// The important logic.
 impl Ty {
-    pub fn sub_tys(&self, ctor: &Constructor<Ctx>) -> Vec<Self> {
+    pub fn sub_tys(&self, constructor: &Constructor<Ctx>) -> Vec<Self> {
         use Constructor::*;
-        match (ctor, *self) {
+        match (constructor, *self) {
             (Struct, Ty::Tuple(tys)) => tys.iter().copied().collect(),
             (Struct, Ty::BigStruct { arity, ty }) => (0..arity).map(|_| *ty).collect(),
             (Variant(_), Ty::BigEnum { ty, .. }) => vec![*ty],
             (Bool(..) | IntRange(..) | NonExhaustive | Missing | Wildcard, _) => vec![],
-            _ => panic!("Unexpected ctor {ctor:?} for type {self:?}"),
+            _ => panic!("Unexpected constructor {constructor:?} for type {self:?}"),
         }
     }
 
@@ -77,13 +77,13 @@ impl Ty {
     pub fn write_variant_name(
         &self,
         f: &mut std::fmt::Formatter<'_>,
-        ctor: &Constructor<Ctx>,
+        constructor: &Constructor<Ctx>,
     ) -> std::fmt::Result {
-        match (*self, ctor) {
+        match (*self, constructor) {
             (Ty::Tuple(..), _) => Ok(()),
             (Ty::BigStruct { .. }, _) => write!(f, "BigStruct"),
             (Ty::BigEnum { .. }, Constructor::Variant(i)) => write!(f, "BigEnum::Variant{i}"),
-            _ => write!(f, "{:?}::{:?}", self, ctor),
+            _ => write!(f, "{:?}::{:?}", self, constructor),
         }
     }
 }
@@ -125,18 +125,18 @@ impl PatternContext for Ctx {
         false
     }
 
-    fn ctor_arity(&self, ctor: &Constructor<Self>, ty: &Self::PatternType) -> usize {
-        ty.sub_tys(ctor).len()
+    fn ctor_arity(&self, constructor: &Constructor<Self>, ty: &Self::PatternType) -> usize {
+        ty.sub_tys(constructor).len()
     }
 
     fn ctor_sub_tys<'a>(
         &'a self,
-        ctor: &'a Constructor<Self>,
+        constructor: &'a Constructor<Self>,
         ty: &'a Self::PatternType,
     ) -> impl Iterator<Item = (Self::PatternType, PrivateUninhabitedField)>
            + ExactSizeIterator
            + Captures<'a> {
-        ty.sub_tys(ctor)
+        ty.sub_tys(constructor)
             .into_iter()
             .map(|ty| (ty, PrivateUninhabitedField(false)))
     }
@@ -150,10 +150,10 @@ impl PatternContext for Ctx {
 
     fn write_variant_name(
         f: &mut std::fmt::Formatter<'_>,
-        ctor: &Constructor<Self>,
+        constructor: &Constructor<Self>,
         ty: &Self::PatternType,
     ) -> std::fmt::Result {
-        ty.write_variant_name(f, ctor)
+        ty.write_variant_name(f, constructor)
     }
 
     fn bug(&self, fmt: std::fmt::Arguments<'_>) -> Self::Error {
@@ -176,7 +176,7 @@ macro_rules! pat {
 }
 
 /// A macro to construct patterns. Called like `pats!(type_expr; pattern, pattern, ..)` and returns
-/// a `Vec<DeconstructedPat>`. A pattern can be nested and looks like `Constructor(pat, pat)` or
+/// a `Vec<DeconstructedPattern>`. A pattern can be nested and looks like `Constructor(pat, pat)` or
 /// `Constructor { .i: pat, .j: pat }`, where `Constructor` is `Struct`, `Variant.i` (with index
 /// `i`), as well as booleans and integer ranges.
 ///
@@ -193,80 +193,80 @@ macro_rules! pats {
         #[allow(unused_imports)]
         use pattern_analysis::{
             constructor::{Constructor, IntRange, MaybeInfiniteInt, RangeEnd},
-            pat::DeconstructedPat,
+            pattern::DeconstructedPattern,
         };
         let ty = $ty;
         // The heart of the macro is designed to push `IndexedPat`s into a `Vec`, so we work around
         // that.
         let sub_tys = ::std::iter::repeat(&ty);
         let mut vec = Vec::new();
-        pats!(@ctor(vec:vec, sub_tys:sub_tys, idx:0) $($rest)*);
+        pats!(@constructor(vec:vec, sub_tys:sub_tys, idx:0) $($rest)*);
         vec.into_iter().map(|ipat| ipat.pat).collect::<Vec<_>>()
     }};
 
     // Parse `constructor ..`
 
-    (@ctor($($args:tt)*) true $($rest:tt)*) => {{
-        let ctor = Constructor::Bool(true);
-        pats!(@pat($($args)*, ctor:ctor) $($rest)*)
+    (@constructor($($args:tt)*) true $($rest:tt)*) => {{
+        let constructor = Constructor::Bool(true);
+        pats!(@pat($($args)*, constructor:constructor) $($rest)*)
     }};
-    (@ctor($($args:tt)*) false $($rest:tt)*) => {{
-        let ctor = Constructor::Bool(false);
-        pats!(@pat($($args)*, ctor:ctor) $($rest)*)
+    (@constructor($($args:tt)*) false $($rest:tt)*) => {{
+        let constructor = Constructor::Bool(false);
+        pats!(@pat($($args)*, constructor:constructor) $($rest)*)
     }};
-    (@ctor($($args:tt)*) Struct $($rest:tt)*) => {{
-        let ctor = Constructor::Struct;
-        pats!(@pat($($args)*, ctor:ctor) $($rest)*)
+    (@constructor($($args:tt)*) Struct $($rest:tt)*) => {{
+        let constructor = Constructor::Struct;
+        pats!(@pat($($args)*, constructor:constructor) $($rest)*)
     }};
-    (@ctor($($args:tt)*) ( $($fields:tt)* ) $($rest:tt)*) => {{
-        let ctor = Constructor::Struct; // tuples
-        pats!(@pat($($args)*, ctor:ctor) ( $($fields)* ) $($rest)*)
+    (@constructor($($args:tt)*) ( $($fields:tt)* ) $($rest:tt)*) => {{
+        let constructor = Constructor::Struct; // tuples
+        pats!(@pat($($args)*, constructor:constructor) ( $($fields)* ) $($rest)*)
     }};
-    (@ctor($($args:tt)*) Variant.$variant:ident $($rest:tt)*) => {{
-        let ctor = Constructor::Variant($variant);
-        pats!(@pat($($args)*, ctor:ctor) $($rest)*)
+    (@constructor($($args:tt)*) Variant.$variant:ident $($rest:tt)*) => {{
+        let constructor = Constructor::Variant($variant);
+        pats!(@pat($($args)*, constructor:constructor) $($rest)*)
     }};
-    (@ctor($($args:tt)*) Variant.$variant:literal $($rest:tt)*) => {{
-        let ctor = Constructor::Variant($variant);
-        pats!(@pat($($args)*, ctor:ctor) $($rest)*)
+    (@constructor($($args:tt)*) Variant.$variant:literal $($rest:tt)*) => {{
+        let constructor = Constructor::Variant($variant);
+        pats!(@pat($($args)*, constructor:constructor) $($rest)*)
     }};
-    (@ctor($($args:tt)*) _ $($rest:tt)*) => {{
-        let ctor = Constructor::Wildcard;
-        pats!(@pat($($args)*, ctor:ctor) $($rest)*)
+    (@constructor($($args:tt)*) _ $($rest:tt)*) => {{
+        let constructor = Constructor::Wildcard;
+        pats!(@pat($($args)*, constructor:constructor) $($rest)*)
     }};
 
     // Integers and int ranges
-    (@ctor($($args:tt)*) $($start:literal)?..$end:literal $($rest:tt)*) => {{
-        let ctor = Constructor::IntRange(IntRange::from_range(
+    (@constructor($($args:tt)*) $($start:literal)?..$end:literal $($rest:tt)*) => {{
+        let constructor = Constructor::IntRange(IntRange::from_range(
             pats!(@rangeboundary- $($start)?),
             pats!(@rangeboundary+ $end),
             RangeEnd::Excluded,
         ));
-        pats!(@pat($($args)*, ctor:ctor) $($rest)*)
+        pats!(@pat($($args)*, constructor:constructor) $($rest)*)
     }};
-    (@ctor($($args:tt)*) $($start:literal)?.. $($rest:tt)*) => {{
-        let ctor = Constructor::IntRange(IntRange::from_range(
+    (@constructor($($args:tt)*) $($start:literal)?.. $($rest:tt)*) => {{
+        let constructor = Constructor::IntRange(IntRange::from_range(
             pats!(@rangeboundary- $($start)?),
             pats!(@rangeboundary+),
             RangeEnd::Excluded,
         ));
-        pats!(@pat($($args)*, ctor:ctor) $($rest)*)
+        pats!(@pat($($args)*, constructor:constructor) $($rest)*)
     }};
-    (@ctor($($args:tt)*) $($start:literal)?..=$end:literal $($rest:tt)*) => {{
-        let ctor = Constructor::IntRange(IntRange::from_range(
+    (@constructor($($args:tt)*) $($start:literal)?..=$end:literal $($rest:tt)*) => {{
+        let constructor = Constructor::IntRange(IntRange::from_range(
             pats!(@rangeboundary- $($start)?),
             pats!(@rangeboundary+ $end),
             RangeEnd::Included,
         ));
-        pats!(@pat($($args)*, ctor:ctor) $($rest)*)
+        pats!(@pat($($args)*, constructor:constructor) $($rest)*)
     }};
-    (@ctor($($args:tt)*) $int:literal $($rest:tt)*) => {{
-        let ctor = Constructor::IntRange(IntRange::from_range(
+    (@constructor($($args:tt)*) $int:literal $($rest:tt)*) => {{
+        let constructor = Constructor::IntRange(IntRange::from_range(
             pats!(@rangeboundary- $int),
             pats!(@rangeboundary+ $int),
             RangeEnd::Included,
         ));
-        pats!(@pat($($args)*, ctor:ctor) $($rest)*)
+        pats!(@pat($($args)*, constructor:constructor) $($rest)*)
     }};
     // Utility to manage range boundaries.
     (@rangeboundary $sign:tt $int:literal) => { MaybeInfiniteInt::new_finite_uint($int) };
@@ -286,19 +286,19 @@ macro_rules! pats {
     (@pat($($args:tt)*) ( $($subpat:tt)* ) $($rest:tt)*) => {{
         pats!(@pat($($args)*) { $($subpat)* } $($rest)*)
     }};
-    (@pat(vec:$vec:expr, sub_tys:$sub_tys:expr, idx:$idx:expr, ctor:$ctor:expr) { $($fields:tt)* } $($rest:tt)*) => {{
+    (@pat(vec:$vec:expr, sub_tys:$sub_tys:expr, idx:$idx:expr, constructor:$constructor:expr) { $($fields:tt)* } $($rest:tt)*) => {{
         let sub_tys = $sub_tys;
         let index = $idx;
         // Silly dance to work with both a vec and `iter::repeat()`.
         let ty = *(&sub_tys).clone().into_iter().nth(index).unwrap();
-        let ctor = $ctor;
-        let ctor_sub_tys = &ty.sub_tys(&ctor);
+        let constructor = $constructor;
+        let ctor_sub_tys = &ty.sub_tys(&constructor);
         #[allow(unused_mut)]
         let mut fields = Vec::new();
         // Parse subpatterns (note the leading comma).
         pats!(@fields(idx:0, vec:fields, sub_tys:ctor_sub_tys) ,$($fields)*);
         let arity = ctor_sub_tys.len();
-        let pat = DeconstructedPat::new(ctor, fields, arity, ty, ()).at_index(index);
+        let pat = DeconstructedPattern::new(constructor, fields, arity, ty, ()).at_index(index);
         $vec.push(pat);
 
         // Continue parsing further patterns.
@@ -311,13 +311,13 @@ macro_rules! pats {
     (@fields($($args:tt)*) $(,)?) => {};
     // `.i: pat` sets the current index to `i`.
     (@fields(idx:$_idx:expr, $($args:tt)*) , .$idx:literal : $($rest:tt)*) => {{
-        pats!(@ctor($($args)*, idx:$idx) $($rest)*);
+        pats!(@constructor($($args)*, idx:$idx) $($rest)*);
     }};
     (@fields(idx:$_idx:expr, $($args:tt)*) , .$idx:ident : $($rest:tt)*) => {{
-        pats!(@ctor($($args)*, idx:$idx) $($rest)*);
+        pats!(@constructor($($args)*, idx:$idx) $($rest)*);
     }};
     // Field without an explicit index; we use the current index which gets incremented above.
     (@fields(idx:$idx:expr, $($args:tt)*) , $($rest:tt)*) => {{
-        pats!(@ctor($($args)*, idx:$idx) $($rest)*);
+        pats!(@constructor($($args)*, idx:$idx) $($rest)*);
     }};
 }

@@ -1,13 +1,13 @@
 //! Test the pattern complexity limit.
 use common::*;
-use pattern_analysis::{pat::DeconstructedPat, usefulness::PlaceValidity, MatchArm};
+use pattern_analysis::{pattern::DeconstructedPattern, usefulness::PlaceValidity, MatchArm};
 
 #[macro_use]
 mod common;
 
 /// Analyze a match made of these patterns. Ignore the report; we only care whether we exceeded the
 /// limit or not.
-fn check(patterns: &[DeconstructedPat<Ctx>], complexity_limit: usize) -> Result<(), ()> {
+fn check(patterns: &[DeconstructedPattern<Ctx>], complexity_limit: usize) -> Result<(), ()> {
     let ty = *patterns[0].ty();
     let arms: Vec<_> = patterns
         .iter()
@@ -28,7 +28,7 @@ fn check(patterns: &[DeconstructedPat<Ctx>], complexity_limit: usize) -> Result<
 
 /// Asserts that analyzing this match takes exactly `complexity` steps.
 #[track_caller]
-fn assert_complexity(patterns: Vec<DeconstructedPat<Ctx>>, complexity: usize) {
+fn assert_complexity(patterns: Vec<DeconstructedPattern<Ctx>>, complexity: usize) {
     assert!(check(&patterns, complexity).is_ok());
     assert!(check(&patterns, complexity - 1).is_err());
 }
@@ -44,7 +44,7 @@ fn assert_complexity(patterns: Vec<DeconstructedPat<Ctx>>, complexity: usize) {
 ///     _ => {}
 /// }
 /// ```
-fn diagonal_match(arity: usize) -> Vec<DeconstructedPat<Ctx>> {
+fn diagonal_match(arity: usize) -> Vec<DeconstructedPattern<Ctx>> {
     let struct_ty = Ty::BigStruct {
         arity,
         ty: &Ty::Bool,
@@ -73,7 +73,7 @@ fn diagonal_match(arity: usize) -> Vec<DeconstructedPat<Ctx>> {
 ///     _ => {}
 /// }
 /// ```
-fn diagonal_exponential_match(arity: usize) -> Vec<DeconstructedPat<Ctx>> {
+fn diagonal_exponential_match(arity: usize) -> Vec<DeconstructedPattern<Ctx>> {
     let struct_ty = Ty::BigStruct {
         arity,
         ty: &Ty::Bool,
@@ -109,7 +109,7 @@ fn test_diagonal_struct_match() {
 ///     _ => {}
 /// }
 /// ```
-fn big_enum(arity: usize) -> Vec<DeconstructedPat<Ctx>> {
+fn big_enum(arity: usize) -> Vec<DeconstructedPattern<Ctx>> {
     let enum_ty = Ty::BigEnum {
         arity,
         ty: &Ty::Bool,
