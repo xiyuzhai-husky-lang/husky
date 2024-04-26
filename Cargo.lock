@@ -9120,6 +9120,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "rustc_graphviz"
+version = "0.0.0"
+
+[[package]]
 name = "rustc_index"
 version = "0.0.0"
 dependencies = [
