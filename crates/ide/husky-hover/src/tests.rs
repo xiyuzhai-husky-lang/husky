@@ -12,10 +12,10 @@ use husky_eth_term::EthTermJar;
 use husky_fly_term::FlyTermJar;
 use husky_manifest::ManifestJar;
 use husky_manifest_ast::ManifestAstJar;
-use husky_sem_expr::SemaExprJar;
+use husky_sem_expr::SemExprJar;
 use husky_syn_decl::SynDeclJar;
 use husky_syn_defn::SynDefnJar;
-use husky_syn_expr::SynExprJar;
+use husky_syn_expr::jar::SynExprJar;
 use husky_term_prelude::TermPreludeJar;
 use husky_token::{TokenDb, TokenIdx, TokenJar};
 use husky_token_info::TokenInfoJar;
@@ -47,7 +47,7 @@ use husky_toml_ast::TomlAstJar;
     EthTermJar,
     EtherealSignatureJar,
     FlyTermJar,
-    SemaExprJar,
+    SemExprJar,
     husky_sem_place_contract::jar::SemaPlaceContractJar,
     HoverJar
 )]

@@ -7,14 +7,14 @@ pub enum SemaCondition {
     /// `be` condition with syntactically correct pattern.
     /// This requires special handling for many cases.
     Be {
-        src: SemaExprIdx,
+        src: SemExprIdx,
         be_regional_token_idx: RegionalTokenIdx,
         target: BePatternSyndicate,
     },
     /// all other conditions.
     /// for simplicity, `be` with a syntactically broken pattern is also included in there
     Other {
-        sem_expr_idx: SemaExprIdx,
+        sem_expr_idx: SemExprIdx,
         conversion: ConditionConversion,
     },
 }

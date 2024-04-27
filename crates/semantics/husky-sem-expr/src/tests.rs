@@ -14,7 +14,7 @@ use husky_manifest::ManifestJar;
 use husky_manifest_ast::ManifestAstJar;
 use husky_print_utils::p;
 use husky_syn_decl::{SynDeclDb, SynDeclJar};
-use husky_syn_expr::SynExprJar;
+use husky_syn_expr::jar::SynExprJar;
 use husky_term_prelude::TermPreludeJar;
 use husky_token::TokenJar;
 use husky_toml_ast::TomlAstJar;
@@ -46,12 +46,12 @@ use husky_vfs::*;
     EthTermJar,
     EtherealSignatureJar,
     FlyTermJar,
-    SemaExprJar
+    SemExprJar
 )]
 #[derive(Default)]
 pub(crate) struct DB;
 
-fn decl_sem_expr_regions(db: &::salsa::Db, module_path: ModulePath) -> Vec<SemaExprRegion> {
+fn decl_sem_expr_regions(db: &::salsa::Db, module_path: ModulePath) -> Vec<SemExprRegion> {
     use husky_syn_decl::HasSynDeclSheet;
 
     module_path
@@ -75,7 +75,7 @@ fn decl_sem_expr_regions_works() {
     )
 }
 
-fn defn_sem_expr_regions(db: &::salsa::Db, module_path: ModulePath) -> Vec<SemaExprRegion> {
+fn defn_sem_expr_regions(db: &::salsa::Db, module_path: ModulePath) -> Vec<SemExprRegion> {
     module_item_syn_defns(db, module_path)
         .iter()
         .copied()

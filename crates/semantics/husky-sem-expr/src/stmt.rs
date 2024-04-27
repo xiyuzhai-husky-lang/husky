@@ -22,18 +22,18 @@ use crate::{obelisks::let_variable::LetVariableObelisk, *};
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub enum SemaStmtData {
+pub enum SemStmtData {
     Let {
         let_token: LetRegionalToken,
         let_pattern_sem_obelisk: LetVariableObelisk,
         contract: Contract,
         eq_token: EqRegionalToken,
-        initial_value_sem_expr_idx: SemaExprIdx,
+        initial_value_sem_expr_idx: SemExprIdx,
         coercion_outcome: Option<ExpectCoercionOutcome>,
     },
     Return {
         return_token: ReturnRegionalToken,
-        result: SemaExprIdx,
+        result: SemExprIdx,
         coercion_outcome: Option<ExpectCoercionOutcome>,
     },
     Require {
@@ -48,7 +48,7 @@ pub enum SemaStmtData {
         break_token: BreakRegionalToken,
     },
     Eval {
-        sem_expr_idx: SemaExprIdx,
+        sem_expr_idx: SemExprIdx,
         outcome: Option<ExpectationOutcome>,
         // todo: change this to EolOrEolSemicolonToken
         eol_semicolon: Option<EolSemicolonRegionalToken>,
@@ -58,32 +58,32 @@ pub enum SemaStmtData {
         particulars: SemaForBetweenParticulars,
         for_loop_var_symbol_idx: CurrentVariableIdx,
         eol_colon: EolRegionalToken,
-        stmts: SemaStmtIdxRange,
+        stmts: SemStmtIdxRange,
     },
     ForIn {
         for_token: StmtForRegionalToken,
-        range: SemaExprIdx,
+        range: SemExprIdx,
         eol_colon: EolRegionalToken,
-        stmts: SemaStmtIdxRange,
+        stmts: SemStmtIdxRange,
     },
     Forext {
         forext_token: ForextRegionalToken,
         particulars: SemaForextParticulars,
         eol_colon: EolRegionalToken,
-        stmts: SemaStmtIdxRange,
+        stmts: SemStmtIdxRange,
     },
     While {
         while_token: WhileRegionalToken,
         condition: SemaCondition,
         eol_colon: EolRegionalToken,
-        stmts: SemaStmtIdxRange,
+        stmts: SemStmtIdxRange,
     },
     DoWhile {
         do_token: DoRegionalToken,
         while_token: WhileRegionalToken,
         condition: SemaCondition,
         eol_colon: EolRegionalToken,
-        stmts: SemaStmtIdxRange,
+        stmts: SemStmtIdxRange,
     },
     IfElse {
         if_branch: SemaIfBranch,
@@ -92,7 +92,7 @@ pub enum SemaStmtData {
     },
     Match {
         match_token: MatchRegionalToken,
-        match_opd: SemaExprIdx,
+        match_opd: SemExprIdx,
         match_contract: Contract,
         eol_with_token: EolWithRegionalToken,
         case_branches: Vec<SemaCaseBranch>,
@@ -101,26 +101,23 @@ pub enum SemaStmtData {
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub struct SemaStmtEntry {
-    data_result: SemaExprDataResult<SemaStmtData>,
-    ty_result: SemaExprTypeResult<FlyTerm>,
+pub struct SemStmtEntry {
+    data_result: SemExprDataResult<SemStmtData>,
+    ty_result: SemExprTypeResult<FlyTerm>,
 }
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Default)]
-pub(crate) struct SemaStmtBatch {
-    entries: SmallVec<[SemaStmtEntry; 8]>,
+pub(crate) struct SemStmtBatch {
+    entries: SmallVec<[SemStmtEntry; 8]>,
 }
 
-impl SemaStmtBatch {
+impl SemStmtBatch {
     pub(crate) fn add(
         &mut self,
-        (data_result, ty_result): (
-            SemaExprDataResult<SemaStmtData>,
-            SemaExprTypeResult<FlyTerm>,
-        ),
+        (data_result, ty_result): (SemExprDataResult<SemStmtData>, SemExprTypeResult<FlyTerm>),
     ) {
-        self.entries.push(SemaStmtEntry {
+        self.entries.push(SemStmtEntry {
             data_result,
             ty_result,
         })
@@ -129,41 +126,41 @@ impl SemaStmtBatch {
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Default, PartialEq, Eq)]
-pub struct SemaStmtArena(Arena<SemaStmtEntry>);
+pub struct SemStmtArena(Arena<SemStmtEntry>);
 
-impl SemaStmtArena {
-    pub(crate) fn alloc_batch(&mut self, batch: SemaStmtBatch) -> SemaStmtIdxRange {
-        SemaStmtIdxRange(self.0.alloc_batch(batch.entries))
+impl SemStmtArena {
+    pub(crate) fn alloc_batch(&mut self, batch: SemStmtBatch) -> SemStmtIdxRange {
+        SemStmtIdxRange(self.0.alloc_batch(batch.entries))
     }
 
-    pub fn arena_ref<'a>(&'a self) -> SemaStmtArenaRef<'a> {
-        SemaStmtArenaRef(self.0.to_ref())
+    pub fn arena_ref<'a>(&'a self) -> SemStmtArenaRef<'a> {
+        SemStmtArenaRef(self.0.to_ref())
     }
 }
 
 #[derive(Clone, Copy)]
-pub struct SemaStmtArenaRef<'a>(ArenaRef<'a, SemaStmtEntry>);
+pub struct SemStmtArenaRef<'a>(ArenaRef<'a, SemStmtEntry>);
 
-impl<'a> SemaStmtArenaRef<'a> {
+impl<'a> SemStmtArenaRef<'a> {
     pub fn len(self) -> usize {
         self.0.len()
     }
 }
 
-impl<'a> std::ops::Index<SemaStmtIdx> for SemaStmtArenaRef<'a> {
-    type Output = SemaStmtEntry;
+impl<'a> std::ops::Index<SemStmtIdx> for SemStmtArenaRef<'a> {
+    type Output = SemStmtEntry;
 
-    fn index(&self, index: SemaStmtIdx) -> &Self::Output {
+    fn index(&self, index: SemStmtIdx) -> &Self::Output {
         &self.0[index.0]
     }
 }
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct SemaStmtIdx(ArenaIdx<SemaStmtEntry>);
+pub struct SemStmtIdx(ArenaIdx<SemStmtEntry>);
 
-impl SemaStmtIdx {
-    pub fn data<'a>(self, arena_ref: SemaStmtArenaRef<'a>) -> &'a SemaStmtData {
+impl SemStmtIdx {
+    pub fn data<'a>(self, arena_ref: SemStmtArenaRef<'a>) -> &'a SemStmtData {
         arena_ref
             .0
             .index(self.0)
@@ -177,95 +174,95 @@ impl SemaStmtIdx {
     }
 }
 
-impl std::ops::Sub<usize> for SemaStmtIdx {
-    type Output = SemaStmtIdx;
+impl std::ops::Sub<usize> for SemStmtIdx {
+    type Output = SemStmtIdx;
 
     fn sub(self, rhs: usize) -> Self::Output {
-        SemaStmtIdx(self.0 - rhs)
+        SemStmtIdx(self.0 - rhs)
     }
 }
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct SemaStmtIdxRange(ArenaIdxRange<SemaStmtEntry>);
+pub struct SemStmtIdxRange(ArenaIdxRange<SemStmtEntry>);
 
-impl SemaStmtIdxRange {
-    pub fn iter(self) -> impl Iterator<Item = SemaStmtIdx> {
-        self.0.into_iter().map(SemaStmtIdx)
+impl SemStmtIdxRange {
+    pub fn iter(self) -> impl Iterator<Item = SemStmtIdx> {
+        self.0.into_iter().map(SemStmtIdx)
     }
 
-    pub fn start(self) -> SemaStmtIdx {
-        SemaStmtIdx(self.0.start())
+    pub fn start(self) -> SemStmtIdx {
+        SemStmtIdx(self.0.start())
     }
 
-    pub fn end(self) -> SemaStmtIdx {
-        SemaStmtIdx(self.0.end())
+    pub fn end(self) -> SemStmtIdx {
+        SemStmtIdx(self.0.end())
     }
 
-    pub fn split_last(self) -> (Self, SemaStmtIdx) {
+    pub fn split_last(self) -> (Self, SemStmtIdx) {
         let (range, last) = self.0.split_last();
-        (Self(range), SemaStmtIdx(last))
+        (Self(range), SemStmtIdx(last))
     }
 }
 
-impl IntoIterator for SemaStmtIdxRange {
-    type Item = SemaStmtIdx;
+impl IntoIterator for SemStmtIdxRange {
+    type Item = SemStmtIdx;
 
     type IntoIter = std::iter::Map<
-        <ArenaIdxRange<stmt::SemaStmtEntry> as IntoIterator>::IntoIter,
-        fn(ArenaIdx<SemaStmtEntry>) -> SemaStmtIdx,
+        <ArenaIdxRange<stmt::SemStmtEntry> as IntoIterator>::IntoIter,
+        fn(ArenaIdx<SemStmtEntry>) -> SemStmtIdx,
     >;
 
     fn into_iter(self) -> Self::IntoIter {
-        self.0.into_iter().map(SemaStmtIdx)
+        self.0.into_iter().map(SemStmtIdx)
     }
 }
 
-impl IntoIterator for &SemaStmtIdxRange {
-    type Item = SemaStmtIdx;
+impl IntoIterator for &SemStmtIdxRange {
+    type Item = SemStmtIdx;
 
     type IntoIter = std::iter::Map<
-        <ArenaIdxRange<stmt::SemaStmtEntry> as IntoIterator>::IntoIter,
-        fn(ArenaIdx<SemaStmtEntry>) -> SemaStmtIdx,
+        <ArenaIdxRange<stmt::SemStmtEntry> as IntoIterator>::IntoIter,
+        fn(ArenaIdx<SemStmtEntry>) -> SemStmtIdx,
     >;
 
     fn into_iter(self) -> Self::IntoIter {
-        self.0.into_iter().map(SemaStmtIdx)
+        self.0.into_iter().map(SemStmtIdx)
     }
 }
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub struct SemaStmtMap<V>(ArenaMap<SemaStmtEntry, V>);
+pub struct SemStmtMap<V>(ArenaMap<SemStmtEntry, V>);
 
-impl<V> SemaStmtMap<V> {
-    pub fn new(sem_stmt_arena: SemaStmtArenaRef<'_>) -> SemaStmtMap<V> {
+impl<V> SemStmtMap<V> {
+    pub fn new(sem_stmt_arena: SemStmtArenaRef<'_>) -> SemStmtMap<V> {
         Self(ArenaMap::new2(sem_stmt_arena.0))
     }
 
-    pub fn insert_new(&mut self, stmt: SemaStmtIdx, v: V) {
+    pub fn insert_new(&mut self, stmt: SemStmtIdx, v: V) {
         self.0.insert_new(stmt.0, v)
     }
 
-    pub fn get(&self, stmt: SemaStmtIdx) -> Option<&V> {
+    pub fn get(&self, stmt: SemStmtIdx) -> Option<&V> {
         self.0.get(stmt.0)
     }
 }
 
-impl<V> std::ops::Index<SemaStmtIdx> for SemaStmtMap<V> {
+impl<V> std::ops::Index<SemStmtIdx> for SemStmtMap<V> {
     type Output = V;
 
-    fn index(&self, index: SemaStmtIdx) -> &Self::Output {
+    fn index(&self, index: SemStmtIdx) -> &Self::Output {
         &self.0[index.0]
     }
 }
 
-impl<'a> SemaExprBuilder<'a> {
+impl<'a> SemExprBuilder<'a> {
     pub(crate) fn build_sem_branch<Expectation: ExpectFlyTerm>(
         &mut self,
         stmts: SynStmtIdxRange,
         merger: &mut BranchTypeMerger<Expectation>,
-    ) -> SemaStmtIdxRange {
+    ) -> SemStmtIdxRange {
         let (stmts, stmts_ty) =
             self.build_sem_stmts_with_its_ty_returned(stmts, merger.expr_expectation().clone());
         merger.add(self, stmts_ty);
@@ -276,8 +273,8 @@ impl<'a> SemaExprBuilder<'a> {
         &mut self,
         stmts: SynStmtIdxRange,
         block_ty_expectation: impl ExpectFlyTerm,
-    ) -> SemaStmtIdxRange {
-        let mut batch = SemaStmtBatch::default();
+    ) -> SemStmtIdxRange {
+        let mut batch = SemStmtBatch::default();
         for stmt in stmts.start()..(stmts.end() - 1) {
             batch.add(self.infer_new_nonlast_stmt(stmt));
         }
@@ -289,8 +286,8 @@ impl<'a> SemaExprBuilder<'a> {
         &mut self,
         stmts: SynStmtIdxRange,
         block_ty_expectation: impl ExpectFlyTerm,
-    ) -> (SemaStmtIdxRange, Option<FlyTerm>) {
-        let mut batch = SemaStmtBatch::default();
+    ) -> (SemStmtIdxRange, Option<FlyTerm>) {
+        let mut batch = SemStmtBatch::default();
         for stmt in stmts.start()..(stmts.end() - 1) {
             batch.add(self.infer_new_nonlast_stmt(stmt));
         }
@@ -303,10 +300,7 @@ impl<'a> SemaExprBuilder<'a> {
     fn infer_new_nonlast_stmt(
         &mut self,
         stmt_idx: SynStmtIdx,
-    ) -> (
-        SemaExprDataResult<SemaStmtData>,
-        SemaExprTypeResult<FlyTerm>,
-    ) {
+    ) -> (SemExprDataResult<SemStmtData>, SemExprTypeResult<FlyTerm>) {
         let expect_unit = self.expect_unit();
         self.build_sem_stmt(stmt_idx, expect_unit)
     }
@@ -315,10 +309,7 @@ impl<'a> SemaExprBuilder<'a> {
         &mut self,
         stmt_idx: SynStmtIdx,
         stmt_ty_expectation: impl ExpectFlyTerm,
-    ) -> (
-        SemaExprDataResult<SemaStmtData>,
-        SemaExprTypeResult<FlyTerm>,
-    ) {
+    ) -> (SemExprDataResult<SemStmtData>, SemExprTypeResult<FlyTerm>) {
         match self.syn_expr_region_data()[stmt_idx] {
             SynStmtData::Let {
                 let_token,
@@ -343,7 +334,7 @@ impl<'a> SemaExprBuilder<'a> {
                     None => (self.build_sem_expr(result, ExpectAnyDerived), None),
                 };
                 (
-                    Ok(SemaStmtData::Return {
+                    Ok(SemStmtData::Return {
                         return_token,
                         result,
                         coercion_outcome,
@@ -357,7 +348,7 @@ impl<'a> SemaExprBuilder<'a> {
             } => {
                 let condition = self.build_sem_condition(condition);
                 (
-                    Ok(SemaStmtData::Require {
+                    Ok(SemStmtData::Require {
                         require_token,
                         condition,
                     }),
@@ -370,7 +361,7 @@ impl<'a> SemaExprBuilder<'a> {
             } => {
                 let condition = self.build_sem_condition(condition);
                 (
-                    Ok(SemaStmtData::Assert {
+                    Ok(SemStmtData::Assert {
                         assert_token,
                         condition,
                     }),
@@ -378,7 +369,7 @@ impl<'a> SemaExprBuilder<'a> {
                 )
             }
             SynStmtData::Break { break_token } => (
-                Ok(SemaStmtData::Break { break_token }),
+                Ok(SemStmtData::Break { break_token }),
                 Ok(self.term_menu().never().into()),
             ),
             SynStmtData::Eval {
@@ -406,12 +397,12 @@ impl<'a> SemaExprBuilder<'a> {
                         }
                     };
                     (
-                        Ok(SemaStmtData::Eval {
+                        Ok(SemStmtData::Eval {
                             sem_expr_idx,
                             eol_semicolon,
                             outcome,
                         }),
-                        ty.ok_or(DerivedSemaExprTypeError::EvalExprTypeNotInferred.into()),
+                        ty.ok_or(DerivedSemExprTypeError::EvalExprTypeNotInferred.into()),
                     )
                 }
                 Err(_) => {
@@ -435,7 +426,7 @@ impl<'a> SemaExprBuilder<'a> {
                 let block = self.build_sem_stmts(*block, expr_expectation);
                 let &Ok(eol_colon) = eol_colon else { todo!() };
                 (
-                    Ok(SemaStmtData::ForBetween {
+                    Ok(SemStmtData::ForBetween {
                         for_token,
                         particulars,
                         for_loop_var_symbol_idx,
@@ -473,7 +464,7 @@ impl<'a> SemaExprBuilder<'a> {
                 let block = self.build_sem_stmts(block, block_ty_expectation);
                 let &Ok(eol_colon) = eol_colon else { todo!() };
                 (
-                    Ok(SemaStmtData::Forext {
+                    Ok(SemStmtData::Forext {
                         forext_token,
                         particulars,
                         eol_colon,
@@ -496,7 +487,7 @@ impl<'a> SemaExprBuilder<'a> {
                 let expect_unit = self.expect_unit();
                 let block = self.build_sem_stmts(block, expect_unit);
                 (
-                    Ok(SemaStmtData::While {
+                    Ok(SemStmtData::While {
                         while_token,
                         condition,
                         eol_colon,
@@ -520,7 +511,7 @@ impl<'a> SemaExprBuilder<'a> {
                 let expect_unit = self.expect_unit();
                 let block = self.build_sem_stmts(block, expect_unit);
                 (
-                    Ok(SemaStmtData::DoWhile {
+                    Ok(SemStmtData::DoWhile {
                         do_token,
                         while_token,
                         condition,
@@ -559,7 +550,7 @@ impl<'a> SemaExprBuilder<'a> {
         let (sem_expr_idx, outcome) =
             self.build_sem_expr_with_outcome(syn_expr_idx, ExpectConditionType);
         match *sem_expr_idx.data(self.sem_expr_arena().arena_ref()) {
-            SemaExprData::Be {
+            SemExprData::Be {
                 src,
                 be_regional_token_idx,
                 target,

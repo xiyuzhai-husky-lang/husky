@@ -3,11 +3,11 @@ use super::*;
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct SemaCommaListItem {
-    pub sem_expr_idx: SemaExprIdx,
+    pub sem_expr_idx: SemExprIdx,
     pub comma_regional_token_idx: Option<RegionalTokenIdx>,
 }
 
-impl<'a> SemaExprBuilder<'a> {
+impl<'a> SemExprBuilder<'a> {
     pub(crate) fn build_sem_comma_list_item<E: ExpectFlyTerm>(
         &mut self,
         syn_comma_list_item: SynCommaListItem,
@@ -41,7 +41,7 @@ impl<'a> SemaExprBuilder<'a> {
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct SemaSimpleArgument {
-    pub argument_expr_idx: SemaExprIdx,
+    pub argument_expr_idx: SemExprIdx,
     pub coercion_outcome: Option<ExpectCoercionOutcome>,
     separator: CallListSeparator,
 }
@@ -49,7 +49,7 @@ pub struct SemaSimpleArgument {
 /// # constructor
 impl SemaSimpleArgument {
     pub(crate) fn new(
-        argument_expr_idx: SemaExprIdx,
+        argument_expr_idx: SemExprIdx,
         coercion_outcome: Option<ExpectCoercionOutcome>,
         separator: CallListSeparator,
     ) -> Self {
@@ -63,7 +63,7 @@ impl SemaSimpleArgument {
 
 /// # getters
 impl SemaSimpleArgument {
-    pub fn argument_sem_expr_idx(&self) -> SemaExprIdx {
+    pub fn argument_sem_expr_idx(&self) -> SemExprIdx {
         self.argument_expr_idx
     }
 
@@ -79,14 +79,14 @@ impl SemaSimpleArgument {
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct SemaVariadicCallListItem {
-    argument_sem_expr_idx: SemaExprIdx,
+    argument_sem_expr_idx: SemExprIdx,
     coercion_outcome: Option<ExpectCoercionOutcome>,
     separator: CallListSeparator,
 }
 
 impl SemaVariadicCallListItem {
     pub(crate) fn new(
-        argument_sem_expr_idx: SemaExprIdx,
+        argument_sem_expr_idx: SemExprIdx,
         coercion_outcome: Option<ExpectCoercionOutcome>,
         separator: CallListSeparator,
     ) -> Self {
@@ -97,7 +97,7 @@ impl SemaVariadicCallListItem {
         }
     }
 
-    pub fn argument_expr_idx(&self) -> SemaExprIdx {
+    pub fn argument_expr_idx(&self) -> SemExprIdx {
         self.argument_sem_expr_idx
     }
 
@@ -111,7 +111,7 @@ impl SemaVariadicCallListItem {
 pub struct SemaKeyedCallListItem {
     key_regional_token_idx: RegionalTokenIdx,
     key: Ident,
-    argument_sem_expr_idx: SemaExprIdx,
+    argument_sem_expr_idx: SemExprIdx,
     coercion_outcome: Option<ExpectCoercionOutcome>,
     separator: CallListSeparator,
 }
@@ -120,7 +120,7 @@ impl SemaKeyedCallListItem {
     pub(crate) fn new(
         key_regional_token_idx: RegionalTokenIdx,
         key: Ident,
-        argument_sem_expr_idx: SemaExprIdx,
+        argument_sem_expr_idx: SemExprIdx,
         coercion_outcome: Option<ExpectCoercionOutcome>,
         separator: CallListSeparator,
     ) -> Self {
@@ -141,7 +141,7 @@ impl SemaKeyedCallListItem {
         self.key
     }
 
-    pub fn argument_expr_idx(&self) -> SemaExprIdx {
+    pub fn argument_expr_idx(&self) -> SemExprIdx {
         self.argument_sem_expr_idx
     }
 
@@ -150,7 +150,7 @@ impl SemaKeyedCallListItem {
     }
 }
 
-impl<'a> SemaExprBuilder<'a> {
+impl<'a> SemExprBuilder<'a> {
     pub(crate) fn build_sem_keyed_call_list_item(
         &mut self,
         item: SynKeyedCallListItem,

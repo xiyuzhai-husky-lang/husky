@@ -75,3 +75,11 @@ search for Server Logging: Enabled in its setting
 ## #[cfg(test)] is not runned during testing in `linkages_emancipated_by_javelin`
 
 I'm still working on this
+
+## vscode regex
+
+take a good read https://learn.microsoft.com/en-us/visualstudio/ide/using-regular-expressions-in-visual-studio?view=vs-2022
+
+it's very useful
+
+captured groups!!

@@ -36,7 +36,7 @@ use husky_entity_tree::helpers::paths::module_item_paths;
 use husky_entity_tree::helpers::tokra_region::HasRegionalTokenIdxBase;
 use husky_ki_repr::expansion::KiReprExpansion;
 use husky_ki_repr::repr::KiRepr;
-use husky_sem_expr::SemaExprIdx;
+use husky_sem_expr::SemExprIdx;
 use husky_trace_protocol::id::TraceId;
 use husky_trace_protocol::{
     id::TraceKind,

@@ -2,7 +2,7 @@
 [
     (
         Linkage {
-            data: LinkageData::EnumU8ToJsonValue {
+            data: LinkageData::EnumUnitToJsonValue {
                 ty_path: TypePath(`mnist::MnistLabel`, `Enum`),
             },
         },

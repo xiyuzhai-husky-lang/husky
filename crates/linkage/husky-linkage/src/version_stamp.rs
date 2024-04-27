@@ -118,7 +118,7 @@ fn linkage_version_stamp(db: &::salsa::Db, linkage: Linkage) -> LinkageVersionSt
             builder.add(hir_defn);
             builder.add_instantiation(instantiation);
         }
-        LinkageData::EnumU8ToJsonValue { ty_path } => builder.add_ty_path(ty_path, db),
+        LinkageData::EnumUnitToJsonValue { ty_path } => builder.add_ty_path(ty_path, db),
         LinkageData::StructField { self_ty, .. } => builder.add_ty_path_leading(self_ty),
         LinkageData::EnumVariantField {
             path,

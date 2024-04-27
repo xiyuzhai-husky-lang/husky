@@ -1,6 +1,6 @@
 ```rust
 [
-    SemaExprRegion {
+    SemExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
                 MajorItemPath::Trait(
@@ -8,7 +8,7 @@
                 ),
             ),
         ),
-        data: SemaExprRegionData {
+        data: SemExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
                     MajorItemPath::Trait(
@@ -19,12 +19,12 @@
             place_registry: PlaceRegistry {
                 infos: [],
             },
-            sem_expr_arena: SemaExprArena(
+            sem_expr_arena: SemExprArena(
                 Arena {
                     data: [],
                 },
             ),
-            sem_stmt_arena: SemaStmtArena(
+            sem_stmt_arena: SemStmtArena(
                 Arena {
                     data: [],
                 },
@@ -66,7 +66,7 @@
             ),
         },
     },
-    SemaExprRegion {
+    SemExprRegion {
         path: RegionPath::Decl(
             ItemPath::MajorItem(
                 MajorItemPath::Trait(
@@ -74,7 +74,7 @@
                 ),
             ),
         ),
-        data: SemaExprRegionData {
+        data: SemExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
                     MajorItemPath::Trait(
@@ -85,12 +85,12 @@
             place_registry: PlaceRegistry {
                 infos: [],
             },
-            sem_expr_arena: SemaExprArena(
+            sem_expr_arena: SemExprArena(
                 Arena {
                     data: [],
                 },
             ),
-            sem_stmt_arena: SemaStmtArena(
+            sem_stmt_arena: SemStmtArena(
                 Arena {
                     data: [],
                 },
@@ -132,7 +132,7 @@
             ),
         },
     },
-    SemaExprRegion {
+    SemExprRegion {
         path: RegionPath::Decl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TraitForTypeImplBlock(
@@ -140,7 +140,7 @@
                 ),
             ),
         ),
-        data: SemaExprRegionData {
+        data: SemExprRegionData {
             path: RegionPath::Decl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TraitForTypeImplBlock(
@@ -151,12 +151,12 @@
             place_registry: PlaceRegistry {
                 infos: [],
             },
-            sem_expr_arena: SemaExprArena(
+            sem_expr_arena: SemExprArena(
                 Arena {
                     data: [
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
+                                SemExprData::PrincipalEntityPath {
                                     path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Trait(
@@ -190,7 +190,7 @@
                     ],
                 },
             ),
-            sem_stmt_arena: SemaStmtArena(
+            sem_stmt_arena: SemStmtArena(
                 Arena {
                     data: [],
                 },
@@ -199,7 +199,7 @@
                 (
                     0,
                     (
-                        SemaExprIdx(
+                        SemExprIdx(
                             0,
                         ),
                         SynExprRootKind::PrimalTrait,
@@ -212,7 +212,7 @@
             },
             sem_expr_terms: [
                 (
-                    SemaExprIdx(
+                    SemExprIdx(
                         0,
                     ),
                     Ok(

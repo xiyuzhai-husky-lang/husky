@@ -41,9 +41,10 @@ pub(crate) fn t<'a>(
         Ident::from_ref(db, "parse_expr_works").unwrap(),
         input.to_owned(),
     );
-    let (expr_region, expr_idx) = parse_expr_from_snippet(db, path_menu.core_library(), snippet)
-        .as_ref()
-        .unwrap();
+    let (expr_region, expr_idx) =
+        crate::snippet::parse_expr_from_snippet(db, path_menu.core_library(), snippet)
+            .as_ref()
+            .unwrap();
     (expr_region.data(db).debug_with(db), *expr_idx)
 }
 

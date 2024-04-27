@@ -21,7 +21,7 @@ pub enum RustMacroName {
     StructFieldLinkageImpl,
     UnveilLinkageImpl,
     TypeDefault,
-    EnumU8Presenter,
+    EnumUnitPresenter,
     HtmlTag(husky_coword::Ident),
 }
 
@@ -60,7 +60,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
             RustMacroName::GnLinkageImpl => "gn_linkage_impl!",
             RustMacroName::StructFieldLinkageImpl => "struct_field_linkage_impl!",
             RustMacroName::TypeDefault => "ty_default_linkage_impl!",
-            RustMacroName::EnumU8Presenter => "enum_u8_presenter_linkage_impl!",
+            RustMacroName::EnumUnitPresenter => "enum_index_presenter_linkage_impl!",
             RustMacroName::HtmlTag(ident) => {
                 self.result += ident.data(db);
                 self.result += "!";

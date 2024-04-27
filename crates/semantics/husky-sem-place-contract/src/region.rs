@@ -2,8 +2,8 @@
 use crate::*;
 use crate::{engine::PlaceContractEngine, site::SemaPlaceContractSite};
 #[cfg(test)]
-use husky_sem_expr::SemaExprDb;
-use husky_sem_expr::{SemaExprIdx, SemaExprMap, SemaExprRegion};
+use husky_sem_expr::SemExprDb;
+use husky_sem_expr::{SemExprIdx, SemExprMap, SemExprRegion};
 #[cfg(test)]
 use husky_syn_defn::module_item_syn_defns;
 #[cfg(test)]
@@ -12,20 +12,20 @@ use husky_vfs::ModulePath;
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct SemaPlaceContractRegion {
-    expr_sites: SemaExprMap<SemaPlaceContractSite>,
+    expr_sites: SemExprMap<SemaPlaceContractSite>,
 }
 
 /// # constructor
 impl SemaPlaceContractRegion {
-    pub(crate) fn new(expr_sites: SemaExprMap<SemaPlaceContractSite>) -> Self {
+    pub(crate) fn new(expr_sites: SemExprMap<SemaPlaceContractSite>) -> Self {
         Self { expr_sites }
     }
 }
 
-impl std::ops::Index<SemaExprIdx> for SemaPlaceContractRegion {
+impl std::ops::Index<SemExprIdx> for SemaPlaceContractRegion {
     type Output = SemaPlaceContractSite;
 
-    fn index(&self, expr: SemaExprIdx) -> &Self::Output {
+    fn index(&self, expr: SemExprIdx) -> &Self::Output {
         &self.expr_sites[expr]
     }
 }
@@ -33,7 +33,7 @@ impl std::ops::Index<SemaExprIdx> for SemaPlaceContractRegion {
 #[salsa::tracked(return_ref)]
 pub fn sem_place_contract_region(
     db: &::salsa::Db,
-    sem_expr_region: SemaExprRegion,
+    sem_expr_region: SemExprRegion,
 ) -> SemaPlaceContractRegion {
     let mut engine = PlaceContractEngine::new(db, sem_expr_region);
     engine.infer_all_exprs();

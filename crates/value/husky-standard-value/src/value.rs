@@ -13,7 +13,7 @@ use husky_task_interface::ki_control_flow::KiControlFlow;
 use husky_term_prelude::literal::StringLiteralTokenData;
 use husky_value_interface::IsValue;
 use husky_value_protocol::presentation::{
-    synchrotron::ValuePresentationSynchrotron, EnumU8ValuePresenter, ValuePresentation,
+    synchrotron::ValuePresentationSynchrotron, EnumUnitValuePresenter, ValuePresentation,
     ValuePresenterCache,
 };
 use husky_visual_protocol::{
@@ -69,9 +69,9 @@ pub enum Value {
     OptionLeash(Option<&'static dyn StaticDyn>),
     OptionSizedRef(Option<*const dyn StaticDyn>),
     OptionSizedMut(Option<*mut dyn StaticDyn>),
-    EnumU8 {
-        index: u8,
-        presenter: EnumU8ValuePresenter,
+    EnumUnit {
+        index: usize,
+        presenter: EnumUnitValuePresenter,
     },
 }
 
@@ -174,7 +174,7 @@ impl Value {
             Value::OptionLeash(_) => todo!(),
             Value::OptionSizedRef(_) => todo!(),
             Value::OptionSizedMut(_) => todo!(),
-            Value::EnumU8 { .. } => todo!(),
+            Value::EnumUnit { .. } => todo!(),
         }
     }
 
@@ -213,8 +213,8 @@ impl Value {
         todo!()
     }
 
-    pub fn from_enum_u8(index: u8, presenter: EnumU8ValuePresenter) -> Self {
-        Value::EnumU8 { index, presenter }
+    pub fn from_enum_index(index: usize, presenter: EnumUnitValuePresenter) -> Self {
+        Value::EnumUnit { index, presenter }
     }
 }
 
@@ -223,8 +223,8 @@ impl IsValue for Value {
         Value::Uninit
     }
 
-    fn from_enum_u8(index: u8, presenter: EnumU8ValuePresenter) -> Self {
-        Value::EnumU8 { index, presenter }
+    fn from_enum_index(index: usize, presenter: EnumUnitValuePresenter) -> Self {
+        Value::EnumUnit { index, presenter }
     }
 
     fn share(&'static self) -> Self {
@@ -264,7 +264,7 @@ impl IsValue for Value {
             Value::OptionLeash(slf) => Value::OptionLeash(slf),
             Value::OptionSizedRef(slf) => unreachable!("not expecting temporary ref for sharing"),
             Value::OptionSizedMut(slf) => unreachable!("not expecting temporary mut for sharing"),
-            Value::EnumU8 { index, presenter } => Value::EnumU8 { index, presenter },
+            Value::EnumUnit { index, presenter } => Value::EnumUnit { index, presenter },
         }
     }
 
@@ -344,7 +344,7 @@ impl IsValue for Value {
             Value::RSize(slf) => slf as usize,
             Value::Ref(_) => todo!(),
             Value::Mut(_) => todo!(),
-            Value::EnumU8 { .. } => todo!(),
+            Value::EnumUnit { .. } => todo!(),
             _ => unreachable!(),
         }
     }
@@ -386,7 +386,7 @@ impl IsValue for Value {
             Value::OptionLeash(_) => todo!(),
             Value::OptionSizedRef(_) => todo!(),
             Value::OptionSizedMut(_) => todo!(),
-            Value::EnumU8 { .. } => todo!(),
+            Value::EnumUnit { .. } => todo!(),
         }
     }
 
@@ -431,7 +431,7 @@ impl IsValue for Value {
             Value::OptionLeash(_) => todo!(),
             Value::OptionSizedRef(_) => todo!(),
             Value::OptionSizedMut(_) => todo!(),
-            Value::EnumU8 { index, presenter } => {
+            Value::EnumUnit { index, presenter } => {
                 presenter(index, cache, value_presentation_synchrotron)
             }
         }
@@ -475,7 +475,7 @@ impl IsValue for Value {
             Value::OptionLeash(_) => todo!(),
             Value::OptionSizedRef(_) => todo!(),
             Value::OptionSizedMut(_) => todo!(),
-            Value::EnumU8 { .. } => Visual::Void,
+            Value::EnumUnit { .. } => Visual::Void,
         }
     }
 
@@ -519,7 +519,7 @@ impl PartialEq for Value {
             (Self::OptionLeash(l0), Self::OptionLeash(r0)) => todo!(),
             (Self::OptionSizedRef(l0), Self::OptionSizedRef(r0)) => todo!(),
             (Self::OptionSizedMut(l0), Self::OptionSizedMut(r0)) => todo!(),
-            (Self::EnumU8 { index: l0, .. }, Self::EnumU8 { index: r0, .. }) => l0 == r0,
+            (Self::EnumUnit { index: l0, .. }, Self::EnumUnit { index: r0, .. }) => l0 == r0,
             _ => unreachable!(),
         }
     }
@@ -555,7 +555,7 @@ impl PartialOrd for Value {
             (OptionLeash(l0), OptionLeash(r0)) => todo!(),
             (OptionSizedRef(l0), OptionSizedRef(r0)) => todo!(),
             (OptionSizedMut(l0), OptionSizedMut(r0)) => todo!(),
-            (EnumU8 { index: l0, .. }, EnumU8 { index: r0, .. }) => todo!(),
+            (EnumUnit { index: l0, .. }, EnumUnit { index: r0, .. }) => todo!(),
             _ => unreachable!(),
         }
     }

@@ -91,8 +91,8 @@ Ok(
             ),
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             6,
                         ),
                     ),
@@ -194,8 +194,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             6,
                         ),
                     ),
@@ -335,8 +335,8 @@ Ok(
             ),
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             5,
                         ),
                     ),
@@ -365,8 +365,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             2,
                         ),
                     ),
@@ -400,8 +400,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             5,
                         ),
                     ),
@@ -450,8 +450,8 @@ Ok(
             ),
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             10,
                         ),
                     ),
@@ -482,8 +482,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             10,
                         ),
                     ),
@@ -493,8 +493,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             11,
                         ),
                     ),
@@ -510,8 +510,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             12,
                         ),
                     ),
@@ -546,8 +546,8 @@ Ok(
             ),
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             19,
                         ),
                     ),
@@ -576,8 +576,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             17,
                         ),
                     ),
@@ -591,8 +591,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             19,
                         ),
                     ),
@@ -623,8 +623,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             22,
                         ),
                     ),
@@ -657,8 +657,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             26,
                         ),
                     ),
@@ -740,8 +740,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             31,
                         ),
                     ),
@@ -810,8 +810,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             38,
                         ),
                     ),
@@ -859,8 +859,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             42,
                         ),
                     ),
@@ -908,8 +908,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             46,
                         ),
                     ),
@@ -922,8 +922,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             49,
                         ),
                     ),
@@ -969,8 +969,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             51,
                         ),
                     ),
@@ -986,8 +986,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             52,
                         ),
                     ),
@@ -1021,8 +1021,8 @@ Ok(
             ),
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             60,
                         ),
                     ),
@@ -1031,8 +1031,8 @@ Ok(
             ),
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             56,
                         ),
                     ),
@@ -1048,8 +1048,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             57,
                         ),
                     ),
@@ -1059,8 +1059,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             58,
                         ),
                     ),
@@ -1076,8 +1076,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             60,
                         ),
                     ),
@@ -1110,8 +1110,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             64,
                         ),
                     ),
@@ -1141,8 +1141,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             67,
                         ),
                     ),
@@ -1218,8 +1218,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             72,
                         ),
                     ),
@@ -1236,8 +1236,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             74,
                         ),
                     ),
@@ -1247,8 +1247,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             75,
                         ),
                     ),
@@ -1260,8 +1260,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             76,
                         ),
                     ),
@@ -1278,8 +1278,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             78,
                         ),
                     ),
@@ -1289,8 +1289,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             79,
                         ),
                     ),
@@ -1322,8 +1322,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             82,
                         ),
                     ),
@@ -1357,8 +1357,8 @@ Ok(
             ),
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             96,
                         ),
                     ),
@@ -1387,8 +1387,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             88,
                         ),
                     ),
@@ -1421,8 +1421,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             90,
                         ),
                     ),
@@ -1452,8 +1452,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             92,
                         ),
                     ),
@@ -1483,8 +1483,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             94,
                         ),
                     ),
@@ -1498,8 +1498,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             96,
                         ),
                     ),
@@ -1532,8 +1532,8 @@ Ok(
             ),
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             113,
                         ),
                     ),
@@ -1562,8 +1562,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             100,
                         ),
                     ),
@@ -1577,8 +1577,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             104,
                         ),
                     ),
@@ -1608,8 +1608,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             106,
                         ),
                     ),
@@ -1623,8 +1623,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             110,
                         ),
                     ),
@@ -1634,8 +1634,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             111,
                         ),
                     ),
@@ -1651,8 +1651,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             113,
                         ),
                     ),
@@ -1663,8 +1663,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             115,
                         ),
                     ),
@@ -1713,8 +1713,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             117,
                         ),
                     ),
@@ -1731,8 +1731,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             119,
                         ),
                     ),
@@ -1742,8 +1742,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             120,
                         ),
                     ),
@@ -1755,8 +1755,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             121,
                         ),
                     ),
@@ -1773,8 +1773,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             123,
                         ),
                     ),
@@ -1784,8 +1784,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             124,
                         ),
                     ),
@@ -1814,8 +1814,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             128,
                         ),
                     ),
@@ -1832,8 +1832,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             130,
                         ),
                     ),
@@ -1843,8 +1843,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             131,
                         ),
                     ),
@@ -1861,8 +1861,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             133,
                         ),
                     ),
@@ -1872,8 +1872,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             134,
                         ),
                     ),
@@ -1903,8 +1903,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             138,
                         ),
                     ),
@@ -1920,8 +1920,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             139,
                         ),
                     ),
@@ -1933,8 +1933,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             140,
                         ),
                     ),
@@ -1950,8 +1950,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             141,
                         ),
                     ),
@@ -1985,8 +1985,8 @@ Ok(
             ),
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             156,
                         ),
                     ),
@@ -1995,8 +1995,8 @@ Ok(
             ),
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             145,
                         ),
                     ),
@@ -2013,8 +2013,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             147,
                         ),
                     ),
@@ -2024,8 +2024,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             148,
                         ),
                     ),
@@ -2042,8 +2042,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             150,
                         ),
                     ),
@@ -2053,8 +2053,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             151,
                         ),
                     ),
@@ -2071,8 +2071,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             153,
                         ),
                     ),
@@ -2082,8 +2082,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             154,
                         ),
                     ),
@@ -2099,8 +2099,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             156,
                         ),
                     ),
@@ -2133,8 +2133,8 @@ Ok(
             ),
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             167,
                         ),
                     ),
@@ -2143,8 +2143,8 @@ Ok(
             ),
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             159,
                         ),
                     ),
@@ -2160,8 +2160,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             160,
                         ),
                     ),
@@ -2173,8 +2173,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             161,
                         ),
                     ),
@@ -2190,8 +2190,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             162,
                         ),
                     ),
@@ -2201,8 +2201,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             163,
                         ),
                     ),
@@ -2218,8 +2218,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             164,
                         ),
                     ),
@@ -2233,8 +2233,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             167,
                         ),
                     ),
@@ -2245,8 +2245,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             169,
                         ),
                     ),
@@ -2317,8 +2317,8 @@ Ok(
             ),
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             192,
                         ),
                     ),
@@ -2347,8 +2347,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             173,
                         ),
                     ),
@@ -2362,8 +2362,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             177,
                         ),
                     ),
@@ -2393,8 +2393,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             179,
                         ),
                     ),
@@ -2408,8 +2408,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             183,
                         ),
                     ),
@@ -2439,8 +2439,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             185,
                         ),
                     ),
@@ -2454,8 +2454,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             189,
                         ),
                     ),
@@ -2465,8 +2465,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             190,
                         ),
                     ),
@@ -2482,8 +2482,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             192,
                         ),
                     ),
@@ -2494,8 +2494,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             194,
                         ),
                     ),
@@ -2528,8 +2528,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             197,
                         ),
                     ),
@@ -2546,8 +2546,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             199,
                         ),
                     ),
@@ -2557,8 +2557,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             200,
                         ),
                     ),
@@ -2575,8 +2575,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             202,
                         ),
                     ),
@@ -2586,8 +2586,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             203,
                         ),
                     ),
@@ -2615,8 +2615,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             205,
                         ),
                     ),
@@ -2632,8 +2632,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             206,
                         ),
                     ),
@@ -2660,8 +2660,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             207,
                         ),
                     ),
@@ -2678,8 +2678,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             209,
                         ),
                     ),
@@ -2689,8 +2689,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             210,
                         ),
                     ),
@@ -2707,8 +2707,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             212,
                         ),
                     ),
@@ -2718,8 +2718,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             213,
                         ),
                     ),
@@ -2749,8 +2749,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             217,
                         ),
                     ),
@@ -2766,8 +2766,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             218,
                         ),
                     ),
@@ -2801,8 +2801,8 @@ Ok(
             ),
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             225,
                         ),
                     ),
@@ -2811,8 +2811,8 @@ Ok(
             ),
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             220,
                         ),
                     ),
@@ -2828,8 +2828,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             221,
                         ),
                     ),
@@ -2839,8 +2839,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             222,
                         ),
                     ),
@@ -2856,8 +2856,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             223,
                         ),
                     ),
@@ -2870,8 +2870,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             225,
                         ),
                     ),
@@ -2882,8 +2882,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             227,
                         ),
                     ),
@@ -2936,8 +2936,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             231,
                         ),
                     ),
@@ -2982,8 +2982,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             233,
                         ),
                     ),
@@ -3008,8 +3008,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             234,
                         ),
                     ),
@@ -3025,8 +3025,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             235,
                         ),
                     ),
@@ -3057,8 +3057,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             237,
                         ),
                     ),
@@ -3074,8 +3074,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             238,
                         ),
                     ),
@@ -3091,8 +3091,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             240,
                         ),
                     ),
@@ -3111,8 +3111,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             244,
                         ),
                     ),
@@ -3216,8 +3216,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             1,
                         ),
                     ),
@@ -3247,8 +3247,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             3,
                         ),
                     ),
@@ -3293,8 +3293,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             0,
                         ),
                     ),
@@ -3310,8 +3310,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             1,
                         ),
                     ),
@@ -3323,8 +3323,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             2,
                         ),
                     ),
@@ -3340,8 +3340,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             3,
                         ),
                     ),
@@ -3352,8 +3352,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             6,
                         ),
                     ),
@@ -3369,8 +3369,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             7,
                         ),
                     ),
@@ -3418,8 +3418,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             1,
                         ),
                     ),
@@ -3449,8 +3449,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             3,
                         ),
                     ),
@@ -3495,8 +3495,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             0,
                         ),
                     ),
@@ -3512,8 +3512,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             1,
                         ),
                     ),
@@ -3525,8 +3525,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             2,
                         ),
                     ),
@@ -3542,8 +3542,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             3,
                         ),
                     ),
@@ -3555,8 +3555,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             6,
                         ),
                     ),
@@ -3572,8 +3572,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             7,
                         ),
                     ),
@@ -3585,8 +3585,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             8,
                         ),
                     ),
@@ -3634,8 +3634,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             1,
                         ),
                     ),
@@ -3665,8 +3665,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             3,
                         ),
                     ),
@@ -3711,8 +3711,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             0,
                         ),
                     ),
@@ -3728,8 +3728,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             1,
                         ),
                     ),
@@ -3741,8 +3741,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             2,
                         ),
                     ),
@@ -3758,8 +3758,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             3,
                         ),
                     ),
@@ -3771,8 +3771,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             6,
                         ),
                     ),
@@ -3788,8 +3788,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             7,
                         ),
                     ),
@@ -3801,8 +3801,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             10,
                         ),
                     ),
@@ -3818,8 +3818,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             11,
                         ),
                     ),
@@ -3829,8 +3829,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             13,
                         ),
                     ),
@@ -3846,8 +3846,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             14,
                         ),
                     ),

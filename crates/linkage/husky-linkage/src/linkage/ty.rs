@@ -24,7 +24,7 @@ pub(super) fn enum_ty_linkages_emancipated_by_javelin(
 ) -> SmallVec<[Linkage; 4]> {
     let mut linkages: SmallVec<[Linkage; 4]> = smallvec![];
     if enum_ty_has_only_unit_variants(db, path) {
-        linkages.push(Linkage::new_enum_u8_presenter(path, db))
+        linkages.push(Linkage::new_enum_index_presenter(path, db))
     }
     for instantiation in LinInstantiation::from_javelin(instantiation, db) {
         let self_ty = LinTypePathLeading::from_path_instantiation(path, &instantiation, db);

@@ -1,11 +1,11 @@
 use super::*;
 
-impl<'a> SemaExprBuilder<'a> {
+impl<'a> SemExprBuilder<'a> {
     pub(super) fn calc_new_list_expr_ty(
         &mut self,
         expr_idx: SynExprIdx,
         items: SynExprIdxRange,
-    ) -> SemaExprTypeResult<FlyTerm> {
+    ) -> SemExprTypeResult<FlyTerm> {
         todo!()
         // let element_ty: FlyTerm = self
         //     .fly_term_region

@@ -67,7 +67,7 @@ impl DeriveAttrSynNodeDecl {
     }
 }
 
-#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
+#[salsa::tracked]
 pub struct DeriveAttrSynDecl {
     #[id]
     pub path: AttrItemPath,

@@ -1,6 +1,6 @@
 ```rust
 [
-    SemaExprRegion {
+    SemExprRegion {
         path: RegionPath::Defn(
             ItemPath::MajorItem(
                 MajorItemPath::Form(
@@ -8,7 +8,7 @@
                 ),
             ),
         ),
-        data: SemaExprRegionData {
+        data: SemExprRegionData {
             path: RegionPath::Defn(
                 ItemPath::MajorItem(
                     MajorItemPath::Form(
@@ -19,12 +19,12 @@
             place_registry: PlaceRegistry {
                 infos: [],
             },
-            sem_expr_arena: SemaExprArena(
+            sem_expr_arena: SemExprArena(
                 Arena {
                     data: [
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
+                                SemExprData::PrincipalEntityPath {
                                     path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
@@ -70,9 +70,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
+                                SemExprData::PrincipalEntityPath {
                                     path_expr_idx: 1,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
@@ -122,9 +122,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
+                                SemExprData::PrincipalEntityPath {
                                     path_expr_idx: 2,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
@@ -170,9 +170,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
+                                SemExprData::PrincipalEntityPath {
                                     path_expr_idx: 3,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
@@ -218,9 +218,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
+                                SemExprData::PrincipalEntityPath {
                                     path_expr_idx: 4,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
@@ -266,15 +266,15 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::NewList {
+                                SemExprData::NewList {
                                     lbox_regional_token_idx: RegionalTokenIdx(
                                         5,
                                     ),
                                     items: [
                                         SemaCommaListItem {
-                                            sem_expr_idx: SemaExprIdx(
+                                            sem_expr_idx: SemExprIdx(
                                                 2,
                                             ),
                                             comma_regional_token_idx: Some(
@@ -284,7 +284,7 @@
                                             ),
                                         },
                                         SemaCommaListItem {
-                                            sem_expr_idx: SemaExprIdx(
+                                            sem_expr_idx: SemExprIdx(
                                                 3,
                                             ),
                                             comma_regional_token_idx: Some(
@@ -294,7 +294,7 @@
                                             ),
                                         },
                                         SemaCommaListItem {
-                                            sem_expr_idx: SemaExprIdx(
+                                            sem_expr_idx: SemExprIdx(
                                                 4,
                                             ),
                                             comma_regional_token_idx: None,
@@ -331,10 +331,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::FunctionRitchieCall {
-                                    function_sem_expr_idx: SemaExprIdx(
+                                SemExprData::FunctionRitchieCall {
+                                    function_sem_expr_idx: SemExprIdx(
                                         0,
                                     ),
                                     ritchie_ty_kind: RitchieTypeKind::Item(
@@ -356,7 +356,7 @@
                                                 },
                                             },
                                             SemaSimpleArgument {
-                                                argument_expr_idx: SemaExprIdx(
+                                                argument_expr_idx: SemExprIdx(
                                                     1,
                                                 ),
                                                 coercion_outcome: Some(
@@ -388,7 +388,7 @@
                                                 },
                                             },
                                             SemaSimpleArgument {
-                                                argument_expr_idx: SemaExprIdx(
+                                                argument_expr_idx: SemExprIdx(
                                                     5,
                                                 ),
                                                 coercion_outcome: Some(
@@ -429,10 +429,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Block {
-                                    stmts: SemaStmtIdxRange(
+                                SemExprData::Block {
+                                    stmts: SemStmtIdxRange(
                                         ArenaIdxRange(
                                             0..1,
                                         ),
@@ -462,13 +462,13 @@
                     ],
                 },
             ),
-            sem_stmt_arena: SemaStmtArena(
+            sem_stmt_arena: SemStmtArena(
                 Arena {
                     data: [
-                        SemaStmtEntry {
+                        SemStmtEntry {
                             data_result: Ok(
-                                SemaStmtData::Eval {
-                                    sem_expr_idx: SemaExprIdx(
+                                SemStmtData::Eval {
+                                    sem_expr_idx: SemExprIdx(
                                         6,
                                     ),
                                     outcome: Some(
@@ -501,7 +501,7 @@
                 (
                     7,
                     (
-                        SemaExprIdx(
+                        SemExprIdx(
                             7,
                         ),
                         SynExprRootKind::BlockExpr,
@@ -887,7 +887,7 @@
             self_ty: None,
         },
     },
-    SemaExprRegion {
+    SemExprRegion {
         path: RegionPath::Defn(
             ItemPath::MajorItem(
                 MajorItemPath::Form(
@@ -895,7 +895,7 @@
                 ),
             ),
         ),
-        data: SemaExprRegionData {
+        data: SemExprRegionData {
             path: RegionPath::Defn(
                 ItemPath::MajorItem(
                     MajorItemPath::Form(
@@ -977,12 +977,12 @@
                     },
                 ],
             },
-            sem_expr_arena: SemaExprArena(
+            sem_expr_arena: SemExprArena(
                 Arena {
                     data: [
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
+                                SemExprData::PrincipalEntityPath {
                                     path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
@@ -1032,10 +1032,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::MethodFnCall {
-                                    self_argument_sem_expr_idx: SemaExprIdx(
+                                SemExprData::MethodFnCall {
+                                    self_argument_sem_expr_idx: SemExprIdx(
                                         0,
                                     ),
                                     self_contract: Pure,
@@ -1146,9 +1146,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Literal(
+                                SemExprData::Literal(
                                     RegionalTokenIdx(
                                         8,
                                     ),
@@ -1183,10 +1183,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Binary {
-                                    lopd: SemaExprIdx(
+                                SemExprData::Binary {
+                                    lopd: SemExprIdx(
                                         1,
                                     ),
                                     opr: Comparison(
@@ -1203,7 +1203,7 @@
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         7,
                                     ),
-                                    ropd: SemaExprIdx(
+                                    ropd: SemExprIdx(
                                         2,
                                     ),
                                 },
@@ -1228,9 +1228,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
+                                SemExprData::PrincipalEntityPath {
                                     path_expr_idx: 1,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
@@ -1280,10 +1280,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::MethodFnCall {
-                                    self_argument_sem_expr_idx: SemaExprIdx(
+                                SemExprData::MethodFnCall {
+                                    self_argument_sem_expr_idx: SemExprIdx(
                                         4,
                                     ),
                                     self_contract: Pure,
@@ -1394,9 +1394,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Literal(
+                                SemExprData::Literal(
                                     RegionalTokenIdx(
                                         16,
                                     ),
@@ -1431,10 +1431,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Binary {
-                                    lopd: SemaExprIdx(
+                                SemExprData::Binary {
+                                    lopd: SemExprIdx(
                                         5,
                                     ),
                                     opr: Comparison(
@@ -1451,7 +1451,7 @@
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         15,
                                     ),
-                                    ropd: SemaExprIdx(
+                                    ropd: SemExprIdx(
                                         6,
                                     ),
                                 },
@@ -1476,9 +1476,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
+                                SemExprData::PrincipalEntityPath {
                                     path_expr_idx: 3,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
@@ -1528,10 +1528,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Field {
-                                    self_argument: SemaExprIdx(
+                                SemExprData::Field {
+                                    self_argument: SemExprIdx(
                                         8,
                                     ),
                                     self_ty: FlyTerm {
@@ -1603,9 +1603,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Literal(
+                                SemExprData::Literal(
                                     RegionalTokenIdx(
                                         24,
                                     ),
@@ -1644,10 +1644,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Index {
-                                    owner: SemaExprIdx(
+                                SemExprData::Index {
+                                    owner: SemExprIdx(
                                         9,
                                     ),
                                     lbox_regional_token_idx: RegionalTokenIdx(
@@ -1655,7 +1655,7 @@
                                     ),
                                     index_sem_list_items: [
                                         SemaCommaListItem {
-                                            sem_expr_idx: SemaExprIdx(
+                                            sem_expr_idx: SemExprIdx(
                                                 10,
                                             ),
                                             comma_regional_token_idx: None,
@@ -1713,9 +1713,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
+                                SemExprData::PrincipalEntityPath {
                                     path_expr_idx: 5,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
@@ -1765,10 +1765,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Field {
-                                    self_argument: SemaExprIdx(
+                                SemExprData::Field {
+                                    self_argument: SemExprIdx(
                                         12,
                                     ),
                                     self_ty: FlyTerm {
@@ -1840,9 +1840,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Literal(
+                                SemExprData::Literal(
                                     RegionalTokenIdx(
                                         33,
                                     ),
@@ -1881,10 +1881,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Index {
-                                    owner: SemaExprIdx(
+                                SemExprData::Index {
+                                    owner: SemExprIdx(
                                         13,
                                     ),
                                     lbox_regional_token_idx: RegionalTokenIdx(
@@ -1892,7 +1892,7 @@
                                     ),
                                     index_sem_list_items: [
                                         SemaCommaListItem {
-                                            sem_expr_idx: SemaExprIdx(
+                                            sem_expr_idx: SemExprIdx(
                                                 14,
                                             ),
                                             comma_regional_token_idx: None,
@@ -1950,9 +1950,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
+                                SemExprData::PrincipalEntityPath {
                                     path_expr_idx: 7,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
@@ -2002,10 +2002,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Field {
-                                    self_argument: SemaExprIdx(
+                                SemExprData::Field {
+                                    self_argument: SemExprIdx(
                                         16,
                                     ),
                                     self_ty: FlyTerm {
@@ -2077,9 +2077,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Literal(
+                                SemExprData::Literal(
                                     RegionalTokenIdx(
                                         42,
                                     ),
@@ -2118,10 +2118,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Index {
-                                    owner: SemaExprIdx(
+                                SemExprData::Index {
+                                    owner: SemExprIdx(
                                         17,
                                     ),
                                     lbox_regional_token_idx: RegionalTokenIdx(
@@ -2129,7 +2129,7 @@
                                     ),
                                     index_sem_list_items: [
                                         SemaCommaListItem {
-                                            sem_expr_idx: SemaExprIdx(
+                                            sem_expr_idx: SemExprIdx(
                                                 18,
                                             ),
                                             comma_regional_token_idx: None,
@@ -2187,9 +2187,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::CurrentSynSymbol {
+                                SemExprData::CurrentSynSymbol {
                                     ident: `downarc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         45,
@@ -2232,10 +2232,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Be {
-                                    src: SemaExprIdx(
+                                SemExprData::Be {
+                                    src: SemExprIdx(
                                         20,
                                     ),
                                     be_regional_token_idx: RegionalTokenIdx(
@@ -2271,9 +2271,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::CurrentSynSymbol {
+                                SemExprData::CurrentSynSymbol {
                                     ident: `downarc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         52,
@@ -2316,10 +2316,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Unwrap {
-                                    opd_sem_expr_idx: SemaExprIdx(
+                                SemExprData::Unwrap {
+                                    opd_sem_expr_idx: SemExprIdx(
                                         22,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
@@ -2347,10 +2347,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Field {
-                                    self_argument: SemaExprIdx(
+                                SemExprData::Field {
+                                    self_argument: SemExprIdx(
                                         23,
                                     ),
                                     self_ty: FlyTerm {
@@ -2433,9 +2433,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Literal(
+                                SemExprData::Literal(
                                     RegionalTokenIdx(
                                         57,
                                     ),
@@ -2474,10 +2474,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Binary {
-                                    lopd: SemaExprIdx(
+                                SemExprData::Binary {
+                                    lopd: SemExprIdx(
                                         24,
                                     ),
                                     opr: Comparison(
@@ -2494,7 +2494,7 @@
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         56,
                                     ),
-                                    ropd: SemaExprIdx(
+                                    ropd: SemExprIdx(
                                         25,
                                     ),
                                 },
@@ -2519,9 +2519,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::CurrentSynSymbol {
+                                SemExprData::CurrentSynSymbol {
                                     ident: `uparc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         59,
@@ -2564,10 +2564,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Be {
-                                    src: SemaExprIdx(
+                                SemExprData::Be {
+                                    src: SemExprIdx(
                                         27,
                                     ),
                                     be_regional_token_idx: RegionalTokenIdx(
@@ -2603,9 +2603,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::CurrentSynSymbol {
+                                SemExprData::CurrentSynSymbol {
                                     ident: `downarc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         68,
@@ -2648,10 +2648,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Unwrap {
-                                    opd_sem_expr_idx: SemaExprIdx(
+                                SemExprData::Unwrap {
+                                    opd_sem_expr_idx: SemExprIdx(
                                         29,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
@@ -2679,10 +2679,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::MethodFnCall {
-                                    self_argument_sem_expr_idx: SemaExprIdx(
+                                SemExprData::MethodFnCall {
+                                    self_argument_sem_expr_idx: SemExprIdx(
                                         30,
                                     ),
                                     self_contract: Pure,
@@ -2779,9 +2779,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Literal(
+                                SemExprData::Literal(
                                     RegionalTokenIdx(
                                         77,
                                     ),
@@ -2814,10 +2814,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::MethodFnCall {
-                                    self_argument_sem_expr_idx: SemaExprIdx(
+                                SemExprData::MethodFnCall {
+                                    self_argument_sem_expr_idx: SemExprIdx(
                                         31,
                                     ),
                                     self_contract: Pure,
@@ -2906,7 +2906,7 @@
                                                 },
                                             },
                                             SemaSimpleArgument {
-                                                argument_expr_idx: SemaExprIdx(
+                                                argument_expr_idx: SemExprIdx(
                                                     32,
                                                 ),
                                                 coercion_outcome: Some(
@@ -2947,9 +2947,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::CurrentSynSymbol {
+                                SemExprData::CurrentSynSymbol {
                                     ident: `de`,
                                     regional_token_idx: RegionalTokenIdx(
                                         80,
@@ -2992,9 +2992,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Literal(
+                                SemExprData::Literal(
                                     RegionalTokenIdx(
                                         82,
                                     ),
@@ -3033,10 +3033,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Binary {
-                                    lopd: SemaExprIdx(
+                                SemExprData::Binary {
+                                    lopd: SemExprIdx(
                                         34,
                                     ),
                                     opr: Comparison(
@@ -3053,7 +3053,7 @@
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         81,
                                     ),
-                                    ropd: SemaExprIdx(
+                                    ropd: SemExprIdx(
                                         35,
                                     ),
                                 },
@@ -3078,9 +3078,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::CurrentSynSymbol {
+                                SemExprData::CurrentSynSymbol {
                                     ident: `de`,
                                     regional_token_idx: RegionalTokenIdx(
                                         84,
@@ -3123,9 +3123,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Literal(
+                                SemExprData::Literal(
                                     RegionalTokenIdx(
                                         87,
                                     ),
@@ -3168,14 +3168,14 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Prefix {
+                                SemExprData::Prefix {
                                     opr: Minus,
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         86,
                                     ),
-                                    opd: SemaExprIdx(
+                                    opd: SemExprIdx(
                                         38,
                                     ),
                                 },
@@ -3208,10 +3208,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Binary {
-                                    lopd: SemaExprIdx(
+                                SemExprData::Binary {
+                                    lopd: SemExprIdx(
                                         37,
                                     ),
                                     opr: Comparison(
@@ -3228,7 +3228,7 @@
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         85,
                                     ),
-                                    ropd: SemaExprIdx(
+                                    ropd: SemExprIdx(
                                         39,
                                     ),
                                 },
@@ -3253,10 +3253,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Binary {
-                                    lopd: SemaExprIdx(
+                                SemExprData::Binary {
+                                    lopd: SemExprIdx(
                                         36,
                                     ),
                                     opr: ShortCircuitLogic(
@@ -3273,7 +3273,7 @@
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         83,
                                     ),
-                                    ropd: SemaExprIdx(
+                                    ropd: SemExprIdx(
                                         40,
                                     ),
                                 },
@@ -3298,9 +3298,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::CurrentSynSymbol {
+                                SemExprData::CurrentSynSymbol {
                                     ident: `downarc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         91,
@@ -3343,10 +3343,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Unwrap {
-                                    opd_sem_expr_idx: SemaExprIdx(
+                                SemExprData::Unwrap {
+                                    opd_sem_expr_idx: SemExprIdx(
                                         42,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
@@ -3374,10 +3374,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::MethodFnCall {
-                                    self_argument_sem_expr_idx: SemaExprIdx(
+                                SemExprData::MethodFnCall {
+                                    self_argument_sem_expr_idx: SemExprIdx(
                                         43,
                                     ),
                                     self_contract: Pure,
@@ -3474,9 +3474,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::CurrentSynSymbol {
+                                SemExprData::CurrentSynSymbol {
                                     ident: `uparc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         100,
@@ -3519,10 +3519,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Unwrap {
-                                    opd_sem_expr_idx: SemaExprIdx(
+                                SemExprData::Unwrap {
+                                    opd_sem_expr_idx: SemExprIdx(
                                         45,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
@@ -3550,10 +3550,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::MethodFnCall {
-                                    self_argument_sem_expr_idx: SemaExprIdx(
+                                SemExprData::MethodFnCall {
+                                    self_argument_sem_expr_idx: SemExprIdx(
                                         46,
                                     ),
                                     self_contract: Pure,
@@ -3650,9 +3650,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::CurrentSynSymbol {
+                                SemExprData::CurrentSynSymbol {
                                     ident: `downarc_enpoint`,
                                     regional_token_idx: RegionalTokenIdx(
                                         109,
@@ -3695,9 +3695,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::CurrentSynSymbol {
+                                SemExprData::CurrentSynSymbol {
                                     ident: `uparc_startpoint`,
                                     regional_token_idx: RegionalTokenIdx(
                                         113,
@@ -3740,10 +3740,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::MethodFnCall {
-                                    self_argument_sem_expr_idx: SemaExprIdx(
+                                SemExprData::MethodFnCall {
+                                    self_argument_sem_expr_idx: SemExprIdx(
                                         48,
                                     ),
                                     self_contract: Pure,
@@ -3844,7 +3844,7 @@
                                                 },
                                             },
                                             SemaSimpleArgument {
-                                                argument_expr_idx: SemaExprIdx(
+                                                argument_expr_idx: SemExprIdx(
                                                     49,
                                                 ),
                                                 coercion_outcome: Some(
@@ -3889,9 +3889,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::CurrentSynSymbol {
+                                SemExprData::CurrentSynSymbol {
                                     ident: `distance`,
                                     regional_token_idx: RegionalTokenIdx(
                                         116,
@@ -3934,9 +3934,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Literal(
+                                SemExprData::Literal(
                                     RegionalTokenIdx(
                                         118,
                                     ),
@@ -3975,10 +3975,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Binary {
-                                    lopd: SemaExprIdx(
+                                SemExprData::Binary {
+                                    lopd: SemExprIdx(
                                         51,
                                     ),
                                     opr: Comparison(
@@ -3995,7 +3995,7 @@
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         117,
                                     ),
-                                    ropd: SemaExprIdx(
+                                    ropd: SemExprIdx(
                                         52,
                                     ),
                                 },
@@ -4020,9 +4020,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
+                                SemExprData::PrincipalEntityPath {
                                     path_expr_idx: 10,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
@@ -4072,10 +4072,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Field {
-                                    self_argument: SemaExprIdx(
+                                SemExprData::Field {
+                                    self_argument: SemExprIdx(
                                         54,
                                     ),
                                     self_ty: FlyTerm {
@@ -4162,9 +4162,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Literal(
+                                SemExprData::Literal(
                                     RegionalTokenIdx(
                                         124,
                                     ),
@@ -4203,10 +4203,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Binary {
-                                    lopd: SemaExprIdx(
+                                SemExprData::Binary {
+                                    lopd: SemExprIdx(
                                         55,
                                     ),
                                     opr: Comparison(
@@ -4223,7 +4223,7 @@
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         123,
                                     ),
-                                    ropd: SemaExprIdx(
+                                    ropd: SemExprIdx(
                                         56,
                                     ),
                                 },
@@ -4248,9 +4248,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::CurrentSynSymbol {
+                                SemExprData::CurrentSynSymbol {
                                     ident: `downarc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         126,
@@ -4293,10 +4293,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Unwrap {
-                                    opd_sem_expr_idx: SemaExprIdx(
+                                SemExprData::Unwrap {
+                                    opd_sem_expr_idx: SemExprIdx(
                                         58,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
@@ -4324,10 +4324,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Field {
-                                    self_argument: SemaExprIdx(
+                                SemExprData::Field {
+                                    self_argument: SemExprIdx(
                                         59,
                                     ),
                                     self_ty: FlyTerm {
@@ -4410,9 +4410,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Literal(
+                                SemExprData::Literal(
                                     RegionalTokenIdx(
                                         132,
                                     ),
@@ -4455,14 +4455,14 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Prefix {
+                                SemExprData::Prefix {
                                     opr: Minus,
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         131,
                                     ),
-                                    opd: SemaExprIdx(
+                                    opd: SemExprIdx(
                                         61,
                                     ),
                                 },
@@ -4495,10 +4495,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Binary {
-                                    lopd: SemaExprIdx(
+                                SemExprData::Binary {
+                                    lopd: SemExprIdx(
                                         60,
                                     ),
                                     opr: Comparison(
@@ -4515,7 +4515,7 @@
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         130,
                                     ),
-                                    ropd: SemaExprIdx(
+                                    ropd: SemExprIdx(
                                         62,
                                     ),
                                 },
@@ -4540,9 +4540,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
+                                SemExprData::PrincipalEntityPath {
                                     path_expr_idx: 12,
                                     path: PrincipalEntityPath::TypeVariant(
                                         TypeVariantPath(
@@ -4624,10 +4624,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Block {
-                                    stmts: SemaStmtIdxRange(
+                                SemExprData::Block {
+                                    stmts: SemStmtIdxRange(
                                         ArenaIdxRange(
                                             0..17,
                                         ),
@@ -4661,19 +4661,19 @@
                     ],
                 },
             ),
-            sem_stmt_arena: SemaStmtArena(
+            sem_stmt_arena: SemStmtArena(
                 Arena {
                     data: [
-                        SemaStmtEntry {
+                        SemStmtEntry {
                             data_result: Ok(
-                                SemaStmtData::Require {
+                                SemStmtData::Require {
                                     require_token: RequireRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             1,
                                         ),
                                     },
                                     condition: Other {
-                                        sem_expr_idx: SemaExprIdx(
+                                        sem_expr_idx: SemExprIdx(
                                             3,
                                         ),
                                         conversion: None,
@@ -4689,16 +4689,16 @@
                                 },
                             ),
                         },
-                        SemaStmtEntry {
+                        SemStmtEntry {
                             data_result: Ok(
-                                SemaStmtData::Require {
+                                SemStmtData::Require {
                                     require_token: RequireRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             9,
                                         ),
                                     },
                                     condition: Other {
-                                        sem_expr_idx: SemaExprIdx(
+                                        sem_expr_idx: SemExprIdx(
                                             7,
                                         ),
                                         conversion: None,
@@ -4714,9 +4714,9 @@
                                 },
                             ),
                         },
-                        SemaStmtEntry {
+                        SemStmtEntry {
                             data_result: Ok(
-                                SemaStmtData::Let {
+                                SemStmtData::Let {
                                     let_token: LetRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             17,
@@ -4738,7 +4738,7 @@
                                             19,
                                         ),
                                     ),
-                                    initial_value_sem_expr_idx: SemaExprIdx(
+                                    initial_value_sem_expr_idx: SemExprIdx(
                                         11,
                                     ),
                                     coercion_outcome: None,
@@ -4753,9 +4753,9 @@
                                 },
                             ),
                         },
-                        SemaStmtEntry {
+                        SemStmtEntry {
                             data_result: Ok(
-                                SemaStmtData::Let {
+                                SemStmtData::Let {
                                     let_token: LetRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             26,
@@ -4777,7 +4777,7 @@
                                             28,
                                         ),
                                     ),
-                                    initial_value_sem_expr_idx: SemaExprIdx(
+                                    initial_value_sem_expr_idx: SemExprIdx(
                                         15,
                                     ),
                                     coercion_outcome: None,
@@ -4792,9 +4792,9 @@
                                 },
                             ),
                         },
-                        SemaStmtEntry {
+                        SemStmtEntry {
                             data_result: Ok(
-                                SemaStmtData::Let {
+                                SemStmtData::Let {
                                     let_token: LetRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             35,
@@ -4816,7 +4816,7 @@
                                             37,
                                         ),
                                     ),
-                                    initial_value_sem_expr_idx: SemaExprIdx(
+                                    initial_value_sem_expr_idx: SemExprIdx(
                                         19,
                                     ),
                                     coercion_outcome: None,
@@ -4831,16 +4831,16 @@
                                 },
                             ),
                         },
-                        SemaStmtEntry {
+                        SemStmtEntry {
                             data_result: Ok(
-                                SemaStmtData::Require {
+                                SemStmtData::Require {
                                     require_token: RequireRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             44,
                                         ),
                                     },
                                     condition: Be {
-                                        src: SemaExprIdx(
+                                        src: SemExprIdx(
                                             20,
                                         ),
                                         be_regional_token_idx: RegionalTokenIdx(
@@ -4866,16 +4866,16 @@
                                 },
                             ),
                         },
-                        SemaStmtEntry {
+                        SemStmtEntry {
                             data_result: Ok(
-                                SemaStmtData::Require {
+                                SemStmtData::Require {
                                     require_token: RequireRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             51,
                                         ),
                                     },
                                     condition: Other {
-                                        sem_expr_idx: SemaExprIdx(
+                                        sem_expr_idx: SemExprIdx(
                                             26,
                                         ),
                                         conversion: None,
@@ -4891,16 +4891,16 @@
                                 },
                             ),
                         },
-                        SemaStmtEntry {
+                        SemStmtEntry {
                             data_result: Ok(
-                                SemaStmtData::Require {
+                                SemStmtData::Require {
                                     require_token: RequireRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             58,
                                         ),
                                     },
                                     condition: Be {
-                                        src: SemaExprIdx(
+                                        src: SemExprIdx(
                                             27,
                                         ),
                                         be_regional_token_idx: RegionalTokenIdx(
@@ -4926,9 +4926,9 @@
                                 },
                             ),
                         },
-                        SemaStmtEntry {
+                        SemStmtEntry {
                             data_result: Ok(
-                                SemaStmtData::Let {
+                                SemStmtData::Let {
                                     let_token: LetRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             65,
@@ -4950,7 +4950,7 @@
                                             67,
                                         ),
                                     ),
-                                    initial_value_sem_expr_idx: SemaExprIdx(
+                                    initial_value_sem_expr_idx: SemExprIdx(
                                         33,
                                     ),
                                     coercion_outcome: None,
@@ -4965,16 +4965,16 @@
                                 },
                             ),
                         },
-                        SemaStmtEntry {
+                        SemStmtEntry {
                             data_result: Ok(
-                                SemaStmtData::Require {
+                                SemStmtData::Require {
                                     require_token: RequireRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             79,
                                         ),
                                     },
                                     condition: Other {
-                                        sem_expr_idx: SemaExprIdx(
+                                        sem_expr_idx: SemExprIdx(
                                             41,
                                         ),
                                         conversion: None,
@@ -4990,9 +4990,9 @@
                                 },
                             ),
                         },
-                        SemaStmtEntry {
+                        SemStmtEntry {
                             data_result: Ok(
-                                SemaStmtData::Let {
+                                SemStmtData::Let {
                                     let_token: LetRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             88,
@@ -5014,7 +5014,7 @@
                                             90,
                                         ),
                                     ),
-                                    initial_value_sem_expr_idx: SemaExprIdx(
+                                    initial_value_sem_expr_idx: SemExprIdx(
                                         44,
                                     ),
                                     coercion_outcome: None,
@@ -5029,9 +5029,9 @@
                                 },
                             ),
                         },
-                        SemaStmtEntry {
+                        SemStmtEntry {
                             data_result: Ok(
-                                SemaStmtData::Let {
+                                SemStmtData::Let {
                                     let_token: LetRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             97,
@@ -5053,7 +5053,7 @@
                                             99,
                                         ),
                                     ),
-                                    initial_value_sem_expr_idx: SemaExprIdx(
+                                    initial_value_sem_expr_idx: SemExprIdx(
                                         47,
                                     ),
                                     coercion_outcome: None,
@@ -5068,9 +5068,9 @@
                                 },
                             ),
                         },
-                        SemaStmtEntry {
+                        SemStmtEntry {
                             data_result: Ok(
-                                SemaStmtData::Let {
+                                SemStmtData::Let {
                                     let_token: LetRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             106,
@@ -5092,7 +5092,7 @@
                                             108,
                                         ),
                                     ),
-                                    initial_value_sem_expr_idx: SemaExprIdx(
+                                    initial_value_sem_expr_idx: SemExprIdx(
                                         50,
                                     ),
                                     coercion_outcome: None,
@@ -5107,16 +5107,16 @@
                                 },
                             ),
                         },
-                        SemaStmtEntry {
+                        SemStmtEntry {
                             data_result: Ok(
-                                SemaStmtData::Require {
+                                SemStmtData::Require {
                                     require_token: RequireRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             115,
                                         ),
                                     },
                                     condition: Other {
-                                        sem_expr_idx: SemaExprIdx(
+                                        sem_expr_idx: SemExprIdx(
                                             53,
                                         ),
                                         conversion: None,
@@ -5132,16 +5132,16 @@
                                 },
                             ),
                         },
-                        SemaStmtEntry {
+                        SemStmtEntry {
                             data_result: Ok(
-                                SemaStmtData::Require {
+                                SemStmtData::Require {
                                     require_token: RequireRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             119,
                                         ),
                                     },
                                     condition: Other {
-                                        sem_expr_idx: SemaExprIdx(
+                                        sem_expr_idx: SemExprIdx(
                                             57,
                                         ),
                                         conversion: None,
@@ -5157,16 +5157,16 @@
                                 },
                             ),
                         },
-                        SemaStmtEntry {
+                        SemStmtEntry {
                             data_result: Ok(
-                                SemaStmtData::Require {
+                                SemStmtData::Require {
                                     require_token: RequireRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             125,
                                         ),
                                     },
                                     condition: Other {
-                                        sem_expr_idx: SemaExprIdx(
+                                        sem_expr_idx: SemExprIdx(
                                             63,
                                         ),
                                         conversion: None,
@@ -5182,10 +5182,10 @@
                                 },
                             ),
                         },
-                        SemaStmtEntry {
+                        SemStmtEntry {
                             data_result: Ok(
-                                SemaStmtData::Eval {
-                                    sem_expr_idx: SemaExprIdx(
+                                SemStmtData::Eval {
+                                    sem_expr_idx: SemExprIdx(
                                         64,
                                     ),
                                     outcome: Some(
@@ -5220,7 +5220,7 @@
                 (
                     65,
                     (
-                        SemaExprIdx(
+                        SemExprIdx(
                             65,
                         ),
                         SynExprRootKind::BlockExpr,
@@ -5575,7 +5575,7 @@
             },
             sem_expr_terms: [
                 (
-                    SemaExprIdx(
+                    SemExprIdx(
                         2,
                     ),
                     Ok(
@@ -5588,7 +5588,7 @@
                     ),
                 ),
                 (
-                    SemaExprIdx(
+                    SemExprIdx(
                         6,
                     ),
                     Ok(
@@ -5601,7 +5601,7 @@
                     ),
                 ),
                 (
-                    SemaExprIdx(
+                    SemExprIdx(
                         10,
                     ),
                     Ok(
@@ -5614,7 +5614,7 @@
                     ),
                 ),
                 (
-                    SemaExprIdx(
+                    SemExprIdx(
                         14,
                     ),
                     Ok(
@@ -5627,7 +5627,7 @@
                     ),
                 ),
                 (
-                    SemaExprIdx(
+                    SemExprIdx(
                         18,
                     ),
                     Ok(
@@ -5640,7 +5640,7 @@
                     ),
                 ),
                 (
-                    SemaExprIdx(
+                    SemExprIdx(
                         25,
                     ),
                     Ok(
@@ -5653,7 +5653,7 @@
                     ),
                 ),
                 (
-                    SemaExprIdx(
+                    SemExprIdx(
                         32,
                     ),
                     Ok(
@@ -5666,7 +5666,7 @@
                     ),
                 ),
                 (
-                    SemaExprIdx(
+                    SemExprIdx(
                         35,
                     ),
                     Ok(
@@ -5679,7 +5679,7 @@
                     ),
                 ),
                 (
-                    SemaExprIdx(
+                    SemExprIdx(
                         38,
                     ),
                     Ok(
@@ -5692,7 +5692,7 @@
                     ),
                 ),
                 (
-                    SemaExprIdx(
+                    SemExprIdx(
                         52,
                     ),
                     Ok(
@@ -5705,7 +5705,7 @@
                     ),
                 ),
                 (
-                    SemaExprIdx(
+                    SemExprIdx(
                         56,
                     ),
                     Ok(
@@ -5718,7 +5718,7 @@
                     ),
                 ),
                 (
-                    SemaExprIdx(
+                    SemExprIdx(
                         61,
                     ),
                     Ok(
@@ -8394,7 +8394,7 @@
             self_ty: None,
         },
     },
-    SemaExprRegion {
+    SemExprRegion {
         path: RegionPath::Defn(
             ItemPath::MajorItem(
                 MajorItemPath::Form(
@@ -8404,7 +8404,7 @@
                 ),
             ),
         ),
-        data: SemaExprRegionData {
+        data: SemExprRegionData {
             path: RegionPath::Defn(
                 ItemPath::MajorItem(
                     MajorItemPath::Form(
@@ -8428,12 +8428,12 @@
                     },
                 ],
             },
-            sem_expr_arena: SemaExprArena(
+            sem_expr_arena: SemExprArena(
                 Arena {
                     data: [
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::InheritedSynSymbol {
+                                SemExprData::InheritedSynSymbol {
                                     ident: `cc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         4,
@@ -8476,10 +8476,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::MethodFnCall {
-                                    self_argument_sem_expr_idx: SemaExprIdx(
+                                SemExprData::MethodFnCall {
+                                    self_argument_sem_expr_idx: SemExprIdx(
                                         0,
                                     ),
                                     self_contract: Pure,
@@ -8580,9 +8580,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::CurrentSynSymbol {
+                                SemExprData::CurrentSynSymbol {
                                     ident: `dp`,
                                     regional_token_idx: RegionalTokenIdx(
                                         10,
@@ -8625,10 +8625,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Field {
-                                    self_argument: SemaExprIdx(
+                                SemExprData::Field {
+                                    self_argument: SemExprIdx(
                                         2,
                                     ),
                                     self_ty: FlyTerm {
@@ -8710,9 +8710,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Literal(
+                                SemExprData::Literal(
                                     RegionalTokenIdx(
                                         14,
                                     ),
@@ -8751,10 +8751,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Binary {
-                                    lopd: SemaExprIdx(
+                                SemExprData::Binary {
+                                    lopd: SemExprIdx(
                                         3,
                                     ),
                                     opr: Comparison(
@@ -8771,7 +8771,7 @@
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         13,
                                     ),
-                                    ropd: SemaExprIdx(
+                                    ropd: SemExprIdx(
                                         4,
                                     ),
                                 },
@@ -8796,9 +8796,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
+                                SemExprData::PrincipalEntityPath {
                                     path_expr_idx: 0,
                                     path: PrincipalEntityPath::TypeVariant(
                                         TypeVariantPath(
@@ -8867,9 +8867,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::InheritedSynSymbol {
+                                SemExprData::InheritedSynSymbol {
                                     ident: `cc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         18,
@@ -8912,10 +8912,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Field {
-                                    self_argument: SemaExprIdx(
+                                SemExprData::Field {
+                                    self_argument: SemExprIdx(
                                         7,
                                     ),
                                     self_ty: FlyTerm {
@@ -9008,10 +9008,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::MethodFnCall {
-                                    self_argument_sem_expr_idx: SemaExprIdx(
+                                SemExprData::MethodFnCall {
+                                    self_argument_sem_expr_idx: SemExprIdx(
                                         8,
                                     ),
                                     self_contract: Pure,
@@ -9108,14 +9108,14 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Prefix {
+                                SemExprData::Prefix {
                                     opr: Minus,
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         17,
                                     ),
-                                    opd: SemaExprIdx(
+                                    opd: SemExprIdx(
                                         9,
                                     ),
                                 },
@@ -9140,10 +9140,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::FunctionRitchieCall {
-                                    function_sem_expr_idx: SemaExprIdx(
+                                SemExprData::FunctionRitchieCall {
+                                    function_sem_expr_idx: SemExprIdx(
                                         6,
                                     ),
                                     ritchie_ty_kind: RitchieTypeKind::Item(
@@ -9167,7 +9167,7 @@
                                                 },
                                             },
                                             SemaSimpleArgument {
-                                                argument_expr_idx: SemaExprIdx(
+                                                argument_expr_idx: SemExprIdx(
                                                     10,
                                                 ),
                                                 coercion_outcome: Some(
@@ -9212,10 +9212,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Block {
-                                    stmts: SemaStmtIdxRange(
+                                SemExprData::Block {
+                                    stmts: SemStmtIdxRange(
                                         ArenaIdxRange(
                                             0..3,
                                         ),
@@ -9249,12 +9249,12 @@
                     ],
                 },
             ),
-            sem_stmt_arena: SemaStmtArena(
+            sem_stmt_arena: SemStmtArena(
                 Arena {
                     data: [
-                        SemaStmtEntry {
+                        SemStmtEntry {
                             data_result: Ok(
-                                SemaStmtData::Let {
+                                SemStmtData::Let {
                                     let_token: LetRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             1,
@@ -9276,7 +9276,7 @@
                                             3,
                                         ),
                                     ),
-                                    initial_value_sem_expr_idx: SemaExprIdx(
+                                    initial_value_sem_expr_idx: SemExprIdx(
                                         1,
                                     ),
                                     coercion_outcome: None,
@@ -9291,16 +9291,16 @@
                                 },
                             ),
                         },
-                        SemaStmtEntry {
+                        SemStmtEntry {
                             data_result: Ok(
-                                SemaStmtData::Require {
+                                SemStmtData::Require {
                                     require_token: RequireRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             9,
                                         ),
                                     },
                                     condition: Other {
-                                        sem_expr_idx: SemaExprIdx(
+                                        sem_expr_idx: SemExprIdx(
                                             5,
                                         ),
                                         conversion: None,
@@ -9316,10 +9316,10 @@
                                 },
                             ),
                         },
-                        SemaStmtEntry {
+                        SemStmtEntry {
                             data_result: Ok(
-                                SemaStmtData::Eval {
-                                    sem_expr_idx: SemaExprIdx(
+                                SemStmtData::Eval {
+                                    sem_expr_idx: SemExprIdx(
                                         11,
                                     ),
                                     outcome: Some(
@@ -9354,7 +9354,7 @@
                 (
                     12,
                     (
-                        SemaExprIdx(
+                        SemExprIdx(
                             12,
                         ),
                         SynExprRootKind::BlockExpr,
@@ -9411,7 +9411,7 @@
             },
             sem_expr_terms: [
                 (
-                    SemaExprIdx(
+                    SemExprIdx(
                         4,
                     ),
                     Ok(
@@ -10030,7 +10030,7 @@
             self_ty: None,
         },
     },
-    SemaExprRegion {
+    SemExprRegion {
         path: RegionPath::Defn(
             ItemPath::MajorItem(
                 MajorItemPath::Form(
@@ -10040,7 +10040,7 @@
                 ),
             ),
         ),
-        data: SemaExprRegionData {
+        data: SemExprRegionData {
             path: RegionPath::Defn(
                 ItemPath::MajorItem(
                     MajorItemPath::Form(
@@ -10064,12 +10064,12 @@
                     },
                 ],
             },
-            sem_expr_arena: SemaExprArena(
+            sem_expr_arena: SemExprArena(
                 Arena {
                     data: [
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::InheritedSynSymbol {
+                                SemExprData::InheritedSynSymbol {
                                     ident: `cc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         4,
@@ -10112,10 +10112,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::MethodFnCall {
-                                    self_argument_sem_expr_idx: SemaExprIdx(
+                                SemExprData::MethodFnCall {
+                                    self_argument_sem_expr_idx: SemExprIdx(
                                         0,
                                     ),
                                     self_contract: Pure,
@@ -10216,9 +10216,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::CurrentSynSymbol {
+                                SemExprData::CurrentSynSymbol {
                                     ident: `dp`,
                                     regional_token_idx: RegionalTokenIdx(
                                         10,
@@ -10261,10 +10261,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Field {
-                                    self_argument: SemaExprIdx(
+                                SemExprData::Field {
+                                    self_argument: SemExprIdx(
                                         2,
                                     ),
                                     self_ty: FlyTerm {
@@ -10346,9 +10346,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Literal(
+                                SemExprData::Literal(
                                     RegionalTokenIdx(
                                         14,
                                     ),
@@ -10387,10 +10387,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Binary {
-                                    lopd: SemaExprIdx(
+                                SemExprData::Binary {
+                                    lopd: SemExprIdx(
                                         3,
                                     ),
                                     opr: Comparison(
@@ -10407,7 +10407,7 @@
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         13,
                                     ),
-                                    ropd: SemaExprIdx(
+                                    ropd: SemExprIdx(
                                         4,
                                     ),
                                 },
@@ -10432,9 +10432,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
+                                SemExprData::PrincipalEntityPath {
                                     path_expr_idx: 0,
                                     path: PrincipalEntityPath::TypeVariant(
                                         TypeVariantPath(
@@ -10503,9 +10503,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::InheritedSynSymbol {
+                                SemExprData::InheritedSynSymbol {
                                     ident: `cc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         18,
@@ -10548,10 +10548,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Field {
-                                    self_argument: SemaExprIdx(
+                                SemExprData::Field {
+                                    self_argument: SemExprIdx(
                                         7,
                                     ),
                                     self_ty: FlyTerm {
@@ -10644,10 +10644,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::MethodFnCall {
-                                    self_argument_sem_expr_idx: SemaExprIdx(
+                                SemExprData::MethodFnCall {
+                                    self_argument_sem_expr_idx: SemExprIdx(
                                         8,
                                     ),
                                     self_contract: Pure,
@@ -10744,14 +10744,14 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Prefix {
+                                SemExprData::Prefix {
                                     opr: Minus,
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         17,
                                     ),
-                                    opd: SemaExprIdx(
+                                    opd: SemExprIdx(
                                         9,
                                     ),
                                 },
@@ -10776,10 +10776,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::FunctionRitchieCall {
-                                    function_sem_expr_idx: SemaExprIdx(
+                                SemExprData::FunctionRitchieCall {
+                                    function_sem_expr_idx: SemExprIdx(
                                         6,
                                     ),
                                     ritchie_ty_kind: RitchieTypeKind::Item(
@@ -10803,7 +10803,7 @@
                                                 },
                                             },
                                             SemaSimpleArgument {
-                                                argument_expr_idx: SemaExprIdx(
+                                                argument_expr_idx: SemExprIdx(
                                                     10,
                                                 ),
                                                 coercion_outcome: Some(
@@ -10848,10 +10848,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Block {
-                                    stmts: SemaStmtIdxRange(
+                                SemExprData::Block {
+                                    stmts: SemStmtIdxRange(
                                         ArenaIdxRange(
                                             0..3,
                                         ),
@@ -10885,12 +10885,12 @@
                     ],
                 },
             ),
-            sem_stmt_arena: SemaStmtArena(
+            sem_stmt_arena: SemStmtArena(
                 Arena {
                     data: [
-                        SemaStmtEntry {
+                        SemStmtEntry {
                             data_result: Ok(
-                                SemaStmtData::Let {
+                                SemStmtData::Let {
                                     let_token: LetRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             1,
@@ -10912,7 +10912,7 @@
                                             3,
                                         ),
                                     ),
-                                    initial_value_sem_expr_idx: SemaExprIdx(
+                                    initial_value_sem_expr_idx: SemExprIdx(
                                         1,
                                     ),
                                     coercion_outcome: None,
@@ -10927,16 +10927,16 @@
                                 },
                             ),
                         },
-                        SemaStmtEntry {
+                        SemStmtEntry {
                             data_result: Ok(
-                                SemaStmtData::Require {
+                                SemStmtData::Require {
                                     require_token: RequireRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             9,
                                         ),
                                     },
                                     condition: Other {
-                                        sem_expr_idx: SemaExprIdx(
+                                        sem_expr_idx: SemExprIdx(
                                             5,
                                         ),
                                         conversion: None,
@@ -10952,10 +10952,10 @@
                                 },
                             ),
                         },
-                        SemaStmtEntry {
+                        SemStmtEntry {
                             data_result: Ok(
-                                SemaStmtData::Eval {
-                                    sem_expr_idx: SemaExprIdx(
+                                SemStmtData::Eval {
+                                    sem_expr_idx: SemExprIdx(
                                         11,
                                     ),
                                     outcome: Some(
@@ -10990,7 +10990,7 @@
                 (
                     12,
                     (
-                        SemaExprIdx(
+                        SemExprIdx(
                             12,
                         ),
                         SynExprRootKind::BlockExpr,
@@ -11047,7 +11047,7 @@
             },
             sem_expr_terms: [
                 (
-                    SemaExprIdx(
+                    SemExprIdx(
                         4,
                     ),
                     Ok(
@@ -11666,7 +11666,7 @@
             self_ty: None,
         },
     },
-    SemaExprRegion {
+    SemExprRegion {
         path: RegionPath::Defn(
             ItemPath::MajorItem(
                 MajorItemPath::Form(
@@ -11676,7 +11676,7 @@
                 ),
             ),
         ),
-        data: SemaExprRegionData {
+        data: SemExprRegionData {
             path: RegionPath::Defn(
                 ItemPath::MajorItem(
                     MajorItemPath::Form(
@@ -11700,12 +11700,12 @@
                     },
                 ],
             },
-            sem_expr_arena: SemaExprArena(
+            sem_expr_arena: SemExprArena(
                 Arena {
                     data: [
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::InheritedSynSymbol {
+                                SemExprData::InheritedSynSymbol {
                                     ident: `cc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         4,
@@ -11748,10 +11748,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::MethodFnCall {
-                                    self_argument_sem_expr_idx: SemaExprIdx(
+                                SemExprData::MethodFnCall {
+                                    self_argument_sem_expr_idx: SemExprIdx(
                                         0,
                                     ),
                                     self_contract: Pure,
@@ -11852,9 +11852,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::CurrentSynSymbol {
+                                SemExprData::CurrentSynSymbol {
                                     ident: `dp`,
                                     regional_token_idx: RegionalTokenIdx(
                                         10,
@@ -11897,10 +11897,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Field {
-                                    self_argument: SemaExprIdx(
+                                SemExprData::Field {
+                                    self_argument: SemExprIdx(
                                         2,
                                     ),
                                     self_ty: FlyTerm {
@@ -11982,9 +11982,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Literal(
+                                SemExprData::Literal(
                                     RegionalTokenIdx(
                                         14,
                                     ),
@@ -12023,10 +12023,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Binary {
-                                    lopd: SemaExprIdx(
+                                SemExprData::Binary {
+                                    lopd: SemExprIdx(
                                         3,
                                     ),
                                     opr: Comparison(
@@ -12043,7 +12043,7 @@
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         13,
                                     ),
-                                    ropd: SemaExprIdx(
+                                    ropd: SemExprIdx(
                                         4,
                                     ),
                                 },
@@ -12068,9 +12068,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
+                                SemExprData::PrincipalEntityPath {
                                     path_expr_idx: 0,
                                     path: PrincipalEntityPath::TypeVariant(
                                         TypeVariantPath(
@@ -12139,9 +12139,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::InheritedSynSymbol {
+                                SemExprData::InheritedSynSymbol {
                                     ident: `cc`,
                                     regional_token_idx: RegionalTokenIdx(
                                         18,
@@ -12184,10 +12184,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Field {
-                                    self_argument: SemaExprIdx(
+                                SemExprData::Field {
+                                    self_argument: SemExprIdx(
                                         7,
                                     ),
                                     self_ty: FlyTerm {
@@ -12280,10 +12280,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::MethodFnCall {
-                                    self_argument_sem_expr_idx: SemaExprIdx(
+                                SemExprData::MethodFnCall {
+                                    self_argument_sem_expr_idx: SemExprIdx(
                                         8,
                                     ),
                                     self_contract: Pure,
@@ -12380,14 +12380,14 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Prefix {
+                                SemExprData::Prefix {
                                     opr: Minus,
                                     opr_regional_token_idx: RegionalTokenIdx(
                                         17,
                                     ),
-                                    opd: SemaExprIdx(
+                                    opd: SemExprIdx(
                                         9,
                                     ),
                                 },
@@ -12412,10 +12412,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::FunctionRitchieCall {
-                                    function_sem_expr_idx: SemaExprIdx(
+                                SemExprData::FunctionRitchieCall {
+                                    function_sem_expr_idx: SemExprIdx(
                                         6,
                                     ),
                                     ritchie_ty_kind: RitchieTypeKind::Item(
@@ -12439,7 +12439,7 @@
                                                 },
                                             },
                                             SemaSimpleArgument {
-                                                argument_expr_idx: SemaExprIdx(
+                                                argument_expr_idx: SemExprIdx(
                                                     10,
                                                 ),
                                                 coercion_outcome: Some(
@@ -12484,10 +12484,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Block {
-                                    stmts: SemaStmtIdxRange(
+                                SemExprData::Block {
+                                    stmts: SemStmtIdxRange(
                                         ArenaIdxRange(
                                             0..3,
                                         ),
@@ -12521,12 +12521,12 @@
                     ],
                 },
             ),
-            sem_stmt_arena: SemaStmtArena(
+            sem_stmt_arena: SemStmtArena(
                 Arena {
                     data: [
-                        SemaStmtEntry {
+                        SemStmtEntry {
                             data_result: Ok(
-                                SemaStmtData::Let {
+                                SemStmtData::Let {
                                     let_token: LetRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             1,
@@ -12548,7 +12548,7 @@
                                             3,
                                         ),
                                     ),
-                                    initial_value_sem_expr_idx: SemaExprIdx(
+                                    initial_value_sem_expr_idx: SemExprIdx(
                                         1,
                                     ),
                                     coercion_outcome: None,
@@ -12563,16 +12563,16 @@
                                 },
                             ),
                         },
-                        SemaStmtEntry {
+                        SemStmtEntry {
                             data_result: Ok(
-                                SemaStmtData::Require {
+                                SemStmtData::Require {
                                     require_token: RequireRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             9,
                                         ),
                                     },
                                     condition: Other {
-                                        sem_expr_idx: SemaExprIdx(
+                                        sem_expr_idx: SemExprIdx(
                                             5,
                                         ),
                                         conversion: None,
@@ -12588,10 +12588,10 @@
                                 },
                             ),
                         },
-                        SemaStmtEntry {
+                        SemStmtEntry {
                             data_result: Ok(
-                                SemaStmtData::Eval {
-                                    sem_expr_idx: SemaExprIdx(
+                                SemStmtData::Eval {
+                                    sem_expr_idx: SemExprIdx(
                                         11,
                                     ),
                                     outcome: Some(
@@ -12626,7 +12626,7 @@
                 (
                     12,
                     (
-                        SemaExprIdx(
+                        SemExprIdx(
                             12,
                         ),
                         SynExprRootKind::BlockExpr,
@@ -12683,7 +12683,7 @@
             },
             sem_expr_terms: [
                 (
-                    SemaExprIdx(
+                    SemExprIdx(
                         4,
                     ),
                     Ok(

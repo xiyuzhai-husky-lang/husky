@@ -3,7 +3,7 @@ use husky_coword::Ident;
 use husky_eth_term::term::EthTerm;
 use husky_fly_term::FlyTermBase;
 use husky_hir_ty::HirTemplateVariable;
-use husky_sem_expr::SemaExprRegionData;
+use husky_sem_expr::SemExprRegionData;
 use husky_syn_expr::{CurrentTemplateVariableData, CurrentVariableData, VariableRegionData};
 
 #[salsa::derive_debug_with_db]
@@ -53,7 +53,7 @@ impl HirEagerComptimeVariableEntry {
 
 impl HirEagerComptimeVariableRegionData {
     pub(crate) fn from_sema(
-        sem_expr_region_data: &SemaExprRegionData,
+        sem_expr_region_data: &SemExprRegionData,
         syn_symobl_region_data: &VariableRegionData,
         db: &::salsa::Db,
     ) -> Self {

@@ -1,4 +1,4 @@
-use crate::{sem_expr_region, SemaExprRegion};
+use crate::{sem_expr_region, SemExprRegion};
 use husky_entity_path::region::RegionPath;
 use husky_syn_decl::decl::HasSynDecl;
 use husky_syn_defn::item_syn_defn;
@@ -6,7 +6,7 @@ use husky_syn_defn::item_syn_defn;
 pub fn sem_expr_region_from_region_path(
     region_path: RegionPath,
     db: &::salsa::Db,
-) -> SemaExprRegion {
+) -> SemExprRegion {
     let syn_expr_region = match region_path {
         RegionPath::Snippet(_) => todo!(),
         RegionPath::Decl(item_path) => item_path.syn_decl(db).unwrap().syn_expr_region(db).unwrap(),

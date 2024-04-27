@@ -9,7 +9,7 @@ pub struct SemaIfBranch {
     pub if_token: IfRegionalToken,
     pub condition: SemaCondition,
     pub eol_colon_token: EolColonRegionalToken,
-    pub stmts: SemaStmtIdxRange,
+    pub stmts: SemStmtIdxRange,
 }
 
 impl SemaIfBranch {
@@ -17,7 +17,7 @@ impl SemaIfBranch {
         self.eol_colon_token
     }
 
-    pub fn stmts(&self) -> SemaStmtIdxRange {
+    pub fn stmts(&self) -> SemStmtIdxRange {
         self.stmts
     }
 
@@ -26,7 +26,7 @@ impl SemaIfBranch {
     }
 }
 
-impl<'a> SemaExprBuilder<'a> {
+impl<'a> SemExprBuilder<'a> {
     pub(crate) fn build_sem_if_branch<Expectation: ExpectFlyTerm>(
         &mut self,
         syn_if_branch: &'a SynIfBranch,
@@ -46,7 +46,7 @@ pub struct SemaElifBranch {
     pub elif_token: ElifRegionalToken,
     pub condition: SemaCondition,
     pub eol_colon_token: EolColonRegionalToken,
-    pub stmts: SemaStmtIdxRange,
+    pub stmts: SemStmtIdxRange,
 }
 
 impl SemaElifBranch {
@@ -54,7 +54,7 @@ impl SemaElifBranch {
         self.eol_colon_token
     }
 
-    pub fn stmts(&self) -> SemaStmtIdxRange {
+    pub fn stmts(&self) -> SemStmtIdxRange {
         self.stmts
     }
 
@@ -63,7 +63,7 @@ impl SemaElifBranch {
     }
 }
 
-impl<'a> SemaExprBuilder<'a> {
+impl<'a> SemExprBuilder<'a> {
     pub(crate) fn build_sem_elif_branch<Expectation: ExpectFlyTerm>(
         &mut self,
         syn_elif_branch: &'a SynElifBranch,
@@ -82,11 +82,11 @@ impl<'a> SemaExprBuilder<'a> {
 pub struct SemaElseBranch {
     pub else_regional_token: ElseRegionalToken,
     pub eol_colon_regional_token: EolColonRegionalToken,
-    pub stmts: SemaStmtIdxRange,
+    pub stmts: SemStmtIdxRange,
 }
 
 impl SemaElseBranch {
-    pub fn stmts(&self) -> SemaStmtIdxRange {
+    pub fn stmts(&self) -> SemStmtIdxRange {
         self.stmts
     }
 
@@ -99,17 +99,14 @@ impl SemaElseBranch {
     }
 }
 
-impl<'a> SemaExprBuilder<'a> {
+impl<'a> SemExprBuilder<'a> {
     pub(crate) fn build_if_else_stmt(
         &mut self,
         syn_if_branch: &'a SynIfBranch,
         syn_elif_branches: &'a [SynElifBranch],
         syn_else_branch: Option<&'a SynElseBranch>,
         stmt_ty_expectation: impl ExpectFlyTerm,
-    ) -> (
-        SemaExprDataResult<SemaStmtData>,
-        SemaExprTypeResult<FlyTerm>,
-    ) {
+    ) -> (SemExprDataResult<SemStmtData>, SemExprTypeResult<FlyTerm>) {
         let mut merger = BranchTypeMerger::new(stmt_ty_expectation);
         let Ok(sem_if_branch) = self.build_sem_if_branch(syn_if_branch, &mut merger) else {
             todo!()
@@ -133,14 +130,14 @@ impl<'a> SemaExprBuilder<'a> {
         };
         // exhaustive iff else branch exists;
         (
-            Ok(SemaStmtData::IfElse {
+            Ok(SemStmtData::IfElse {
                 if_branch: sem_if_branch,
                 elif_branches: sem_elif_branches,
                 else_branch: sem_else_branch,
             }),
             merger
                 .merge(syn_else_branch.is_some(), self.eth_term_menu())
-                .ok_or(DerivedSemaExprTypeError::BranchTypeMerge.into()),
+                .ok_or(DerivedSemExprTypeError::BranchTypeMerge.into()),
         )
     }
 

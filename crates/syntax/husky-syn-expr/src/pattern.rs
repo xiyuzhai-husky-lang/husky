@@ -60,8 +60,7 @@ pub enum SynPatternData {
     /// example: `C { .. }`
     Props {
         name: Option<ItemPath>,
-        fields:
-            PunctuatedSmallList<FieldSynPatternExprData, CommaRegionalToken, SynExprError, true, 3>,
+        fields: PunctuatedSmallList<FieldSynPatternData, CommaRegionalToken, SynExprError, true, 3>,
     },
     /// example: `A | B | C { .. }`
     OneOf {
@@ -84,7 +83,7 @@ pub enum SynPatternData {
 }
 
 #[derive(Debug, PartialEq, Eq)]
-pub struct FieldSynPatternExprData {
+pub struct FieldSynPatternData {
     ident: IdentRegionalToken,
     colon: ColonRegionalToken,
     pattern: SynPatternComponent,

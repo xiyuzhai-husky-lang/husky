@@ -1,0 +1,13 @@
+[package]
+name = "husky-ide-fmt"
+version.workspace = true
+edition = "2021"
+
+[dependencies]
+salsa.workspace = true
+
+[dev-dependencies]
+husky-ide-fmt = { path = ".", features = ["test_utils"] }
+
+[features]
+test_utils = ["salsa/test_utils"]

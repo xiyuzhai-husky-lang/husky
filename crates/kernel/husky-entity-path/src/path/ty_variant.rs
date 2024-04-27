@@ -1,4 +1,5 @@
 use crate::*;
+use rustc_index::Idx;
 
 #[salsa::derive_debug_with_db]
 #[salsa::as_id(jar = EntityPathJar)]
@@ -15,8 +16,22 @@ pub struct TypeVariantPathData {
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum TypeVariantIndex {
-    U8(u8),
+pub struct TypeVariantIndex(usize);
+
+impl Idx for TypeVariantIndex {
+    fn new(idx: usize) -> Self {
+        Self(idx)
+    }
+
+    fn index(self) -> usize {
+        self.0
+    }
+}
+
+impl TypeVariantIndex {
+    pub fn raw(self) -> usize {
+        self.0
+    }
 }
 
 pub struct TypeVariantRegistry {
@@ -26,14 +41,14 @@ pub struct TypeVariantRegistry {
 impl TypeVariantRegistry {
     pub fn new_u8() -> Self {
         Self {
-            next_index: TypeVariantIndex::U8(0),
+            next_index: TypeVariantIndex(0),
         }
     }
 
     fn issue_next(&mut self) -> TypeVariantIndex {
         match self.next_index {
-            TypeVariantIndex::U8(ref mut next_raw) => {
-                TypeVariantIndex::U8(std::mem::replace(next_raw, *next_raw + 1))
+            TypeVariantIndex(ref mut next_raw) => {
+                TypeVariantIndex(std::mem::replace(next_raw, *next_raw + 1))
             }
         }
     }

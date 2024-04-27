@@ -2,7 +2,9 @@ use super::*;
 use husky_sem_opr::prefix::SemaPrefixOpr;
 use husky_syn_opr::SynPrefixOpr;
 
-impl<'a> SemaExprBuilder<'a> {
+/// # type
+
+impl<'a> SemExprBuilder<'a> {
     pub(super) fn build_prefix_sem_expr(
         &mut self,
         expr_idx: SynExprIdx,
@@ -10,8 +12,8 @@ impl<'a> SemaExprBuilder<'a> {
         opd: SynExprIdx,
         final_destination: FinalDestination,
     ) -> (
-        SemaExprDataResult<(SemaExprIdx, SemaPrefixOpr)>,
-        SemaExprTypeResult<FlyTerm>,
+        SemExprDataResult<(SemExprIdx, SemaPrefixOpr)>,
+        SemExprTypeResult<FlyTerm>,
     ) {
         match opr {
             SynPrefixOpr::Minus => {
@@ -20,7 +22,7 @@ impl<'a> SemaExprBuilder<'a> {
                 let Some(opd_ty) = opd_ty else {
                     return (
                         Err(todo!()),
-                        Err(DerivedSemaExprTypeError::PrefixOperandTypeNotInferred.into()),
+                        Err(DerivedSemExprTypeError::PrefixOperandTypeNotInferred.into()),
                     );
                 };
                 match opd_ty.data(self) {
@@ -116,8 +118,8 @@ impl<'a> SemaExprBuilder<'a> {
         }
     }
 
-    fn calc_bitnot_expr_ty(&mut self, opd_ty: Option<FlyTerm>) -> SemaExprTypeResult<FlyTerm> {
-        let opd_ty = opd_ty.ok_or(DerivedSemaExprTypeError::BitNotOperandTypeNotInferred)?;
+    fn calc_bitnot_expr_ty(&mut self, opd_ty: Option<FlyTerm>) -> SemExprTypeResult<FlyTerm> {
+        let opd_ty = opd_ty.ok_or(DerivedSemExprTypeError::BitNotOperandTypeNotInferred)?;
         match opd_ty.data(self) {
             FlyTermData::TypeOntology {
                 refined_ty_path: Left(prelude_ty_path),
@@ -131,9 +133,42 @@ impl<'a> SemaExprBuilder<'a> {
                     | PreludeIntTypePath::R128
                     | PreludeIntTypePath::RSize,
                 )) => Ok(opd_ty),
-                _ => Err(OriginalSemaExprTypeError::BitOperationOnlyWorksForRawBitsOrCustom)?,
+                _ => Err(OriginalSemExprTypeError::BitOperationOnlyWorksForRawBitsOrCustom)?,
             },
             _ => todo!(),
+        }
+    }
+}
+
+/// # term
+
+impl<'a> SemExprBuilder<'a> {
+    pub(super) fn calc_prefix_expr_term(
+        &mut self,
+        expr_idx: SemExprIdx,
+        opr: SemaPrefixOpr,
+        opd: SemExprIdx,
+    ) -> SemExprTermResult<FlyTerm> {
+        let Some(opd_term) = self.infer_expr_term(opd) else {
+            return Err(DerivedSemExprTermError::PrefixOprTermNotInferred.into());
+        };
+        match opr {
+            SemaPrefixOpr::Minus => todo!(),
+            SemaPrefixOpr::Not => todo!(),
+            SemaPrefixOpr::BitNot => todo!(),
+            SemaPrefixOpr::LeashType => Ok(FlyTerm::new_leashed(self, opd_term)?),
+            SemaPrefixOpr::RefType => {
+                // let opd_ty = self.infer
+                // match
+                todo!()
+            }
+            SemaPrefixOpr::OptionType => {
+                Ok(
+                    FlyTerm::new_application(self, self.term_menu().option_ty_ontology(), opd_term)
+                        .map_err(|e| DerivedSemExprTermError::OptionApplicationTerm(e))?
+                        .into(),
+                )
+            }
         }
     }
 }

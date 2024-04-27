@@ -1,11 +1,11 @@
 use crate::{engine::PlaceContractEngine, site::SemaPlaceContractSite};
-use husky_sem_expr::{stmt::condition::SemaCondition, SemaStmtData, SemaStmtIdx, SemaStmtIdxRange};
+use husky_sem_expr::{stmt::condition::SemaCondition, SemStmtData, SemStmtIdx, SemStmtIdxRange};
 use husky_term_prelude::Contract;
 
 impl<'a> PlaceContractEngine<'a> {
     pub(crate) fn infer_stmts(
         &mut self,
-        stmts: SemaStmtIdxRange,
+        stmts: SemStmtIdxRange,
         contract: Contract,
         site: SemaPlaceContractSite,
     ) {
@@ -16,21 +16,21 @@ impl<'a> PlaceContractEngine<'a> {
         self.infer_stmt(last_stmt, contract, site)
     }
 
-    fn infer_stmt(&mut self, stmt: SemaStmtIdx, contract: Contract, site: SemaPlaceContractSite) {
+    fn infer_stmt(&mut self, stmt: SemStmtIdx, contract: Contract, site: SemaPlaceContractSite) {
         match *stmt.data(self.sem_expr_region_data().sem_stmt_arena()) {
-            SemaStmtData::Let {
+            SemStmtData::Let {
                 contract,
                 initial_value_sem_expr_idx,
                 ..
             } => self.infer_expr(initial_value_sem_expr_idx, contract, Default::default()),
-            SemaStmtData::Return { result, .. } => {
+            SemStmtData::Return { result, .. } => {
                 self.infer_expr(result, Contract::Move, Default::default())
             }
-            SemaStmtData::Require { condition, .. } | SemaStmtData::Assert { condition, .. } => {
+            SemStmtData::Require { condition, .. } | SemStmtData::Assert { condition, .. } => {
                 self.infer_condition(condition);
             }
-            SemaStmtData::Break { .. } => (),
-            SemaStmtData::Eval {
+            SemStmtData::Break { .. } => (),
+            SemStmtData::Eval {
                 sem_expr_idx,
                 eol_semicolon,
                 ..
@@ -39,7 +39,7 @@ impl<'a> PlaceContractEngine<'a> {
                 let expr_contract = if discarded { Contract::Pure } else { contract };
                 self.infer_expr(sem_expr_idx, expr_contract, site)
             }
-            SemaStmtData::ForBetween {
+            SemStmtData::ForBetween {
                 ref particulars,
 
                 stmts,
@@ -57,10 +57,10 @@ impl<'a> PlaceContractEngine<'a> {
                     .map(|expr| self.infer_expr(expr, Contract::Pure, Default::default()));
                 self.infer_stmts(stmts, Contract::Pure, Default::default());
             }
-            SemaStmtData::ForIn { .. } => {
+            SemStmtData::ForIn { .. } => {
                 todo!()
             }
-            SemaStmtData::Forext {
+            SemStmtData::Forext {
                 ref particulars,
                 stmts,
                 ..
@@ -72,16 +72,16 @@ impl<'a> PlaceContractEngine<'a> {
                 );
                 self.infer_stmts(stmts, Contract::Pure, Default::default());
             }
-            SemaStmtData::While {
+            SemStmtData::While {
                 condition, stmts, ..
             }
-            | SemaStmtData::DoWhile {
+            | SemStmtData::DoWhile {
                 condition, stmts, ..
             } => {
                 self.infer_condition(condition);
                 self.infer_stmts(stmts, Contract::Pure, Default::default());
             }
-            SemaStmtData::IfElse {
+            SemStmtData::IfElse {
                 ref if_branch,
                 ref elif_branches,
                 ref else_branch,
@@ -96,7 +96,7 @@ impl<'a> PlaceContractEngine<'a> {
                     self.infer_stmts(else_branch.stmts, contract, site.clone());
                 }
             }
-            SemaStmtData::Match {
+            SemStmtData::Match {
                 match_opd: match_target,
                 ref case_branches,
                 ..

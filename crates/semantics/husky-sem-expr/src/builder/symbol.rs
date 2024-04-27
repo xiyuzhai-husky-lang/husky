@@ -1,7 +1,7 @@
 use super::*;
 use husky_eth_term::term::symbolic_variable::EthSymbolicVariable;
 
-impl<'a> SemaExprBuilder<'a> {
+impl<'a> SemExprBuilder<'a> {
     pub(super) fn infer_current_parameter_symbols(&mut self) {
         for (current_variable_idx, current_variable_entry) in self
             .syn_expr_region_data

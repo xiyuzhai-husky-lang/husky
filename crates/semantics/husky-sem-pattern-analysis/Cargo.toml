@@ -1,0 +1,24 @@
+[package]
+name = "husky-sem-pattern-analysis"
+version.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+edition.workspace = true
+homepage.workspace = true
+repository.workspace = true
+readme.workspace = true
+license.workspace = true
+categories.workspace = true
+keywords.workspace = true
+
+[dependencies]
+# abstractions
+rustc-pattern-analysis.workspace = true
+# kernel
+husky-entity-path.workspace = true
+husky-fly-term.workspace = true
+# utils
+husky-lifetime-utils.workspace = true
+
+[lints]
+workspace = true

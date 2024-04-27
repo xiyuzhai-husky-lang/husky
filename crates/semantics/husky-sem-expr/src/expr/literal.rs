@@ -3,13 +3,13 @@ use husky_fly_term::quary::FlyQuary;
 use husky_regional_token::RegionalTokenIdx;
 use husky_token_data::FloatLiteralTokenData;
 
-impl<'a> SemaExprBuilder<'a> {
+impl<'a> SemExprBuilder<'a> {
     pub(super) fn calc_literal_expr_ty(
         &mut self,
         expr_idx: SynExprIdx,
         literal_token_idx: RegionalTokenIdx,
         expectation: &impl ExpectFlyTerm,
-    ) -> SemaExprTypeResult<FlyTerm> {
+    ) -> SemExprTypeResult<FlyTerm> {
         self.calc_literal_expr_ty_aux(expr_idx, literal_token_idx, expectation)
             .map(|term| term.with_quary(FlyQuary::Const))
     }
@@ -19,7 +19,7 @@ impl<'a> SemaExprBuilder<'a> {
         expr_idx: SynExprIdx,
         literal_token_idx: RegionalTokenIdx,
         expectation: &impl ExpectFlyTerm,
-    ) -> SemaExprTypeResult<FlyTerm> {
+    ) -> SemExprTypeResult<FlyTerm> {
         let literal_token: TokenData = self.token_data(literal_token_idx);
         match literal_token {
             TokenData::Literal(literal) => match literal {

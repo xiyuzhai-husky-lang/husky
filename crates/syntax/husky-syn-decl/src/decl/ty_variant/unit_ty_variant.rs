@@ -1,7 +1,7 @@
 use super::*;
 
 // todo: GADT
-#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
+#[salsa::tracked]
 pub struct TypeUnitVariantSynNodeDecl {
     #[id]
     pub syn_node_path: TypeVariantSynNodePath,
@@ -15,7 +15,7 @@ impl TypeUnitVariantSynNodeDecl {
     }
 }
 
-#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
+#[salsa::tracked]
 pub struct TypeUnitVariantSynDecl {
     #[id]
     pub path: TypeVariantPath,

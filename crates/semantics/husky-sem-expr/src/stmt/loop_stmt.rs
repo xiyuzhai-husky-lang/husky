@@ -9,7 +9,7 @@ use husky_regional_token::RegionalTokenIdx;
 pub struct SemaForBetweenParticulars {
     for_between_loop_var_regional_token_idx: RegionalTokenIdx,
     for_between_loop_var_ident: Ident,
-    for_between_loop_var_expr_idx: SemaExprIdx,
+    for_between_loop_var_expr_idx: SemExprIdx,
     range: SemaForBetweenRange,
 }
 
@@ -22,7 +22,7 @@ impl SemaForBetweenParticulars {
         self.for_between_loop_var_ident
     }
 
-    pub fn for_between_loop_var_expr_idx(&self) -> SemaExprIdx {
+    pub fn for_between_loop_var_expr_idx(&self) -> SemExprIdx {
         self.for_between_loop_var_expr_idx
     }
 
@@ -31,7 +31,7 @@ impl SemaForBetweenParticulars {
     }
 }
 
-impl<'a> SemaExprBuilder<'a> {
+impl<'a> SemExprBuilder<'a> {
     pub(crate) fn build_sem_for_between_particulars(
         &mut self,
         particulars: &'a SynForBetweenParticulars,
@@ -123,7 +123,7 @@ pub struct SemaForBetweenRange {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct SemaForBetweenLoopBoundary {
-    pub bound_expr: Option<SemaExprIdx>,
+    pub bound_expr: Option<SemExprIdx>,
     pub kind: LoopBoundaryKind,
 }
 
@@ -140,8 +140,8 @@ impl Default for SemaForBetweenLoopBoundary {
 pub struct SemaForextParticulars {
     pub forext_loop_var_regional_token_idx: RegionalTokenIdx,
     pub forext_loop_var_ident: Ident,
-    pub forext_loop_var_sem_expr_idx: SemaExprIdx,
-    pub bound_expr_sem_expr_idx: SemaExprIdx,
+    pub forext_loop_var_sem_expr_idx: SemExprIdx,
+    pub bound_expr_sem_expr_idx: SemExprIdx,
     pub boundary_kind: LoopBoundaryKind,
 }
 
@@ -149,19 +149,19 @@ impl SemaForextParticulars {
     pub(crate) fn new(
         forext_loop_var_regional_token_idx: RegionalTokenIdx,
         forext_loop_var_ident: Ident,
-        forext_loop_var_expr_idx: SemaExprIdx,
+        forext_loop_var_expr_idx: SemExprIdx,
         opr: BinaryComparisonOpr,
-        bound_expr: SemaExprIdx,
+        bound_expr: SemExprIdx,
     ) -> Self {
         todo!()
     }
 }
 
-impl<'a> SemaExprBuilder<'a> {
+impl<'a> SemExprBuilder<'a> {
     pub(crate) fn build_sem_forext_particulars(
         &mut self,
         particulars: &'a SynForextParticulars,
-        forext_loop_var_sem_expr_idx: SemaExprIdx,
+        forext_loop_var_sem_expr_idx: SemExprIdx,
         forext_loop_var_ty: FlyTerm,
     ) -> SemaForextParticulars {
         let bound_expr_sem_expr_idx = self.build_sem_expr(

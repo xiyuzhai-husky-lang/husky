@@ -127,7 +127,7 @@ pub enum JarIndex {
     FoldingRangeJar,
     HoverJar,
     SemanticTokenJar,
-    SyntaxFormatJar,
+    IdeFmtJar,
     TokenInfoJar,
     // kernel
     CowordJar,
@@ -154,7 +154,7 @@ pub enum JarIndex {
     // namekian
     NamAstJar,
     // semantics
-    SemaExprJar,
+    SemExprJar,
     SemaPlaceContractJar,
     // super
     SuperNodeJar,

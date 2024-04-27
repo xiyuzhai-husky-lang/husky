@@ -7,10 +7,10 @@ pub struct SemaCaseBranch {
     pub vertical_token: VerticalRegionalToken,
     pub case_pattern_sem_obelisk: CaseVariableObelisk,
     pub heavy_arrow_token: HeavyArrowRegionalToken,
-    pub stmts: SemaStmtIdxRange,
+    pub stmts: SemStmtIdxRange,
 }
 
-impl<'a> SemaExprBuilder<'a> {
+impl<'a> SemExprBuilder<'a> {
     pub(crate) fn build_match_stmt(
         &mut self,
         match_token: MatchRegionalToken,
@@ -18,10 +18,7 @@ impl<'a> SemaExprBuilder<'a> {
         eol_with_token_result: &'a SynExprResult<EolWithRegionalToken>,
         syn_case_branches: &'a [SynCaseBranch],
         expr_expectation: impl ExpectFlyTerm,
-    ) -> (
-        SemaExprDataResult<SemaStmtData>,
-        SemaExprTypeResult<FlyTerm>,
-    ) {
+    ) -> (SemExprDataResult<SemStmtData>, SemExprTypeResult<FlyTerm>) {
         let &Ok(match_target_syn_expr_idx) = match_target_syn_expr_idx_result else {
             todo!()
         };
@@ -55,7 +52,7 @@ impl<'a> SemaExprBuilder<'a> {
             )
         }));
         (
-            Ok(SemaStmtData::Match {
+            Ok(SemStmtData::Match {
                 match_token,
                 match_opd: match_target,
                 match_contract,
@@ -64,7 +61,7 @@ impl<'a> SemaExprBuilder<'a> {
             }),
             merger
                 .merge(true, self.eth_term_menu())
-                .ok_or(DerivedSemaExprTypeError::BranchTypeMerge.into()),
+                .ok_or(DerivedSemExprTypeError::BranchTypeMerge.into()),
         )
     }
 

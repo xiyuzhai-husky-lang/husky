@@ -223,7 +223,7 @@ impl<'a, 'b, E> RustTranspilationBuilder<'a, 'b, E> {
         self.result += "__visual_synchrotron"
     }
 
-    pub(crate) fn tuple_field(&mut self, index: u8) {
+    pub(crate) fn tuple_field(&mut self, index: usize) {
         use std::fmt::Write;
 
         write!(self.result, ".{index}").unwrap();

@@ -4,8 +4,8 @@ use husky_fly_term::dispatch::StaticDispatch;
 
 use super::*;
 
-#[salsa::tracked(jar = SemaExprJar)]
-pub fn sem_expr_region_requires_lazy(db: &::salsa::Db, sem_expr_region: SemaExprRegion) -> bool {
+#[salsa::tracked(jar = SemExprJar)]
+pub fn sem_expr_region_requires_lazy(db: &::salsa::Db, sem_expr_region: SemExprRegion) -> bool {
     let sem_expr_region_data = sem_expr_region.data(db);
     match sem_expr_region_data.path() {
         RegionPath::Snippet(_) => return false, // ad hoc
@@ -38,7 +38,7 @@ pub fn sem_expr_region_requires_lazy(db: &::salsa::Db, sem_expr_region: SemaExpr
     }
     for sem_expr_entry in sem_expr_region_data.sem_expr_arena().iter() {
         match sem_expr_entry.data() {
-            SemaExprData::PrincipalEntityPath {
+            SemExprData::PrincipalEntityPath {
                 path: PrincipalEntityPath::MajorItem(MajorItemPath::Form(path)),
                 ..
             } => match path.major_form_kind(db) {
@@ -47,11 +47,11 @@ pub fn sem_expr_region_requires_lazy(db: &::salsa::Db, sem_expr_region: SemaExpr
                 }
                 _ => (),
             },
-            SemaExprData::MajorItemPathAssocItem {
+            SemExprData::MajorItemPathAssocItem {
                 static_dispatch: StaticDispatch::AssocGn,
                 ..
             }
-            | SemaExprData::MethodGnCall { .. } => return true,
+            | SemExprData::MethodGnCall { .. } => return true,
             _ => (),
         }
     }

@@ -172,15 +172,15 @@ impl<Task: IsTask> IsDevRuntime<TaskLinkageImpl<Task>> for DevRuntime<Task> {
             KiRuntimeConstantData::TypeVariantPath(path) => {
                 let presenter = self
                     .comptime
-                    .linkage_impl(Linkage::new_enum_u8_presenter(path.parent_ty_path(db), db))
-                    .enum_u8_value_presenter();
-                match path.index(db) {
-                    TypeVariantIndex::U8(raw) => {
-                        <TaskLinkageImpl<Task> as IsLinkageImpl>::Value::from_enum_u8(
-                            raw, presenter,
-                        )
-                    }
-                }
+                    .linkage_impl(Linkage::new_enum_index_presenter(
+                        path.parent_ty_path(db),
+                        db,
+                    ))
+                    .enum_index_value_presenter();
+                <TaskLinkageImpl<Task> as IsLinkageImpl>::Value::from_enum_index(
+                    path.index(db).raw(),
+                    presenter,
+                )
             }
         }
     }

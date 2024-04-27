@@ -38,7 +38,7 @@ use std::panic::RefUnwindSafe;
     husky_javelin::jar::JavelinJar,
     husky_linkage::jar::LinkageJar,
     // semantics
-    husky_sem_expr::SemaExprJar,
+    husky_sem_expr::SemExprJar,
     husky_sem_place_contract::jar::SemaPlaceContractJar,
     // syntax
     husky_ast::jar::AstJar,
@@ -46,7 +46,7 @@ use std::panic::RefUnwindSafe;
     husky_corgi_config_ast::CorgiConfigAstJar,
     husky_manifest_ast::ManifestAstJar,
     husky_entity_tree::EntityTreeJar,
-    husky_syn_expr::SynExprJar,
+    husky_syn_expr::jar::SynExprJar,
     husky_syn_decl::SynDeclJar,
     husky_syn_defn::SynDefnJar,
     // val

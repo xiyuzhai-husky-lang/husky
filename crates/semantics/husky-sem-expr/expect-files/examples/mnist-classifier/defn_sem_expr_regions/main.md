@@ -1,6 +1,6 @@
 ```rust
 [
-    SemaExprRegion {
+    SemExprRegion {
         path: RegionPath::Defn(
             ItemPath::MajorItem(
                 MajorItemPath::Form(
@@ -8,7 +8,7 @@
                 ),
             ),
         ),
-        data: SemaExprRegionData {
+        data: SemExprRegionData {
             path: RegionPath::Defn(
                 ItemPath::MajorItem(
                     MajorItemPath::Form(
@@ -19,12 +19,12 @@
             place_registry: PlaceRegistry {
                 infos: [],
             },
-            sem_expr_arena: SemaExprArena(
+            sem_expr_arena: SemExprArena(
                 Arena {
                     data: [
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
+                                SemExprData::PrincipalEntityPath {
                                     path_expr_idx: 0,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
@@ -74,10 +74,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Unveil {
-                                    opd_sem_expr_idx: SemaExprIdx(
+                                SemExprData::Unveil {
+                                    opd_sem_expr_idx: SemExprIdx(
                                         0,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
@@ -139,9 +139,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
+                                SemExprData::PrincipalEntityPath {
                                     path_expr_idx: 1,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
@@ -191,10 +191,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Unveil {
-                                    opd_sem_expr_idx: SemaExprIdx(
+                                SemExprData::Unveil {
+                                    opd_sem_expr_idx: SemExprIdx(
                                         2,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
@@ -256,9 +256,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
+                                SemExprData::PrincipalEntityPath {
                                     path_expr_idx: 2,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
@@ -308,10 +308,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Unveil {
-                                    opd_sem_expr_idx: SemaExprIdx(
+                                SemExprData::Unveil {
+                                    opd_sem_expr_idx: SemExprIdx(
                                         4,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
@@ -373,9 +373,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
+                                SemExprData::PrincipalEntityPath {
                                     path_expr_idx: 3,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
@@ -425,10 +425,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Unveil {
-                                    opd_sem_expr_idx: SemaExprIdx(
+                                SemExprData::Unveil {
+                                    opd_sem_expr_idx: SemExprIdx(
                                         6,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
@@ -490,9 +490,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
+                                SemExprData::PrincipalEntityPath {
                                     path_expr_idx: 4,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
@@ -542,10 +542,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Unveil {
-                                    opd_sem_expr_idx: SemaExprIdx(
+                                SemExprData::Unveil {
+                                    opd_sem_expr_idx: SemExprIdx(
                                         8,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
@@ -607,9 +607,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
+                                SemExprData::PrincipalEntityPath {
                                     path_expr_idx: 5,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
@@ -659,10 +659,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Unveil {
-                                    opd_sem_expr_idx: SemaExprIdx(
+                                SemExprData::Unveil {
+                                    opd_sem_expr_idx: SemExprIdx(
                                         10,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
@@ -724,9 +724,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
+                                SemExprData::PrincipalEntityPath {
                                     path_expr_idx: 6,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
@@ -776,10 +776,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Unveil {
-                                    opd_sem_expr_idx: SemaExprIdx(
+                                SemExprData::Unveil {
+                                    opd_sem_expr_idx: SemExprIdx(
                                         12,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
@@ -841,9 +841,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
+                                SemExprData::PrincipalEntityPath {
                                     path_expr_idx: 7,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
@@ -893,10 +893,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Unveil {
-                                    opd_sem_expr_idx: SemaExprIdx(
+                                SemExprData::Unveil {
+                                    opd_sem_expr_idx: SemExprIdx(
                                         14,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
@@ -958,9 +958,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
+                                SemExprData::PrincipalEntityPath {
                                     path_expr_idx: 8,
                                     path: PrincipalEntityPath::MajorItem(
                                         MajorItemPath::Form(
@@ -1010,10 +1010,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Unveil {
-                                    opd_sem_expr_idx: SemaExprIdx(
+                                SemExprData::Unveil {
+                                    opd_sem_expr_idx: SemExprIdx(
                                         16,
                                     ),
                                     opr_regional_token_idx: RegionalTokenIdx(
@@ -1075,9 +1075,9 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
+                                SemExprData::PrincipalEntityPath {
                                     path_expr_idx: 10,
                                     path: PrincipalEntityPath::TypeVariant(
                                         TypeVariantPath(
@@ -1146,10 +1146,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Block {
-                                    stmts: SemaStmtIdxRange(
+                                SemExprData::Block {
+                                    stmts: SemStmtIdxRange(
                                         ArenaIdxRange(
                                             0..10,
                                         ),
@@ -1183,13 +1183,13 @@
                     ],
                 },
             ),
-            sem_stmt_arena: SemaStmtArena(
+            sem_stmt_arena: SemStmtArena(
                 Arena {
                     data: [
-                        SemaStmtEntry {
+                        SemStmtEntry {
                             data_result: Ok(
-                                SemaStmtData::Eval {
-                                    sem_expr_idx: SemaExprIdx(
+                                SemStmtData::Eval {
+                                    sem_expr_idx: SemExprIdx(
                                         1,
                                     ),
                                     outcome: Some(
@@ -1215,10 +1215,10 @@
                                 },
                             ),
                         },
-                        SemaStmtEntry {
+                        SemStmtEntry {
                             data_result: Ok(
-                                SemaStmtData::Eval {
-                                    sem_expr_idx: SemaExprIdx(
+                                SemStmtData::Eval {
+                                    sem_expr_idx: SemExprIdx(
                                         3,
                                     ),
                                     outcome: Some(
@@ -1244,10 +1244,10 @@
                                 },
                             ),
                         },
-                        SemaStmtEntry {
+                        SemStmtEntry {
                             data_result: Ok(
-                                SemaStmtData::Eval {
-                                    sem_expr_idx: SemaExprIdx(
+                                SemStmtData::Eval {
+                                    sem_expr_idx: SemExprIdx(
                                         5,
                                     ),
                                     outcome: Some(
@@ -1273,10 +1273,10 @@
                                 },
                             ),
                         },
-                        SemaStmtEntry {
+                        SemStmtEntry {
                             data_result: Ok(
-                                SemaStmtData::Eval {
-                                    sem_expr_idx: SemaExprIdx(
+                                SemStmtData::Eval {
+                                    sem_expr_idx: SemExprIdx(
                                         7,
                                     ),
                                     outcome: Some(
@@ -1302,10 +1302,10 @@
                                 },
                             ),
                         },
-                        SemaStmtEntry {
+                        SemStmtEntry {
                             data_result: Ok(
-                                SemaStmtData::Eval {
-                                    sem_expr_idx: SemaExprIdx(
+                                SemStmtData::Eval {
+                                    sem_expr_idx: SemExprIdx(
                                         9,
                                     ),
                                     outcome: Some(
@@ -1331,10 +1331,10 @@
                                 },
                             ),
                         },
-                        SemaStmtEntry {
+                        SemStmtEntry {
                             data_result: Ok(
-                                SemaStmtData::Eval {
-                                    sem_expr_idx: SemaExprIdx(
+                                SemStmtData::Eval {
+                                    sem_expr_idx: SemExprIdx(
                                         11,
                                     ),
                                     outcome: Some(
@@ -1360,10 +1360,10 @@
                                 },
                             ),
                         },
-                        SemaStmtEntry {
+                        SemStmtEntry {
                             data_result: Ok(
-                                SemaStmtData::Eval {
-                                    sem_expr_idx: SemaExprIdx(
+                                SemStmtData::Eval {
+                                    sem_expr_idx: SemExprIdx(
                                         13,
                                     ),
                                     outcome: Some(
@@ -1389,10 +1389,10 @@
                                 },
                             ),
                         },
-                        SemaStmtEntry {
+                        SemStmtEntry {
                             data_result: Ok(
-                                SemaStmtData::Eval {
-                                    sem_expr_idx: SemaExprIdx(
+                                SemStmtData::Eval {
+                                    sem_expr_idx: SemExprIdx(
                                         15,
                                     ),
                                     outcome: Some(
@@ -1418,10 +1418,10 @@
                                 },
                             ),
                         },
-                        SemaStmtEntry {
+                        SemStmtEntry {
                             data_result: Ok(
-                                SemaStmtData::Eval {
-                                    sem_expr_idx: SemaExprIdx(
+                                SemStmtData::Eval {
+                                    sem_expr_idx: SemExprIdx(
                                         17,
                                     ),
                                     outcome: Some(
@@ -1447,10 +1447,10 @@
                                 },
                             ),
                         },
-                        SemaStmtEntry {
+                        SemStmtEntry {
                             data_result: Ok(
-                                SemaStmtData::Eval {
-                                    sem_expr_idx: SemaExprIdx(
+                                SemStmtData::Eval {
+                                    sem_expr_idx: SemExprIdx(
                                         18,
                                     ),
                                     outcome: Some(
@@ -1485,7 +1485,7 @@
                 (
                     19,
                     (
-                        SemaExprIdx(
+                        SemExprIdx(
                             19,
                         ),
                         SynExprRootKind::BlockExpr,

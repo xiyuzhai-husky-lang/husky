@@ -2,7 +2,7 @@ use crate::{
     jar::HirEagerExprJar, variable::runtime::HirEagerRvarIdx, HirEagerExprIdx, HirEagerPatternIdx,
     HirEagerStmtIdx,
 };
-use husky_sem_expr::{SemaExprIdx, SemaExprMap, SemaStmtIdx, SemaStmtMap};
+use husky_sem_expr::{SemExprIdx, SemExprMap, SemStmtIdx, SemStmtMap};
 use husky_syn_expr::{CurrentVariableIdx, SynPatternMap, SynPatternRoot, VariableMap};
 
 #[salsa::tracked(db = HirEagerExprDb, jar = HirEagerExprJar, constructor = new_inner)]
@@ -15,8 +15,8 @@ pub struct HirEagerExprSourceMap {
 #[derive(Debug, PartialEq, Eq)]
 pub struct HirEagerExprSourceMapData {
     syn_to_hir_eager_pattern_expr_idx_map: SynPatternMap<HirEagerPatternIdx>,
-    sem_to_hir_eager_expr_idx_map: SemaExprMap<HirEagerExprIdx>,
-    sem_to_hir_eager_stmt_idx_map: SemaStmtMap<HirEagerStmtIdx>,
+    sem_to_hir_eager_expr_idx_map: SemExprMap<HirEagerExprIdx>,
+    sem_to_hir_eager_stmt_idx_map: SemStmtMap<HirEagerStmtIdx>,
     syn_symbol_to_hir_eager_runtime_symbol_map: VariableMap<HirEagerRvarIdx>,
 }
 
@@ -24,8 +24,8 @@ impl HirEagerExprSourceMap {
     pub fn new(
         db: &::salsa::Db,
         syn_to_hir_eager_pattern_expr_idx_map: SynPatternMap<HirEagerPatternIdx>,
-        sem_to_hir_eager_expr_idx_map: SemaExprMap<HirEagerExprIdx>,
-        sem_to_hir_eager_stmt_idx_map: SemaStmtMap<HirEagerStmtIdx>,
+        sem_to_hir_eager_expr_idx_map: SemExprMap<HirEagerExprIdx>,
+        sem_to_hir_eager_stmt_idx_map: SemStmtMap<HirEagerStmtIdx>,
         syn_symbol_to_hir_eager_runtime_symbol_map: VariableMap<HirEagerRvarIdx>,
     ) -> Self {
         Self::new_inner(
@@ -48,18 +48,18 @@ impl HirEagerExprSourceMapData {
         self.syn_to_hir_eager_pattern_expr_idx_map[syn_pattern_root.into().syn_pattern_expr_idx()]
     }
 
-    pub fn sem_to_hir_eager_expr_idx(&self, sem_expr_idx: SemaExprIdx) -> Option<HirEagerExprIdx> {
+    pub fn sem_to_hir_eager_expr_idx(&self, sem_expr_idx: SemExprIdx) -> Option<HirEagerExprIdx> {
         self.sem_to_hir_eager_expr_idx_map
             .get(sem_expr_idx)
             .copied()
     }
 
-    pub fn hir_eager_to_sem_expr_idx(&self, hir_eager_expr: HirEagerExprIdx) -> SemaExprIdx {
+    pub fn hir_eager_to_sem_expr_idx(&self, hir_eager_expr: HirEagerExprIdx) -> SemExprIdx {
         self.sem_to_hir_eager_expr_idx_map
             .get_expr_by_value_copied(hir_eager_expr)
     }
 
-    pub fn sem_to_hir_eager_stmt_idx(&self, sem_stmt_idx: SemaStmtIdx) -> Option<HirEagerStmtIdx> {
+    pub fn sem_to_hir_eager_stmt_idx(&self, sem_stmt_idx: SemStmtIdx) -> Option<HirEagerStmtIdx> {
         self.sem_to_hir_eager_stmt_idx_map
             .get(sem_stmt_idx)
             .copied()

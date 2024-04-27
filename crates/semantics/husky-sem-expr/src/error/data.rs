@@ -2,20 +2,20 @@ use super::*;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Error, PartialEq, Eq)]
-pub enum SemaExprDataError {
+pub enum SemExprDataError {
     #[error("original {0}")]
-    Original(#[from] OriginalSemaExprDataError),
+    Original(#[from] OriginalSemExprDataError),
     #[error("derived {0}")]
-    Derived(#[from] DerivedSemaExprDataError),
+    Derived(#[from] DerivedSemExprDataError),
 }
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Error, PartialEq, Eq)]
-pub enum OriginalSemaExprDataError {
+pub enum OriginalSemExprDataError {
     #[error("RitchieParameterArgumentMismatch")]
     RitchieParameterArgumentMismatch {
         match_error: RitchieArgumentError,
-        ritchie_arguments: Vec<SemaExprIdx>,
+        ritchie_arguments: Vec<SemExprIdx>,
     },
     #[error("no such field")]
     NoSuchField {
@@ -35,23 +35,23 @@ pub enum OriginalSemaExprDataError {
 
 #[derive(Debug, Error, PartialEq, Eq)]
 // #[salsa::derive_debug_with_db]
-pub enum DerivedSemaExprDataError {
+pub enum DerivedSemExprDataError {
     #[error("syn expr")]
     SynExpr,
     #[error("ApplicationOrRitchieCallFunctionTypeNotInferred")]
-    ApplicationOrRitchieCallFunctionTypeNotInferred { function_sem_expr_idx: SemaExprIdx },
+    ApplicationOrRitchieCallFunctionTypeNotInferred { function_sem_expr_idx: SemExprIdx },
     #[error("MethodOwnerTypeNotInferred")]
     MethodOwnerTypeNotInferred {
-        self_argument_sem_expr_idx: SemaExprIdx,
-        list_item_sem_expr_idxs: Vec<SemaExprIdx>,
+        self_argument_sem_expr_idx: SemExprIdx,
+        list_item_sem_expr_idxs: Vec<SemExprIdx>,
     },
     #[error("FieldOwnerTypeNotInferred")]
-    FieldOwnerTypeNotInferred { owner_sem_expr_idx: SemaExprIdx },
+    FieldOwnerTypeNotInferred { owner_sem_expr_idx: SemExprIdx },
     #[error("UnableToInferIndexExprType")]
     UnableToInferIndexExprType,
     #[error("UnveilOutputTemplate")]
     UnveilOutputTemplate {
-        opd_sem_expr_idx: SemaExprIdx,
+        opd_sem_expr_idx: SemExprIdx,
         e: EtherealSignatureError,
     },
     #[error("SynPatternError")]
@@ -60,21 +60,21 @@ pub enum DerivedSemaExprDataError {
     ExplicitApplicationFunctionTypeNotInferred,
 }
 
-impl From<&SynExprError> for SemaExprDataError {
+impl From<&SynExprError> for SemExprDataError {
     fn from(value: &SynExprError) -> Self {
-        DerivedSemaExprDataError::SynExpr.into()
+        DerivedSemExprDataError::SynExpr.into()
     }
 }
 
-impl From<FlyTermError> for SemaExprDataError {
+impl From<FlyTermError> for SemExprDataError {
     fn from(value: FlyTermError) -> Self {
         todo!()
     }
 }
 
-impl OriginalError for OriginalSemaExprDataError {
-    type Error = SemaExprDataError;
+impl OriginalError for OriginalSemExprDataError {
+    type Error = SemExprDataError;
 }
 
-pub type SemaExprDataResult<T> = Result<T, SemaExprDataError>;
-pub type SemaExprDataResultRef<'a, T> = Result<T, &'a SemaExprDataError>;
+pub type SemExprDataResult<T> = Result<T, SemExprDataError>;
+pub type SemExprDataResultRef<'a, T> = Result<T, &'a SemExprDataError>;

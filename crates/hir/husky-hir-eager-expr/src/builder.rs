@@ -9,8 +9,8 @@ use husky_eth_term::term::EthTerm;
 use husky_fly_term::{FlyTerm, FlyTermBase, FlyTerms};
 use husky_hir_ty::{ritchie::HirContract, HirType};
 use husky_sem_expr::{
-    SemaExprArena, SemaExprArenaRef, SemaExprIdx, SemaExprMap, SemaExprRegion, SemaExprRegionData,
-    SemaStmtArenaRef, SemaStmtIdx, SemaStmtMap,
+    SemExprArena, SemExprArenaRef, SemExprIdx, SemExprMap, SemExprRegion, SemExprRegionData,
+    SemStmtArenaRef, SemStmtIdx, SemStmtMap,
 };
 use husky_sem_place_contract::region::{sem_place_contract_region, SemaPlaceContractRegion};
 use husky_syn_expr::{
@@ -21,27 +21,27 @@ use husky_syn_expr::{
 pub(crate) struct HirEagerExprBuilder<'a> {
     db: &'a ::salsa::Db,
     syn_expr_region_data: &'a SynExprRegionData,
-    pub(crate) sem_expr_region_data: &'a SemaExprRegionData,
+    pub(crate) sem_expr_region_data: &'a SemExprRegionData,
     sem_place_contract_region: &'a SemaPlaceContractRegion,
     hir_eager_expr_arena: HirEagerExprArena,
     hir_eager_stmt_arena: HirEagerStmtArena,
     hir_eager_pattern_arena: HirEagerPatternArena,
     syn_to_hir_eager_pattern_idx_map: SynPatternMap<HirEagerPatternIdx>,
-    sem_to_hir_eager_expr_idx_map: SemaExprMap<HirEagerExprIdx>,
-    sem_to_hir_eager_stmt_idx_map: SemaStmtMap<HirEagerStmtIdx>,
+    sem_to_hir_eager_expr_idx_map: SemExprMap<HirEagerExprIdx>,
+    sem_to_hir_eager_stmt_idx_map: SemStmtMap<HirEagerStmtIdx>,
     hir_eager_comptime_symbol_region_data: HirEagerComptimeVariableRegionData,
     hir_eager_runtime_symbol_region_data: HirEagerRuntimeVariableRegionData,
     syn_symbol_to_hir_eager_runtime_symbol_map: VariableMap<HirEagerRvarIdx>,
 }
 
 impl<'a> HirEagerExprBuilder<'a> {
-    fn new(db: &'a ::salsa::Db, sem_expr_region: SemaExprRegion) -> Self {
+    fn new(db: &'a ::salsa::Db, sem_expr_region: SemExprRegion) -> Self {
         let syn_expr_region_data = sem_expr_region.syn_expr_region(db).data(db);
         let sem_expr_region_data = sem_expr_region.data(db);
         let syn_to_hir_eager_pattern_expr_idx_map =
             SynPatternMap::new(syn_expr_region_data.pattern_expr_arena());
-        let sem_to_hir_eager_expr_idx_map = SemaExprMap::new(sem_expr_region_data.sem_expr_arena());
-        let sem_to_hir_eager_stmt_idx_map = SemaStmtMap::new(sem_expr_region_data.sem_stmt_arena());
+        let sem_to_hir_eager_expr_idx_map = SemExprMap::new(sem_expr_region_data.sem_expr_arena());
+        let sem_to_hir_eager_stmt_idx_map = SemStmtMap::new(sem_expr_region_data.sem_stmt_arena());
         let hir_eager_comptime_symbol_region_data = HirEagerComptimeVariableRegionData::from_sema(
             sem_expr_region_data,
             syn_expr_region_data.variable_region(),
@@ -70,16 +70,16 @@ impl<'a> HirEagerExprBuilder<'a> {
         self.syn_expr_region_data
     }
 
-    pub(crate) fn sem_expr_arena_ref(&self) -> SemaExprArenaRef<'a> {
+    pub(crate) fn sem_expr_arena_ref(&self) -> SemExprArenaRef<'a> {
         self.sem_expr_region_data.sem_expr_arena()
     }
 
     #[deprecated(note = "ad hoc")]
-    pub(crate) fn sem_expr_arena_ref2(&self) -> &'a SemaExprArena {
+    pub(crate) fn sem_expr_arena_ref2(&self) -> &'a SemExprArena {
         self.sem_expr_region_data.sem_expr_arena2()
     }
 
-    pub(crate) fn sem_stmt_arena_ref(&self) -> SemaStmtArenaRef<'a> {
+    pub(crate) fn sem_stmt_arena_ref(&self) -> SemStmtArenaRef<'a> {
         self.sem_expr_region_data.sem_stmt_arena()
     }
 
@@ -115,7 +115,7 @@ impl<'a> HirEagerExprBuilder<'a> {
 
     pub(crate) fn alloc_stmts(
         &mut self,
-        sem_stmt_indices: Vec<SemaStmtIdx>,
+        sem_stmt_indices: Vec<SemStmtIdx>,
         hir_eager_stmts: Vec<HirEagerStmtData>,
     ) -> HirEagerStmtIdxRange {
         debug_assert_eq!(sem_stmt_indices.len(), hir_eager_stmts.len());
@@ -131,7 +131,7 @@ impl<'a> HirEagerExprBuilder<'a> {
 
     pub(crate) fn alloc_expr(
         &mut self,
-        sem_expr_idx: SemaExprIdx,
+        sem_expr_idx: SemExprIdx,
         hir_eager_expr_entry: HirEagerExprEntry,
     ) -> HirEagerExprIdx {
         let hir_eager_expr_idx = self.hir_eager_expr_arena.alloc_one(hir_eager_expr_entry);
@@ -184,15 +184,15 @@ impl<'a> HirEagerExprBuilder<'a> {
         self.db
     }
 
-    pub(crate) fn expr_term_hir_ty(&self, sem_expr_idx: SemaExprIdx) -> Option<HirType> {
+    pub(crate) fn expr_term_hir_ty(&self, sem_expr_idx: SemExprIdx) -> Option<HirType> {
         HirType::from_eth(self.expr_term(sem_expr_idx), self.db)
     }
 
-    pub(crate) fn expr_ty(&self, sem_expr_idx: SemaExprIdx) -> FlyTerm {
+    pub(crate) fn expr_ty(&self, sem_expr_idx: SemExprIdx) -> FlyTerm {
         sem_expr_idx.ty(self.sem_expr_region_data.sem_expr_arena2())
     }
 
-    pub(crate) fn expr_term(&self, sem_expr_idx: SemaExprIdx) -> EthTerm {
+    pub(crate) fn expr_term(&self, sem_expr_idx: SemExprIdx) -> EthTerm {
         // ad hoc
         match self
             .sem_expr_region_data
@@ -276,7 +276,7 @@ impl<'a> HirEagerExprBuilder<'a> {
 #[salsa::tracked(jar = HirEagerExprJar)]
 pub fn hir_eager_expr_region_with_source_map(
     db: &::salsa::Db,
-    sem_expr_region: SemaExprRegion,
+    sem_expr_region: SemExprRegion,
 ) -> (HirEagerExprRegion, HirEagerExprSourceMap) {
     let builder = HirEagerExprBuilder::new(db, sem_expr_region);
     builder.build_all_then_finish()

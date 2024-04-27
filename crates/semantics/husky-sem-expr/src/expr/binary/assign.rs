@@ -2,18 +2,18 @@ use husky_fly_term::{dispatch::HasFlyMethodDispatch, quary::FlyQuary};
 
 use super::*;
 
-impl<'a> SemaExprBuilder<'a> {
+impl<'a> SemExprBuilder<'a> {
     pub(super) fn calc_binary_assign_expr_ty(
         &mut self,
         expr_idx: SynExprIdx,
         lopd: SynExprIdx,
         ropd: SynExprIdx,
     ) -> (
-        SemaExprIdx,
+        SemExprIdx,
         SemaBinaryOpr,
-        SemaExprIdx,
-        SemaExprDataResult<SemaBinaryOprDynamicDispatch>,
-        SemaExprTypeResult<FlyTerm>,
+        SemExprIdx,
+        SemExprDataResult<SemaBinaryOprDynamicDispatch>,
+        SemExprTypeResult<FlyTerm>,
     ) {
         let (lopd_sem_expr_idx, lopd_ty) = self.build_sem_expr_with_ty(lopd, ExpectAnyOriginal);
         let ropd_sem_expr_idx = match lopd_ty {

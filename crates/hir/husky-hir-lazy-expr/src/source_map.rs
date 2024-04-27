@@ -2,7 +2,7 @@ use crate::{
     jar::HirLazyExprJar, variable::HirLazyVariableIdx, HirLazyExprIdx, HirLazyPatternExprIdx,
     HirLazyStmtIdx,
 };
-use husky_sem_expr::{SemaExprIdx, SemaExprMap, SemaStmtIdx, SemaStmtMap};
+use husky_sem_expr::{SemExprIdx, SemExprMap, SemStmtIdx, SemStmtMap};
 use husky_syn_expr::{
     CurrentVariableIdx, SynPatternIdx, SynPatternMap, SynPatternRoot, VariableMap,
 };
@@ -16,8 +16,8 @@ pub struct HirLazyExprSourceMap {
 #[derive(Debug, PartialEq, Eq)]
 pub struct HirLazyExprSourceMapData {
     syn_to_hir_lazy_pattern_expr_idx_map: SynPatternMap<HirLazyPatternExprIdx>,
-    sem_to_hir_lazy_expr_idx_map: SemaExprMap<HirLazyExprIdx>,
-    sem_to_hir_lazy_stmt_idx_map: SemaStmtMap<HirLazyStmtIdx>,
+    sem_to_hir_lazy_expr_idx_map: SemExprMap<HirLazyExprIdx>,
+    sem_to_hir_lazy_stmt_idx_map: SemStmtMap<HirLazyStmtIdx>,
     syn_symbol_to_hir_lazy_variable_map: VariableMap<HirLazyVariableIdx>,
 }
 
@@ -38,11 +38,11 @@ impl HirLazyExprSourceMapData {
             .copied()
     }
 
-    pub fn sem_to_hir_lazy_expr_idx(&self, sem_expr_idx: SemaExprIdx) -> Option<HirLazyExprIdx> {
+    pub fn sem_to_hir_lazy_expr_idx(&self, sem_expr_idx: SemExprIdx) -> Option<HirLazyExprIdx> {
         self.sem_to_hir_lazy_expr_idx_map.get(sem_expr_idx).copied()
     }
 
-    pub fn sem_to_hir_lazy_stmt_idx(&self, sem_stmt_idx: SemaStmtIdx) -> Option<HirLazyStmtIdx> {
+    pub fn sem_to_hir_lazy_stmt_idx(&self, sem_stmt_idx: SemStmtIdx) -> Option<HirLazyStmtIdx> {
         self.sem_to_hir_lazy_stmt_idx_map.get(sem_stmt_idx).copied()
     }
 
@@ -55,7 +55,7 @@ impl HirLazyExprSourceMapData {
             .copied()
     }
 
-    pub fn sem_expr_idx(&self, expr: HirLazyExprIdx) -> SemaExprIdx {
+    pub fn sem_expr_idx(&self, expr: HirLazyExprIdx) -> SemExprIdx {
         self.sem_to_hir_lazy_expr_idx_map
             .iter()
             .find_map(|(sem_expr, &expr1)| (expr == expr1).then_some(sem_expr))
@@ -67,8 +67,8 @@ impl HirLazyExprSourceMap {
     pub fn new(
         db: &::salsa::Db,
         syn_to_hir_lazy_pattern_expr_idx_map: SynPatternMap<HirLazyPatternExprIdx>,
-        sem_to_hir_lazy_expr_idx_map: SemaExprMap<HirLazyExprIdx>,
-        sem_to_hir_lazy_stmt_idx_map: SemaStmtMap<HirLazyStmtIdx>,
+        sem_to_hir_lazy_expr_idx_map: SemExprMap<HirLazyExprIdx>,
+        sem_to_hir_lazy_stmt_idx_map: SemStmtMap<HirLazyStmtIdx>,
         syn_symbol_to_hir_lazy_variable_map: VariableMap<HirLazyVariableIdx>,
     ) -> Self {
         Self::new_inner(

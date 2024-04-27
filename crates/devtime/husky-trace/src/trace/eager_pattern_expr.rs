@@ -1,6 +1,6 @@
 use husky_coword::IdentPairMap;
 use husky_hir_eager_expr::variable::runtime::HirEagerRvarIdx;
-use husky_sem_expr::{helpers::range::sem_expr_range_region, SemaExprRegion};
+use husky_sem_expr::{helpers::range::sem_expr_range_region, SemExprRegion};
 
 use crate::registry::assoc_trace::VoidAssocTraceRegistry;
 
@@ -29,7 +29,7 @@ pub struct EagerPatternExprTraceData {
     syn_pattern_expr_idx: SynPatternIdx,
     hir_eager_runtime_symbol_idxs: IdentPairMap<Option<HirEagerRvarIdx>>,
     #[skip_fmt]
-    sem_expr_region: SemaExprRegion,
+    sem_expr_region: SemExprRegion,
 }
 
 impl Trace {
@@ -38,7 +38,7 @@ impl Trace {
         biological_parent: Trace,
         syn_pattern_expr_idx: SynPatternIdx,
         hir_eager_runtime_symbol_idxs: IdentPairMap<Option<HirEagerRvarIdx>>,
-        sem_expr_region: SemaExprRegion,
+        sem_expr_region: SemExprRegion,
         eager_pattern_expr_trace_path_registry: &mut TracePathRegistry<EagerPatternExprEssence>,
         db: &::salsa::Db,
     ) -> Self {
