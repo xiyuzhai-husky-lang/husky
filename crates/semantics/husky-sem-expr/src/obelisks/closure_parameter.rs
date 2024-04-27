@@ -8,11 +8,11 @@ pub enum ClosureParameterObelisk {
         syn_pattern_root: ClosureSynPatternExprRoot,
         variables: CurrentSynSymbolIdxRange,
         colon_token: Option<ColonRegionalToken>,
-        ty: Option<SemaExprIdx>,
+        ty: Option<SemExprIdx>,
     },
 }
 
-impl<'a> SemaExprBuilder<'a> {
+impl<'a> SemExprBuilder<'a> {
     pub(crate) fn build_closure_parameter_obelisk(
         &mut self,
         closure_pattern_syndicate: &ClosureParameterSyndicate,

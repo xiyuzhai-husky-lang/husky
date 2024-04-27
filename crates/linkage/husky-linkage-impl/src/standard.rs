@@ -9,7 +9,7 @@ pub use husky_standard_value::{
 use super::*;
 use husky_decl_macro_utils::for_all_ritchie_tys;
 use husky_task_interface::{ki_repr::KiDomainReprInterface, VmArgumentValue};
-use husky_value_protocol::presentation::EnumU8ValuePresenter;
+use husky_value_protocol::presentation::EnumUnitValuePresenter;
 
 // ad hoc
 pub type Error = ();
@@ -65,7 +65,7 @@ where
         enum_variant_field_wrapper: fn(Value) -> Value,
     },
     /// used to get the json value of an enum u8-represented given only the index
-    EnumU8ValuePresenter { presenter: EnumU8ValuePresenter },
+    EnumUnitValuePresenter { presenter: EnumUnitValuePresenter },
     StructDestructor {
         struct_destructor_wrapper: fn(Value) -> Vec<Value>,
     },
@@ -109,7 +109,7 @@ where
             LinkageImpl::EnumVariantDestructor { .. } => todo!(),
             LinkageImpl::EnumVariantDiscriminator { .. } => todo!(),
             LinkageImpl::EnumVariantField { .. } => todo!(),
-            LinkageImpl::EnumU8ValuePresenter { .. } => {
+            LinkageImpl::EnumUnitValuePresenter { .. } => {
                 unreachable!("this linkage is not meant to be evaluated like this")
             }
             LinkageImpl::StructDestructor {
@@ -136,9 +136,9 @@ where
         todo!()
     }
 
-    fn enum_u8_value_presenter(self) -> EnumU8ValuePresenter {
+    fn enum_index_value_presenter(self) -> EnumUnitValuePresenter {
         match self {
-            LinkageImpl::EnumU8ValuePresenter { presenter } => presenter,
+            LinkageImpl::EnumUnitValuePresenter { presenter } => presenter,
             _ => unreachable!(),
         }
     }
@@ -225,10 +225,11 @@ macro_rules! gn_linkage_impl {
 }
 
 #[macro_export]
-macro_rules! enum_u8_presenter_linkage_impl {
+macro_rules! enum_index_presenter_linkage_impl {
     ($ty: ty) => {
-        __LinkageImpl::EnumU8ValuePresenter {
-            presenter: |index: u8, _, _| {
+        __LinkageImpl::EnumUnitValuePresenter {
+            presenter: |index: usize, _, _| {
+                let index: u8 = index.try_into().unwrap();
                 let slf: $ty = unsafe { std::mem::transmute(index) };
                 __ValuePresentation::AdHoc(format!("{slf:?}"))
             },

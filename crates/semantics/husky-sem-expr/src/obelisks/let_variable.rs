@@ -6,7 +6,7 @@ pub struct LetVariableObelisk {
     syn_pattern_root: LetPatternSynExprRoot,
     variables: CurrentSynSymbolIdxRange,
     colon_token: Option<ColonRegionalToken>,
-    ty_sem_expr_idx: Option<SemaExprIdx>,
+    ty_sem_expr_idx: Option<SemExprIdx>,
 }
 
 impl LetVariableObelisk {
@@ -22,12 +22,12 @@ impl LetVariableObelisk {
         self.colon_token
     }
 
-    pub fn ty_sem_expr_idx(&self) -> Option<SemaExprIdx> {
+    pub fn ty_sem_expr_idx(&self) -> Option<SemExprIdx> {
         self.ty_sem_expr_idx
     }
 }
 
-impl<'a> SemaExprBuilder<'a> {
+impl<'a> SemExprBuilder<'a> {
     pub(crate) fn build_let_pattern_obelisk(
         &mut self,
         let_pattern_syn_obelisk: &'a LetPatternSyndicate,

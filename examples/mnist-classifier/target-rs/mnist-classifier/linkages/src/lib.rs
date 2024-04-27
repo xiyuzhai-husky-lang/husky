@@ -35,7 +35,7 @@ linkage_impls![
     struct_destructor_linkage_impl!(mnist_classifier::raw_contour::RawContour, mnist_classifier::raw_contour::RawContour, cc, points),
     struct_field_linkage_impl!(mnist_classifier::raw_contour::RawContour, cc),
     struct_field_linkage_impl!(mnist_classifier::raw_contour::RawContour, points),
-    enum_u8_presenter_linkage_impl!(mnist_classifier::raw_contour::Direction),
+    enum_index_presenter_linkage_impl!(mnist_classifier::raw_contour::Direction),
     enum_variant_constructor_linkage_impl!(mnist_classifier::raw_contour::Direction, mnist_classifier::raw_contour::Direction::Up),
     enum_variant_discriminator_linkage_impl!(mnist_classifier::raw_contour::Direction, mnist_classifier::raw_contour::Direction::Up),
     enum_variant_constructor_linkage_impl!(mnist_classifier::raw_contour::Direction, mnist_classifier::raw_contour::Direction::Left),

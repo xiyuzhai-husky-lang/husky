@@ -44,7 +44,7 @@ impl TestAttrSynNodeDecl {
     }
 }
 
-#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
+#[salsa::tracked]
 pub struct TestAttrSynDecl {
     #[id]
     pub path: AttrItemPath,

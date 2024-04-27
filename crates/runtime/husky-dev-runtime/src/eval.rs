@@ -227,15 +227,19 @@ impl<Task: IsTask> DevRuntime<Task> {
                 }
                 KiControlFlow::Continue(().into())
             }
-            KiOpn::TypeVariant(path) => match path.index(db) {
-                TypeVariantIndex::U8(index_raw) => {
-                    let presenter = self
-                        .comptime
-                        .linkage_impl(Linkage::new_enum_u8_presenter(path.parent_ty_path(db), db))
-                        .enum_u8_value_presenter();
-                    KiControlFlow::Continue(TaskValue::<Task>::from_enum_u8(index_raw, presenter))
-                }
-            },
+            KiOpn::TypeVariant(path) => {
+                let presenter = self
+                    .comptime
+                    .linkage_impl(Linkage::new_enum_index_presenter(
+                        path.parent_ty_path(db),
+                        db,
+                    ))
+                    .enum_index_value_presenter();
+                KiControlFlow::Continue(TaskValue::<Task>::from_enum_index(
+                    path.index(db).raw(), // ad hoc
+                    presenter,
+                ))
+            }
             KiOpn::Be { pattern_data } => {
                 let arguments: &[_] = ki_repr.arguments(db);
                 debug_assert_eq!(arguments.len(), 1);

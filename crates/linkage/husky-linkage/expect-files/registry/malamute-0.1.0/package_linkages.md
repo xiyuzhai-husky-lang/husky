@@ -1,7 +1,7 @@
 ```rust
 [
     Linkage {
-        data: LinkageData::EnumU8ToJsonValue {
+        data: LinkageData::EnumUnitToJsonValue {
             ty_path: TypePath(`malamute::OneVsAll`, `Enum`),
         },
     },
@@ -82,7 +82,7 @@
         },
     },
     Linkage {
-        data: LinkageData::EnumU8ToJsonValue {
+        data: LinkageData::EnumUnitToJsonValue {
             ty_path: TypePath(`malamute::OneVsAllResult`, `Enum`),
         },
     },

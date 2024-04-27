@@ -2,7 +2,7 @@ use crate::{engine::PlaceContractEngine, site::SemaPlaceContractSite};
 use husky_fly_term::{signature::FlyFieldSignature, ExpectationOutcome, FlyCoercion};
 #[allow(unused_imports)]
 use husky_sem_expr::emit_note_on_sem_expr_codespan;
-use husky_sem_expr::{SemaExprData, SemaExprIdx, SemaRitchieArgument};
+use husky_sem_expr::{SemExprData, SemExprIdx, SemaRitchieArgument};
 use husky_sem_opr::{binary::SemaBinaryOpr, prefix::SemaPrefixOpr, suffix::SemaSuffixOpr};
 use husky_syn_expr::SynExprRootKind;
 use husky_term_prelude::Contract;
@@ -19,7 +19,7 @@ impl<'a> PlaceContractEngine<'a> {
 
     pub(crate) fn infer_expr(
         &mut self,
-        expr: SemaExprIdx,
+        expr: SemExprIdx,
         outer_contract: Contract,
         outer_site: SemaPlaceContractSite,
     ) {
@@ -46,23 +46,23 @@ impl<'a> PlaceContractEngine<'a> {
 
     fn infer_subexprs(
         &mut self,
-        parent_expr: SemaExprIdx,
+        parent_expr: SemExprIdx,
         contract: Contract,
         site: &SemaPlaceContractSite,
     ) {
         match *parent_expr.data(self.sem_expr_region_data().sem_expr_arena()) {
-            SemaExprData::Literal(_, _)
-            | SemaExprData::Unit { .. }
-            | SemaExprData::PrincipalEntityPath { .. }
-            | SemaExprData::MajorItemPathAssocItem { .. }
-            | SemaExprData::AssocItem { .. }
-            | SemaExprData::InheritedSynSymbol { .. }
-            | SemaExprData::CurrentSynSymbol { .. }
-            | SemaExprData::FrameVarDecl { .. }
-            | SemaExprData::SelfType(_)
-            | SemaExprData::SelfValue(_)
-            | SemaExprData::FunctionApplication { .. } => (),
-            SemaExprData::Binary {
+            SemExprData::Literal(_, _)
+            | SemExprData::Unit { .. }
+            | SemExprData::PrincipalEntityPath { .. }
+            | SemExprData::MajorItemPathAssocItem { .. }
+            | SemExprData::AssocItem { .. }
+            | SemExprData::InheritedSynSymbol { .. }
+            | SemExprData::CurrentSynSymbol { .. }
+            | SemExprData::FrameVarDecl { .. }
+            | SemExprData::SelfType(_)
+            | SemExprData::SelfValue(_)
+            | SemExprData::FunctionApplication { .. } => (),
+            SemExprData::Binary {
                 lopd, opr, ropd, ..
             } => {
                 // todo: coercion?
@@ -76,12 +76,12 @@ impl<'a> PlaceContractEngine<'a> {
                 self.infer_expr(lopd, lopd_contract, Default::default());
                 self.infer_expr(ropd, ropd_contract, Default::default());
             }
-            SemaExprData::Be {
+            SemExprData::Be {
                 src,
                 be_regional_token_idx,
                 ref target,
             } => todo!(),
-            SemaExprData::Prefix { opr, opd, .. } => {
+            SemExprData::Prefix { opr, opd, .. } => {
                 let contract = match opr {
                     SemaPrefixOpr::Minus | SemaPrefixOpr::Not | SemaPrefixOpr::BitNot => {
                         Contract::Pure
@@ -92,20 +92,20 @@ impl<'a> PlaceContractEngine<'a> {
                 };
                 self.infer_expr(opd, contract, site.clone())
             }
-            SemaExprData::Suffix { opd, opr, .. } => {
+            SemExprData::Suffix { opd, opr, .. } => {
                 let contract = match opr {
                     SemaSuffixOpr::Incr | SemaSuffixOpr::Decr => Contract::BorrowMut,
                     SemaSuffixOpr::ComposeWithOption | SemaSuffixOpr::ComposeWithNot => return,
                 };
                 self.infer_expr(opd, contract, site.clone())
             }
-            SemaExprData::Unveil {
+            SemExprData::Unveil {
                 opd_sem_expr_idx, ..
             } => self.infer_expr(opd_sem_expr_idx, Contract::Move, site.clone()),
-            SemaExprData::Unwrap {
+            SemExprData::Unwrap {
                 opd_sem_expr_idx, ..
             } => self.infer_expr(opd_sem_expr_idx, Contract::At, site.clone()),
-            SemaExprData::FunctionRitchieCall {
+            SemExprData::FunctionRitchieCall {
                 function_sem_expr_idx,
                 ritchie_ty_kind,
                 ref ritchie_parameter_argument_matches,
@@ -118,8 +118,8 @@ impl<'a> PlaceContractEngine<'a> {
                 );
                 self.infer_ritchie_parameter_argument_matches(ritchie_parameter_argument_matches);
             }
-            SemaExprData::Ritchie { .. } => (),
-            SemaExprData::Field {
+            SemExprData::Ritchie { .. } => (),
+            SemExprData::Field {
                 self_argument: owner,
                 self_ty: owner_ty,
                 dot_regional_token_idx,
@@ -133,8 +133,8 @@ impl<'a> PlaceContractEngine<'a> {
                     self.infer_expr(owner, Contract::Leash, Default::default())
                 }
             },
-            SemaExprData::MethodApplication { .. } => (),
-            SemaExprData::MethodFnCall {
+            SemExprData::MethodApplication { .. } => (),
+            SemExprData::MethodFnCall {
                 self_argument_sem_expr_idx,
                 self_contract,
                 ref ritchie_parameter_argument_matches,
@@ -143,7 +143,7 @@ impl<'a> PlaceContractEngine<'a> {
                 self.infer_expr(self_argument_sem_expr_idx, self_contract, site.clone());
                 self.infer_ritchie_parameter_argument_matches(ritchie_parameter_argument_matches)
             }
-            SemaExprData::MethodGnCall {
+            SemExprData::MethodGnCall {
                 self_argument_sem_expr_idx,
                 dot_regional_token_idx,
                 ident_token,
@@ -153,21 +153,21 @@ impl<'a> PlaceContractEngine<'a> {
                 ref ritchie_parameter_argument_matches,
                 rpar_regional_token_idx,
             } => todo!(),
-            SemaExprData::TemplateInstantiation {
+            SemExprData::TemplateInstantiation {
                 template,
                 ref template_arguments,
             } => todo!(),
-            SemaExprData::At {
+            SemExprData::At {
                 at_regional_token_idx,
                 place_label_regional_token,
             } => todo!(),
-            SemaExprData::Delimitered { item, .. } => self.infer_expr(item, contract, site.clone()),
-            SemaExprData::NewTuple { ref items, .. } => {
+            SemExprData::Delimitered { item, .. } => self.infer_expr(item, contract, site.clone()),
+            SemExprData::NewTuple { ref items, .. } => {
                 for item in items {
                     self.infer_expr(item.sem_expr_idx, Contract::Move, Default::default())
                 }
             }
-            SemaExprData::Index {
+            SemExprData::Index {
                 owner,
                 ref index_sem_list_items,
                 ..
@@ -177,31 +177,31 @@ impl<'a> PlaceContractEngine<'a> {
                     self.infer_expr(item.sem_expr_idx, contract, Default::default());
                 }
             }
-            SemaExprData::CompositionWithList { .. } => (),
-            SemaExprData::NewList { ref items, .. } => {
+            SemExprData::CompositionWithList { .. } => (),
+            SemExprData::NewList { ref items, .. } => {
                 for item in items {
                     self.infer_expr(item.sem_expr_idx, Contract::Move, Default::default())
                 }
             }
-            SemaExprData::BoxColonList { .. } => (),
-            SemaExprData::VecFunctor { .. } => (),
-            SemaExprData::ArrayFunctor { .. } => (),
-            SemaExprData::Block { stmts } => self.infer_stmts(stmts, contract, site.clone()),
-            SemaExprData::EmptyHtmlTag { ref arguments, .. } => {
+            SemExprData::BoxColonList { .. } => (),
+            SemExprData::VecFunctor { .. } => (),
+            SemExprData::ArrayFunctor { .. } => (),
+            SemExprData::Block { stmts } => self.infer_stmts(stmts, contract, site.clone()),
+            SemExprData::EmptyHtmlTag { ref arguments, .. } => {
                 for arg in arguments {
                     self.infer_expr(arg.expr(), Contract::Pure, Default::default())
                 }
             }
-            SemaExprData::Closure { body, .. } => {
+            SemExprData::Closure { body, .. } => {
                 self.infer_expr(body, Contract::Move, Default::default())
             }
             // todo: macro arguments
-            SemaExprData::Sorry { .. } => (),
+            SemExprData::Sorry { .. } => (),
             // todo: macro arguments
-            SemaExprData::Todo { .. } => (),
+            SemExprData::Todo { .. } => (),
             // todo: macro arguments
-            SemaExprData::Unreachable { .. } => (),
-            SemaExprData::NestedBlock { stmts, .. } => {
+            SemExprData::Unreachable { .. } => (),
+            SemExprData::NestedBlock { stmts, .. } => {
                 self.infer_stmts(stmts, contract, site.clone())
             }
         }

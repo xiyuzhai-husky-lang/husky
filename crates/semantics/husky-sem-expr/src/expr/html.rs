@@ -8,19 +8,19 @@ pub enum SemaHtmlArgumentExpr {
         property_ident: IdentRegionalToken,
         eq: EqRegionalToken,
         lcurl: InlineLcurlRegionalToken,
-        argument: SemaExprIdx,
+        argument: SemExprIdx,
         rcurl: InlineRcurlRegionalToken,
     },
     Shortened {
         lcurl: InlineLcurlRegionalToken,
         property_ident: IdentRegionalToken,
-        // todo: argument: SemaExprIdx,
+        // todo: argument: SemExprIdx,
         rcurl: InlineRcurlRegionalToken,
     },
 }
 
 impl SemaHtmlArgumentExpr {
-    pub fn expr(self) -> SemaExprIdx {
+    pub fn expr(self) -> SemExprIdx {
         match self {
             SemaHtmlArgumentExpr::Expanded { argument, .. } => argument,
             SemaHtmlArgumentExpr::Shortened { .. } => todo!(),
@@ -55,7 +55,7 @@ impl vec_like::AsVecMapEntry for SemaHtmlArgumentExpr {
     }
 }
 
-impl<'a> SemaExprBuilder<'a> {
+impl<'a> SemExprBuilder<'a> {
     pub(crate) fn build_sem_html_argument_expr(
         &mut self,
         expr: SynHtmlArgumentExpr,

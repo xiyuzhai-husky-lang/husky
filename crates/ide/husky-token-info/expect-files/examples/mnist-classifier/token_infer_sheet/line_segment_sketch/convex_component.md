@@ -107,8 +107,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             1,
                         ),
                     ),
@@ -157,8 +157,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             5,
                         ),
                     ),
@@ -309,8 +309,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             0,
                         ),
                     ),
@@ -320,8 +320,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             1,
                         ),
                     ),
@@ -331,8 +331,8 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::SemaExpr(
-                        SemaExprIdx(
+                    src: TokenInfoSource::SemExpr(
+                        SemExprIdx(
                             2,
                         ),
                     ),

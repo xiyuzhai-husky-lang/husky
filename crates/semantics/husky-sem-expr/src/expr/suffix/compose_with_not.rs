@@ -1,14 +1,11 @@
 use super::*;
 
-impl<'a> SemaExprBuilder<'a> {
+impl<'a> SemExprBuilder<'a> {
     pub(super) fn calc_compose_with_not_expr_ty(
         &mut self,
         opd: SynExprIdx,
         final_destination: FinalDestination,
-    ) -> (
-        SemaExprDataResult<SemaExprData>,
-        SemaExprTypeResult<FlyTerm>,
-    ) {
+    ) -> (SemExprDataResult<SemExprData>, SemExprTypeResult<FlyTerm>) {
         todo!()
     }
 
@@ -16,10 +13,7 @@ impl<'a> SemaExprBuilder<'a> {
         &mut self,
         opd_ty: FlyTerm,
         // final_destination: FinalDestination,
-    ) -> (
-        SemaExprDataResult<SemaSuffixOpr>,
-        SemaExprTypeResult<FlyTerm>,
-    ) {
+    ) -> (SemExprDataResult<SemaSuffixOpr>, SemExprTypeResult<FlyTerm>) {
         todo!()
     }
 }

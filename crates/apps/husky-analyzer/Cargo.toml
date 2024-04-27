@@ -34,7 +34,7 @@ husky-hover.workspace = true
 husky-folding-range.workspace = true
 husky-semantic-token.workspace = true
 husky-token-info.workspace = true
-husky-syn-fmt.workspace = true
+husky-ide-fmt.workspace = true
 # kernel
 husky-entity-path.workspace = true
 husky-term-prelude.workspace = true

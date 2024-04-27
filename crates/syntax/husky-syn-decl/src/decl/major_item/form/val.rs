@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
+#[salsa::tracked]
 pub struct MajorValSynNodeDecl {
     #[id]
     pub syn_node_path: FormSynNodePath,
@@ -43,7 +43,7 @@ impl<'a> DeclParser<'a> {
     }
 }
 
-#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
+#[salsa::tracked]
 pub struct MajorValSynDecl {
     #[id]
     pub path: MajorFormPath,

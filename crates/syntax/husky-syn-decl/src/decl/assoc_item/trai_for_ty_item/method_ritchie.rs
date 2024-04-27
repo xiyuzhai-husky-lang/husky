@@ -2,7 +2,7 @@ use super::*;
 use husky_entity_kind::ritchie::RitchieItemKind;
 use husky_entity_path::trai_for_ty_impl_block::TraitForTypeImplBlockPath;
 
-#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
+#[salsa::tracked]
 pub struct TraitForTypeMethodRitchieSynNodeDecl {
     #[id]
     pub syn_node_path: TraitForTypeItemSynNodePath,
@@ -79,7 +79,7 @@ impl<'a> DeclParser<'a> {
     }
 }
 
-#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
+#[salsa::tracked]
 pub struct TraitForTypeMethodRitchieSynDecl {
     #[id]
     pub path: TraitForTypeItemPath,

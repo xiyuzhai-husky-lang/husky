@@ -26,7 +26,7 @@ use husky_toml_ast::TomlAstJar;
     CorgiConfigJar,
     CorgiConfigAstJar,
     ManifestJar,
-    husky_syn_decl::db::SynDeclJar,
+    husky_syn_decl::jar::SynDeclJar,
     SynExprJar,
     SynDefnJar
 )]

@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
+#[salsa::tracked]
 pub struct StructureTypeSynNodeDecl {
     #[id]
     pub syn_node_path: TypeSynNodePath,
@@ -37,7 +37,7 @@ impl<'a> DeclParser<'a> {
     }
 }
 
-#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
+#[salsa::tracked]
 pub struct StructureTypeSynDecl {
     #[id]
     pub path: TypePath,

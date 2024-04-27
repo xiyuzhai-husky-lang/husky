@@ -31,7 +31,7 @@ impl EffectAttrSynNodeDecl {
     }
 }
 
-#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
+#[salsa::tracked]
 pub struct EffectAttrSynDecl {
     #[id]
     pub path: AttrItemPath,

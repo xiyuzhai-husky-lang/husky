@@ -1,7 +1,7 @@
 use super::*;
 use parsec::{PunctuatedSmallList, TryParseFromStream};
 
-#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
+#[salsa::tracked]
 pub struct TupleStructSynNodeDecl {
     #[id]
     pub syn_node_path: TypeSynNodePath,
@@ -45,7 +45,7 @@ impl<'a> TryParseFromStream<SynDeclExprParser<'a>> for TupleStructRparRegionalTo
     }
 }
 
-#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
+#[salsa::tracked]
 pub struct TupleStructSynDecl {
     #[id]
     pub path: TypePath,

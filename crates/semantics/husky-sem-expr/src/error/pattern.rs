@@ -1,23 +1,23 @@
 use super::*;
 
 #[derive(Debug, Error, PartialEq, Eq)]
-pub enum PatternSemaExprError {
+pub enum PatternSemExprError {
     #[error("original {0}")]
-    Original(#[from] OriginalPatternSemaExprError),
+    Original(#[from] OriginalPatternSemExprError),
     #[error("derived {0}")]
-    Derived(#[from] DerivedPatternSemaExprError),
+    Derived(#[from] DerivedPatternSemExprError),
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
-pub enum OriginalPatternSemaExprError {}
+pub enum OriginalPatternSemExprError {}
 
 #[derive(Debug, Error, PartialEq, Eq)]
-pub enum DerivedPatternSemaExprError {
+pub enum DerivedPatternSemExprError {
     #[error("pattern expr type error")]
-    PatternSemaExprError,
+    PatternSemExprError,
 }
 
-pub type PatternSemaExprResult<T> = Result<T, PatternSemaExprError>;
+pub type PatternSemExprResult<T> = Result<T, PatternSemExprError>;
 
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum PatternSymbolTypeError {
@@ -33,7 +33,7 @@ pub enum OriginalPatternSymbolTypeError {}
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum DerivedPatternSymbolTypeError {
     #[error("pattern expr type error")]
-    PatternSemaExprError,
+    PatternSemExprError,
 }
 
 pub type PatternSymbolTypeResult<T> = Result<T, PatternSymbolTypeError>;

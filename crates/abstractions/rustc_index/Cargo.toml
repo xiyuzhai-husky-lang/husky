@@ -1,0 +1,13 @@
+[package]
+name = "rustc_index"
+version = "0.0.0"
+edition = "2021"
+
+[dependencies]
+# tidy-alphabetical-start
+arrayvec = { version = "0.7", default-features = false }
+rustc_index_macros = { path = "../rustc_index_macros", default-features = false }
+smallvec = "1.8.1"
+# tidy-alphabetical-end
+
+[features]

@@ -5,7 +5,7 @@ use mnist::*;
 
 #[rustfmt::skip]
 linkage_impls![
-    enum_u8_presenter_linkage_impl!(mnist::MnistLabel),
+    enum_index_presenter_linkage_impl!(mnist::MnistLabel),
     enum_variant_constructor_linkage_impl!(mnist::MnistLabel, mnist::MnistLabel::Zero),
     enum_variant_discriminator_linkage_impl!(mnist::MnistLabel, mnist::MnistLabel::Zero),
     enum_variant_constructor_linkage_impl!(mnist::MnistLabel, mnist::MnistLabel::One),

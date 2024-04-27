@@ -2,7 +2,7 @@ use super::*;
 use husky_task_interface::{
     vm_control_flow::LinkageImplVmControlFlow, IsLinkageImpl, VmArgumentValue,
 };
-use husky_value_protocol::presentation::EnumU8ValuePresenter;
+use husky_value_protocol::presentation::EnumUnitValuePresenter;
 use husky_virtual_value::value::Value;
 
 #[salsa::derive_debug_with_db]
@@ -107,11 +107,11 @@ impl IsLinkageImpl for VirtualLinkageImpl {
                 Continue(Value::Vec(elements))
             }
             LinkageData::TypeDefault { ty } => todo!(),
-            LinkageData::EnumU8ToJsonValue { ty_path } => todo!(),
+            LinkageData::EnumUnitToJsonValue { ty_path } => todo!(),
         }
     }
 
-    fn enum_u8_value_presenter(self) -> EnumU8ValuePresenter {
+    fn enum_index_value_presenter(self) -> EnumUnitValuePresenter {
         todo!()
     }
 }

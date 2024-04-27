@@ -5,7 +5,7 @@ mod r#struct;
 use husky_literal_value::LiteralValue;
 use husky_value_interface::IsValue;
 use husky_value_protocol::presentation::{
-    synchrotron::ValuePresentationSynchrotron, EnumU8ValuePresenter, ValuePresentation,
+    synchrotron::ValuePresentationSynchrotron, EnumUnitValuePresenter, ValuePresentation,
     ValuePresenterCache,
 };
 use husky_visual_protocol::synchrotron::VisualSynchrotron;
@@ -40,9 +40,9 @@ pub enum Value {
     RSize(usize),
     F32(f32),
     F64(f64),
-    EnumU8 {
+    EnumUnit {
         index: u8,
-        presenter: EnumU8ValuePresenter,
+        presenter: EnumUnitValuePresenter,
     },
     Vec(Vec<Value>),
     StringLiteral(Arc<str>),
@@ -53,7 +53,7 @@ impl IsValue for Value {
         Value::Uninit
     }
 
-    fn from_enum_u8(index: u8, presenter: EnumU8ValuePresenter) -> Self {
+    fn from_enum_index(index: usize, presenter: EnumUnitValuePresenter) -> Self {
         todo!()
     }
 
@@ -128,7 +128,7 @@ impl PartialEq for Value {
             (Self::RSize(l0), Self::RSize(r0)) => l0 == r0,
             (Self::F32(l0), Self::F32(r0)) => l0 == r0,
             (Self::F64(l0), Self::F64(r0)) => l0 == r0,
-            (Self::EnumU8 { index: l0, .. }, Self::EnumU8 { index: r0, .. }) => l0 == r0,
+            (Self::EnumUnit { index: l0, .. }, Self::EnumUnit { index: r0, .. }) => l0 == r0,
             _ => unreachable!(),
         }
     }
@@ -155,7 +155,7 @@ impl PartialOrd for Value {
             (USize(u1), USize(u2)) => u1.partial_cmp(u2),
             (F32(f1), F32(f2)) => f1.partial_cmp(f2),
             (F64(f1), F64(f2)) => f1.partial_cmp(f2),
-            (EnumU8 { index: l0, .. }, EnumU8 { index: r0, .. }) => todo!(),
+            (EnumUnit { index: l0, .. }, EnumUnit { index: r0, .. }) => todo!(),
             _ => unreachable!(),
         }
     }
@@ -352,7 +352,7 @@ impl std::ops::Neg for Value {
             Value::RSize(_) => todo!(),
             Value::F32(_) => todo!(),
             Value::F64(_) => todo!(),
-            Value::EnumU8 { index, presenter } => todo!(),
+            Value::EnumUnit { index, presenter } => todo!(),
             Value::Vec(_) => todo!(),
             Value::StringLiteral(_) => todo!(),
         }

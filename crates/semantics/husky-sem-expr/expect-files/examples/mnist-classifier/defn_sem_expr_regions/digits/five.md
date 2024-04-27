@@ -1,6 +1,6 @@
 ```rust
 [
-    SemaExprRegion {
+    SemExprRegion {
         path: RegionPath::Defn(
             ItemPath::MajorItem(
                 MajorItemPath::Form(
@@ -8,7 +8,7 @@
                 ),
             ),
         ),
-        data: SemaExprRegionData {
+        data: SemExprRegionData {
             path: RegionPath::Defn(
                 ItemPath::MajorItem(
                     MajorItemPath::Form(
@@ -19,12 +19,12 @@
             place_registry: PlaceRegistry {
                 infos: [],
             },
-            sem_expr_arena: SemaExprArena(
+            sem_expr_arena: SemExprArena(
                 Arena {
                     data: [
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::PrincipalEntityPath {
+                                SemExprData::PrincipalEntityPath {
                                     path_expr_idx: 1,
                                     path: PrincipalEntityPath::TypeVariant(
                                         TypeVariantPath(
@@ -106,10 +106,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Block {
-                                    stmts: SemaStmtIdxRange(
+                                SemExprData::Block {
+                                    stmts: SemStmtIdxRange(
                                         ArenaIdxRange(
                                             0..1,
                                         ),
@@ -143,13 +143,13 @@
                     ],
                 },
             ),
-            sem_stmt_arena: SemaStmtArena(
+            sem_stmt_arena: SemStmtArena(
                 Arena {
                     data: [
-                        SemaStmtEntry {
+                        SemStmtEntry {
                             data_result: Ok(
-                                SemaStmtData::Eval {
-                                    sem_expr_idx: SemaExprIdx(
+                                SemStmtData::Eval {
+                                    sem_expr_idx: SemExprIdx(
                                         0,
                                     ),
                                     outcome: Some(
@@ -184,7 +184,7 @@
                 (
                     1,
                     (
-                        SemaExprIdx(
+                        SemExprIdx(
                             1,
                         ),
                         SynExprRootKind::BlockExpr,

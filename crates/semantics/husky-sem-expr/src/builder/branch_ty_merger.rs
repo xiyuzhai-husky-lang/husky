@@ -18,7 +18,7 @@ impl<Expectation: ExpectFlyTerm> BranchTypeMerger<Expectation> {
         }
     }
 
-    pub(crate) fn add(&mut self, engine: &SemaExprBuilder, new_block_ty: Option<FlyTerm>) {
+    pub(crate) fn add(&mut self, engine: &SemExprBuilder, new_block_ty: Option<FlyTerm>) {
         match new_block_ty {
             Some(new_block_ty)
                 if new_block_ty.base_resolved(engine)

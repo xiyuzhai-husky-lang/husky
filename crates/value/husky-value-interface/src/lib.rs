@@ -1,7 +1,7 @@
 use std::sync::Arc;
 
 use husky_value_protocol::presentation::{
-    synchrotron::ValuePresentationSynchrotron, EnumU8ValuePresenter, ValuePresentation,
+    synchrotron::ValuePresentationSynchrotron, EnumUnitValuePresenter, ValuePresentation,
     ValuePresenterCache,
 };
 use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::Visual};
@@ -80,7 +80,7 @@ pub trait IsValue:
     // fn into_option_mut<'a, T>(self) -> Option<&'a mut T>;
     /// `Arc<str>` should be replaced with something better
     fn from_str_literal(str_value: Arc<str>) -> Self;
-    fn from_enum_u8(index: u8, presenter: EnumU8ValuePresenter) -> Self;
+    fn from_enum_index(index: usize, presenter: EnumUnitValuePresenter) -> Self;
     fn share(&'static self) -> Self;
     fn to_bool(self) -> bool;
     fn to_usize(self) -> usize;

@@ -397,8 +397,7 @@ impl<'comptime, Linktime: IsLinktime> VmirBuilder<'comptime, Linktime> {
     fn build_arguments<'a>(
         &'a mut self,
         arguments: &'comptime [HirEagerRitchieArgument],
-    ) -> impl Iterator<Item = VmirArgument<Linktime::LinkageImpl>> + Captures<&'comptime ()> + 'a
-    {
+    ) -> impl Iterator<Item = VmirArgument<Linktime::LinkageImpl>> + Captures<'comptime> + 'a {
         arguments.iter().map(move |m| match m {
             HirEagerRitchieArgument::Simple(_, arg, coercion) => VmirArgument::Simple {
                 expr: arg.to_vmir(self),

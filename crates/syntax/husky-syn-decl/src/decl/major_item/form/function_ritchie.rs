@@ -1,7 +1,7 @@
 use super::*;
 use husky_entity_kind::ritchie::RitchieItemKind;
 
-#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
+#[salsa::tracked]
 pub struct MajorFunctionRitchieSynNodeDecl {
     #[id]
     pub syn_node_path: FormSynNodePath,
@@ -74,7 +74,7 @@ impl<'a> DeclParser<'a> {
     }
 }
 
-#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
+#[salsa::tracked]
 pub struct MajorFunctionRitchieSynDecl {
     #[id]
     pub path: MajorFormPath,

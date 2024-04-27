@@ -1,6 +1,6 @@
 ```rust
 [
-    SemaExprRegion {
+    SemExprRegion {
         path: RegionPath::Defn(
             ItemPath::AssocItem(
                 AssocItemPath::TraitForTypeItem(
@@ -13,7 +13,7 @@
                 ),
             ),
         ),
-        data: SemaExprRegionData {
+        data: SemExprRegionData {
             path: RegionPath::Defn(
                 ItemPath::AssocItem(
                     AssocItemPath::TraitForTypeItem(
@@ -31,12 +31,12 @@
                     SelfValue,
                 ],
             },
-            sem_expr_arena: SemaExprArena(
+            sem_expr_arena: SemExprArena(
                 Arena {
                     data: [
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::SelfValue(
+                                SemExprData::SelfValue(
                                     RegionalTokenIdx(
                                         1,
                                     ),
@@ -74,10 +74,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Field {
-                                    self_argument: SemaExprIdx(
+                                SemExprData::Field {
+                                    self_argument: SemExprIdx(
                                         0,
                                     ),
                                     self_ty: FlyTerm {
@@ -159,10 +159,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::MethodFnCall {
-                                    self_argument_sem_expr_idx: SemaExprIdx(
+                                SemExprData::MethodFnCall {
+                                    self_argument_sem_expr_idx: SemExprIdx(
                                         1,
                                     ),
                                     self_contract: Pure,
@@ -276,10 +276,10 @@
                                 ),
                             ),
                         },
-                        SemaExprEntry {
+                        SemExprEntry {
                             data_result: Ok(
-                                SemaExprData::Block {
-                                    stmts: SemaStmtIdxRange(
+                                SemExprData::Block {
+                                    stmts: SemStmtIdxRange(
                                         ArenaIdxRange(
                                             0..1,
                                         ),
@@ -309,13 +309,13 @@
                     ],
                 },
             ),
-            sem_stmt_arena: SemaStmtArena(
+            sem_stmt_arena: SemStmtArena(
                 Arena {
                     data: [
-                        SemaStmtEntry {
+                        SemStmtEntry {
                             data_result: Ok(
-                                SemaStmtData::Eval {
-                                    sem_expr_idx: SemaExprIdx(
+                                SemStmtData::Eval {
+                                    sem_expr_idx: SemExprIdx(
                                         2,
                                     ),
                                     outcome: Some(
@@ -348,7 +348,7 @@
                 (
                     3,
                     (
-                        SemaExprIdx(
+                        SemExprIdx(
                             3,
                         ),
                         SynExprRootKind::BlockExpr,

@@ -1,8 +1,7 @@
 use super::*;
 use husky_fly_term::*;
 use husky_sem_expr::{
-    OriginalSemaExprDataError, OriginalSemaExprTermError, OriginalSemaExprTypeError,
-    SemaExprTermError,
+    OriginalSemExprDataError, OriginalSemExprTermError, OriginalSemExprTypeError, SemExprTermError,
 };
 use husky_syn_decl::decl::HasSynNodeDecl;
 use husky_syn_defn::module_item_syn_node_defns;
@@ -42,7 +41,7 @@ fn collect_expr_ty_diagnostics(
     let sem_expr_region_data = ctx.sem_expr_region_data();
     for (_expr_idx, fly_term_result) in sem_expr_region_data.sem_expr_terms().iter() {
         match fly_term_result {
-            Err(SemaExprTermError::Original(error)) => diagnostics.push(error.to_diagnostic(&ctx)),
+            Err(SemExprTermError::Original(error)) => diagnostics.push(error.to_diagnostic(&ctx)),
             _ => (),
         }
     }
@@ -67,7 +66,7 @@ fn collect_expr_ty_diagnostics(
     }
 }
 
-impl Diagnose for OriginalSemaExprTermError {
+impl Diagnose for OriginalSemExprTermError {
     type Context<'a> = RegionDiagnosticsContext<'a>;
 
     fn message(&self, _db: &RegionDiagnosticsContext) -> String {
@@ -85,13 +84,13 @@ impl Diagnose for OriginalSemaExprTermError {
     }
 }
 
-impl Diagnose for OriginalSemaExprDataError {
+impl Diagnose for OriginalSemExprDataError {
     type Context<'a> = RegionDiagnosticsContext<'a>;
 
     fn message(&self, ctx: &RegionDiagnosticsContext) -> String {
         // MOM
         match self {
-            OriginalSemaExprDataError::NoSuchField {
+            OriginalSemExprDataError::NoSuchField {
                 owner_ty,
                 ident_token,
             } => {
@@ -101,7 +100,7 @@ impl Diagnose for OriginalSemaExprDataError {
                     owner_ty.show(ctx.db(), ctx.fly_term_region().terms())
                 )
             }
-            OriginalSemaExprDataError::NoSuchMethod {
+            OriginalSemExprDataError::NoSuchMethod {
                 self_expr_ty,
                 ident_token,
             } => {
@@ -111,22 +110,22 @@ impl Diagnose for OriginalSemaExprDataError {
                     self_expr_ty.show(ctx.db(), ctx.fly_term_region().terms()) // ad hoc
                 )
             }
-            OriginalSemaExprDataError::ExpectedIndices => {
+            OriginalSemExprDataError::ExpectedIndices => {
                 format!("Type Error: expected indices")
             }
-            OriginalSemaExprDataError::CannotIndexIntoType { self_expr_ty } => {
+            OriginalSemExprDataError::CannotIndexIntoType { self_expr_ty } => {
                 format!(
                     "Type Error: cannot index into type `{}`",
                     self_expr_ty.show(ctx.db(), ctx.fly_term_region().terms())
                 )
             }
-            OriginalSemaExprDataError::RitchieParameterArgumentMismatch {
+            OriginalSemExprDataError::RitchieParameterArgumentMismatch {
                 match_error: _,
                 ritchie_arguments: _,
-            } => todo!(), // OriginalSemaExprDataError::UnexpectedArgument => {
+            } => todo!(), // OriginalSemExprDataError::UnexpectedArgument => {
                           //     format!("Type Error: unexpected argument")
                           // }
-                          // OriginalSemaExprDataError::MissingArgument => {
+                          // OriginalSemExprDataError::MissingArgument => {
                           //     format!("Type Error: missing argument")
                           // }
         }
@@ -139,10 +138,10 @@ impl Diagnose for OriginalSemaExprDataError {
     fn range(&self, _ctx: &RegionDiagnosticsContext) -> TextRange {
         todo!()
         // match self {
-        //     OriginalSemaExprTypeError::NoSuchField { ident_token, .. } => {
+        //     OriginalSemExprTypeError::NoSuchField { ident_token, .. } => {
         //         ctx.token_text_range(ident_token.regional_token_idx())
         //     }
-        //     OriginalSemaExprTypeError::NoMethodForType { ident_token, .. } => {
+        //     OriginalSemExprTypeError::NoMethodForType { ident_token, .. } => {
         //         ctx.token_text_range(ident_token.regional_token_idx())
         //     }
         //     _ => ctx.expr_text_range(self.0),
@@ -150,63 +149,63 @@ impl Diagnose for OriginalSemaExprDataError {
     }
 }
 
-impl Diagnose for OriginalSemaExprTypeError {
+impl Diagnose for OriginalSemExprTypeError {
     type Context<'a> = RegionDiagnosticsContext<'a>;
 
     fn message(&self, ctx: &RegionDiagnosticsContext) -> String {
         let db = ctx.db();
         match self {
-            OriginalSemaExprTypeError::UnresolvedTerm => {
+            OriginalSemExprTypeError::UnresolvedTerm => {
                 format!("Type Error: UnresolvedTerm")
             }
-            OriginalSemaExprTypeError::TypeMethodTypeError => format!("TypeError: "),
-            OriginalSemaExprTypeError::TypeCallTypeError => format!("TypeError: "),
-            OriginalSemaExprTypeError::TodoScopeResolution => {
+            OriginalSemExprTypeError::TypeMethodTypeError => format!("TypeError: "),
+            OriginalSemExprTypeError::TypeCallTypeError => format!("TypeError: "),
+            OriginalSemExprTypeError::TodoScopeResolution => {
                 format!("Type Error: TodoScopeResolution")
             }
-            OriginalSemaExprTypeError::TodoBoxColon => {
+            OriginalSemExprTypeError::TodoBoxColon => {
                 format!("Type Error: TodoBoxColon")
             }
-            OriginalSemaExprTypeError::FinalDestination => {
+            OriginalSemExprTypeError::FinalDestination => {
                 format!("Type Error: final destination")
             }
-            OriginalSemaExprTypeError::FormPathTypeError => {
+            OriginalSemExprTypeError::FormPathTypeError => {
                 format!("Type Error: form path error")
             }
-            OriginalSemaExprTypeError::AmbiguousTypePath => {
+            OriginalSemExprTypeError::AmbiguousTypePath => {
                 format!("Type Error: AmbiguousTypePath")
             }
-            OriginalSemaExprTypeError::RitchieCallWrongNumberOfArguments {
+            OriginalSemExprTypeError::RitchieCallWrongNumberOfArguments {
                 number_of_nonself_parameters,
                 number_of_nonself_arguments,
             } => {
                 format!("expected {number_of_nonself_parameters} argument, found {number_of_nonself_arguments}")
             }
-            OriginalSemaExprTypeError::AmbiguousListExpr => {
+            OriginalSemExprTypeError::AmbiguousListExpr => {
                 format!("Type Error: AmbiguateListExpr")
             }
-            OriginalSemaExprTypeError::AmbiguousTildeExpr => {
+            OriginalSemExprTypeError::AmbiguousTildeExpr => {
                 format!("Type Error: AmbiguateTildeExpr")
             }
-            OriginalSemaExprTypeError::ExpectedCurryButGotRitchieInstead => {
+            OriginalSemExprTypeError::ExpectedCurryButGotRitchieInstead => {
                 format!("Type Error: expected curry but got Ritchie instead")
             }
-            OriginalSemaExprTypeError::CannotUnveil => {
+            OriginalSemExprTypeError::CannotUnveil => {
                 format!("Type Error: cannot unveil")
             }
-            OriginalSemaExprTypeError::CannotUnwrap => {
+            OriginalSemExprTypeError::CannotUnwrap => {
                 format!("Type Error: cannot unwrap")
             }
-            OriginalSemaExprTypeError::NoConstructor { path } => {
+            OriginalSemExprTypeError::NoConstructor { path } => {
                 format!("Type Error: no constructor for `{}`", path.display(db))
             }
-            OriginalSemaExprTypeError::BitOperationOnlyWorksForRawBitsOrCustom => {
+            OriginalSemExprTypeError::BitOperationOnlyWorksForRawBitsOrCustom => {
                 format!("Type Error: no bit opr for integer")
             }
-            OriginalSemaExprTypeError::ExpectedNumTypeForIncrOrDecr => {
+            OriginalSemExprTypeError::ExpectedNumTypeForIncrOrDecr => {
                 format!("Type Error: ExpectedNumTypeForIncrOrDecr")
             }
-            OriginalSemaExprTypeError::ClosureParameterTypeNotInferred => {
+            OriginalSemExprTypeError::ClosureParameterTypeNotInferred => {
                 format!("Type Error: ClosureParameterTypeNotInferred")
             }
         }
@@ -219,10 +218,10 @@ impl Diagnose for OriginalSemaExprTypeError {
     fn range(&self, _ctx: &RegionDiagnosticsContext) -> TextRange {
         todo!()
         // match self {
-        //     OriginalSemaExprTypeError::NoSuchField { ident_token, .. } => {
+        //     OriginalSemExprTypeError::NoSuchField { ident_token, .. } => {
         //         ctx.token_text_range(ident_token.regional_token_idx())
         //     }
-        //     OriginalSemaExprTypeError::NoMethodForType { ident_token, .. } => {
+        //     OriginalSemExprTypeError::NoMethodForType { ident_token, .. } => {
         //         ctx.token_text_range(ident_token.regional_token_idx())
         //     }
         //     _ => ctx.expr_text_range(self.0),
@@ -247,7 +246,7 @@ impl Diagnose for (HoleSource, &'_ OriginalHollowTermResolveError) {
         match self.0 {
             HoleSource::Expr(_) => todo!(),
             HoleSource::Expectation(_) => todo!(),
-            HoleSource::SemaExpr(_) => todo!(),
+            HoleSource::SemExpr(_) => todo!(),
             HoleSource::Pattern(_) => todo!(),
         }
     }

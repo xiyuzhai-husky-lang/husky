@@ -2,7 +2,7 @@ use husky_entity_path::ty_impl_block::TypeImplBlockPath;
 
 use super::*;
 
-#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar)]
+#[salsa::tracked]
 pub struct TypeMethodRitchieSynNodeDecl {
     #[id]
     pub syn_node_path: TypeItemSynNodePath,

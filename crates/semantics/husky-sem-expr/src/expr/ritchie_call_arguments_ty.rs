@@ -2,17 +2,17 @@ pub use self::matcher::*;
 
 use super::*;
 
-impl<'a> SemaExprBuilder<'a> {
+impl<'a> SemExprBuilder<'a> {
     pub(super) fn calc_ritchie_arguments_ty(
         &mut self,
         expr_idx: SynExprIdx,
         ritchie_parameters: &[FlyRitchieParameter],
         ritchie_arguments: impl Iterator<Item = SynCallListItem> + Clone,
-    ) -> SemaExprDataResult<RitchieArgumentes> {
+    ) -> SemExprDataResult<RitchieArgumentes> {
         RitchieArgumenter::new(ritchie_parameters, ritchie_arguments.clone(), self)
             .match_all()
             .map_err(|match_error| {
-                OriginalSemaExprDataError::RitchieParameterArgumentMismatch {
+                OriginalSemExprDataError::RitchieParameterArgumentMismatch {
                     match_error,
                     ritchie_arguments: ritchie_arguments
                         .map(|ritchie_argument| {
@@ -60,14 +60,14 @@ mod matcher {
         ritchie_parameters: &'b [FlyRitchieParameter],
         ritchie_call_items: std::iter::Peekable<Arguments>,
         ritchie_matches: RitchieArgumentes,
-        engine: &'b mut SemaExprBuilder<'a>,
+        engine: &'b mut SemExprBuilder<'a>,
     }
 
     impl<'a, 'b, Arguments: Iterator<Item = SynCallListItem>> RitchieArgumenter<'a, 'b, Arguments> {
         pub(super) fn new(
             ritchie_parameters: &'b [FlyRitchieParameter],
             ritchie_arguments: Arguments,
-            engine: &'b mut SemaExprBuilder<'a>,
+            engine: &'b mut SemExprBuilder<'a>,
         ) -> RitchieArgumenter<'a, 'b, impl Iterator<Item = SynCallListItem>> {
             RitchieArgumenter {
                 ritchie_parameters,

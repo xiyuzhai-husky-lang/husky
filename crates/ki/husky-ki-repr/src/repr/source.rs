@@ -3,7 +3,7 @@ use husky_hir_lazy_expr::{
     helpers::hir_lazy_expr_source_map_from_syn, HirLazyExprIdx, HirLazyStmtIdx,
 };
 use husky_regional_token::RegionalTokenIdxRange;
-use husky_sem_expr::{helpers::range::sem_expr_range_region, SemaExprDb};
+use husky_sem_expr::{helpers::range::sem_expr_range_region, SemExprDb};
 use husky_syn_defn::{item_syn_defn, ItemSynDefn};
 use salsa::DebugWithDb;
 

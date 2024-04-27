@@ -113,14 +113,14 @@
                             value: 14,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         0,
                     ),
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 2,
                         },
@@ -170,13 +170,13 @@
                             value: 16,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         4,
                     ),
                     hir_eager_expr_idx: Some(
                         3,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 2,
                         },
@@ -259,13 +259,13 @@
                             value: 16,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         4,
                     ),
                     hir_eager_expr_idx: Some(
                         3,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 2,
                         },
@@ -342,7 +342,7 @@
                             value: 15,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         7,
                     ),
                     hir_lazy_stmt_idx: Some(
@@ -359,13 +359,13 @@
                                 11,
                             ),
                         },
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 0..7,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -417,14 +417,14 @@
                             value: 19,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         0,
                     ),
                     hir_lazy_stmt_idx: Some(
                         0,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -476,14 +476,14 @@
                             value: 19,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         1,
                     ),
                     hir_lazy_stmt_idx: Some(
                         1,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -535,14 +535,14 @@
                             value: 19,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         2,
                     ),
                     hir_lazy_stmt_idx: Some(
                         2,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -594,14 +594,14 @@
                             value: 19,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         3,
                     ),
                     hir_lazy_stmt_idx: Some(
                         3,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -653,14 +653,14 @@
                             value: 19,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         4,
                     ),
                     hir_lazy_stmt_idx: Some(
                         4,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -712,14 +712,14 @@
                             value: 19,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         5,
                     ),
                     hir_lazy_stmt_idx: Some(
                         5,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -771,14 +771,14 @@
                             value: 19,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         6,
                     ),
                     hir_lazy_stmt_idx: Some(
                         6,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -848,13 +848,13 @@
                             value: 19,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         1,
                     ),
                     hir_lazy_expr_idx: Some(
                         1,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -901,13 +901,13 @@
                             value: 19,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         2,
                     ),
                     hir_lazy_expr_idx: Some(
                         2,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -956,14 +956,14 @@
                             value: 15,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         8,
                     ),
                     hir_lazy_stmt_idx: Some(
                         8,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -1021,7 +1021,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -1063,13 +1063,13 @@
                             value: 20,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         33,
                     ),
                     hir_lazy_expr_idx: Some(
                         32,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -1144,13 +1144,13 @@
                             value: 20,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         33,
                     ),
                     hir_lazy_expr_idx: Some(
                         32,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -1199,14 +1199,14 @@
                             value: 15,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         9,
                     ),
                     hir_lazy_stmt_idx: Some(
                         9,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -1248,13 +1248,13 @@
                             value: 21,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         42,
                     ),
                     hir_lazy_expr_idx: Some(
                         41,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -1301,13 +1301,13 @@
                             value: 21,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         35,
                     ),
                     hir_lazy_expr_idx: Some(
                         34,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -1354,13 +1354,13 @@
                             value: 21,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         36,
                     ),
                     hir_lazy_expr_idx: Some(
                         35,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -1407,13 +1407,13 @@
                             value: 21,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         37,
                     ),
                     hir_lazy_expr_idx: Some(
                         36,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -1460,13 +1460,13 @@
                             value: 21,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         38,
                     ),
                     hir_lazy_expr_idx: Some(
                         37,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -1513,13 +1513,13 @@
                             value: 21,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         39,
                     ),
                     hir_lazy_expr_idx: Some(
                         38,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -1566,13 +1566,13 @@
                             value: 21,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         40,
                     ),
                     hir_lazy_expr_idx: Some(
                         39,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -1619,13 +1619,13 @@
                             value: 21,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         42,
                     ),
                     hir_lazy_expr_idx: Some(
                         41,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -1674,14 +1674,14 @@
                             value: 15,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         10,
                     ),
                     hir_lazy_stmt_idx: Some(
                         10,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -1723,13 +1723,13 @@
                             value: 22,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         44,
                     ),
                     hir_lazy_expr_idx: Some(
                         43,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -1776,13 +1776,13 @@
                             value: 22,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         45,
                     ),
                     hir_lazy_expr_idx: Some(
                         44,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -1831,14 +1831,14 @@
                             value: 15,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         11,
                     ),
                     hir_lazy_stmt_idx: Some(
                         11,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -1908,13 +1908,13 @@
                             value: 23,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         49,
                     ),
                     hir_lazy_expr_idx: Some(
                         48,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -1961,13 +1961,13 @@
                             value: 23,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         50,
                     ),
                     hir_lazy_expr_idx: Some(
                         49,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -2016,14 +2016,14 @@
                             value: 15,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         12,
                     ),
                     hir_lazy_stmt_idx: Some(
                         12,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -2093,13 +2093,13 @@
                             value: 24,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         55,
                     ),
                     hir_lazy_expr_idx: Some(
                         53,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -2146,13 +2146,13 @@
                             value: 24,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         56,
                     ),
                     hir_lazy_expr_idx: Some(
                         54,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -2201,14 +2201,14 @@
                             value: 15,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         13,
                     ),
                     hir_lazy_stmt_idx: Some(
                         13,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -2266,7 +2266,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -2336,13 +2336,13 @@
                             value: 25,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         61,
                     ),
                     hir_lazy_expr_idx: Some(
                         58,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -2389,13 +2389,13 @@
                             value: 25,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         62,
                     ),
                     hir_lazy_expr_idx: Some(
                         59,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -2444,14 +2444,14 @@
                             value: 15,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         14,
                     ),
                     hir_lazy_stmt_idx: Some(
                         14,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -2509,7 +2509,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -2551,13 +2551,13 @@
                             value: 26,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         65,
                     ),
                     hir_lazy_expr_idx: Some(
                         62,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -2604,13 +2604,13 @@
                             value: 26,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         67,
                     ),
                     hir_lazy_expr_idx: Some(
                         64,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -2657,13 +2657,13 @@
                             value: 26,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         68,
                     ),
                     hir_lazy_expr_idx: Some(
                         65,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -2710,13 +2710,13 @@
                             value: 26,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         69,
                     ),
                     hir_lazy_expr_idx: Some(
                         66,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -2763,13 +2763,13 @@
                             value: 26,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         71,
                     ),
                     hir_lazy_expr_idx: Some(
                         68,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -2816,13 +2816,13 @@
                             value: 26,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         72,
                     ),
                     hir_lazy_expr_idx: Some(
                         69,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -2871,14 +2871,14 @@
                             value: 15,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         15,
                     ),
                     hir_lazy_stmt_idx: Some(
                         15,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -2936,7 +2936,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -3006,13 +3006,13 @@
                             value: 27,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         75,
                     ),
                     hir_lazy_expr_idx: Some(
                         72,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -3059,13 +3059,13 @@
                             value: 27,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         76,
                     ),
                     hir_lazy_expr_idx: Some(
                         73,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -3140,13 +3140,13 @@
                             value: 27,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         78,
                     ),
                     hir_lazy_expr_idx: Some(
                         75,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -3193,13 +3193,13 @@
                             value: 27,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         79,
                     ),
                     hir_lazy_expr_idx: Some(
                         76,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -3248,14 +3248,14 @@
                             value: 15,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         16,
                     ),
                     hir_lazy_stmt_idx: Some(
                         16,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -3313,7 +3313,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -3355,13 +3355,13 @@
                             value: 28,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         81,
                     ),
                     hir_lazy_expr_idx: Some(
                         78,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -3408,13 +3408,13 @@
                             value: 28,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         82,
                     ),
                     hir_lazy_expr_idx: Some(
                         79,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -3463,14 +3463,14 @@
                             value: 15,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         17,
                     ),
                     hir_lazy_stmt_idx: Some(
                         17,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -3512,13 +3512,13 @@
                             value: 29,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         84,
                     ),
                     hir_lazy_expr_idx: Some(
                         81,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -3567,14 +3567,14 @@
                             value: 15,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         18,
                     ),
                     hir_lazy_stmt_idx: Some(
                         18,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -3632,7 +3632,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -3674,13 +3674,13 @@
                             value: 30,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         87,
                     ),
                     hir_lazy_expr_idx: Some(
                         84,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -3727,13 +3727,13 @@
                             value: 30,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         88,
                     ),
                     hir_lazy_expr_idx: Some(
                         85,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -3782,14 +3782,14 @@
                             value: 15,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         19,
                     ),
                     hir_lazy_stmt_idx: Some(
                         19,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -3888,14 +3888,14 @@
                             value: 85,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         0,
                     ),
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 8,
                         },
@@ -3945,13 +3945,13 @@
                             value: 87,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         6,
                     ),
                     hir_eager_expr_idx: Some(
                         5,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 8,
                         },
@@ -4034,13 +4034,13 @@
                             value: 87,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         6,
                     ),
                     hir_eager_expr_idx: Some(
                         5,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 8,
                         },
@@ -4117,14 +4117,14 @@
                             value: 86,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         41,
                     ),
                     hir_lazy_stmt_idx: Some(
                         41,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -4166,13 +4166,13 @@
                             value: 90,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         5,
                     ),
                     hir_lazy_expr_idx: Some(
                         5,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -4247,13 +4247,13 @@
                             value: 90,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         2,
                     ),
                     hir_lazy_expr_idx: Some(
                         2,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -4328,13 +4328,13 @@
                             value: 90,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         5,
                     ),
                     hir_lazy_expr_idx: Some(
                         5,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -4383,14 +4383,14 @@
                             value: 86,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         42,
                     ),
                     hir_lazy_stmt_idx: Some(
                         42,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -4448,7 +4448,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -4490,13 +4490,13 @@
                             value: 91,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         10,
                     ),
                     hir_lazy_expr_idx: Some(
                         10,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -4571,13 +4571,13 @@
                             value: 91,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         10,
                     ),
                     hir_lazy_expr_idx: Some(
                         10,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -4626,7 +4626,7 @@
                             value: 86,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         43,
                     ),
                     hir_lazy_stmt_idx: Some(
@@ -4643,13 +4643,13 @@
                                 31,
                             ),
                         },
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 1..4,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -4701,14 +4701,14 @@
                             value: 92,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         1,
                     ),
                     hir_lazy_stmt_idx: Some(
                         1,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -4760,7 +4760,7 @@
                             value: 92,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         2,
                     ),
                     hir_lazy_stmt_idx: Some(
@@ -4777,13 +4777,13 @@
                                 50,
                             ),
                         },
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 0..1,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -4835,14 +4835,14 @@
                             value: 92,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         3,
                     ),
                     hir_lazy_stmt_idx: Some(
                         3,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -4884,13 +4884,13 @@
                             value: 92,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         11,
                     ),
                     hir_lazy_expr_idx: Some(
                         11,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -4937,13 +4937,13 @@
                             value: 92,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         12,
                     ),
                     hir_lazy_expr_idx: Some(
                         12,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -4992,7 +4992,7 @@
                             value: 86,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         43,
                     ),
                     hir_lazy_stmt_idx: Some(
@@ -5009,13 +5009,13 @@
                                 61,
                             ),
                         },
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 15..41,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -5067,14 +5067,14 @@
                             value: 93,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         15,
                     ),
                     hir_lazy_stmt_idx: Some(
                         15,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -5126,14 +5126,14 @@
                             value: 93,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         16,
                     ),
                     hir_lazy_stmt_idx: Some(
                         16,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -5185,14 +5185,14 @@
                             value: 93,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         17,
                     ),
                     hir_lazy_stmt_idx: Some(
                         17,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -5244,14 +5244,14 @@
                             value: 93,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         18,
                     ),
                     hir_lazy_stmt_idx: Some(
                         18,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -5303,14 +5303,14 @@
                             value: 93,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         19,
                     ),
                     hir_lazy_stmt_idx: Some(
                         19,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -5362,7 +5362,7 @@
                             value: 93,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         20,
                     ),
                     hir_lazy_stmt_idx: Some(
@@ -5379,13 +5379,13 @@
                                 103,
                             ),
                         },
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 4..8,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -5437,14 +5437,14 @@
                             value: 93,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         21,
                     ),
                     hir_lazy_stmt_idx: Some(
                         21,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -5496,14 +5496,14 @@
                             value: 93,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         22,
                     ),
                     hir_lazy_stmt_idx: Some(
                         22,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -5555,14 +5555,14 @@
                             value: 93,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         23,
                     ),
                     hir_lazy_stmt_idx: Some(
                         23,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -5614,14 +5614,14 @@
                             value: 93,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         24,
                     ),
                     hir_lazy_stmt_idx: Some(
                         24,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -5673,7 +5673,7 @@
                             value: 93,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         25,
                     ),
                     hir_lazy_stmt_idx: Some(
@@ -5690,13 +5690,13 @@
                                 234,
                             ),
                         },
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 8..14,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -5748,7 +5748,7 @@
                             value: 93,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         26,
                     ),
                     hir_lazy_stmt_idx: Some(
@@ -5765,13 +5765,13 @@
                                 344,
                             ),
                         },
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 14..15,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -5823,14 +5823,14 @@
                             value: 93,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         27,
                     ),
                     hir_lazy_stmt_idx: Some(
                         27,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -5882,14 +5882,14 @@
                             value: 93,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         28,
                     ),
                     hir_lazy_stmt_idx: Some(
                         28,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -5941,14 +5941,14 @@
                             value: 93,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         29,
                     ),
                     hir_lazy_stmt_idx: Some(
                         29,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -6000,14 +6000,14 @@
                             value: 93,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         30,
                     ),
                     hir_lazy_stmt_idx: Some(
                         30,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -6059,14 +6059,14 @@
                             value: 93,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         31,
                     ),
                     hir_lazy_stmt_idx: Some(
                         31,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -6118,14 +6118,14 @@
                             value: 93,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         32,
                     ),
                     hir_lazy_stmt_idx: Some(
                         32,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -6177,14 +6177,14 @@
                             value: 93,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         33,
                     ),
                     hir_lazy_stmt_idx: Some(
                         33,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -6236,14 +6236,14 @@
                             value: 93,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         34,
                     ),
                     hir_lazy_stmt_idx: Some(
                         34,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -6295,14 +6295,14 @@
                             value: 93,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         35,
                     ),
                     hir_lazy_stmt_idx: Some(
                         35,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -6354,14 +6354,14 @@
                             value: 93,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         36,
                     ),
                     hir_lazy_stmt_idx: Some(
                         36,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -6413,14 +6413,14 @@
                             value: 93,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         37,
                     ),
                     hir_lazy_stmt_idx: Some(
                         37,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -6472,14 +6472,14 @@
                             value: 93,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         38,
                     ),
                     hir_lazy_stmt_idx: Some(
                         38,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -6531,14 +6531,14 @@
                             value: 93,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         39,
                     ),
                     hir_lazy_stmt_idx: Some(
                         39,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -6590,14 +6590,14 @@
                             value: 93,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         40,
                     ),
                     hir_lazy_stmt_idx: Some(
                         40,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -6696,14 +6696,14 @@
                             value: 132,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         0,
                     ),
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 18,
                         },
@@ -6753,13 +6753,13 @@
                             value: 135,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         4,
                     ),
                     hir_eager_expr_idx: Some(
                         3,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 18,
                         },
@@ -6842,13 +6842,13 @@
                             value: 135,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         4,
                     ),
                     hir_eager_expr_idx: Some(
                         3,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 18,
                         },
@@ -6923,14 +6923,14 @@
                             value: 133,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         0,
                     ),
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 20,
                         },
@@ -6980,13 +6980,13 @@
                             value: 138,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         5,
                     ),
                     hir_eager_expr_idx: Some(
                         4,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 20,
                         },
@@ -7069,13 +7069,13 @@
                             value: 138,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         5,
                     ),
                     hir_eager_expr_idx: Some(
                         4,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 20,
                         },
@@ -7152,14 +7152,14 @@
                             value: 134,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         19,
                     ),
                     hir_lazy_stmt_idx: Some(
                         19,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -7217,7 +7217,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -7287,13 +7287,13 @@
                             value: 141,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         1,
                     ),
                     hir_lazy_expr_idx: Some(
                         1,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -7342,14 +7342,14 @@
                             value: 134,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         20,
                     ),
                     hir_lazy_stmt_idx: Some(
                         20,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -7391,13 +7391,13 @@
                             value: 142,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         4,
                     ),
                     hir_lazy_expr_idx: Some(
                         4,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -7446,14 +7446,14 @@
                             value: 134,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         21,
                     ),
                     hir_lazy_stmt_idx: Some(
                         21,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -7511,7 +7511,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -7581,13 +7581,13 @@
                             value: 143,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         7,
                     ),
                     hir_lazy_expr_idx: Some(
                         6,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -7636,14 +7636,14 @@
                             value: 134,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         22,
                     ),
                     hir_lazy_stmt_idx: Some(
                         22,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -7701,7 +7701,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -7771,13 +7771,13 @@
                             value: 144,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         9,
                     ),
                     hir_lazy_expr_idx: Some(
                         8,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -7852,13 +7852,13 @@
                             value: 144,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         11,
                     ),
                     hir_lazy_expr_idx: Some(
                         10,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -7907,7 +7907,7 @@
                             value: 134,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         23,
                     ),
                     hir_lazy_stmt_idx: Some(
@@ -7924,13 +7924,13 @@
                                 42,
                             ),
                         },
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 5..17,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -7982,14 +7982,14 @@
                             value: 145,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         5,
                     ),
                     hir_lazy_stmt_idx: Some(
                         5,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -8041,14 +8041,14 @@
                             value: 145,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         6,
                     ),
                     hir_lazy_stmt_idx: Some(
                         6,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -8100,14 +8100,14 @@
                             value: 145,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         7,
                     ),
                     hir_lazy_stmt_idx: Some(
                         7,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -8159,14 +8159,14 @@
                             value: 145,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         8,
                     ),
                     hir_lazy_stmt_idx: Some(
                         8,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -8218,14 +8218,14 @@
                             value: 145,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         9,
                     ),
                     hir_lazy_stmt_idx: Some(
                         9,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -8277,14 +8277,14 @@
                             value: 145,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         10,
                     ),
                     hir_lazy_stmt_idx: Some(
                         10,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -8336,14 +8336,14 @@
                             value: 145,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         11,
                     ),
                     hir_lazy_stmt_idx: Some(
                         11,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -8395,7 +8395,7 @@
                             value: 145,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         12,
                     ),
                     hir_lazy_stmt_idx: Some(
@@ -8412,13 +8412,13 @@
                                 112,
                             ),
                         },
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 0..4,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -8470,14 +8470,14 @@
                             value: 145,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         13,
                     ),
                     hir_lazy_stmt_idx: Some(
                         13,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -8529,14 +8529,14 @@
                             value: 145,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         14,
                     ),
                     hir_lazy_stmt_idx: Some(
                         14,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -8588,7 +8588,7 @@
                             value: 145,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         15,
                     ),
                     hir_lazy_stmt_idx: Some(
@@ -8605,13 +8605,13 @@
                                 177,
                             ),
                         },
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 4..5,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -8663,14 +8663,14 @@
                             value: 145,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         16,
                     ),
                     hir_lazy_stmt_idx: Some(
                         16,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -8712,13 +8712,13 @@
                             value: 145,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         13,
                     ),
                     hir_lazy_expr_idx: Some(
                         12,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -8765,13 +8765,13 @@
                             value: 145,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         14,
                     ),
                     hir_lazy_expr_idx: Some(
                         13,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -8820,14 +8820,14 @@
                             value: 134,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         24,
                     ),
                     hir_lazy_stmt_idx: Some(
                         24,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -8869,13 +8869,13 @@
                             value: 146,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         86,
                     ),
                     hir_lazy_expr_idx: Some(
                         83,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -8950,13 +8950,13 @@
                             value: 146,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         84,
                     ),
                     hir_lazy_expr_idx: Some(
                         81,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -9003,13 +9003,13 @@
                             value: 146,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         86,
                     ),
                     hir_lazy_expr_idx: Some(
                         83,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -9058,7 +9058,7 @@
                             value: 134,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         25,
                     ),
                     hir_lazy_stmt_idx: Some(
@@ -9075,13 +9075,13 @@
                                 203,
                             ),
                         },
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 17..18,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -9133,14 +9133,14 @@
                             value: 147,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         17,
                     ),
                     hir_lazy_stmt_idx: Some(
                         17,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -9210,13 +9210,13 @@
                             value: 147,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         89,
                     ),
                     hir_lazy_expr_idx: Some(
                         86,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -9265,14 +9265,14 @@
                             value: 134,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         26,
                     ),
                     hir_lazy_stmt_idx: Some(
                         26,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -9314,13 +9314,13 @@
                             value: 148,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         96,
                     ),
                     hir_lazy_expr_idx: Some(
                         93,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -9367,13 +9367,13 @@
                             value: 148,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         97,
                     ),
                     hir_lazy_expr_idx: Some(
                         94,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -9420,13 +9420,13 @@
                             value: 148,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         101,
                     ),
                     hir_lazy_expr_idx: Some(
                         98,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -9473,13 +9473,13 @@
                             value: 148,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         102,
                     ),
                     hir_lazy_expr_idx: Some(
                         99,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -9528,7 +9528,7 @@
                             value: 134,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         27,
                     ),
                     hir_lazy_stmt_idx: Some(
@@ -9545,13 +9545,13 @@
                                 238,
                             ),
                         },
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 18..19,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -9603,14 +9603,14 @@
                             value: 149,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         18,
                     ),
                     hir_lazy_stmt_idx: Some(
                         18,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -9652,13 +9652,13 @@
                             value: 149,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         105,
                     ),
                     hir_lazy_expr_idx: Some(
                         102,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -9705,13 +9705,13 @@
                             value: 149,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         106,
                     ),
                     hir_lazy_expr_idx: Some(
                         103,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -9760,14 +9760,14 @@
                             value: 134,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         28,
                     ),
                     hir_lazy_stmt_idx: Some(
                         28,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -9809,13 +9809,13 @@
                             value: 150,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         119,
                     ),
                     hir_lazy_expr_idx: Some(
                         115,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -9864,14 +9864,14 @@
                             value: 134,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         29,
                     ),
                     hir_lazy_stmt_idx: Some(
                         29,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -9970,14 +9970,14 @@
                             value: 192,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         0,
                     ),
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 28,
                         },
@@ -10027,13 +10027,13 @@
                             value: 194,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         6,
                     ),
                     hir_eager_expr_idx: Some(
                         5,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 28,
                         },
@@ -10116,13 +10116,13 @@
                             value: 194,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         6,
                     ),
                     hir_eager_expr_idx: Some(
                         5,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 28,
                         },
@@ -10197,14 +10197,14 @@
                             value: 193,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         0,
                     ),
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -10282,13 +10282,13 @@
                             value: 197,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         1,
                     ),
                     hir_eager_expr_idx: Some(
                         1,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -10335,14 +10335,14 @@
                             value: 193,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         1,
                     ),
                     hir_eager_stmt_idx: Some(
                         1,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -10420,13 +10420,13 @@
                             value: 198,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         5,
                     ),
                     hir_eager_expr_idx: Some(
                         5,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -10473,14 +10473,14 @@
                             value: 193,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         2,
                     ),
                     hir_eager_stmt_idx: Some(
                         2,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -10537,7 +10537,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -10610,13 +10610,13 @@
                             value: 199,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         9,
                     ),
                     hir_eager_expr_idx: Some(
                         9,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -10663,14 +10663,14 @@
                             value: 193,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         3,
                     ),
                     hir_eager_stmt_idx: Some(
                         3,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -10727,7 +10727,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -10800,13 +10800,13 @@
                             value: 200,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         13,
                     ),
                     hir_eager_expr_idx: Some(
                         13,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -10853,14 +10853,14 @@
                             value: 193,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         4,
                     ),
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -10917,7 +10917,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -10990,13 +10990,13 @@
                             value: 201,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         17,
                     ),
                     hir_eager_expr_idx: Some(
                         17,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -11043,14 +11043,14 @@
                             value: 193,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         5,
                     ),
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -11100,13 +11100,13 @@
                             value: 202,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         20,
                     ),
                     hir_eager_expr_idx: Some(
                         20,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -11153,14 +11153,14 @@
                             value: 193,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         6,
                     ),
                     hir_eager_stmt_idx: Some(
                         6,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -11210,13 +11210,13 @@
                             value: 203,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         22,
                     ),
                     hir_eager_expr_idx: Some(
                         21,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -11271,13 +11271,13 @@
                             value: 203,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         24,
                     ),
                     hir_eager_expr_idx: Some(
                         23,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -11324,14 +11324,14 @@
                             value: 193,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         7,
                     ),
                     hir_eager_stmt_idx: Some(
                         7,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -11381,13 +11381,13 @@
                             value: 204,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         27,
                     ),
                     hir_eager_expr_idx: Some(
                         26,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -11434,14 +11434,14 @@
                             value: 193,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         8,
                     ),
                     hir_eager_stmt_idx: Some(
                         8,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -11498,7 +11498,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -11543,13 +11543,13 @@
                             value: 205,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         29,
                     ),
                     hir_eager_expr_idx: Some(
                         27,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -11604,13 +11604,13 @@
                             value: 205,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         31,
                     ),
                     hir_eager_expr_idx: Some(
                         29,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -11665,13 +11665,13 @@
                             value: 205,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         33,
                     ),
                     hir_eager_expr_idx: Some(
                         31,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -11718,14 +11718,14 @@
                             value: 193,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         9,
                     ),
                     hir_eager_stmt_idx: Some(
                         9,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -11775,13 +11775,13 @@
                             value: 206,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         34,
                     ),
                     hir_eager_expr_idx: Some(
                         32,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -11836,13 +11836,13 @@
                             value: 206,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         37,
                     ),
                     hir_eager_expr_idx: Some(
                         35,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -11889,14 +11889,14 @@
                             value: 193,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         10,
                     ),
                     hir_eager_stmt_idx: Some(
                         10,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -11953,7 +11953,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -11998,13 +11998,13 @@
                             value: 207,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         42,
                     ),
                     hir_eager_expr_idx: Some(
                         40,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -12059,13 +12059,13 @@
                             value: 207,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         44,
                     ),
                     hir_eager_expr_idx: Some(
                         42,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -12112,14 +12112,14 @@
                             value: 193,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         11,
                     ),
                     hir_eager_stmt_idx: Some(
                         11,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -12176,7 +12176,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -12221,13 +12221,13 @@
                             value: 208,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         45,
                     ),
                     hir_eager_expr_idx: Some(
                         43,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -12282,13 +12282,13 @@
                             value: 208,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         47,
                     ),
                     hir_eager_expr_idx: Some(
                         45,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -12335,14 +12335,14 @@
                             value: 193,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         12,
                     ),
                     hir_eager_stmt_idx: Some(
                         12,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -12399,7 +12399,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -12444,13 +12444,13 @@
                             value: 209,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         48,
                     ),
                     hir_eager_expr_idx: Some(
                         46,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -12505,13 +12505,13 @@
                             value: 209,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         50,
                     ),
                     hir_eager_expr_idx: Some(
                         48,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -12566,13 +12566,13 @@
                             value: 209,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         49,
                     ),
                     hir_eager_expr_idx: Some(
                         47,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -12619,14 +12619,14 @@
                             value: 193,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         13,
                     ),
                     hir_eager_stmt_idx: Some(
                         13,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -12676,13 +12676,13 @@
                             value: 210,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         51,
                     ),
                     hir_eager_expr_idx: Some(
                         49,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -12729,14 +12729,14 @@
                             value: 193,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         14,
                     ),
                     hir_eager_stmt_idx: Some(
                         14,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -12814,13 +12814,13 @@
                             value: 211,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         55,
                     ),
                     hir_eager_expr_idx: Some(
                         53,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -12867,14 +12867,14 @@
                             value: 193,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         15,
                     ),
                     hir_eager_stmt_idx: Some(
                         15,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -12924,13 +12924,13 @@
                             value: 212,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         58,
                     ),
                     hir_eager_expr_idx: Some(
                         56,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -12985,13 +12985,13 @@
                             value: 212,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         60,
                     ),
                     hir_eager_expr_idx: Some(
                         58,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -13038,14 +13038,14 @@
                             value: 193,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         16,
                     ),
                     hir_eager_stmt_idx: Some(
                         16,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -13144,14 +13144,14 @@
                             value: 252,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         0,
                     ),
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 38,
                         },
@@ -13201,13 +13201,13 @@
                             value: 256,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         5,
                     ),
                     hir_eager_expr_idx: Some(
                         4,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 38,
                         },
@@ -13290,13 +13290,13 @@
                             value: 256,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         5,
                     ),
                     hir_eager_expr_idx: Some(
                         4,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 38,
                         },
@@ -13371,14 +13371,14 @@
                             value: 253,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         0,
                     ),
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 42,
                         },
@@ -13428,13 +13428,13 @@
                             value: 259,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         4,
                     ),
                     hir_eager_expr_idx: Some(
                         3,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 42,
                         },
@@ -13517,13 +13517,13 @@
                             value: 259,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         4,
                     ),
                     hir_eager_expr_idx: Some(
                         3,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 42,
                         },
@@ -13598,14 +13598,14 @@
                             value: 254,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         0,
                     ),
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 44,
                         },
@@ -13655,13 +13655,13 @@
                             value: 262,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         4,
                     ),
                     hir_eager_expr_idx: Some(
                         3,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 44,
                         },
@@ -13744,13 +13744,13 @@
                             value: 262,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         4,
                     ),
                     hir_eager_expr_idx: Some(
                         3,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 44,
                         },
@@ -13825,14 +13825,14 @@
                             value: 255,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         14,
                     ),
                     hir_eager_stmt_idx: Some(
                         14,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -13910,13 +13910,13 @@
                             value: 265,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         1,
                     ),
                     hir_eager_expr_idx: Some(
                         1,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -13963,14 +13963,14 @@
                             value: 255,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         15,
                     ),
                     hir_eager_stmt_idx: Some(
                         15,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -14048,13 +14048,13 @@
                             value: 266,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         6,
                     ),
                     hir_eager_expr_idx: Some(
                         5,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -14101,14 +14101,14 @@
                             value: 255,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         16,
                     ),
                     hir_eager_stmt_idx: Some(
                         16,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -14165,7 +14165,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -14238,13 +14238,13 @@
                             value: 267,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         11,
                     ),
                     hir_eager_expr_idx: Some(
                         9,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -14291,14 +14291,14 @@
                             value: 255,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         17,
                     ),
                     hir_eager_stmt_idx: Some(
                         17,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -14348,13 +14348,13 @@
                             value: 268,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         12,
                     ),
                     hir_eager_expr_idx: Some(
                         10,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -14409,13 +14409,13 @@
                             value: 268,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         13,
                     ),
                     hir_eager_expr_idx: Some(
                         11,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -14462,14 +14462,14 @@
                             value: 255,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         18,
                     ),
                     hir_eager_stmt_idx: Some(
                         18,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -14526,7 +14526,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -14599,13 +14599,13 @@
                             value: 269,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         18,
                     ),
                     hir_eager_expr_idx: Some(
                         15,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -14652,14 +14652,14 @@
                             value: 255,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         19,
                     ),
                     hir_eager_stmt_idx: Some(
                         19,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -14709,13 +14709,13 @@
                             value: 270,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         21,
                     ),
                     hir_eager_expr_idx: Some(
                         18,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -14762,14 +14762,14 @@
                             value: 255,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         20,
                     ),
                     hir_eager_stmt_idx: Some(
                         20,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -14826,7 +14826,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -14871,13 +14871,13 @@
                             value: 271,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         23,
                     ),
                     hir_eager_expr_idx: Some(
                         19,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -14932,13 +14932,13 @@
                             value: 271,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         25,
                     ),
                     hir_eager_expr_idx: Some(
                         21,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -14993,13 +14993,13 @@
                             value: 271,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         26,
                     ),
                     hir_eager_expr_idx: Some(
                         22,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -15046,14 +15046,14 @@
                             value: 255,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         21,
                     ),
                     hir_eager_stmt_idx: Some(
                         21,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -15110,7 +15110,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -15183,13 +15183,13 @@
                             value: 272,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         28,
                     ),
                     hir_eager_expr_idx: Some(
                         24,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -15272,13 +15272,13 @@
                             value: 272,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         30,
                     ),
                     hir_eager_expr_idx: Some(
                         26,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -15325,14 +15325,14 @@
                             value: 255,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         22,
                     ),
                     hir_eager_stmt_idx: Some(
                         22,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -15382,13 +15382,13 @@
                             value: 273,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         32,
                     ),
                     hir_eager_expr_idx: Some(
                         28,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -15435,7 +15435,7 @@
                             value: 255,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         23,
                     ),
                     hir_eager_stmt_idx: Some(
@@ -15452,13 +15452,13 @@
                                 90,
                             ),
                         },
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 0..14,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -15500,14 +15500,14 @@
                             value: 274,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         0,
                     ),
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -15549,14 +15549,14 @@
                             value: 274,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         1,
                     ),
                     hir_eager_stmt_idx: Some(
                         1,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -15598,14 +15598,14 @@
                             value: 274,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         2,
                     ),
                     hir_eager_stmt_idx: Some(
                         2,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -15647,14 +15647,14 @@
                             value: 274,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         3,
                     ),
                     hir_eager_stmt_idx: Some(
                         3,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -15696,14 +15696,14 @@
                             value: 274,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         4,
                     ),
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -15745,14 +15745,14 @@
                             value: 274,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         5,
                     ),
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -15794,14 +15794,14 @@
                             value: 274,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         6,
                     ),
                     hir_eager_stmt_idx: Some(
                         6,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -15843,14 +15843,14 @@
                             value: 274,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         7,
                     ),
                     hir_eager_stmt_idx: Some(
                         7,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -15892,14 +15892,14 @@
                             value: 274,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         8,
                     ),
                     hir_eager_stmt_idx: Some(
                         8,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -15941,14 +15941,14 @@
                             value: 274,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         9,
                     ),
                     hir_eager_stmt_idx: Some(
                         9,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -15990,14 +15990,14 @@
                             value: 274,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         10,
                     ),
                     hir_eager_stmt_idx: Some(
                         10,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -16039,14 +16039,14 @@
                             value: 274,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         11,
                     ),
                     hir_eager_stmt_idx: Some(
                         11,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -16088,14 +16088,14 @@
                             value: 274,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         12,
                     ),
                     hir_eager_stmt_idx: Some(
                         12,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -16137,14 +16137,14 @@
                             value: 274,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         13,
                     ),
                     hir_eager_stmt_idx: Some(
                         13,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -16194,13 +16194,13 @@
                             value: 274,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         35,
                     ),
                     hir_eager_expr_idx: Some(
                         31,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -16255,13 +16255,13 @@
                             value: 274,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         36,
                     ),
                     hir_eager_expr_idx: Some(
                         32,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -16308,14 +16308,14 @@
                             value: 255,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         24,
                     ),
                     hir_eager_stmt_idx: Some(
                         24,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 46,
                         },
@@ -16414,14 +16414,14 @@
                             value: 315,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         0,
                     ),
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 52,
                         },
@@ -16520,14 +16520,14 @@
                             value: 317,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         0,
                     ),
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 54,
                         },
@@ -16577,13 +16577,13 @@
                             value: 320,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         4,
                     ),
                     hir_eager_expr_idx: Some(
                         3,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 54,
                         },
@@ -16666,13 +16666,13 @@
                             value: 320,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         4,
                     ),
                     hir_eager_expr_idx: Some(
                         3,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 54,
                         },
@@ -16747,14 +16747,14 @@
                             value: 318,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         0,
                     ),
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 58,
                         },
@@ -16804,13 +16804,13 @@
                             value: 323,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         5,
                     ),
                     hir_eager_expr_idx: Some(
                         4,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 58,
                         },
@@ -16893,13 +16893,13 @@
                             value: 323,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         5,
                     ),
                     hir_eager_expr_idx: Some(
                         4,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 58,
                         },
@@ -16974,14 +16974,14 @@
                             value: 319,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         10,
                     ),
                     hir_eager_stmt_idx: Some(
                         10,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -17059,13 +17059,13 @@
                             value: 326,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         1,
                     ),
                     hir_eager_expr_idx: Some(
                         1,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -17112,14 +17112,14 @@
                             value: 319,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         11,
                     ),
                     hir_eager_stmt_idx: Some(
                         11,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -17176,7 +17176,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -17249,13 +17249,13 @@
                             value: 327,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         5,
                     ),
                     hir_eager_expr_idx: Some(
                         5,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -17302,7 +17302,7 @@
                             value: 319,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         12,
                     ),
                     hir_eager_stmt_idx: Some(
@@ -17319,13 +17319,13 @@
                                 17,
                             ),
                         },
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 3..7,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -17367,14 +17367,14 @@
                             value: 328,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         3,
                     ),
                     hir_eager_stmt_idx: Some(
                         3,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -17416,14 +17416,14 @@
                             value: 328,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         4,
                     ),
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -17465,7 +17465,7 @@
                             value: 328,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         5,
                     ),
                     hir_eager_stmt_idx: Some(
@@ -17482,13 +17482,13 @@
                                 44,
                             ),
                         },
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 0..3,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -17530,14 +17530,14 @@
                             value: 328,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         6,
                     ),
                     hir_eager_stmt_idx: Some(
                         6,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -17587,13 +17587,13 @@
                             value: 328,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         6,
                     ),
                     hir_eager_expr_idx: Some(
                         6,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -17640,7 +17640,7 @@
                             value: 319,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         13,
                     ),
                     hir_eager_stmt_idx: Some(
@@ -17657,13 +17657,13 @@
                                 78,
                             ),
                         },
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 7..10,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -17705,14 +17705,14 @@
                             value: 329,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         7,
                     ),
                     hir_eager_stmt_idx: Some(
                         7,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -17754,14 +17754,14 @@
                             value: 329,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         8,
                     ),
                     hir_eager_stmt_idx: Some(
                         8,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -17803,14 +17803,14 @@
                             value: 329,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         9,
                     ),
                     hir_eager_stmt_idx: Some(
                         9,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -17860,13 +17860,13 @@
                             value: 329,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         35,
                     ),
                     hir_eager_expr_idx: Some(
                         34,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -17913,14 +17913,14 @@
                             value: 319,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         14,
                     ),
                     hir_eager_stmt_idx: Some(
                         14,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -17998,13 +17998,13 @@
                             value: 330,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         48,
                     ),
                     hir_eager_expr_idx: Some(
                         47,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -18051,14 +18051,14 @@
                             value: 319,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         15,
                     ),
                     hir_eager_stmt_idx: Some(
                         15,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -18115,7 +18115,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -18188,13 +18188,13 @@
                             value: 331,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         53,
                     ),
                     hir_eager_expr_idx: Some(
                         51,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -18241,14 +18241,14 @@
                             value: 319,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         16,
                     ),
                     hir_eager_stmt_idx: Some(
                         16,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -18290,14 +18290,14 @@
                             value: 319,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         17,
                     ),
                     hir_eager_stmt_idx: Some(
                         17,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -18396,14 +18396,14 @@
                             value: 353,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         0,
                     ),
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 66,
                         },
@@ -18453,13 +18453,13 @@
                             value: 355,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         4,
                     ),
                     hir_eager_expr_idx: Some(
                         3,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 66,
                         },
@@ -18542,13 +18542,13 @@
                             value: 355,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         4,
                     ),
                     hir_eager_expr_idx: Some(
                         3,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 66,
                         },
@@ -18623,14 +18623,14 @@
                             value: 354,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         3,
                     ),
                     hir_eager_stmt_idx: Some(
                         3,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 68,
                         },
@@ -18687,7 +18687,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 68,
                         },
@@ -18760,13 +18760,13 @@
                             value: 358,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         1,
                     ),
                     hir_eager_expr_idx: Some(
                         1,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 68,
                         },
@@ -18849,13 +18849,13 @@
                             value: 358,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         3,
                     ),
                     hir_eager_expr_idx: Some(
                         3,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 68,
                         },
@@ -18902,7 +18902,7 @@
                             value: 354,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         4,
                     ),
                     hir_eager_stmt_idx: Some(
@@ -18919,13 +18919,13 @@
                                 22,
                             ),
                         },
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 1..3,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 68,
                         },
@@ -18967,7 +18967,7 @@
                             value: 359,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         1,
                     ),
                     hir_eager_stmt_idx: Some(
@@ -18984,13 +18984,13 @@
                                 34,
                             ),
                         },
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 0..1,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 68,
                         },
@@ -19032,14 +19032,14 @@
                             value: 359,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         2,
                     ),
                     hir_eager_stmt_idx: Some(
                         2,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 68,
                         },
@@ -19117,13 +19117,13 @@
                             value: 359,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         6,
                     ),
                     hir_eager_expr_idx: Some(
                         6,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 68,
                         },
@@ -19178,13 +19178,13 @@
                             value: 359,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         7,
                     ),
                     hir_eager_expr_idx: Some(
                         7,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 68,
                         },
@@ -19231,14 +19231,14 @@
                             value: 354,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         5,
                     ),
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 68,
                         },
@@ -19337,14 +19337,14 @@
                             value: 371,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         0,
                     ),
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 72,
                         },
@@ -19394,13 +19394,13 @@
                             value: 374,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         4,
                     ),
                     hir_eager_expr_idx: Some(
                         3,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 72,
                         },
@@ -19483,13 +19483,13 @@
                             value: 374,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         4,
                     ),
                     hir_eager_expr_idx: Some(
                         3,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 72,
                         },
@@ -19564,14 +19564,14 @@
                             value: 372,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         0,
                     ),
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 74,
                         },
@@ -19621,13 +19621,13 @@
                             value: 377,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         4,
                     ),
                     hir_eager_expr_idx: Some(
                         3,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 74,
                         },
@@ -19710,13 +19710,13 @@
                             value: 377,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         4,
                     ),
                     hir_eager_expr_idx: Some(
                         3,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 74,
                         },
@@ -19791,14 +19791,14 @@
                             value: 373,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         14,
                     ),
                     hir_eager_stmt_idx: Some(
                         14,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -19855,7 +19855,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -19928,13 +19928,13 @@
                             value: 380,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         1,
                     ),
                     hir_eager_expr_idx: Some(
                         1,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -19981,14 +19981,14 @@
                             value: 373,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         15,
                     ),
                     hir_eager_stmt_idx: Some(
                         15,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -20038,13 +20038,13 @@
                             value: 381,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         2,
                     ),
                     hir_eager_expr_idx: Some(
                         2,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -20099,13 +20099,13 @@
                             value: 381,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         3,
                     ),
                     hir_eager_expr_idx: Some(
                         3,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -20152,14 +20152,14 @@
                             value: 373,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         16,
                     ),
                     hir_eager_stmt_idx: Some(
                         16,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -20216,7 +20216,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -20289,13 +20289,13 @@
                             value: 382,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         8,
                     ),
                     hir_eager_expr_idx: Some(
                         7,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -20342,14 +20342,14 @@
                             value: 373,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         17,
                     ),
                     hir_eager_stmt_idx: Some(
                         17,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -20399,13 +20399,13 @@
                             value: 383,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         11,
                     ),
                     hir_eager_expr_idx: Some(
                         10,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -20452,14 +20452,14 @@
                             value: 373,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         18,
                     ),
                     hir_eager_stmt_idx: Some(
                         18,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -20516,7 +20516,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -20561,13 +20561,13 @@
                             value: 384,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         13,
                     ),
                     hir_eager_expr_idx: Some(
                         11,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -20622,13 +20622,13 @@
                             value: 384,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         15,
                     ),
                     hir_eager_expr_idx: Some(
                         13,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -20683,13 +20683,13 @@
                             value: 384,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         16,
                     ),
                     hir_eager_expr_idx: Some(
                         14,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -20736,14 +20736,14 @@
                             value: 373,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         19,
                     ),
                     hir_eager_stmt_idx: Some(
                         19,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -20800,7 +20800,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -20873,13 +20873,13 @@
                             value: 385,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         18,
                     ),
                     hir_eager_expr_idx: Some(
                         16,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -20962,13 +20962,13 @@
                             value: 385,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         20,
                     ),
                     hir_eager_expr_idx: Some(
                         18,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -21015,14 +21015,14 @@
                             value: 373,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         20,
                     ),
                     hir_eager_stmt_idx: Some(
                         20,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -21072,13 +21072,13 @@
                             value: 386,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         22,
                     ),
                     hir_eager_expr_idx: Some(
                         20,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -21125,7 +21125,7 @@
                             value: 373,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         21,
                     ),
                     hir_eager_stmt_idx: Some(
@@ -21142,13 +21142,13 @@
                                 66,
                             ),
                         },
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 0..14,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -21190,14 +21190,14 @@
                             value: 387,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         0,
                     ),
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -21239,14 +21239,14 @@
                             value: 387,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         1,
                     ),
                     hir_eager_stmt_idx: Some(
                         1,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -21288,14 +21288,14 @@
                             value: 387,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         2,
                     ),
                     hir_eager_stmt_idx: Some(
                         2,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -21337,14 +21337,14 @@
                             value: 387,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         3,
                     ),
                     hir_eager_stmt_idx: Some(
                         3,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -21386,14 +21386,14 @@
                             value: 387,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         4,
                     ),
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -21435,14 +21435,14 @@
                             value: 387,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         5,
                     ),
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -21484,14 +21484,14 @@
                             value: 387,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         6,
                     ),
                     hir_eager_stmt_idx: Some(
                         6,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -21533,14 +21533,14 @@
                             value: 387,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         7,
                     ),
                     hir_eager_stmt_idx: Some(
                         7,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -21582,14 +21582,14 @@
                             value: 387,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         8,
                     ),
                     hir_eager_stmt_idx: Some(
                         8,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -21631,14 +21631,14 @@
                             value: 387,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         9,
                     ),
                     hir_eager_stmt_idx: Some(
                         9,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -21680,14 +21680,14 @@
                             value: 387,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         10,
                     ),
                     hir_eager_stmt_idx: Some(
                         10,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -21729,14 +21729,14 @@
                             value: 387,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         11,
                     ),
                     hir_eager_stmt_idx: Some(
                         11,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -21778,14 +21778,14 @@
                             value: 387,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         12,
                     ),
                     hir_eager_stmt_idx: Some(
                         12,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -21827,14 +21827,14 @@
                             value: 387,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         13,
                     ),
                     hir_eager_stmt_idx: Some(
                         13,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -21884,13 +21884,13 @@
                             value: 387,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         25,
                     ),
                     hir_eager_expr_idx: Some(
                         23,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -21945,13 +21945,13 @@
                             value: 387,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         26,
                     ),
                     hir_eager_expr_idx: Some(
                         24,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -21998,14 +21998,14 @@
                             value: 373,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         22,
                     ),
                     hir_eager_stmt_idx: Some(
                         22,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -22104,14 +22104,14 @@
                             value: 424,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         0,
                     ),
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 82,
                         },
@@ -22161,13 +22161,13 @@
                             value: 426,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         6,
                     ),
                     hir_eager_expr_idx: Some(
                         5,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 82,
                         },
@@ -22250,13 +22250,13 @@
                             value: 426,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         6,
                     ),
                     hir_eager_expr_idx: Some(
                         5,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 82,
                         },
@@ -22331,14 +22331,14 @@
                             value: 425,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         19,
                     ),
                     hir_eager_stmt_idx: Some(
                         19,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -22395,7 +22395,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -22468,13 +22468,13 @@
                             value: 429,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         1,
                     ),
                     hir_eager_expr_idx: Some(
                         1,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -22521,14 +22521,14 @@
                             value: 425,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         20,
                     ),
                     hir_eager_stmt_idx: Some(
                         20,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -22585,7 +22585,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -22658,13 +22658,13 @@
                             value: 430,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         3,
                     ),
                     hir_eager_expr_idx: Some(
                         3,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -22711,14 +22711,14 @@
                             value: 425,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         21,
                     ),
                     hir_eager_stmt_idx: Some(
                         21,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -22768,13 +22768,13 @@
                             value: 431,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         4,
                     ),
                     hir_eager_expr_idx: Some(
                         4,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -22829,13 +22829,13 @@
                             value: 431,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         5,
                     ),
                     hir_eager_expr_idx: Some(
                         5,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -22882,14 +22882,14 @@
                             value: 425,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         22,
                     ),
                     hir_eager_stmt_idx: Some(
                         22,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -22946,7 +22946,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -23019,13 +23019,13 @@
                             value: 432,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         10,
                     ),
                     hir_eager_expr_idx: Some(
                         9,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -23072,14 +23072,14 @@
                             value: 425,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         23,
                     ),
                     hir_eager_stmt_idx: Some(
                         23,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -23136,7 +23136,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -23209,13 +23209,13 @@
                             value: 433,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         14,
                     ),
                     hir_eager_expr_idx: Some(
                         13,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -23262,14 +23262,14 @@
                             value: 425,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         24,
                     ),
                     hir_eager_stmt_idx: Some(
                         24,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -23326,7 +23326,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -23399,13 +23399,13 @@
                             value: 434,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         18,
                     ),
                     hir_eager_expr_idx: Some(
                         17,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -23452,14 +23452,14 @@
                             value: 425,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         25,
                     ),
                     hir_eager_stmt_idx: Some(
                         25,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -23509,13 +23509,13 @@
                             value: 435,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         21,
                     ),
                     hir_eager_expr_idx: Some(
                         20,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -23562,14 +23562,14 @@
                             value: 425,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         26,
                     ),
                     hir_eager_stmt_idx: Some(
                         26,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -23626,7 +23626,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -23699,13 +23699,13 @@
                             value: 436,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         25,
                     ),
                     hir_eager_expr_idx: Some(
                         24,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -23788,13 +23788,13 @@
                             value: 436,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         27,
                     ),
                     hir_eager_expr_idx: Some(
                         26,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -23841,14 +23841,14 @@
                             value: 425,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         27,
                     ),
                     hir_eager_stmt_idx: Some(
                         27,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -23898,13 +23898,13 @@
                             value: 437,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         29,
                     ),
                     hir_eager_expr_idx: Some(
                         28,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -23951,7 +23951,7 @@
                             value: 425,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         28,
                     ),
                     hir_eager_stmt_idx: Some(
@@ -23968,13 +23968,13 @@
                                 73,
                             ),
                         },
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 0..14,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -24016,14 +24016,14 @@
                             value: 438,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         0,
                     ),
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -24065,14 +24065,14 @@
                             value: 438,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         1,
                     ),
                     hir_eager_stmt_idx: Some(
                         1,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -24114,14 +24114,14 @@
                             value: 438,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         2,
                     ),
                     hir_eager_stmt_idx: Some(
                         2,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -24163,14 +24163,14 @@
                             value: 438,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         3,
                     ),
                     hir_eager_stmt_idx: Some(
                         3,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -24212,14 +24212,14 @@
                             value: 438,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         4,
                     ),
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -24261,14 +24261,14 @@
                             value: 438,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         5,
                     ),
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -24310,14 +24310,14 @@
                             value: 438,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         6,
                     ),
                     hir_eager_stmt_idx: Some(
                         6,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -24359,14 +24359,14 @@
                             value: 438,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         7,
                     ),
                     hir_eager_stmt_idx: Some(
                         7,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -24408,14 +24408,14 @@
                             value: 438,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         8,
                     ),
                     hir_eager_stmt_idx: Some(
                         8,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -24457,14 +24457,14 @@
                             value: 438,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         9,
                     ),
                     hir_eager_stmt_idx: Some(
                         9,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -24506,14 +24506,14 @@
                             value: 438,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         10,
                     ),
                     hir_eager_stmt_idx: Some(
                         10,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -24555,14 +24555,14 @@
                             value: 438,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         11,
                     ),
                     hir_eager_stmt_idx: Some(
                         11,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -24604,14 +24604,14 @@
                             value: 438,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         12,
                     ),
                     hir_eager_stmt_idx: Some(
                         12,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -24653,14 +24653,14 @@
                             value: 438,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         13,
                     ),
                     hir_eager_stmt_idx: Some(
                         13,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -24710,13 +24710,13 @@
                             value: 438,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         32,
                     ),
                     hir_eager_expr_idx: Some(
                         31,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -24763,7 +24763,7 @@
                             value: 425,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         29,
                     ),
                     hir_eager_stmt_idx: Some(
@@ -24780,13 +24780,13 @@
                                 208,
                             ),
                         },
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 14..19,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -24828,14 +24828,14 @@
                             value: 439,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         14,
                     ),
                     hir_eager_stmt_idx: Some(
                         14,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -24877,14 +24877,14 @@
                             value: 439,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         15,
                     ),
                     hir_eager_stmt_idx: Some(
                         15,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -24926,14 +24926,14 @@
                             value: 439,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         16,
                     ),
                     hir_eager_stmt_idx: Some(
                         16,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -24975,14 +24975,14 @@
                             value: 439,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         17,
                     ),
                     hir_eager_stmt_idx: Some(
                         17,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -25024,14 +25024,14 @@
                             value: 439,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         18,
                     ),
                     hir_eager_stmt_idx: Some(
                         18,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -25081,13 +25081,13 @@
                             value: 439,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         90,
                     ),
                     hir_eager_expr_idx: Some(
                         85,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -25134,14 +25134,14 @@
                             value: 425,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         30,
                     ),
                     hir_eager_stmt_idx: Some(
                         30,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -25240,14 +25240,14 @@
                             value: 486,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         0,
                     ),
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 94,
                         },
@@ -25297,13 +25297,13 @@
                             value: 493,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         2,
                     ),
                     hir_eager_expr_idx: Some(
                         1,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 94,
                         },
@@ -25349,14 +25349,14 @@
                         },
                     ),
                     input_sketch: Simple {
-                        argument_sem_expr_idx: SemaExprIdx(
+                        argument_sem_expr_idx: SemExprIdx(
                             1,
                         ),
                         argument_hir_eager_expr_idx: Some(
                             0,
                         ),
                     },
-                    caller_sem_expr_region: SemaExprRegion(
+                    caller_sem_expr_region: SemExprRegion(
                         Id {
                             value: 94,
                         },
@@ -25486,13 +25486,13 @@
                             value: 493,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         2,
                     ),
                     hir_eager_expr_idx: Some(
                         1,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 94,
                         },
@@ -25538,14 +25538,14 @@
                         },
                     ),
                     input_sketch: Simple {
-                        argument_sem_expr_idx: SemaExprIdx(
+                        argument_sem_expr_idx: SemExprIdx(
                             1,
                         ),
                         argument_hir_eager_expr_idx: Some(
                             0,
                         ),
                     },
-                    caller_sem_expr_region: SemaExprRegion(
+                    caller_sem_expr_region: SemExprRegion(
                         Id {
                             value: 94,
                         },
@@ -25667,14 +25667,14 @@
                             value: 487,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         4,
                     ),
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 96,
                         },
@@ -25731,7 +25731,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 96,
                         },
@@ -25768,14 +25768,14 @@
                             value: 487,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         5,
                     ),
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 96,
                         },
@@ -25832,7 +25832,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 96,
                         },
@@ -25869,7 +25869,7 @@
                             value: 487,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         6,
                     ),
                     hir_eager_stmt_idx: Some(
@@ -25888,13 +25888,13 @@
                                 ),
                             },
                         ),
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 2..4,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 96,
                         },
@@ -25936,14 +25936,14 @@
                             value: 500,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         2,
                     ),
                     hir_eager_stmt_idx: Some(
                         2,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 96,
                         },
@@ -26000,7 +26000,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 96,
                         },
@@ -26073,13 +26073,13 @@
                             value: 504,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         6,
                     ),
                     hir_eager_expr_idx: Some(
                         5,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 96,
                         },
@@ -26134,13 +26134,13 @@
                             value: 504,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         8,
                     ),
                     hir_eager_expr_idx: Some(
                         7,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 96,
                         },
@@ -26187,7 +26187,7 @@
                             value: 500,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         3,
                     ),
                     hir_eager_stmt_idx: Some(
@@ -26204,13 +26204,13 @@
                                 33,
                             ),
                         },
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 0..2,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 96,
                         },
@@ -26252,14 +26252,14 @@
                             value: 505,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         0,
                     ),
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 96,
                         },
@@ -26301,14 +26301,14 @@
                             value: 505,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         1,
                     ),
                     hir_eager_stmt_idx: Some(
                         1,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 96,
                         },
@@ -26358,13 +26358,13 @@
                             value: 505,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         9,
                     ),
                     hir_eager_expr_idx: Some(
                         8,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 96,
                         },
@@ -26419,13 +26419,13 @@
                             value: 505,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         10,
                     ),
                     hir_eager_expr_idx: Some(
                         9,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 96,
                         },
@@ -26480,11 +26480,11 @@
                             value: 500,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         4,
                     ),
                     hir_eager_expr_idx: None,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 96,
                         },
@@ -26559,14 +26559,14 @@
                             value: 515,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         0,
                     ),
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 94,
                         },
@@ -26616,13 +26616,13 @@
                             value: 500,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         3,
                     ),
                     hir_eager_expr_idx: Some(
                         3,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 96,
                         },
@@ -26721,14 +26721,14 @@
                             value: 487,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         7,
                     ),
                     hir_eager_stmt_idx: Some(
                         7,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 96,
                         },
@@ -26798,14 +26798,14 @@
                             value: 519,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         0,
                     ),
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 94,
                         },
@@ -26855,13 +26855,13 @@
                             value: 501,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         19,
                     ),
                     hir_eager_expr_idx: Some(
                         18,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 96,
                         },
@@ -26936,14 +26936,14 @@
                             value: 488,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         1,
                     ),
                     hir_eager_stmt_idx: Some(
                         1,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 98,
                         },
@@ -27000,7 +27000,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 98,
                         },
@@ -27037,7 +27037,7 @@
                             value: 488,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         2,
                     ),
                     hir_eager_stmt_idx: Some(
@@ -27056,13 +27056,13 @@
                                 ),
                             },
                         ),
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 0..1,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 98,
                         },
@@ -27104,14 +27104,14 @@
                             value: 523,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         0,
                     ),
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 98,
                         },
@@ -27161,13 +27161,13 @@
                             value: 526,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         4,
                     ),
                     hir_eager_expr_idx: Some(
                         3,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 98,
                         },
@@ -27250,13 +27250,13 @@
                             value: 526,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         6,
                     ),
                     hir_eager_expr_idx: Some(
                         5,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 98,
                         },
@@ -27311,13 +27311,13 @@
                             value: 526,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         8,
                     ),
                     hir_eager_expr_idx: Some(
                         7,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 98,
                         },
@@ -27372,11 +27372,11 @@
                             value: 523,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         3,
                     ),
                     hir_eager_expr_idx: None,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 98,
                         },
@@ -27451,14 +27451,14 @@
                             value: 532,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         0,
                     ),
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 94,
                         },
@@ -27508,13 +27508,13 @@
                             value: 523,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         2,
                     ),
                     hir_eager_expr_idx: Some(
                         2,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 98,
                         },
@@ -27613,14 +27613,14 @@
                             value: 488,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         3,
                     ),
                     hir_eager_stmt_idx: Some(
                         3,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 98,
                         },
@@ -27670,13 +27670,13 @@
                             value: 524,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         10,
                     ),
                     hir_eager_expr_idx: Some(
                         9,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 98,
                         },
@@ -27751,14 +27751,14 @@
                             value: 537,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         4,
                     ),
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 96,
                         },
@@ -27800,14 +27800,14 @@
                             value: 537,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         5,
                     ),
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 96,
                         },
@@ -27849,7 +27849,7 @@
                             value: 537,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         6,
                     ),
                     hir_eager_stmt_idx: Some(
@@ -27868,13 +27868,13 @@
                                 ),
                             },
                         ),
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 2..4,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 96,
                         },
@@ -27916,14 +27916,14 @@
                             value: 537,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         7,
                     ),
                     hir_eager_stmt_idx: Some(
                         7,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 96,
                         },
@@ -27973,13 +27973,13 @@
                             value: 524,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         12,
                     ),
                     hir_eager_expr_idx: Some(
                         11,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 98,
                         },
@@ -28054,14 +28054,14 @@
                             value: 489,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         0,
                     ),
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 100,
                         },
@@ -28131,14 +28131,14 @@
                             value: 544,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         4,
                     ),
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 96,
                         },
@@ -28180,14 +28180,14 @@
                             value: 544,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         5,
                     ),
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 96,
                         },
@@ -28229,7 +28229,7 @@
                             value: 544,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         6,
                     ),
                     hir_eager_stmt_idx: Some(
@@ -28248,13 +28248,13 @@
                                 ),
                             },
                         ),
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 2..4,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 96,
                         },
@@ -28296,14 +28296,14 @@
                             value: 544,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         7,
                     ),
                     hir_eager_stmt_idx: Some(
                         7,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 96,
                         },
@@ -28353,13 +28353,13 @@
                             value: 543,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         1,
                     ),
                     hir_eager_expr_idx: Some(
                         1,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 100,
                         },
@@ -28434,14 +28434,14 @@
                             value: 490,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         0,
                     ),
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 102,
                         },
@@ -28511,14 +28511,14 @@
                             value: 551,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         4,
                     ),
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 96,
                         },
@@ -28560,14 +28560,14 @@
                             value: 551,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         5,
                     ),
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 96,
                         },
@@ -28609,7 +28609,7 @@
                             value: 551,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         6,
                     ),
                     hir_eager_stmt_idx: Some(
@@ -28628,13 +28628,13 @@
                                 ),
                             },
                         ),
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 2..4,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 96,
                         },
@@ -28676,14 +28676,14 @@
                             value: 551,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         7,
                     ),
                     hir_eager_stmt_idx: Some(
                         7,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 96,
                         },
@@ -28733,13 +28733,13 @@
                             value: 550,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         1,
                     ),
                     hir_eager_expr_idx: Some(
                         1,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 102,
                         },
@@ -28814,14 +28814,14 @@
                             value: 491,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         0,
                     ),
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 104,
                         },
@@ -28891,14 +28891,14 @@
                             value: 558,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         0,
                     ),
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 102,
                         },
@@ -28948,13 +28948,13 @@
                             value: 557,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         1,
                     ),
                     hir_eager_expr_idx: Some(
                         1,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 104,
                         },
@@ -29029,14 +29029,14 @@
                             value: 492,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         0,
                     ),
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 106,
                         },
@@ -29106,14 +29106,14 @@
                             value: 562,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         0,
                     ),
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 104,
                         },
@@ -29163,13 +29163,13 @@
                             value: 561,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         1,
                     ),
                     hir_eager_expr_idx: Some(
                         1,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 106,
                         },
@@ -29244,14 +29244,14 @@
                             value: 3,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         0,
                     ),
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 92,
                         },
@@ -29323,14 +29323,14 @@
                             value: 575,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         41,
                     ),
                     hir_lazy_stmt_idx: Some(
                         41,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -29372,13 +29372,13 @@
                             value: 576,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         5,
                     ),
                     hir_lazy_expr_idx: Some(
                         5,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -29453,13 +29453,13 @@
                             value: 576,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         2,
                     ),
                     hir_lazy_expr_idx: Some(
                         2,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -29534,13 +29534,13 @@
                             value: 576,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         5,
                     ),
                     hir_lazy_expr_idx: Some(
                         5,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -29589,14 +29589,14 @@
                             value: 575,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         42,
                     ),
                     hir_lazy_stmt_idx: Some(
                         42,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -29654,7 +29654,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -29696,13 +29696,13 @@
                             value: 577,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         10,
                     ),
                     hir_lazy_expr_idx: Some(
                         10,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -29777,13 +29777,13 @@
                             value: 577,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         10,
                     ),
                     hir_lazy_expr_idx: Some(
                         10,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -29832,7 +29832,7 @@
                             value: 575,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         43,
                     ),
                     hir_lazy_stmt_idx: Some(
@@ -29849,13 +29849,13 @@
                                 31,
                             ),
                         },
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 1..4,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -29907,14 +29907,14 @@
                             value: 578,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         1,
                     ),
                     hir_lazy_stmt_idx: Some(
                         1,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -29966,7 +29966,7 @@
                             value: 578,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         2,
                     ),
                     hir_lazy_stmt_idx: Some(
@@ -29983,13 +29983,13 @@
                                 50,
                             ),
                         },
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 0..1,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -30041,14 +30041,14 @@
                             value: 578,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         3,
                     ),
                     hir_lazy_stmt_idx: Some(
                         3,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -30090,13 +30090,13 @@
                             value: 578,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         11,
                     ),
                     hir_lazy_expr_idx: Some(
                         11,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -30143,13 +30143,13 @@
                             value: 578,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         12,
                     ),
                     hir_lazy_expr_idx: Some(
                         12,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -30198,7 +30198,7 @@
                             value: 575,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         43,
                     ),
                     hir_lazy_stmt_idx: Some(
@@ -30215,13 +30215,13 @@
                                 61,
                             ),
                         },
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 15..41,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -30273,14 +30273,14 @@
                             value: 579,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         15,
                     ),
                     hir_lazy_stmt_idx: Some(
                         15,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -30332,14 +30332,14 @@
                             value: 579,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         16,
                     ),
                     hir_lazy_stmt_idx: Some(
                         16,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -30391,14 +30391,14 @@
                             value: 579,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         17,
                     ),
                     hir_lazy_stmt_idx: Some(
                         17,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -30450,14 +30450,14 @@
                             value: 579,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         18,
                     ),
                     hir_lazy_stmt_idx: Some(
                         18,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -30509,14 +30509,14 @@
                             value: 579,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         19,
                     ),
                     hir_lazy_stmt_idx: Some(
                         19,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -30568,7 +30568,7 @@
                             value: 579,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         20,
                     ),
                     hir_lazy_stmt_idx: Some(
@@ -30585,13 +30585,13 @@
                                 103,
                             ),
                         },
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 4..8,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -30643,14 +30643,14 @@
                             value: 579,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         21,
                     ),
                     hir_lazy_stmt_idx: Some(
                         21,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -30702,14 +30702,14 @@
                             value: 579,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         22,
                     ),
                     hir_lazy_stmt_idx: Some(
                         22,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -30761,14 +30761,14 @@
                             value: 579,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         23,
                     ),
                     hir_lazy_stmt_idx: Some(
                         23,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -30820,14 +30820,14 @@
                             value: 579,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         24,
                     ),
                     hir_lazy_stmt_idx: Some(
                         24,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -30879,7 +30879,7 @@
                             value: 579,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         25,
                     ),
                     hir_lazy_stmt_idx: Some(
@@ -30896,13 +30896,13 @@
                                 234,
                             ),
                         },
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 8..14,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -30954,7 +30954,7 @@
                             value: 579,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         26,
                     ),
                     hir_lazy_stmt_idx: Some(
@@ -30971,13 +30971,13 @@
                                 344,
                             ),
                         },
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 14..15,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -31029,14 +31029,14 @@
                             value: 579,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         27,
                     ),
                     hir_lazy_stmt_idx: Some(
                         27,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -31088,14 +31088,14 @@
                             value: 579,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         28,
                     ),
                     hir_lazy_stmt_idx: Some(
                         28,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -31147,14 +31147,14 @@
                             value: 579,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         29,
                     ),
                     hir_lazy_stmt_idx: Some(
                         29,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -31206,14 +31206,14 @@
                             value: 579,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         30,
                     ),
                     hir_lazy_stmt_idx: Some(
                         30,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -31265,14 +31265,14 @@
                             value: 579,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         31,
                     ),
                     hir_lazy_stmt_idx: Some(
                         31,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -31324,14 +31324,14 @@
                             value: 579,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         32,
                     ),
                     hir_lazy_stmt_idx: Some(
                         32,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -31383,14 +31383,14 @@
                             value: 579,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         33,
                     ),
                     hir_lazy_stmt_idx: Some(
                         33,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -31442,14 +31442,14 @@
                             value: 579,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         34,
                     ),
                     hir_lazy_stmt_idx: Some(
                         34,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -31501,14 +31501,14 @@
                             value: 579,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         35,
                     ),
                     hir_lazy_stmt_idx: Some(
                         35,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -31560,14 +31560,14 @@
                             value: 579,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         36,
                     ),
                     hir_lazy_stmt_idx: Some(
                         36,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -31619,14 +31619,14 @@
                             value: 579,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         37,
                     ),
                     hir_lazy_stmt_idx: Some(
                         37,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -31678,14 +31678,14 @@
                             value: 579,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         38,
                     ),
                     hir_lazy_stmt_idx: Some(
                         38,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -31737,14 +31737,14 @@
                             value: 579,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         39,
                     ),
                     hir_lazy_stmt_idx: Some(
                         39,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -31796,14 +31796,14 @@
                             value: 579,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         40,
                     ),
                     hir_lazy_stmt_idx: Some(
                         40,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 10,
                         },
@@ -31845,14 +31845,14 @@
                             value: 3,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         1,
                     ),
                     hir_eager_stmt_idx: Some(
                         1,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 92,
                         },
@@ -31924,14 +31924,14 @@
                             value: 618,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         19,
                     ),
                     hir_lazy_stmt_idx: Some(
                         19,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -31989,7 +31989,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -32059,13 +32059,13 @@
                             value: 619,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         1,
                     ),
                     hir_lazy_expr_idx: Some(
                         1,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -32114,14 +32114,14 @@
                             value: 618,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         20,
                     ),
                     hir_lazy_stmt_idx: Some(
                         20,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -32163,13 +32163,13 @@
                             value: 620,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         4,
                     ),
                     hir_lazy_expr_idx: Some(
                         4,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -32218,14 +32218,14 @@
                             value: 618,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         21,
                     ),
                     hir_lazy_stmt_idx: Some(
                         21,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -32283,7 +32283,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -32353,13 +32353,13 @@
                             value: 621,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         7,
                     ),
                     hir_lazy_expr_idx: Some(
                         6,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -32408,14 +32408,14 @@
                             value: 618,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         22,
                     ),
                     hir_lazy_stmt_idx: Some(
                         22,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -32473,7 +32473,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -32543,13 +32543,13 @@
                             value: 622,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         9,
                     ),
                     hir_lazy_expr_idx: Some(
                         8,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -32624,13 +32624,13 @@
                             value: 622,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         11,
                     ),
                     hir_lazy_expr_idx: Some(
                         10,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -32679,7 +32679,7 @@
                             value: 618,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         23,
                     ),
                     hir_lazy_stmt_idx: Some(
@@ -32696,13 +32696,13 @@
                                 42,
                             ),
                         },
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 5..17,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -32754,14 +32754,14 @@
                             value: 623,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         5,
                     ),
                     hir_lazy_stmt_idx: Some(
                         5,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -32813,14 +32813,14 @@
                             value: 623,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         6,
                     ),
                     hir_lazy_stmt_idx: Some(
                         6,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -32872,14 +32872,14 @@
                             value: 623,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         7,
                     ),
                     hir_lazy_stmt_idx: Some(
                         7,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -32931,14 +32931,14 @@
                             value: 623,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         8,
                     ),
                     hir_lazy_stmt_idx: Some(
                         8,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -32990,14 +32990,14 @@
                             value: 623,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         9,
                     ),
                     hir_lazy_stmt_idx: Some(
                         9,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -33049,14 +33049,14 @@
                             value: 623,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         10,
                     ),
                     hir_lazy_stmt_idx: Some(
                         10,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -33108,14 +33108,14 @@
                             value: 623,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         11,
                     ),
                     hir_lazy_stmt_idx: Some(
                         11,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -33167,7 +33167,7 @@
                             value: 623,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         12,
                     ),
                     hir_lazy_stmt_idx: Some(
@@ -33184,13 +33184,13 @@
                                 112,
                             ),
                         },
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 0..4,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -33242,14 +33242,14 @@
                             value: 623,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         13,
                     ),
                     hir_lazy_stmt_idx: Some(
                         13,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -33301,14 +33301,14 @@
                             value: 623,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         14,
                     ),
                     hir_lazy_stmt_idx: Some(
                         14,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -33360,7 +33360,7 @@
                             value: 623,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         15,
                     ),
                     hir_lazy_stmt_idx: Some(
@@ -33377,13 +33377,13 @@
                                 177,
                             ),
                         },
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 4..5,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -33435,14 +33435,14 @@
                             value: 623,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         16,
                     ),
                     hir_lazy_stmt_idx: Some(
                         16,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -33484,13 +33484,13 @@
                             value: 623,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         13,
                     ),
                     hir_lazy_expr_idx: Some(
                         12,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -33537,13 +33537,13 @@
                             value: 623,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         14,
                     ),
                     hir_lazy_expr_idx: Some(
                         13,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -33592,14 +33592,14 @@
                             value: 618,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         24,
                     ),
                     hir_lazy_stmt_idx: Some(
                         24,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -33641,13 +33641,13 @@
                             value: 624,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         86,
                     ),
                     hir_lazy_expr_idx: Some(
                         83,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -33722,13 +33722,13 @@
                             value: 624,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         84,
                     ),
                     hir_lazy_expr_idx: Some(
                         81,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -33775,13 +33775,13 @@
                             value: 624,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         86,
                     ),
                     hir_lazy_expr_idx: Some(
                         83,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -33830,7 +33830,7 @@
                             value: 618,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         25,
                     ),
                     hir_lazy_stmt_idx: Some(
@@ -33847,13 +33847,13 @@
                                 203,
                             ),
                         },
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 17..18,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -33905,14 +33905,14 @@
                             value: 625,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         17,
                     ),
                     hir_lazy_stmt_idx: Some(
                         17,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -33982,13 +33982,13 @@
                             value: 625,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         89,
                     ),
                     hir_lazy_expr_idx: Some(
                         86,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -34037,14 +34037,14 @@
                             value: 618,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         26,
                     ),
                     hir_lazy_stmt_idx: Some(
                         26,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -34086,13 +34086,13 @@
                             value: 626,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         96,
                     ),
                     hir_lazy_expr_idx: Some(
                         93,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -34139,13 +34139,13 @@
                             value: 626,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         97,
                     ),
                     hir_lazy_expr_idx: Some(
                         94,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -34192,13 +34192,13 @@
                             value: 626,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         101,
                     ),
                     hir_lazy_expr_idx: Some(
                         98,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -34245,13 +34245,13 @@
                             value: 626,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         102,
                     ),
                     hir_lazy_expr_idx: Some(
                         99,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -34300,7 +34300,7 @@
                             value: 618,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         27,
                     ),
                     hir_lazy_stmt_idx: Some(
@@ -34317,13 +34317,13 @@
                                 238,
                             ),
                         },
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 18..19,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -34375,14 +34375,14 @@
                             value: 627,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         18,
                     ),
                     hir_lazy_stmt_idx: Some(
                         18,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -34424,13 +34424,13 @@
                             value: 627,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         105,
                     ),
                     hir_lazy_expr_idx: Some(
                         102,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -34477,13 +34477,13 @@
                             value: 627,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         106,
                     ),
                     hir_lazy_expr_idx: Some(
                         103,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -34532,14 +34532,14 @@
                             value: 618,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         28,
                     ),
                     hir_lazy_stmt_idx: Some(
                         28,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -34581,13 +34581,13 @@
                             value: 628,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         119,
                     ),
                     hir_lazy_expr_idx: Some(
                         115,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -34636,14 +34636,14 @@
                             value: 618,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         29,
                     ),
                     hir_lazy_stmt_idx: Some(
                         29,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 22,
                         },
@@ -34685,14 +34685,14 @@
                             value: 3,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         2,
                     ),
                     hir_eager_stmt_idx: Some(
                         2,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 92,
                         },
@@ -34764,7 +34764,7 @@
                             value: 670,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         7,
                     ),
                     hir_lazy_stmt_idx: Some(
@@ -34781,13 +34781,13 @@
                                 11,
                             ),
                         },
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 0..7,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -34839,14 +34839,14 @@
                             value: 671,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         0,
                     ),
                     hir_lazy_stmt_idx: Some(
                         0,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -34898,14 +34898,14 @@
                             value: 671,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         1,
                     ),
                     hir_lazy_stmt_idx: Some(
                         1,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -34957,14 +34957,14 @@
                             value: 671,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         2,
                     ),
                     hir_lazy_stmt_idx: Some(
                         2,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -35016,14 +35016,14 @@
                             value: 671,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         3,
                     ),
                     hir_lazy_stmt_idx: Some(
                         3,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -35075,14 +35075,14 @@
                             value: 671,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         4,
                     ),
                     hir_lazy_stmt_idx: Some(
                         4,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -35134,14 +35134,14 @@
                             value: 671,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         5,
                     ),
                     hir_lazy_stmt_idx: Some(
                         5,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -35193,14 +35193,14 @@
                             value: 671,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         6,
                     ),
                     hir_lazy_stmt_idx: Some(
                         6,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -35270,13 +35270,13 @@
                             value: 671,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         1,
                     ),
                     hir_lazy_expr_idx: Some(
                         1,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -35323,13 +35323,13 @@
                             value: 671,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         2,
                     ),
                     hir_lazy_expr_idx: Some(
                         2,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -35378,14 +35378,14 @@
                             value: 670,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         8,
                     ),
                     hir_lazy_stmt_idx: Some(
                         8,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -35443,7 +35443,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -35485,13 +35485,13 @@
                             value: 672,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         33,
                     ),
                     hir_lazy_expr_idx: Some(
                         32,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -35566,13 +35566,13 @@
                             value: 672,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         33,
                     ),
                     hir_lazy_expr_idx: Some(
                         32,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -35621,14 +35621,14 @@
                             value: 670,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         9,
                     ),
                     hir_lazy_stmt_idx: Some(
                         9,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -35670,13 +35670,13 @@
                             value: 673,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         42,
                     ),
                     hir_lazy_expr_idx: Some(
                         41,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -35723,13 +35723,13 @@
                             value: 673,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         35,
                     ),
                     hir_lazy_expr_idx: Some(
                         34,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -35776,13 +35776,13 @@
                             value: 673,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         36,
                     ),
                     hir_lazy_expr_idx: Some(
                         35,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -35829,13 +35829,13 @@
                             value: 673,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         37,
                     ),
                     hir_lazy_expr_idx: Some(
                         36,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -35882,13 +35882,13 @@
                             value: 673,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         38,
                     ),
                     hir_lazy_expr_idx: Some(
                         37,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -35935,13 +35935,13 @@
                             value: 673,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         39,
                     ),
                     hir_lazy_expr_idx: Some(
                         38,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -35988,13 +35988,13 @@
                             value: 673,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         40,
                     ),
                     hir_lazy_expr_idx: Some(
                         39,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -36041,13 +36041,13 @@
                             value: 673,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         42,
                     ),
                     hir_lazy_expr_idx: Some(
                         41,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -36096,14 +36096,14 @@
                             value: 670,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         10,
                     ),
                     hir_lazy_stmt_idx: Some(
                         10,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -36145,13 +36145,13 @@
                             value: 674,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         44,
                     ),
                     hir_lazy_expr_idx: Some(
                         43,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -36198,13 +36198,13 @@
                             value: 674,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         45,
                     ),
                     hir_lazy_expr_idx: Some(
                         44,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -36253,14 +36253,14 @@
                             value: 670,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         11,
                     ),
                     hir_lazy_stmt_idx: Some(
                         11,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -36330,13 +36330,13 @@
                             value: 675,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         49,
                     ),
                     hir_lazy_expr_idx: Some(
                         48,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -36383,13 +36383,13 @@
                             value: 675,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         50,
                     ),
                     hir_lazy_expr_idx: Some(
                         49,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -36438,14 +36438,14 @@
                             value: 670,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         12,
                     ),
                     hir_lazy_stmt_idx: Some(
                         12,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -36515,13 +36515,13 @@
                             value: 676,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         55,
                     ),
                     hir_lazy_expr_idx: Some(
                         53,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -36568,13 +36568,13 @@
                             value: 676,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         56,
                     ),
                     hir_lazy_expr_idx: Some(
                         54,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -36623,14 +36623,14 @@
                             value: 670,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         13,
                     ),
                     hir_lazy_stmt_idx: Some(
                         13,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -36688,7 +36688,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -36758,13 +36758,13 @@
                             value: 677,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         61,
                     ),
                     hir_lazy_expr_idx: Some(
                         58,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -36811,13 +36811,13 @@
                             value: 677,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         62,
                     ),
                     hir_lazy_expr_idx: Some(
                         59,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -36866,14 +36866,14 @@
                             value: 670,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         14,
                     ),
                     hir_lazy_stmt_idx: Some(
                         14,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -36931,7 +36931,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -36973,13 +36973,13 @@
                             value: 678,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         65,
                     ),
                     hir_lazy_expr_idx: Some(
                         62,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -37026,13 +37026,13 @@
                             value: 678,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         67,
                     ),
                     hir_lazy_expr_idx: Some(
                         64,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -37079,13 +37079,13 @@
                             value: 678,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         68,
                     ),
                     hir_lazy_expr_idx: Some(
                         65,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -37132,13 +37132,13 @@
                             value: 678,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         69,
                     ),
                     hir_lazy_expr_idx: Some(
                         66,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -37185,13 +37185,13 @@
                             value: 678,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         71,
                     ),
                     hir_lazy_expr_idx: Some(
                         68,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -37238,13 +37238,13 @@
                             value: 678,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         72,
                     ),
                     hir_lazy_expr_idx: Some(
                         69,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -37293,14 +37293,14 @@
                             value: 670,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         15,
                     ),
                     hir_lazy_stmt_idx: Some(
                         15,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -37358,7 +37358,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -37428,13 +37428,13 @@
                             value: 679,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         75,
                     ),
                     hir_lazy_expr_idx: Some(
                         72,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -37481,13 +37481,13 @@
                             value: 679,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         76,
                     ),
                     hir_lazy_expr_idx: Some(
                         73,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -37562,13 +37562,13 @@
                             value: 679,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         78,
                     ),
                     hir_lazy_expr_idx: Some(
                         75,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -37615,13 +37615,13 @@
                             value: 679,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         79,
                     ),
                     hir_lazy_expr_idx: Some(
                         76,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -37670,14 +37670,14 @@
                             value: 670,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         16,
                     ),
                     hir_lazy_stmt_idx: Some(
                         16,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -37735,7 +37735,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -37777,13 +37777,13 @@
                             value: 680,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         81,
                     ),
                     hir_lazy_expr_idx: Some(
                         78,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -37830,13 +37830,13 @@
                             value: 680,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         82,
                     ),
                     hir_lazy_expr_idx: Some(
                         79,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -37885,14 +37885,14 @@
                             value: 670,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         17,
                     ),
                     hir_lazy_stmt_idx: Some(
                         17,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -37934,13 +37934,13 @@
                             value: 681,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         84,
                     ),
                     hir_lazy_expr_idx: Some(
                         81,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -37989,14 +37989,14 @@
                             value: 670,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         18,
                     ),
                     hir_lazy_stmt_idx: Some(
                         18,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -38054,7 +38054,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -38096,13 +38096,13 @@
                             value: 682,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         87,
                     ),
                     hir_lazy_expr_idx: Some(
                         84,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -38149,13 +38149,13 @@
                             value: 682,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         88,
                     ),
                     hir_lazy_expr_idx: Some(
                         85,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -38204,14 +38204,14 @@
                             value: 670,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         19,
                     ),
                     hir_lazy_stmt_idx: Some(
                         19,
                     ),
                     lazy_stmt_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 6,
                         },
@@ -38253,14 +38253,14 @@
                             value: 3,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         3,
                     ),
                     hir_eager_stmt_idx: Some(
                         3,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 92,
                         },
@@ -38330,14 +38330,14 @@
                             value: 737,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         10,
                     ),
                     hir_eager_stmt_idx: Some(
                         10,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -38415,13 +38415,13 @@
                             value: 738,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         1,
                     ),
                     hir_eager_expr_idx: Some(
                         1,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -38468,14 +38468,14 @@
                             value: 737,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         11,
                     ),
                     hir_eager_stmt_idx: Some(
                         11,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -38532,7 +38532,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -38605,13 +38605,13 @@
                             value: 739,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         5,
                     ),
                     hir_eager_expr_idx: Some(
                         5,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -38658,7 +38658,7 @@
                             value: 737,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         12,
                     ),
                     hir_eager_stmt_idx: Some(
@@ -38675,13 +38675,13 @@
                                 17,
                             ),
                         },
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 3..7,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -38723,14 +38723,14 @@
                             value: 740,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         3,
                     ),
                     hir_eager_stmt_idx: Some(
                         3,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -38772,14 +38772,14 @@
                             value: 740,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         4,
                     ),
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -38821,7 +38821,7 @@
                             value: 740,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         5,
                     ),
                     hir_eager_stmt_idx: Some(
@@ -38838,13 +38838,13 @@
                                 44,
                             ),
                         },
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 0..3,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -38886,14 +38886,14 @@
                             value: 740,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         6,
                     ),
                     hir_eager_stmt_idx: Some(
                         6,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -38943,13 +38943,13 @@
                             value: 740,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         6,
                     ),
                     hir_eager_expr_idx: Some(
                         6,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -38996,7 +38996,7 @@
                             value: 737,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         13,
                     ),
                     hir_eager_stmt_idx: Some(
@@ -39013,13 +39013,13 @@
                                 78,
                             ),
                         },
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 7..10,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -39061,14 +39061,14 @@
                             value: 741,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         7,
                     ),
                     hir_eager_stmt_idx: Some(
                         7,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -39110,14 +39110,14 @@
                             value: 741,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         8,
                     ),
                     hir_eager_stmt_idx: Some(
                         8,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -39159,14 +39159,14 @@
                             value: 741,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         9,
                     ),
                     hir_eager_stmt_idx: Some(
                         9,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -39216,13 +39216,13 @@
                             value: 741,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         35,
                     ),
                     hir_eager_expr_idx: Some(
                         34,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -39269,14 +39269,14 @@
                             value: 737,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         14,
                     ),
                     hir_eager_stmt_idx: Some(
                         14,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -39354,13 +39354,13 @@
                             value: 742,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         48,
                     ),
                     hir_eager_expr_idx: Some(
                         47,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -39407,14 +39407,14 @@
                             value: 737,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         15,
                     ),
                     hir_eager_stmt_idx: Some(
                         15,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -39471,7 +39471,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -39544,13 +39544,13 @@
                             value: 743,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         53,
                     ),
                     hir_eager_expr_idx: Some(
                         51,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -39597,14 +39597,14 @@
                             value: 737,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         16,
                     ),
                     hir_eager_stmt_idx: Some(
                         16,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -39646,14 +39646,14 @@
                             value: 737,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         17,
                     ),
                     hir_eager_stmt_idx: Some(
                         17,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 64,
                         },
@@ -39695,14 +39695,14 @@
                             value: 3,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         4,
                     ),
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 92,
                         },
@@ -39772,14 +39772,14 @@
                             value: 765,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         3,
                     ),
                     hir_eager_stmt_idx: Some(
                         3,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 68,
                         },
@@ -39836,7 +39836,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 68,
                         },
@@ -39909,13 +39909,13 @@
                             value: 766,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         1,
                     ),
                     hir_eager_expr_idx: Some(
                         1,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 68,
                         },
@@ -39998,13 +39998,13 @@
                             value: 766,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         3,
                     ),
                     hir_eager_expr_idx: Some(
                         3,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 68,
                         },
@@ -40051,7 +40051,7 @@
                             value: 765,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         4,
                     ),
                     hir_eager_stmt_idx: Some(
@@ -40068,13 +40068,13 @@
                                 22,
                             ),
                         },
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 1..3,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 68,
                         },
@@ -40116,7 +40116,7 @@
                             value: 767,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         1,
                     ),
                     hir_eager_stmt_idx: Some(
@@ -40133,13 +40133,13 @@
                                 34,
                             ),
                         },
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 0..1,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 68,
                         },
@@ -40181,14 +40181,14 @@
                             value: 767,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         2,
                     ),
                     hir_eager_stmt_idx: Some(
                         2,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 68,
                         },
@@ -40266,13 +40266,13 @@
                             value: 767,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         6,
                     ),
                     hir_eager_expr_idx: Some(
                         6,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 68,
                         },
@@ -40327,13 +40327,13 @@
                             value: 767,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         7,
                     ),
                     hir_eager_expr_idx: Some(
                         7,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 68,
                         },
@@ -40380,14 +40380,14 @@
                             value: 765,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         5,
                     ),
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 68,
                         },
@@ -40429,14 +40429,14 @@
                             value: 3,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         5,
                     ),
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 92,
                         },
@@ -40506,14 +40506,14 @@
                             value: 779,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         0,
                     ),
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -40591,13 +40591,13 @@
                             value: 780,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         1,
                     ),
                     hir_eager_expr_idx: Some(
                         1,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -40644,14 +40644,14 @@
                             value: 779,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         1,
                     ),
                     hir_eager_stmt_idx: Some(
                         1,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -40729,13 +40729,13 @@
                             value: 781,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         5,
                     ),
                     hir_eager_expr_idx: Some(
                         5,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -40782,14 +40782,14 @@
                             value: 779,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         2,
                     ),
                     hir_eager_stmt_idx: Some(
                         2,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -40846,7 +40846,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -40919,13 +40919,13 @@
                             value: 782,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         9,
                     ),
                     hir_eager_expr_idx: Some(
                         9,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -40972,14 +40972,14 @@
                             value: 779,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         3,
                     ),
                     hir_eager_stmt_idx: Some(
                         3,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -41036,7 +41036,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -41109,13 +41109,13 @@
                             value: 783,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         13,
                     ),
                     hir_eager_expr_idx: Some(
                         13,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -41162,14 +41162,14 @@
                             value: 779,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         4,
                     ),
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -41226,7 +41226,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -41299,13 +41299,13 @@
                             value: 784,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         17,
                     ),
                     hir_eager_expr_idx: Some(
                         17,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -41352,14 +41352,14 @@
                             value: 779,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         5,
                     ),
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -41409,13 +41409,13 @@
                             value: 785,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         20,
                     ),
                     hir_eager_expr_idx: Some(
                         20,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -41462,14 +41462,14 @@
                             value: 779,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         6,
                     ),
                     hir_eager_stmt_idx: Some(
                         6,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -41519,13 +41519,13 @@
                             value: 786,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         22,
                     ),
                     hir_eager_expr_idx: Some(
                         21,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -41580,13 +41580,13 @@
                             value: 786,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         24,
                     ),
                     hir_eager_expr_idx: Some(
                         23,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -41633,14 +41633,14 @@
                             value: 779,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         7,
                     ),
                     hir_eager_stmt_idx: Some(
                         7,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -41690,13 +41690,13 @@
                             value: 787,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         27,
                     ),
                     hir_eager_expr_idx: Some(
                         26,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -41743,14 +41743,14 @@
                             value: 779,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         8,
                     ),
                     hir_eager_stmt_idx: Some(
                         8,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -41807,7 +41807,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -41852,13 +41852,13 @@
                             value: 788,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         29,
                     ),
                     hir_eager_expr_idx: Some(
                         27,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -41913,13 +41913,13 @@
                             value: 788,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         31,
                     ),
                     hir_eager_expr_idx: Some(
                         29,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -41974,13 +41974,13 @@
                             value: 788,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         33,
                     ),
                     hir_eager_expr_idx: Some(
                         31,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -42027,14 +42027,14 @@
                             value: 779,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         9,
                     ),
                     hir_eager_stmt_idx: Some(
                         9,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -42084,13 +42084,13 @@
                             value: 789,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         34,
                     ),
                     hir_eager_expr_idx: Some(
                         32,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -42145,13 +42145,13 @@
                             value: 789,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         37,
                     ),
                     hir_eager_expr_idx: Some(
                         35,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -42198,14 +42198,14 @@
                             value: 779,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         10,
                     ),
                     hir_eager_stmt_idx: Some(
                         10,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -42262,7 +42262,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -42307,13 +42307,13 @@
                             value: 790,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         42,
                     ),
                     hir_eager_expr_idx: Some(
                         40,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -42368,13 +42368,13 @@
                             value: 790,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         44,
                     ),
                     hir_eager_expr_idx: Some(
                         42,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -42421,14 +42421,14 @@
                             value: 779,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         11,
                     ),
                     hir_eager_stmt_idx: Some(
                         11,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -42485,7 +42485,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -42530,13 +42530,13 @@
                             value: 791,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         45,
                     ),
                     hir_eager_expr_idx: Some(
                         43,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -42591,13 +42591,13 @@
                             value: 791,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         47,
                     ),
                     hir_eager_expr_idx: Some(
                         45,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -42644,14 +42644,14 @@
                             value: 779,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         12,
                     ),
                     hir_eager_stmt_idx: Some(
                         12,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -42708,7 +42708,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -42753,13 +42753,13 @@
                             value: 792,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         48,
                     ),
                     hir_eager_expr_idx: Some(
                         46,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -42814,13 +42814,13 @@
                             value: 792,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         50,
                     ),
                     hir_eager_expr_idx: Some(
                         48,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -42875,13 +42875,13 @@
                             value: 792,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         49,
                     ),
                     hir_eager_expr_idx: Some(
                         47,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -42928,14 +42928,14 @@
                             value: 779,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         13,
                     ),
                     hir_eager_stmt_idx: Some(
                         13,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -42985,13 +42985,13 @@
                             value: 793,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         51,
                     ),
                     hir_eager_expr_idx: Some(
                         49,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -43038,14 +43038,14 @@
                             value: 779,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         14,
                     ),
                     hir_eager_stmt_idx: Some(
                         14,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -43123,13 +43123,13 @@
                             value: 794,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         55,
                     ),
                     hir_eager_expr_idx: Some(
                         53,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -43176,14 +43176,14 @@
                             value: 779,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         15,
                     ),
                     hir_eager_stmt_idx: Some(
                         15,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -43233,13 +43233,13 @@
                             value: 795,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         58,
                     ),
                     hir_eager_expr_idx: Some(
                         56,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -43294,13 +43294,13 @@
                             value: 795,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         60,
                     ),
                     hir_eager_expr_idx: Some(
                         58,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -43347,14 +43347,14 @@
                             value: 779,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         16,
                     ),
                     hir_eager_stmt_idx: Some(
                         16,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 30,
                         },
@@ -43396,14 +43396,14 @@
                             value: 3,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         6,
                     ),
                     hir_eager_stmt_idx: Some(
                         6,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 92,
                         },
@@ -43473,14 +43473,14 @@
                             value: 835,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         14,
                     ),
                     hir_eager_stmt_idx: Some(
                         14,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -43537,7 +43537,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -43610,13 +43610,13 @@
                             value: 836,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         1,
                     ),
                     hir_eager_expr_idx: Some(
                         1,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -43663,14 +43663,14 @@
                             value: 835,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         15,
                     ),
                     hir_eager_stmt_idx: Some(
                         15,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -43720,13 +43720,13 @@
                             value: 837,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         2,
                     ),
                     hir_eager_expr_idx: Some(
                         2,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -43781,13 +43781,13 @@
                             value: 837,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         3,
                     ),
                     hir_eager_expr_idx: Some(
                         3,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -43834,14 +43834,14 @@
                             value: 835,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         16,
                     ),
                     hir_eager_stmt_idx: Some(
                         16,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -43898,7 +43898,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -43971,13 +43971,13 @@
                             value: 838,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         8,
                     ),
                     hir_eager_expr_idx: Some(
                         7,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -44024,14 +44024,14 @@
                             value: 835,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         17,
                     ),
                     hir_eager_stmt_idx: Some(
                         17,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -44081,13 +44081,13 @@
                             value: 839,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         11,
                     ),
                     hir_eager_expr_idx: Some(
                         10,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -44134,14 +44134,14 @@
                             value: 835,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         18,
                     ),
                     hir_eager_stmt_idx: Some(
                         18,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -44198,7 +44198,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -44243,13 +44243,13 @@
                             value: 840,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         13,
                     ),
                     hir_eager_expr_idx: Some(
                         11,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -44304,13 +44304,13 @@
                             value: 840,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         15,
                     ),
                     hir_eager_expr_idx: Some(
                         13,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -44365,13 +44365,13 @@
                             value: 840,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         16,
                     ),
                     hir_eager_expr_idx: Some(
                         14,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -44418,14 +44418,14 @@
                             value: 835,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         19,
                     ),
                     hir_eager_stmt_idx: Some(
                         19,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -44482,7 +44482,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -44555,13 +44555,13 @@
                             value: 841,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         18,
                     ),
                     hir_eager_expr_idx: Some(
                         16,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -44644,13 +44644,13 @@
                             value: 841,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         20,
                     ),
                     hir_eager_expr_idx: Some(
                         18,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -44697,14 +44697,14 @@
                             value: 835,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         20,
                     ),
                     hir_eager_stmt_idx: Some(
                         20,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -44754,13 +44754,13 @@
                             value: 842,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         22,
                     ),
                     hir_eager_expr_idx: Some(
                         20,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -44807,7 +44807,7 @@
                             value: 835,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         21,
                     ),
                     hir_eager_stmt_idx: Some(
@@ -44824,13 +44824,13 @@
                                 66,
                             ),
                         },
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 0..14,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -44872,14 +44872,14 @@
                             value: 843,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         0,
                     ),
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -44921,14 +44921,14 @@
                             value: 843,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         1,
                     ),
                     hir_eager_stmt_idx: Some(
                         1,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -44970,14 +44970,14 @@
                             value: 843,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         2,
                     ),
                     hir_eager_stmt_idx: Some(
                         2,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -45019,14 +45019,14 @@
                             value: 843,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         3,
                     ),
                     hir_eager_stmt_idx: Some(
                         3,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -45068,14 +45068,14 @@
                             value: 843,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         4,
                     ),
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -45117,14 +45117,14 @@
                             value: 843,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         5,
                     ),
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -45166,14 +45166,14 @@
                             value: 843,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         6,
                     ),
                     hir_eager_stmt_idx: Some(
                         6,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -45215,14 +45215,14 @@
                             value: 843,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         7,
                     ),
                     hir_eager_stmt_idx: Some(
                         7,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -45264,14 +45264,14 @@
                             value: 843,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         8,
                     ),
                     hir_eager_stmt_idx: Some(
                         8,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -45313,14 +45313,14 @@
                             value: 843,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         9,
                     ),
                     hir_eager_stmt_idx: Some(
                         9,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -45362,14 +45362,14 @@
                             value: 843,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         10,
                     ),
                     hir_eager_stmt_idx: Some(
                         10,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -45411,14 +45411,14 @@
                             value: 843,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         11,
                     ),
                     hir_eager_stmt_idx: Some(
                         11,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -45460,14 +45460,14 @@
                             value: 843,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         12,
                     ),
                     hir_eager_stmt_idx: Some(
                         12,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -45509,14 +45509,14 @@
                             value: 843,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         13,
                     ),
                     hir_eager_stmt_idx: Some(
                         13,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -45566,13 +45566,13 @@
                             value: 843,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         25,
                     ),
                     hir_eager_expr_idx: Some(
                         23,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -45627,13 +45627,13 @@
                             value: 843,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         26,
                     ),
                     hir_eager_expr_idx: Some(
                         24,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -45680,14 +45680,14 @@
                             value: 835,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         22,
                     ),
                     hir_eager_stmt_idx: Some(
                         22,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 76,
                         },
@@ -45729,14 +45729,14 @@
                             value: 3,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         7,
                     ),
                     hir_eager_stmt_idx: Some(
                         7,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 92,
                         },
@@ -45806,14 +45806,14 @@
                             value: 880,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         0,
                     ),
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 52,
                         },
@@ -45855,14 +45855,14 @@
                             value: 3,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         8,
                     ),
                     hir_eager_stmt_idx: Some(
                         8,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 92,
                         },
@@ -45932,14 +45932,14 @@
                             value: 882,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         19,
                     ),
                     hir_eager_stmt_idx: Some(
                         19,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -45996,7 +45996,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -46069,13 +46069,13 @@
                             value: 883,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         1,
                     ),
                     hir_eager_expr_idx: Some(
                         1,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -46122,14 +46122,14 @@
                             value: 882,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         20,
                     ),
                     hir_eager_stmt_idx: Some(
                         20,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -46186,7 +46186,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -46259,13 +46259,13 @@
                             value: 884,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         3,
                     ),
                     hir_eager_expr_idx: Some(
                         3,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -46312,14 +46312,14 @@
                             value: 882,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         21,
                     ),
                     hir_eager_stmt_idx: Some(
                         21,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -46369,13 +46369,13 @@
                             value: 885,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         4,
                     ),
                     hir_eager_expr_idx: Some(
                         4,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -46430,13 +46430,13 @@
                             value: 885,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         5,
                     ),
                     hir_eager_expr_idx: Some(
                         5,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -46483,14 +46483,14 @@
                             value: 882,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         22,
                     ),
                     hir_eager_stmt_idx: Some(
                         22,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -46547,7 +46547,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -46620,13 +46620,13 @@
                             value: 886,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         10,
                     ),
                     hir_eager_expr_idx: Some(
                         9,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -46673,14 +46673,14 @@
                             value: 882,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         23,
                     ),
                     hir_eager_stmt_idx: Some(
                         23,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -46737,7 +46737,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -46810,13 +46810,13 @@
                             value: 887,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         14,
                     ),
                     hir_eager_expr_idx: Some(
                         13,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -46863,14 +46863,14 @@
                             value: 882,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         24,
                     ),
                     hir_eager_stmt_idx: Some(
                         24,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -46927,7 +46927,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -47000,13 +47000,13 @@
                             value: 888,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         18,
                     ),
                     hir_eager_expr_idx: Some(
                         17,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -47053,14 +47053,14 @@
                             value: 882,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         25,
                     ),
                     hir_eager_stmt_idx: Some(
                         25,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -47110,13 +47110,13 @@
                             value: 889,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         21,
                     ),
                     hir_eager_expr_idx: Some(
                         20,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -47163,14 +47163,14 @@
                             value: 882,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         26,
                     ),
                     hir_eager_stmt_idx: Some(
                         26,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -47227,7 +47227,7 @@
                             ),
                         ),
                     ],
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -47300,13 +47300,13 @@
                             value: 890,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         25,
                     ),
                     hir_eager_expr_idx: Some(
                         24,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -47389,13 +47389,13 @@
                             value: 890,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         27,
                     ),
                     hir_eager_expr_idx: Some(
                         26,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -47442,14 +47442,14 @@
                             value: 882,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         27,
                     ),
                     hir_eager_stmt_idx: Some(
                         27,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -47499,13 +47499,13 @@
                             value: 891,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         29,
                     ),
                     hir_eager_expr_idx: Some(
                         28,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -47552,7 +47552,7 @@
                             value: 882,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         28,
                     ),
                     hir_eager_stmt_idx: Some(
@@ -47569,13 +47569,13 @@
                                 73,
                             ),
                         },
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 0..14,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -47617,14 +47617,14 @@
                             value: 892,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         0,
                     ),
                     hir_eager_stmt_idx: Some(
                         0,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -47666,14 +47666,14 @@
                             value: 892,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         1,
                     ),
                     hir_eager_stmt_idx: Some(
                         1,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -47715,14 +47715,14 @@
                             value: 892,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         2,
                     ),
                     hir_eager_stmt_idx: Some(
                         2,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -47764,14 +47764,14 @@
                             value: 892,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         3,
                     ),
                     hir_eager_stmt_idx: Some(
                         3,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -47813,14 +47813,14 @@
                             value: 892,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         4,
                     ),
                     hir_eager_stmt_idx: Some(
                         4,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -47862,14 +47862,14 @@
                             value: 892,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         5,
                     ),
                     hir_eager_stmt_idx: Some(
                         5,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -47911,14 +47911,14 @@
                             value: 892,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         6,
                     ),
                     hir_eager_stmt_idx: Some(
                         6,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -47960,14 +47960,14 @@
                             value: 892,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         7,
                     ),
                     hir_eager_stmt_idx: Some(
                         7,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -48009,14 +48009,14 @@
                             value: 892,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         8,
                     ),
                     hir_eager_stmt_idx: Some(
                         8,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -48058,14 +48058,14 @@
                             value: 892,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         9,
                     ),
                     hir_eager_stmt_idx: Some(
                         9,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -48107,14 +48107,14 @@
                             value: 892,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         10,
                     ),
                     hir_eager_stmt_idx: Some(
                         10,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -48156,14 +48156,14 @@
                             value: 892,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         11,
                     ),
                     hir_eager_stmt_idx: Some(
                         11,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -48205,14 +48205,14 @@
                             value: 892,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         12,
                     ),
                     hir_eager_stmt_idx: Some(
                         12,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -48254,14 +48254,14 @@
                             value: 892,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         13,
                     ),
                     hir_eager_stmt_idx: Some(
                         13,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -48311,13 +48311,13 @@
                             value: 892,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         32,
                     ),
                     hir_eager_expr_idx: Some(
                         31,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -48364,7 +48364,7 @@
                             value: 882,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         29,
                     ),
                     hir_eager_stmt_idx: Some(
@@ -48381,13 +48381,13 @@
                                 208,
                             ),
                         },
-                        stmts: SemaStmtIdxRange(
+                        stmts: SemStmtIdxRange(
                             ArenaIdxRange(
                                 14..19,
                             ),
                         ),
                     },
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -48429,14 +48429,14 @@
                             value: 893,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         14,
                     ),
                     hir_eager_stmt_idx: Some(
                         14,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -48478,14 +48478,14 @@
                             value: 893,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         15,
                     ),
                     hir_eager_stmt_idx: Some(
                         15,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -48527,14 +48527,14 @@
                             value: 893,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         16,
                     ),
                     hir_eager_stmt_idx: Some(
                         16,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -48576,14 +48576,14 @@
                             value: 893,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         17,
                     ),
                     hir_eager_stmt_idx: Some(
                         17,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -48625,14 +48625,14 @@
                             value: 893,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         18,
                     ),
                     hir_eager_stmt_idx: Some(
                         18,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -48682,13 +48682,13 @@
                             value: 893,
                         },
                     ),
-                    sem_expr_idx: SemaExprIdx(
+                    sem_expr_idx: SemExprIdx(
                         90,
                     ),
                     hir_eager_expr_idx: Some(
                         85,
                     ),
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -48735,14 +48735,14 @@
                             value: 882,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         30,
                     ),
                     hir_eager_stmt_idx: Some(
                         30,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 90,
                         },
@@ -48784,14 +48784,14 @@
                             value: 3,
                         },
                     ),
-                    sem_stmt_idx: SemaStmtIdx(
+                    sem_stmt_idx: SemStmtIdx(
                         9,
                     ),
                     hir_eager_stmt_idx: Some(
                         9,
                     ),
                     eager_stmt_data_sketch: BasicStmt,
-                    sem_expr_region: SemaExprRegion(
+                    sem_expr_region: SemExprRegion(
                         Id {
                             value: 92,
                         },
