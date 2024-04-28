@@ -33,12 +33,18 @@ impl CrateNum {
     // FIXME(typed_def_id): Replace this with `as_mod_def_id`.
     #[inline]
     pub fn as_def_id(self) -> DefId {
-        DefId { krate: self, index: CRATE_DEF_INDEX }
+        DefId {
+            krate: self,
+            index: CRATE_DEF_INDEX,
+        }
     }
 
     #[inline]
     pub fn as_mod_def_id(self) -> ModDefId {
-        ModDefId::new_unchecked(DefId { krate: self, index: CRATE_DEF_INDEX })
+        ModDefId::new_unchecked(DefId {
+            krate: self,
+            index: CRATE_DEF_INDEX,
+        })
     }
 }
 
@@ -89,8 +95,19 @@ impl fmt::Display for CrateNum {
 /// is a probability of roughly 1 in 14,750,000,000 of a crate-internal
 /// collision occurring. For a big crate graph with 1000 crates in it, there is
 /// a probability of 1 in 36,890,000,000,000 of a `StableCrateId` collision.
-#[derive(Copy, Clone, Hash, PartialEq, Eq, PartialOrd, Ord, Debug)]
-#[derive(HashStable_Generic, Encodable, Decodable)]
+#[derive(
+    Copy,
+    Clone,
+    Hash,
+    PartialEq,
+    Eq,
+    PartialOrd,
+    Ord,
+    Debug,
+    HashStable_Generic,
+    Encodable,
+    Decodable,
+)]
 pub struct DefPathHash(pub Fingerprint);
 
 impl DefPathHash {
@@ -136,8 +153,19 @@ unsafe impl StableOrd for DefPathHash {
 ///
 /// For more information on the possibility of hash collisions in rustc,
 /// see the discussion in [`DefId`].
-#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, Debug)]
-#[derive(Hash, HashStable_Generic, Encodable, Decodable)]
+#[derive(
+    Copy,
+    Clone,
+    PartialEq,
+    Eq,
+    PartialOrd,
+    Ord,
+    Debug,
+    Hash,
+    HashStable_Generic,
+    Encodable,
+    Decodable,
+)]
 pub struct StableCrateId(pub(crate) Hash64);
 
 impl StableCrateId {
@@ -269,7 +297,10 @@ impl DefId {
     /// Makes a local `DefId` from the given `DefIndex`.
     #[inline]
     pub fn local(index: DefIndex) -> DefId {
-        DefId { krate: LOCAL_CRATE, index }
+        DefId {
+            krate: LOCAL_CRATE,
+            index,
+        }
     }
 
     /// Returns whether the item is defined in the crate currently being compiled.
@@ -280,7 +311,9 @@ impl DefId {
 
     #[inline]
     pub fn as_local(self) -> Option<LocalDefId> {
-        self.is_local().then(|| LocalDefId { local_def_index: self.index })
+        self.is_local().then(|| LocalDefId {
+            local_def_index: self.index,
+        })
     }
 
     #[inline]
@@ -317,7 +350,10 @@ impl From<LocalDefId> for DefId {
 }
 
 pub fn default_def_id_debug(def_id: DefId, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-    f.debug_struct("DefId").field("krate", &def_id.krate).field("index", &def_id.index).finish()
+    f.debug_struct("DefId")
+        .field("krate", &def_id.krate)
+        .field("index", &def_id.index)
+        .finish()
 }
 
 pub static DEF_ID_DEBUG: AtomicRef<fn(DefId, &mut fmt::Formatter<'_>) -> fmt::Result> =
@@ -348,12 +384,16 @@ pub struct LocalDefId {
 impl !Ord for LocalDefId {}
 impl !PartialOrd for LocalDefId {}
 
-pub const CRATE_DEF_ID: LocalDefId = LocalDefId { local_def_index: CRATE_DEF_INDEX };
+pub const CRATE_DEF_ID: LocalDefId = LocalDefId {
+    local_def_index: CRATE_DEF_INDEX,
+};
 
 impl Idx for LocalDefId {
     #[inline]
     fn new(idx: usize) -> Self {
-        LocalDefId { local_def_index: Idx::new(idx) }
+        LocalDefId {
+            local_def_index: Idx::new(idx),
+        }
     }
     #[inline]
     fn index(self) -> usize {
@@ -364,7 +404,10 @@ impl Idx for LocalDefId {
 impl LocalDefId {
     #[inline]
     pub fn to_def_id(self) -> DefId {
-        DefId { krate: LOCAL_CRATE, index: self.local_def_index }
+        DefId {
+            krate: LOCAL_CRATE,
+            index: self.local_def_index,
+        }
     }
 
     #[inline]
@@ -457,7 +500,9 @@ impl<CTX: HashStableContext> ToStableHashKey<CTX> for DefPathHash {
 
 macro_rules! typed_def_id {
     ($Name:ident, $LocalName:ident) => {
-        #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Encodable, Decodable, HashStable_Generic)]
+        #[derive(
+            Debug, Clone, Copy, PartialEq, Eq, Hash, Encodable, Decodable, HashStable_Generic,
+        )]
         pub struct $Name(DefId);
 
         impl $Name {
@@ -490,7 +535,9 @@ macro_rules! typed_def_id {
             }
         }
 
-        #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Encodable, Decodable, HashStable_Generic)]
+        #[derive(
+            Debug, Clone, Copy, PartialEq, Eq, Hash, Encodable, Decodable, HashStable_Generic,
+        )]
         pub struct $LocalName(LocalDefId);
 
         impl !Ord for $LocalName {}

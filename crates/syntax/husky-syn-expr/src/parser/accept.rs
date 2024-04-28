@@ -195,7 +195,9 @@ where
                             }
                             .into()
                         }
-                        IncompleteCommaListOpr::MethodInstantiation { .. } => todo!(),
+                        IncompleteCommaListOpr::MethodInstantiation { .. } => {
+                            todo!()
+                        }
                         IncompleteCommaListOpr::MethodApplicationOrCall {
                             self_expr,
                             dot_regional_token_idx,

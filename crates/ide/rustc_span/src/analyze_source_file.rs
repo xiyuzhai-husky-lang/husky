@@ -17,7 +17,12 @@ pub fn analyze_source_file(
     let mut non_narrow_chars = vec![];
 
     // Calls the right implementation, depending on hardware support available.
-    analyze_source_file_dispatch(src, &mut lines, &mut multi_byte_chars, &mut non_narrow_chars);
+    analyze_source_file_dispatch(
+        src,
+        &mut lines,
+        &mut multi_byte_chars,
+        &mut non_narrow_chars,
+    );
 
     // The code above optimistically registers a new line *after* each \n
     // it encounters. If that point is already outside the source_file, remove
@@ -242,7 +247,10 @@ fn analyze_source_file_generic(
 
             if char_len > 1 {
                 assert!((2..=4).contains(&char_len));
-                let mbc = MultiByteChar { pos, bytes: char_len as u8 };
+                let mbc = MultiByteChar {
+                    pos,
+                    bytes: char_len as u8,
+                };
                 multi_byte_chars.push(mbc);
             }
 

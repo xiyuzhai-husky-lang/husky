@@ -133,14 +133,26 @@ pub(crate) fn fluent_messages(input: proc_macro::TokenStream) -> proc_macro::Tok
     let resource = match FluentResource::try_new(resource_contents) {
         Ok(resource) => resource,
         Err((this, errs)) => {
-            Diagnostic::spanned(resource_span, Level::Error, "could not parse Fluent resource")
-                .help("see additional errors emitted")
-                .emit();
-            for ParserError { pos, slice: _, kind } in errs {
+            Diagnostic::spanned(
+                resource_span,
+                Level::Error,
+                "could not parse Fluent resource",
+            )
+            .help("see additional errors emitted")
+            .emit();
+            for ParserError {
+                pos,
+                slice: _,
+                kind,
+            } in errs
+            {
                 let mut err = kind.to_string();
                 // Entirely unnecessary string modification so that the error message starts
                 // with a lowercase as rustc errors do.
-                err.replace_range(0..1, &err.chars().next().unwrap().to_lowercase().to_string());
+                err.replace_range(
+                    0..1,
+                    &err.chars().next().unwrap().to_lowercase().to_string(),
+                );
 
                 let line_starts: Vec<usize> = std::iter::once(0)
                     .chain(
@@ -190,8 +202,15 @@ pub(crate) fn fluent_messages(input: proc_macro::TokenStream) -> proc_macro::Tok
     let mut message_refs = Vec::new();
     for entry in resource.entries() {
         if let Entry::Message(msg) = entry {
-            let Message { id: Identifier { name }, attributes, value, .. } = msg;
-            let _ = previous_defns.entry(name.to_string()).or_insert(resource_span);
+            let Message {
+                id: Identifier { name },
+                attributes,
+                value,
+                ..
+            } = msg;
+            let _ = previous_defns
+                .entry(name.to_string())
+                .or_insert(resource_span);
             if name.contains('-') {
                 Diagnostic::spanned(
                     resource_span,
@@ -251,7 +270,11 @@ pub(crate) fn fluent_messages(input: proc_macro::TokenStream) -> proc_macro::Tok
                     );
             });
 
-            for Attribute { id: Identifier { name: attr_name }, .. } in attributes {
+            for Attribute {
+                id: Identifier { name: attr_name },
+                ..
+            } in attributes
+            {
                 let snake_name = Ident::new(
                     &format!("{}{}", &crate_prefix, &attr_name.replace('-', "_")),
                     resource_str.span(),
@@ -298,7 +321,9 @@ pub(crate) fn fluent_messages(input: proc_macro::TokenStream) -> proc_macro::Tok
                 Level::Error,
                 format!("referenced message `{mref}` does not exist (in message `{name}`)"),
             )
-            .help(&format!("you may have meant to use a variable reference (`{{${mref}}}`)"))
+            .help(&format!(
+                "you may have meant to use a variable reference (`{{${mref}}}`)"
+            ))
             .emit();
         }
     }

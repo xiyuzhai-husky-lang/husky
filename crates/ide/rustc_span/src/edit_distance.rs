@@ -188,7 +188,12 @@ pub fn find_best_match_for_names(
 ) -> Option<Symbol> {
     lookups
         .iter()
-        .map(|s| (s, find_best_match_for_name_impl(false, candidates, *s, dist)))
+        .map(|s| {
+            (
+                s,
+                find_best_match_for_name_impl(false, candidates, *s, dist),
+            )
+        })
         .filter_map(|(s, r)| r.map(|r| (s, r)))
         .min_by(|(s1, r1), (s2, r2)| {
             let d1 = edit_distance(s1.as_str(), r1.as_str(), usize::MAX).unwrap();
@@ -212,7 +217,10 @@ fn find_best_match_for_name_impl(
     // 1. Exact case insensitive match
     // 2. Edit distance match
     // 3. Sorted word match
-    if let Some(c) = candidates.iter().find(|c| c.as_str().to_uppercase() == lookup_uppercase) {
+    if let Some(c) = candidates
+        .iter()
+        .find(|c| c.as_str().to_uppercase() == lookup_uppercase)
+    {
         return Some(*c);
     }
 

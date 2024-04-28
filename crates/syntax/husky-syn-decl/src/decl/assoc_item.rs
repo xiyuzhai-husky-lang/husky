@@ -1,7 +1,7 @@
-mod ill_formed_item;
-mod trai_for_ty_item;
-mod trai_item;
-mod ty_item;
+pub mod ill_formed_item;
+pub mod trai_for_ty_item;
+pub mod trai_item;
+pub mod ty_item;
 
 pub use self::ill_formed_item::*;
 pub use self::trai_for_ty_item::*;

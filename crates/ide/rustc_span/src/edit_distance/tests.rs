@@ -3,7 +3,10 @@ use super::*;
 #[test]
 fn test_edit_distance() {
     // Test bytelength agnosticity
-    for c in (0..char::MAX as u32).filter_map(char::from_u32).map(|i| i.to_string()) {
+    for c in (0..char::MAX as u32)
+        .filter_map(char::from_u32)
+        .map(|i| i.to_string())
+    {
         assert_eq!(edit_distance(&c[..], &c[..], usize::MAX), Some(0));
     }
 
@@ -28,13 +31,19 @@ fn test_edit_distance_limit() {
 
 #[test]
 fn test_method_name_similarity_score() {
-    assert_eq!(edit_distance_with_substrings("empty", "is_empty", 1), Some(1));
+    assert_eq!(
+        edit_distance_with_substrings("empty", "is_empty", 1),
+        Some(1)
+    );
     assert_eq!(edit_distance_with_substrings("shrunk", "rchunks", 2), None);
     assert_eq!(edit_distance_with_substrings("abc", "abcd", 1), Some(1));
     assert_eq!(edit_distance_with_substrings("a", "abcd", 1), None);
     assert_eq!(edit_distance_with_substrings("edf", "eq", 1), None);
     assert_eq!(edit_distance_with_substrings("abc", "xyz", 3), Some(3));
-    assert_eq!(edit_distance_with_substrings("abcdef", "abcdef", 2), Some(0));
+    assert_eq!(
+        edit_distance_with_substrings("abcdef", "abcdef", 2),
+        Some(0)
+    );
 }
 
 #[test]
@@ -47,7 +56,10 @@ fn test_find_best_match_for_name() {
             Some(Symbol::intern("aaab"))
         );
 
-        assert_eq!(find_best_match_for_name(&input, Symbol::intern("1111111111"), None), None);
+        assert_eq!(
+            find_best_match_for_name(&input, Symbol::intern("1111111111"), None),
+            None
+        );
 
         let input = vec![Symbol::intern("AAAA")];
         assert_eq!(
