@@ -62,11 +62,11 @@ pub enum OriginalSynNodeDeclError {
     ExpectedRightParenthesisInParameterList(RegionalTokenStreamState),
     #[error("expected `)` in parameter list")]
     ExpectedRightParenthesisInTupleStructFieldTypeList(RegionalTokenStreamState),
-    #[error("expected colon before val return type")]
+    #[error("expected colon before `val` return type")]
     ExpectedColonBeforeValReturnType(RegionalTokenStreamState),
-    #[error("expect variable type")]
+    #[error("expect `val` return type")]
     ExpectedValReturnType(RegionalTokenStreamState),
-    #[error("expect eq token for memo")]
+    #[error("expect `=` for memo")]
     ExpectEqTokenForMemo(RegionalTokenStreamState),
     #[error("expected `{{` `(` or `;` for struct")]
     ExpectedLcurlOrLparOrSemicolonForStruct(RegionalTokenStreamState),
@@ -102,10 +102,6 @@ pub enum DerivedSynNodeDeclError {
 pub enum SynDeclError {
     #[error("declaration expression error")]
     NodeDecl,
-    // #[error("{0}")]
-    // Original(#[from] OriginalDeclError),
-    // #[error("{0}")]
-    // Derived(#[from] DerivedDeclError),
 }
 
 pub type SynDeclResult<T> = Result<T, SynDeclError>;
@@ -113,7 +109,6 @@ pub type SynDeclResult<T> = Result<T, SynDeclError>;
 impl From<&SynNodeDeclError> for SynDeclError {
     #[track_caller]
     fn from(_value: &SynNodeDeclError) -> Self {
-        todo!("not yet expect errors in from of impl From<&SynNodeDeclError> for SynDeclError");
-        // SynDeclError::NodeDecl
+        SynDeclError::NodeDecl
     }
 }
