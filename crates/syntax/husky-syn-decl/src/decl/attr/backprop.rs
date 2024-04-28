@@ -50,10 +50,10 @@ impl BackpropAttrSynNodeDecl {
             .expect("should be guaranteed")
             .expect("should be guaranteed");
         let lpar_token =
-            parser.try_parse_expected(OriginalSynNodeDeclError::ExpectLeftDelimiterInDerive);
+            parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedLeftDelimiterInDerive);
         let arguments = parser.try_parse();
         let rpar_token =
-            parser.try_parse_expected(OriginalSynNodeDeclError::ExpectRightDelimiterInDerive);
+            parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedRightDelimiterInDerive);
         Self::new_inner(
             db,
             syn_node_path,
@@ -99,7 +99,7 @@ impl<'a> TryParseOptionFromStream<SynDeclExprParser<'a>> for BackpropAttrArgumen
             return Ok(None);
         };
         let eq_token =
-            sp.try_parse_expected(OriginalSynNodeDeclError::ExpectEqTokenForBackpropArgument)?;
+            sp.try_parse_expected(OriginalSynNodeDeclError::ExpectedEqTokenForBackpropArgument)?;
         let backprop_function = sp.parse_expr_expected(
             None,
             OriginalSynNodeDeclError::ExpectedExprForBackpropArgument,

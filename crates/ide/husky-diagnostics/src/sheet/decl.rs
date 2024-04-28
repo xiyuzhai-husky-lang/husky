@@ -80,10 +80,10 @@ impl Diagnose for OriginalSynNodeDeclError {
                 format!("Syntax Error: expected `{{` `(` or `;` for struct",)
             }
             OriginalSynNodeDeclError::ExpectedEqForAssocType(_) => todo!(),
-            OriginalSynNodeDeclError::ExpectLeftDelimiterInDerive(_) => todo!(),
-            OriginalSynNodeDeclError::ExpectRightDelimiterInDerive(_) => todo!(),
+            OriginalSynNodeDeclError::ExpectedLeftDelimiterInDerive(_) => todo!(),
+            OriginalSynNodeDeclError::ExpectedRightDelimiterInDerive(_) => todo!(),
             OriginalSynNodeDeclError::ExpectedColonBeforeValReturnType(_) => todo!(),
-            OriginalSynNodeDeclError::ExpectEqTokenForBackpropArgument(_) => todo!(),
+            OriginalSynNodeDeclError::ExpectedEqTokenForBackpropArgument(_) => todo!(),
             OriginalSynNodeDeclError::ExpectedExprForBackpropArgument(_) => todo!(),
             OriginalSynNodeDeclError::ExpectedColonForTraitMemoizedField(_) => todo!(),
         }
@@ -123,10 +123,10 @@ impl Diagnose for OriginalSynNodeDeclError {
                 regional_token_stream_state,
             ) => ctx.token_stream_state_text_range(*regional_token_stream_state),
             OriginalSynNodeDeclError::ExpectedEqForAssocType(_) => todo!(),
-            OriginalSynNodeDeclError::ExpectLeftDelimiterInDerive(_) => todo!(),
-            OriginalSynNodeDeclError::ExpectRightDelimiterInDerive(_) => todo!(),
+            OriginalSynNodeDeclError::ExpectedLeftDelimiterInDerive(_) => todo!(),
+            OriginalSynNodeDeclError::ExpectedRightDelimiterInDerive(_) => todo!(),
             OriginalSynNodeDeclError::ExpectedColonBeforeValReturnType(_) => todo!(),
-            OriginalSynNodeDeclError::ExpectEqTokenForBackpropArgument(_) => todo!(),
+            OriginalSynNodeDeclError::ExpectedEqTokenForBackpropArgument(_) => todo!(),
             OriginalSynNodeDeclError::ExpectedExprForBackpropArgument(_) => todo!(),
             OriginalSynNodeDeclError::ExpectedColonForTraitMemoizedField(_) => todo!(),
         }

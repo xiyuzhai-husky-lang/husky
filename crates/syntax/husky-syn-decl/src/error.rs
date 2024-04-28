@@ -62,25 +62,25 @@ pub enum OriginalSynNodeDeclError {
     ExpectedRightParenthesisInParameterList(RegionalTokenStreamState),
     #[error("expected `)` in parameter list")]
     ExpectedRightParenthesisInTupleStructFieldTypeList(RegionalTokenStreamState),
-    #[error("ExpectedColonBeforeValReturnType")]
+    #[error("expected colon before val return type")]
     ExpectedColonBeforeValReturnType(RegionalTokenStreamState),
-    #[error("ExpectVariableType")]
+    #[error("expect variable type")]
     ExpectedValReturnType(RegionalTokenStreamState),
-    #[error("ExpectEqTokenForMemo")]
+    #[error("expect eq token for memo")]
     ExpectEqTokenForMemo(RegionalTokenStreamState),
     #[error("expected `{{` `(` or `;` for struct")]
     ExpectedLcurlOrLparOrSemicolonForStruct(RegionalTokenStreamState),
     #[error("expected `=` for associated type")]
     ExpectedEqForAssocType(RegionalTokenStreamState),
     #[error("expected `(` for derive")]
-    ExpectLeftDelimiterInDerive(RegionalTokenStreamState),
+    ExpectedLeftDelimiterInDerive(RegionalTokenStreamState),
     #[error("expected `)` for derive")]
-    ExpectRightDelimiterInDerive(RegionalTokenStreamState),
-    #[error("ExpectEqTokenForBackpropArgument")]
-    ExpectEqTokenForBackpropArgument(RegionalTokenStreamState),
-    #[error("ExpectedExprForBackpropArgument")]
+    ExpectedRightDelimiterInDerive(RegionalTokenStreamState),
+    #[error("expect `=` for backprop argument")]
+    ExpectedEqTokenForBackpropArgument(RegionalTokenStreamState),
+    #[error("expected expression for backprop argument")]
     ExpectedExprForBackpropArgument(RegionalTokenStreamState),
-    #[error("ExpectedColonForTraitMemoizedField")]
+    #[error("expected `:` for trait memoized field")]
     ExpectedColonForTraitMemoizedField(RegionalTokenStreamState),
 }
 
