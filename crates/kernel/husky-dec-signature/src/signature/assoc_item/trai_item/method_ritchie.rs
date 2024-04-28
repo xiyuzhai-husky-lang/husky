@@ -13,7 +13,7 @@ pub struct TraitMethodRitchieDecTemplate {
 impl TraitMethodRitchieDecTemplate {
     pub(super) fn from_decl(
         db: &::salsa::Db,
-        decl: TraitMethodFnSynDecl,
+        decl: TraitMethodRitchieSynDecl,
     ) -> DecSignatureResult<TraitMethodRitchieDecTemplate> {
         let syn_expr_region = decl.syn_expr_region(db);
         let syn_expr_region_data = syn_expr_region.data(db);

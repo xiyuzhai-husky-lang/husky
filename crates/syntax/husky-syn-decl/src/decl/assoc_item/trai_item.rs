@@ -1,17 +1,17 @@
-mod assoc_ritchie;
-mod assoc_ty;
-mod assoc_val;
-mod memo_field;
-mod method_ritchie;
-
-use husky_entity_kind::TraitItemKind;
+pub mod assoc_ritchie;
+pub mod assoc_ty;
+pub mod assoc_val;
+pub mod memo_field;
+pub mod method_ritchie;
 
 pub use self::assoc_ritchie::*;
 pub use self::assoc_ty::*;
 pub use self::assoc_val::*;
 pub use self::method_ritchie::*;
 
+use self::memo_field::TraitMemoizedFieldSynNodeDecl;
 use super::*;
+use husky_entity_kind::TraitItemKind;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]
@@ -19,7 +19,7 @@ use super::*;
 pub enum TraitItemSynNodeDecl {
     AssocRitchie(TraitAssocRitchieSynNodeDecl),
     MethodRitchie(TraitMethodRitchieSynNodeDecl),
-    MemoizedField(()),
+    MemoizedField(TraitMemoizedFieldSynNodeDecl),
     AssocType(TraitAssocTypeSynNodeDecl),
     AssocVal(TraitAssocValSynNodeDecl),
 }
@@ -39,7 +39,7 @@ impl TraitItemSynNodeDecl {
         match self {
             TraitItemSynNodeDecl::AssocRitchie(syn_node_decl) => syn_node_decl.syn_expr_region(db),
             TraitItemSynNodeDecl::MethodRitchie(syn_node_decl) => syn_node_decl.syn_expr_region(db),
-            TraitItemSynNodeDecl::MemoizedField(_) => todo!(),
+            TraitItemSynNodeDecl::MemoizedField(syn_node_decl) => syn_node_decl.syn_expr_region(db),
             TraitItemSynNodeDecl::AssocType(syn_node_decl) => syn_node_decl.syn_expr_region(db),
             TraitItemSynNodeDecl::AssocVal(syn_node_decl) => syn_node_decl.syn_expr_region(db),
         }
@@ -99,7 +99,7 @@ impl<'a> DeclParser<'a> {
 #[enum_class::from_variants]
 pub enum TraitItemSynDecl {
     AssocRitchie(TraitAssocRitchieSynDecl),
-    MethodFn(TraitMethodFnSynDecl),
+    MethodFn(TraitMethodRitchieSynDecl),
     AssocType(TraitAssocTypeSynDecl),
     AssocVal(TraitAssocValSynDecl),
 }
@@ -116,7 +116,7 @@ impl TraitItemSynDecl {
                 TraitAssocRitchieSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
             TraitItemSynNodeDecl::MethodRitchie(syn_node_decl) => {
-                TraitMethodFnSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
+                TraitMethodRitchieSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
             TraitItemSynNodeDecl::MemoizedField(_) => todo!(),
             TraitItemSynNodeDecl::AssocType(syn_node_decl) => {

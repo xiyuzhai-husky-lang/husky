@@ -25,12 +25,6 @@ impl From<TokenDataError> for SynNodeDeclError {
     }
 }
 
-impl From<SynExprError> for SynDeclError {
-    fn from(_value: SynExprError) -> Self {
-        todo!()
-    }
-}
-
 impl From<SynExprError> for SynNodeDeclError {
     fn from(error: SynExprError) -> Self {
         match error {

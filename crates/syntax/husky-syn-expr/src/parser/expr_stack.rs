@@ -289,9 +289,7 @@ where
                         .into(),
                     ))
                 }
-                IncompleteSynExprData::CallList { .. } => {
-                    todo!()
-                }
+                IncompleteSynExprData::CallList { .. } => todo!(),
                 IncompleteSynExprData::Ritchie {
                     ritchie_kind_regional_token_idx,
                     ritchie_kind,
