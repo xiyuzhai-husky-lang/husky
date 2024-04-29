@@ -48,7 +48,7 @@ use husky_toml_ast::TomlAstJar;
     EtherealSignatureJar,
     FlyTermJar,
     SemExprJar,
-    husky_sem_place_contract::jar::SemaPlaceContractJar,
+    husky_sem_place_contract::jar::SemPlaceContractJar,
     HoverJar
 )]
 #[derive(Default)]

@@ -39,7 +39,7 @@ use std::panic::RefUnwindSafe;
     husky_linkage::jar::LinkageJar,
     // semantics
     husky_sem_expr::SemExprJar,
-    husky_sem_place_contract::jar::SemaPlaceContractJar,
+    husky_sem_place_contract::jar::SemPlaceContractJar,
     // syntax
     husky_ast::jar::AstJar,
     husky_toml_ast::TomlAstJar,

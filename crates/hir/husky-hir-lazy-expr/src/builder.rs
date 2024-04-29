@@ -5,7 +5,7 @@ use husky_sem_expr::{
     SemExprArenaRef, SemExprIdx, SemExprMap, SemExprRegion, SemExprRegionData, SemStmtArenaRef,
     SemStmtIdx, SemStmtMap,
 };
-use husky_sem_place_contract::region::{sem_place_contract_region, SemaPlaceContractRegion};
+use husky_sem_place_contract::region::{sem_place_contract_region, SemPlaceContractRegion};
 use husky_syn_expr::{
     CurrentVariableIdx, InheritedSymbolicVariableIdx, SynExprRegionData, SynExprRootKind,
     SynPatternMap, VariableMap,
@@ -16,7 +16,7 @@ pub(crate) struct HirLazyExprBuilder<'a> {
     db: &'a ::salsa::Db,
     syn_expr_region_data: &'a SynExprRegionData,
     sem_expr_region_data: &'a SemExprRegionData,
-    sem_place_contract_region: &'a SemaPlaceContractRegion,
+    sem_place_contract_region: &'a SemPlaceContractRegion,
     hir_lazy_expr_arena: HirLazyExprArena,
     hir_lazy_stmt_arena: HirLazyStmtArena,
     hir_lazy_pattern_expr_arena: HirLazyPatternExprArena,
@@ -63,7 +63,7 @@ impl<'a> HirLazyExprBuilder<'a> {
         self.sem_expr_region_data.sem_stmt_arena()
     }
 
-    pub(crate) fn sem_place_contract_region(&self) -> &'a SemaPlaceContractRegion {
+    pub(crate) fn sem_place_contract_region(&self) -> &'a SemPlaceContractRegion {
         self.sem_place_contract_region
     }
 
