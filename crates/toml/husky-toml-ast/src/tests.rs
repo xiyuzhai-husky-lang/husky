@@ -1,7 +1,7 @@
 pub(crate) use husky_vfs::test_utils::*;
 
 use crate::*;
-use husky_coword::CowordJar;
+use husky_coword::jar::CowordJar;
 use husky_vfs::*;
 
 #[salsa::db(CowordJar, VfsJar, husky_toml_token::jar::TomlTokenJar, TomlAstJar)]

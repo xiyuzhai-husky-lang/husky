@@ -41,7 +41,7 @@ impl HasAllPackages for LinktimeTargetPath {
     }
 }
 
-#[salsa::tracked(jar = ManifestJar, return_ref)]
+#[salsa::tracked(return_ref)]
 fn linktime_target_path_all_packages(
     db: &::salsa::Db,
     target_path: LinktimeTargetPath,

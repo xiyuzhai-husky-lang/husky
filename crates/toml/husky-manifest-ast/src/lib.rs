@@ -1,7 +1,7 @@
 #![feature(result_flattening)]
-mod db;
 mod dependency;
 mod error;
+pub mod jar;
 mod menu;
 mod sections;
 mod transformer;
@@ -10,13 +10,11 @@ pub use self::dependency::*;
 pub use self::error::*;
 pub use self::menu::*;
 
+use self::jar::ManifestAstJar as Jar;
 use self::sections::*;
 use self::transformer::*;
 use husky_toml_ast::*;
 use husky_vfs::{error::VfsResult, *};
-
-#[salsa::jar]
-pub struct ManifestAstJar(package_manifest_ast_sheet_aux, manifest_ast_menu);
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
@@ -73,7 +71,7 @@ fn package_manifest_ast_sheet(
         .map_err(|e| e.clone())
 }
 
-#[salsa::tracked(jar = ManifestAstJar, return_ref)]
+#[salsa::tracked(return_ref)]
 fn package_manifest_ast_sheet_aux(
     db: &::salsa::Db,
     path: PackagePath,
