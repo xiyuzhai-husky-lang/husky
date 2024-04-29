@@ -2,9 +2,15 @@ use super::*;
 
 fn init_source_map() -> SourceMap {
     let sm = SourceMap::new(FilePathMapping::empty());
-    sm.new_source_file(PathBuf::from("blork.rs").into(), "first line.\nsecond line".to_string());
+    sm.new_source_file(
+        PathBuf::from("blork.rs").into(),
+        "first line.\nsecond line".to_string(),
+    );
     sm.new_source_file(PathBuf::from("empty.rs").into(), String::new());
-    sm.new_source_file(PathBuf::from("blork2.rs").into(), "first line.\nsecond line".to_string());
+    sm.new_source_file(
+        PathBuf::from("blork2.rs").into(),
+        "first line.\nsecond line".to_string(),
+    );
     sm
 }
 
@@ -161,7 +167,10 @@ fn span_to_snippet_and_lines_spanning_multiple_lines() {
     let sm = SourceMap::new(FilePathMapping::empty());
     let inputtext = "aaaaa\nbbbbBB\nCCC\nDDDDDddddd\neee\n";
     let selection = "     \n    ~~\n~~~\n~~~~~     \n   \n";
-    sm.new_source_file(Path::new("blork.rs").to_owned().into(), inputtext.to_string());
+    sm.new_source_file(
+        Path::new("blork.rs").to_owned().into(),
+        inputtext.to_string(),
+    );
     let span = span_from_selection(inputtext, selection);
 
     // Check that we are extracting the text we thought we were extracting.
@@ -170,9 +179,21 @@ fn span_to_snippet_and_lines_spanning_multiple_lines() {
     // Check that span_to_lines gives us the complete result with the lines/cols we expected.
     let lines = sm.span_to_lines(span).unwrap();
     let expected = vec![
-        LineInfo { line_index: 1, start_col: CharPos(4), end_col: CharPos(6) },
-        LineInfo { line_index: 2, start_col: CharPos(0), end_col: CharPos(3) },
-        LineInfo { line_index: 3, start_col: CharPos(0), end_col: CharPos(5) },
+        LineInfo {
+            line_index: 1,
+            start_col: CharPos(4),
+            end_col: CharPos(6),
+        },
+        LineInfo {
+            line_index: 2,
+            start_col: CharPos(0),
+            end_col: CharPos(3),
+        },
+        LineInfo {
+            line_index: 3,
+            start_col: CharPos(0),
+            end_col: CharPos(5),
+        },
     ];
     assert_eq!(lines.lines, expected);
 }
@@ -204,7 +225,10 @@ fn span_merging_fail() {
     let inputtext = "bbbb BB\ncc CCC\n";
     let selection1 = "     ~~\n      \n";
     let selection2 = "       \n   ~~~\n";
-    sm.new_source_file(Path::new("blork.rs").to_owned().into(), inputtext.to_owned());
+    sm.new_source_file(
+        Path::new("blork.rs").to_owned().into(),
+        inputtext.to_owned(),
+    );
     let span1 = span_from_selection(inputtext, selection1);
     let span2 = span_from_selection(inputtext, selection2);
 
@@ -252,12 +276,21 @@ fn t10() {
     );
 
     assert!(
-        imported_src_file.external_src.borrow().get_source().is_none(),
+        imported_src_file
+            .external_src
+            .borrow()
+            .get_source()
+            .is_none(),
         "imported source file should not have source yet"
     );
     imported_src_file.add_external_src(|| Some(unnormalized.to_string()));
     assert_eq!(
-        imported_src_file.external_src.borrow().get_source().unwrap().as_ref(),
+        imported_src_file
+            .external_src
+            .borrow()
+            .get_source()
+            .unwrap()
+            .as_ref(),
         normalized,
         "imported source file should be normalized"
     );
@@ -295,7 +328,9 @@ fn map_path_prefix(mapping: &FilePathMapping, p: &str) -> String {
 }
 
 fn reverse_map_prefix(mapping: &FilePathMapping, p: &str) -> Option<String> {
-    mapping.reverse_map_prefix_heuristically(&path(p)).map(|q| q.to_string_lossy().to_string())
+    mapping
+        .reverse_map_prefix_heuristically(&path(p))
+        .map(|q| q.to_string_lossy().to_string())
 }
 
 #[test]
@@ -307,7 +342,10 @@ fn path_prefix_remapping() {
             FileNameDisplayPreference::Remapped,
         );
 
-        assert_eq!(map_path_prefix(mapping, "abc/def/src/main.rs"), path_str("foo/src/main.rs"));
+        assert_eq!(
+            map_path_prefix(mapping, "abc/def/src/main.rs"),
+            path_str("foo/src/main.rs")
+        );
         assert_eq!(map_path_prefix(mapping, "abc/def"), path_str("foo"));
     }
 
@@ -318,7 +356,10 @@ fn path_prefix_remapping() {
             FileNameDisplayPreference::Remapped,
         );
 
-        assert_eq!(map_path_prefix(mapping, "abc/def/src/main.rs"), path_str("/foo/src/main.rs"));
+        assert_eq!(
+            map_path_prefix(mapping, "abc/def/src/main.rs"),
+            path_str("/foo/src/main.rs")
+        );
         assert_eq!(map_path_prefix(mapping, "abc/def"), path_str("/foo"));
     }
 
@@ -329,7 +370,10 @@ fn path_prefix_remapping() {
             FileNameDisplayPreference::Remapped,
         );
 
-        assert_eq!(map_path_prefix(mapping, "/abc/def/src/main.rs"), path_str("foo/src/main.rs"));
+        assert_eq!(
+            map_path_prefix(mapping, "/abc/def/src/main.rs"),
+            path_str("foo/src/main.rs")
+        );
         assert_eq!(map_path_prefix(mapping, "/abc/def"), path_str("foo"));
     }
 
@@ -340,7 +384,10 @@ fn path_prefix_remapping() {
             FileNameDisplayPreference::Remapped,
         );
 
-        assert_eq!(map_path_prefix(mapping, "/abc/def/src/main.rs"), path_str("/foo/src/main.rs"));
+        assert_eq!(
+            map_path_prefix(mapping, "/abc/def/src/main.rs"),
+            path_str("/foo/src/main.rs")
+        );
         assert_eq!(map_path_prefix(mapping, "/abc/def"), path_str("/foo"));
     }
 }
@@ -366,7 +413,10 @@ fn path_prefix_remapping_expand_to_absolute() {
             RealFileName::LocalPath(path("/foo/src/main.rs")),
             &working_directory
         ),
-        RealFileName::Remapped { local_path: None, virtual_name: path("FOO/src/main.rs") }
+        RealFileName::Remapped {
+            local_path: None,
+            virtual_name: path("FOO/src/main.rs")
+        }
     );
 
     // Unmapped absolute path with unrelated working directory
@@ -375,7 +425,10 @@ fn path_prefix_remapping_expand_to_absolute() {
             RealFileName::LocalPath(path("/bar/src/main.rs")),
             &working_directory
         ),
-        RealFileName::Remapped { local_path: None, virtual_name: path("BAR/src/main.rs") }
+        RealFileName::Remapped {
+            local_path: None,
+            virtual_name: path("BAR/src/main.rs")
+        }
     );
 
     // Unmapped absolute path that does not match any prefix
@@ -393,7 +446,10 @@ fn path_prefix_remapping_expand_to_absolute() {
             RealFileName::LocalPath(path("src/main.rs")),
             &working_directory
         ),
-        RealFileName::Remapped { local_path: None, virtual_name: path("FOO/src/main.rs") }
+        RealFileName::Remapped {
+            local_path: None,
+            virtual_name: path("FOO/src/main.rs")
+        }
     );
 
     // Unmapped relative path with `./`
@@ -402,7 +458,10 @@ fn path_prefix_remapping_expand_to_absolute() {
             RealFileName::LocalPath(path("./src/main.rs")),
             &working_directory
         ),
-        RealFileName::Remapped { local_path: None, virtual_name: path("FOO/src/main.rs") }
+        RealFileName::Remapped {
+            local_path: None,
+            virtual_name: path("FOO/src/main.rs")
+        }
     );
 
     // Unmapped relative path that does not match any prefix
@@ -423,7 +482,10 @@ fn path_prefix_remapping_expand_to_absolute() {
             },
             &working_directory
         ),
-        RealFileName::Remapped { local_path: None, virtual_name: path("FOO/src/main.rs") }
+        RealFileName::Remapped {
+            local_path: None,
+            virtual_name: path("FOO/src/main.rs")
+        }
     );
 
     // Already remapped absolute path, with unrelated working directory
@@ -435,16 +497,25 @@ fn path_prefix_remapping_expand_to_absolute() {
             },
             &working_directory
         ),
-        RealFileName::Remapped { local_path: None, virtual_name: path("BAR/src/main.rs") }
+        RealFileName::Remapped {
+            local_path: None,
+            virtual_name: path("BAR/src/main.rs")
+        }
     );
 
     // Already remapped relative path
     assert_eq!(
         mapping.to_embeddable_absolute_path(
-            RealFileName::Remapped { local_path: None, virtual_name: path("XYZ/src/main.rs") },
+            RealFileName::Remapped {
+                local_path: None,
+                virtual_name: path("XYZ/src/main.rs")
+            },
             &working_directory
         ),
-        RealFileName::Remapped { local_path: None, virtual_name: path("XYZ/src/main.rs") }
+        RealFileName::Remapped {
+            local_path: None,
+            virtual_name: path("XYZ/src/main.rs")
+        }
     );
 }
 
@@ -464,7 +535,10 @@ fn path_prefix_remapping_reverse() {
     // Returns `None` if multiple options match.
     {
         let mapping = &FilePathMapping::new(
-            vec![(path("abc"), path("/redacted")), (path("def"), path("/redacted"))],
+            vec![
+                (path("abc"), path("/redacted")),
+                (path("def"), path("/redacted")),
+            ],
             FileNameDisplayPreference::Remapped,
         );
 
@@ -474,7 +548,10 @@ fn path_prefix_remapping_reverse() {
     // Distinct reverse mappings.
     {
         let mapping = &FilePathMapping::new(
-            vec![(path("abc"), path("/redacted")), (path("def/ghi"), path("/fake/dir"))],
+            vec![
+                (path("abc"), path("/redacted")),
+                (path("def/ghi"), path("/fake/dir")),
+            ],
             FileNameDisplayPreference::Remapped,
         );
 

@@ -1,17 +1,18 @@
 use crate::*;
+use husky_entity_tree::node::script::ScriptSynNodePath;
 use husky_token::TokenDb;
-use husky_vfs::{snippet::Snippet, CratePath, ModulePath};
+use husky_vfs::{script::Script, CratePath};
 
 #[salsa::tracked(jar = SynExprJar, return_ref)]
-pub fn parse_expr_from_snippet(
+pub fn parse_expr_from_script(
     db: &::salsa::Db,
     crate_path: CratePath,
-    snippet: Snippet,
+    script: Script,
 ) -> PreludeResult<(SynExprRegion, Option<SynExprIdx>)> {
-    let token_sheet_data = db.snippet_token_sheet_data(snippet);
+    let token_sheet_data = db.snippet_token_sheet_data(script);
     let expr_context = SynExprContext::new2(
         db,
-        SynNodeRegionPath::Snippet(ModulePath::new_snippet(snippet, db)),
+        SynNodeRegionPath::Defn(ScriptSynNodePath::new(script, db).into()),
         ModuleSymbolContext::new_default(db, crate_path)?,
         None,
         AllowSelfType::False,

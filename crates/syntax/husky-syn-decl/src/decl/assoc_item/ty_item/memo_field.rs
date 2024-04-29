@@ -28,7 +28,7 @@ impl TypeMemoizedFieldSynNodeDecl {
 }
 
 impl<'a> DeclParser<'a> {
-    pub(super) fn parse_ty_memo_decl(
+    pub(super) fn parse_ty_memo_syn_node_decl(
         &self,
         syn_node_path: TypeItemSynNodePath,
     ) -> TypeMemoizedFieldSynNodeDecl {
@@ -41,7 +41,7 @@ impl<'a> DeclParser<'a> {
             None,
         );
         let colon_token = parser.try_parse_option();
-        let form_ty = if let Ok(Some(_)) = colon_token {
+        let return_ty = if let Ok(Some(_)) = colon_token {
             parser
                 .try_parse_expected(OriginalSynNodeDeclError::ExpectedOutputType)
                 .map(Some)
@@ -54,7 +54,7 @@ impl<'a> DeclParser<'a> {
             db,
             syn_node_path,
             colon_token,
-            form_ty,
+            return_ty,
             eq_token,
             expr,
             parser.finish(),

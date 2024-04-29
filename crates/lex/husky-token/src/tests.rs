@@ -3,7 +3,7 @@ mod adv;
 use crate::*;
 use husky_coword::CowordJar;
 use husky_expect_test_snippets_utils::*;
-use husky_vfs::{snippet::Snippet, *};
+use husky_vfs::{script::Script, *};
 use salsa::DebugWithDb;
 
 #[salsa::db(
@@ -20,11 +20,7 @@ pub(crate) struct DB;
 fn tokenize_snippet_debug(snippet: &str) -> String {
     let db = DB::default();
     let db = &*db;
-    let snippet = Snippet::new(
-        db,
-        Ident::from_ref(db, "tokenize_snippet_debug").unwrap(),
-        snippet.to_owned(),
-    );
+    let snippet = Script::new_dev_snippet(snippet, db);
     format!("{:#?}", db.snippet_token_sheet_data(snippet).debug(db))
 }
 

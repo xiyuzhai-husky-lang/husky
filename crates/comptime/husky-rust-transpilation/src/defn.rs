@@ -73,9 +73,9 @@ use {}::{{*, ugly::*}};
             ModulePathData::Root(_) => builder.use_all_in_crate(),
             // use in super otherwise
             ModulePathData::Child { .. } => builder.use_all_in_super(),
-            ModulePathData::Snippet { .. } => unreachable!(),
+            ModulePathData::Script { .. } => unreachable!(),
         },
-        ModulePathData::Snippet { .. } => unreachable!(),
+        ModulePathData::Script { .. } => unreachable!(),
     });
     for item_path in module_item_paths(db, module_path) {
         match item_path.item_kind(db) {

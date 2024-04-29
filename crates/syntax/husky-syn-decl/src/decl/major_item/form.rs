@@ -59,9 +59,7 @@ impl<'a> DeclParser<'a> {
             MajorFormKind::Ritchie(ritchie_item_kind) => self
                 .parse_ritchie_node_decl(syn_node_path, ritchie_item_kind)
                 .into(),
-            MajorFormKind::TypeAlias => {
-                todo!()
-            }
+            MajorFormKind::TypeAlias => todo!(),
             MajorFormKind::Formal => todo!(),
             MajorFormKind::Const => todo!(),
         }

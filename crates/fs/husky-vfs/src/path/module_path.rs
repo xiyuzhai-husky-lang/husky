@@ -1,11 +1,11 @@
 pub mod ancestry;
 pub mod relative_path;
 
-use crate::snippet::Snippet;
+use crate::script::Script;
 
 use super::*;
 pub use ancestry::*;
-use salsa::DisplayWithDb;
+use salsa::{AsId, DisplayWithDb};
 use with_db::PartialOrdWithDb;
 #[cfg(test)]
 use with_db::WithDb;
@@ -15,32 +15,55 @@ pub struct ModulePath {
     pub data: ModulePathData,
 }
 
+#[salsa::as_id]
+#[salsa::deref_id]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub struct ScriptModulePath {
+    module_path: ModulePath,
+}
+
+impl ScriptModulePath {
+    pub fn module_path(self) -> ModulePath {
+        self.module_path
+    }
+
+    pub fn new(script: Script, db: &::salsa::Db) -> Self {
+        Self {
+            module_path: ModulePath::new_inner(db, ModulePathData::Script { script }),
+        }
+    }
+
+    pub fn script(self, db: &::salsa::Db) -> Script {
+        let ModulePathData::Script { script } = self.module_path.data(db) else {
+            unreachable!()
+        };
+        script
+    }
+}
+
 impl ModulePath {
     pub fn new(db: &::salsa::Db, data: ModulePathData) -> VfsResult<Self> {
         let slf = Self::new_inner(db, data);
-        let virtual_path = module_virtual_path(db, slf)?;
-        virtual_path
-            .file(db)?
-            .text(db)?
-            .ok_or(VfsError::FileNotExists(virtual_path))?;
+        if let Some(virtual_path) = module_virtual_path(db, slf)? {
+            virtual_path
+                .file(db)?
+                .text(db)?
+                .ok_or(VfsError::FileNotExists(virtual_path))?;
+        }
         Ok(slf)
-    }
-
-    pub fn new_snippet(snippet: Snippet, db: &::salsa::Db) -> Self {
-        Self::new_inner(db, ModulePathData::Snippet { snippet })
     }
 
     pub fn is_root(self, db: &::salsa::Db) -> bool {
         match self.data(db) {
             ModulePathData::Root(_) => true,
             ModulePathData::Child { .. } => false,
-            ModulePathData::Snippet { .. } => false,
+            ModulePathData::Script { .. } => false,
         }
     }
 
     pub fn root_module_path(self, db: &::salsa::Db) -> Self {
         match self.data(db) {
-            ModulePathData::Root(_) | ModulePathData::Snippet { .. } => self,
+            ModulePathData::Root(_) | ModulePathData::Script { .. } => self,
             ModulePathData::Child { .. } => self.module_ancestry(db).root_module_path(),
         }
     }
@@ -100,7 +123,7 @@ impl ModulePath {
         match self.data(db) {
             ModulePathData::Root(_) => None,
             ModulePathData::Child { parent, .. } => Some(parent),
-            ModulePathData::Snippet { .. } => None,
+            ModulePathData::Script { .. } => None,
         }
     }
 
@@ -125,30 +148,37 @@ impl ModulePath {
     }
 
     #[inline(always)]
-    pub fn virtual_path(self, db: &::salsa::Db) -> VirtualPath {
+    pub fn virtual_path(self, db: &::salsa::Db) -> Option<VirtualPath> {
         module_virtual_path(db, self).expect("guaranteed")
     }
 
     #[inline(always)]
-    pub fn abs_path(self, db: &::salsa::Db) -> VfsResult<PathBuf> {
-        self.virtual_path(db).abs_path(db)
+    pub fn abs_path(self, db: &::salsa::Db) -> Option<PathBuf> {
+        self.virtual_path(db)
+            .map(|virtual_path| virtual_path.abs_path(db).unwrap())
     }
 
     pub fn ident(self, db: &::salsa::Db) -> Ident {
         match self.data(db) {
             ModulePathData::Root(crate_path) => crate_path.package_ident(db),
-            ModulePathData::Child { parent: _, ident } => ident,
-            ModulePathData::Snippet { snippet } => snippet.ident(db),
+            ModulePathData::Child { ident, .. } => ident,
+            ModulePathData::Script { script: snippet } => Ident::from_ref(db, "snippet").unwrap(),
         }
     }
 
     pub fn raw_text(self, db: &::salsa::Db) -> &str {
-        let diff_path = module_virtual_path(db, self).unwrap();
-        db.file_from_virtual_path(diff_path)
-            .unwrap()
-            .text(db)
-            .unwrap()
-            .unwrap()
+        match module_virtual_path(db, self).unwrap() {
+            Some(virtual_path) => db
+                .file_from_virtual_path(virtual_path)
+                .unwrap()
+                .text(db)
+                .unwrap()
+                .unwrap(),
+            None => match self.data(db) {
+                ModulePathData::Root(_) | ModulePathData::Child { .. } => unreachable!(),
+                ModulePathData::Script { script } => script.data(db),
+            },
+        }
     }
 }
 
@@ -208,7 +238,7 @@ fn module_path_partial_ord_works() {
 pub enum ModulePathData {
     Root(CratePath),
     Child { parent: ModulePath, ident: Ident },
-    Snippet { snippet: Snippet },
+    Script { script: Script },
 }
 
 impl ModulePath {
@@ -236,7 +266,9 @@ impl ModulePath {
                 f.write_str("::")?;
                 f.write_str(ident.data(db))
             }
-            ModulePathData::Snippet { snippet } => f.write_str(snippet.ident(db).data(db)),
+            ModulePathData::Script { script: snippet } => {
+                f.write_fmt(format_args!("{}", snippet.as_id().as_u32()))
+            }
         }
     }
 }

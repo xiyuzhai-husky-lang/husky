@@ -65,11 +65,12 @@ impl DeclTokraRegionSourceMap {
 
 fn build_decl_tokra_region(
     module_path: ModulePath,
-    ast_idx: AstIdx,
+    opt_ast_idx: Option<AstIdx>,
     db: &::salsa::Db,
 ) -> (DeclTokraRegion, DeclTokraRegionSourceMap) {
     let token_sheet_data = db.token_sheet_data(module_path);
     let ast_sheet = module_path.ast_sheet(db);
+    let Some(ast_idx) = opt_ast_idx else { todo!() };
     let (token_verse_idx, ast, saved_regional_stream_state) = match ast_sheet[ast_idx] {
         AstData::Attr {
             token_verse_idx,
@@ -163,5 +164,5 @@ fn item_syn_node_decl_tokra_region_with_source_map(
     db: &::salsa::Db,
     id: ItemSynNodePathId,
 ) -> (DeclTokraRegion, DeclTokraRegionSourceMap) {
-    build_decl_tokra_region(id.module_path(db), id.ast_idx(db), db)
+    build_decl_tokra_region(id.module_path(db), id.opt_ast_idx(db), db)
 }

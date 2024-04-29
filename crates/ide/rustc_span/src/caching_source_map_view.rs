@@ -147,7 +147,11 @@ impl<'sm> CachingSourceMapView<'sm> {
 
         // No cache hit or cache hit for only one of span lo and hi.
         let oldest = if lo_cache_idx != -1 || hi_cache_idx != -1 {
-            let avoid_idx = if lo_cache_idx != -1 { lo_cache_idx } else { hi_cache_idx };
+            let avoid_idx = if lo_cache_idx != -1 {
+                lo_cache_idx
+            } else {
+                hi_cache_idx
+            };
             self.oldest_cache_entry_index_avoid(avoid_idx as usize)
         } else {
             self.oldest_cache_entry_index()

@@ -272,8 +272,12 @@ impl OriginalSynExprError {
             OriginalSynExprError::EntityTree { .. } => todo!(),
             OriginalSynExprError::ExpectedBlockRcurl(_) => todo!(),
             OriginalSynExprError::ExpectedRvertForClosure(_) => todo!(),
-            OriginalSynExprError::ExpectedEqTokenAfterReturnTypeForClosure(_) => todo!(),
-            OriginalSynExprError::ExpectedReturnTypeAfterLightArrowForClosure(_) => todo!(),
+            OriginalSynExprError::ExpectedEqTokenAfterReturnTypeForClosure(_) => {
+                todo!()
+            }
+            OriginalSynExprError::ExpectedReturnTypeAfterLightArrowForClosure(_) => {
+                todo!()
+            }
             OriginalSynExprError::ExpectedBodyExprForClosure(_) => todo!(),
         }
     }

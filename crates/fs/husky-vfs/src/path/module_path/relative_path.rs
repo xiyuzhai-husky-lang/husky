@@ -12,13 +12,14 @@ fn module_relative_path(db: &::salsa::Db, module_path: ModulePath) -> RelativePa
     match module_path.data(db) {
         ModulePathData::Root(crate_path) => match crate_path.crate_kind(db) {
             CrateKind::Lib => RelativePathBuf::from_path("lib.rs").unwrap(),
-            CrateKind::Main => RelativePathBuf::from_path("lib.rs").unwrap(), // this is intentional
+            CrateKind::Main => RelativePathBuf::from_path("lib.rs").unwrap(),
             CrateKind::Bin(_) => todo!(),
             CrateKind::IntegratedTest(_) => todo!(),
             CrateKind::Example => todo!(),
+            CrateKind::Script => todo!(),
         },
         ModulePathData::Child { .. } => module_relative_stem(db, module_path).with_extension("rs"),
-        ModulePathData::Snippet { .. } => unreachable!(),
+        ModulePathData::Script { .. } => unreachable!(),
     }
 }
 
@@ -29,7 +30,7 @@ fn module_relative_stem(db: &::salsa::Db, module_path: ModulePath) -> RelativePa
         ModulePathData::Child { parent, ident } => {
             module_relative_stem(db, parent).join(ident.data(db))
         }
-        ModulePathData::Snippet { .. } => unreachable!(),
+        ModulePathData::Script { .. } => unreachable!(),
     }
 }
 
