@@ -182,7 +182,7 @@ fn item_syn_defn_tokra_region_with_source_map(
     db: &::salsa::Db,
     id: ItemSynNodePathId,
 ) -> Option<(DefnTokraRegion, DefnTokraRegionSourceMap)> {
-    let builder = DefnTokraRegionBuilder::new(id.module_path(db), id.ast_idx(db), db)?;
+    let builder = DefnTokraRegionBuilder::new(id, db)?;
     Some(builder.build())
 }
 
@@ -201,12 +201,24 @@ struct DefnTokraRegionBuilder<'a> {
 }
 
 impl<'a> DefnTokraRegionBuilder<'a> {
-    fn new(module_path: ModulePath, ast_idx: AstIdx, db: &'a ::salsa::Db) -> Option<Self> {
-        // let
+    fn new(id: ItemSynNodePathId, db: &'a ::salsa::Db) -> Option<Self> {
+        let module_path = id.module_path(db);
+        let opt_ast_idx = id.opt_ast_idx(db);
         let ast_sheet = module_path.ast_sheet(db);
-        let root_body = match ast_sheet[ast_idx] {
-            AstData::Identifiable { block, .. } => block.children()?,
-            _ => unreachable!(),
+        let root_body = match opt_ast_idx {
+            Some(ast_idx) => match ast_sheet[ast_idx] {
+                AstData::Identifiable { block, .. } => block.children()?,
+                _ => unreachable!(),
+            },
+            None => match id.data(db) {
+                ItemSynNodePathData::Script(_) => ast_sheet.top_level_asts(),
+                ItemSynNodePathData::Submodule(_)
+                | ItemSynNodePathData::MajorItem(_)
+                | ItemSynNodePathData::TypeVariant(_)
+                | ItemSynNodePathData::ImplBlock(_)
+                | ItemSynNodePathData::AssocItem(_)
+                | ItemSynNodePathData::Attr(_) => unreachable!(),
+            },
         };
         let Some((first_ast_idx, first_token_verse_idx)) =
             root_body

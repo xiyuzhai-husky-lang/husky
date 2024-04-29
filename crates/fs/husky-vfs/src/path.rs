@@ -18,7 +18,7 @@ use crate::*;
 pub(crate) fn module_virtual_path(
     db: &::salsa::Db,
     module_path: ModulePath,
-) -> VfsResult<VirtualPath> {
+) -> VfsResult<Option<VirtualPath>> {
     match module_path.data(db) {
         ModulePathData::Root(crate_path) => VirtualPath::try_new(
             db,
@@ -27,20 +27,21 @@ pub(crate) fn module_virtual_path(
                 .data(db)
                 .join(crate_path.relative_path(db).as_ref()),
         )
+        .map(Some)
         .map_err(|e| e.into()),
         ModulePathData::Child { parent, ident } => {
-            let parent_module_path = module_virtual_path(db, parent)?;
+            let parent_module_path = module_virtual_path(db, parent)?.unwrap();
             let dir = match parent.data(db) {
                 ModulePathData::Root(_) => parent_module_path.data(db).parent().unwrap().to_owned(),
                 ModulePathData::Child {
                     parent: _,
                     ident: _,
                 } => parent_module_path.data(db).with_extension(""),
-                ModulePathData::Snippet { .. } => unreachable!(),
+                ModulePathData::Script { .. } => unreachable!(),
             };
-            VirtualPath::try_new(db, &dir.join(ident.data(db)).with_extension("hsy"))
+            VirtualPath::try_new(db, &dir.join(ident.data(db)).with_extension("hsy")).map(Some)
         }
-        ModulePathData::Snippet { .. } => unreachable!(),
+        ModulePathData::Script { .. } => Ok(None),
     }
 }
 
@@ -124,11 +125,12 @@ pub(crate) fn resolve_module_path(
 fn resolve_module_path_works() {
     DB::vfs_plain_test(
         |db, module_path| {
-            let abs_path = module_virtual_path(db, module_path).unwrap();
-            let item_path_resolved = db
-                .resolve_module_path_and_update_live_packages(abs_path.data(db))
-                .unwrap();
-            assert_eq!(module_path, item_path_resolved)
+            if let Some(virtual_path) = module_virtual_path(db, module_path).unwrap() {
+                let item_path_resolved = db
+                    .resolve_module_path_and_update_live_packages(virtual_path.data(db))
+                    .unwrap();
+                assert_eq!(module_path, item_path_resolved);
+            }
         },
         &VfsTestConfig::new(
             "resolve-module-path",

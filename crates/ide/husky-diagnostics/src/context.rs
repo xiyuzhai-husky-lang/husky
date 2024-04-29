@@ -74,7 +74,6 @@ impl<'a> RegionDiagnosticsContext<'a> {
         let sem_expr_region_data = db.sem_expr_region(syn_expr_region).data(db);
         let syn_expr_range_region = syn_expr_region.range_region(db);
         let regional_token_idx_base = match syn_expr_region_data.path() {
-            SynNodeRegionPath::Snippet(_) => todo!(),
             SynNodeRegionPath::Decl(path) => path.decl_regional_token_idx_base(db),
             SynNodeRegionPath::Defn(path) => path.defn_regional_token_idx_base(db).expect("todo"),
         };

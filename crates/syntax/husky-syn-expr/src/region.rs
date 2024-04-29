@@ -217,7 +217,6 @@ impl SynExprRegion {
     pub fn toolchain(self, db: &::salsa::Db) -> Toolchain {
         // ad hoc
         match self.data(db).path {
-            SynNodeRegionPath::Snippet(module_path) => module_path.toolchain(db),
             SynNodeRegionPath::Decl(syn_node_path) | SynNodeRegionPath::Defn(syn_node_path) => {
                 syn_node_path.toolchain(db)
             }

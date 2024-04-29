@@ -60,6 +60,7 @@ pub fn item_variances(db: &::salsa::Db, path: ItemPath) -> VarianceResultRef<&[V
         ItemPath::TypeVariant(_, _) => todo!(),
         ItemPath::ImplBlock(_) => todo!(),
         ItemPath::Attr(_, _) => todo!(),
+        ItemPath::Script(_, _) => todo!(),
     }
 }
 

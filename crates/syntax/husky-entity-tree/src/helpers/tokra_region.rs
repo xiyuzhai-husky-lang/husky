@@ -1,12 +1,10 @@
 pub mod decl;
 pub mod defn;
-pub mod snippet;
 
 pub use self::decl::*;
 pub use self::defn::*;
-pub use self::snippet::*;
 
-use crate::*;
+use super::*;
 use husky_entity_path::region::RegionPath;
 use husky_regional_token::*;
 use husky_token::TokenIdx;
@@ -20,7 +18,6 @@ use husky_token::TokenIdx;
 #[derive(Debug, Clone, Copy)]
 #[enum_class::from_variants]
 pub enum TokraRegionDataRef<'a> {
-    Snippet(SnippetTokraRegionDataRef<'a>),
     Decl(DeclTokraRegionDataRef<'a>),
     Defn(DefnTokraRegionDataRef<'a>),
 }
@@ -30,7 +27,6 @@ impl<'a> std::ops::Index<RegionalTokenIdx> for TokraRegionDataRef<'a> {
 
     fn index(&self, index: RegionalTokenIdx) -> &Self::Output {
         match self {
-            TokraRegionDataRef::Snippet(token_region) => &token_region[index],
             TokraRegionDataRef::Decl(token_region) => &token_region[index],
             TokraRegionDataRef::Defn(token_region) => &token_region[index],
         }
@@ -40,7 +36,6 @@ impl<'a> std::ops::Index<RegionalTokenIdx> for TokraRegionDataRef<'a> {
 impl SynNodeRegionPath {
     pub fn regional_token_idx_base(self, db: &::salsa::Db) -> Option<RegionalTokenIdxBase> {
         match self {
-            SynNodeRegionPath::Snippet(_) => Some(RegionalTokenIdxBase::new_snippet()),
             SynNodeRegionPath::Decl(slf) => Some(slf.decl_regional_token_idx_base(db)),
             SynNodeRegionPath::Defn(slf) => slf.defn_regional_token_idx_base(db),
         }
@@ -48,7 +43,6 @@ impl SynNodeRegionPath {
 
     pub fn tokra_region_data_ref<'a>(self, db: &'a ::salsa::Db) -> Option<TokraRegionDataRef<'a>> {
         Some(match self {
-            SynNodeRegionPath::Snippet(module_path) => todo!(),
             SynNodeRegionPath::Decl(slf) => slf.decl_tokra_region(db).data(db).into(),
             SynNodeRegionPath::Defn(slf) => slf.defn_tokra_region(db)?.data(db).into(),
         })

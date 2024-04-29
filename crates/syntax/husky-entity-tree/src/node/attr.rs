@@ -179,9 +179,12 @@ fn item_attr_syn_nodes(
         ItemSynNodePath::Attr(_, _) => return smallvec![],
         _ => (),
     }
+    let Some(ast_idx) = item_syn_node_path_id.opt_ast_idx(db) else {
+        return smallvec![];
+    };
     ast_sheet.procure_attrs(
         syn_node_path.unambiguous_item_path(db),
-        item_syn_node_path_id.ast_idx(db),
+        ast_idx,
         move |attr_ast_idx, _, path| AttrSynNode::new(syn_node_path, path, attr_ast_idx, db),
         db,
     )

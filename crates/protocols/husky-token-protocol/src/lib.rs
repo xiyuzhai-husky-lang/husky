@@ -115,6 +115,7 @@ impl From<EntityClass> for TokenClass {
             EntityClass::Formal => TokenClass::FormalEntity,
             EntityClass::AssocFormal => TokenClass::FormalEntity,
             EntityClass::Const => TokenClass::ConstEntity,
+            EntityClass::Script => unreachable!(),
         }
     }
 }
