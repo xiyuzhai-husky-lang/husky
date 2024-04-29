@@ -2,6 +2,9 @@ use crate::*;
 use husky_vfs::{error::VfsResult, VirtualPath};
 use salsa::Db;
 
+#[salsa::jar]
+pub struct CorgiConfigAstJar(corgi_config_ast_sheet, corgi_config_ast_menu);
+
 pub trait CorgiConfigAstDb {
     fn corgi_config_ast_sheet(&self, path: VirtualPath) -> VfsResult<Option<&CorgiConfigAstSheet>>;
 }

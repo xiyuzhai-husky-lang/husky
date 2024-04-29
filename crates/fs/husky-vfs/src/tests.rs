@@ -2,9 +2,8 @@ use crate::{
     // watch::{WatchedVfs, DEBOUNCE_TEST_SLEEP_TIME},
     *,
 };
-use husky_coword::CowordJar;
 
-#[salsa::db(VfsJar, CowordJar)]
+#[salsa::db(VfsJar, husky_coword::jar::CowordJar)]
 #[derive(Default)]
 pub(crate) struct DB;
 

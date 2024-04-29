@@ -1,8 +1,8 @@
 pub(crate) use husky_ast::test_utils::*;
 
 use crate::*;
-use husky_coword::CowordJar;
-use husky_term_prelude::TermPreludeJar;
+use husky_coword::jar::CowordJar;
+use husky_term_prelude::jar::TermPreludeJar;
 use husky_token::TokenJar;
 
 #[salsa::db(

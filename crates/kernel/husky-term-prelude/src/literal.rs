@@ -65,7 +65,7 @@ pub enum Literal {
     StaticLifetime,
 }
 
-#[salsa::tracked(db = TermPreludeDb, jar = TermPreludeJar)]
+#[salsa::tracked]
 pub struct StringLiteralTokenData {
     #[return_ref]
     pub data: Arc<str>,
@@ -116,7 +116,7 @@ impl Literal {
 }
 
 /// allowing representing very large number
-#[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
+#[salsa::interned]
 pub struct NatLiteral {
     pub bits: Vec<usize>,
 }

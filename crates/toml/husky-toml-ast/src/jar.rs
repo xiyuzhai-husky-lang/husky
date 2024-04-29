@@ -2,6 +2,9 @@ use crate::*;
 
 use husky_vfs::error::{VfsError, VfsResult};
 
+#[salsa::jar]
+pub struct TomlAstJar(toml_ast_sheet_aux);
+
 pub trait TomlAstDb {
     fn package_manifest_toml_ast_sheet(&self, path: PackagePath) -> VfsResult<&TomlAstSheet>;
     fn toml_ast_sheet(&self, path: VirtualPath) -> VfsResult<Option<&TomlAstSheet>>;

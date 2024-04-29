@@ -1,8 +1,8 @@
 #![feature(const_trait_impl)]
 #![feature(try_trait_v2)]
-mod db;
 mod error;
 mod expr;
+pub mod jar;
 mod line_group;
 mod parser;
 mod section;
@@ -11,9 +11,9 @@ mod table;
 mod tests;
 mod transformer;
 
-pub use self::db::*;
 pub use self::error::*;
 pub use self::expr::*;
+pub use self::jar::*;
 pub use self::line_group::*;
 pub use self::section::*;
 pub use self::table::*;
@@ -24,9 +24,6 @@ use husky_toml_token::*;
 use husky_vfs::{error::VfsResult, *};
 use idx_arena::{Arena, ArenaIdx, ArenaIdxRange};
 use parser::TomlAstParser;
-
-#[salsa::jar]
-pub struct TomlAstJar(toml_ast_sheet_aux);
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]

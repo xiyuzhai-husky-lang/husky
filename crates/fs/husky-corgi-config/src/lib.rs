@@ -1,7 +1,7 @@
 #![feature(let_chains)]
 mod builder;
-mod db;
 mod error;
+pub mod jar;
 mod sections;
 pub mod transpilation_setup;
 
@@ -9,18 +9,9 @@ pub use self::error::*;
 pub use self::sections::*;
 
 use self::builder::*;
+use self::jar::CorgiConfigJar as Jar;
 use husky_corgi_config_ast::*;
 use husky_vfs::{error::VfsResult, *};
-
-#[salsa::jar]
-pub struct CorgiConfigJar(
-    package_corgi_config,
-    package_corgi_config_paths_aux,
-    package_registry_path,
-    root_corgi_config_path,
-    crate::transpilation_setup::linktime_target_transpilation_setup,
-    crate::transpilation_setup::TranspilationSetup,
-);
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct CorgiConfig {
@@ -28,7 +19,7 @@ pub struct CorgiConfig {
     errors: Vec<CorgiConfigError>,
 }
 
-#[salsa::tracked(jar = CorgiConfigJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub(crate) fn package_registry_path(
     db: &::salsa::Db,
     package: PackagePath,
@@ -53,7 +44,7 @@ impl HasCorgiConfig for PackagePath {
     }
 }
 
-#[salsa::tracked(jar = CorgiConfigJar, return_ref)]
+#[salsa::tracked(return_ref)]
 fn package_corgi_config(
     db: &::salsa::Db,
     package_path: PackagePath,
@@ -76,7 +67,7 @@ fn package_corgi_config_paths(
         .map_err(|e| e.clone())
 }
 
-#[salsa::tracked(jar = CorgiConfigJar, return_ref)]
+#[salsa::tracked(return_ref)]
 fn package_corgi_config_paths_aux(
     db: &::salsa::Db,
     package_path: PackagePath,
@@ -98,7 +89,7 @@ fn collect_corgi_config_paths_starting_from_dir(
     Ok(paths)
 }
 
-#[salsa::tracked(jar = CorgiConfigJar)]
+#[salsa::tracked]
 fn root_corgi_config_path(db: &::salsa::Db) -> VfsResult<VirtualPath> {
     VirtualPath::try_new(db, husky_fs_specs::root_corgi_config_path()?)
 }

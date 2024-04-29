@@ -1,8 +1,8 @@
 #![feature(step_trait)]
 #![feature(const_trait_impl)]
-pub mod db;
 mod helpers;
 pub mod indent;
+pub mod jar;
 mod lex;
 mod sheet;
 mod snippet;
@@ -16,8 +16,8 @@ mod token_idx_range;
 mod token_visibility;
 pub mod verse;
 
-pub use self::db::*;
 pub use self::helpers::*;
+pub use self::jar::*;
 pub use self::sheet::*;
 pub use self::stream::*;
 pub use self::token_idx::*;

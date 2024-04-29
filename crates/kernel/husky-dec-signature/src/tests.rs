@@ -1,18 +1,18 @@
 pub(crate) use husky_ast::test_utils::*;
 
 use crate::*;
-use husky_corgi_config::CorgiConfigJar;
+use husky_corgi_config::jar::CorgiConfigJar;
 use husky_corgi_config_ast::CorgiConfigAstJar;
 use husky_entity_tree::EntityTreeJar;
-use husky_manifest::ManifestJar;
-use husky_manifest_ast::ManifestAstJar;
+use husky_manifest::jar::ManifestJar;
+use husky_manifest_ast::jar::ManifestAstJar;
 use husky_syn_expr::jar::SynExprJar;
 use husky_token::TokenJar;
 use husky_toml_ast::TomlAstJar;
 use husky_vfs::ModulePath;
 
 #[salsa::db(
-    CowordJar,
+    husky_coword::jar::CowordJar,
     husky_vfs::jar::VfsJar,
     husky_entity_path::jar::EntityPathJar,
     husky_token_data::jar::TokenDataJar,
@@ -27,7 +27,7 @@ use husky_vfs::ModulePath;
     ManifestJar,
     SynExprJar,
     SynDeclJar,
-    TermPreludeJar,
+    husky_term_prelude::jar::TermPreludeJar,
     husky_dec_term::jar::DecTermJar,
     DecSignatureJar
 )]

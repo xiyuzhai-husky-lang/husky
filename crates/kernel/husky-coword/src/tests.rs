@@ -1,7 +1,7 @@
 use crate::*;
 use salsa::DebugWithDb;
 
-#[salsa::db(CowordJar)]
+#[salsa::db(Jar)]
 pub struct DB;
 
 #[test]

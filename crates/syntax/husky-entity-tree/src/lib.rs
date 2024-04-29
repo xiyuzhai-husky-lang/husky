@@ -7,7 +7,7 @@ mod context;
 mod error;
 mod expr;
 pub mod helpers;
-mod jar;
+pub mod jar;
 pub mod node;
 mod prelude;
 mod presheet;

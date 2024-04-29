@@ -1,5 +1,5 @@
 use crate::*;
-use husky_coword::CowordJar;
+use husky_coword::jar::CowordJar;
 use husky_toml_token::jar::TomlTokenJar;
 use husky_vfs::*;
 

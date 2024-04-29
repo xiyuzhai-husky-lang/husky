@@ -1,12 +1,12 @@
 use super::*;
 
-#[salsa::tracked(db = ManifestDb, jar = ManifestJar)]
+#[salsa::tracked]
 pub struct PackageDevDependenciesSection {
     #[return_ref]
     pub data: Vec<PackageDependency>,
 }
 
-#[salsa::tracked(jar = ManifestJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub(crate) fn package_dev_dependencies_unchecked(
     db: &::salsa::Db,
     package_path: PackagePath,

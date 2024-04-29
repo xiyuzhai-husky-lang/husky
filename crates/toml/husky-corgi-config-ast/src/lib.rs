@@ -1,24 +1,22 @@
-mod db;
 mod error;
+pub mod jar;
 mod menu;
 mod sections;
 #[cfg(test)]
 mod tests;
 mod transformer;
 
-pub use self::db::*;
 pub use self::error::*;
+pub use self::jar::*;
 pub use self::sections::*;
 
 use self::menu::*;
 #[cfg(test)]
 use self::tests::*;
 use self::transformer::*;
+use self::CorgiConfigAstJar as Jar;
 use husky_toml_ast::*;
 use husky_vfs::{error::VfsResult, VirtualPath};
-
-#[salsa::jar]
-pub struct CorgiConfigAstJar(corgi_config_ast_sheet, corgi_config_ast_menu);
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct CorgiConfigAstSheet {

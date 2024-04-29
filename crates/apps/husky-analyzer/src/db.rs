@@ -7,9 +7,9 @@ use salsa::snapshot::SnapshotClone;
     // fs
     husky_vfs::VfsJar,
     // kernel
-    husky_coword::CowordJar,
+    husky_coword::jar::CowordJar,
     husky_entity_path::jar::EntityPathJar,
-    husky_term_prelude::TermPreludeJar,
+    husky_term_prelude::jar::TermPreludeJar,
     husky_dec_term::jar::DecTermJar,
     husky_dec_ty::DeclarativeTypeJar,
     husky_dec_signature::DecSignatureJar,
@@ -25,15 +25,15 @@ use salsa::snapshot::SnapshotClone;
     husky_ast::jar::AstJar,
     husky_toml_ast::TomlAstJar,
     husky_corgi_config_ast::CorgiConfigAstJar,
-    husky_manifest_ast::ManifestAstJar,
+    husky_manifest_ast::jar::ManifestAstJar,
     husky_entity_tree::EntityTreeJar,
     husky_syn_expr::jar::SynExprJar,
     husky_syn_decl::SynDeclJar,
     husky_syn_defn::SynDefnJar,
     // semantics
     husky_sem_expr::SemExprJar,
-    husky_corgi_config::CorgiConfigJar,
-    husky_manifest::ManifestJar,
+    husky_corgi_config::jar::CorgiConfigJar,
+    husky_manifest::jar::ManifestJar,
     // ide
     husky_token_info::TokenInfoJar,
     husky_folding_range::FoldingRangeJar,

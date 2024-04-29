@@ -3,7 +3,7 @@ use husky_vfs::linktime_target_path::{LinktimeTargetPath, LinktimeTargetPathData
 
 use crate::*;
 
-#[salsa::interned(jar = CorgiConfigJar)]
+#[salsa::interned]
 pub struct TranspilationSetup {
     #[return_ref]
     _rust_data: Option<RustTranspilationSetupData>,
@@ -21,7 +21,7 @@ impl HasTranspilationSetup for LinktimeTargetPath {
     }
 }
 
-#[salsa::tracked(jar = CorgiConfigJar)]
+#[salsa::tracked]
 pub fn linktime_target_transpilation_setup(
     db: &::salsa::Db,
     path: LinktimeTargetPath,

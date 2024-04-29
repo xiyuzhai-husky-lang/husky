@@ -1,7 +1,7 @@
-mod db;
 mod dependency;
 mod error;
 pub mod has_manifest;
+pub mod jar;
 mod sections;
 
 pub use self::dependency::*;
@@ -9,24 +9,12 @@ pub use self::error::*;
 pub use self::has_manifest::*;
 pub use self::sections::*;
 
+use self::jar::ManifestJar as Jar;
 use husky_corgi_config::HasCorgiConfig;
 use husky_manifest_ast::{HasPackageManifestAstSheet, PackageManifestAstSheet};
-
 use husky_vfs::*;
 
-#[salsa::jar]
-pub struct ManifestJar(
-    package_manifest_aux,
-    PackageManifest,
-    PackageDependenciesSection,
-    package_dependencies,
-    full_dependent_package_paths_aux,
-    PackageDevDependenciesSection,
-    package_dev_dependencies_unchecked,
-    linktime_target_path_all_packages,
-);
-
-#[salsa::tracked(db = ManifestDb, jar = ManifestJar)]
+#[salsa::tracked]
 pub struct PackageManifest {
     // intentially private
     dependencies: PackageDependenciesSection,
@@ -41,7 +29,7 @@ pub(crate) fn package_manifest(
     package_manifest_aux(db, package_path).as_ref().copied()
 }
 
-#[salsa::tracked(jar = ManifestJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub(crate) fn package_manifest_aux(
     db: &::salsa::Db,
     package_path: PackagePath,

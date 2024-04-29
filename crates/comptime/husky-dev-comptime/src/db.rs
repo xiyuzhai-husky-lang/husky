@@ -7,8 +7,8 @@ use std::panic::RefUnwindSafe;
     // devtime
     husky_trace::jar::TraceJar,
     // fs
-    husky_corgi_config::CorgiConfigJar,
-    husky_manifest::ManifestJar,
+    husky_corgi_config::jar::CorgiConfigJar,
+    husky_manifest::jar::ManifestJar,
     husky_vfs::VfsJar,
     // hir
     husky_hir_eager_expr::jar::HirEagerExprJar,
@@ -19,9 +19,9 @@ use std::panic::RefUnwindSafe;
     // ide
     husky_token_info::db::TokenInfoJar,
     // kernel
-    husky_coword::CowordJar,
+    husky_coword::jar::CowordJar,
     husky_entity_path::jar::EntityPathJar,
-    husky_term_prelude::TermPreludeJar,
+    husky_term_prelude::jar::TermPreludeJar,
     husky_dec_term::jar::DecTermJar,
     husky_dec_ty::DeclarativeTypeJar,
     husky_dec_signature::DecSignatureJar,
@@ -31,7 +31,7 @@ use std::panic::RefUnwindSafe;
     husky_hir_ty::db::HirTypeJar,
     // lex
     husky_token_data::jar::TokenDataJar,
-    husky_token::db::TokenJar,
+    husky_token::jar::TokenJar,
     husky_toml_token::jar::TomlTokenJar,
     husky_text::jar::TextJar,
     // linkage
@@ -44,7 +44,7 @@ use std::panic::RefUnwindSafe;
     husky_ast::jar::AstJar,
     husky_toml_ast::TomlAstJar,
     husky_corgi_config_ast::CorgiConfigAstJar,
-    husky_manifest_ast::ManifestAstJar,
+    husky_manifest_ast::jar::ManifestAstJar,
     husky_entity_tree::EntityTreeJar,
     husky_syn_expr::jar::SynExprJar,
     husky_syn_decl::SynDeclJar,
