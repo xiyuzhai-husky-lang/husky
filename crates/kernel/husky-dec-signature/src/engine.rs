@@ -83,7 +83,7 @@ impl<'a> DecTermEngine<'a> {
                     );
                 self.infer_expr_roots();
             }
-            SynNodeRegionPath::Snippet(_) | SynNodeRegionPath::Defn(_) => (),
+            SynNodeRegionPath::Defn(_) => (),
         };
         self.finish()
     }

@@ -25,12 +25,6 @@ impl From<TokenDataError> for SynNodeDeclError {
     }
 }
 
-impl From<SynExprError> for SynDeclError {
-    fn from(_value: SynExprError) -> Self {
-        todo!()
-    }
-}
-
 impl From<SynExprError> for SynNodeDeclError {
     fn from(error: SynExprError) -> Self {
         match error {
@@ -45,47 +39,49 @@ impl From<SynExprError> for SynNodeDeclError {
 pub enum OriginalSynNodeDeclError {
     #[error("derived {0}")]
     Expr(#[from] OriginalSynExprError),
-    #[error("expect output type")]
+    #[error("expected output type")]
     ExpectedOutputType(RegionalTokenStreamState),
-    #[error("expect `->`")]
+    #[error("expected `->`")]
     ExpectedCurry(RegionalTokenStreamState),
-    #[error("expect `:` at end of line")]
+    #[error("expected `:` at end of line")]
     ExpectedEolColon(RegionalTokenStreamState),
     #[error("expected `}}` for struct")]
     ExpectedRcurlForStruct(RegionalTokenStreamState),
     #[error("expected `}}` for type props variant")]
     ExpectedRcurlForTypePropsVariant(RegionalTokenStreamState),
-    #[error("expect `>` for implicit parameters")]
+    #[error("expected `>` for implicit parameters")]
     ExpectedRightAngleDelimiterForImplicitParameterDeclList {
         langle_regional_token_idx: RegionalTokenIdx,
         regional_token_stream_state: RegionalTokenStreamState,
     },
-    #[error("expect parameter declaration list")]
+    #[error("expected parameter declaration list")]
     ExpectedParameterDeclList(RegionalTokenStreamState),
-    #[error("expect implicit parameter declaration")]
+    #[error("expected implicit parameter declaration")]
     ExpectedImplicitParameterDecl(RegionalTokenStreamState),
-    #[error("expect `)` in parameter list")]
+    #[error("expected `)` in parameter list")]
     ExpectedRightParenthesisInParameterList(RegionalTokenStreamState),
-    #[error("expect `)` in parameter list")]
+    #[error("expected `)` in parameter list")]
     ExpectedRightParenthesisInTupleStructFieldTypeList(RegionalTokenStreamState),
-    #[error("ExpectedColonBeforeValReturnType")]
+    #[error("expected colon before `val` return type")]
     ExpectedColonBeforeValReturnType(RegionalTokenStreamState),
-    #[error("ExpectVariableType")]
+    #[error("expect `val` return type")]
     ExpectedValReturnType(RegionalTokenStreamState),
-    #[error("ExpectEqTokenForMemo")]
+    #[error("expect `=` for memo")]
     ExpectEqTokenForMemo(RegionalTokenStreamState),
     #[error("expected `{{` `(` or `;` for struct")]
     ExpectedLcurlOrLparOrSemicolonForStruct(RegionalTokenStreamState),
     #[error("expected `=` for associated type")]
     ExpectedEqForAssocType(RegionalTokenStreamState),
     #[error("expected `(` for derive")]
-    ExpectLeftDelimiterInDerive(RegionalTokenStreamState),
+    ExpectedLeftDelimiterInDerive(RegionalTokenStreamState),
     #[error("expected `)` for derive")]
-    ExpectRightDelimiterInDerive(RegionalTokenStreamState),
-    #[error("ExpectEqTokenForBackpropArgument")]
-    ExpectEqTokenForBackpropArgument(RegionalTokenStreamState),
-    #[error("ExpectedExprForBackpropArgument")]
+    ExpectedRightDelimiterInDerive(RegionalTokenStreamState),
+    #[error("expect `=` for backprop argument")]
+    ExpectedEqTokenForBackpropArgument(RegionalTokenStreamState),
+    #[error("expected expression for backprop argument")]
     ExpectedExprForBackpropArgument(RegionalTokenStreamState),
+    #[error("expected `:` for trait memoized field")]
+    ExpectedColonForTraitMemoizedField(RegionalTokenStreamState),
 }
 
 impl OriginalError for OriginalSynNodeDeclError {
@@ -106,10 +102,6 @@ pub enum DerivedSynNodeDeclError {
 pub enum SynDeclError {
     #[error("declaration expression error")]
     NodeDecl,
-    // #[error("{0}")]
-    // Original(#[from] OriginalDeclError),
-    // #[error("{0}")]
-    // Derived(#[from] DerivedDeclError),
 }
 
 pub type SynDeclResult<T> = Result<T, SynDeclError>;
@@ -117,7 +109,6 @@ pub type SynDeclResult<T> = Result<T, SynDeclError>;
 impl From<&SynNodeDeclError> for SynDeclError {
     #[track_caller]
     fn from(_value: &SynNodeDeclError) -> Self {
-        todo!("not yet expect errors in from of impl From<&SynNodeDeclError> for SynDeclError");
-        // SynDeclError::NodeDecl
+        SynDeclError::NodeDecl
     }
 }

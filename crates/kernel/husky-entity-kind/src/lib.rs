@@ -60,6 +60,7 @@ pub enum EntityKind {
     TypeVariant,
     ImplBlock,
     Attr,
+    Script,
 }
 
 #[cfg(feature = "protocol_support")]
@@ -88,6 +89,7 @@ impl EntityKind {
             EntityKind::TypeVariant => EntityClass::TypeVariant,
             EntityKind::ImplBlock => EntityClass::ImplBlock,
             EntityKind::Attr => EntityClass::Attr,
+            EntityKind::Script => EntityClass::Script,
         }
     }
 }

@@ -60,6 +60,7 @@ impl JavInstantiation {
                 ItemPath::TypeVariant(_, _) => None,
                 ItemPath::ImplBlock(_) => todo!(),
                 ItemPath::Attr(_, _) => todo!(),
+                ItemPath::Script(_, _) => todo!(),
             },
         }
     }

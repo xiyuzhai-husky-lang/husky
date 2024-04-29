@@ -89,7 +89,7 @@ impl<'a> DeclParser<'a> {
         match syn_node_path.data(db).item_kind(self.db()) {
             TypeItemKind::AssocRitchie(_) => self.parse_ty_assoc_fn_node_decl(syn_node_path).into(),
             TypeItemKind::MethodRitchie(_) => self.parse_ty_method_node_decl(syn_node_path).into(),
-            TypeItemKind::MemoizedField => self.parse_ty_memo_decl(syn_node_path).into(),
+            TypeItemKind::MemoizedField => self.parse_ty_memo_syn_node_decl(syn_node_path).into(),
             TypeItemKind::AssocVal => todo!(),
             TypeItemKind::AssocType => todo!(),
             TypeItemKind::AssocFormal => todo!(),

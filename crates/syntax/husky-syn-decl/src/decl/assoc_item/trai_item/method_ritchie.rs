@@ -43,7 +43,7 @@ impl TraitMethodRitchieSynNodeDecl {
 }
 
 impl<'a> DeclParser<'a> {
-    pub(super) fn parse_trai_method_ritchie_node_decl(
+    pub(super) fn parse_trai_method_ritchie_syn_node_decl(
         &self,
         syn_node_path: TraitItemSynNodePath,
     ) -> TraitMethodRitchieSynNodeDecl {
@@ -83,7 +83,7 @@ impl<'a> DeclParser<'a> {
 }
 
 #[salsa::tracked]
-pub struct TraitMethodFnSynDecl {
+pub struct TraitMethodRitchieSynDecl {
     #[id]
     pub path: TraitItemPath,
     #[return_ref]
@@ -95,7 +95,7 @@ pub struct TraitMethodFnSynDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl TraitMethodFnSynDecl {
+impl TraitMethodRitchieSynDecl {
     /// constructor
     pub(super) fn from_node_decl(
         db: &::salsa::Db,
@@ -123,7 +123,7 @@ impl TraitMethodFnSynDecl {
             .collect();
         let return_ty = *syn_node_decl.return_ty(db).as_ref()?;
         let syn_expr_region = syn_node_decl.syn_expr_region(db);
-        Ok(TraitMethodFnSynDecl::new(
+        Ok(TraitMethodRitchieSynDecl::new(
             db,
             path,
             template_parameters,

@@ -87,6 +87,7 @@ impl<'a> AstParser<'a> {
             EntityKind::TypeVariant | EntityKind::ImplBlock | EntityKind::Attr => {
                 unreachable!("it should be guaranteed by callers")
             }
+            EntityKind::Script => todo!(),
         };
         Ok(AstData::Identifiable {
             visibility_expr,

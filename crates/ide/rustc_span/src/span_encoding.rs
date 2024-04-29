@@ -96,8 +96,11 @@ const BASE_LEN_INTERNED_MARKER: u16 = 0b1111_1111_1111_1111;
 const CTXT_INTERNED_MARKER: u16 = 0b1111_1111_1111_1111;
 
 /// The dummy span has zero position, length, and context, and no parent.
-pub const DUMMY_SP: Span =
-    Span { lo_or_index: 0, len_with_tag_or_marker: 0, ctxt_or_parent_or_marker: 0 };
+pub const DUMMY_SP: Span = Span {
+    lo_or_index: 0,
+    len_with_tag_or_marker: 0,
+    ctxt_or_parent_or_marker: 0,
+};
 
 impl Span {
     #[inline]
@@ -136,8 +139,14 @@ impl Span {
         }
 
         // Partially-interned or fully-interned format.
-        let index =
-            with_span_interner(|interner| interner.intern(&SpanData { lo, hi, ctxt, parent }));
+        let index = with_span_interner(|interner| {
+            interner.intern(&SpanData {
+                lo,
+                hi,
+                ctxt,
+                parent,
+            })
+        });
         let ctxt_or_parent_or_marker = if ctxt2 <= MAX_CTXT {
             ctxt2 as u16 // partially-interned
         } else {

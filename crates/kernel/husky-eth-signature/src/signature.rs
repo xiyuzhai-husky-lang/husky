@@ -55,6 +55,7 @@ impl HasEthTemplate for ItemPath {
             ItemPath::TypeVariant(_, path) => path.eth_template(db)?.into(),
             ItemPath::ImplBlock(path) => path.eth_template(db)?.into(),
             ItemPath::Attr(_, path) => path.eth_template(db)?.into(),
+            ItemPath::Script(_, _) => todo!(),
         })
     }
 }

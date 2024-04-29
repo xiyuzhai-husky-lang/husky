@@ -2,6 +2,7 @@ mod assoc_item;
 mod attr;
 mod impl_block;
 mod major_item;
+pub mod script;
 mod submodule;
 mod ty_variant;
 
@@ -12,6 +13,7 @@ pub use self::major_item::*;
 pub use self::submodule::*;
 pub use self::ty_variant::*;
 
+use self::script::{ScriptSynNodePath, ScriptSynNodePathData};
 use crate::*;
 use enum_class::Room32;
 use husky_token::IdentToken;
@@ -28,6 +30,7 @@ pub enum ItemSynNodePath {
     ImplBlock(ImplBlockSynNodePath),
     AssocItem(AssocItemSynNodePath),
     Attr(Room32, AttrSynNodePath),
+    Script(Room32, ScriptSynNodePath),
 }
 
 impl std::ops::Deref for ItemSynNodePath {
@@ -41,9 +44,10 @@ impl std::ops::Deref for ItemSynNodePath {
 
 #[salsa::interned(jar = EntityTreeJar)]
 pub struct ItemSynNodePathId {
-    data: ItemSynNodePathData,
+    pub data: ItemSynNodePathData,
 }
 
+#[enum_class::from_variants]
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum ItemSynNodePathData {
@@ -53,6 +57,7 @@ pub enum ItemSynNodePathData {
     ImplBlock(ImplBlockSynNodePathData),
     AssocItem(AssocItemSynNodePathData),
     Attr(AttrSynNodePathData),
+    Script(ScriptSynNodePathData),
 }
 
 impl ItemSynNodePathId {
@@ -64,6 +69,7 @@ impl ItemSynNodePathId {
             ItemSynNodePathData::ImplBlock(data) => data.syn_node_path(self).into(),
             ItemSynNodePathData::AssocItem(data) => data.syn_node_path(self).into(),
             ItemSynNodePathData::Attr(data) => data.syn_node_path(self).into(),
+            ItemSynNodePathData::Script(data) => data.syn_node_path(self).into(),
         }
     }
 
@@ -75,8 +81,8 @@ impl ItemSynNodePathId {
         self.data(db).module_path(db)
     }
 
-    pub(crate) fn ast_idx(self, db: &::salsa::Db) -> AstIdx {
-        self.data(db).ast_idx(self, db)
+    pub(crate) fn opt_ast_idx(self, db: &::salsa::Db) -> Option<AstIdx> {
+        self.data(db).opt_ast_idx(self, db)
     }
 }
 
@@ -107,6 +113,7 @@ impl ItemSynNodePathData {
             ItemSynNodePathData::ImplBlock(slf) => slf.unambiguous_item_path().map(Into::into),
             ItemSynNodePathData::AssocItem(slf) => slf.unambiguous_item_path().map(Into::into),
             ItemSynNodePathData::Attr(slf) => slf.unambiguous_item_path().map(Into::into),
+            ItemSynNodePathData::Script(slf) => Some(slf.item_path().into()),
         }
     }
 
@@ -118,17 +125,18 @@ impl ItemSynNodePathData {
             ItemSynNodePathData::ImplBlock(slf) => slf.module_path(db),
             ItemSynNodePathData::AssocItem(slf) => slf.module_path(db),
             ItemSynNodePathData::Attr(slf) => slf.module_path(db),
+            ItemSynNodePathData::Script(slf) => *slf.module_path(db),
         }
     }
-
-    pub fn ast_idx(self, id: ItemSynNodePathId, db: &::salsa::Db) -> AstIdx {
+    pub fn opt_ast_idx(self, id: ItemSynNodePathId, db: &::salsa::Db) -> Option<AstIdx> {
         match self {
-            ItemSynNodePathData::Submodule(slf) => slf.ast_idx(id, db),
-            ItemSynNodePathData::MajorItem(slf) => slf.ast_idx(id, db),
-            ItemSynNodePathData::TypeVariant(slf) => slf.ast_idx(id, db),
-            ItemSynNodePathData::ImplBlock(slf) => slf.ast_idx(id, db),
-            ItemSynNodePathData::AssocItem(slf) => slf.ast_idx(id, db),
-            ItemSynNodePathData::Attr(slf) => slf.ast_idx(id, db),
+            ItemSynNodePathData::Submodule(slf) => Some(slf.ast_idx(id, db)),
+            ItemSynNodePathData::MajorItem(slf) => Some(slf.ast_idx(id, db)),
+            ItemSynNodePathData::TypeVariant(slf) => Some(slf.ast_idx(id, db)),
+            ItemSynNodePathData::ImplBlock(slf) => Some(slf.ast_idx(id, db)),
+            ItemSynNodePathData::AssocItem(slf) => Some(slf.ast_idx(id, db)),
+            ItemSynNodePathData::Attr(slf) => Some(slf.ast_idx(id, db)),
+            ItemSynNodePathData::Script(_) => None,
         }
     }
 }
@@ -154,6 +162,7 @@ impl ItemSynNodePath {
             ItemSynNodePath::Attr(_, syn_node_path) => {
                 syn_node_path.unambiguous_item_path(db).map(Into::into)
             }
+            ItemSynNodePath::Script(_, syn_node_path) => Some(syn_node_path.item_path().into()),
         }
     }
 
@@ -179,6 +188,7 @@ impl HasSynNodePath for ItemPath {
             ItemPath::TypeVariant(_, path) => path.syn_node_path(db).into(),
             ItemPath::ImplBlock(path) => path.syn_node_path(db).into(),
             ItemPath::Attr(_, path) => path.syn_node_path(db).into(),
+            ItemPath::Script(_, script) => todo!(),
         }
     }
 }
@@ -277,6 +287,7 @@ impl ItemSynNode {
             ),
             ItemPath::AssocItem(_) | ItemPath::TypeVariant(_, _) => None,
             ItemPath::ImplBlock(_) | ItemPath::Attr(_, _) => unreachable!(),
+            ItemPath::Script(_, _) => todo!(),
         }
     }
 

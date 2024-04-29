@@ -39,9 +39,10 @@ impl VfsAdversarial {
         let original_text = module_path.raw_text(db);
         let original_text = original_text.to_owned();
         let edited_text = self.edit(&original_text);
-        let file = db
-            .file_from_virtual_path(module_path.virtual_path(db))
-            .unwrap();
+        let Some(path) = module_path.virtual_path(db) else {
+            todo!()
+        };
+        let file = db.file_from_virtual_path(path).unwrap();
         // edit text using adversarial
         file.set_content(db.vfs_db_mut())
             .to(FileContent::LiveDoc(edited_text));

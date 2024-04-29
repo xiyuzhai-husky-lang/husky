@@ -69,12 +69,12 @@ impl AstSheet {
         ast_idx_range.into_iter().map(|idx| (idx, &self[idx]))
     }
 
-    pub fn top_level_asts(&self) -> &AstIdxRange {
-        &self.top_level_asts
+    pub fn top_level_asts(&self) -> AstIdxRange {
+        self.top_level_asts
     }
 
     pub fn top_level_asts_iter<'a>(&'a self) -> impl Iterator<Item = &'a AstData> + 'a {
-        self.ast_arena[&self.top_level_asts].iter()
+        self.ast_arena[self.top_level_asts].iter()
     }
 
     pub fn top_level_asts_indexed_iter<'a>(

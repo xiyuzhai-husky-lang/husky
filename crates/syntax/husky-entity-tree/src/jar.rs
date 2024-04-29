@@ -103,7 +103,6 @@ pub struct EntityTreeJar(
     crate::helpers::paths::to_test_path,
     crate::helpers::trai_side_derive_any_trai_for_ty_impl_block_paths_map,
     crate::helpers::trai_side_path_leading_trai_for_ty_impl_block_paths_map,
-    crate::helpers::tokra_region::SnippetTokraRegion,
     crate::helpers::tokra_region::DeclTokraRegion,
     crate::helpers::tokra_region::decl::item_syn_node_decl_tokra_region_with_source_map,
     crate::helpers::tokra_region::defn::DefnTokraRegion,

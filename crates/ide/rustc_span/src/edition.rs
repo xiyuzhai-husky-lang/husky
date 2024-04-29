@@ -4,8 +4,9 @@ use std::str::FromStr;
 use rustc_macros::HashStable_Generic;
 
 /// The edition of the compiler. (See [RFC 2052](https://github.com/rust-lang/rfcs/blob/master/text/2052-epochs.md).)
-#[derive(Clone, Copy, Hash, PartialEq, PartialOrd, Debug, Encodable, Decodable, Eq)]
-#[derive(HashStable_Generic)]
+#[derive(
+    Clone, Copy, Hash, PartialEq, PartialOrd, Debug, Encodable, Decodable, Eq, HashStable_Generic,
+)]
 pub enum Edition {
     // When adding new editions, be sure to do the following:
     //
@@ -26,8 +27,12 @@ pub enum Edition {
 }
 
 // Must be in order from oldest to newest.
-pub const ALL_EDITIONS: &[Edition] =
-    &[Edition::Edition2015, Edition::Edition2018, Edition::Edition2021, Edition::Edition2024];
+pub const ALL_EDITIONS: &[Edition] = &[
+    Edition::Edition2015,
+    Edition::Edition2018,
+    Edition::Edition2021,
+    Edition::Edition2024,
+];
 
 pub const EDITION_NAME_LIST: &str = "2015|2018|2021|2024";
 

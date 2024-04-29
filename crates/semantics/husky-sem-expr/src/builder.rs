@@ -107,7 +107,6 @@ impl<'a> SemExprBuilder<'a> {
         let parent_sem_expr_region =
             parent_expr_region.map(|parent_expr_region| db.sem_expr_region(parent_expr_region));
         let regional_tokens_data = match syn_expr_region_data.path() {
-            SynNodeRegionPath::Snippet(_) => todo!(),
             SynNodeRegionPath::Decl(path) => path.decl_tokra_region(db).regional_tokens_data(db),
             SynNodeRegionPath::Defn(path) => path
                 .defn_tokra_region(db)
@@ -193,7 +192,6 @@ fn calc_self_value_ty(
     }
     let self_ty: FlyTerm = self_ty?.into();
     let modifier = match syn_expr_region_data.path() {
-        SynNodeRegionPath::Snippet(_) => None, // ad hoc
         SynNodeRegionPath::Decl(syn_node_path) | SynNodeRegionPath::Defn(syn_node_path) => {
             match syn_node_path.syn_node_decl(db) {
                 ItemSynNodeDecl::AssocItem(syn_node_decl) => match syn_node_decl {

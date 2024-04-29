@@ -17,4 +17,5 @@ pub enum EntityClass {
     Formal,
     AssocFormal,
     Const,
+    Script,
 }

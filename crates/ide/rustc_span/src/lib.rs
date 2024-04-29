@@ -218,7 +218,10 @@ impl<S: Encoder> Encodable<S> for RealFileName {
                 local_path.encode(encoder);
             }
 
-            RealFileName::Remapped { ref local_path, ref virtual_name } => {
+            RealFileName::Remapped {
+                ref local_path,
+                ref virtual_name,
+            } => {
                 encoder.emit_u8(1);
                 // For privacy and build reproducibility, we must not embed host-dependant path
                 // in artifacts if they have been remapped by --remap-path-prefix
@@ -237,7 +240,10 @@ impl RealFileName {
     pub fn local_path(&self) -> Option<&Path> {
         match self {
             RealFileName::LocalPath(p) => Some(p),
-            RealFileName::Remapped { local_path, virtual_name: _ } => local_path.as_deref(),
+            RealFileName::Remapped {
+                local_path,
+                virtual_name: _,
+            } => local_path.as_deref(),
         }
     }
 
@@ -247,7 +253,10 @@ impl RealFileName {
     pub fn into_local_path(self) -> Option<PathBuf> {
         match self {
             RealFileName::LocalPath(p) => Some(p),
-            RealFileName::Remapped { local_path: p, virtual_name: _ } => p,
+            RealFileName::Remapped {
+                local_path: p,
+                virtual_name: _,
+            } => p,
         }
     }
 
@@ -258,7 +267,10 @@ impl RealFileName {
     pub fn remapped_path_if_available(&self) -> &Path {
         match self {
             RealFileName::LocalPath(p)
-            | RealFileName::Remapped { local_path: _, virtual_name: p } => p,
+            | RealFileName::Remapped {
+                local_path: _,
+                virtual_name: p,
+            } => p,
         }
     }
 
@@ -268,8 +280,14 @@ impl RealFileName {
     pub fn local_path_if_available(&self) -> &Path {
         match self {
             RealFileName::LocalPath(path)
-            | RealFileName::Remapped { local_path: None, virtual_name: path }
-            | RealFileName::Remapped { local_path: Some(path), virtual_name: _ } => path,
+            | RealFileName::Remapped {
+                local_path: None,
+                virtual_name: path,
+            }
+            | RealFileName::Remapped {
+                local_path: Some(path),
+                virtual_name: _,
+            } => path,
         }
     }
 
@@ -389,17 +407,26 @@ impl FileName {
     }
 
     pub fn prefer_remapped_unconditionaly(&self) -> FileNameDisplay<'_> {
-        FileNameDisplay { inner: self, display_pref: FileNameDisplayPreference::Remapped }
+        FileNameDisplay {
+            inner: self,
+            display_pref: FileNameDisplayPreference::Remapped,
+        }
     }
 
     /// This may include transient local filesystem information.
     /// Must not be embedded in build outputs.
     pub fn prefer_local(&self) -> FileNameDisplay<'_> {
-        FileNameDisplay { inner: self, display_pref: FileNameDisplayPreference::Local }
+        FileNameDisplay {
+            inner: self,
+            display_pref: FileNameDisplayPreference::Local,
+        }
     }
 
     pub fn display(&self, display_pref: FileNameDisplayPreference) -> FileNameDisplay<'_> {
-        FileNameDisplay { inner: self, display_pref }
+        FileNameDisplay {
+            inner: self,
+            display_pref,
+        }
     }
 
     pub fn macro_expansion_source_code(src: &str) -> FileName {
@@ -603,7 +630,10 @@ impl Span {
 
     /// Returns `true` if `span` originates in a derive-macro's expansion.
     pub fn in_derive_expansion(self) -> bool {
-        matches!(self.ctxt().outer_expn_data().kind, ExpnKind::Macro(MacroKind::Derive, _))
+        matches!(
+            self.ctxt().outer_expn_data().kind,
+            ExpnKind::Macro(MacroKind::Derive, _)
+        )
     }
 
     /// Gate suggestions that would not be appropriate in a context the user didn't write.
@@ -643,7 +673,11 @@ impl Span {
 
     /// Returns `self` if `self` is not the dummy span, and `other` otherwise.
     pub fn substitute_dummy(self, other: Span) -> Span {
-        if self.is_dummy() { other } else { self }
+        if self.is_dummy() {
+            other
+        } else {
+            self
+        }
     }
 
     /// Returns `true` if `self` fully encloses `other`.
@@ -681,14 +715,22 @@ impl Span {
     pub fn trim_start(self, other: Span) -> Option<Span> {
         let span = self.data();
         let other = other.data();
-        if span.hi > other.hi { Some(span.with_lo(cmp::max(span.lo, other.hi))) } else { None }
+        if span.hi > other.hi {
+            Some(span.with_lo(cmp::max(span.lo, other.hi)))
+        } else {
+            None
+        }
     }
 
     /// Returns the source span -- this is either the supplied span, or the span for
     /// the macro callsite that expanded to it.
     pub fn source_callsite(self) -> Span {
         let ctxt = self.ctxt();
-        if !ctxt.is_root() { ctxt.outer_expn_data().call_site.source_callsite() } else { self }
+        if !ctxt.is_root() {
+            ctxt.outer_expn_data().call_site.source_callsite()
+        } else {
+            self
+        }
     }
 
     /// The `Span` for the tokens in the previous macro expansion from which `self` was generated,
@@ -978,9 +1020,12 @@ impl Span {
     /// ```
     pub fn to(self, end: Span) -> Span {
         match Span::prepare_to_combine(self, end) {
-            Ok((from, to, parent)) => {
-                Span::new(cmp::min(from.lo, to.lo), cmp::max(from.hi, to.hi), from.ctxt, parent)
-            }
+            Ok((from, to, parent)) => Span::new(
+                cmp::min(from.lo, to.lo),
+                cmp::max(from.hi, to.hi),
+                from.ctxt,
+                parent,
+            ),
             Err(fallback) => fallback,
         }
     }
@@ -994,9 +1039,12 @@ impl Span {
     /// ```
     pub fn between(self, end: Span) -> Span {
         match Span::prepare_to_combine(self, end) {
-            Ok((from, to, parent)) => {
-                Span::new(cmp::min(from.hi, to.hi), cmp::max(from.lo, to.lo), from.ctxt, parent)
-            }
+            Ok((from, to, parent)) => Span::new(
+                cmp::min(from.hi, to.hi),
+                cmp::max(from.lo, to.lo),
+                from.ctxt,
+                parent,
+            ),
             Err(fallback) => fallback,
         }
     }
@@ -1010,9 +1058,12 @@ impl Span {
     /// ```
     pub fn until(self, end: Span) -> Span {
         match Span::prepare_to_combine(self, end) {
-            Ok((from, to, parent)) => {
-                Span::new(cmp::min(from.lo, to.lo), cmp::max(from.lo, to.lo), from.ctxt, parent)
-            }
+            Ok((from, to, parent)) => Span::new(
+                cmp::min(from.lo, to.lo),
+                cmp::max(from.lo, to.lo),
+                from.ctxt,
+                parent,
+            ),
             Err(fallback) => fallback,
         }
     }
@@ -1264,7 +1315,10 @@ impl SpanDecoder for MemDecoder<'_> {
     }
 
     fn decode_def_id(&mut self) -> DefId {
-        DefId { krate: Decodable::decode(self), index: Decodable::decode(self) }
+        DefId {
+            krate: Decodable::decode(self),
+            index: Decodable::decode(self),
+        }
     }
 
     fn decode_attr_id(&mut self) -> AttrId {
@@ -1336,7 +1390,12 @@ impl fmt::Debug for Span {
         if SESSION_GLOBALS.is_set() {
             with_session_globals(|session_globals| {
                 if let Some(source_map) = &session_globals.source_map {
-                    write!(f, "{} ({:?})", source_map.span_to_diagnostic_string(*self), self.ctxt())
+                    write!(
+                        f,
+                        "{} ({:?})",
+                        source_map.span_to_diagnostic_string(*self),
+                        self.ctxt()
+                    )
                 } else {
                     fallback(*self, f)
                 }
@@ -1458,7 +1517,10 @@ pub enum ExternalSourceKind {
 impl ExternalSource {
     pub fn get_source(&self) -> Option<&Lrc<String>> {
         match self {
-            ExternalSource::Foreign { kind: ExternalSourceKind::Present(ref src), .. } => Some(src),
+            ExternalSource::Foreign {
+                kind: ExternalSourceKind::Present(ref src),
+                ..
+            } => Some(src),
             _ => None,
         }
     }
@@ -1467,8 +1529,19 @@ impl ExternalSource {
 #[derive(Debug)]
 pub struct OffsetOverflowError;
 
-#[derive(Copy, Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Hash, Encodable, Decodable)]
-#[derive(HashStable_Generic)]
+#[derive(
+    Copy,
+    Clone,
+    Debug,
+    PartialEq,
+    Eq,
+    PartialOrd,
+    Ord,
+    Hash,
+    Encodable,
+    Decodable,
+    HashStable_Generic,
+)]
 pub enum SourceFileHashAlgorithm {
     Md5,
     Sha1,
@@ -1489,8 +1562,7 @@ impl FromStr for SourceFileHashAlgorithm {
 }
 
 /// The hash of the on-disk source file used for debug info.
-#[derive(Copy, Clone, PartialEq, Eq, Debug, Hash)]
-#[derive(HashStable_Generic, Encodable, Decodable)]
+#[derive(Copy, Clone, PartialEq, Eq, Debug, Hash, HashStable_Generic, Encodable, Decodable)]
 pub struct SourceFileHash {
     pub kind: SourceFileHashAlgorithm,
     value: [u8; 32],
@@ -1498,7 +1570,10 @@ pub struct SourceFileHash {
 
 impl SourceFileHash {
     pub fn new(kind: SourceFileHashAlgorithm, src: &str) -> SourceFileHash {
-        let mut hash = SourceFileHash { kind, value: Default::default() };
+        let mut hash = SourceFileHash {
+            kind,
+            value: Default::default(),
+        };
         let len = hash.hash_len();
         let value = &mut hash.value[..len];
         let data = src.as_bytes();
@@ -1717,7 +1792,11 @@ impl<D: SpanDecoder> Decodable<D> for SourceFile {
                 // Read the difference list.
                 let num_diffs = num_lines as usize - 1;
                 let raw_diffs = d.read_raw_bytes(bytes_per_diff * num_diffs).to_vec();
-                SourceFileLines::Diffs(SourceFileDiffs { bytes_per_diff, num_diffs, raw_diffs })
+                SourceFileLines::Diffs(SourceFileDiffs {
+                    bytes_per_diff,
+                    num_diffs,
+                    raw_diffs,
+                })
             } else {
                 SourceFileLines::Lines(vec![])
             }
@@ -1785,7 +1864,7 @@ impl fmt::Debug for SourceFile {
     Decodable,
     Default,
     PartialOrd,
-    Ord
+    Ord,
 )]
 pub struct StableSourceFileId(Hash128);
 
@@ -1848,9 +1927,17 @@ impl SourceFile {
     /// This converts the `lines` field to contain `SourceFileLines::Lines` if needed and freezes
     /// it.
     fn convert_diffs_to_lines_frozen(&self) {
-        let mut guard = if let Some(guard) = self.lines.try_write() { guard } else { return };
+        let mut guard = if let Some(guard) = self.lines.try_write() {
+            guard
+        } else {
+            return;
+        };
 
-        let SourceFileDiffs { bytes_per_diff, num_diffs, raw_diffs } = match &*guard {
+        let SourceFileDiffs {
+            bytes_per_diff,
+            num_diffs,
+            raw_diffs,
+        } = match &*guard {
             SourceFileLines::Diffs(diffs) => diffs,
             SourceFileLines::Lines(..) => {
                 FreezeWriteGuard::freeze(guard);
@@ -2131,8 +2218,14 @@ impl SourceFile {
                 let linebpos = self.lines()[a];
                 let linechpos = self.bytepos_to_file_charpos(linebpos);
                 let col = chpos - linechpos;
-                debug!("byte pos {:?} is on the line at byte pos {:?}", pos, linebpos);
-                debug!("char pos {:?} is on the line at char pos {:?}", chpos, linechpos);
+                debug!(
+                    "byte pos {:?} is on the line at byte pos {:?}",
+                    pos, linebpos
+                );
+                debug!(
+                    "char pos {:?} is on the line at char pos {:?}",
+                    chpos, linechpos
+                );
                 debug!("byte is on line: {}", line);
                 assert!(chpos >= linechpos);
                 (line, col)
@@ -2173,8 +2266,10 @@ impl SourceFile {
                     .non_narrow_chars
                     .binary_search_by_key(&pos, |x| x.pos())
                     .unwrap_or_else(|x| x);
-                let non_narrow: usize =
-                    self.non_narrow_chars[0..end_width_idx].iter().map(|x| x.width()).sum();
+                let non_narrow: usize = self.non_narrow_chars[0..end_width_idx]
+                    .iter()
+                    .map(|x| x.width())
+                    .sum();
                 chpos.0 - end_width_idx + non_narrow
             };
             (0, chpos, col_display)
@@ -2194,7 +2289,10 @@ fn normalize_src(src: &mut String) -> Vec<NormalizedPos> {
 fn remove_bom(src: &mut String, normalized_pos: &mut Vec<NormalizedPos>) {
     if src.starts_with('\u{feff}') {
         src.drain(..3);
-        normalized_pos.push(NormalizedPos { pos: RelativeBytePos(0), diff: 3 });
+        normalized_pos.push(NormalizedPos {
+            pos: RelativeBytePos(0),
+            diff: 3,
+        });
     }
 }
 
@@ -2567,8 +2665,7 @@ where
 ///
 /// The `()` field is necessary: it is non-`pub`, which means values of this
 /// type cannot be constructed outside of this crate.
-#[derive(Clone, Copy, Debug, Hash, PartialEq, Eq, PartialOrd, Ord)]
-#[derive(HashStable_Generic)]
+#[derive(Clone, Copy, Debug, Hash, PartialEq, Eq, PartialOrd, Ord, HashStable_Generic)]
 pub struct ErrorGuaranteed(());
 
 impl ErrorGuaranteed {

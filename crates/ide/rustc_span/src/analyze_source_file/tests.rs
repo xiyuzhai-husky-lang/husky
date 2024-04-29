@@ -17,7 +17,10 @@ macro_rules! test {
 
             let expected_mbcs: Vec<MultiByteChar> = $multi_byte_chars
                 .into_iter()
-                .map(|(pos, bytes)| MultiByteChar { pos: RelativeBytePos(pos), bytes })
+                .map(|(pos, bytes)| MultiByteChar {
+                    pos: RelativeBytePos(pos),
+                    bytes,
+                })
                 .collect();
 
             assert_eq!(multi_byte_chars, expected_mbcs);

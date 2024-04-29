@@ -70,6 +70,7 @@ impl IsVfsTestUnit for CratePath {
                 CrateKind::Bin(_) => todo!(),
                 CrateKind::IntegratedTest(_) => todo!(),
                 CrateKind::Example => todo!(),
+                CrateKind::Script => todo!(),
             },
             config.expect_file_extension().str()
         ))
@@ -112,13 +113,14 @@ impl IsVfsTestUnit for ModulePath {
                     CrateKind::Bin(_) => todo!(),
                     CrateKind::IntegratedTest(_) => todo!(),
                     CrateKind::Example => todo!(),
+                    CrateKind::Script => todo!(),
                 },
                 config.expect_file_extension().str()
             )),
             ModulePathData::Child { .. } => {
                 path_parent_dir.with_extension(config.expect_file_extension().str())
             }
-            ModulePathData::Snippet { .. } => unreachable!(),
+            ModulePathData::Script { .. } => unreachable!(),
         }
     }
 
@@ -162,13 +164,14 @@ pub fn determine_expect_file_path_without_extension(
                 CrateKind::Bin(_) => todo!(),
                 CrateKind::IntegratedTest(_) => todo!(),
                 CrateKind::Example => todo!(),
+                CrateKind::Script => todo!(),
             },
             config.expect_file_extension().str()
         )),
         ModulePathData::Child { .. } => {
             path_parent_dir.with_extension(config.expect_file_extension().str())
         }
-        ModulePathData::Snippet { .. } => unreachable!(),
+        ModulePathData::Script { .. } => unreachable!(),
     }
 }
 
@@ -183,6 +186,6 @@ fn determine_expect_file_path_parent_dir(
         ModulePathData::Child { parent, ident } => {
             determine_expect_file_path_parent_dir(db, parent, root_dir, config).join(ident.data(db))
         }
-        ModulePathData::Snippet { .. } => unreachable!(),
+        ModulePathData::Script { .. } => unreachable!(),
     }
 }
