@@ -121,6 +121,7 @@ impl HasSynNodeDecl for ItemSynNodePath {
             ItemSynNodePath::AssocItem(syn_node_path) => syn_node_path.syn_node_decl(db).into(),
             ItemSynNodePath::Submodule(_, syn_node_path) => syn_node_path.syn_node_decl(db).into(),
             ItemSynNodePath::Attr(_, syn_node_path) => syn_node_path.syn_node_decl(db).into(),
+            ItemSynNodePath::Script(_, _) => todo!(),
         }
     }
 }
@@ -142,6 +143,7 @@ impl HasSynDecl for ItemPath {
             ItemPath::TypeVariant(_, path) => path.syn_decl(db).map(Into::into),
             ItemPath::ImplBlock(path) => path.syn_decl(db).map(Into::into),
             ItemPath::Attr(_, path) => path.syn_decl(db).map(Into::into),
+            ItemPath::Script(_, _) => todo!(),
         }
     }
 }

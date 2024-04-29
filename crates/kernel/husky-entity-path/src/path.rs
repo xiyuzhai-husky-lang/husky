@@ -2,6 +2,7 @@ pub mod assoc_item;
 pub mod attr;
 pub mod impl_block;
 pub mod major_item;
+pub mod script;
 pub mod submodule;
 pub mod ty_variant;
 mod utils;
@@ -13,9 +14,11 @@ pub use self::major_item::*;
 pub use self::submodule::*;
 pub use self::ty_variant::*;
 
+use self::script::{ScriptItemPath, ScriptItemPathData};
 use self::utils::debug_with_db_fmt;
 use crate::*;
 use enum_class::Room32;
+use husky_vfs::script::Script;
 
 #[salsa::interned(db = EntityPathDb, jar = EntityPathJar, override_debug)]
 pub struct ItemPathId {
@@ -58,6 +61,7 @@ pub enum ItemPathData {
     TypeVariant(TypeVariantPathData),
     ImplBlock(ImplBlockPathData),
     Attr(AttrItemPathData),
+    Script(ScriptItemPathData),
 }
 
 impl ItemPathData {
@@ -70,6 +74,7 @@ impl ItemPathData {
             ItemPathData::TypeVariant(slf) => slf.item_path(id).into(),
             ItemPathData::ImplBlock(slf) => slf.item_path(id).into(),
             ItemPathData::Attr(slf) => slf.item_path(id).into(),
+            ItemPathData::Script(_) => todo!(),
         }
     }
 
@@ -81,6 +86,7 @@ impl ItemPathData {
             ItemPathData::TypeVariant(slf) => slf.module_path(db),
             ItemPathData::ImplBlock(slf) => slf.module_path(db),
             ItemPathData::Attr(slf) => slf.module_path(db),
+            ItemPathData::Script(slf) => *slf.module_path(db),
         }
     }
 
@@ -92,6 +98,7 @@ impl ItemPathData {
             ItemPathData::TypeVariant(slf) => Some(slf.ident),
             ItemPathData::ImplBlock(_) => None,
             ItemPathData::Attr(slf) => Some(slf.ident),
+            ItemPathData::Script(_) => todo!(),
         }
     }
 
@@ -103,6 +110,7 @@ impl ItemPathData {
             ItemPathData::TypeVariant(_slf) => EntityKind::TypeVariant,
             ItemPathData::ImplBlock(_slf) => EntityKind::ImplBlock,
             ItemPathData::Attr(_slf) => EntityKind::Attr,
+            ItemPathData::Script(_slf) => EntityKind::Script,
         }
     }
 }
@@ -219,6 +227,7 @@ pub enum ItemPath {
     TypeVariant(Room32, TypeVariantPath),
     ImplBlock(ImplBlockPath),
     Attr(Room32, AttrItemPath),
+    Script(Room32, ScriptItemPath),
 }
 
 #[test]
@@ -256,7 +265,8 @@ impl ItemPath {
             ItemPath::AssocItem(_)
             | ItemPath::TypeVariant(_, _)
             | ItemPath::ImplBlock(_)
-            | ItemPath::Attr(_, _) => None,
+            | ItemPath::Attr(_, _)
+            | ItemPath::Script(_, _) => None,
         }
     }
 }
@@ -274,6 +284,7 @@ impl salsa::DisplayWithDb for ItemPath {
             ItemPath::TypeVariant(_, path) => path.display_fmt_with_db(f, db),
             ItemPath::ImplBlock(_path) => todo!(),
             ItemPath::Attr(_, _) => todo!(),
+            ItemPath::Script(_, _) => todo!(),
         }
     }
 }

@@ -4,7 +4,7 @@ mod ancestry;
 mod error;
 pub mod jar;
 pub mod menu;
-mod path;
+pub mod path;
 pub mod region;
 #[cfg(test)]
 mod tests;

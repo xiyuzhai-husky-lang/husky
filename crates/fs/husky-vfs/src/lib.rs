@@ -9,7 +9,7 @@ pub mod jar;
 #[cfg(feature = "lsp_support")]
 mod lsp_support;
 pub mod path;
-pub mod snippet;
+pub mod script;
 #[cfg(feature = "test_utils")]
 pub mod test_utils;
 #[cfg(test)]
@@ -29,6 +29,7 @@ pub use self::toolchain::*;
 
 use self::error::*;
 use self::file::*;
+use self::jar::VfsJar as Jar;
 use dashmap::{mapref::entry::Entry, DashMap};
 use husky_coword::*;
 use std::path::{Path, PathBuf};

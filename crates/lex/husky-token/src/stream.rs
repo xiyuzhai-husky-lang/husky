@@ -4,7 +4,7 @@ use crate::{
 };
 use husky_token_data::{Punctuation, TokenData};
 #[cfg(test)]
-use husky_vfs::snippet::Snippet;
+use husky_vfs::script::Script;
 
 #[derive(Debug, Clone)]
 pub struct TokenStream<'a> {
@@ -148,10 +148,9 @@ fn next_indexed_works() {
 
     let db = DB::default();
     let db = &*db;
-    let token_sheet_data = db.snippet_token_sheet_data(Snippet::new(
+    let token_sheet_data = db.snippet_token_sheet_data(Script::new_dev_snippet(
+        "What does a rusty can of spray-on rust remover smell like?\n Irony.",
         db,
-        Ident::from_ref(db, "next_indexed_works").unwrap(),
-        "What does a rusty can of spray-on rust remover smell like?\n Irony.".into(),
     ));
     let (token_verse_idx, _) = token_sheet_data.main_token_verse_iter().next().unwrap();
     let mut token_iter = token_sheet_data.token_verse_token_stream(token_verse_idx, None);

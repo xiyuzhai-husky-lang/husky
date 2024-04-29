@@ -26,6 +26,7 @@ impl CratePath {
             CrateKind::Bin(_ident) => todo!(),
             CrateKind::IntegratedTest(_) => todo!(),
             CrateKind::Example => todo!(),
+            CrateKind::Script => todo!(),
         }
     }
 
@@ -49,6 +50,7 @@ pub enum CrateKind {
     Bin(Ident),
     IntegratedTest(Ident),
     Example,
+    Script,
 }
 
 impl PackagePath {

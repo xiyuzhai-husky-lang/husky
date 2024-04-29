@@ -335,11 +335,16 @@ fn quick_parse<T, Error>(db: &::salsa::Db, input: &str) -> Result<Option<T>, Err
 where
     T: for<'a> TryParseOptionFromStream<RegionalTokenStream<'a>, Error = Error>,
 {
-    use husky_vfs::snippet::Snippet;
+    use husky_vfs::{
+        script::{Script, ScriptSource},
+        VfsTestUtilsDb,
+    };
 
-    let token_sheet = db.snippet_token_sheet_data(Snippet::new(
+    let token_sheet = db.snippet_token_sheet_data(Script::new(
         db,
-        Ident::from_ref(db, "quick_parse").unwrap(),
+        ScriptSource::Snippet {
+            toolchain: db.dev_toolchain().unwrap(),
+        },
         input.to_owned(),
     ));
     RegionalTokenStream::new_snippet_regional_token_stream(token_sheet.tokens()).try_parse_option()

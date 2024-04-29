@@ -6,7 +6,6 @@ use crate::*;
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db]
 pub enum SynNodeRegionPath {
-    Snippet(ModulePath),
     Decl(ItemSynNodePath),
     Defn(ItemSynNodePath),
 }
@@ -14,7 +13,6 @@ pub enum SynNodeRegionPath {
 impl SynNodeRegionPath {
     pub fn module_path(self, db: &::salsa::Db) -> ModulePath {
         match self {
-            SynNodeRegionPath::Snippet(module_path) => module_path,
             SynNodeRegionPath::Decl(path) => path.module_path(db),
             SynNodeRegionPath::Defn(path) => path.module_path(db),
         }
@@ -30,7 +28,6 @@ impl SynNodeRegionPath {
 
     pub fn region_path(self, db: &::salsa::Db) -> Option<RegionPath> {
         Some(match self {
-            SynNodeRegionPath::Snippet(path) => RegionPath::Snippet(path),
             SynNodeRegionPath::Decl(path) => RegionPath::Decl(path.unambiguous_item_path(db)?),
             SynNodeRegionPath::Defn(path) => RegionPath::Defn(path.unambiguous_item_path(db)?),
         })

@@ -4,11 +4,11 @@
 mod bundle;
 mod collector;
 mod context;
-mod db;
 mod error;
 mod expr;
 pub mod helpers;
-mod node;
+mod jar;
+pub mod node;
 mod prelude;
 mod presheet;
 mod region_path;
@@ -22,9 +22,9 @@ mod tests;
 mod utils;
 
 pub use self::bundle::*;
-pub use self::db::*;
 pub use self::error::*;
 pub use self::expr::*;
+pub use self::jar::*;
 pub use self::node::*;
 pub use self::prelude::*;
 pub use self::presheet::*;
@@ -36,6 +36,7 @@ pub use self::table::*;
 
 use self::collector::*;
 use self::context::*;
+use self::jar::EntityTreeJar as Jar;
 use self::submodule::*;
 #[cfg(test)]
 use self::tests::*;

@@ -41,6 +41,7 @@ impl HasDecTemplate for ItemPath {
             ItemPath::TypeVariant(_, path) => path.dec_template(db)?.into(),
             ItemPath::ImplBlock(path) => path.dec_template(db)?.into(),
             ItemPath::Attr(_, _) => todo!(),
+            ItemPath::Script(_, _) => todo!(),
         })
     }
 }
