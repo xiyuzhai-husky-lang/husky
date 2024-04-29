@@ -1,20 +1,20 @@
 ```rust
 [
-    SemaPlaceContractRegion {
+    SemPlaceContractRegion {
         expr_sites: SemExprMap(
             ArenaMap {
                 data: [],
             },
         ),
     },
-    SemaPlaceContractRegion {
+    SemPlaceContractRegion {
         expr_sites: SemExprMap(
             ArenaMap {
                 data: [],
             },
         ),
     },
-    SemaPlaceContractRegion {
+    SemPlaceContractRegion {
         expr_sites: SemExprMap(
             ArenaMap {
                 data: [],

@@ -118,7 +118,7 @@ fn check_jar_paths<'a>(jar_paths: impl Iterator<Item = &'a syn::Path>) {
             "LinkageJar" => &[],
             // semantics
             "SemExprJar" => &["TextJar"],
-            "SemaPlaceContractJar" => &[],
+            "SemPlaceContractJar" => &[],
             // super
             "SuperNodeJar" => &[],
             // syntax

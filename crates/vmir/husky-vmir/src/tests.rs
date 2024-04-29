@@ -45,7 +45,7 @@ use husky_toml_ast::TomlAstJar;
     EtherealSignatureJar,
     FlyTermJar,
     SemExprJar,
-    husky_sem_place_contract::jar::SemaPlaceContractJar,
+    husky_sem_place_contract::jar::SemPlaceContractJar,
     husky_hir_ty::db::HirTypeJar,
     husky_hir_eager_expr::jar::HirEagerExprJar,
     husky_hir_lazy_expr::jar::HirLazyExprJar,

@@ -155,7 +155,7 @@ pub enum JarIndex {
     NamAstJar,
     // semantics
     SemExprJar,
-    SemaPlaceContractJar,
+    SemPlaceContractJar,
     // super
     SuperNodeJar,
     // syntax
