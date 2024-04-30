@@ -16,6 +16,7 @@ impl EthTerm {
                     | MajorFormKind::Val
                     | MajorFormKind::Formal
                     | MajorFormKind::Const => FinalDestination::AnyDerived,
+                    MajorFormKind::Static => todo!(),
                 },
                 ItemPathTerm::TypeOntology(_) => FinalDestination::TypeOntology,
                 ItemPathTerm::Trait(_)

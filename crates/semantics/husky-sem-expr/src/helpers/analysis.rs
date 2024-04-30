@@ -31,6 +31,7 @@ pub fn sem_expr_region_requires_lazy(db: &::salsa::Db, sem_expr_region: SemExprR
                 MajorFormKind::Val => (),
                 MajorFormKind::Formal => todo!(),
                 MajorFormKind::Const => todo!(),
+                MajorFormKind::Static => todo!(),
             },
             ItemPath::AssocItem(path) => todo!(),
             _ => return false,

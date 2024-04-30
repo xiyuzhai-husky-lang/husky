@@ -25,6 +25,7 @@ pub enum MajorFormKind {
     Val,
     Formal,
     Const,
+    Static,
 }
 
 impl MajorFormKind {
@@ -78,6 +79,7 @@ impl EntityKind {
                     MajorFormKind::Val => EntityClass::Val,
                     MajorFormKind::Formal => EntityClass::Formal,
                     MajorFormKind::Const => EntityClass::Const,
+                    MajorFormKind::Static => EntityClass::Static,
                 },
                 MajorItemKind::Trait => EntityClass::Trait,
             },

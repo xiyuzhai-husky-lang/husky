@@ -62,6 +62,7 @@ impl<'a> DeclParser<'a> {
             MajorFormKind::TypeAlias => todo!(),
             MajorFormKind::Formal => todo!(),
             MajorFormKind::Const => todo!(),
+            MajorFormKind::Static => todo!(),
         }
     }
 }
