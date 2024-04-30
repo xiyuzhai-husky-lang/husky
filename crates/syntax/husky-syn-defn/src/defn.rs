@@ -11,7 +11,7 @@ pub struct ItemSynNodeDefn {
     pub syn_expr_region: SynExprRegion,
 }
 
-#[salsa::tracked(jar = SynDefnJar)]
+#[salsa::tracked]
 pub fn item_syn_node_defn(
     db: &::salsa::Db,
     item_syn_node_path_id: ItemSynNodePathId,

@@ -7,14 +7,14 @@ use husky_coword::jar::CowordJar;
 use husky_dec_signature::DecSignatureJar;
 
 use husky_entity_tree::EntityTreeJar;
-use husky_eth_signature::EtherealSignatureJar;
-use husky_eth_term::EthTermJar;
-use husky_fly_term::FlyTermJar;
+use husky_eth_signature::EthSignatureJar;
+use husky_eth_term::jar::EthTermJar;
+use husky_fly_term::jar::FlyTermJar;
 use husky_manifest::jar::ManifestJar;
 use husky_manifest_ast::jar::ManifestAstJar;
 use husky_sem_expr::SemExprJar;
 use husky_syn_decl::SynDeclJar;
-use husky_syn_defn::SynDefnJar;
+use husky_syn_defn::jar::SynDefnJar;
 use husky_syn_expr::jar::SynExprJar;
 use husky_term_prelude::jar::TermPreludeJar;
 use husky_token::TokenJar;
@@ -44,7 +44,7 @@ use husky_toml_ast::TomlAstJar;
     DecSignatureJar,
     husky_dec_ty::jar::DeclarativeTypeJar,
     EthTermJar,
-    EtherealSignatureJar,
+    EthSignatureJar,
     FlyTermJar,
     SemExprJar,
     husky_sem_place_contract::jar::SemPlaceContractJar,

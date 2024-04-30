@@ -1,12 +1,12 @@
-mod db;
 mod error;
 pub mod helpers;
+pub mod jar;
 mod parameter;
 pub mod signature;
 mod tests;
 
-pub use self::db::*;
 pub use self::error::*;
+pub use self::jar::*;
 pub use self::parameter::*;
 pub use self::signature::*;
 

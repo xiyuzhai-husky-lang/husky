@@ -1,7 +1,7 @@
 use super::*;
 use husky_dec_term::term::abstraction::DecAbstraction;
 
-#[salsa::interned(db = EthTermDb, jar = EthTermJar)]
+#[salsa::interned]
 pub struct EthAbstraction {
     x: EthLambdaVariable,
     m: EthTerm,

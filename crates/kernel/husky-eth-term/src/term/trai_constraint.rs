@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::interned(db = EthTermDb, jar = EthTermJar)]
+#[salsa::interned]
 pub struct EthTraitConstraint {
     pub ty: EthTerm,
     pub trai: EthTerm,

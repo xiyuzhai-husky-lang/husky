@@ -1,6 +1,6 @@
 pub mod engine;
 mod error;
-mod jar;
+pub mod jar;
 mod parameter;
 mod region;
 mod signature;

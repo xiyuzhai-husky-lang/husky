@@ -28,6 +28,6 @@ use husky_toml_ast::TomlAstJar;
     ManifestJar,
     husky_syn_decl::jar::SynDeclJar,
     SynExprJar,
-    SynDefnJar
+    Jar
 )]
 pub(crate) struct DB;

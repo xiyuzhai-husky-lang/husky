@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::interned(db = EthTermDb, jar = EthTermJar, constructor = new_inner)]
+#[salsa::interned(constructor = new_inner)]
 pub struct EthLambdaVariable {
     pub ty: EthTerm,
     /// this is the index for all symbols with the same type

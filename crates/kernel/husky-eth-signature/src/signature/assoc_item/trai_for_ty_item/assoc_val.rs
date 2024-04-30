@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
+#[salsa::interned(db = EtherealSignatureDb, jar = EthSignatureJar)]
 pub struct TraitForTypeAssocValEthTemplate {
     pub path: TraitForTypeItemPath,
     #[return_ref]

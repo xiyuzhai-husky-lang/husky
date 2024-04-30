@@ -2,12 +2,12 @@
 #![feature(anonymous_lifetime_in_impl_trait)]
 #![feature(generic_arg_infer)]
 mod data;
-mod db;
 pub mod dispatch;
 mod engine;
 mod error;
 mod expectation;
 pub mod instantiation;
+pub mod jar;
 mod progress;
 mod region;
 mod resolve;
@@ -32,6 +32,7 @@ pub(crate) use self::tests::*;
 
 use self::dispatch::*;
 use self::instantiation::*;
+use self::jar::FlyTermJar as Jar;
 use self::signature::*;
 use alt_option::*;
 use either::*;
@@ -44,6 +45,3 @@ use husky_term_prelude::*;
 use maybe_result::*;
 use salsa::DebugWithDb as _;
 use smallvec::*;
-
-#[salsa::jar]
-pub struct FlyTermJar(term_ritchie_fly_data, term_application_fly_data);

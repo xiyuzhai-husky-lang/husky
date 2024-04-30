@@ -31,7 +31,7 @@ impl EthApplication {
     }
 }
 
-#[salsa::tracked(jar= EthTermJar)]
+#[salsa::tracked]
 pub(crate) fn application_expansion_salsa(
     db: &::salsa::Db,
     term: EthApplication,
@@ -56,7 +56,7 @@ pub enum TermFunctionReduced {
     Other(EthTerm),
 }
 
-#[salsa::tracked(db = EthTermDb, jar = EthTermJar)]
+#[salsa::tracked]
 pub(crate) struct EtherealApplicationArguments {
     #[return_ref]
     data: Vec<EthTerm>,

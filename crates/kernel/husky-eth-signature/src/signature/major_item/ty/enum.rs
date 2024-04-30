@@ -1,7 +1,7 @@
 use super::*;
 use husky_dec_signature::EnumDecTemplate;
 
-#[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
+#[salsa::interned(db = EtherealSignatureDb, jar = EthSignatureJar)]
 pub struct EnumEthTemplate {
     pub path: TypePath,
     #[return_ref]

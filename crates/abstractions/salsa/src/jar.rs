@@ -83,7 +83,20 @@ impl Jars {
                     jar.type_name(),
                     std::any::type_name::<Jar>()
                 );
-                unreachable!("should be the right type");
+                unreachable!(
+                    r#"should be the right type.
+This could be introduced by a self-reference crate name.
+
+For example, one could have a hack like following in the Cargo.toml file of the `husky-sem-expr` crate,
+```
+[dev-dependencies]
+...
+husky-sem-expr = {{ path = ".", features = ["test_utils"] }}
+```
+
+Then `husky-sem-expr::jar::SemExprJar` and `crate::jar::SemExprJar` have different type ids, for unknown reasons.
+"#
+                );
             }
         }
     }
@@ -135,7 +148,7 @@ pub enum JarIndex {
     DecTermJar,
     DeclarativeTypeJar,
     EntityPathJar,
-    EtherealSignatureJar,
+    EthSignatureJar,
     EthTermJar,
     FlyTermJar,
     TermPreludeJar,

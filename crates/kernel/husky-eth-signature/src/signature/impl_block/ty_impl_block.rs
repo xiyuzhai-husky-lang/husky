@@ -2,7 +2,7 @@ use husky_entity_path::ty_impl_block::TypeImplBlockPath;
 
 use super::*;
 
-#[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
+#[salsa::interned(db = EtherealSignatureDb, jar = EthSignatureJar)]
 pub struct TypeImplBlockEthTemplate {
     #[return_ref]
     pub template_parameters: EthTemplateParameters,
@@ -17,7 +17,7 @@ impl HasEthTemplate for TypeImplBlockPath {
     }
 }
 
-#[salsa::tracked(jar = EtherealSignatureJar)]
+#[salsa::tracked(jar = EthSignatureJar)]
 pub(crate) fn ty_impl_block_eth_template(
     db: &::salsa::Db,
     path: TypeImplBlockPath,

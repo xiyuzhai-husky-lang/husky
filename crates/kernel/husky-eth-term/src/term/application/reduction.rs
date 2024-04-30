@@ -6,7 +6,7 @@ impl EthApplication {
     }
 }
 
-#[salsa::tracked(jar = EthTermJar)]
+#[salsa::tracked]
 fn reduce_eth_application(db: &::salsa::Db, eth_application: EthApplication) -> EthTerm {
     let function = eth_application.function(db).reduce(db);
     let argument = eth_application.argument(db).reduce(db);

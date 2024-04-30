@@ -27,7 +27,7 @@ impl WithFmtContext for EthInstantiation {
     }
 }
 
-#[salsa::tracked(jar = EthTermJar)]
+#[salsa::tracked]
 pub fn instantiation_eth_term_fmt_context(
     db: &::salsa::Db,
     path_id: ItemPathId,

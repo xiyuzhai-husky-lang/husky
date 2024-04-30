@@ -35,7 +35,7 @@ impl HasEthTemplate for MajorFormPath {
     }
 }
 
-#[salsa::tracked(jar = EtherealSignatureJar)]
+#[salsa::tracked(jar = EthSignatureJar)]
 fn form_eth_template(
     db: &::salsa::Db,
     path: MajorFormPath,

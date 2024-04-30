@@ -5,12 +5,12 @@ use vec_like::{OrderedSmallVecSet, SmallVecPairMap, VecMapGetEntry};
 
 use super::*;
 
-#[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
+#[salsa::interned(db = EtherealSignatureDb, jar = EthSignatureJar)]
 pub struct DeriveAttrEthTemplate {
     pub shards: SmallVec<[DeriveAttrShardEthTemplate; 8]>,
 }
 
-#[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
+#[salsa::interned(db = EtherealSignatureDb, jar = EthSignatureJar)]
 pub struct DeriveAttrShardEthTemplate {
     pub trai_term: EthTerm,
 }
@@ -78,7 +78,7 @@ impl HasDeriveAttrShardEthTemplates for TypePath {
 
 // todo: change to ordered map and set
 // todo: use trait HasEthTemplate?
-#[salsa::tracked(jar = EtherealSignatureJar, return_ref)]
+#[salsa::tracked(jar = EthSignatureJar, return_ref)]
 fn ty_path_derive_attr_eth_templates_map(
     db: &::salsa::Db,
     ty_path: TypePath,

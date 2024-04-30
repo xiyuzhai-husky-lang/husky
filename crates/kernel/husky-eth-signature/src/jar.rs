@@ -1,7 +1,7 @@
 use crate::*;
 
 #[salsa::jar]
-pub struct EtherealSignatureJar(
+pub struct EthSignatureJar(
     // assoc_items
     // - type items
     ty_item_eth_templates_map,

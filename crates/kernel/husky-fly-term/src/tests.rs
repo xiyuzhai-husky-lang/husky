@@ -6,7 +6,7 @@ use husky_corgi_config_ast::CorgiConfigAstJar;
 use husky_coword::jar::CowordJar;
 use husky_dec_signature::DecSignatureJar;
 use husky_entity_tree::EntityTreeJar;
-use husky_eth_signature::EtherealSignatureJar;
+use husky_eth_signature::EthSignatureJar;
 use husky_manifest::jar::ManifestJar;
 use husky_manifest_ast::jar::ManifestAstJar;
 use husky_syn_decl::SynDeclJar;
@@ -36,9 +36,9 @@ use husky_vfs::VfsJar;
     husky_dec_term::jar::DecTermJar,
     DecSignatureJar,
     husky_dec_ty::jar::DeclarativeTypeJar,
-    EthTermJar,
-    EtherealSignatureJar,
-    FlyTermJar
+    husky_eth_term::jar::EthTermJar,
+    EthSignatureJar,
+    Jar
 )]
 #[derive(Default)]
 pub(crate) struct DB;

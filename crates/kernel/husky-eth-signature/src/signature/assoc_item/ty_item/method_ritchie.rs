@@ -1,7 +1,7 @@
 use super::*;
 use husky_eth_term::term::ritchie::EthRitchieSimpleParameter;
 
-#[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
+#[salsa::interned(db = EtherealSignatureDb, jar = EthSignatureJar)]
 pub struct TypeMethodRitchieEthTemplate {
     pub path: TypeItemPath,
     pub self_ty: EthTerm,

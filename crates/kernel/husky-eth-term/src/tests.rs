@@ -30,7 +30,7 @@ use husky_toml_ast::TomlAstJar;
     husky_dec_term::jar::DecTermJar,
     DecSignatureJar,
     husky_dec_ty::jar::DeclarativeTypeJar,
-    EthTermJar
+    Jar
 )]
 #[derive(Default)]
 pub(crate) struct DB;

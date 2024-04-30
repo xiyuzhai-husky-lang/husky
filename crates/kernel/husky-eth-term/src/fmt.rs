@@ -4,7 +4,7 @@ use husky_entity_path::region::RegionPath;
 use husky_term_prelude::symbol::SymbolName;
 use vec_like::VecPairMap;
 
-#[salsa::tracked(jar = EthTermJar)]
+#[salsa::tracked]
 pub struct EthTermFmtContext {
     #[id]
     path: RegionPath,

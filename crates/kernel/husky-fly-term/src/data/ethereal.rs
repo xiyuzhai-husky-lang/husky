@@ -74,7 +74,7 @@ impl TermRitchieFlyData {
     }
 }
 
-#[salsa::tracked(jar = FlyTermJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub(crate) fn term_ritchie_fly_data(db: &::salsa::Db, term: EthRitchie) -> TermRitchieFlyData {
     TermRitchieFlyData {
         ritchie_kind: term.ritchie_kind(db),
@@ -101,7 +101,7 @@ pub(crate) enum TermApplicationFlyData {
 }
 
 /// can't directly return FlyTermData<'_> because of lifetime
-#[salsa::tracked(jar = FlyTermJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub(crate) fn term_application_fly_data(
     db: &::salsa::Db,
     term: EthApplication,

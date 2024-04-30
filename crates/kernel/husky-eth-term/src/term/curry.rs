@@ -5,7 +5,7 @@ pub(crate) use self::utils::*;
 use super::*;
 
 /// representing term `X -> Y` or dependent form `(a: X) -> Y(a)`
-#[salsa::interned(db = EthTermDb, jar = EthTermJar, constructor = new_inner)]
+#[salsa::interned(constructor = new_inner)]
 pub struct EthCurry {
     pub toolchain: Toolchain,
     pub curry_kind: CurryKind,
@@ -90,7 +90,7 @@ impl EthInstantiate for EthCurry {
     }
 }
 
-#[salsa::tracked(jar = EthTermJar)]
+#[salsa::tracked]
 pub(crate) fn term_curry_from_dec(db: &::salsa::Db, curry: DecCurry) -> EthTermResult<EthCurry> {
     let t = |declarative_ty| EthTerm::ty_from_dec(db, declarative_ty);
     Ok(EthCurry::new(
