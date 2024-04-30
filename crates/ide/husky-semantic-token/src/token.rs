@@ -61,6 +61,7 @@ impl SemanticToken {
             TokenClass::Label => ext::SemanticTokenType::VARIABLE,
             TokenClass::Error => ext::SemanticTokenType::MACRO,
             TokenClass::ConstEntity => ext::SemanticTokenType::VARIABLE,
+            TokenClass::StaticEntity => ext::SemanticTokenType::VARIABLE,
             TokenClass::FormalEntity => todo!(),
         })
     }
