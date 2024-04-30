@@ -1,25 +1,7 @@
 pub(crate) use husky_ast::test_utils::*;
 
 use crate::*;
-use husky_corgi_config::jar::CorgiConfigJar;
-use husky_corgi_config_ast::CorgiConfigAstJar;
-use husky_coword::jar::CowordJar;
-use husky_dec_signature::DecSignatureJar;
-use husky_dec_ty::DeclarativeTypeJar;
-use husky_entity_path::{MajorItemPath, TypePath};
-use husky_entity_tree::{EntityTreeDb, EntityTreeJar};
-use husky_eth_signature::EthSignatureJar;
-use husky_eth_term::jar::EthTermJar;
-use husky_manifest::jar::ManifestJar;
-use husky_manifest_ast::jar::ManifestAstJar;
-use husky_print_utils::p;
-use husky_syn_decl::{SynDeclDb, SynDeclJar};
-use husky_syn_expr::jar::SynExprJar;
-use husky_term_prelude::jar::TermPreludeJar;
-use husky_token::TokenJar;
-use husky_toml_ast::TomlAstJar;
-use husky_toml_token::jar::TomlTokenJar;
-use husky_vfs::*;
+use husky_vfs::ModulePath;
 
 #[salsa::db(
     husky_coword::jar::CowordJar,
