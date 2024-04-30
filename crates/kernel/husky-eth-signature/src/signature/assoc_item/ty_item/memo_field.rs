@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
+#[salsa::interned(db = EtherealSignatureDb, jar = EthSignatureJar)]
 pub struct TypeMemoizedFieldEthTemplate {
     pub path: TypeItemPath,
     pub impl_block: TypeImplBlockEthTemplate,

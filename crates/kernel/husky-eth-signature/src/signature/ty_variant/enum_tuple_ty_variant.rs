@@ -1,7 +1,7 @@
 use super::*;
 use husky_eth_term::term::ritchie::EthRitchie;
 
-#[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
+#[salsa::interned(db = EtherealSignatureDb, jar = EthSignatureJar)]
 pub struct EnumTupleVariantEthTemplate {
     pub parent_ty_template: EnumEthTemplate,
     pub instance_constructor_ritchie_ty: EthRitchie,

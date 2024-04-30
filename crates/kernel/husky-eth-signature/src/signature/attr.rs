@@ -21,7 +21,7 @@ impl HasEthTemplate for AttrItemPath {
     }
 }
 
-// #[salsa::tracked(jar = EtherealSignatureJar)]
+// #[salsa::tracked(jar = EthSignatureJar)]
 fn attr_eth_template(
     db: &::salsa::Db,
     path: AttrItemPath,

@@ -221,7 +221,7 @@ impl EthTerm {
     }
 }
 
-#[salsa::tracked(jar = EthTermJar)]
+#[salsa::tracked]
 pub(crate) fn ethereal_term_from_application_or_ritchie_call_declarative_term(
     db: &::salsa::Db,
     declarative_term: DecApplicationOrRitchieCall,
@@ -245,7 +245,7 @@ pub(crate) fn ethereal_term_from_application_or_ritchie_call_declarative_term(
     }
 }
 
-#[salsa::tracked(jar = EthTermJar)]
+#[salsa::tracked]
 pub(crate) fn ethereal_term_from_list_declarative_term(
     db: &::salsa::Db,
     list: DecList,
@@ -288,7 +288,7 @@ pub(crate) fn ethereal_term_from_list_declarative_term(
     }
 }
 
-#[salsa::tracked(jar = EthTermJar)]
+#[salsa::tracked]
 pub(crate) fn ethereal_term_from_dec_term_wrapper(
     db: &::salsa::Db,
     wrapper: DecWrapper,

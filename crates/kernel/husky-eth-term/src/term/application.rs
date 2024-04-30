@@ -19,7 +19,7 @@ use std::fmt::Debug;
 /// then apply function to the result,
 ///
 /// `\x1 ... \xn -> $function ($argument \x1 ... \xn)`
-#[salsa::interned(db = EthTermDb, jar = EthTermJar, constructor = new_inner)]
+#[salsa::interned(constructor = new_inner)]
 pub struct EthApplication {
     pub function: EthTerm,
     pub argument: EthTerm,
@@ -89,7 +89,7 @@ impl EthApplication {
     }
 }
 
-#[salsa::tracked(jar = EthTermJar)]
+#[salsa::tracked]
 pub(crate) fn ethereal_term_from_dec_term_application(
     db: &::salsa::Db,
     declarative_term_application: DecApplication,
@@ -138,7 +138,7 @@ pub(crate) fn term_uncheck_from_dec_term_application_aux(
     Ok(EthApplication::new_reduced(db, function, argument, shift))
 }
 
-#[salsa::tracked(jar = EthTermJar)]
+#[salsa::tracked]
 pub(crate) fn ethereal_term_application_declarative_ty(
     db: &::salsa::Db,
     term_application: EthApplication,

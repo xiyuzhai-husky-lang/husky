@@ -100,7 +100,7 @@ impl EthLambdaVariable {
     }
 }
 
-#[salsa::tracked(jar = EthTermJar)]
+#[salsa::tracked]
 pub(crate) fn ethereal_term_curry_toolchain(db: &::salsa::Db, term: EthCurry) -> Option<Toolchain> {
     let mut merger = ToolchainMerger::default();
     if let Some(parameter_hvar) = term.parameter_hvar(db) {
@@ -111,7 +111,7 @@ pub(crate) fn ethereal_term_curry_toolchain(db: &::salsa::Db, term: EthCurry) ->
     merger.finish()
 }
 
-#[salsa::tracked(jar = EthTermJar)]
+#[salsa::tracked]
 pub(crate) fn ethereal_term_application_toolchain(
     db: &::salsa::Db,
     term: EthApplication,
@@ -122,7 +122,7 @@ pub(crate) fn ethereal_term_application_toolchain(
     merger.finish()
 }
 
-#[salsa::tracked(jar = EthTermJar)]
+#[salsa::tracked]
 pub(crate) fn ethereal_term_ritchie_toolchain(
     db: &::salsa::Db,
     term: EthRitchie,

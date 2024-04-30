@@ -2,7 +2,7 @@ use super::*;
 use husky_dec_signature::{PropsStructDecTemplate, PropsStructFieldDecTemplate};
 use husky_eth_term::term::ritchie::EthRitchie;
 
-#[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
+#[salsa::interned(db = EtherealSignatureDb, jar = EthSignatureJar)]
 pub struct PropsStructEthTemplate {
     pub path: TypePath,
     #[return_ref]

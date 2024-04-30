@@ -25,9 +25,9 @@ use std::panic::RefUnwindSafe;
     husky_dec_term::jar::DecTermJar,
     husky_dec_ty::DeclarativeTypeJar,
     husky_dec_signature::DecSignatureJar,
-    husky_eth_term::EthTermJar,
-    husky_eth_signature::EtherealSignatureJar,
-    husky_fly_term::FlyTermJar,
+    husky_eth_term::jar::EthTermJar,
+    husky_eth_signature::EthSignatureJar,
+    husky_fly_term::jar::FlyTermJar,
     husky_hir_ty::db::HirTypeJar,
     // lex
     husky_token_data::jar::TokenDataJar,
@@ -48,7 +48,7 @@ use std::panic::RefUnwindSafe;
     husky_entity_tree::EntityTreeJar,
     husky_syn_expr::jar::SynExprJar,
     husky_syn_decl::SynDeclJar,
-    husky_syn_defn::SynDefnJar,
+    husky_syn_defn::jar::SynDefnJar,
     // val
     husky_ki::jar::KiJar
 )]

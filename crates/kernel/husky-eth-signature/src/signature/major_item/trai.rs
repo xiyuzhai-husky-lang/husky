@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
+#[salsa::interned(db = EtherealSignatureDb, jar = EthSignatureJar)]
 pub struct TraitEthTemplate {
     pub path: TraitPath,
     #[return_ref]
@@ -15,7 +15,7 @@ impl HasEthTemplate for TraitPath {
     }
 }
 
-#[salsa::tracked(jar = EtherealSignatureJar)]
+#[salsa::tracked(jar = EthSignatureJar)]
 fn trai_eth_template(
     db: &::salsa::Db,
     trai_path: TraitPath,

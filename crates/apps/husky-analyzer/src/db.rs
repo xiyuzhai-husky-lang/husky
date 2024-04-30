@@ -13,9 +13,9 @@ use salsa::snapshot::SnapshotClone;
     husky_dec_term::jar::DecTermJar,
     husky_dec_ty::DeclarativeTypeJar,
     husky_dec_signature::DecSignatureJar,
-    husky_eth_term::EthTermJar,
-    husky_eth_signature::EtherealSignatureJar,
-    husky_fly_term::FlyTermJar,
+    husky_eth_term::jar::EthTermJar,
+    husky_eth_signature::EthSignatureJar,
+    husky_fly_term::jar::FlyTermJar,
     // lex
     husky_text::jar::TextJar,
     husky_token_data::jar::TokenDataJar,
@@ -28,10 +28,10 @@ use salsa::snapshot::SnapshotClone;
     husky_manifest_ast::jar::ManifestAstJar,
     husky_entity_tree::EntityTreeJar,
     husky_syn_expr::jar::SynExprJar,
-    husky_syn_decl::SynDeclJar,
-    husky_syn_defn::SynDefnJar,
+    husky_syn_decl::jar::SynDeclJar,
+    husky_syn_defn::jar::SynDefnJar,
     // semantics
-    husky_sem_expr::SemExprJar,
+    husky_sem_expr::jar::SemExprJar,
     husky_corgi_config::jar::CorgiConfigJar,
     husky_manifest::jar::ManifestJar,
     // ide

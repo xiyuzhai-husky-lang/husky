@@ -2,7 +2,7 @@ use super::*;
 use husky_entity_kind::ritchie::RitchieItemKind;
 use husky_eth_term::term::ritchie::EthRitchie;
 
-#[salsa::tracked(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
+#[salsa::tracked(db = EtherealSignatureDb, jar = EthSignatureJar)]
 pub struct TypeAssocRitchieEthTemplate {
     #[id]
     pub path: TypeItemPath,

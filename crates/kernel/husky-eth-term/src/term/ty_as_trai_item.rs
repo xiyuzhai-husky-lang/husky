@@ -1,7 +1,7 @@
 use super::*;
 use husky_coword::Ident;
 
-#[salsa::interned(db = EthTermDb, jar = EthTermJar)]
+#[salsa::interned]
 pub struct EthTypeAsTraitItem {
     pub parent: EthTerm,
     pub trai: EthTerm,
@@ -44,7 +44,7 @@ impl EthTypeAsTraitItem {
     }
 }
 
-#[salsa::tracked(jar = EthTermJar)]
+#[salsa::tracked]
 fn reduce_eth_ty_as_trai_item(db: &::salsa::Db, term: EthTypeAsTraitItem) -> EthTerm {
     match term.parent(db) {
         EthTerm::Literal(_) => todo!(),

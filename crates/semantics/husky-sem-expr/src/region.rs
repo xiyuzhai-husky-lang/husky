@@ -220,7 +220,7 @@ impl SemExprRegionData {
     }
 }
 
-#[salsa::tracked(jar = SemExprJar)]
+#[salsa::tracked]
 pub(crate) fn sem_expr_region(db: &::salsa::Db, syn_expr_region: SynExprRegion) -> SemExprRegion {
     let mut engine = SemExprBuilder::new(db, syn_expr_region);
     engine.infer_all();

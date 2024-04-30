@@ -2,7 +2,7 @@ use super::*;
 use husky_eth_term::term::ritchie::{EthRitchie, EtherealRitchieParameter};
 use husky_term_prelude::ritchie::RitchieKind;
 
-#[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
+#[salsa::interned(db = EtherealSignatureDb, jar = EthSignatureJar)]
 pub struct MajorFunctionRitchieEthTemplate {
     pub path: MajorFormPath,
     #[return_ref]
