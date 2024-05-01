@@ -1,7 +1,8 @@
 use super::*;
+use either::*;
 
 #[salsa::tracked]
-pub struct MajorValSynNodeDecl {
+pub struct MajorConstSynNodeDecl {
     #[id]
     pub syn_node_path: FormSynNodePath,
     #[return_ref]
@@ -9,34 +10,40 @@ pub struct MajorValSynNodeDecl {
     #[return_ref]
     pub return_ty: SynNodeDeclResult<ReturnTypeBeforeEqSyndicate>,
     #[return_ref]
-    pub eq_token: SynNodeDeclResult<EqRegionalToken>,
+    pub eq_or_eol_semicolon_token:
+        SynNodeDeclResult<Either<EqRegionalToken, EolSemicolonRegionalToken>>,
     pub expr: Option<SynExprIdx>,
     pub syn_expr_region: SynExprRegion,
 }
 
-impl MajorValSynNodeDecl {
+impl MajorConstSynNodeDecl {
     pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
-        chain_as_ref_err_collect!(self.colon_token(db), self.return_ty(db), self.eq_token(db))
+        chain_as_ref_err_collect!(
+            self.colon_token(db),
+            self.return_ty(db),
+            self.eq_or_eol_semicolon_token(db)
+        )
     }
 }
 
 impl<'a> DeclParser<'a> {
-    pub(super) fn parse_val_syn_node_decl(
+    pub(super) fn parse_const_syn_node_decl(
         &self,
         syn_node_path: FormSynNodePath,
-    ) -> MajorValSynNodeDecl {
+    ) -> MajorConstSynNodeDecl {
         let mut parser = self.expr_parser(None, AllowSelfType::False, AllowSelfValue::False, None);
         let colon_token =
             parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedColonBeforeValReturnType);
         let return_ty = parser.try_parse_expected(OriginalSynNodeDeclError::ExpectedValReturnType);
-        let eq_token = parser.try_parse_expected(OriginalSynNodeDeclError::ExpectEqTokenForMemo);
+        let eq_or_eol_semicolon_token =
+            parser.try_parse_expected(OriginalSynNodeDeclError::ExpectEqTokenForMemo);
         let expr = parser.parse_expr_root(None, SynExprRootKind::ValExpr);
-        MajorValSynNodeDecl::new(
+        MajorConstSynNodeDecl::new(
             self.db(),
             syn_node_path,
             colon_token,
             return_ty,
-            eq_token,
+            eq_or_eol_semicolon_token,
             expr,
             parser.finish(),
         )
@@ -44,7 +51,7 @@ impl<'a> DeclParser<'a> {
 }
 
 #[salsa::tracked]
-pub struct MajorValSynDecl {
+pub struct MajorConstSynDecl {
     #[id]
     pub path: MajorFormPath,
     pub return_ty: ReturnTypeBeforeEqSyndicate,
@@ -52,11 +59,11 @@ pub struct MajorValSynDecl {
     pub syn_expr_region: SynExprRegion,
 }
 
-impl MajorValSynDecl {
+impl MajorConstSynDecl {
     pub(super) fn from_node_decl(
         db: &::salsa::Db,
         path: MajorFormPath,
-        syn_node_decl: MajorValSynNodeDecl,
+        syn_node_decl: MajorConstSynNodeDecl,
     ) -> SynDeclResult<Self> {
         let val_ty = *syn_node_decl.return_ty(db).as_ref()?;
         let expr = syn_node_decl.expr(db);

@@ -59,6 +59,7 @@ fn major_form_hir_decl(db: &::salsa::Db, path: MajorFormPath) -> Option<MajorFor
             Some(MajorFunctionRitchieHirDecl::from_syn(path, syn_decl, db).into())
         }
         FormSynDecl::Val(syn_decl) => Some(MajorValHirDecl::from_syn(path, syn_decl, db).into()),
-        FormSynDecl::TypeAlias(_) => None, // should there be some?
+        FormSynDecl::TypeAlias(_) => None,
+        FormSynDecl::Const(_) => todo!(),
     }
 }

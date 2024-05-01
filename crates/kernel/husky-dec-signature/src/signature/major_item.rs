@@ -1,6 +1,6 @@
-mod form;
-mod trai;
-mod ty;
+pub mod form;
+pub mod trai;
+pub mod ty;
 
 pub use self::form::*;
 pub use self::trai::*;

@@ -4,6 +4,7 @@ version.workspace = true
 edition = "2021"
 
 [dependencies]
+either.workspace = true
 smallvec.workspace = true
 # abstractions
 original-error.workspace = true

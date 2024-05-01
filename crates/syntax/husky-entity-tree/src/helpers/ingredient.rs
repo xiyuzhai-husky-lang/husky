@@ -54,7 +54,6 @@ impl IngredientPath {
                     MajorFormKind::Val => true,
                     MajorFormKind::Formal => false,
                     MajorFormKind::Const => false,
-                    MajorFormKind::Static => todo!(),
                 },
                 MajorItemKind::Trait => false,
             },

@@ -31,9 +31,10 @@ pub struct DecSignatureJar(
     // trait
     TraitDecTemplate,
     trai_syn_dec_template,
-    // Form
+    // form
     form_syn_dec_template,
     MajorValDecTemplate,
+    crate::signature::major_item::form::r#const::MajorConstDecTemplate,
     MajorFunctionRitchieDecTemplate,
     TypeAliasDecTemplate,
     // impl block

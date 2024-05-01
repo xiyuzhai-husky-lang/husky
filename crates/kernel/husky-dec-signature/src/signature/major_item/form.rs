@@ -1,11 +1,13 @@
-mod function_ritchie;
-mod ty_alias;
-mod val;
+pub mod r#const;
+pub mod function_ritchie;
+pub mod ty_alias;
+pub mod val;
 
 pub use self::function_ritchie::*;
 pub use self::ty_alias::*;
 pub use self::val::*;
 
+use self::r#const::MajorConstDecTemplate;
 use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -15,6 +17,7 @@ pub enum MajorFormDecTemplate {
     Ritchie(MajorFunctionRitchieDecTemplate),
     TypeAlias(TypeAliasDecTemplate),
     Val(MajorValDecTemplate),
+    Const(MajorConstDecTemplate),
 }
 
 impl MajorFormDecTemplate {
@@ -23,6 +26,7 @@ impl MajorFormDecTemplate {
             MajorFormDecTemplate::Ritchie(slf) => slf.template_parameters(db),
             MajorFormDecTemplate::Val(slf) => slf.template_parameters(db),
             MajorFormDecTemplate::TypeAlias(slf) => slf.template_parameters(db),
+            MajorFormDecTemplate::Const(slf) => slf.template_parameters(db),
         }
     }
 }
@@ -47,5 +51,6 @@ pub(crate) fn form_syn_dec_template(
         }
         FormSynDecl::Val(decl) => MajorValDecTemplate::from_decl(db, decl).map(Into::into),
         FormSynDecl::TypeAlias(decl) => TypeAliasDecTemplate::from_decl(db, decl).map(Into::into),
+        FormSynDecl::Const(_) => todo!(),
     }
 }

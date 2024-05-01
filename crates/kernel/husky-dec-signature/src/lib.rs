@@ -3,7 +3,7 @@ mod error;
 pub mod jar;
 mod parameter;
 mod region;
-mod signature;
+pub mod signature;
 #[cfg(test)]
 mod tests;
 
