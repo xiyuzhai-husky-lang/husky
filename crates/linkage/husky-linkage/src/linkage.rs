@@ -362,6 +362,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                         )]
                     }
                     MajorFormKind::Const => todo!(),
+                    MajorFormKind::Static => todo!(),
                     MajorFormKind::TypeAlias | MajorFormKind::Formal => unreachable!(),
                 },
                 JavPath::TypeItem(path) => match path.item_kind(db) {

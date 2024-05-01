@@ -138,6 +138,7 @@ impl Trace {
             | MajorFormKind::Ritchie(_)
             | MajorFormKind::TypeAlias
             | MajorFormKind::Formal => None,
+            MajorFormKind::Static => todo!(),
         }
     }
 
