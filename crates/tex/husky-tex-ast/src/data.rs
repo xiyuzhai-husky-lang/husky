@@ -6,7 +6,7 @@ pub mod tree;
 use self::{
     code::TexCodeAstData, math::TexMathAstData, rose::TexRoseAstData, tree::TexTreeAstData,
 };
-use crate::{parser::TexAstParser, sheet::TexAstSheet, *};
+use crate::{parser::TexAstParser};
 use husky_tex_math_letter::TexMathLetter;
 use husky_tex_math_opr::TexMathOpr;
 use husky_tex_prelude::mode::TexMode;
