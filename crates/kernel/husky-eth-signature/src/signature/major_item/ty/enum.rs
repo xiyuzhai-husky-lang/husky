@@ -1,5 +1,5 @@
 use super::*;
-use husky_dec_signature::EnumDecTemplate;
+use husky_dec_signature::signature::major_item::ty::r#enum::EnumDecTemplate;
 
 #[salsa::interned]
 pub struct EnumEthTemplate {

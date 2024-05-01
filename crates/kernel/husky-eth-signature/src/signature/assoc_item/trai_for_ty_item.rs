@@ -1,14 +1,16 @@
-mod assoc_ritchie;
-mod assoc_ty;
-mod assoc_val;
-mod method_curry;
-mod method_ritchie;
+pub mod assoc_ritchie;
+pub mod assoc_ty;
+pub mod assoc_val;
+pub mod method_curry;
+pub mod method_ritchie;
 
-pub use self::assoc_ritchie::*;
-pub use self::assoc_ty::*;
-pub use self::assoc_val::*;
-pub use self::method_ritchie::*;
-
+use self::assoc_ty::*;
+use self::assoc_val::*;
+use self::method_ritchie::*;
+use self::{
+    assoc_ritchie::*,
+    signature::impl_block::trai_for_ty_impl_block::EthTraitForTypeImplBlockSignatureBuilder,
+};
 use super::*;
 use husky_dec_signature::signature::{
     assoc_item::trai_for_ty_item::TraitForTypeItemDecTemplate, HasDecTemplate,
@@ -69,7 +71,7 @@ impl HasEthTemplate for TraitForTypeItemPath {
     }
 }
 
-// #[salsa::tracked()]
+// #[salsa::tracked]
 fn trai_for_ty_item_eth_template(
     db: &::salsa::Db,
     path: TraitForTypeItemPath,

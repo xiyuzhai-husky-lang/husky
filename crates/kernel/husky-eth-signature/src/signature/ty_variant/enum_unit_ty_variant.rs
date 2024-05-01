@@ -1,4 +1,6 @@
 use super::*;
+use crate::signature::major_item::ty::{r#enum::EnumEthTemplate, TypeEthTemplate};
+use husky_dec_signature::signature::ty_variant::enum_unit_ty_variant::EnumUnitTypeVariantDecTemplate;
 
 #[salsa::interned]
 pub struct EnumUnitTypeVariantEthTemplate {

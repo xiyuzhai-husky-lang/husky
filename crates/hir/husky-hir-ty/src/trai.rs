@@ -1,5 +1,5 @@
 use crate::*;
-use husky_eth_signature::HasEthTemplate;
+use husky_eth_signature::signature::HasEthTemplate;
 use husky_eth_term::term::{
     application::{EthApplication, TermFunctionReduced},
     symbolic_variable::EthTermSymbolIndexImpl,

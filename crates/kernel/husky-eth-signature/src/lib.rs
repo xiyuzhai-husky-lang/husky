@@ -1,15 +1,11 @@
-mod error;
+pub mod error;
 pub mod helpers;
 pub mod jar;
-mod parameter;
+pub mod parameter;
 pub mod signature;
 mod tests;
 
-pub use self::error::*;
-pub use self::jar::*;
-pub use self::parameter::*;
-pub use self::signature::*;
-
+use self::error::*;
 use self::jar::EthSignatureJar as Jar;
 use husky_coword::*;
 use husky_entity_path::*;

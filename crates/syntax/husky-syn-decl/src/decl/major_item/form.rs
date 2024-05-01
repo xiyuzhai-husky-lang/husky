@@ -26,7 +26,7 @@ impl FormSynNodeDecl {
         match self {
             FormSynNodeDecl::FunctionRitchie(slf) => slf.syn_expr_region(db),
             FormSynNodeDecl::Val(slf) => slf.syn_expr_region(db),
-            FormSynNodeDecl::Const(_) => todo!(),
+            FormSynNodeDecl::Const(slf) => slf.syn_expr_region(db),
             FormSynNodeDecl::TypeAlias(slf) => slf.syn_expr_region(db),
         }
     }
@@ -36,7 +36,7 @@ impl FormSynNodeDecl {
             FormSynNodeDecl::FunctionRitchie(slf) => slf.errors(db),
             FormSynNodeDecl::Val(slf) => slf.errors(db),
             FormSynNodeDecl::TypeAlias(slf) => slf.errors(db),
-            FormSynNodeDecl::Const(_) => todo!(),
+            FormSynNodeDecl::Const(slf) => slf.errors(db),
         }
     }
 }

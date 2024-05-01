@@ -1,4 +1,5 @@
 use super::*;
+use husky_dec_signature::signature::major_item::form::ty_alias::TypeAliasDecTemplate;
 
 #[salsa::interned]
 pub struct MajorTypeAliasEthTemplate {

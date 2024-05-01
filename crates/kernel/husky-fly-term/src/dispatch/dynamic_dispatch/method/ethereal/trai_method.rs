@@ -1,7 +1,12 @@
-use husky_eth_signature::helpers::trai_for_ty::trai_path_for_ty_term_impl_block_eth_signature_builders;
-
 use super::*;
 use crate::method_ritchie::MethodFnFlySignature;
+use husky_eth_signature::{
+    helpers::trai_for_ty::trai_path_for_ty_term_impl_block_eth_signature_builders,
+    signature::{
+        assoc_item::trai_for_ty_item::TraitForTypeItemEtherealSignatureBuilder,
+        impl_block::trai_for_ty_impl_block::EthTraitForTypeImplBlockSignatureBuilder,
+    },
+};
 use husky_eth_term::term::application::TermFunctionReduced;
 use vec_like::SmallVecPairMap;
 

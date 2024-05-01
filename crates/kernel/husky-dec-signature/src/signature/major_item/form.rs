@@ -4,7 +4,6 @@ pub mod ty_alias;
 pub mod val;
 
 use self::function_ritchie::*;
-use self::r#const::MajorConstDecTemplate;
 use self::r#const::*;
 use self::ty_alias::*;
 use self::val::*;
@@ -51,6 +50,6 @@ pub(crate) fn form_syn_dec_template(
         }
         FormSynDecl::Val(decl) => MajorValDecTemplate::from_decl(db, decl).map(Into::into),
         FormSynDecl::TypeAlias(decl) => TypeAliasDecTemplate::from_decl(db, decl).map(Into::into),
-        FormSynDecl::Const(_) => todo!(),
+        FormSynDecl::Const(decl) => MajorConstDecTemplate::from_decl(db, decl).map(Into::into),
     }
 }

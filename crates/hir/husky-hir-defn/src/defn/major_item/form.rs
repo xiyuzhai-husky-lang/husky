@@ -97,5 +97,6 @@ pub(crate) fn form_hir_defn(db: &::salsa::Db, path: MajorFormPath) -> Option<Maj
         }
         MajorFormHirDecl::Val(hir_decl) => Some(ValHirDefn::new(db, path, hir_decl).into()),
         MajorFormHirDecl::TypeAlias(_) => todo!(),
+        MajorFormHirDecl::Const(_) => todo!(),
     }
 }

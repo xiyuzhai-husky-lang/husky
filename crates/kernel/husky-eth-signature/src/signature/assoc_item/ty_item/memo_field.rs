@@ -1,4 +1,5 @@
 use super::*;
+use crate::signature::impl_block::ty_impl_block::TypeImplBlockEthTemplate;
 use husky_dec_signature::signature::assoc_item::ty_item::memo_field::TypeMemoizedFieldDecTemplate;
 
 #[salsa::interned]

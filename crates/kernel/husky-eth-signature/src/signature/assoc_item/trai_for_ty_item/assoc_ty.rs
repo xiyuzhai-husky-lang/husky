@@ -1,4 +1,5 @@
 use super::*;
+use crate::signature::impl_block::trai_for_ty_impl_block::EthTraitForTypeImplBlockSignatureBuilder;
 use husky_dec_signature::signature::assoc_item::trai_for_ty_item::assoc_ty::TraitForTypeAssocTypeDecTemplate;
 
 #[salsa::interned]
@@ -49,7 +50,7 @@ impl TraitForTypeAssocTypeEtherealSignatureBuilder {
     }
 }
 
-#[salsa::tracked()]
+#[salsa::tracked]
 fn trai_for_ty_assoc_ty_ethereal_signature_signature_builder_try_into_signature(
     db: &::salsa::Db,
     signature_builder: TraitForTypeAssocTypeEtherealSignatureBuilder,

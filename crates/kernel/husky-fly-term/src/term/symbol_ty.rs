@@ -1,4 +1,5 @@
 use super::*;
+use husky_dec_signature::region::variable::DecSymbolicVariableSignature;
 use husky_place::PlaceInfo;
 
 #[salsa::derive_debug_with_db]

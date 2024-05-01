@@ -1,6 +1,9 @@
 use self::quary::FlyQuary;
-
 use super::*;
+use husky_eth_signature::signature::{
+    assoc_item::ty_item::memo_field::TypeMemoizedFieldEtherealSignature,
+    major_item::ty::PropsFieldEtherealSignature,
+};
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]

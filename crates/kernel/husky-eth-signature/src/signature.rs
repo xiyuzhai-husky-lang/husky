@@ -9,8 +9,9 @@ use self::attr::*;
 use self::impl_block::*;
 use self::major_item::*;
 use self::ty_variant::*;
+use crate::parameter::EtherealParenateParameters;
 use crate::*;
-use husky_dec_signature::*;
+use husky_dec_signature::signature::HasDecTemplate;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

@@ -1,4 +1,7 @@
 use super::*;
+use husky_eth_signature::signature::{
+    assoc_item::ty_item::assoc_ritchie::TypeAssocRitchieEthTemplate, HasEthTemplate,
+};
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]

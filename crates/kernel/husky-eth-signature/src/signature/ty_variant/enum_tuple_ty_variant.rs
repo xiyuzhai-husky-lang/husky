@@ -1,4 +1,6 @@
 use super::*;
+use crate::signature::major_item::ty::{r#enum::EnumEthTemplate, TypeEthTemplate};
+use husky_dec_signature::signature::ty_variant::enum_tuple_ty_variant::EnumTupleVariantDecTemplate;
 use husky_eth_term::term::ritchie::EthRitchie;
 
 #[salsa::interned]
