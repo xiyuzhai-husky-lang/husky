@@ -1,9 +1,10 @@
+use super::*;
+use husky_dec_signature::signature::attr::derive::{
+    DeriveAttrDecTemplate, DeriveAttrShardDecTemplate,
+};
 use husky_entity_tree::HasAttrPaths;
-
 use husky_term_prelude::TypeFinalDestinationExpectation;
 use vec_like::{OrderedSmallVecSet, SmallVecPairMap, VecMapGetEntry};
-
-use super::*;
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EthSignatureJar)]
 pub struct DeriveAttrEthTemplate {
