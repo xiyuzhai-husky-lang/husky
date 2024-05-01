@@ -50,5 +50,6 @@ fn form_eth_template(
         MajorFormDecTemplate::Val(dec_template) => {
             MajorValEthTemplate::from_dec(db, path, dec_template)?.into()
         }
+        MajorFormDecTemplate::Const(_) => todo!(),
     })
 }

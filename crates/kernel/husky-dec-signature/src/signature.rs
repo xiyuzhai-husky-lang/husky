@@ -1,8 +1,8 @@
-mod assoc_item;
-mod attr;
-mod impl_block;
-mod major_item;
-mod ty_variant;
+pub mod assoc_item;
+pub mod attr;
+pub mod impl_block;
+pub mod major_item;
+pub mod ty_variant;
 
 pub use self::assoc_item::*;
 pub use self::attr::*;

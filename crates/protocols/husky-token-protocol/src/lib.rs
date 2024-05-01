@@ -39,7 +39,6 @@ pub enum TokenClass {
     Error,
     ConstEntity,
     FormalEntity,
-    StaticEntity,
 }
 
 impl TokenClass {
@@ -58,7 +57,6 @@ impl TokenClass {
             TokenClass::TypeEntity => "type entity token",
             TokenClass::FunctionEntity => "function entity token",
             TokenClass::ValEntity => "val entity token",
-            TokenClass::StaticEntity => "static entity token",
             TokenClass::TraitEntity => "trait entity token",
             TokenClass::TypeVariantEntity => "type variant entity token",
             TokenClass::MethodEntity => "method entity token",
@@ -118,7 +116,6 @@ impl From<EntityClass> for TokenClass {
             EntityClass::AssocFormal => TokenClass::FormalEntity,
             EntityClass::Const => TokenClass::ConstEntity,
             EntityClass::Script => unreachable!(),
-            EntityClass::Static => TokenClass::StaticEntity,
         }
     }
 }

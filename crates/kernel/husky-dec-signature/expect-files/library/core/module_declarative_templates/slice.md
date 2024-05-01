@@ -70,7 +70,7 @@
                 TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 124,
+                            value: 127,
                         },
                     ),
                 ),
@@ -171,7 +171,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 53,
+                                                value: 54,
                                             },
                                         ),
                                     ),
@@ -261,7 +261,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 53,
+                                                                value: 54,
                                                             },
                                                         ),
                                                     ),
@@ -277,7 +277,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 53,
+                                                                value: 54,
                                                             },
                                                         ),
                                                     ),
@@ -292,7 +292,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 23,
+                                                value: 24,
                                             },
                                         ),
                                     ),
@@ -332,7 +332,7 @@
                                 TraitPath(
                                     ItemPathId(
                                         Id {
-                                            value: 66,
+                                            value: 67,
                                         },
                                     ),
                                 ),
@@ -392,7 +392,7 @@
                 TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 126,
+                            value: 129,
                         },
                     ),
                 ),
@@ -493,7 +493,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 44,
+                                                value: 45,
                                             },
                                         ),
                                     ),
@@ -571,7 +571,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 44,
+                                                value: 45,
                                             },
                                         ),
                                     ),
@@ -649,7 +649,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 44,
+                                                value: 45,
                                             },
                                         ),
                                     ),

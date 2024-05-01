@@ -155,7 +155,6 @@ where
                                         MajorFormKind::TypeAlias => todo!(),
                                         MajorFormKind::Formal => todo!(),
                                         MajorFormKind::Const => todo!(),
-                                        MajorFormKind::Static => todo!(),
                                     },
                                 },
                                 PrincipalEntityPath::TypeVariant(path) => {
