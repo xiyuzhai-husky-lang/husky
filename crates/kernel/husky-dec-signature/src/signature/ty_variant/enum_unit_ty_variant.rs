@@ -1,6 +1,6 @@
-use crate::*;
+use super::*;
 
-#[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
+#[salsa::interned]
 pub struct EnumUnitTypeVariantDecTemplate {
     pub parent_ty_template: EnumDecTemplate,
     pub self_ty: DecTerm,

@@ -1,6 +1,6 @@
-use crate::*;
+use super::*;
 
-#[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
+#[salsa::interned]
 pub struct TraitForTypeAssocTypeDecTemplate {
     pub path: TraitForTypeItemPath,
     #[return_ref]

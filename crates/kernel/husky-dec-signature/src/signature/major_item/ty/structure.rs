@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::tracked(db = DecSignatureDb, jar = DecSignatureJar)]
+#[salsa::tracked]
 pub struct StructureTypeDecTemplate {
     #[return_ref]
     pub template_parameters: DecTemplateParameters,

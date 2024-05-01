@@ -1,6 +1,6 @@
-use crate::*;
+use super::*;
 
-#[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
+#[salsa::interned]
 pub struct TypeMemoizedFieldDecTemplate {
     pub path: TypeItemPath,
     pub impl_block: TypeImplBlockDecTemplate,
@@ -76,7 +76,7 @@ impl TypeMemoizedFieldDecTemplate {
 //     }
 // }
 
-// #[salsa::tracked(jar = DecSignatureJar, return_ref)]
+// #[salsa::tracked(return_ref)]
 // pub(crate) fn ty_memo_field_dec_templates_map(
 //     db: &::salsa::Db,
 //     ty_path: TypePath,

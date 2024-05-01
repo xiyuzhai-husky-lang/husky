@@ -1,4 +1,5 @@
 use super::*;
+use husky_dec_signature::signature::assoc_item::trai_for_ty_item::assoc_ty::TraitForTypeAssocTypeDecTemplate;
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EthSignatureJar)]
 pub struct TraitForTypeAssocTypeEthTemplate {

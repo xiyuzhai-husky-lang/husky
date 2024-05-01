@@ -1,7 +1,6 @@
-mod derive;
+pub mod derive;
 
-pub use self::derive::*;
-
+use self::derive::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -19,7 +18,7 @@ impl HasDecTemplate for AttrItemPath {
     }
 }
 
-#[salsa::tracked(jar = DecSignatureJar)]
+#[salsa::tracked]
 fn attr_dec_template(db: &::salsa::Db, path: AttrItemPath) -> DecSignatureResult<AttrDecTemplate> {
     match path.syn_decl(db)? {
         AttrSynDecl::Backprop(_) => todo!(),

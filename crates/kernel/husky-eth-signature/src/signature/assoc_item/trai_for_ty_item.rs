@@ -10,6 +10,9 @@ pub use self::assoc_val::*;
 pub use self::method_ritchie::*;
 
 use super::*;
+use husky_dec_signature::signature::{
+    assoc_item::trai_for_ty_item::TraitForTypeItemDecTemplate, HasDecTemplate,
+};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[enum_class::from_variants]

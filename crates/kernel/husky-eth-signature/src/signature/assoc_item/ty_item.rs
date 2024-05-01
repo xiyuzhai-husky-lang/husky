@@ -12,6 +12,7 @@ pub use self::method_curry::*;
 pub use self::method_ritchie::*;
 
 use super::*;
+use husky_dec_signature::signature::{assoc_item::ty_item::TypeItemDecTemplate, HasDecTemplate};
 use husky_entity_kind::TypeItemKind;
 use husky_entity_tree::HasItemPathsMap;
 

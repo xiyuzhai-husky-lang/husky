@@ -1,6 +1,6 @@
-use crate::*;
+use super::*;
 
-#[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
+#[salsa::interned]
 pub struct TypeMethodRitchieDecTemplate {
     pub path: TypeItemPath,
     pub impl_block: TypeImplBlockDecTemplate,

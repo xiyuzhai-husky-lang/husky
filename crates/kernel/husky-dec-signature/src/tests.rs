@@ -1,5 +1,6 @@
 pub(crate) use husky_ast::test_utils::*;
 
+use crate::signature::{DecTemplate, HasDecTemplate};
 use crate::*;
 use husky_corgi_config::jar::CorgiConfigJar;
 use husky_corgi_config_ast::CorgiConfigAstJar;
@@ -29,7 +30,7 @@ use husky_vfs::ModulePath;
     SynDeclJar,
     husky_term_prelude::jar::TermPreludeJar,
     husky_dec_term::jar::DecTermJar,
-    DecSignatureJar
+    Jar
 )]
 #[derive(Default)]
 pub(crate) struct DB;

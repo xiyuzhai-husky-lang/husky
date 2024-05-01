@@ -1,14 +1,10 @@
 // todo: move this to husky-dec-term
-mod error;
-mod variable;
-
-pub use self::error::*;
-pub use self::variable::*;
+pub mod error;
+pub mod variable;
 
 pub(crate) use engine::*;
 
 use crate::*;
-
 use husky_entity_tree::SynNodeRegionPath;
 use husky_syn_expr::{
     CurrentVariableIdx, SynExprIdx, SynExprMap, SynPatternMap, SynPatternSymbolMap,

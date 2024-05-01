@@ -1,4 +1,5 @@
 use super::*;
+use husky_dec_signature::signature::assoc_item::ty_item::memo_field::TypeMemoizedFieldDecTemplate;
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EthSignatureJar)]
 pub struct TypeMemoizedFieldEthTemplate {

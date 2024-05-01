@@ -1,7 +1,7 @@
 use crate::*;
 use husky_entity_kind::ritchie::RitchieItemKind;
 
-#[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
+#[salsa::interned]
 pub struct MajorFunctionRitchieDecTemplate {
     pub ritchie_item_kind: RitchieItemKind,
     #[return_ref]

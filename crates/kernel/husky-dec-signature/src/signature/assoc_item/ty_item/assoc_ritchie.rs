@@ -1,6 +1,6 @@
-use crate::*;
+use super::*;
 
-#[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
+#[salsa::interned]
 pub struct TypeAssocRitchieDecTemplate {
     pub path: TypeItemPath,
     /// the term for `Self`

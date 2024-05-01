@@ -1,3 +1,5 @@
+use husky_dec_signature::signature::HasDecTemplate;
+
 use super::default::*;
 use super::*;
 

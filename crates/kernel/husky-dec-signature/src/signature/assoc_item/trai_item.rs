@@ -1,14 +1,13 @@
-mod assoc_ritchie;
-mod assoc_ty;
-mod assoc_val;
-mod memo_field;
-mod method_ritchie;
+pub mod assoc_ritchie;
+pub mod assoc_ty;
+pub mod assoc_val;
+pub mod memo_field;
+pub mod method_ritchie;
 
-pub use self::assoc_ritchie::*;
-pub use self::assoc_ty::*;
-pub use self::assoc_val::*;
-pub use self::method_ritchie::*;
-
+use self::assoc_ritchie::*;
+use self::assoc_ty::*;
+use self::assoc_val::*;
+use self::method_ritchie::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
@@ -40,7 +39,7 @@ impl HasDecTemplate for TraitItemPath {
     }
 }
 
-#[salsa::tracked(jar = DecSignatureJar)]
+#[salsa::tracked]
 pub(crate) fn trai_item_syn_dec_template(
     db: &::salsa::Db,
     path: TraitItemPath,

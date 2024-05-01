@@ -4,12 +4,11 @@ pub mod impl_block;
 pub mod major_item;
 pub mod ty_variant;
 
-pub use self::assoc_item::*;
-pub use self::attr::*;
-pub use self::impl_block::*;
-pub use self::major_item::*;
-pub use self::ty_variant::*;
-
+use self::assoc_item::*;
+use self::attr::*;
+use self::impl_block::*;
+use self::major_item::*;
+use self::ty_variant::*;
 use crate::*;
 
 #[salsa::derive_debug_with_db]
