@@ -1,4 +1,5 @@
 use super::*;
+use husky_dec_signature::signature::assoc_item::ty_item::method_ritchie::TypeMethodRitchieDecTemplate;
 use husky_eth_term::term::ritchie::EthRitchieSimpleParameter;
 
 #[salsa::interned(db = EtherealSignatureDb, jar = EthSignatureJar)]
