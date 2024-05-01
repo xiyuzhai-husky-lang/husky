@@ -3,25 +3,25 @@ use husky_hir_decl::decl::MajorValHirDecl;
 use husky_hir_expr::helpers::hir_body_with_expr_region;
 
 #[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
-pub struct ValHirDefn {
+pub struct MajorValHirDefn {
     pub path: MajorFormPath,
     pub hir_decl: MajorValHirDecl,
     pub hir_expr_body_and_region: Option<(HirExprIdx, HirExprRegion)>,
 }
 
-impl From<ValHirDefn> for MajorItemHirDefn {
-    fn from(hir_defn: ValHirDefn) -> Self {
+impl From<MajorValHirDefn> for MajorItemHirDefn {
+    fn from(hir_defn: MajorValHirDefn) -> Self {
         MajorItemHirDefn::Form(hir_defn.into())
     }
 }
 
-impl From<ValHirDefn> for HirDefn {
-    fn from(hir_defn: ValHirDefn) -> Self {
+impl From<MajorValHirDefn> for HirDefn {
+    fn from(hir_defn: MajorValHirDefn) -> Self {
         HirDefn::MajorItem(hir_defn.into())
     }
 }
 
-impl ValHirDefn {
+impl MajorValHirDefn {
     pub(super) fn new(db: &::salsa::Db, path: MajorFormPath, hir_decl: MajorValHirDecl) -> Self {
         Self::new_inner(
             db,
@@ -45,7 +45,7 @@ impl ValHirDefn {
 }
 
 #[salsa::tracked(jar = HirDefnJar)]
-fn val_hir_defn_dependencies(db: &::salsa::Db, hir_defn: ValHirDefn) -> HirDefnDependencies {
+fn val_hir_defn_dependencies(db: &::salsa::Db, hir_defn: MajorValHirDefn) -> HirDefnDependencies {
     let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
     let hir_decl = hir_defn.hir_decl(db);
     builder.add_hir_eager_expr_region(hir_decl.hir_eager_expr_region(db));
@@ -57,6 +57,6 @@ fn val_hir_defn_dependencies(db: &::salsa::Db, hir_defn: ValHirDefn) -> HirDefnD
 }
 
 #[salsa::tracked(jar = HirDefnJar)]
-fn val_hir_defn_version_stamp(db: &::salsa::Db, hir_defn: ValHirDefn) -> HirDefnVersionStamp {
+fn val_hir_defn_version_stamp(db: &::salsa::Db, hir_defn: MajorValHirDefn) -> HirDefnVersionStamp {
     HirDefnVersionStamp::new(hir_defn, db)
 }

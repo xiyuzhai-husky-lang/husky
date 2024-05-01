@@ -3,7 +3,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Val(
-                ValHirDefn {
+                MajorValHirDefn {
                     path: FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
                     hir_decl: MajorValHirDecl {
                         path: FormPath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`),
@@ -150,7 +150,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Val(
-                ValHirDefn {
+                MajorValHirDefn {
                     path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
                     hir_decl: MajorValHirDecl {
                         path: FormPath(`mnist_classifier::digits::seven::special_seven_match`, `Val`),
@@ -382,7 +382,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Val(
-                ValHirDefn {
+                MajorValHirDefn {
                     path: FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),
                     hir_decl: MajorValHirDecl {
                         path: FormPath(`mnist_classifier::digits::seven::is_seven`, `Val`),

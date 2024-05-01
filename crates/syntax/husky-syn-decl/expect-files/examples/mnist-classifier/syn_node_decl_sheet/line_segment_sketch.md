@@ -1153,7 +1153,7 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
-                    FormSynNodeDecl::Ritchie(
+                    FormSynNodeDecl::FunctionRitchie(
                         MajorFunctionRitchieSynNodeDecl {
                             syn_node_path: FormSynNodePath(`mnist_classifier::line_segment_sketch::go_right`, `Ritchie(
                                 Fn,
@@ -1508,7 +1508,7 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
-                    FormSynNodeDecl::Ritchie(
+                    FormSynNodeDecl::FunctionRitchie(
                         MajorFunctionRitchieSynNodeDecl {
                             syn_node_path: FormSynNodePath(`mnist_classifier::line_segment_sketch::go_left`, `Ritchie(
                                 Fn,
@@ -1863,7 +1863,7 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
-                    FormSynNodeDecl::Ritchie(
+                    FormSynNodeDecl::FunctionRitchie(
                         MajorFunctionRitchieSynNodeDecl {
                             syn_node_path: FormSynNodePath(`mnist_classifier::line_segment_sketch::extend_end`, `Ritchie(
                                 Fn,
@@ -2323,7 +2323,7 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
-                    FormSynNodeDecl::Ritchie(
+                    FormSynNodeDecl::FunctionRitchie(
                         MajorFunctionRitchieSynNodeDecl {
                             syn_node_path: FormSynNodePath(`mnist_classifier::line_segment_sketch::extend_start`, `Ritchie(
                                 Fn,
@@ -2881,7 +2881,7 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
-                    FormSynNodeDecl::Ritchie(
+                    FormSynNodeDecl::FunctionRitchie(
                         MajorFunctionRitchieSynNodeDecl {
                             syn_node_path: FormSynNodePath(`mnist_classifier::line_segment_sketch::find_line_segments`, `Ritchie(
                                 Fn,
@@ -3769,7 +3769,7 @@ SynNodeDeclSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 292,
+                                                    value: 295,
                                                 },
                                             ),
                                         ),
@@ -3791,7 +3791,7 @@ SynNodeDeclSheet {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 292,
+                                                        value: 295,
                                                     },
                                                 ),
                                             ),
@@ -3834,7 +3834,7 @@ SynNodeDeclSheet {
                                                                 path: TypeImplBlockPath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 292,
+                                                                            value: 295,
                                                                         },
                                                                     ),
                                                                 ),
@@ -4082,7 +4082,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 292,
+                                                                                            value: 295,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -4627,7 +4627,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 292,
+                                                                                            value: 295,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -5338,7 +5338,7 @@ SynNodeDeclSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 294,
+                                                    value: 297,
                                                 },
                                             ),
                                         ),
@@ -5360,7 +5360,7 @@ SynNodeDeclSheet {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 294,
+                                                        value: 297,
                                                     },
                                                 ),
                                             ),
@@ -5403,7 +5403,7 @@ SynNodeDeclSheet {
                                                                 path: TypeImplBlockPath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 294,
+                                                                            value: 297,
                                                                         },
                                                                     ),
                                                                 ),
@@ -5571,7 +5571,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 294,
+                                                                                            value: 297,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -5848,7 +5848,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 294,
+                                                                                            value: 297,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -6173,7 +6173,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 294,
+                                                                                            value: 297,
                                                                                         },
                                                                                     ),
                                                                                 ),

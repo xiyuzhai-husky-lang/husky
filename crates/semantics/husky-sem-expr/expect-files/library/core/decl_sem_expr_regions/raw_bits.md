@@ -73,7 +73,7 @@
                     TypeImplBlockPath(
                         ItemPathId(
                             Id {
-                                value: 121,
+                                value: 124,
                             },
                         ),
                     ),
@@ -87,7 +87,7 @@
                         TypeImplBlockPath(
                             ItemPathId(
                                 Id {
-                                    value: 121,
+                                    value: 124,
                                 },
                             ),
                         ),
@@ -262,7 +262,7 @@
                         ident: Ident(
                             Coword(
                                 Id {
-                                    value: 122,
+                                    value: 123,
                                 },
                             ),
                         ),

@@ -6,7 +6,7 @@
                 TypePath(
                     ItemPathId(
                         Id {
-                            value: 79,
+                            value: 80,
                         },
                     ),
                 ),
@@ -28,7 +28,7 @@
             AttrItemPath(
                 ItemPathId(
                     Id {
-                        value: 230,
+                        value: 233,
                     },
                 ),
             ),
@@ -41,7 +41,7 @@
                 TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 121,
+                            value: 124,
                         },
                     ),
                 ),
@@ -63,7 +63,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 231,
+                            value: 234,
                         },
                     ),
                 ),
@@ -85,7 +85,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 232,
+                            value: 235,
                         },
                     ),
                 ),
@@ -107,7 +107,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 233,
+                            value: 236,
                         },
                     ),
                 ),
@@ -129,7 +129,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 234,
+                            value: 237,
                         },
                     ),
                 ),
@@ -151,7 +151,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 235,
+                            value: 238,
                         },
                     ),
                 ),

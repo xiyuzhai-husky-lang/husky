@@ -387,7 +387,7 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
-                    FormSynNodeDecl::Ritchie(
+                    FormSynNodeDecl::FunctionRitchie(
                         MajorFunctionRitchieSynNodeDecl {
                             syn_node_path: FormSynNodePath(`mnist_classifier::fermi::fermi_match`, `Ritchie(
                                 Fn,
@@ -861,7 +861,7 @@ SynNodeDeclSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 299,
+                                                    value: 302,
                                                 },
                                             ),
                                         ),
@@ -883,7 +883,7 @@ SynNodeDeclSheet {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 299,
+                                                        value: 302,
                                                     },
                                                 ),
                                             ),
@@ -926,7 +926,7 @@ SynNodeDeclSheet {
                                                                 path: TypeImplBlockPath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 299,
+                                                                            value: 302,
                                                                         },
                                                                     ),
                                                                 ),
@@ -1094,7 +1094,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 299,
+                                                                                            value: 302,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -1358,7 +1358,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 299,
+                                                                                            value: 302,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -1622,7 +1622,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 299,
+                                                                                            value: 302,
                                                                                         },
                                                                                     ),
                                                                                 ),

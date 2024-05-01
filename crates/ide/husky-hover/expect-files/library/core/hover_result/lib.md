@@ -580,17 +580,17 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "Other\ntoken_idx = 57;\n\ntoken_line_group_idx = 19\n\ntoken = TokenData::Keyword(\n    Keyword::Use,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "Other\ntoken_idx = 57;\n\ntoken_line_group_idx = 19\n\ntoken = TokenData::Keyword(\n    Keyword::Pub,\n);\n\ntoken_info = None;\n\n\n",
                         },
                     ),
                     range: Some(
                         Range {
                             start: Position {
-                                line: 20,
+                                line: 19,
                                 character: 0,
                             },
                             end: Position {
-                                line: 20,
+                                line: 19,
                                 character: 3,
                             },
                         },
@@ -610,17 +610,47 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 60;\n\ntoken_line_group_idx = 19\n\ntoken = TokenData::Ident(\n    `prelude`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::UseExpr(\n            1,\n        ),\n        data: TokenInfoData::UseExpr {\n            use_expr_idx: 1,\n            rule_idx: OnceUseRuleIdx(\n                1,\n            ),\n            state: UseOneRuleState::Resolved {\n                original_symbol: Some(\n                    EntitySymbol::Submodule {\n                        submodule_item_path: SubmoduleItemPath(\n                            ItemPathId(\n                                Id {\n                                    value: 13,\n                                },\n                            ),\n                        ),\n                    },\n                ),\n            },\n        },\n    },\n);\n\nuse\n",
+                            value: "Other\ntoken_idx = 60;\n\ntoken_line_group_idx = 20\n\ntoken = TokenData::Keyword(\n    Keyword::Use,\n);\n\ntoken_info = None;\n\n\n",
                         },
                     ),
                     range: Some(
                         Range {
                             start: Position {
-                                line: 20,
+                                line: 21,
+                                character: 0,
+                            },
+                            end: Position {
+                                line: 21,
+                                character: 3,
+                            },
+                        },
+                    ),
+                },
+                actions: [],
+            },
+        ),
+    ),
+    (
+        TokenIdx(
+            64,
+        ),
+        Some(
+            HoverResult {
+                hover: Hover {
+                    contents: Markup(
+                        MarkupContent {
+                            kind: Markdown,
+                            value: "\ntoken_idx = 63;\n\ntoken_line_group_idx = 20\n\ntoken = TokenData::Ident(\n    `prelude`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::UseExpr(\n            1,\n        ),\n        data: TokenInfoData::UseExpr {\n            use_expr_idx: 1,\n            rule_idx: OnceUseRuleIdx(\n                1,\n            ),\n            state: UseOneRuleState::Resolved {\n                original_symbol: Some(\n                    EntitySymbol::Submodule {\n                        submodule_item_path: SubmoduleItemPath(\n                            ItemPathId(\n                                Id {\n                                    value: 13,\n                                },\n                            ),\n                        ),\n                    },\n                ),\n            },\n        },\n    },\n);\n\nuse\n",
+                        },
+                    ),
+                    range: Some(
+                        Range {
+                            start: Position {
+                                line: 21,
                                 character: 10,
                             },
                             end: Position {
-                                line: 20,
+                                line: 21,
                                 character: 17,
                             },
                         },

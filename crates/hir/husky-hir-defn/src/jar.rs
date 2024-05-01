@@ -25,9 +25,12 @@ pub struct HirDefnJar(
     crate::defn::union_hir_defn_version_stamp,
     // - Form
     form_hir_defn,
-    ValHirDefn,
+    MajorValHirDefn,
     crate::defn::val_hir_defn_dependencies,
     crate::defn::val_hir_defn_version_stamp,
+    crate::defn::r#const::MajorConstHirDefn,
+    crate::defn::r#const::const_hir_defn_dependencies,
+    crate::defn::r#const::const_hir_defn_version_stamp,
     MajorFunctionRitchieHirDefn,
     crate::defn::major_function_ritchie_hir_defn_dependencies,
     crate::defn::major_function_ritchie_hir_defn_version_stamp,
