@@ -132,7 +132,7 @@ pub fn is_ty_term_always_copyable(
 
 // trait side
 
-#[salsa::tracked(jar = EthSignatureJar, return_ref)]
+#[salsa::tracked(return_ref)]
 fn trai_side_derive_any_eth_templates(
     db: &::salsa::Db,
     trai_path: TraitPath,
@@ -157,7 +157,7 @@ fn trai_side_path_leading_eth_templates(
     }
 }
 
-#[salsa::tracked(jar = EthSignatureJar, return_ref)]
+#[salsa::tracked(return_ref)]
 fn trai_side_path_leading_trai_for_ty_impl_block_eth_templates_map(
     db: &::salsa::Db,
     trai_path: TraitPath,
@@ -186,7 +186,7 @@ pub fn ty_side_trai_for_ty_impl_block_signature_templates(
     }
 }
 
-#[salsa::tracked(jar = EthSignatureJar, return_ref)]
+#[salsa::tracked(return_ref)]
 fn ty_side_impl_block_signature_templates_map(
     db: &::salsa::Db,
     ty_path: TypePath,

@@ -1,4 +1,4 @@
 use super::*;
 
-#[salsa::interned(db = EtherealSignatureDb, jar = EthSignatureJar)]
+#[salsa::interned]
 pub struct TraitAssocRitchieEthTemplate {}

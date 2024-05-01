@@ -44,7 +44,7 @@ impl HasEthTemplate for TypeItemPath {
     }
 }
 
-// #[salsa::tracked(jar = EthSignatureJar)]
+// #[salsa::tracked()]
 pub(crate) fn ty_item_eth_template(
     db: &::salsa::Db,
     path: TypeItemPath,
@@ -104,7 +104,7 @@ impl HasTypeItemTemplates for TypePath {
     }
 }
 
-#[salsa::tracked(jar = EthSignatureJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub(crate) fn ty_item_eth_templates_map(
     db: &::salsa::Db,
     ty_path: TypePath,

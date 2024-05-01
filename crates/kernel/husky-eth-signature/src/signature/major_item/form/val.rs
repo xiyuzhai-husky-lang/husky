@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::interned(db = EtherealSignatureDb, jar = EthSignatureJar)]
+#[salsa::interned]
 pub struct MajorValEthTemplate {
     pub path: MajorFormPath,
     pub return_ty: EthTerm,

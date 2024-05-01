@@ -69,7 +69,7 @@ impl HasEthTemplate for TraitForTypeItemPath {
     }
 }
 
-// #[salsa::tracked(jar = EthSignatureJar)]
+// #[salsa::tracked()]
 fn trai_for_ty_item_eth_template(
     db: &::salsa::Db,
     path: TraitForTypeItemPath,
