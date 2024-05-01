@@ -341,7 +341,7 @@ SynNodeDeclSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 301,
+                                                    value: 300,
                                                 },
                                             ),
                                         ),
@@ -363,7 +363,7 @@ SynNodeDeclSheet {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 301,
+                                                        value: 300,
                                                     },
                                                 ),
                                             ),
@@ -406,7 +406,7 @@ SynNodeDeclSheet {
                                                                 path: TypeImplBlockPath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 301,
+                                                                            value: 300,
                                                                         },
                                                                     ),
                                                                 ),
@@ -600,7 +600,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 301,
+                                                                                            value: 300,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -907,7 +907,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 301,
+                                                                                            value: 300,
                                                                                         },
                                                                                     ),
                                                                                 ),

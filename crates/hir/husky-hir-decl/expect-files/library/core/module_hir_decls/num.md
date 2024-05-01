@@ -47,6 +47,116 @@
                 path: AttrItemPath(
                     ItemPathId(
                         Id {
+                            value: 143,
+                        },
+                    ),
+                ),
+                trais: [
+                    HirTrait {
+                        trai_path: TraitPath(`core::fmt::Debug`),
+                        template_arguments: [],
+                    },
+                    HirTrait {
+                        trai_path: TraitPath(`core::cmp::PartialEq`),
+                        template_arguments: [],
+                    },
+                    HirTrait {
+                        trai_path: TraitPath(`core::cmp::Eq`),
+                        template_arguments: [],
+                    },
+                    HirTrait {
+                        trai_path: TraitPath(`core::clone::Clone`),
+                        template_arguments: [],
+                    },
+                    HirTrait {
+                        trai_path: TraitPath(`core::marker::Copy`),
+                        template_arguments: [],
+                    },
+                ],
+                hir_eager_expr_region: HirEagerExprRegion {
+                    region_path: RegionPath::Decl(
+                        ItemPath::Attr(
+                            Room32,
+                            AttrItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 143,
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                    expr_arena: Arena {
+                        data: [],
+                    },
+                    stmt_arena: Arena {
+                        data: [],
+                    },
+                    pattern_arena: Arena {
+                        data: [],
+                    },
+                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        arena: Arena {
+                            data: [],
+                        },
+                    },
+                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        arena: Arena {
+                            data: [],
+                        },
+                        self_value_variable: None,
+                    },
+                },
+            },
+        ),
+    ),
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Type(
+            TypeHirDecl::Extern(
+                ExternTypeHirDecl {
+                    path: TypePath(`core::num::i16`, `Extern`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        region_path: RegionPath::Decl(
+                            ItemPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`core::num::i16`, `Extern`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
+                },
+            ),
+        ),
+    ),
+    HirDecl::Attr(
+        AttrHirDecl::Derive(
+            DeriveAttrHirDecl {
+                path: AttrItemPath(
+                    ItemPathId(
+                        Id {
                             value: 144,
                         },
                     ),
@@ -114,7 +224,7 @@
         MajorItemHirDecl::Type(
             TypeHirDecl::Extern(
                 ExternTypeHirDecl {
-                    path: TypePath(`core::num::i16`, `Extern`),
+                    path: TypePath(`core::num::i32`, `Extern`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -122,7 +232,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::i16`, `Extern`),
+                                    TypePath(`core::num::i32`, `Extern`),
                                 ),
                             ),
                         ),
@@ -224,7 +334,7 @@
         MajorItemHirDecl::Type(
             TypeHirDecl::Extern(
                 ExternTypeHirDecl {
-                    path: TypePath(`core::num::i32`, `Extern`),
+                    path: TypePath(`core::num::i64`, `Extern`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -232,7 +342,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::i32`, `Extern`),
+                                    TypePath(`core::num::i64`, `Extern`),
                                 ),
                             ),
                         ),
@@ -334,7 +444,7 @@
         MajorItemHirDecl::Type(
             TypeHirDecl::Extern(
                 ExternTypeHirDecl {
-                    path: TypePath(`core::num::i64`, `Extern`),
+                    path: TypePath(`core::num::i128`, `Extern`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -342,7 +452,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::i64`, `Extern`),
+                                    TypePath(`core::num::i128`, `Extern`),
                                 ),
                             ),
                         ),
@@ -444,7 +554,7 @@
         MajorItemHirDecl::Type(
             TypeHirDecl::Extern(
                 ExternTypeHirDecl {
-                    path: TypePath(`core::num::i128`, `Extern`),
+                    path: TypePath(`core::num::isize`, `Extern`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -452,7 +562,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::i128`, `Extern`),
+                                    TypePath(`core::num::isize`, `Extern`),
                                 ),
                             ),
                         ),
@@ -554,7 +664,7 @@
         MajorItemHirDecl::Type(
             TypeHirDecl::Extern(
                 ExternTypeHirDecl {
-                    path: TypePath(`core::num::isize`, `Extern`),
+                    path: TypePath(`core::num::u8`, `Extern`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -562,7 +672,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::isize`, `Extern`),
+                                    TypePath(`core::num::u8`, `Extern`),
                                 ),
                             ),
                         ),
@@ -664,7 +774,7 @@
         MajorItemHirDecl::Type(
             TypeHirDecl::Extern(
                 ExternTypeHirDecl {
-                    path: TypePath(`core::num::u8`, `Extern`),
+                    path: TypePath(`core::num::u16`, `Extern`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -672,7 +782,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::u8`, `Extern`),
+                                    TypePath(`core::num::u16`, `Extern`),
                                 ),
                             ),
                         ),
@@ -774,7 +884,7 @@
         MajorItemHirDecl::Type(
             TypeHirDecl::Extern(
                 ExternTypeHirDecl {
-                    path: TypePath(`core::num::u16`, `Extern`),
+                    path: TypePath(`core::num::u32`, `Extern`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -782,7 +892,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::u16`, `Extern`),
+                                    TypePath(`core::num::u32`, `Extern`),
                                 ),
                             ),
                         ),
@@ -884,7 +994,7 @@
         MajorItemHirDecl::Type(
             TypeHirDecl::Extern(
                 ExternTypeHirDecl {
-                    path: TypePath(`core::num::u32`, `Extern`),
+                    path: TypePath(`core::num::u64`, `Extern`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -892,7 +1002,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::u32`, `Extern`),
+                                    TypePath(`core::num::u64`, `Extern`),
                                 ),
                             ),
                         ),
@@ -994,7 +1104,7 @@
         MajorItemHirDecl::Type(
             TypeHirDecl::Extern(
                 ExternTypeHirDecl {
-                    path: TypePath(`core::num::u64`, `Extern`),
+                    path: TypePath(`core::num::u128`, `Extern`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -1002,7 +1112,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::u64`, `Extern`),
+                                    TypePath(`core::num::u128`, `Extern`),
                                 ),
                             ),
                         ),
@@ -1104,7 +1214,7 @@
         MajorItemHirDecl::Type(
             TypeHirDecl::Extern(
                 ExternTypeHirDecl {
-                    path: TypePath(`core::num::u128`, `Extern`),
+                    path: TypePath(`core::num::usize`, `Extern`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -1112,7 +1222,117 @@
                         region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::u128`, `Extern`),
+                                    TypePath(`core::num::usize`, `Extern`),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                            self_value_variable: None,
+                        },
+                    },
+                },
+            ),
+        ),
+    ),
+    HirDecl::Attr(
+        AttrHirDecl::Derive(
+            DeriveAttrHirDecl {
+                path: AttrItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 138,
+                        },
+                    ),
+                ),
+                trais: [
+                    HirTrait {
+                        trai_path: TraitPath(`core::fmt::Debug`),
+                        template_arguments: [],
+                    },
+                    HirTrait {
+                        trai_path: TraitPath(`core::cmp::PartialEq`),
+                        template_arguments: [],
+                    },
+                    HirTrait {
+                        trai_path: TraitPath(`core::cmp::Eq`),
+                        template_arguments: [],
+                    },
+                    HirTrait {
+                        trai_path: TraitPath(`core::clone::Clone`),
+                        template_arguments: [],
+                    },
+                    HirTrait {
+                        trai_path: TraitPath(`core::marker::Copy`),
+                        template_arguments: [],
+                    },
+                ],
+                hir_eager_expr_region: HirEagerExprRegion {
+                    region_path: RegionPath::Decl(
+                        ItemPath::Attr(
+                            Room32,
+                            AttrItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 138,
+                                    },
+                                ),
+                            ),
+                        ),
+                    ),
+                    expr_arena: Arena {
+                        data: [],
+                    },
+                    stmt_arena: Arena {
+                        data: [],
+                    },
+                    pattern_arena: Arena {
+                        data: [],
+                    },
+                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                        arena: Arena {
+                            data: [],
+                        },
+                    },
+                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                        arena: Arena {
+                            data: [],
+                        },
+                        self_value_variable: None,
+                    },
+                },
+            },
+        ),
+    ),
+    HirDecl::MajorItem(
+        MajorItemHirDecl::Type(
+            TypeHirDecl::Extern(
+                ExternTypeHirDecl {
+                    path: TypePath(`core::num::f32`, `Extern`),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        region_path: RegionPath::Decl(
+                            ItemPath::MajorItem(
+                                MajorItemPath::Type(
+                                    TypePath(`core::num::f32`, `Extern`),
                                 ),
                             ),
                         ),
@@ -1214,7 +1434,7 @@
         MajorItemHirDecl::Type(
             TypeHirDecl::Extern(
                 ExternTypeHirDecl {
-                    path: TypePath(`core::num::usize`, `Extern`),
+                    path: TypePath(`core::num::f64`, `Extern`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -1222,117 +1442,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Type(
-                                    TypePath(`core::num::usize`, `Extern`),
-                                ),
-                            ),
-                        ),
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_arena: Arena {
-                            data: [],
-                        },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
-                            arena: Arena {
-                                data: [],
-                            },
-                        },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
-                            arena: Arena {
-                                data: [],
-                            },
-                            self_value_variable: None,
-                        },
-                    },
-                },
-            ),
-        ),
-    ),
-    HirDecl::Attr(
-        AttrHirDecl::Derive(
-            DeriveAttrHirDecl {
-                path: AttrItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 139,
-                        },
-                    ),
-                ),
-                trais: [
-                    HirTrait {
-                        trai_path: TraitPath(`core::fmt::Debug`),
-                        template_arguments: [],
-                    },
-                    HirTrait {
-                        trai_path: TraitPath(`core::cmp::PartialEq`),
-                        template_arguments: [],
-                    },
-                    HirTrait {
-                        trai_path: TraitPath(`core::cmp::Eq`),
-                        template_arguments: [],
-                    },
-                    HirTrait {
-                        trai_path: TraitPath(`core::clone::Clone`),
-                        template_arguments: [],
-                    },
-                    HirTrait {
-                        trai_path: TraitPath(`core::marker::Copy`),
-                        template_arguments: [],
-                    },
-                ],
-                hir_eager_expr_region: HirEagerExprRegion {
-                    region_path: RegionPath::Decl(
-                        ItemPath::Attr(
-                            Room32,
-                            AttrItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 139,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ),
-                    expr_arena: Arena {
-                        data: [],
-                    },
-                    stmt_arena: Arena {
-                        data: [],
-                    },
-                    pattern_arena: Arena {
-                        data: [],
-                    },
-                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
-                        arena: Arena {
-                            data: [],
-                        },
-                    },
-                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
-                        arena: Arena {
-                            data: [],
-                        },
-                        self_value_variable: None,
-                    },
-                },
-            },
-        ),
-    ),
-    HirDecl::MajorItem(
-        MajorItemHirDecl::Type(
-            TypeHirDecl::Extern(
-                ExternTypeHirDecl {
-                    path: TypePath(`core::num::f32`, `Extern`),
-                    template_parameters: HirTemplateParameters(
-                        [],
-                    ),
-                    hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`core::num::f32`, `Extern`),
+                                    TypePath(`core::num::f64`, `Extern`),
                                 ),
                             ),
                         ),
@@ -1430,123 +1540,13 @@
             },
         ),
     ),
-    HirDecl::MajorItem(
-        MajorItemHirDecl::Type(
-            TypeHirDecl::Extern(
-                ExternTypeHirDecl {
-                    path: TypePath(`core::num::f64`, `Extern`),
-                    template_parameters: HirTemplateParameters(
-                        [],
-                    ),
-                    hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
-                            ItemPath::MajorItem(
-                                MajorItemPath::Type(
-                                    TypePath(`core::num::f64`, `Extern`),
-                                ),
-                            ),
-                        ),
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_arena: Arena {
-                            data: [],
-                        },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
-                            arena: Arena {
-                                data: [],
-                            },
-                        },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
-                            arena: Arena {
-                                data: [],
-                            },
-                            self_value_variable: None,
-                        },
-                    },
-                },
-            ),
-        ),
-    ),
-    HirDecl::Attr(
-        AttrHirDecl::Derive(
-            DeriveAttrHirDecl {
-                path: AttrItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 156,
-                        },
-                    ),
-                ),
-                trais: [
-                    HirTrait {
-                        trai_path: TraitPath(`core::fmt::Debug`),
-                        template_arguments: [],
-                    },
-                    HirTrait {
-                        trai_path: TraitPath(`core::cmp::PartialEq`),
-                        template_arguments: [],
-                    },
-                    HirTrait {
-                        trai_path: TraitPath(`core::cmp::Eq`),
-                        template_arguments: [],
-                    },
-                    HirTrait {
-                        trai_path: TraitPath(`core::clone::Clone`),
-                        template_arguments: [],
-                    },
-                    HirTrait {
-                        trai_path: TraitPath(`core::marker::Copy`),
-                        template_arguments: [],
-                    },
-                ],
-                hir_eager_expr_region: HirEagerExprRegion {
-                    region_path: RegionPath::Decl(
-                        ItemPath::Attr(
-                            Room32,
-                            AttrItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 156,
-                                    },
-                                ),
-                            ),
-                        ),
-                    ),
-                    expr_arena: Arena {
-                        data: [],
-                    },
-                    stmt_arena: Arena {
-                        data: [],
-                    },
-                    pattern_arena: Arena {
-                        data: [],
-                    },
-                    comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
-                        arena: Arena {
-                            data: [],
-                        },
-                    },
-                    runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
-                        arena: Arena {
-                            data: [],
-                        },
-                        self_value_variable: None,
-                    },
-                },
-            },
-        ),
-    ),
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
                 path: TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 96,
+                            value: 95,
                         },
                     ),
                 ),
@@ -1567,7 +1567,7 @@
                                 TypeImplBlockPath(
                                     ItemPathId(
                                         Id {
-                                            value: 96,
+                                            value: 95,
                                         },
                                     ),
                                 ),
@@ -1938,7 +1938,7 @@
                 path: TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 98,
+                            value: 97,
                         },
                     ),
                 ),
@@ -1959,7 +1959,7 @@
                                 TypeImplBlockPath(
                                     ItemPathId(
                                         Id {
-                                            value: 98,
+                                            value: 97,
                                         },
                                     ),
                                 ),
@@ -2330,7 +2330,7 @@
                 path: TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 100,
+                            value: 99,
                         },
                     ),
                 ),
@@ -2351,7 +2351,7 @@
                                 TypeImplBlockPath(
                                     ItemPathId(
                                         Id {
-                                            value: 100,
+                                            value: 99,
                                         },
                                     ),
                                 ),
@@ -2820,7 +2820,7 @@
                 path: TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 102,
+                            value: 101,
                         },
                     ),
                 ),
@@ -2841,7 +2841,7 @@
                                 TypeImplBlockPath(
                                     ItemPathId(
                                         Id {
-                                            value: 102,
+                                            value: 101,
                                         },
                                     ),
                                 ),
@@ -3114,7 +3114,7 @@
                 path: TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 104,
+                            value: 103,
                         },
                     ),
                 ),
@@ -3135,7 +3135,7 @@
                                 TypeImplBlockPath(
                                     ItemPathId(
                                         Id {
-                                            value: 104,
+                                            value: 103,
                                         },
                                     ),
                                 ),
@@ -3408,7 +3408,7 @@
                 path: TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 106,
+                            value: 105,
                         },
                     ),
                 ),
@@ -3429,7 +3429,7 @@
                                 TypeImplBlockPath(
                                     ItemPathId(
                                         Id {
-                                            value: 106,
+                                            value: 105,
                                         },
                                     ),
                                 ),
@@ -3702,7 +3702,7 @@
                 path: TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 108,
+                            value: 107,
                         },
                     ),
                 ),
@@ -3723,7 +3723,7 @@
                                 TypeImplBlockPath(
                                     ItemPathId(
                                         Id {
-                                            value: 108,
+                                            value: 107,
                                         },
                                     ),
                                 ),
@@ -3996,7 +3996,7 @@
                 path: TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 110,
+                            value: 109,
                         },
                     ),
                 ),
@@ -4017,7 +4017,7 @@
                                 TypeImplBlockPath(
                                     ItemPathId(
                                         Id {
-                                            value: 110,
+                                            value: 109,
                                         },
                                     ),
                                 ),
@@ -4290,7 +4290,7 @@
                 path: TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 112,
+                            value: 111,
                         },
                     ),
                 ),
@@ -4311,7 +4311,7 @@
                                 TypeImplBlockPath(
                                     ItemPathId(
                                         Id {
-                                            value: 112,
+                                            value: 111,
                                         },
                                     ),
                                 ),
@@ -4584,7 +4584,7 @@
                 path: TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 114,
+                            value: 113,
                         },
                     ),
                 ),
@@ -4605,7 +4605,7 @@
                                 TypeImplBlockPath(
                                     ItemPathId(
                                         Id {
-                                            value: 114,
+                                            value: 113,
                                         },
                                     ),
                                 ),
@@ -4878,7 +4878,7 @@
                 path: TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 116,
+                            value: 115,
                         },
                     ),
                 ),
@@ -4899,7 +4899,7 @@
                                 TypeImplBlockPath(
                                     ItemPathId(
                                         Id {
-                                            value: 116,
+                                            value: 115,
                                         },
                                     ),
                                 ),
@@ -5172,7 +5172,7 @@
                 path: TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 118,
+                            value: 117,
                         },
                     ),
                 ),
@@ -5193,7 +5193,7 @@
                                 TypeImplBlockPath(
                                     ItemPathId(
                                         Id {
-                                            value: 118,
+                                            value: 117,
                                         },
                                     ),
                                 ),
@@ -5466,7 +5466,7 @@
                 path: TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 120,
+                            value: 119,
                         },
                     ),
                 ),
@@ -5487,7 +5487,7 @@
                                 TypeImplBlockPath(
                                     ItemPathId(
                                         Id {
-                                            value: 120,
+                                            value: 119,
                                         },
                                     ),
                                 ),
@@ -5596,7 +5596,7 @@
                 path: AttrItemPath(
                     ItemPathId(
                         Id {
-                            value: 193,
+                            value: 192,
                         },
                     ),
                 ),
@@ -5681,7 +5681,7 @@
                 path: AttrItemPath(
                     ItemPathId(
                         Id {
-                            value: 194,
+                            value: 193,
                         },
                     ),
                 ),
@@ -5792,7 +5792,7 @@
                 path: AttrItemPath(
                     ItemPathId(
                         Id {
-                            value: 195,
+                            value: 194,
                         },
                     ),
                 ),
@@ -5903,7 +5903,7 @@
                 path: AttrItemPath(
                     ItemPathId(
                         Id {
-                            value: 196,
+                            value: 195,
                         },
                     ),
                 ),
@@ -6060,7 +6060,7 @@
                 path: AttrItemPath(
                     ItemPathId(
                         Id {
-                            value: 197,
+                            value: 196,
                         },
                     ),
                 ),
@@ -6145,7 +6145,7 @@
                 path: AttrItemPath(
                     ItemPathId(
                         Id {
-                            value: 198,
+                            value: 197,
                         },
                     ),
                 ),
@@ -6394,7 +6394,7 @@
                 path: AttrItemPath(
                     ItemPathId(
                         Id {
-                            value: 200,
+                            value: 199,
                         },
                     ),
                 ),
@@ -6407,7 +6407,7 @@
                 path: TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 122,
+                            value: 121,
                         },
                     ),
                 ),
@@ -6428,7 +6428,7 @@
                                 TypeImplBlockPath(
                                     ItemPathId(
                                         Id {
-                                            value: 122,
+                                            value: 121,
                                         },
                                     ),
                                 ),

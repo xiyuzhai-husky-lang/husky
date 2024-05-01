@@ -1247,7 +1247,7 @@
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 255,
+                                        value: 254,
                                     },
                                 ),
                             ),
@@ -3823,7 +3823,7 @@
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 255,
+                                        value: 254,
                                     },
                                 ),
                             ),
@@ -4589,7 +4589,7 @@
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 255,
+                                        value: 254,
                                     },
                                 ),
                             ),

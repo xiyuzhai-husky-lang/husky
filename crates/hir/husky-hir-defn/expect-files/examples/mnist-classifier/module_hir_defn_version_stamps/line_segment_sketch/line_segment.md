@@ -28,7 +28,7 @@
                 TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 301,
+                            value: 300,
                         },
                     ),
                 ),
@@ -50,7 +50,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 412,
+                            value: 411,
                         },
                     ),
                 ),
@@ -72,7 +72,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 413,
+                            value: 412,
                         },
                     ),
                 ),

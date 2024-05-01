@@ -33,7 +33,7 @@ Ok(
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 1,
                         rule_idx: OnceUseRuleIdx(
-                            12,
+                            13,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
@@ -84,7 +84,7 @@ Ok(
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 4,
                         rule_idx: OnceUseRuleIdx(
-                            13,
+                            14,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
@@ -135,7 +135,7 @@ Ok(
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 7,
                         rule_idx: OnceUseRuleIdx(
-                            14,
+                            15,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
@@ -186,7 +186,7 @@ Ok(
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 10,
                         rule_idx: OnceUseRuleIdx(
-                            15,
+                            16,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
@@ -237,7 +237,7 @@ Ok(
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 13,
                         rule_idx: OnceUseRuleIdx(
-                            16,
+                            17,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
@@ -288,7 +288,7 @@ Ok(
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 16,
                         rule_idx: OnceUseRuleIdx(
-                            17,
+                            18,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
@@ -296,7 +296,7 @@ Ok(
                                     submodule_item_path: SubmoduleItemPath(
                                         ItemPathId(
                                             Id {
-                                                value: 20,
+                                                value: 16,
                                             },
                                         ),
                                     ),
@@ -339,7 +339,7 @@ Ok(
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 19,
                         rule_idx: OnceUseRuleIdx(
-                            18,
+                            19,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
@@ -347,7 +347,7 @@ Ok(
                                     submodule_item_path: SubmoduleItemPath(
                                         ItemPathId(
                                             Id {
-                                                value: 8,
+                                                value: 20,
                                             },
                                         ),
                                     ),
@@ -390,7 +390,7 @@ Ok(
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 22,
                         rule_idx: OnceUseRuleIdx(
-                            19,
+                            20,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
@@ -398,7 +398,7 @@ Ok(
                                     submodule_item_path: SubmoduleItemPath(
                                         ItemPathId(
                                             Id {
-                                                value: 3,
+                                                value: 8,
                                             },
                                         ),
                                     ),
@@ -441,7 +441,7 @@ Ok(
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 25,
                         rule_idx: OnceUseRuleIdx(
-                            20,
+                            21,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
@@ -449,7 +449,7 @@ Ok(
                                     submodule_item_path: SubmoduleItemPath(
                                         ItemPathId(
                                             Id {
-                                                value: 12,
+                                                value: 3,
                                             },
                                         ),
                                     ),
@@ -492,7 +492,7 @@ Ok(
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 28,
                         rule_idx: OnceUseRuleIdx(
-                            21,
+                            22,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
@@ -500,7 +500,7 @@ Ok(
                                     submodule_item_path: SubmoduleItemPath(
                                         ItemPathId(
                                             Id {
-                                                value: 4,
+                                                value: 12,
                                             },
                                         ),
                                     ),
@@ -543,7 +543,7 @@ Ok(
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 31,
                         rule_idx: OnceUseRuleIdx(
-                            22,
+                            23,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(
@@ -551,7 +551,7 @@ Ok(
                                     submodule_item_path: SubmoduleItemPath(
                                         ItemPathId(
                                             Id {
-                                                value: 18,
+                                                value: 4,
                                             },
                                         ),
                                     ),
@@ -594,7 +594,58 @@ Ok(
                     data: TokenInfoData::UseExpr {
                         use_expr_idx: 34,
                         rule_idx: OnceUseRuleIdx(
-                            23,
+                            24,
+                        ),
+                        state: UseOneRuleState::Resolved {
+                            original_symbol: Some(
+                                EntitySymbol::Submodule {
+                                    submodule_item_path: SubmoduleItemPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 18,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        },
+                    },
+                },
+            ),
+            None,
+            None,
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::UseExpr(
+                        38,
+                    ),
+                    data: TokenInfoData::UseExpr {
+                        use_expr_idx: 38,
+                        rule_idx: OnceUseRuleIdx(
+                            12,
+                        ),
+                        state: UseOneRuleState::Resolved {
+                            original_symbol: Some(
+                                EntitySymbol::CrateRoot {
+                                    root_module_path: `core`,
+                                },
+                            ),
+                        },
+                    },
+                },
+            ),
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::UseExpr(
+                        37,
+                    ),
+                    data: TokenInfoData::UseExpr {
+                        use_expr_idx: 37,
+                        rule_idx: OnceUseRuleIdx(
+                            25,
                         ),
                         state: UseOneRuleState::Resolved {
                             original_symbol: Some(

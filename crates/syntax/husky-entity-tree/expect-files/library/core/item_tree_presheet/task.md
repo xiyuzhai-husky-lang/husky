@@ -57,34 +57,6 @@ EntityTreePresheet {
                 ident: `Task`,
                 visibility: Scope::Pub,
             },
-            ItemNodeEntry {
-                node: ItemSynNode::MajorItem(
-                    MajorItemSynNode {
-                        syn_node_path: MajorItemSynNodePath::Form(
-                            FormSynNodePath(`core::task::TASK`, `Const`, (0)),
-                        ),
-                        visibility: Scope::Pub,
-                        ast_idx: 1,
-                        ident_token: IdentToken {
-                            ident: `TASK`,
-                            token_idx: TokenIdx(
-                                7,
-                            ),
-                        },
-                        block: DefnBlock::Form {
-                            path: FormPath(`core::task::TASK`, `Const`),
-                            body: None,
-                        },
-                    },
-                ),
-                syn_node_path: ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Form(
-                        FormSynNodePath(`core::task::TASK`, `Const`, (0)),
-                    ),
-                ),
-                ident: `TASK`,
-                visibility: Scope::Pub,
-            },
         ],
     },
     once_use_rules: OnceUseRules(

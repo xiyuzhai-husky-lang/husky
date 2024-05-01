@@ -5,10 +5,5 @@
             TypePath(`core::task::Task`, `Extern`),
         ),
     ),
-    ItemPath::MajorItem(
-        MajorItemPath::Form(
-            FormPath(`core::task::TASK`, `Const`),
-        ),
-    ),
 ]
 ```

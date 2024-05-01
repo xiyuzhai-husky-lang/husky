@@ -660,7 +660,7 @@ Ok(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 270,
+                                        value: 269,
                                     },
                                 ),
                             ),
@@ -672,7 +672,7 @@ Ok(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 270,
+                                        value: 269,
                                     },
                                 ),
                             ),
@@ -1797,7 +1797,7 @@ Ok(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 255,
+                                        value: 254,
                                     },
                                 ),
                             ),
@@ -1809,7 +1809,7 @@ Ok(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 255,
+                                        value: 254,
                                     },
                                 ),
                             ),
@@ -1845,7 +1845,7 @@ Ok(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 255,
+                                        value: 254,
                                     },
                                 ),
                             ),
@@ -1857,7 +1857,7 @@ Ok(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 255,
+                                        value: 254,
                                     },
                                 ),
                             ),
