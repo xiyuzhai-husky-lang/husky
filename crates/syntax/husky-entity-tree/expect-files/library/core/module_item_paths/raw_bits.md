@@ -10,7 +10,7 @@
         AttrItemPath(
             ItemPathId(
                 Id {
-                    value: 227,
+                    value: 226,
                 },
             ),
         ),
@@ -20,7 +20,7 @@
             TypeImplBlockPath(
                 ItemPathId(
                     Id {
-                        value: 124,
+                        value: 123,
                     },
                 ),
             ),

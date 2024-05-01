@@ -94,7 +94,7 @@
                 TraitForTypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 95,
+                            value: 94,
                         },
                     ),
                 ),

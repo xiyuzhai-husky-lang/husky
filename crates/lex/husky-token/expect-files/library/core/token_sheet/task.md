@@ -21,10 +21,10 @@ TokenSheetData {
             Keyword::Pub,
         ),
         TokenData::Keyword(
-            Keyword::Const,
+            Keyword::Static,
         ),
         TokenData::Ident(
-            `TASK`,
+            `task`,
         ),
         TokenData::Punctuation(
             Punctuation(

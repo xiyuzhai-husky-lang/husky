@@ -8,13 +8,5 @@
         ),
         None,
     ),
-    (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`core::task::TASK`, `Const`),
-            ),
-        ),
-        None,
-    ),
 ]
 ```

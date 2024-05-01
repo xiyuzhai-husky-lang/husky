@@ -40,7 +40,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 4;\n\ntoken_line_group_idx = 0\n\ntoken = TokenData::Ident(\n    `basic`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::UseExpr(\n            1,\n        ),\n        data: TokenInfoData::UseExpr {\n            use_expr_idx: 1,\n            rule_idx: OnceUseRuleIdx(\n                12,\n            ),\n            state: UseOneRuleState::Resolved {\n                original_symbol: Some(\n                    EntitySymbol::Submodule {\n                        submodule_item_path: SubmoduleItemPath(\n                            ItemPathId(\n                                Id {\n                                    value: 2,\n                                },\n                            ),\n                        ),\n                    },\n                ),\n            },\n        },\n    },\n);\n\nuse\n",
+                            value: "\ntoken_idx = 4;\n\ntoken_line_group_idx = 0\n\ntoken = TokenData::Ident(\n    `basic`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::UseExpr(\n            1,\n        ),\n        data: TokenInfoData::UseExpr {\n            use_expr_idx: 1,\n            rule_idx: OnceUseRuleIdx(\n                13,\n            ),\n            state: UseOneRuleState::Resolved {\n                original_symbol: Some(\n                    EntitySymbol::Submodule {\n                        submodule_item_path: SubmoduleItemPath(\n                            ItemPathId(\n                                Id {\n                                    value: 2,\n                                },\n                            ),\n                        ),\n                    },\n                ),\n            },\n        },\n    },\n);\n\nuse\n",
                         },
                     ),
                     range: Some(
@@ -250,7 +250,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 32;\n\ntoken_line_group_idx = 4\n\ntoken = TokenData::Ident(\n    `fmt`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::UseExpr(\n            13,\n        ),\n        data: TokenInfoData::UseExpr {\n            use_expr_idx: 13,\n            rule_idx: OnceUseRuleIdx(\n                16,\n            ),\n            state: UseOneRuleState::Resolved {\n                original_symbol: Some(\n                    EntitySymbol::Submodule {\n                        submodule_item_path: SubmoduleItemPath(\n                            ItemPathId(\n                                Id {\n                                    value: 6,\n                                },\n                            ),\n                        ),\n                    },\n                ),\n            },\n        },\n    },\n);\n\nuse\n",
+                            value: "\ntoken_idx = 32;\n\ntoken_line_group_idx = 4\n\ntoken = TokenData::Ident(\n    `fmt`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::UseExpr(\n            13,\n        ),\n        data: TokenInfoData::UseExpr {\n            use_expr_idx: 13,\n            rule_idx: OnceUseRuleIdx(\n                17,\n            ),\n            state: UseOneRuleState::Resolved {\n                original_symbol: Some(\n                    EntitySymbol::Submodule {\n                        submodule_item_path: SubmoduleItemPath(\n                            ItemPathId(\n                                Id {\n                                    value: 6,\n                                },\n                            ),\n                        ),\n                    },\n                ),\n            },\n        },\n    },\n);\n\nuse\n",
                         },
                     ),
                     range: Some(
@@ -317,11 +317,11 @@
                         Range {
                             start: Position {
                                 line: 5,
-                                character: 21,
+                                character: 19,
                             },
                             end: Position {
                                 line: 5,
-                                character: 23,
+                                character: 21,
                             },
                         },
                     ),
@@ -460,7 +460,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "\ntoken_idx = 60;\n\ntoken_line_group_idx = 8\n\ntoken = TokenData::Ident(\n    `option`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::UseExpr(\n            25,\n        ),\n        data: TokenInfoData::UseExpr {\n            use_expr_idx: 25,\n            rule_idx: OnceUseRuleIdx(\n                20,\n            ),\n            state: UseOneRuleState::Resolved {\n                original_symbol: Some(\n                    EntitySymbol::Submodule {\n                        submodule_item_path: SubmoduleItemPath(\n                            ItemPathId(\n                                Id {\n                                    value: 12,\n                                },\n                            ),\n                        ),\n                    },\n                ),\n            },\n        },\n    },\n);\n\nuse\n",
+                            value: "\ntoken_idx = 60;\n\ntoken_line_group_idx = 8\n\ntoken = TokenData::Ident(\n    `clone`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::UseExpr(\n            25,\n        ),\n        data: TokenInfoData::UseExpr {\n            use_expr_idx: 25,\n            rule_idx: OnceUseRuleIdx(\n                21,\n            ),\n            state: UseOneRuleState::Resolved {\n                original_symbol: Some(\n                    EntitySymbol::Submodule {\n                        submodule_item_path: SubmoduleItemPath(\n                            ItemPathId(\n                                Id {\n                                    value: 3,\n                                },\n                            ),\n                        ),\n                    },\n                ),\n            },\n        },\n    },\n);\n\nuse\n",
                         },
                     ),
                     range: Some(
@@ -471,7 +471,7 @@
                             },
                             end: Position {
                                 line: 8,
-                                character: 21,
+                                character: 20,
                             },
                         },
                     ),
@@ -527,11 +527,11 @@
                         Range {
                             start: Position {
                                 line: 9,
-                                character: 18,
+                                character: 21,
                             },
                             end: Position {
                                 line: 9,
-                                character: 20,
+                                character: 23,
                             },
                         },
                     ),
@@ -587,11 +587,11 @@
                         Range {
                             start: Position {
                                 line: 10,
-                                character: 22,
+                                character: 20,
                             },
                             end: Position {
                                 line: 10,
-                                character: 23,
+                                character: 21,
                             },
                         },
                     ),
@@ -622,6 +622,66 @@
                             end: Position {
                                 line: 11,
                                 character: 15,
+                            },
+                        },
+                    ),
+                },
+                actions: [],
+            },
+        ),
+    ),
+    (
+        TokenIdx(
+            85,
+        ),
+        Some(
+            HoverResult {
+                hover: Hover {
+                    contents: Markup(
+                        MarkupContent {
+                            kind: Markdown,
+                            value: "Other\ntoken_idx = 84;\n\ntoken_line_group_idx = 12\n\ntoken = TokenData::Keyword(\n    Keyword::Pub,\n);\n\ntoken_info = None;\n\n\n",
+                        },
+                    ),
+                    range: Some(
+                        Range {
+                            start: Position {
+                                line: 12,
+                                character: 0,
+                            },
+                            end: Position {
+                                line: 12,
+                                character: 3,
+                            },
+                        },
+                    ),
+                },
+                actions: [],
+            },
+        ),
+    ),
+    (
+        TokenIdx(
+            89,
+        ),
+        Some(
+            HoverResult {
+                hover: Hover {
+                    contents: Markup(
+                        MarkupContent {
+                            kind: Markdown,
+                            value: "\ntoken_idx = 88;\n\ntoken_line_group_idx = 12\n\ntoken = TokenData::Ident(\n    `vec`,\n);\n\ntoken_info = Some(\n    TokenInfo {\n        src: TokenInfoSource::UseExpr(\n            37,\n        ),\n        data: TokenInfoData::UseExpr {\n            use_expr_idx: 37,\n            rule_idx: OnceUseRuleIdx(\n                25,\n            ),\n            state: UseOneRuleState::Resolved {\n                original_symbol: Some(\n                    EntitySymbol::Submodule {\n                        submodule_item_path: SubmoduleItemPath(\n                            ItemPathId(\n                                Id {\n                                    value: 17,\n                                },\n                            ),\n                        ),\n                    },\n                ),\n            },\n        },\n    },\n);\n\nuse\n",
+                        },
+                    ),
+                    range: Some(
+                        Range {
+                            start: Position {
+                                line: 12,
+                                character: 15,
+                            },
+                            end: Position {
+                                line: 12,
+                                character: 18,
                             },
                         },
                     ),

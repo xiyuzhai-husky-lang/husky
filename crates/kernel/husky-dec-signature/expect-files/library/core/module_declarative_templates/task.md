@@ -20,33 +20,5 @@
             ),
         ),
     ),
-    (
-        ItemPath::MajorItem(
-            MajorItemPath::Form(
-                FormPath(`core::task::TASK`, `Const`),
-            ),
-        ),
-        Ok(
-            DecTemplate::MajorItem(
-                MajorItemDecTemplate::Form(
-                    MajorFormDecTemplate::Const(
-                        MajorConstDecTemplate {
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 84,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-        ),
-    ),
 ]
 ```

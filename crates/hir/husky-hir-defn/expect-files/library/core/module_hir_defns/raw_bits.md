@@ -51,7 +51,7 @@
                     path: TypeImplBlockPath(
                         ItemPathId(
                             Id {
-                                value: 124,
+                                value: 123,
                             },
                         ),
                     ),
@@ -72,7 +72,7 @@
                                     TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 124,
+                                                value: 123,
                                             },
                                         ),
                                     ),
