@@ -1,11 +1,11 @@
 use super::*;
 
-#[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
+#[salsa::interned]
 pub struct DeriveAttrDecTemplate {
     pub shards: SmallVec<[DeriveAttrShardDecTemplate; 8]>,
 }
 
-#[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
+#[salsa::interned]
 pub struct DeriveAttrShardDecTemplate {
     pub trai_term: DecTerm,
 }

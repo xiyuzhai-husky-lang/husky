@@ -4,11 +4,11 @@ pub mod ty_variant;
 mod utils;
 
 pub use self::form::*;
-
 pub use self::ty_instance_constructor::*;
 
 use self::utils::*;
 use crate::*;
+use husky_dec_signature::{jar::DecSignatureDb, signature::HasDecTemplate};
 use husky_syn_decl::decl::HasSynDecl;
 
 #[inline(always)]

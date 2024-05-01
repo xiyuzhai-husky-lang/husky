@@ -1,5 +1,8 @@
 use super::*;
-use husky_dec_signature::signature::major_item::form::r#const::MajorConstDecTemplate;
+use husky_dec_signature::signature::major_item::form::{
+    function_ritchie::MajorFunctionRitchieDecTemplate, r#const::MajorConstDecTemplate,
+    val::MajorValDecTemplate, MajorFormDecTemplate,
+};
 use husky_vfs::Toolchain;
 use smallvec::ToSmallVec;
 

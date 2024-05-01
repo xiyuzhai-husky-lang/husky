@@ -1,18 +1,21 @@
 pub mod engine;
-mod error;
+pub mod error;
 pub mod jar;
-mod parameter;
-mod region;
+pub mod parameter;
+pub mod region;
 pub mod signature;
 #[cfg(test)]
 mod tests;
 
-pub use self::error::*;
-pub use self::jar::*;
-pub use self::parameter::*;
-pub use self::region::*;
-pub use self::signature::*;
-
+use self::error::*;
+use self::jar::DecSignatureJar as Jar;
+use self::parameter::*;
+use self::region::error::*;
+use self::region::{
+    syn_expr_dec_term_region,
+    variable::{DecSymbolicVariableRegion, DecSymbolicVariableSignature},
+    SynExprDecTermRegion,
+};
 use husky_coword::*;
 use husky_dec_term::jar::DecTermDb;
 use husky_dec_term::{term::*, *};

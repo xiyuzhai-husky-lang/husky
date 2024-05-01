@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
+#[salsa::interned]
 pub struct TypeAssocValDecTemplate {
     pub path: TypeItemPath,
 }

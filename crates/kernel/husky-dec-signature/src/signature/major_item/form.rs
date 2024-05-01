@@ -3,12 +3,12 @@ pub mod function_ritchie;
 pub mod ty_alias;
 pub mod val;
 
-pub use self::function_ritchie::*;
-pub use self::ty_alias::*;
-pub use self::val::*;
-
+use self::function_ritchie::*;
 use self::r#const::MajorConstDecTemplate;
-use crate::*;
+use self::r#const::*;
+use self::ty_alias::*;
+use self::val::*;
+use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]
@@ -39,7 +39,7 @@ impl HasDecTemplate for MajorFormPath {
     }
 }
 
-#[salsa::tracked(jar = DecSignatureJar)]
+#[salsa::tracked]
 pub(crate) fn form_syn_dec_template(
     db: &::salsa::Db,
     path: MajorFormPath,

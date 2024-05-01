@@ -1,3 +1,6 @@
+use husky_dec_signature::{jar::DecSignatureDb, signature::ty_variant::TypeVariantDecTemplate};
+use husky_syn_decl::decl::HasSynDecl;
+
 use super::*;
 
 // todo: this should return a template

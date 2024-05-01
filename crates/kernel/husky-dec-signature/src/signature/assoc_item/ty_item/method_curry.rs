@@ -1,6 +1,6 @@
-use crate::*;
+use super::*;
 
-#[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
+#[salsa::interned]
 pub struct TypeMethodCurryDecTemplate {
     pub path: TypeItemPath,
     // todo: formal method, method that is not a function pointer

@@ -1,7 +1,7 @@
 use crate::*;
 use husky_syn_decl::decl::r#const::MajorConstSynDecl;
 
-#[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
+#[salsa::interned]
 pub struct MajorConstDecTemplate {
     pub return_ty: DecTerm,
 }

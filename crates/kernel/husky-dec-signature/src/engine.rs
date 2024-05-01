@@ -23,7 +23,7 @@ pub(super) struct DecTermEngine<'a> {
 }
 
 /// returns None for defn region
-#[salsa::tracked(jar = DecSignatureJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub fn syn_expr_dec_term_region(
     db: &::salsa::Db,
     syn_expr_region: SynExprRegion,

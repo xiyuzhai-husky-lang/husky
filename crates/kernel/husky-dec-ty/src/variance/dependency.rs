@@ -1,3 +1,4 @@
+use husky_dec_signature::signature::{major_item::ty::TypeDecTemplate, HasDecTemplate};
 use husky_vfs::CratePath;
 use vec_like::VecSet;
 

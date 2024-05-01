@@ -1,5 +1,5 @@
 use super::*;
-use husky_dec_signature::DeclarativeParenateParameters;
+use husky_dec_signature::parameter::DeclarativeParenateParameters;
 use husky_eth_term::term::ritchie::EtherealRitchieParameter;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]

@@ -1,4 +1,5 @@
 use super::*;
+use husky_dec_signature::signature::assoc_item::ty_item::assoc_ritchie::TypeAssocRitchieDecTemplate;
 use husky_entity_kind::ritchie::RitchieItemKind;
 use husky_eth_term::term::ritchie::EthRitchie;
 

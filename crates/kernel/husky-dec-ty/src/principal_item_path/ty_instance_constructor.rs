@@ -1,6 +1,10 @@
-use husky_entity_kind::ritchie::RitchieItemKind;
-
 use super::*;
+use husky_dec_signature::signature::major_item::ty::{
+    props_struct::{PropsStructDecTemplate, PropsStructFieldDecTemplate},
+    tuple_struct::{TupleStructDecTemplate, TupleStructFieldDecTemplate},
+    TypeDecTemplate,
+};
+use husky_entity_kind::ritchie::RitchieItemKind;
 
 #[salsa::tracked(jar = DeclarativeTypeJar)]
 pub fn ty_instance_constructor_path_declarative_ty(

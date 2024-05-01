@@ -1,4 +1,5 @@
 use crate::*;
+use husky_dec_signature::signature::HasDecTemplate;
 
 #[salsa::tracked(jar = DeclarativeTypeJar)]
 pub fn ty_path_ty_method_declarative_ty(

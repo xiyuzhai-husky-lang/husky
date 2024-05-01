@@ -1,5 +1,5 @@
 use crate::{term::EthTerm, *};
-use husky_dec_signature::DecSignatureError;
+use husky_dec_signature::{error::DecSignatureError, region::error::DerivedSynExprDecTermError};
 use husky_dec_term::term::DecSymbolicVariableTypeErrorKind;
 use husky_dec_ty::DeclarativeTypeError;
 use husky_entity_path::{EntityPathError, ItemPath};

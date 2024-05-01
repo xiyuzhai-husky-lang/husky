@@ -1,21 +1,20 @@
-mod r#enum;
-mod r#extern;
-mod inductive;
-mod props_struct;
-mod structure;
-mod tuple_struct;
-mod union;
-mod unit_struct;
+pub mod r#enum;
+pub mod r#extern;
+pub mod inductive;
+pub mod props_struct;
+pub mod structure;
+pub mod tuple_struct;
+pub mod union;
+pub mod unit_struct;
 
-pub use self::inductive::*;
-pub use self::props_struct::*;
-pub use self::r#enum::*;
-pub use self::r#extern::*;
-pub use self::structure::*;
-pub use self::tuple_struct::*;
-pub use self::union::*;
-pub use self::unit_struct::*;
-
+use self::inductive::*;
+use self::props_struct::*;
+use self::r#enum::*;
+use self::r#extern::*;
+use self::structure::*;
+use self::tuple_struct::*;
+use self::union::*;
+use self::unit_struct::*;
 use super::*;
 
 #[salsa::derive_debug_with_db]
@@ -69,7 +68,7 @@ impl HasDecTemplate for TypePath {
     }
 }
 
-#[salsa::tracked(jar = DecSignatureJar)]
+#[salsa::tracked]
 pub(crate) fn ty_dec_template(
     db: &::salsa::Db,
     path: TypePath,

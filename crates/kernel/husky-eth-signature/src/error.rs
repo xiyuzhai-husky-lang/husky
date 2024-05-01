@@ -1,5 +1,5 @@
 use crate::*;
-use husky_dec_signature::DecSignatureError;
+use husky_dec_signature::error::DecSignatureError;
 use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq, Clone, Copy)]
