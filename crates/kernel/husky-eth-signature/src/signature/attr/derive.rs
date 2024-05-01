@@ -6,12 +6,12 @@ use husky_entity_tree::HasAttrPaths;
 use husky_term_prelude::TypeFinalDestinationExpectation;
 use vec_like::{OrderedSmallVecSet, SmallVecPairMap, VecMapGetEntry};
 
-#[salsa::interned(db = EtherealSignatureDb, jar = EthSignatureJar)]
+#[salsa::interned]
 pub struct DeriveAttrEthTemplate {
     pub shards: SmallVec<[DeriveAttrShardEthTemplate; 8]>,
 }
 
-#[salsa::interned(db = EtherealSignatureDb, jar = EthSignatureJar)]
+#[salsa::interned]
 pub struct DeriveAttrShardEthTemplate {
     pub trai_term: EthTerm,
 }
@@ -79,7 +79,7 @@ impl HasDeriveAttrShardEthTemplates for TypePath {
 
 // todo: change to ordered map and set
 // todo: use trait HasEthTemplate?
-#[salsa::tracked(jar = EthSignatureJar, return_ref)]
+#[salsa::tracked(return_ref)]
 fn ty_path_derive_attr_eth_templates_map(
     db: &::salsa::Db,
     ty_path: TypePath,

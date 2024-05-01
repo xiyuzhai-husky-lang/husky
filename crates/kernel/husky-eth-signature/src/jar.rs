@@ -59,7 +59,7 @@ pub struct EthSignatureJar(
     crate::helpers::trai_for_ty::trai_side_path_leading_trai_for_ty_impl_block_eth_templates_map,
     crate::helpers::trai_for_ty::trai_side_derive_any_eth_templates,
     trai_for_ty_impl_block_with_ty_instantiated_assoc_output_ethereal_signature_builder,
-    trai_for_ty_impl_block_with_ty_instantiated_item_eth_template,
+    crate::signature::impl_block::trai_for_ty_impl_block::  trai_for_ty_impl_block_with_ty_instantiated_item_eth_template,
     // attr
     signature::ty_path_derive_attr_eth_templates_map,
     // attr_eth_template,

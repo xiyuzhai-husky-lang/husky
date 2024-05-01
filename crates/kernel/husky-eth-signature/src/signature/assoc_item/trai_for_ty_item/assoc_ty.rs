@@ -1,7 +1,7 @@
 use super::*;
 use husky_dec_signature::signature::assoc_item::trai_for_ty_item::assoc_ty::TraitForTypeAssocTypeDecTemplate;
 
-#[salsa::interned(db = EtherealSignatureDb, jar = EthSignatureJar)]
+#[salsa::interned]
 pub struct TraitForTypeAssocTypeEthTemplate {
     pub path: TraitForTypeItemPath,
     #[return_ref]
@@ -33,7 +33,7 @@ impl TraitForTypeAssocTypeEthTemplate {
     }
 }
 
-#[salsa::interned(db = EtherealSignatureDb, jar = EthSignatureJar, constructor = pub(super) new)]
+#[salsa::interned(constructor = pub(super) new)]
 pub struct TraitForTypeAssocTypeEtherealSignatureBuilder {
     pub template: TraitForTypeAssocTypeEthTemplate,
     #[return_ref]
@@ -49,7 +49,7 @@ impl TraitForTypeAssocTypeEtherealSignatureBuilder {
     }
 }
 
-#[salsa::tracked(jar = EthSignatureJar)]
+#[salsa::tracked()]
 fn trai_for_ty_assoc_ty_ethereal_signature_signature_builder_try_into_signature(
     db: &::salsa::Db,
     signature_builder: TraitForTypeAssocTypeEtherealSignatureBuilder,

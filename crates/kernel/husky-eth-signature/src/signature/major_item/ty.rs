@@ -71,7 +71,7 @@ impl HasEthTemplate for TypePath {
     }
 }
 
-#[salsa::tracked(jar = EthSignatureJar)]
+#[salsa::tracked()]
 fn ty_eth_template(db: &::salsa::Db, path: TypePath) -> EtherealSignatureResult<TypeEthTemplate> {
     Ok(match path.dec_template(db)? {
         TypeDecTemplate::Enum(dec_template) => {

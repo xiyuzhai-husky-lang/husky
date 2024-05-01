@@ -43,7 +43,7 @@ impl HasEthTemplate for TypeVariantPath {
     }
 }
 
-#[salsa::tracked(jar = EthSignatureJar)]
+#[salsa::tracked()]
 fn ty_variant_eth_template(
     db: &::salsa::Db,
     path: TypeVariantPath,

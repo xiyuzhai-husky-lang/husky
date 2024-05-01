@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::interned(db = EtherealSignatureDb, jar = EthSignatureJar)]
+#[salsa::interned]
 pub struct EnumPropsVariantEthTemplate {
     pub parent_ty_template: EnumEthTemplate,
     pub instance_constructor_ritchie_ty: EthTerm,

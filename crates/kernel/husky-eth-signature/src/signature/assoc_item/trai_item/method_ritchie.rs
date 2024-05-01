@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::interned(db = EtherealSignatureDb, jar = EthSignatureJar)]
+#[salsa::interned]
 pub struct TraitMethodFnEthTemplate {
     pub path: TraitItemPath,
     pub template_parameters: EthTemplateParameters,

@@ -1,12 +1,15 @@
 use super::*;
-use husky_dec_signature::signature::impl_block::trai_for_ty_impl_block::DeclarativeSelfType;
+use husky_dec_signature::signature::{
+    impl_block::trai_for_ty_impl_block::{DeclarativeSelfType, TraitForTypeImplBlockDecTemplate},
+    HasDecTemplate,
+};
 use husky_entity_path::trai_for_ty_impl_block::TraitForTypeImplBlockPath;
 use husky_entity_tree::HasAssocItemPaths;
 use husky_eth_term::term::symbolic_variable::EthSymbolicVariable;
 use husky_term_prelude::TypeFinalDestinationExpectation;
 use vec_like::VecMapGetEntry;
 
-#[salsa::tracked(db = EtherealSignatureDb, jar = EthSignatureJar, constructor = new)]
+#[salsa::tracked(constructor = new)]
 pub struct TraitForTypeImplBlockEthTemplate {
     pub path: TraitForTypeImplBlockPath,
     #[return_ref]
@@ -83,7 +86,7 @@ impl HasEthTemplate for TraitForTypeImplBlockPath {
     }
 }
 
-#[salsa::tracked(jar = EthSignatureJar)]
+#[salsa::tracked()]
 fn trai_for_ty_impl_block_eth_template(
     db: &::salsa::Db,
     path: TraitForTypeImplBlockPath,
@@ -111,7 +114,7 @@ impl TraitForTypeImplBlockEthTemplate {
 
 pub type TraitForTypeImplBlockSignatureTemplates = SmallVec<[TraitForTypeImplBlockEthTemplate; 2]>;
 
-#[salsa::interned(db = EtherealSignatureDb, jar = EthSignatureJar, constructor = new)]
+#[salsa::interned(constructor = new)]
 pub struct EthTraitForTypeImplBlockSignatureBuilder {
     pub template: TraitForTypeImplBlockEthTemplate,
     pub instantiation_builder: EtherealInstantiationBuilder,
@@ -210,7 +213,7 @@ impl EthTraitForTypeImplBlockSignatureBuilder {
     }
 }
 
-#[salsa::tracked(jar = EthSignatureJar)]
+#[salsa::tracked()]
 fn trai_for_ty_impl_block_with_ty_instantiated_assoc_output_ethereal_signature_builder(
     db: &::salsa::Db,
     template: EthTraitForTypeImplBlockSignatureBuilder,
@@ -225,7 +228,7 @@ fn trai_for_ty_impl_block_with_ty_instantiated_assoc_output_ethereal_signature_b
     }
 }
 
-#[salsa::tracked(jar = EthSignatureJar,)]
+#[salsa::tracked(,)]
 fn trai_for_ty_impl_block_with_ty_instantiated_item_eth_template(
     db: &::salsa::Db,
     signature_builder: EthTraitForTypeImplBlockSignatureBuilder,
