@@ -695,7 +695,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Val(
-                ValHirDefn {
+                MajorValHirDefn {
                     path: FormPath(`mnist::input`, `Val`),
                     hir_decl: MajorValHirDecl {
                         path: FormPath(`mnist::input`, `Val`),
@@ -887,7 +887,7 @@
                     path: TypeImplBlockPath(
                         ItemPathId(
                             Id {
-                                value: 148,
+                                value: 151,
                             },
                         ),
                     ),
@@ -908,7 +908,7 @@
                                     TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 148,
+                                                value: 151,
                                             },
                                         ),
                                     ),
@@ -1266,7 +1266,7 @@
                     path: TypeImplBlockPath(
                         ItemPathId(
                             Id {
-                                value: 151,
+                                value: 154,
                             },
                         ),
                     ),
@@ -1287,7 +1287,7 @@
                                     TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 151,
+                                                value: 154,
                                             },
                                         ),
                                     ),

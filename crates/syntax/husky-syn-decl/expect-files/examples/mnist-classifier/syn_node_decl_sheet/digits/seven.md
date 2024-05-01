@@ -9,7 +9,7 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
-                    FormSynNodeDecl::Ki(
+                    FormSynNodeDecl::Val(
                         MajorValSynNodeDecl {
                             syn_node_path: FormSynNodePath(`mnist_classifier::digits::seven::simple_seven_match`, `Val`, (0)),
                             colon_token: Ok(
@@ -131,7 +131,7 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
-                    FormSynNodeDecl::Ritchie(
+                    FormSynNodeDecl::FunctionRitchie(
                         MajorFunctionRitchieSynNodeDecl {
                             syn_node_path: FormSynNodePath(`mnist_classifier::digits::seven::simple_leftdown_pattern`, `Ritchie(
                                 Fn,
@@ -399,7 +399,7 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
-                    FormSynNodeDecl::Ki(
+                    FormSynNodeDecl::Val(
                         MajorValSynNodeDecl {
                             syn_node_path: FormSynNodePath(`mnist_classifier::digits::seven::special_seven_match`, `Val`, (0)),
                             colon_token: Ok(
@@ -521,7 +521,7 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
-                    FormSynNodeDecl::Ritchie(
+                    FormSynNodeDecl::FunctionRitchie(
                         MajorFunctionRitchieSynNodeDecl {
                             syn_node_path: FormSynNodePath(`mnist_classifier::digits::seven::leftupcc_pattern`, `Ritchie(
                                 Fn,
@@ -791,7 +791,7 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
-                    FormSynNodeDecl::Ritchie(
+                    FormSynNodeDecl::FunctionRitchie(
                         MajorFunctionRitchieSynNodeDecl {
                             syn_node_path: FormSynNodePath(`mnist_classifier::digits::seven::leftdowncc_pattern`, `Ritchie(
                                 Fn,
@@ -1059,7 +1059,7 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
-                    FormSynNodeDecl::Ki(
+                    FormSynNodeDecl::Val(
                         MajorValSynNodeDecl {
                             syn_node_path: FormSynNodePath(`mnist_classifier::digits::seven::is_seven`, `Val`, (0)),
                             colon_token: Ok(
@@ -1125,7 +1125,7 @@ SynNodeDeclSheet {
                                                         TypeVariantPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 270,
+                                                                    value: 273,
                                                                 },
                                                             ),
                                                         ),
@@ -1205,7 +1205,7 @@ SynNodeDeclSheet {
                                                         TypeVariantPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 270,
+                                                                    value: 273,
                                                                 },
                                                             ),
                                                         ),

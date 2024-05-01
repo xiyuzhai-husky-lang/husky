@@ -3,7 +3,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Val(
-                ValHirDefn {
+                MajorValHirDefn {
                     path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
                     hir_decl: MajorValHirDecl {
                         path: FormPath(`mnist_classifier::digits::six::six_match`, `Val`),
@@ -65,7 +65,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Val(
-                ValHirDefn {
+                MajorValHirDefn {
                     path: FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
                     hir_decl: MajorValHirDecl {
                         path: FormPath(`mnist_classifier::digits::six::six_match_refined1`, `Val`),
@@ -127,7 +127,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Val(
-                ValHirDefn {
+                MajorValHirDefn {
                     path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),
                     hir_decl: MajorValHirDecl {
                         path: FormPath(`mnist_classifier::digits::six::is_six`, `Val`),

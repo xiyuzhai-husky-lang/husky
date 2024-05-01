@@ -104,10 +104,7 @@ pub trait FlyTermEngineMut<'a>: FlyTermEngine<'a> {
         }
         match argument_ty.data(self) {
             FlyTermData::Curry {
-                curry_kind: argument_curry_kind,
-                variance: argument_variance,
                 parameter_hvar: argument_parameter_variable,
-                parameter_ty: argument_parameter_ty,
                 return_ty: argument_return_ty,
                 ..
             } => {

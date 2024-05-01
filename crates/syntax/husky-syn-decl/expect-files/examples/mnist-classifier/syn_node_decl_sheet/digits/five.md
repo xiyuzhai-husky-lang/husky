@@ -9,7 +9,7 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
-                    FormSynNodeDecl::Ki(
+                    FormSynNodeDecl::Val(
                         MajorValSynNodeDecl {
                             syn_node_path: FormSynNodePath(`mnist_classifier::digits::five::is_five`, `Val`, (0)),
                             colon_token: Ok(
@@ -75,7 +75,7 @@ SynNodeDeclSheet {
                                                         TypeVariantPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 268,
+                                                                    value: 271,
                                                                 },
                                                             ),
                                                         ),
@@ -155,7 +155,7 @@ SynNodeDeclSheet {
                                                         TypeVariantPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 268,
+                                                                    value: 271,
                                                                 },
                                                             ),
                                                         ),

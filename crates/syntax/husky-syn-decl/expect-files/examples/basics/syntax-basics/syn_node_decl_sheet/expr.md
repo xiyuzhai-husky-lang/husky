@@ -11,7 +11,7 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
-                    FormSynNodeDecl::Ritchie(
+                    FormSynNodeDecl::FunctionRitchie(
                         MajorFunctionRitchieSynNodeDecl {
                             syn_node_path: FormSynNodePath(`syntax_basics::expr::nested`, `Ritchie(
                                 Fn,
@@ -122,7 +122,7 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
-                    FormSynNodeDecl::Ritchie(
+                    FormSynNodeDecl::FunctionRitchie(
                         MajorFunctionRitchieSynNodeDecl {
                             syn_node_path: FormSynNodePath(`syntax_basics::expr::closure_inline`, `Ritchie(
                                 Fn,
@@ -233,7 +233,7 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
-                    FormSynNodeDecl::Ritchie(
+                    FormSynNodeDecl::FunctionRitchie(
                         MajorFunctionRitchieSynNodeDecl {
                             syn_node_path: FormSynNodePath(`syntax_basics::expr::closure_nested`, `Ritchie(
                                 Fn,

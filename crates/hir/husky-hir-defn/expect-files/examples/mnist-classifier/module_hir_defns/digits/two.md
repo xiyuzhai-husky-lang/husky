@@ -3,7 +3,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Val(
-                ValHirDefn {
+                MajorValHirDefn {
                     path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                     hir_decl: MajorValHirDecl {
                         path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
@@ -320,7 +320,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Val(
-                ValHirDefn {
+                MajorValHirDefn {
                     path: FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                     hir_decl: MajorValHirDecl {
                         path: FormPath(`mnist_classifier::digits::two::is_two`, `Val`),

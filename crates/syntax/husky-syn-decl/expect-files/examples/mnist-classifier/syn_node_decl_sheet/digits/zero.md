@@ -9,7 +9,7 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
-                    FormSynNodeDecl::Ki(
+                    FormSynNodeDecl::Val(
                         MajorValSynNodeDecl {
                             syn_node_path: FormSynNodePath(`mnist_classifier::digits::zero::open_one_match`, `Val`, (0)),
                             colon_token: Ok(
@@ -131,7 +131,7 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
-                    FormSynNodeDecl::Ritchie(
+                    FormSynNodeDecl::FunctionRitchie(
                         MajorFunctionRitchieSynNodeDecl {
                             syn_node_path: FormSynNodePath(`mnist_classifier::digits::zero::almost_closed`, `Ritchie(
                                 Fn,
@@ -399,7 +399,7 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
-                    FormSynNodeDecl::Ki(
+                    FormSynNodeDecl::Val(
                         MajorValSynNodeDecl {
                             syn_node_path: FormSynNodePath(`mnist_classifier::digits::zero::is_zero`, `Val`, (0)),
                             colon_token: Ok(
@@ -465,7 +465,7 @@ SynNodeDeclSheet {
                                                         TypeVariantPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 263,
+                                                                    value: 266,
                                                                 },
                                                             ),
                                                         ),
@@ -545,7 +545,7 @@ SynNodeDeclSheet {
                                                         TypeVariantPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 263,
+                                                                    value: 266,
                                                                 },
                                                             ),
                                                         ),

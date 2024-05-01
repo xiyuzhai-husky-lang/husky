@@ -9,6 +9,7 @@ impl TranspileToRustWith for MajorFormHirDefn {
             MajorFormHirDefn::Ritchie(hir_defn) => hir_defn.transpile_to_rust(builder),
             MajorFormHirDefn::Val(hir_defn) => hir_defn.transpile_to_rust(builder),
             MajorFormHirDefn::TypeAlias(_) => todo!(),
+            MajorFormHirDefn::Const(_) => todo!(),
         }
     }
 }
@@ -45,7 +46,7 @@ impl TranspileToRustWith for MajorFunctionRitchieHirDecl {
     }
 }
 
-impl TranspileToRustWith for ValHirDefn {
+impl TranspileToRustWith for MajorValHirDefn {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {
         let db = builder.db();
         let hir_decl = self.hir_decl(db);

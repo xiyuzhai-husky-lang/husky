@@ -9,7 +9,7 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
-                    FormSynNodeDecl::Ki(
+                    FormSynNodeDecl::Val(
                         MajorValSynNodeDecl {
                             syn_node_path: FormSynNodePath(`mnist_classifier::digits::nine::nine_match`, `Val`, (0)),
                             colon_token: Ok(
@@ -129,7 +129,7 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
-                    FormSynNodeDecl::Ki(
+                    FormSynNodeDecl::Val(
                         MajorValSynNodeDecl {
                             syn_node_path: FormSynNodePath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`, (0)),
                             colon_token: Ok(
@@ -249,7 +249,7 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
-                    FormSynNodeDecl::Ki(
+                    FormSynNodeDecl::Val(
                         MajorValSynNodeDecl {
                             syn_node_path: FormSynNodePath(`mnist_classifier::digits::nine::is_nine`, `Val`, (0)),
                             colon_token: Ok(
@@ -315,7 +315,7 @@ SynNodeDeclSheet {
                                                         TypeVariantPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 272,
+                                                                    value: 275,
                                                                 },
                                                             ),
                                                         ),
@@ -395,7 +395,7 @@ SynNodeDeclSheet {
                                                         TypeVariantPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 272,
+                                                                    value: 275,
                                                                 },
                                                             ),
                                                         ),
@@ -460,7 +460,7 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
-                    FormSynNodeDecl::Ritchie(
+                    FormSynNodeDecl::FunctionRitchie(
                         MajorFunctionRitchieSynNodeDecl {
                             syn_node_path: FormSynNodePath(`mnist_classifier::digits::nine::downmost`, `Ritchie(
                                 Fn,
@@ -730,7 +730,7 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Form(
-                    FormSynNodeDecl::Ritchie(
+                    FormSynNodeDecl::FunctionRitchie(
                         MajorFunctionRitchieSynNodeDecl {
                             syn_node_path: FormSynNodePath(`mnist_classifier::digits::nine::big_cc`, `Ritchie(
                                 Fn,

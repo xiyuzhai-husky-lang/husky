@@ -143,6 +143,15 @@ TokenSheetData {
             Keyword::Mod,
         ),
         TokenData::Ident(
+            `task`,
+        ),
+        TokenData::Keyword(
+            Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::Mod,
+        ),
+        TokenData::Ident(
             `vec`,
         ),
         TokenData::Keyword(
@@ -362,6 +371,14 @@ TokenSheetData {
                     start: TokenVerseStart(
                         TokenIdx(
                             58,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            61,
                         ),
                     ),
                     indent: 0,

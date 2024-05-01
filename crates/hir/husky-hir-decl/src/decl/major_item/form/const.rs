@@ -5,7 +5,7 @@ use husky_syn_decl::decl::r#const::MajorConstSynDecl;
 pub struct MajorConstHirDecl {
     pub path: MajorFormPath,
     pub return_ty: HirType,
-    pub hir_lazy_expr_region: HirEagerExprRegion,
+    pub hir_eager_expr_region: HirEagerExprRegion,
 }
 
 impl MajorConstHirDecl {

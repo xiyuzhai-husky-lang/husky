@@ -94,7 +94,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Val(
-                ValHirDefn {
+                MajorValHirDefn {
                     path: FormPath(`mnist_classifier::main`, `Val`),
                     hir_decl: MajorValHirDecl {
                         path: FormPath(`mnist_classifier::main`, `Val`),

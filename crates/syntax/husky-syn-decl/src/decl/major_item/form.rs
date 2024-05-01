@@ -117,7 +117,7 @@ impl FormSynDecl {
             FormSynDecl::Ritchie(slf) => slf.syn_expr_region(db),
             FormSynDecl::Val(slf) => slf.syn_expr_region(db),
             FormSynDecl::TypeAlias(slf) => slf.syn_expr_region(db),
-            FormSynDecl::Const(_) => todo!(),
+            FormSynDecl::Const(slf) => slf.syn_expr_region(db),
         }
     }
 
@@ -125,8 +125,8 @@ impl FormSynDecl {
         match self {
             FormSynDecl::Ritchie(slf) => slf.path(db),
             FormSynDecl::Val(slf) => slf.path(db),
-            FormSynDecl::TypeAlias(_) => todo!(),
-            FormSynDecl::Const(_) => todo!(),
+            FormSynDecl::TypeAlias(slf) => slf.path(db),
+            FormSynDecl::Const(slf) => slf.path(db),
         }
     }
 }

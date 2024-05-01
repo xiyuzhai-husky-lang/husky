@@ -3,7 +3,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Val(
-                ValHirDefn {
+                MajorValHirDefn {
                     path: FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
                     hir_decl: MajorValHirDecl {
                         path: FormPath(`mnist_classifier::digits::five::is_five`, `Val`),
