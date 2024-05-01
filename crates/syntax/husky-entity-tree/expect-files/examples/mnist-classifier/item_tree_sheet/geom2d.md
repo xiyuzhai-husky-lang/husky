@@ -398,168 +398,6 @@ EntityTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 286,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
-                    },
-                ),
-            ),
-            ImplBlockSynNode::TypeImplBlock(
-                TypeImplBlockSynNode {
-                    syn_node_path: TypeImplBlockSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::ImplBlock(
-                                ImplBlockSynNodePathData::TypeImplBlock(
-                                    TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 286,
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                    ast_idx: 80,
-                    impl_token: ImplToken {
-                        token_idx: TokenIdx(
-                            23,
-                        ),
-                    },
-                    ty_expr: 6,
-                    items: TypeItems {
-                        ast_idx_range: ArenaIdxRange(
-                            5..10,
-                        ),
-                    },
-                },
-            ),
-        ),
-        (
-            ImplBlockSynNodePath::TypeImplBlock(
-                TypeImplBlockSynNodePath(
-                    ItemSynNodePathId {
-                        data: ItemSynNodePathData::ImplBlock(
-                            ImplBlockSynNodePathData::TypeImplBlock(
-                                TypeImplBlockSynNodePathData {
-                                    path: TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 287,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
-                    },
-                ),
-            ),
-            ImplBlockSynNode::TypeImplBlock(
-                TypeImplBlockSynNode {
-                    syn_node_path: TypeImplBlockSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::ImplBlock(
-                                ImplBlockSynNodePathData::TypeImplBlock(
-                                    TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 287,
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                    ast_idx: 83,
-                    impl_token: ImplToken {
-                        token_idx: TokenIdx(
-                            178,
-                        ),
-                    },
-                    ty_expr: 7,
-                    items: TypeItems {
-                        ast_idx_range: ArenaIdxRange(
-                            41..49,
-                        ),
-                    },
-                },
-            ),
-        ),
-        (
-            ImplBlockSynNodePath::TypeImplBlock(
-                TypeImplBlockSynNodePath(
-                    ItemSynNodePathId {
-                        data: ItemSynNodePathData::ImplBlock(
-                            ImplBlockSynNodePathData::TypeImplBlock(
-                                TypeImplBlockSynNodePathData {
-                                    path: TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 288,
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
-                    },
-                ),
-            ),
-            ImplBlockSynNode::TypeImplBlock(
-                TypeImplBlockSynNode {
-                    syn_node_path: TypeImplBlockSynNodePath(
-                        ItemSynNodePathId {
-                            data: ItemSynNodePathData::ImplBlock(
-                                ImplBlockSynNodePathData::TypeImplBlock(
-                                    TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 288,
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                    ast_idx: 85,
-                    impl_token: ImplToken {
-                        token_idx: TokenIdx(
-                            507,
-                        ),
-                    },
-                    ty_expr: 8,
-                    items: TypeItems {
-                        ast_idx_range: ArenaIdxRange(
-                            56..58,
-                        ),
-                    },
-                },
-            ),
-        ),
-        (
-            ImplBlockSynNodePath::TypeImplBlock(
-                TypeImplBlockSynNodePath(
-                    ItemSynNodePathId {
-                        data: ItemSynNodePathData::ImplBlock(
-                            ImplBlockSynNodePathData::TypeImplBlock(
-                                TypeImplBlockSynNodePathData {
-                                    path: TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
                                                 value: 289,
                                             },
                                         ),
@@ -589,16 +427,16 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 87,
+                    ast_idx: 80,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            617,
+                            23,
                         ),
                     },
-                    ty_expr: 9,
+                    ty_expr: 6,
                     items: TypeItems {
                         ast_idx_range: ArenaIdxRange(
-                            64..70,
+                            5..10,
                         ),
                     },
                 },
@@ -635,6 +473,168 @@ EntityTreeSheet {
                                             ItemPathId(
                                                 Id {
                                                     value: 290,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    ast_idx: 83,
+                    impl_token: ImplToken {
+                        token_idx: TokenIdx(
+                            178,
+                        ),
+                    },
+                    ty_expr: 7,
+                    items: TypeItems {
+                        ast_idx_range: ArenaIdxRange(
+                            41..49,
+                        ),
+                    },
+                },
+            ),
+        ),
+        (
+            ImplBlockSynNodePath::TypeImplBlock(
+                TypeImplBlockSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TypeImplBlock(
+                                TypeImplBlockSynNodePathData {
+                                    path: TypeImplBlockPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 291,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    },
+                ),
+            ),
+            ImplBlockSynNode::TypeImplBlock(
+                TypeImplBlockSynNode {
+                    syn_node_path: TypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TypeImplBlock(
+                                    TypeImplBlockSynNodePathData {
+                                        path: TypeImplBlockPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 291,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    ast_idx: 85,
+                    impl_token: ImplToken {
+                        token_idx: TokenIdx(
+                            507,
+                        ),
+                    },
+                    ty_expr: 8,
+                    items: TypeItems {
+                        ast_idx_range: ArenaIdxRange(
+                            56..58,
+                        ),
+                    },
+                },
+            ),
+        ),
+        (
+            ImplBlockSynNodePath::TypeImplBlock(
+                TypeImplBlockSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TypeImplBlock(
+                                TypeImplBlockSynNodePathData {
+                                    path: TypeImplBlockPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 292,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    },
+                ),
+            ),
+            ImplBlockSynNode::TypeImplBlock(
+                TypeImplBlockSynNode {
+                    syn_node_path: TypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TypeImplBlock(
+                                    TypeImplBlockSynNodePathData {
+                                        path: TypeImplBlockPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 292,
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                    ast_idx: 87,
+                    impl_token: ImplToken {
+                        token_idx: TokenIdx(
+                            617,
+                        ),
+                    },
+                    ty_expr: 9,
+                    items: TypeItems {
+                        ast_idx_range: ArenaIdxRange(
+                            64..70,
+                        ),
+                    },
+                },
+            ),
+        ),
+        (
+            ImplBlockSynNodePath::TypeImplBlock(
+                TypeImplBlockSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::ImplBlock(
+                            ImplBlockSynNodePathData::TypeImplBlock(
+                                TypeImplBlockSynNodePathData {
+                                    path: TypeImplBlockPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 293,
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                    },
+                ),
+            ),
+            ImplBlockSynNode::TypeImplBlock(
+                TypeImplBlockSynNode {
+                    syn_node_path: TypeImplBlockSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::ImplBlock(
+                                ImplBlockSynNodePathData::TypeImplBlock(
+                                    TypeImplBlockSynNodePathData {
+                                        path: TypeImplBlockPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 293,
                                                 },
                                             ),
                                         ),

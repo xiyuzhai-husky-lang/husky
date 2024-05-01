@@ -1,4 +1,5 @@
 use super::*;
+use husky_dec_signature::signature::major_item::form::val::MajorValDecTemplate;
 
 #[salsa::interned]
 pub struct MajorValEthTemplate {

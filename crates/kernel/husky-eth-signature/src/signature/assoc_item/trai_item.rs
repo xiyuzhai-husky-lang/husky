@@ -1,12 +1,10 @@
-mod assoc_ritchie;
-mod assoc_val;
-mod method_curry;
-mod method_ritchie;
+pub mod assoc_ritchie;
+pub mod assoc_val;
+pub mod method_curry;
+pub mod method_ritchie;
 
-pub use self::assoc_ritchie::*;
-
-pub use self::method_ritchie::*;
-
+use self::assoc_ritchie::*;
+use self::method_ritchie::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

@@ -16,6 +16,7 @@
     `core::prelude`,
     `core::raw_bits`,
     `core::result`,
+    `core::task`,
     `core::vec`,
     `core::slice`,
     `core::str`,

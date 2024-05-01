@@ -1,7 +1,7 @@
 use crate::*;
 use husky_dec_term::term::DecSymbolicVariableTypeErrorKind;
 use husky_entity_tree::EntityTreeError;
-use husky_eth_signature::EtherealSignatureError;
+use husky_eth_signature::error::EtherealSignatureError;
 use thiserror::Error;
 
 #[salsa::derive_debug_with_db]

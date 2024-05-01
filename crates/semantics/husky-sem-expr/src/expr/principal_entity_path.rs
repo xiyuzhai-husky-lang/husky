@@ -1,6 +1,8 @@
 use super::*;
 use either::*;
-use husky_eth_signature::{FormEthTemplate, HasEthTemplate, TypeVariantEthTemplate};
+use husky_eth_signature::signature::{
+    major_item::form::FormEthTemplate, ty_variant::TypeVariantEthTemplate, HasEthTemplate,
+};
 use husky_eth_term::instantiation::EthInstantiate;
 use husky_fly_term::{
     instantiation::{

@@ -1,8 +1,8 @@
-mod derive;
+pub mod derive;
 
-pub use self::derive::*;
-
+use self::derive::*;
 use super::*;
+use husky_dec_signature::signature::attr::AttrDecTemplate;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -21,7 +21,7 @@ impl HasEthTemplate for AttrItemPath {
     }
 }
 
-// #[salsa::tracked()]
+// #[salsa::tracked]
 fn attr_eth_template(
     db: &::salsa::Db,
     path: AttrItemPath,

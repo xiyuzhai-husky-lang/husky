@@ -15,7 +15,7 @@ impl HasEthTemplate for TraitPath {
     }
 }
 
-#[salsa::tracked()]
+#[salsa::tracked]
 fn trai_eth_template(
     db: &::salsa::Db,
     trai_path: TraitPath,

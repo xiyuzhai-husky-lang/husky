@@ -1,4 +1,12 @@
 use super::*;
+use crate::signature::{
+    attr::derive::HasDeriveAttrShardEthTemplates,
+    impl_block::trai_for_ty_impl_block::{
+        EthTraitForTypeImplBlockSignatureBuilder, TraitForTypeImplBlockEthTemplate,
+        TraitForTypeImplBlockSignatureTemplates,
+    },
+    HasEthTemplate,
+};
 use either::*;
 use husky_entity_kind::ritchie::RitchieItemKind;
 use husky_entity_tree::{

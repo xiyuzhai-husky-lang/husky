@@ -18,7 +18,7 @@ impl HasEthTemplate for TypeImplBlockPath {
     }
 }
 
-#[salsa::tracked()]
+#[salsa::tracked]
 pub(crate) fn ty_impl_block_eth_template(
     db: &::salsa::Db,
     path: TypeImplBlockPath,

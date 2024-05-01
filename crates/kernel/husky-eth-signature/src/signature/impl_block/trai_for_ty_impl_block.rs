@@ -1,4 +1,7 @@
+use self::signature::trai_for_ty_item::assoc_ty::TraitForTypeAssocTypeEtherealSignatureBuilder;
+
 use super::*;
+use assoc_item::trai_for_ty_item::TraitForTypeItemEtherealSignatureBuilder;
 use husky_dec_signature::signature::{
     impl_block::trai_for_ty_impl_block::{DeclarativeSelfType, TraitForTypeImplBlockDecTemplate},
     HasDecTemplate,
@@ -86,7 +89,7 @@ impl HasEthTemplate for TraitForTypeImplBlockPath {
     }
 }
 
-#[salsa::tracked()]
+#[salsa::tracked]
 fn trai_for_ty_impl_block_eth_template(
     db: &::salsa::Db,
     path: TraitForTypeImplBlockPath,
@@ -213,7 +216,7 @@ impl EthTraitForTypeImplBlockSignatureBuilder {
     }
 }
 
-#[salsa::tracked()]
+#[salsa::tracked]
 fn trai_for_ty_impl_block_with_ty_instantiated_assoc_output_ethereal_signature_builder(
     db: &::salsa::Db,
     template: EthTraitForTypeImplBlockSignatureBuilder,
@@ -228,7 +231,7 @@ fn trai_for_ty_impl_block_with_ty_instantiated_assoc_output_ethereal_signature_b
     }
 }
 
-#[salsa::tracked(,)]
+#[salsa::tracked]
 fn trai_for_ty_impl_block_with_ty_instantiated_item_eth_template(
     db: &::salsa::Db,
     signature_builder: EthTraitForTypeImplBlockSignatureBuilder,

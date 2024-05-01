@@ -1,4 +1,6 @@
-use crate::*;
+use crate::{
+    signature::impl_block::trai_for_ty_impl_block::EthTraitForTypeImplBlockSignatureBuilder, *,
+};
 use husky_dec_signature::error::DecSignatureError;
 use thiserror::Error;
 

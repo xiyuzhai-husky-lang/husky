@@ -668,51 +668,6 @@ EntityTreeSheet {
                                     ty_variant_path: TypeVariantPath(
                                         ItemPathId(
                                             Id {
-                                                value: 77,
-                                            },
-                                        ),
-                                    ),
-                                },
-                                path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 77,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                visibility: Scope::Pub,
-                                ast_idx: 3,
-                                use_expr_idx: 2,
-                            },
-                        ),
-                        path: PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 77,
-                                    },
-                                ),
-                            ),
-                        ),
-                        visibility: Scope::Pub,
-                        ast_idx: 8,
-                        use_expr_idx: 24,
-                    },
-                ),
-            },
-            EntitySymbolEntry {
-                ident: `None`,
-                visible_scope: Scope::Pub,
-                symbol: EntitySymbol::Use(
-                    UseSymbol {
-                        original_symbol: EntitySymbol::Use(
-                            UseSymbol {
-                                original_symbol: EntitySymbol::TypeVariant {
-                                    ty_variant_path: TypeVariantPath(
-                                        ItemPathId(
-                                            Id {
                                                 value: 78,
                                             },
                                         ),
@@ -737,6 +692,51 @@ EntityTreeSheet {
                                 ItemPathId(
                                     Id {
                                         value: 78,
+                                    },
+                                ),
+                            ),
+                        ),
+                        visibility: Scope::Pub,
+                        ast_idx: 8,
+                        use_expr_idx: 24,
+                    },
+                ),
+            },
+            EntitySymbolEntry {
+                ident: `None`,
+                visible_scope: Scope::Pub,
+                symbol: EntitySymbol::Use(
+                    UseSymbol {
+                        original_symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::TypeVariant {
+                                    ty_variant_path: TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 79,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                path: PrincipalEntityPath::TypeVariant(
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 79,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                visibility: Scope::Pub,
+                                ast_idx: 3,
+                                use_expr_idx: 2,
+                            },
+                        ),
+                        path: PrincipalEntityPath::TypeVariant(
+                            TypeVariantPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 79,
                                     },
                                 ),
                             ),
@@ -1437,7 +1437,7 @@ EntityTreeSheet {
                             submodule_item_path: SubmoduleItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 19,
+                                        value: 20,
                                     },
                                 ),
                             ),
@@ -1642,7 +1642,7 @@ EntityTreeSheet {
                             submodule_item_path: SubmoduleItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 17,
+                                        value: 18,
                                     },
                                 ),
                             ),
@@ -1683,7 +1683,7 @@ EntityTreeSheet {
                             submodule_item_path: SubmoduleItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 16,
+                                        value: 17,
                                     },
                                 ),
                             ),
@@ -1702,7 +1702,7 @@ EntityTreeSheet {
                 use_expr_idx: 0,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    67,
+                    68,
                 ),
             },
             UseAllRule {
@@ -1712,7 +1712,7 @@ EntityTreeSheet {
                 use_expr_idx: 3,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    60,
+                    61,
                 ),
             },
             UseAllRule {
@@ -1722,7 +1722,7 @@ EntityTreeSheet {
                 use_expr_idx: 6,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    74,
+                    75,
                 ),
             },
             UseAllRule {
@@ -1732,7 +1732,7 @@ EntityTreeSheet {
                 use_expr_idx: 9,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    60,
+                    61,
                 ),
             },
             UseAllRule {
@@ -1742,7 +1742,7 @@ EntityTreeSheet {
                 use_expr_idx: 12,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    60,
+                    61,
                 ),
             },
             UseAllRule {
@@ -1752,7 +1752,7 @@ EntityTreeSheet {
                 use_expr_idx: 15,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    61,
+                    62,
                 ),
             },
             UseAllRule {
@@ -1762,7 +1762,7 @@ EntityTreeSheet {
                 use_expr_idx: 18,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    61,
+                    62,
                 ),
             },
             UseAllRule {
@@ -1772,7 +1772,7 @@ EntityTreeSheet {
                 use_expr_idx: 21,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    60,
+                    61,
                 ),
             },
             UseAllRule {
@@ -1782,7 +1782,7 @@ EntityTreeSheet {
                 use_expr_idx: 24,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    62,
+                    63,
                 ),
             },
             UseAllRule {
@@ -1792,7 +1792,7 @@ EntityTreeSheet {
                 use_expr_idx: 27,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    63,
+                    64,
                 ),
             },
             UseAllRule {
@@ -1802,7 +1802,7 @@ EntityTreeSheet {
                 use_expr_idx: 30,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    61,
+                    62,
                 ),
             },
             UseAllRule {
@@ -1812,7 +1812,7 @@ EntityTreeSheet {
                 use_expr_idx: 33,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    60,
+                    61,
                 ),
             },
         ],

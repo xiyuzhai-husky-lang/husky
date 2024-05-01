@@ -1,5 +1,5 @@
 use super::*;
-use husky_dec_signature::ExternTypeDecTemplate;
+use husky_dec_signature::signature::major_item::ty::r#extern::ExternTypeDecTemplate;
 
 #[salsa::interned]
 pub struct ExternTypeEthTemplate {

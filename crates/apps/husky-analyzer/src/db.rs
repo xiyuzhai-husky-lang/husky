@@ -12,9 +12,9 @@ use salsa::snapshot::SnapshotClone;
     husky_term_prelude::jar::TermPreludeJar,
     husky_dec_term::jar::DecTermJar,
     husky_dec_ty::DeclarativeTypeJar,
-    husky_dec_signature::DecSignatureJar,
+    husky_dec_signature::jar::DecSignatureJar,
     husky_eth_term::jar::EthTermJar,
-    husky_eth_signature::EthSignatureJar,
+    husky_eth_signature::jar::EthSignatureJar,
     husky_fly_term::jar::FlyTermJar,
     // lex
     husky_text::jar::TextJar,

@@ -1,5 +1,7 @@
 use super::*;
-use husky_dec_signature::{PropsStructDecTemplate, PropsStructFieldDecTemplate};
+use husky_dec_signature::signature::major_item::ty::props_struct::{
+    PropsStructDecTemplate, PropsStructFieldDecTemplate,
+};
 use husky_eth_term::term::ritchie::EthRitchie;
 
 #[salsa::interned]

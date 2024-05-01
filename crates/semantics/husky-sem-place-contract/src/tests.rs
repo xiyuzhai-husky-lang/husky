@@ -20,10 +20,10 @@ pub use husky_ast::test_utils::*;
     husky_syn_decl::SynDeclJar,
     husky_term_prelude::jar::TermPreludeJar,
     husky_dec_term::jar::DecTermJar,
-    husky_dec_signature::DecSignatureJar,
+    husky_dec_signature::jar::DecSignatureJar,
     husky_dec_ty::jar::DeclarativeTypeJar,
     husky_eth_term::jar::EthTermJar,
-    husky_eth_signature::EthSignatureJar,
+    husky_eth_signature::jar::EthSignatureJar,
     husky_fly_term::jar::FlyTermJar,
     husky_sem_expr::SemExprJar,
     crate::Jar

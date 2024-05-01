@@ -5,7 +5,9 @@ mod solid;
 use super::*;
 use husky_coword::Ident;
 use husky_entity_tree::HasAssocItemPaths;
-use husky_eth_signature::{HasTypeItemTemplates, TypeItemEthTemplates};
+use husky_eth_signature::signature::assoc_item::ty_item::{
+    HasTypeItemTemplates, TypeItemEthTemplates,
+};
 use husky_eth_term::term::{application::TermFunctionReduced, ty_as_trai_item::EthTypeAsTraitItem};
 use vec_like::VecMapGetEntry;
 

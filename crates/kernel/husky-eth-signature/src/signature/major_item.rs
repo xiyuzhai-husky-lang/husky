@@ -1,11 +1,10 @@
-mod form;
-mod trai;
-mod ty;
+pub mod form;
+pub mod trai;
+pub mod ty;
 
-pub use self::form::*;
-pub use self::trai::*;
-pub use self::ty::*;
-
+use self::form::*;
+use self::trai::*;
+use self::ty::*;
 use super::*;
 
 #[salsa::derive_debug_with_db]

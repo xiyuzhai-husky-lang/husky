@@ -1,4 +1,5 @@
 use super::*;
+use crate::signature::major_item::ty::r#enum::EnumEthTemplate;
 
 #[salsa::interned]
 pub struct EnumPropsVariantEthTemplate {
