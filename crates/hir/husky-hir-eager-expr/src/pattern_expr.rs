@@ -1,4 +1,8 @@
 use crate::*;
+use husky_entity_path::path::{
+    major_item::ty::{PreludeNumTypePath, PreludeTypePath},
+    PatternPath,
+};
 use husky_eth_term::term::EthTerm;
 use husky_hir_ty::ritchie::HirContract;
 use husky_syn_expr::{SynPatternData, SynPatternIdx, SynPatternRoot};

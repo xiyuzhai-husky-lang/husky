@@ -3,7 +3,9 @@ use crate::{
     *,
 };
 use husky_entity_kind::{ritchie::RitchieItemKind, MajorFormKind};
-use husky_entity_path::{MajorItemPath, PrincipalEntityPath};
+#[cfg(test)]
+use husky_entity_path::path::major_item::form::MajorFormPath;
+use husky_entity_path::path::{major_item::MajorItemPath, PrincipalEntityPath};
 use husky_hir_defn::defn::{major_item::form::MajorFormHirDefn, HasHirDefn};
 use husky_hir_expr::{HirExprIdx, HirExprRegion};
 use husky_hir_lazy_expr::{
@@ -770,7 +772,7 @@ fn runtime_constants(
 fn val_item_ki_repr_expansions(
     db: &::salsa::Db,
     module_path: ModulePath,
-) -> Vec<(husky_entity_path::MajorFormPath, Option<KiReprExpansion>)> {
+) -> Vec<(MajorFormPath, Option<KiReprExpansion>)> {
     val_item_ki_reprs(db, module_path)
         .into_iter()
         .map(|(path, ki_repr)| (path, ki_repr.expansion(db)))

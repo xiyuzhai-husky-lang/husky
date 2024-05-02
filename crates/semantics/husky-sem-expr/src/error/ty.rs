@@ -1,4 +1,5 @@
 use super::*;
+use husky_entity_path::path::major_item::ty::TypePath;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Error, PartialEq, Eq)]

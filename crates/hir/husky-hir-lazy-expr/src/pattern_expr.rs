@@ -1,5 +1,5 @@
 use crate::*;
-use husky_entity_path::PatternPath;
+use husky_entity_path::path::PatternPath;
 use husky_syn_expr::{SynPatternData, SynPatternIdx, SynPatternRoot};
 use husky_term_prelude::literal::Literal;
 use idx_arena::ArenaRef;

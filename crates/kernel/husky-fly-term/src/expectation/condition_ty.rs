@@ -1,4 +1,7 @@
 use super::*;
+use husky_entity_path::path::major_item::ty::{
+    PreludeBasicTypePath, PreludeNumTypePath, PreludeTypePath,
+};
 use husky_expr::stmt::ConditionConversion;
 
 #[salsa::derive_debug_with_db]

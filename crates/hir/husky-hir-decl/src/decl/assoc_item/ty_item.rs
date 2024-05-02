@@ -11,6 +11,7 @@ pub use self::memo_field::*;
 pub use self::method_ritchie::*;
 
 use super::*;
+use husky_entity_path::path::assoc_item::ty_item::TypeItemPath;
 use husky_syn_decl::decl::TypeItemSynDecl;
 
 #[salsa::derive_debug_with_db]

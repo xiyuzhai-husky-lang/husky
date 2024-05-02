@@ -1,5 +1,5 @@
 use super::*;
-use husky_entity_path::{MajorFormPath, MajorItemConnection};
+use husky_entity_path::path::major_item::{connection::MajorItemConnection, form::MajorFormPath};
 use husky_entity_tree::helpers::paths::module_test_paths;
 use husky_hir_decl::decl::HasHirDecl;
 use husky_vfs::*;

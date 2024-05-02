@@ -6,9 +6,11 @@ pub use self::html::*;
 
 use crate::*;
 use husky_entity_kind::MajorFormKind;
-use husky_entity_path::{
-    AssocItemPath, MajorFormPath, MajorItemPath, PrincipalEntityPath, TraitForTypeItemPath,
-    TypePath, TypeVariantPath,
+use husky_entity_path::path::{
+    assoc_item::{trai_for_ty_item::TraitForTypeItemPath, AssocItemPath},
+    major_item::{form::MajorFormPath, ty::TypePath, MajorItemPath},
+    ty_variant::TypeVariantPath,
+    PrincipalEntityPath,
 };
 use husky_fly_term::signature::{FlyFieldSignature, MethodFlySignature};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};

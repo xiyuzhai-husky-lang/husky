@@ -9,8 +9,10 @@ use crate::{
 use either::*;
 use husky_coword::Ident;
 use husky_entity_kind::{MajorFormKind, TraitItemKind, TypeItemKind, TypeKind};
-use husky_entity_path::{
-    AssocItemPath, MajorFormPath, PreludeTraitPath, TraitForTypeItemPath, TypePath, TypeVariantPath,
+use husky_entity_path::path::{
+    assoc_item::{trai_for_ty_item::TraitForTypeItemPath, AssocItemPath},
+    major_item::{form::MajorFormPath, trai::PreludeTraitPath, ty::TypePath},
+    ty_variant::TypeVariantPath,
 };
 use husky_hir_decl::{
     decl::{HasHirDecl, TypeHirDecl},

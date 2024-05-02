@@ -10,7 +10,7 @@ pub(crate) use self::precedence::{RustPrecedence, RustPrecedenceRange};
 use self::{precedence::hir_eager_expr_precedence, site::HirEagerExprSite};
 use crate::{binding::RustBinding, *};
 use husky_entity_kind::MajorFormKind;
-use husky_entity_path::{MajorItemPath, PrincipalEntityPath};
+use husky_entity_path::path::{major_item::MajorItemPath, PrincipalEntityPath};
 use husky_hir_eager_expr::{
     emit_note_on_hir_eager_expr_codespan, HirEagerCondition, HirEagerElifBranch,
     HirEagerElseBranch, HirEagerExprData, HirEagerExprEntry, HirEagerExprIdx, HirEagerExprRegion,

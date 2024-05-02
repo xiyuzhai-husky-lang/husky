@@ -1,5 +1,9 @@
 use super::*;
 use crate::method_ritchie::MethodFnFlySignature;
+use husky_entity_path::path::major_item::{
+    trai::TraitPath,
+    ty::{PreludeIndirectionTypePath, PreludeTypePath},
+};
 use husky_eth_signature::{
     helpers::trai_for_ty::trai_path_for_ty_term_impl_block_eth_signature_builders,
     signature::{

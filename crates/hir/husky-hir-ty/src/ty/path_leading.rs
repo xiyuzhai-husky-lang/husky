@@ -1,4 +1,5 @@
 use super::*;
+use husky_entity_path::path::major_item::ty::TypePath;
 
 #[salsa::interned(jar = HirTypeJar)]
 pub struct HirTypePathLeading {

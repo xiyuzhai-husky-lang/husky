@@ -13,6 +13,7 @@ pub use self::submodule::*;
 pub use self::ty_variant::*;
 
 use crate::{jar::*, *};
+use husky_entity_path::path::ItemPath;
 use husky_hir_eager_expr::helpers::region::hir_eager_expr_region;
 use husky_syn_decl::decl::HasSynDecl;
 

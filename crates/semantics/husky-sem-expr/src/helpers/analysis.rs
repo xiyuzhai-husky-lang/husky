@@ -1,5 +1,8 @@
 use husky_entity_kind::ritchie::RitchieItemKind;
-use husky_entity_path::region::RegionPath;
+use husky_entity_path::{
+    path::{major_item::MajorItemPath, ItemPath, PrincipalEntityPath},
+    region::RegionPath,
+};
 use husky_fly_term::dispatch::StaticDispatch;
 
 use super::*;

@@ -1,6 +1,12 @@
 use super::*;
 use either::*;
-use husky_entity_path::{item_path_menu, AttrItemPath, PreludeTraitPath, TraitPath};
+use husky_entity_path::{
+    menu::item_path_menu,
+    path::{
+        attr::AttrItemPath,
+        major_item::trai::{PreludeTraitPath, TraitPath},
+    },
+};
 use husky_hir_decl::decl::{AttrHirDecl, HasHirDecl};
 use husky_hir_defn::defn::attr::AttrHirDefn;
 use husky_hir_ty::trai::HirTrait;

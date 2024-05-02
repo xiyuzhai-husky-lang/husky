@@ -10,6 +10,7 @@ use self::assoc_val::*;
 use self::memo_field::*;
 use self::method_ritchie::*;
 use super::*;
+use husky_entity_path::path::assoc_item::ty_item::TypeItemPath;
 use husky_hir_decl::decl::TypeItemHirDecl;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

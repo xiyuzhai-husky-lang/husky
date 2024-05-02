@@ -1,5 +1,5 @@
 use crate::*;
-use husky_entity_path::{region::RegionPath, ItemPath};
+use husky_entity_path::{path::ItemPath, region::RegionPath};
 use husky_place::PlaceRegistry;
 
 impl Linkage {

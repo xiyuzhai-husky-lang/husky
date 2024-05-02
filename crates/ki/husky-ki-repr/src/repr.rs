@@ -5,7 +5,7 @@ pub(crate) use self::domain_repr_guard::KiDomainReprGuard;
 
 use self::source::*;
 use crate::*;
-use husky_entity_path::MajorFormPath;
+use husky_entity_path::path::major_item::form::MajorFormPath;
 use husky_hir_defn::defn::{major_item::form::MajorFormHirDefn, HasHirDefn};
 use husky_ki::{Ki, KiArgument, KiDomain, KiOpn, KiRuntimeConstant};
 use husky_linkage::linkage::Linkage;
@@ -223,7 +223,7 @@ pub(crate) fn val_item_ki_reprs(
     module_path: ModulePath,
 ) -> Vec<(MajorFormPath, KiRepr)> {
     use husky_entity_kind::MajorFormKind;
-    use husky_entity_path::{ItemPath, MajorItemPath};
+    use husky_entity_path::path::{major_item::MajorItemPath, ItemPath};
     use husky_entity_tree::helpers::paths::module_item_paths;
 
     module_item_paths(db, module_path)

@@ -8,6 +8,12 @@ use crate::{
     be_variable::HirEagerBeVariablesPattern, closure_parameter::HirEagerClosureParameterPattern,
     variable::runtime::HirEagerRvarIdx, *,
 };
+use husky_entity_path::path::{
+    assoc_item::{trai_for_ty_item::TraitForTypeItemPath, AssocItemPath},
+    major_item::{form::MajorFormPath, ty::TypePath, MajorItemPath},
+    ty_variant::TypeVariantPath,
+    PrincipalEntityPath,
+};
 use husky_eth_term::term::EthTerm;
 use husky_fly_term::{
     dispatch::StaticDispatch,

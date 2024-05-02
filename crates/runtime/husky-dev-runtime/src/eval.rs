@@ -1,5 +1,6 @@
 use crate::*;
 
+use husky_entity_path::path::{major_item::MajorItemPath, ItemPath};
 use husky_hir_opr::binary::HirBinaryOpr;
 use husky_ki::{KiOpn, KiPatternData};
 use husky_ki_repr::repr::{KiArgumentRepr, KiDomainRepr, KiRepr};
@@ -328,7 +329,6 @@ impl<Task: IsTask> DevRuntime<Task> {
 #[test]
 fn ki_repr_eval_works() {
     use husky_entity_kind::MajorFormKind;
-    use husky_entity_path::*;
     use husky_entity_tree::helpers::paths::module_item_paths;
     use husky_ml_task::MlTask;
     use husky_ml_task_interface::InputId;

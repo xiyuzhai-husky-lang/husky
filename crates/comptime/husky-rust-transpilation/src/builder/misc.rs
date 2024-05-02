@@ -1,5 +1,9 @@
 use super::*;
-use husky_entity_path::{SubmoduleItemPath, TraitPath, TypeVariantPath};
+use husky_entity_path::path::{
+    major_item::{trai::TraitPath, ty::TypePath},
+    submodule::SubmoduleItemPath,
+    ty_variant::TypeVariantPath,
+};
 use husky_hir_defn::defn::{major_item::ty::TypeHirDefn, HasHirDefn};
 use husky_linkage::template_argument::{qual::LinQual, ty::LinType};
 use husky_manifest::PackageDependency;

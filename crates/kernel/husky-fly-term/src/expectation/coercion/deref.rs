@@ -1,6 +1,6 @@
 use self::quary::FlyQuary;
 use super::*;
-use husky_entity_path::path::major_item::ty::PreludeTypePath;
+use husky_entity_path::path::major_item::ty::{PreludeIndirectionTypePath, PreludeTypePath};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum DerefFlyCoercion {

@@ -1,4 +1,5 @@
 use crate::*;
+use husky_entity_path::path::major_item::trai::TraitPath;
 use husky_eth_signature::signature::HasEthTemplate;
 use husky_eth_term::term::{
     application::{EthApplication, TermFunctionReduced},

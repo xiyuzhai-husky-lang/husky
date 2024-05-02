@@ -1,6 +1,16 @@
 use either::*;
 use husky_entity_kind::TypeKind;
-use husky_entity_path::*;
+use husky_entity_path::{
+    path::{
+        assoc_item::{
+            trai_for_ty_item::TraitForTypeItemPath, trai_item::TraitItemPath,
+            ty_item::TypeItemPath, AssocItemPath,
+        },
+        major_item::{form::MajorFormPath, trai::PreludeTraitPath, ty::TypePath, MajorItemPath},
+        ItemPath, ItemPathId,
+    },
+    *,
+};
 use husky_hir_defn::defn::HirDefn;
 
 #[salsa::derive_debug_with_db]

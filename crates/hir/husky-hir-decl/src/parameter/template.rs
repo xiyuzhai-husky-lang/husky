@@ -1,4 +1,5 @@
 use crate::*;
+use husky_entity_path::path::{assoc_item::AssocItemPath, ItemPath, ItemPathId};
 use husky_eth_term::term::EthTerm;
 use husky_fly_term::FlyTermBase;
 use husky_hir_ty::trai::HirTrait;
