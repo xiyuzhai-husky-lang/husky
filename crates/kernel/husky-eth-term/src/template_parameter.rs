@@ -1,6 +1,7 @@
 /// this module is for instantiation to use
 use crate::{instantiation::*, term::symbolic_variable::EthSymbolicVariable, *};
 use husky_dec_signature::parameter::DeclarativeTemplateParameter;
+use husky_entity_path::path::ItemPath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 #[salsa::derive_debug_with_db]

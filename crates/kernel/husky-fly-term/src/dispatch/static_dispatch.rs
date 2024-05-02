@@ -4,6 +4,7 @@ mod solid;
 
 use super::*;
 use husky_coword::Ident;
+use husky_entity_path::path::assoc_item::trai_item::TraitItemPath;
 use husky_entity_tree::HasAssocItemPaths;
 use husky_eth_signature::signature::assoc_item::ty_item::{
     HasTypeItemTemplates, TypeItemEthTemplates,

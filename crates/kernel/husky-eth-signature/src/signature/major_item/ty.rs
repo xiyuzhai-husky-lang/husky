@@ -18,7 +18,7 @@ use self::unit_struct::*;
 use super::*;
 use husky_coword::Ident;
 use husky_dec_signature::signature::major_item::ty::TypeDecTemplate;
-use husky_entity_path::TypePath;
+use husky_entity_path::path::major_item::ty::TypePath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]

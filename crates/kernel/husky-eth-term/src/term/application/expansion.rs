@@ -1,4 +1,5 @@
 use super::*;
+use husky_entity_path::path::major_item::{trai::TraitPath, ty::TypePath};
 
 impl EthTerm {
     pub fn application_expansion(self, db: &::salsa::Db) -> ApplicationExpansion {

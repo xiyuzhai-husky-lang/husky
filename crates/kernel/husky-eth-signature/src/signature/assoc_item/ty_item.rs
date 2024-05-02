@@ -12,6 +12,7 @@ use self::method_ritchie::*;
 use super::*;
 use husky_dec_signature::signature::{assoc_item::ty_item::TypeItemDecTemplate, HasDecTemplate};
 use husky_entity_kind::TypeItemKind;
+use husky_entity_path::path::{assoc_item::ty_item::TypeItemPath, major_item::ty::TypePath};
 use husky_entity_tree::HasItemPathsMap;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

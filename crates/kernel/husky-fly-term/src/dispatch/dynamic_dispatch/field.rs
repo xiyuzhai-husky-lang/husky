@@ -6,6 +6,7 @@ pub(crate) use self::ethereal::*;
 
 use super::*;
 use husky_coword::Ident;
+use husky_entity_path::path::major_item::{trai::TraitPath, ty::TypePath};
 
 #[deprecated(note = "use FlyMemberDynamicDispatch instantiation instead")]
 #[salsa::derive_debug_with_db]

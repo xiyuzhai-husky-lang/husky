@@ -6,6 +6,7 @@ use self::form::*;
 use self::trai::*;
 use self::ty::*;
 use super::*;
+use husky_entity_path::path::major_item::MajorItemPath;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

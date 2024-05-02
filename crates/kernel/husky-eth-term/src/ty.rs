@@ -6,6 +6,16 @@ use husky_dec_ty::principal_item_path::{
     ty_variant::ty_variant_path_declarative_ty,
 };
 use husky_entity_kind::TraitItemKind;
+use husky_entity_path::path::{
+    major_item::{
+        form::MajorFormPath,
+        trai::TraitPath,
+        ty::{PreludeTypePath, TypePath},
+        MajorItemPath,
+    },
+    ty_variant::TypeVariantPath,
+    PrincipalEntityPath,
+};
 use husky_vfs::Toolchain;
 
 pub trait HasType: Copy {

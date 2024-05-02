@@ -1,4 +1,5 @@
 use super::*;
+use husky_entity_path::path::assoc_item::trai_for_ty_item::TraitForTypeItemPath;
 
 #[salsa::interned]
 pub struct TypeAssocTypeEthTemplate {

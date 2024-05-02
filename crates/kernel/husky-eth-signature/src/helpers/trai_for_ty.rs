@@ -9,6 +9,10 @@ use crate::signature::{
 };
 use either::*;
 use husky_entity_kind::ritchie::RitchieItemKind;
+use husky_entity_path::path::major_item::{
+    trai::{PreludeTraitPath, TraitPath},
+    ty::TypePath,
+};
 use husky_entity_tree::{
     helpers::trai_side_derive_any_trai_for_ty_impl_block_paths_map,
     helpers::trai_side_path_leading_trai_for_ty_impl_block_paths_map,
