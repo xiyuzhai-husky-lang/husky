@@ -36,7 +36,6 @@ use self::jar::FlyTermJar as Jar;
 use self::signature::*;
 use alt_option::*;
 use either::*;
-use husky_dec_signature::*;
 use husky_entity_path::*;
 use husky_eth_term::{term::EthTerm, *};
 use husky_print_utils::p;

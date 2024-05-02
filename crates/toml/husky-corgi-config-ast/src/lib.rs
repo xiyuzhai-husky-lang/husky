@@ -14,7 +14,6 @@ use self::menu::*;
 #[cfg(test)]
 use self::tests::*;
 use self::transformer::*;
-use self::CorgiConfigAstJar as Jar;
 use husky_toml_ast::*;
 use husky_vfs::{error::VfsResult, VirtualPath};
 

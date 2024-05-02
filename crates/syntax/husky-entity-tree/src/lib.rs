@@ -36,7 +36,6 @@ pub use self::table::*;
 
 use self::collector::*;
 use self::context::*;
-use self::jar::EntityTreeJar as Jar;
 use self::submodule::*;
 #[cfg(test)]
 use self::tests::*;

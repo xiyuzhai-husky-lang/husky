@@ -3,7 +3,6 @@ pub mod ty;
 
 use self::constant::*;
 use self::ty::*;
-use super::*;
 use crate::instantiation::JavInstantiation;
 use husky_hir_ty::HirTemplateArgument;
 

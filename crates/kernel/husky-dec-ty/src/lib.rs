@@ -20,7 +20,6 @@ use self::principal_item_path::*;
 use self::tests::*;
 use self::variance::*;
 use husky_coword::*;
-use husky_dec_signature::*;
 use husky_dec_term::{jar::DecTermDb, term::*, *};
 use husky_entity_path::*;
 use husky_term_prelude::*;

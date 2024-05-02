@@ -1,6 +1,6 @@
 use crate::{
     destroyer::{VmirDestroyerArena, VmirDestroyerData, VmirDestroyerIdxRange},
-    expr::{VmirExprArena, VmirExprData, VmirExprIdx, VmirExprIdxRange},
+    expr::{VmirExprArena, VmirExprData},
     pattern::{
         destructive::{
             VmirDestructivePatternArena, VmirDestructivePatternData, VmirDestructivePatternIdx,
@@ -11,7 +11,7 @@ use crate::{
             VmirRestructivePatternIdxRange,
         },
     },
-    stmt::{VmirStmtArena, VmirStmtData, VmirStmtIdxRange},
+    stmt::{VmirStmtArena, VmirStmtData},
 };
 use husky_hir_eager_expr::{
     HirEagerExprArena, HirEagerExprIdx, HirEagerPatternArena, HirEagerStmtArena,
