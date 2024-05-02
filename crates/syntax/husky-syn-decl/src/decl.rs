@@ -13,6 +13,7 @@ pub use self::submodule::*;
 pub use self::ty_variant::*;
 
 use crate::*;
+use husky_entity_path::path::ItemPath;
 use husky_iter_utils::chain_as_ref_err_collect;
 use husky_regional_token::*;
 use husky_token_data::{TokenData, TokenDataResult};

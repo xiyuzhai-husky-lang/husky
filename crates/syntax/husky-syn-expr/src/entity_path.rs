@@ -5,7 +5,7 @@ pub use self::identifiable_entity_path::*;
 pub use self::principal_entity_path::*;
 
 use crate::*;
-use husky_entity_path::MajorEntityPath;
+use husky_entity_path::path::MajorEntityPath;
 use parsec::IsStreamParser;
 
 // todo: change this to trait impl

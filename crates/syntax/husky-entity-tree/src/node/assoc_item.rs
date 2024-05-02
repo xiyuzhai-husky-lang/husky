@@ -11,6 +11,7 @@ pub use self::ty_item::*;
 use crate::*;
 use husky_coword::IdentPairMap;
 use husky_entity_kind::*;
+use husky_entity_path::path::{assoc_item::AssocItemPath, ItemPath};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db]

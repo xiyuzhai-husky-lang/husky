@@ -1,5 +1,5 @@
 use super::*;
-use husky_entity_path::TypePath;
+use husky_entity_path::path::major_item::ty::TypePath;
 use husky_term_prelude::template_var_class::TemplateVariableClass;
 
 // todo: use bitmap?

@@ -9,6 +9,7 @@ pub use self::trai_item::*;
 pub use self::ty_item::*;
 
 use super::*;
+use husky_entity_path::path::assoc_item::AssocItemPath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]

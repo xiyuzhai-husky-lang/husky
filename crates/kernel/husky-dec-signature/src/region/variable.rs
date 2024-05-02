@@ -1,4 +1,5 @@
 use husky_dec_term::name::DecSymbolicVariableNameMap;
+use husky_entity_path::path::major_item::ty::TypePath;
 use husky_entity_tree::*;
 use husky_syn_expr::*;
 use husky_term_prelude::symbol::SymbolName;

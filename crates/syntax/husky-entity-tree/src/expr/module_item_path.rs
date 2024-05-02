@@ -1,5 +1,5 @@
 use super::*;
-
+use husky_entity_path::path::{major_item::MajorItemPath, MajorEntityPath, PrincipalEntityPath};
 use husky_token::*;
 use maybe_result::*;
 use original_error::*;
@@ -21,6 +21,7 @@ pub enum MajorItemPathExpr {
         subexpr: MajorItemPathExprIdx,
     },
 }
+
 pub type MajorPathExprArena = Arena<MajorItemPathExpr>;
 pub type MajorItemPathExprIdx = ArenaIdx<MajorItemPathExpr>;
 pub type MajorPathExprIdxRange = ArenaIdxRange<MajorItemPathExpr>;

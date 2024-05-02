@@ -1,4 +1,4 @@
-use husky_entity_path::item_path_menu;
+use husky_entity_path::menu::item_path_menu;
 use husky_term_prelude::literal::Literal;
 use husky_vfs::VfsDb;
 

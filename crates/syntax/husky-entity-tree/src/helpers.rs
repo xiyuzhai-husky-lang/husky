@@ -9,6 +9,7 @@ pub use self::available_trai_item::*;
 pub use self::trai_impl::*;
 
 use crate::*;
+use husky_entity_path::path::major_item::trai::TraitPath;
 use smallvec::{smallvec, SmallVec};
 use vec_like::{OrderedSmallVecSet, SmallVecPairMap};
 

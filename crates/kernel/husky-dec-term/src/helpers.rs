@@ -1,6 +1,5 @@
-use husky_entity_path::{item_path_menu, TypePath};
-
 use crate::*;
+use husky_entity_path::{menu::item_path_menu, path::major_item::ty::TypePath};
 
 impl DecTerm {
     #[inline(always)]

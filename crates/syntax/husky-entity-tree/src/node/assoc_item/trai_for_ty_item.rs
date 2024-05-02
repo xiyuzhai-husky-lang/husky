@@ -1,4 +1,5 @@
 use super::*;
+use husky_entity_path::path::assoc_item::trai_for_ty_item::TraitForTypeItemPath;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
