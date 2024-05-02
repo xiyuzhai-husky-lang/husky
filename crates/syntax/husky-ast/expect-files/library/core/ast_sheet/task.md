@@ -41,21 +41,44 @@ AstSheet {
                     variants: None,
                 },
             },
-            AstData::Err {
+            AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
                     raw: 1,
                 },
-                error: AstError::Original(
-                    OriginalAstError::ExpectedEntityKeywordGroup(
-                        TokenStreamState {
-                            next_token_idx: TokenIdx(
-                                6,
+                visibility_expr: VisibilityExpr {
+                    data: VisibilityExprData::Pub {
+                        pub_token: PubToken {
+                            token_idx: TokenIdx(
+                                5,
                             ),
-                            drained: false,
                         },
+                    },
+                    visibility: Scope::Pub,
+                },
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Form(
+                        MajorFormKind::Static,
                     ),
-                ),
+                    connection: MajorItemConnectionKind::Connected,
+                },
+                ident_token: IdentToken {
+                    ident: `task`,
+                    token_idx: TokenIdx(
+                        7,
+                    ),
+                },
+                is_generic: false,
+                saved_stream_state: TokenStreamState {
+                    next_token_idx: TokenIdx(
+                        8,
+                    ),
+                    drained: false,
+                },
+                block: DefnBlock::Form {
+                    path: FormPath(`core::task::task`, `Static`),
+                    body: None,
+                },
             },
         ],
     },
@@ -64,6 +87,9 @@ AstSheet {
     ),
     nested_top_level_asts: [],
     siblings: [
+        ArenaIdxRange(
+            0..0,
+        ),
         ArenaIdxRange(
             0..2,
         ),

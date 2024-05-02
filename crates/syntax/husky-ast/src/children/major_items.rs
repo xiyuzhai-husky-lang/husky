@@ -28,6 +28,7 @@ impl IsAstChildren for MajorItems {
             EntityKindKeywordGroup::MajorType(token) => token.type_kind().into(),
             EntityKindKeywordGroup::AliasOrAssociateType(_) => MajorFormKind::TypeAlias.into(),
             EntityKindKeywordGroup::Trait(_) => MajorItemKind::Trait,
+            EntityKindKeywordGroup::Static(_) => MajorFormKind::Static.into(),
         };
         Ok(EntityKind::MajorItem {
             module_item_kind,

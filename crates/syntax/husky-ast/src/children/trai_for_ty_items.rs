@@ -36,6 +36,7 @@ impl IsAstChildren for TraitForTypeItems {
             EntityKindKeywordGroup::Ki(_) => TraitItemKind::ASSOC_VAL,
             EntityKindKeywordGroup::Memo(_) => TraitItemKind::MemoizedField,
             EntityKindKeywordGroup::Const(_) => todo!(),
+            EntityKindKeywordGroup::Static(_) => todo!(),
         };
         Ok(EntityKind::AssocItem {
             assoc_item_kind: AssocItemKind::TraitForTypeItem(trait_item_kind),

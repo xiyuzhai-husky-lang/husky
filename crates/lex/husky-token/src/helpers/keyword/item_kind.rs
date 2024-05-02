@@ -31,6 +31,7 @@ pub enum EntityKindKeywordGroup {
     AliasOrAssociateType(TypeToken),
     Trait(TraitToken),
     Const(ConstToken),
+    Static(StaticToken),
 }
 
 #[salsa::derive_debug_with_db]
@@ -277,7 +278,9 @@ where
                         },
                     )))
                 }
-                _ => Ok(None),
+                _ => Ok(Some(EntityKindKeywordGroup::Static(StaticToken {
+                    token_idx,
+                }))),
             },
             _ => Ok(None),
         }
