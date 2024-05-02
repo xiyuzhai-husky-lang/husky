@@ -1,4 +1,5 @@
 use super::*;
+use husky_entity_path::path::submodule::SubmoduleItemPath;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db]

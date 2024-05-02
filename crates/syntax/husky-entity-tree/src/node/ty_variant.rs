@@ -1,5 +1,4 @@
 use super::*;
-
 use husky_entity_kind::TypeKind;
 use husky_entity_path::path::ty_variant::TypeVariantPath;
 
