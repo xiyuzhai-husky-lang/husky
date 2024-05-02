@@ -7,6 +7,8 @@ pub mod tuple_struct;
 pub mod union;
 pub mod unit_struct;
 
+use husky_entity_path::path::major_item::ty::TypePath;
+
 use self::inductive::*;
 use self::props_struct::*;
 use self::r#enum::*;

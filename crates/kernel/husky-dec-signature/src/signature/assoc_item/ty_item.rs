@@ -13,6 +13,7 @@ use self::method_curry::*;
 use self::method_ritchie::*;
 use super::*;
 use crate::signature::impl_block::ty_impl_block::TypeImplBlockDecTemplate;
+use husky_entity_path::path::assoc_item::ty_item::TypeItemPath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]

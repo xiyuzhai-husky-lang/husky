@@ -3,6 +3,7 @@ use husky_dec_signature::signature::major_item::form::{
     function_ritchie::MajorFunctionRitchieDecTemplate, r#const::MajorConstDecTemplate,
     val::MajorValDecTemplate, MajorFormDecTemplate,
 };
+use husky_entity_path::path::major_item::form::MajorFormPath;
 use husky_vfs::Toolchain;
 use smallvec::ToSmallVec;
 

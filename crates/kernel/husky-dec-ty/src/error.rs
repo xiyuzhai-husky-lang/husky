@@ -1,5 +1,6 @@
 use crate::*;
 use husky_dec_term::term::DecSymbolicVariableTypeErrorKind;
+use husky_entity_path::path::major_item::ty::TypePath;
 use husky_syn_decl::SynDeclError;
 use thiserror::Error;
 

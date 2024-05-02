@@ -10,6 +10,7 @@ use self::r#static::*;
 use self::ty_alias::*;
 use self::val::*;
 use super::*;
+use husky_entity_path::path::major_item::form::MajorFormPath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]

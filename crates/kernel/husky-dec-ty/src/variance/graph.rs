@@ -1,4 +1,5 @@
 use super::*;
+use husky_entity_path::path::ItemPath;
 use vec_like::VecSet;
 
 pub(super) struct VarianceGraph<'a> {

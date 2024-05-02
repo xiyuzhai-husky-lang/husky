@@ -6,6 +6,7 @@ use self::trai_for_ty_item::*;
 use self::trai_item::*;
 use self::ty_item::*;
 use super::*;
+use husky_entity_path::path::assoc_item::AssocItemPath;
 
 type SmallVecImpl<T> = SmallVec<[T; 2]>;
 

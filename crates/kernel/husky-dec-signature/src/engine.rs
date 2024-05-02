@@ -3,6 +3,7 @@ mod pattern_ty;
 pub(crate) use self::pattern_ty::*;
 
 use crate::*;
+use husky_entity_path::path::{major_item::MajorItemPath, PrincipalEntityPath};
 use husky_entity_tree::SynNodeRegionPath;
 use husky_print_utils::p;
 use husky_syn_expr::*;

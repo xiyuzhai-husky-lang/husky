@@ -2,6 +2,7 @@ pub mod derive;
 
 use self::derive::*;
 use super::*;
+use husky_entity_path::path::attr::AttrItemPath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]
