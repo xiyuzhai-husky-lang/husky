@@ -20,6 +20,6 @@ scripts/adjust_screen_brightness.sh 0.0 HDMI-1-0 $DURATION
 cargo fix
 
 # Run tests, handling failure and success with respective scripts
-UPDATE_EXPECT=1 cargo test --features "allow-print" -- --nocapture \
+cargo test --features "allow-print" -- --nocapture \
   && scripts/play_update_expect_success_music.sh \
   || scripts/play_update_expect_failure_music.sh
