@@ -1,5 +1,5 @@
 use crate::*;
-use husky_entity_path::TypePath;
+use husky_entity_path::path::major_item::ty::TypePath;
 use husky_entity_tree::HasTypeVariantPaths;
 
 #[salsa::tracked]

@@ -2,6 +2,7 @@
 //!
 //!
 use super::*;
+use husky_entity_path::path::major_item::ty::{PreludeIndirectionTypePath, PreludeTypePath};
 
 impl ExpectCoercion {
     pub(super) fn resolve_reref(

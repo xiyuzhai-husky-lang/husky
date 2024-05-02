@@ -2,14 +2,14 @@ mod enum_props_ty_variant;
 mod enum_tuple_ty_variant;
 mod enum_unit_ty_variant;
 
-use husky_entity_kind::TypeKind;
-use husky_syn_decl::decl::TypeVariantSynDecl;
-
 pub use self::enum_props_ty_variant::*;
 pub use self::enum_tuple_ty_variant::*;
 pub use self::enum_unit_ty_variant::*;
 
 use super::*;
+use husky_entity_kind::TypeKind;
+use husky_entity_path::path::ty_variant::TypeVariantPath;
+use husky_syn_decl::decl::TypeVariantSynDecl;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]

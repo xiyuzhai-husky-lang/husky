@@ -1,4 +1,5 @@
 use super::*;
+use husky_entity_path::path::assoc_item::AssocItemPath;
 use husky_eth_signature::signature::{
     assoc_item::ty_item::assoc_ritchie::TypeAssocRitchieEthTemplate, HasEthTemplate,
 };

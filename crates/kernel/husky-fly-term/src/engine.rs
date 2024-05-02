@@ -1,4 +1,5 @@
 use super::*;
+use husky_entity_path::menu::ItemPathMenu;
 use husky_entity_tree::helpers::AvailableTraitItemsTable;
 use husky_eth_term::term::symbolic_variable::EthSymbolicVariable;
 use husky_place::{place::idx::PlaceIdx, PlaceInfo, PlaceRegistry};

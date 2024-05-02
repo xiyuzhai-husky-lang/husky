@@ -1,4 +1,5 @@
 use super::*;
+use husky_entity_path::path::major_item::trai::TraitPath;
 use husky_hir_decl::decl::TraitHirDecl;
 
 #[salsa::interned]

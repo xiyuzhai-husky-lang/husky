@@ -6,7 +6,7 @@ use crate::{
     *,
 };
 use ::version_stamp::HasVersionStamp;
-use husky_entity_path::TypePath;
+use husky_entity_path::path::major_item::ty::TypePath;
 use husky_hir_defn::{
     defn::{HasHirDefn, HirDefn},
     version_stamp::HirDefnVersionStamp,

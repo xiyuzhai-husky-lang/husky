@@ -1,6 +1,10 @@
-use crate::quary::FlyQuary;
-
 use super::*;
+use crate::quary::FlyQuary;
+use husky_entity_path::path::{
+    assoc_item::AssocItemPath,
+    major_item::ty::{PreludeIndirectionTypePath, PreludeTypePath},
+    ItemPath, PrincipalItemPath,
+};
 use husky_eth_term::{
     instantiation::EthInstantiation,
     term::{

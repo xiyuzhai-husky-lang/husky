@@ -1,7 +1,7 @@
 use super::*;
 use either::*;
 use husky_entity_kind::ritchie::RitchieItemKind;
-use husky_entity_path::PreludeIndirectionTypePath;
+use husky_entity_path::path::major_item::ty::{PreludeIndirectionTypePath, PreludeTypePath};
 use husky_hir_ty::{
     instantiation::HirTermSymbolicVariableResolution, ritchie::HirRitchieType,
     HirConstTemplateVariable,

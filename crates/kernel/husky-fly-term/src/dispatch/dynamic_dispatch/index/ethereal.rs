@@ -3,6 +3,7 @@ mod num_index;
 mod regular_index;
 
 use super::*;
+use husky_entity_path::path::major_item::ty::{PreludeIndirectionTypePath, PreludeTypePath};
 use husky_eth_term::term::application::TermFunctionReduced;
 
 pub(super) fn ethereal_owner_ty_index_dispatch(

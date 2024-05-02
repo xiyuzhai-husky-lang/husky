@@ -6,6 +6,7 @@ use self::enum_props_ty_variant::*;
 use self::enum_tuple_ty_variant::*;
 use self::enum_unit_ty_variant::*;
 use super::*;
+use husky_entity_path::path::ty_variant::TypeVariantPath;
 use husky_hir_decl::decl::TypeVariantHirDecl;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

@@ -12,6 +12,7 @@ use self::tuple_struct::*;
 use self::union::*;
 use self::unit_struct::*;
 use super::*;
+use husky_entity_path::path::major_item::ty::TypePath;
 use husky_hir_decl::decl::TypeHirDecl;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

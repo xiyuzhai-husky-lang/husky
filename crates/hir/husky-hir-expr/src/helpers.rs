@@ -1,5 +1,8 @@
 use husky_entity_kind::{MajorFormKind, TraitItemKind, TypeItemKind};
-use husky_entity_path::{region::RegionPath, AssocItemPath, ItemPath, MajorItemPath};
+use husky_entity_path::{
+    path::{assoc_item::AssocItemPath, major_item::MajorItemPath, ItemPath},
+    region::RegionPath,
+};
 use husky_hir_eager_expr::{
     builder::hir_eager_expr_region_with_source_map,
     helpers::region::{hir_eager_body_with_expr_region, hir_eager_expr_region},

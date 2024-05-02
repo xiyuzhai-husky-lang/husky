@@ -1,5 +1,6 @@
 use super::*;
 use either::*;
+use husky_entity_path::path::ty_variant::TypeVariantPath;
 use husky_eth_signature::signature::{
     major_item::form::FormEthTemplate, ty_variant::TypeVariantEthTemplate, HasEthTemplate,
 };

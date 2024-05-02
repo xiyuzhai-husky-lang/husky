@@ -1,4 +1,6 @@
-use husky_entity_path::PrincipalEntityPath;
+use super::*;
+use crate::registry::assoc_trace::IsAssocTraceRegistry;
+use husky_entity_path::path::PrincipalEntityPath;
 use husky_hir_eager_expr::{
     builder::hir_eager_expr_region_with_source_map, HirEagerExprRegion, HirEagerExprSourceMap,
     HirEagerExprSourceMapData, HirEagerStmtIdx,
@@ -13,10 +15,6 @@ use husky_sem_expr::{
 };
 use husky_syn_defn::ItemSynDefn;
 use husky_token_info::TokenInfoSource;
-
-use crate::registry::assoc_trace::IsAssocTraceRegistry;
-
-use super::*;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct EagerStmtTracePathData {

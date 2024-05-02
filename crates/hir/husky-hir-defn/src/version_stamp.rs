@@ -2,7 +2,8 @@ mod assoc_item;
 mod major_item;
 
 use crate::*;
-
+#[cfg(test)]
+use husky_entity_path::path::ItemPath;
 use vec_like::VecSet;
 
 #[salsa::interned(constructor = new_inner)]
@@ -89,6 +90,7 @@ pub(crate) fn module_hir_defn_version_stamps(
     module_path: ModulePath,
 ) -> Vec<(ItemPath, Option<Option<HirDefnVersionStamp>>)> {
     use husky_entity_tree::helpers::paths::module_item_paths;
+
     module_item_paths(db, module_path)
         .iter()
         .map(|&path| {

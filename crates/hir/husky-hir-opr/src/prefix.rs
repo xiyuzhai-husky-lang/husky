@@ -1,5 +1,5 @@
 use either::*;
-use husky_entity_path::{PreludeNumTypePath, PreludeTypePath};
+use husky_entity_path::path::major_item::ty::{PreludeNumTypePath, PreludeTypePath};
 use husky_fly_term::FlyTerm;
 use husky_fly_term::FlyTerms;
 use husky_sem_opr::prefix::SemaPrefixOpr;

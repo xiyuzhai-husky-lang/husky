@@ -1,4 +1,5 @@
 use crate::*;
+use husky_entity_path::path::ty_variant::TypeVariantPath;
 use husky_term_prelude::literal::Literal;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

@@ -11,6 +11,7 @@ pub use self::ty_alias::*;
 pub use self::val::*;
 
 use super::*;
+use husky_entity_path::path::major_item::form::MajorFormPath;
 use husky_syn_decl::decl::FormSynDecl;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

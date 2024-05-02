@@ -1,4 +1,5 @@
 use super::*;
+use husky_entity_path::path::major_item::ty::PreludeIntTypePath;
 use husky_sem_opr::prefix::SemaPrefixOpr;
 use husky_syn_opr::SynPrefixOpr;
 

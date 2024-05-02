@@ -1,3 +1,5 @@
+use husky_entity_path::path::major_item::ty::{CustomTypePath, PreludeTypePath, TypePath};
+
 use super::*;
 
 impl FlyTerm {

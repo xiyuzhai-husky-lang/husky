@@ -1,4 +1,5 @@
 use super::*;
+use husky_entity_path::path::major_item::ty::{PreludeIndirectionTypePath, PreludeTypePath};
 use husky_eth_signature::signature::{
     assoc_item::ty_item::memo_field::HasTypeMemoizedFieldEtherealSignature,
     major_item::ty::HasPropsFieldEtherealSignature,

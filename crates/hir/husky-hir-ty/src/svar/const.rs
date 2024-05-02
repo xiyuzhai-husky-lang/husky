@@ -1,4 +1,5 @@
 use super::*;
+use husky_entity_path::path::major_item::ty::TypePath;
 
 /// a constant value, not a type
 #[salsa::interned(db = HirTypeDb, jar = HirTypeJar, constructor = pub(crate) new)]

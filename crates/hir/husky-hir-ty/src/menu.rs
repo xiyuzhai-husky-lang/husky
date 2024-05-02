@@ -1,4 +1,5 @@
 use crate::{path_leading::HirTypePathLeading, *};
+use husky_entity_path::menu::item_path_menu;
 use husky_vfs::Toolchain;
 use smallvec::smallvec;
 

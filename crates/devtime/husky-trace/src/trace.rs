@@ -30,8 +30,10 @@ use crate::{
     *,
 };
 use husky_entity_kind::MajorFormKind;
-use husky_entity_path::MajorItemPath;
-use husky_entity_path::{ItemPath, MajorFormPath};
+use husky_entity_path::path::{
+    major_item::{form::MajorFormPath, MajorItemPath},
+    ItemPath,
+};
 use husky_entity_tree::helpers::paths::module_item_paths;
 use husky_entity_tree::helpers::tokra_region::HasRegionalTokenIdxBase;
 use husky_ki_repr::expansion::KiReprExpansion;

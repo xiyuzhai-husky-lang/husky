@@ -3,7 +3,7 @@ use crate::{
     path::JavPath, template_argument::ty::JavelinType, *,
 };
 use fxhash::FxHashMap;
-use husky_entity_path::{ItemPathId, MajorItemPath, PrincipalEntityPath};
+use husky_entity_path::path::{major_item::MajorItemPath, ItemPathId, PrincipalEntityPath};
 use husky_hir_decl::{decl::HasHirDecl, parameter::template::HirTemplateParameters};
 use husky_hir_defn::defn::HasHirDefn;
 use husky_hir_eager_expr::{HirEagerExprData, HirEagerExprRegion};

@@ -3,7 +3,7 @@ use crate::registry::{
     assoc_trace::IsAssocTraceRegistry,
     trace_path::{TracePathDisambiguator, TracePathRegistry},
 };
-use husky_entity_path::PrincipalEntityPath;
+use husky_entity_path::path::PrincipalEntityPath;
 use husky_hir_lazy_expr::{
     builder::hir_lazy_expr_region_with_source_map, source_map::HirLazyExprSourceMap,
     HirLazyExprRegion,

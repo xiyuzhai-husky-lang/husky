@@ -1,6 +1,6 @@
 use self::error::FlyPatternAnalysisError;
 use crate::*;
-use husky_entity_path::TypeVariantIndex;
+use husky_entity_path::path::ty_variant::TypeVariantIndex;
 use husky_fly_term::FlyTerm;
 use husky_lifetime_utils::capture::Captures;
 

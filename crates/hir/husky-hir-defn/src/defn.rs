@@ -13,6 +13,7 @@ use self::submodule::*;
 use self::ty_variant::*;
 use crate::*;
 use ::version_stamp::HasVersionStamp;
+use husky_entity_path::path::ItemPath;
 use husky_hir_decl::decl::HasHirDecl;
 use husky_hir_decl::{
     decl::HirDecl,

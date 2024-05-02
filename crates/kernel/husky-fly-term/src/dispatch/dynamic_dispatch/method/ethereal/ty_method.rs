@@ -1,3 +1,6 @@
+use husky_entity_path::path::major_item::ty::{
+    PreludeIndirectionTypePath, PreludeTypePath, TypePath,
+};
 use husky_eth_term::term::application::{EthApplication, TermFunctionReduced};
 
 use super::*;

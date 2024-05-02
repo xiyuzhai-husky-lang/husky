@@ -1,4 +1,5 @@
 use crate::*;
+use husky_entity_path::path::{ItemPath, PrincipalEntityPath};
 #[cfg(test)]
 use husky_entity_tree::helpers::paths::module_item_paths;
 use husky_hir_ty::{
