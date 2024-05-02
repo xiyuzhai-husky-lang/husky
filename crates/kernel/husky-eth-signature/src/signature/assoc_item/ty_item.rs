@@ -6,7 +6,6 @@ pub mod method_curry;
 pub mod method_ritchie;
 
 use self::assoc_ritchie::*;
-use self::assoc_ty::*;
 use self::memo_field::*;
 use self::method_curry::*;
 use self::method_ritchie::*;

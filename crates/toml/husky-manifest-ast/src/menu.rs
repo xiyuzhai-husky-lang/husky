@@ -1,6 +1,5 @@
 use husky_coword::Coword;
 
-use crate::*;
 
 #[derive(Debug, PartialEq, Eq)]
 pub struct ManifestAstMenu {

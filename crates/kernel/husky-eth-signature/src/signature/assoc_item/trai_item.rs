@@ -4,7 +4,6 @@ pub mod method_curry;
 pub mod method_ritchie;
 
 use self::assoc_ritchie::*;
-use self::method_ritchie::*;
 use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

@@ -8,7 +8,7 @@ use husky_entity_tree::HasAssocItemPaths;
 use husky_eth_signature::signature::assoc_item::ty_item::{
     HasTypeItemTemplates, TypeItemEthTemplates,
 };
-use husky_eth_term::term::{application::TermFunctionReduced, ty_as_trai_item::EthTypeAsTraitItem};
+use husky_eth_term::term::{application::TermFunctionReduced};
 use vec_like::VecMapGetEntry;
 
 #[derive(Debug, PartialEq, Eq)]

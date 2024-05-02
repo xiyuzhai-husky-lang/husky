@@ -1,5 +1,4 @@
 use crate::{
-    lex_tracked,
     verse::{idx::TokenVerseIdx, iter::TokenVerseIter, start::TokenVerseStart, TokenVerses},
     TokenIdx, TokenIdxRange, TokenJar, TokenStreamState,
 };

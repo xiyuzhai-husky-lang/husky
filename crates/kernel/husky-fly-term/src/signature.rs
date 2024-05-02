@@ -10,4 +10,3 @@ pub use self::index::*;
 pub use self::method::*;
 
 use crate::*;
-use husky_eth_signature::*;
