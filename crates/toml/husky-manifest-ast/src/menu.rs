@@ -1,6 +1,5 @@
 use husky_coword::Coword;
 
-
 #[derive(Debug, PartialEq, Eq)]
 pub struct ManifestAstMenu {
     package_coword: Coword,

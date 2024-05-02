@@ -1,4 +1,4 @@
-use crate::{app::ChicagoTypewriterApp};
+use crate::app::ChicagoTypewriterApp;
 use egui::FontFamily::Proportional;
 use egui::{TextStyle::*, *};
 
