@@ -89,6 +89,9 @@ save:
 	cargo install --path crates/devtools/git-save
 	git-save
 
+fix:
+	scripts/fix.sh
+
 save-clean:
 	cargo fmt
 	git add -A
