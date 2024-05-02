@@ -1,11 +1,10 @@
-mod trai_for_ty_item;
-mod trai_item;
-mod ty_item;
+pub mod trai_for_ty_item;
+pub mod trai_item;
+pub mod ty_item;
 
-pub use trai_for_ty_item::*;
-pub use trai_item::*;
-pub use ty_item::*;
-
+use self::trai_for_ty_item::*;
+use self::trai_item::*;
+use self::ty_item::*;
 use super::*;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]

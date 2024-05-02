@@ -1,4 +1,5 @@
 use crate::*;
+use husky_entity_path::path::MajorEntityPath;
 use husky_vfs::*;
 
 pub trait EntityTreeDb {

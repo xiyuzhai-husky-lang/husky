@@ -2,6 +2,7 @@ mod connected;
 mod disconnected;
 
 use super::*;
+use husky_entity_path::path::major_item::trai::TraitPath;
 use husky_regional_token::RegionalTokenIdxRange;
 use vec_like::VecMapGetEntry;
 

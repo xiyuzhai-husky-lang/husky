@@ -1,5 +1,5 @@
 use crate::*;
-use husky_entity_path::{AttrItemPath, AttrRegistry};
+use husky_entity_path::path::attr::{AttrItemPath, AttrRegistry};
 
 impl AstSheet {
     // todo: needs testing

@@ -1,5 +1,6 @@
 use crate::*;
 
+use husky_entity_path::path::{major_item::MajorItemPath, MajorEntityPath, PrincipalEntityPath};
 use vec_like::VecMapGetEntry;
 
 #[enum_class::from_variants]

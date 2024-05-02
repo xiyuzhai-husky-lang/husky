@@ -1,6 +1,5 @@
+use super::*;
 use vec_like::VecPairMap;
-
-use crate::*;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

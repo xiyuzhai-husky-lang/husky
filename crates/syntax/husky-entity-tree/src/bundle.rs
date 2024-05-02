@@ -1,6 +1,8 @@
 use crate::*;
-
-use husky_entity_path::trai_for_ty_impl_block::TraitForTypeImplBlockPath;
+use husky_entity_path::path::{
+    impl_block::trai_for_ty_impl_block::TraitForTypeImplBlockPath,
+    major_item::{trai::TraitPath, ty::TypePath},
+};
 use vec_like::VecMap;
 mod error;
 

@@ -1,5 +1,5 @@
 use crate::{ItemSynNodePath, PreludeError};
-use husky_entity_path::{EntityPathError, PrincipalEntityPath, TypePath};
+use husky_entity_path::path::{major_item::ty::TypePath, PrincipalEntityPath};
 use husky_token::{IdentToken, PathNameToken, SuperToken};
 use husky_vfs::{error::VfsError, ModulePath, ToolchainError};
 use thiserror::Error;
