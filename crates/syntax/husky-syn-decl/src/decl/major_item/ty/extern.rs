@@ -1,4 +1,6 @@
 use super::*;
+#[cfg(test)]
+use husky_entity_path::menu::item_path_menu;
 
 #[salsa::tracked]
 pub struct ExternTypeSynNodeDecl {

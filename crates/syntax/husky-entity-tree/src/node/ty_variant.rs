@@ -1,6 +1,6 @@
 use super::*;
 use husky_entity_kind::TypeKind;
-use husky_entity_path::path::ty_variant::TypeVariantPath;
+use husky_entity_path::path::{major_item::ty::TypePath, ty_variant::TypeVariantPath};
 
 #[salsa::derive_debug_with_db]
 #[salsa::as_id]

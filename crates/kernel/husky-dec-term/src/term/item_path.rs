@@ -1,4 +1,7 @@
-use husky_entity_path::*;
+use husky_entity_path::path::{
+    major_item::{form::MajorFormPath, trai::TraitPath, ty::TypePath},
+    ty_variant::TypeVariantPath,
+};
 use salsa::DisplayWithDb;
 
 use super::*;

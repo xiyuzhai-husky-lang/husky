@@ -4,6 +4,8 @@ pub mod impl_block;
 pub mod major_item;
 pub mod ty_variant;
 
+use husky_entity_path::path::ItemPath;
+
 use self::assoc_item::*;
 use self::attr::*;
 use self::impl_block::*;

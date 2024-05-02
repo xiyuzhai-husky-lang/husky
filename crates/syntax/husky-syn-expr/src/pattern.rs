@@ -8,7 +8,7 @@ pub use self::symbol::*;
 use super::*;
 use husky_coword::Ident;
 use husky_entity_kind::MajorFormKind;
-use husky_entity_path::{ItemPath, TypePath, TypeVariantPath};
+use husky_entity_path::path::{major_item::ty::TypePath, ty_variant::TypeVariantPath, ItemPath};
 use idx_arena::{map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange};
 use parsec::{IsStreamParser, PunctuatedSmallList, TryParseOptionFromStream};
 use std::ops::ControlFlow;

@@ -1,6 +1,7 @@
 use super::*;
 use crate::helpers::paths::HasItemPaths;
 use husky_entity_kind::*;
+use husky_entity_path::path::{ItemPath, ItemPathId};
 use husky_task_interface::TaskIngredientIndex;
 
 #[salsa::derive_debug_with_db]

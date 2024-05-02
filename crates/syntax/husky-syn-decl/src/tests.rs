@@ -1,4 +1,5 @@
 pub(crate) use husky_ast::test_utils::*;
+pub(crate) use husky_entity_path::menu::item_path_menu;
 
 use crate::*;
 use husky_corgi_config::jar::CorgiConfigJar;

@@ -1,6 +1,7 @@
-use husky_entity_path::path::impl_block::trai_for_ty_impl_block::TraitForTypeImplBlockPath;
-
 use super::*;
+use husky_entity_path::path::impl_block::{
+    trai_for_ty_impl_block::TraitForTypeImplBlockPath, TypeSketch,
+};
 
 #[salsa::tracked]
 pub struct TraitForTypeImplBlockSynNodeDecl {

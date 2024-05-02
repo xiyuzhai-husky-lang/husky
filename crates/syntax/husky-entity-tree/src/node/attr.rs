@@ -1,5 +1,5 @@
 use super::*;
-use husky_entity_path::path::attr::AttrItemPath;
+use husky_entity_path::path::{attr::AttrItemPath, ItemPathId};
 use vec_like::VecMapGetEntry;
 
 #[salsa::derive_debug_with_db]

@@ -1,6 +1,7 @@
 use super::*;
 
 use husky_entity_path::path::{
+    assoc_item::ty_item::TypeItemPath,
     impl_block::{ty_impl_block::TypeImplBlockPath, ImplBlockRegistry},
     major_item::ty::TypePath,
 };

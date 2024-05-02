@@ -7,6 +7,7 @@ pub use self::trai::*;
 pub use self::ty::*;
 
 use super::*;
+use husky_entity_path::path::major_item::MajorItemPath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]

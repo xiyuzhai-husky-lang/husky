@@ -1,6 +1,6 @@
 use crate::*;
 use husky_entity_path::path::{
-    impl_block::trai_for_ty_impl_block::TraitForTypeImplBlockPath,
+    impl_block::{trai_for_ty_impl_block::TraitForTypeImplBlockPath, TypeSketch},
     major_item::{trai::TraitPath, ty::TypePath},
 };
 use vec_like::VecMap;
