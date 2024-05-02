@@ -20,7 +20,7 @@ pub enum EntityKindKeywordGroup {
     /// `static fn`
     StaticFn(StaticToken, FnToken),
     /// `val`
-    Ki(ValToken),
+    Val(ValToken),
     /// `memo`
     Memo(MemoToken),
     /// husky will have the capacities of theorem proving
@@ -226,7 +226,7 @@ where
         };
         match kw {
             Keyword::Form(kw) => match kw {
-                FormKeyword::Val => Ok(Some(EntityKindKeywordGroup::Ki(ValToken { token_idx }))),
+                FormKeyword::Val => Ok(Some(EntityKindKeywordGroup::Val(ValToken { token_idx }))),
                 FormKeyword::Fn => Ok(Some(EntityKindKeywordGroup::Fn(FnToken { token_idx }))),
                 FormKeyword::Vn => Ok(Some(EntityKindKeywordGroup::Vn(VnToken { token_idx }))),
                 FormKeyword::Gn => Ok(Some(EntityKindKeywordGroup::Gn(GnToken { token_idx }))),

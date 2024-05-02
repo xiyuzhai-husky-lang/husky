@@ -22,7 +22,7 @@ impl IsAstChildren for MajorItems {
                 Err(OriginalAstError::UnexpectedStaticFnOutsideImplBlock)?
             }
             EntityKindKeywordGroup::Const(_) => MajorFormKind::Const.into(),
-            EntityKindKeywordGroup::Ki(_) => MajorFormKind::Val.into(),
+            EntityKindKeywordGroup::Val(_) => MajorFormKind::Val.into(),
             EntityKindKeywordGroup::Memo(_) => Err(OriginalAstError::UnexpectedMemoUnderModule)?,
             EntityKindKeywordGroup::FormalEntity(_) => MajorFormKind::Formal.into(),
             EntityKindKeywordGroup::MajorType(token) => token.type_kind().into(),

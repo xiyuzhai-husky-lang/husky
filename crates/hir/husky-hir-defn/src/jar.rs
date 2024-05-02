@@ -1,4 +1,3 @@
-
 #[salsa::jar]
 pub struct HirDefnJar(
     // defn

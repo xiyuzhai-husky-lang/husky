@@ -34,7 +34,7 @@ impl IsAstChildren for TypeItems {
             EntityKindKeywordGroup::Trait(_) => {
                 Err(OriginalAstError::UnexpectedTraitInsideImplBlock)?
             }
-            EntityKindKeywordGroup::Ki(_) => TypeItemKind::AssocVal,
+            EntityKindKeywordGroup::Val(_) => TypeItemKind::AssocVal,
             EntityKindKeywordGroup::Memo(_) => TypeItemKind::MemoizedField,
             EntityKindKeywordGroup::Const(_) => TypeItemKind::AssocConst,
             EntityKindKeywordGroup::Static(_) => todo!(),
