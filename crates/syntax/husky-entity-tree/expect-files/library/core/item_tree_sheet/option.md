@@ -2001,6 +2001,57 @@ EntityTreeSheet {
                 ),
             },
             EntitySymbolEntry {
+                ident: `task`,
+                visible_scope: Scope::PubUnder(
+                    `core::option`,
+                ),
+                symbol: EntitySymbol::Use(
+                    UseSymbol {
+                        original_symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::MajorItem {
+                                            major_item_path: MajorItemPath::Form(
+                                                FormPath(`core::task::task`, `Static`),
+                                            ),
+                                        },
+                                        path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Form(
+                                                FormPath(`core::task::task`, `Static`),
+                                            ),
+                                        ),
+                                        visibility: Scope::Pub,
+                                        ast_idx: 5,
+                                        use_expr_idx: 15,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Form(
+                                        FormPath(`core::task::task`, `Static`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core`,
+                                ),
+                                ast_idx: 20,
+                                use_expr_idx: 0,
+                            },
+                        ),
+                        path: PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Form(
+                                FormPath(`core::task::task`, `Static`),
+                            ),
+                        ),
+                        visibility: Scope::PubUnder(
+                            `core::option`,
+                        ),
+                        ast_idx: 2,
+                        use_expr_idx: 0,
+                    },
+                ),
+            },
+            EntitySymbolEntry {
                 ident: `Visualize`,
                 visible_scope: Scope::PubUnder(
                     `core::option`,
@@ -2927,7 +2978,7 @@ EntityTreeSheet {
                     `core::option`,
                 ),
                 progress: Ok(
-                    61,
+                    62,
                 ),
             },
         ],

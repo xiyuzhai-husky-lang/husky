@@ -20,5 +20,33 @@
             ),
         ),
     ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Form(
+                FormPath(`core::task::task`, `Static`),
+            ),
+        ),
+        Ok(
+            DecTemplate::MajorItem(
+                MajorItemDecTemplate::Form(
+                    MajorFormDecTemplate::Static(
+                        MajorStaticDecTemplate {
+                            return_ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 84,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
 ]
 ```

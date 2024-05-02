@@ -35,6 +35,7 @@ pub struct DecSignatureJar(
     crate::signature::major_item::form::form_syn_dec_template,
     crate::signature::major_item::form::val:: MajorValDecTemplate,
     crate::signature::major_item::form::r#const::MajorConstDecTemplate,
+    crate::signature::major_item::form::r#static::MajorStaticDecTemplate,
     crate::signature::major_item::form::function_ritchie:: MajorFunctionRitchieDecTemplate,
     crate::signature::major_item::form::ty_alias:: TypeAliasDecTemplate,
     // impl block
@@ -55,14 +56,13 @@ pub struct DecSignatureJar(
     crate::signature::assoc_item::ty_item::method_curry::TypeMethodCurryDecTemplate,
     crate::signature::assoc_item::ty_item::assoc_ty::TypeAssocTypeDecTemplate,
     crate::signature::assoc_item::ty_item::assoc_val::TypeAssocValDecTemplate,
-    crate::signature::assoc_item::ty_item::memo_field::TypeMemoizedFieldDecTemplate,    
+    crate::signature::assoc_item::ty_item::memo_field::TypeMemoizedFieldDecTemplate,   
     // trait item
     crate::signature::assoc_item::trai_item::trai_item_syn_dec_template,
     crate::signature::assoc_item::trai_item::assoc_ritchie::TraitAssocRitchieDecTemplate,
     crate::signature::assoc_item::trai_item::assoc_ty::TraitAssocTypeDecTemplate,
     crate::signature::assoc_item::trai_item::assoc_val::TraitAssocValDecTemplate,
     crate::signature::assoc_item::trai_item::method_ritchie::TraitMethodRitchieDecTemplate,
-    
     // type as trait item
     crate::signature::assoc_item::trai_for_ty_item::trai_for_ty_item_syn_declarative_signature_from_decl,
     crate::signature::assoc_item::trai_for_ty_item::assoc_ritchie::TraitForTypeAssocRitchieDecTemplate,

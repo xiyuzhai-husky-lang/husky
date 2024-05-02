@@ -21,5 +21,13 @@
         ),
         None,
     ),
+    (
+        ItemSynNodePath::MajorItem(
+            MajorItemSynNodePath::Form(
+                FormSynNodePath(`core::task::task`, `Static`, (0)),
+            ),
+        ),
+        None,
+    ),
 ]
 ```

@@ -2781,6 +2781,57 @@ EntityTreeSheet {
                 ),
             },
             EntitySymbolEntry {
+                ident: `task`,
+                visible_scope: Scope::PubUnder(
+                    `core::num`,
+                ),
+                symbol: EntitySymbol::Use(
+                    UseSymbol {
+                        original_symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::MajorItem {
+                                            major_item_path: MajorItemPath::Form(
+                                                FormPath(`core::task::task`, `Static`),
+                                            ),
+                                        },
+                                        path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Form(
+                                                FormPath(`core::task::task`, `Static`),
+                                            ),
+                                        ),
+                                        visibility: Scope::Pub,
+                                        ast_idx: 5,
+                                        use_expr_idx: 15,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Form(
+                                        FormPath(`core::task::task`, `Static`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core`,
+                                ),
+                                ast_idx: 20,
+                                use_expr_idx: 0,
+                            },
+                        ),
+                        path: PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Form(
+                                FormPath(`core::task::task`, `Static`),
+                            ),
+                        ),
+                        visibility: Scope::PubUnder(
+                            `core::num`,
+                        ),
+                        ast_idx: 47,
+                        use_expr_idx: 0,
+                    },
+                ),
+            },
+            EntitySymbolEntry {
                 ident: `Visualize`,
                 visible_scope: Scope::PubUnder(
                     `core::num`,
@@ -3622,7 +3673,7 @@ EntityTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 95,
+                                                value: 96,
                                             },
                                         ),
                                     ),
@@ -3642,7 +3693,7 @@ EntityTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 95,
+                                                    value: 96,
                                                 },
                                             ),
                                         ),
@@ -3728,7 +3779,7 @@ EntityTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 97,
+                                                value: 98,
                                             },
                                         ),
                                     ),
@@ -3748,7 +3799,7 @@ EntityTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 97,
+                                                    value: 98,
                                                 },
                                             ),
                                         ),
@@ -3834,7 +3885,7 @@ EntityTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 99,
+                                                value: 100,
                                             },
                                         ),
                                     ),
@@ -3854,7 +3905,7 @@ EntityTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 99,
+                                                    value: 100,
                                                 },
                                             ),
                                         ),
@@ -3940,7 +3991,7 @@ EntityTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 101,
+                                                value: 102,
                                             },
                                         ),
                                     ),
@@ -3960,7 +4011,7 @@ EntityTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 101,
+                                                    value: 102,
                                                 },
                                             ),
                                         ),
@@ -4046,7 +4097,7 @@ EntityTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 103,
+                                                value: 104,
                                             },
                                         ),
                                     ),
@@ -4066,7 +4117,7 @@ EntityTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 103,
+                                                    value: 104,
                                                 },
                                             ),
                                         ),
@@ -4152,7 +4203,7 @@ EntityTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 105,
+                                                value: 106,
                                             },
                                         ),
                                     ),
@@ -4172,7 +4223,7 @@ EntityTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 105,
+                                                    value: 106,
                                                 },
                                             ),
                                         ),
@@ -4258,7 +4309,7 @@ EntityTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 107,
+                                                value: 108,
                                             },
                                         ),
                                     ),
@@ -4278,7 +4329,7 @@ EntityTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 107,
+                                                    value: 108,
                                                 },
                                             ),
                                         ),
@@ -4364,7 +4415,7 @@ EntityTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 109,
+                                                value: 110,
                                             },
                                         ),
                                     ),
@@ -4384,7 +4435,7 @@ EntityTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 109,
+                                                    value: 110,
                                                 },
                                             ),
                                         ),
@@ -4470,7 +4521,7 @@ EntityTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 111,
+                                                value: 112,
                                             },
                                         ),
                                     ),
@@ -4490,7 +4541,7 @@ EntityTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 111,
+                                                    value: 112,
                                                 },
                                             ),
                                         ),
@@ -4576,7 +4627,7 @@ EntityTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 113,
+                                                value: 114,
                                             },
                                         ),
                                     ),
@@ -4596,7 +4647,7 @@ EntityTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 113,
+                                                    value: 114,
                                                 },
                                             ),
                                         ),
@@ -4682,7 +4733,7 @@ EntityTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 115,
+                                                value: 116,
                                             },
                                         ),
                                     ),
@@ -4702,7 +4753,7 @@ EntityTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 115,
+                                                    value: 116,
                                                 },
                                             ),
                                         ),
@@ -4788,7 +4839,7 @@ EntityTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 117,
+                                                value: 118,
                                             },
                                         ),
                                     ),
@@ -4808,7 +4859,7 @@ EntityTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 117,
+                                                    value: 118,
                                                 },
                                             ),
                                         ),
@@ -4894,7 +4945,7 @@ EntityTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 119,
+                                                value: 120,
                                             },
                                         ),
                                     ),
@@ -4914,7 +4965,7 @@ EntityTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 119,
+                                                    value: 120,
                                                 },
                                             ),
                                         ),
@@ -5000,7 +5051,7 @@ EntityTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 121,
+                                                value: 122,
                                             },
                                         ),
                                     ),
@@ -5020,7 +5071,7 @@ EntityTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 121,
+                                                    value: 122,
                                                 },
                                             ),
                                         ),
@@ -5249,7 +5300,7 @@ EntityTreeSheet {
                     `core::num`,
                 ),
                 progress: Ok(
-                    61,
+                    62,
                 ),
             },
         ],

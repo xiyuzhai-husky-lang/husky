@@ -1,11 +1,12 @@
 pub mod r#const;
 pub mod function_ritchie;
+pub mod r#static;
 pub mod ty_alias;
 pub mod val;
 
-use crate::r#const::MajorConstHirDecl;
-
 pub use self::function_ritchie::*;
+use self::r#const::*;
+use self::r#static::*;
 pub use self::ty_alias::*;
 pub use self::val::*;
 
@@ -19,6 +20,7 @@ pub enum MajorFormHirDecl {
     Ritchie(MajorFunctionRitchieHirDecl),
     Val(MajorValHirDecl),
     Const(MajorConstHirDecl),
+    Static(MajorStaticHirDecl),
     TypeAlias(MajorTypeAliasHirDecl),
 }
 
@@ -29,6 +31,7 @@ impl MajorFormHirDecl {
             MajorFormHirDecl::Val(_decl) => None,
             MajorFormHirDecl::TypeAlias(_) => todo!(),
             MajorFormHirDecl::Const(_decl) => None,
+            MajorFormHirDecl::Static(_) => None,
         }
     }
 
@@ -38,6 +41,7 @@ impl MajorFormHirDecl {
             MajorFormHirDecl::Val(decl) => decl.hir_eager_expr_region(db).into(),
             MajorFormHirDecl::TypeAlias(decl) => decl.hir_eager_expr_region(db).into(),
             MajorFormHirDecl::Const(_) => todo!(),
+            MajorFormHirDecl::Static(_) => todo!(),
         }
     }
 
@@ -47,6 +51,7 @@ impl MajorFormHirDecl {
             MajorFormHirDecl::Val(decl) => decl.path(db),
             MajorFormHirDecl::TypeAlias(decl) => decl.path(db),
             MajorFormHirDecl::Const(_) => todo!(),
+            MajorFormHirDecl::Static(_) => todo!(),
         }
     }
 }
@@ -69,6 +74,9 @@ fn major_form_hir_decl(db: &::salsa::Db, path: MajorFormPath) -> Option<MajorFor
         FormSynDecl::TypeAlias(_) => None,
         FormSynDecl::Const(syn_decl) => {
             Some(MajorConstHirDecl::from_syn(path, syn_decl, db).into())
+        }
+        FormSynDecl::Static(syn_decl) => {
+            Some(MajorStaticHirDecl::from_syn(path, syn_decl, db).into())
         }
     }
 }

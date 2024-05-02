@@ -8,6 +8,7 @@ use husky_hir_decl::decl::MajorFormHirDecl;
 
 pub use self::function_ritchie::*;
 use self::r#const::*;
+use self::r#static::*;
 pub use self::type_alias::*;
 pub use self::val::*;
 use super::*;
@@ -19,6 +20,7 @@ pub enum MajorFormHirDefn {
     Ritchie(MajorFunctionRitchieHirDefn),
     Val(MajorValHirDefn),
     Const(MajorConstHirDefn),
+    Static(MajorStaticHirDefn),
     TypeAlias(TypeAliasHirDefn),
 }
 
@@ -34,7 +36,8 @@ impl MajorFormHirDefn {
             MajorFormHirDefn::Ritchie(slf) => slf.path(db),
             MajorFormHirDefn::Val(slf) => slf.path(db),
             MajorFormHirDefn::TypeAlias(slf) => slf.path(db),
-            MajorFormHirDefn::Const(_) => todo!(),
+            MajorFormHirDefn::Const(slf) => slf.path(db),
+            MajorFormHirDefn::Static(slf) => slf.path(db),
         }
     }
 
@@ -43,7 +46,8 @@ impl MajorFormHirDefn {
             MajorFormHirDefn::Ritchie(slf) => slf.hir_decl(db).into(),
             MajorFormHirDefn::Val(slf) => slf.hir_decl(db).into(),
             MajorFormHirDefn::TypeAlias(slf) => slf.hir_decl(db).into(),
-            MajorFormHirDefn::Const(_) => todo!(),
+            MajorFormHirDefn::Const(slf) => slf.hir_decl(db).into(),
+            MajorFormHirDefn::Static(slf) => slf.hir_decl(db).into(),
         }
     }
 
@@ -52,7 +56,8 @@ impl MajorFormHirDefn {
             MajorFormHirDefn::Ritchie(slf) => slf.hir_expr_region(db),
             MajorFormHirDefn::Val(slf) => slf.hir_expr_region(db),
             MajorFormHirDefn::TypeAlias(slf) => slf.hir_eager_expr_region(db).map(Into::into),
-            MajorFormHirDefn::Const(_) => todo!(),
+            MajorFormHirDefn::Const(slf) => slf.hir_expr_region(db),
+            MajorFormHirDefn::Static(slf) => slf.hir_expr_region(db),
         }
     }
 
@@ -65,7 +70,8 @@ impl MajorFormHirDefn {
                 .hir_expr_body_and_region(db)
                 .map(|(body, region)| (body.into(), region.into())),
             MajorFormHirDefn::TypeAlias(slf) => None,
-            MajorFormHirDefn::Const(_) => todo!(),
+            MajorFormHirDefn::Const(slf) => slf.hir_expr_body_and_region(db),
+            MajorFormHirDefn::Static(slf) => slf.hir_expr_body_and_region(db),
         }
     }
 
@@ -75,6 +81,7 @@ impl MajorFormHirDefn {
             MajorFormHirDefn::Val(slf) => slf.dependencies(db),
             MajorFormHirDefn::TypeAlias(slf) => slf.dependencies(db),
             MajorFormHirDefn::Const(slf) => slf.dependencies(db),
+            MajorFormHirDefn::Static(slf) => slf.dependencies(db),
         }
     }
 
@@ -84,6 +91,7 @@ impl MajorFormHirDefn {
             MajorFormHirDefn::Val(slf) => slf.version_stamp(db),
             MajorFormHirDefn::TypeAlias(slf) => slf.version_stamp(db),
             MajorFormHirDefn::Const(slf) => slf.version_stamp(db),
+            MajorFormHirDefn::Static(slf) => slf.version_stamp(db),
         }
     }
 }
@@ -106,6 +114,9 @@ pub(crate) fn form_hir_defn(db: &::salsa::Db, path: MajorFormPath) -> Option<Maj
         MajorFormHirDecl::TypeAlias(_) => todo!(),
         MajorFormHirDecl::Const(hir_decl) => {
             Some(MajorConstHirDefn::new(db, path, hir_decl).into())
+        }
+        MajorFormHirDecl::Static(hir_decl) => {
+            Some(MajorStaticHirDefn::new(db, path, hir_decl).into())
         }
     }
 }
