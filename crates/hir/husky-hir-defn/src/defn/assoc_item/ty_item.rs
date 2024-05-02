@@ -1,18 +1,16 @@
-mod assoc_ritchie;
-mod assoc_ty;
-mod assoc_val;
-mod memo_field;
-mod method_ritchie;
+pub mod assoc_ritchie;
+pub mod assoc_ty;
+pub mod assoc_val;
+pub mod memo_field;
+pub mod method_ritchie;
 
-use husky_hir_decl::decl::TypeItemHirDecl;
-
-pub use self::assoc_ritchie::*;
-pub use self::assoc_ty::*;
-pub use self::assoc_val::*;
-pub use self::memo_field::*;
-pub use self::method_ritchie::*;
-
+use self::assoc_ritchie::*;
+use self::assoc_ty::*;
+use self::assoc_val::*;
+use self::memo_field::*;
+use self::method_ritchie::*;
 use super::*;
+use husky_hir_decl::decl::TypeItemHirDecl;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]
@@ -115,7 +113,7 @@ impl HasHirDefn for TypeItemPath {
     }
 }
 
-#[salsa::tracked(jar = HirDefnJar)]
+#[salsa::tracked]
 pub(crate) fn ty_item_hir_defn(db: &::salsa::Db, path: TypeItemPath) -> Option<TypeItemHirDefn> {
     match path.hir_decl(db)? {
         TypeItemHirDecl::AssocRitchie(hir_decl) => {

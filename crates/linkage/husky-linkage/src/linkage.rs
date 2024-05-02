@@ -9,11 +9,14 @@ use crate::{
 use either::*;
 use husky_coword::Ident;
 use husky_entity_kind::{MajorFormKind, TraitItemKind, TypeItemKind, TypeKind};
-use husky_entity_path::{AssocItemPath, MajorFormPath, PreludeTraitPath, TypeVariantPath};
-use husky_entity_path::{TraitForTypeItemPath, TypePath};
-use husky_hir_decl::decl::{HasHirDecl, TypeHirDecl};
-use husky_hir_decl::helpers::enum_ty_has_only_unit_variants;
-use husky_hir_defn::{HasHirDefn, MajorFormHirDefn};
+use husky_entity_path::{
+    AssocItemPath, MajorFormPath, PreludeTraitPath, TraitForTypeItemPath, TypePath, TypeVariantPath,
+};
+use husky_hir_decl::{
+    decl::{HasHirDecl, TypeHirDecl},
+    helpers::enum_ty_has_only_unit_variants,
+};
+use husky_hir_defn::defn::{major_item::form::MajorFormHirDefn, HasHirDefn};
 use husky_hir_expr::HirExprIdx;
 use husky_hir_ty::{instantiation::HirInstantiation, HirType};
 use husky_javelin::{

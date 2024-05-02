@@ -4,7 +4,7 @@ use crate::{
 };
 use husky_entity_kind::{ritchie::RitchieItemKind, MajorFormKind};
 use husky_entity_path::{MajorItemPath, PrincipalEntityPath};
-use husky_hir_defn::{HasHirDefn, MajorFormHirDefn};
+use husky_hir_defn::defn::{major_item::form::MajorFormHirDefn, HasHirDefn};
 use husky_hir_expr::{HirExprIdx, HirExprRegion};
 use husky_hir_lazy_expr::{
     helpers::control_flow::{HasControlFlow, HirLazyExprRegionControlFlowChart},

@@ -1,16 +1,14 @@
-mod assoc_ritchie;
-mod assoc_ty;
-mod assoc_val;
-mod method_ritchie;
+pub mod assoc_ritchie;
+pub mod assoc_ty;
+pub mod assoc_val;
+pub mod method_ritchie;
 
-use husky_hir_decl::decl::TraitForTypeItemHirDecl;
-
-pub use self::assoc_ritchie::*;
-pub use self::assoc_ty::*;
-pub use self::assoc_val::*;
-pub use self::method_ritchie::*;
-
+use self::assoc_ritchie::*;
+use self::assoc_ty::*;
+use self::assoc_val::*;
+use self::method_ritchie::*;
 use super::*;
+use husky_hir_decl::decl::TraitForTypeItemHirDecl;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]
@@ -101,7 +99,7 @@ impl HasHirDefn for TraitForTypeItemPath {
     }
 }
 
-#[salsa::tracked(jar = HirDefnJar)]
+#[salsa::tracked]
 pub(crate) fn trai_for_ty_item_hir_defn(
     db: &::salsa::Db,
     path: TraitForTypeItemPath,

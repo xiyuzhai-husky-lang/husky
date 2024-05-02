@@ -1,7 +1,7 @@
 use super::*;
 use husky_hir_decl::decl::UnitStructHirDecl;
 
-#[salsa::interned(db = HirDefnDb, jar = HirDefnJar)]
+#[salsa::interned]
 pub struct UnitStructHirDefn {
     pub path: TypePath,
     pub hir_decl: UnitStructHirDecl,
@@ -29,7 +29,7 @@ impl UnitStructHirDefn {
     }
 }
 
-#[salsa::tracked(jar = HirDefnJar)]
+#[salsa::tracked]
 fn unit_struct_hir_defn_dependencies(
     db: &::salsa::Db,
     hir_defn: UnitStructHirDefn,
@@ -40,7 +40,7 @@ fn unit_struct_hir_defn_dependencies(
     builder.finish()
 }
 
-#[salsa::tracked(jar = HirDefnJar)]
+#[salsa::tracked]
 fn unit_struct_hir_defn_version_stamp(
     db: &::salsa::Db,
     hir_defn: UnitStructHirDefn,

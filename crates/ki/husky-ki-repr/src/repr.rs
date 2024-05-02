@@ -6,7 +6,7 @@ pub(crate) use self::domain_repr_guard::KiDomainReprGuard;
 use self::source::*;
 use crate::*;
 use husky_entity_path::MajorFormPath;
-use husky_hir_defn::{HasHirDefn, MajorFormHirDefn};
+use husky_hir_defn::defn::{major_item::form::MajorFormHirDefn, HasHirDefn};
 use husky_ki::{Ki, KiArgument, KiDomain, KiOpn, KiRuntimeConstant};
 use husky_linkage::linkage::Linkage;
 use husky_task_interface::ki_repr::{KiDomainReprInterface, KiReprInterface};

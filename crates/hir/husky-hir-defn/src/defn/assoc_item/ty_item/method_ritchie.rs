@@ -1,7 +1,7 @@
 use super::*;
 use husky_hir_decl::decl::TypeMethodRitchieHirDecl;
 
-#[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
+#[salsa::interned(constructor = new_inner)]
 pub struct TypeMethodRitchieHirDefn {
     pub path: TypeItemPath,
     pub hir_decl: TypeMethodRitchieHirDecl,
@@ -47,7 +47,7 @@ impl TypeMethodRitchieHirDefn {
     }
 }
 
-#[salsa::tracked(jar = HirDefnJar)]
+#[salsa::tracked]
 fn ty_method_ritchie_hir_defn_dependencies(
     db: &::salsa::Db,
     hir_defn: TypeMethodRitchieHirDefn,
@@ -70,7 +70,7 @@ fn ty_method_ritchie_hir_defn_dependencies(
     builder.finish()
 }
 
-#[salsa::tracked(jar = HirDefnJar)]
+#[salsa::tracked]
 fn ty_method_ritchie_hir_defn_version_stamp(
     db: &::salsa::Db,
     hir_defn: TypeMethodRitchieHirDefn,

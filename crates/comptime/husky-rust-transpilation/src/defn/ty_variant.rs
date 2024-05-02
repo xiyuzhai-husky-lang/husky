@@ -3,6 +3,7 @@ use husky_hir_decl::decl::{
     EnumPropsVariantField, EnumPropsVariantHirDecl, EnumTupleVariantField, EnumTupleVariantHirDecl,
     EnumUnitTypeVariantHirDecl,
 };
+use husky_hir_defn::defn::ty_variant::TypeVariantHirDefn;
 
 impl TranspileToRustWith for TypeVariantHirDefn {
     fn transpile_to_rust(self, _builder: &mut RustTranspilationBuilder) {

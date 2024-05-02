@@ -1,7 +1,7 @@
 use either::*;
 use husky_entity_kind::TypeKind;
 use husky_entity_path::*;
-use husky_hir_defn::HirDefn;
+use husky_hir_defn::defn::HirDefn;
 
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]

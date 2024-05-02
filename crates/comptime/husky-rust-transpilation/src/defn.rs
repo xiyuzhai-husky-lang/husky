@@ -14,6 +14,7 @@ use husky_hir_decl::parameter::{
     self_value::eager::HirEagerSelfValueParameter,
     template::{HirTemplateParameter, HirTemplateParameterData, HirTemplateParameters},
 };
+use husky_hir_defn::defn::{HasHirDefn, HirDefn};
 use husky_hir_defn::*;
 use husky_hir_eager_expr::HirEagerExprRegion;
 use husky_hir_ty::ritchie::{HirContract, HirRitchieParameter, HirRitchieSimpleParameter};
