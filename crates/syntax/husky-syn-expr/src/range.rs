@@ -15,7 +15,7 @@ impl SynExprRegion {
     }
 }
 
-#[salsa::tracked(jar = SynExprJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub(crate) fn syn_expr_range_region(
     db: &::salsa::Db,
     expr_region: SynExprRegion,
