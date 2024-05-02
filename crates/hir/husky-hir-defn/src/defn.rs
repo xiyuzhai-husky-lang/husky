@@ -1,17 +1,16 @@
-mod assoc_item;
-mod attr;
-mod impl_block;
-mod major_item;
-mod submodule;
-mod ty_variant;
+pub mod assoc_item;
+pub mod attr;
+pub mod impl_block;
+pub mod major_item;
+pub mod submodule;
+pub mod ty_variant;
 
-pub use self::assoc_item::*;
-pub use self::attr::*;
-pub use self::impl_block::*;
-pub use self::major_item::*;
-pub use self::submodule::*;
-pub use self::ty_variant::*;
-
+use self::assoc_item::*;
+use self::attr::*;
+use self::impl_block::*;
+use self::major_item::*;
+use self::submodule::*;
+use self::ty_variant::*;
 use crate::*;
 use ::version_stamp::HasVersionStamp;
 use husky_hir_decl::decl::HasHirDecl;

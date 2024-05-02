@@ -2,7 +2,7 @@ use super::*;
 use husky_hir_decl::decl::major_item::form::r#const::MajorConstHirDecl;
 use husky_hir_expr::helpers::hir_body_with_expr_region;
 
-#[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
+#[salsa::interned(constructor = new_inner)]
 pub struct MajorConstHirDefn {
     pub path: MajorFormPath,
     pub hir_decl: MajorConstHirDecl,
@@ -44,7 +44,7 @@ impl MajorConstHirDefn {
     }
 }
 
-#[salsa::tracked(jar = HirDefnJar)]
+#[salsa::tracked]
 fn major_const_hir_defn_dependencies(
     db: &::salsa::Db,
     hir_defn: MajorConstHirDefn,
@@ -59,7 +59,7 @@ fn major_const_hir_defn_dependencies(
     builder.finish()
 }
 
-#[salsa::tracked(jar = HirDefnJar)]
+#[salsa::tracked]
 fn major_const_hir_defn_version_stamp(
     db: &::salsa::Db,
     hir_defn: MajorConstHirDefn,

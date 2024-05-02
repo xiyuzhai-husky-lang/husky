@@ -1,7 +1,7 @@
 use super::*;
 use husky_hir_decl::decl::UnionHirDecl;
 
-#[salsa::interned(db = HirDefnDb, jar = HirDefnJar)]
+#[salsa::interned]
 pub struct UnionHirDefn {
     pub path: TypePath,
     pub hir_decl: UnionHirDecl,
@@ -29,7 +29,7 @@ impl UnionHirDefn {
     }
 }
 
-#[salsa::tracked(jar = HirDefnJar)]
+#[salsa::tracked]
 fn union_hir_defn_dependencies(db: &::salsa::Db, hir_defn: UnionHirDefn) -> HirDefnDependencies {
     let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
     let hir_decl = hir_defn.hir_decl(db);
@@ -37,7 +37,7 @@ fn union_hir_defn_dependencies(db: &::salsa::Db, hir_defn: UnionHirDefn) -> HirD
     builder.finish()
 }
 
-#[salsa::tracked(jar = HirDefnJar)]
+#[salsa::tracked]
 fn union_hir_defn_version_stamp(db: &::salsa::Db, hir_defn: UnionHirDefn) -> HirDefnVersionStamp {
     HirDefnVersionStamp::new(hir_defn, db)
 }

@@ -2,7 +2,7 @@ use super::*;
 use husky_entity_tree::HasTypeVariantPaths;
 use husky_hir_decl::decl::EnumHirDecl;
 
-#[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = pub(super) new)]
+#[salsa::interned(constructor = pub(super) new)]
 pub struct EnumHirDefn {
     pub path: TypePath,
     pub hir_decl: EnumHirDecl,
@@ -30,7 +30,7 @@ impl EnumHirDefn {
     }
 }
 
-#[salsa::tracked(jar = HirDefnJar)]
+#[salsa::tracked]
 fn enum_hir_defn_dependencies(db: &::salsa::Db, hir_defn: EnumHirDefn) -> HirDefnDependencies {
     let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
     let hir_decl = hir_defn.hir_decl(db);
@@ -41,7 +41,7 @@ fn enum_hir_defn_dependencies(db: &::salsa::Db, hir_defn: EnumHirDefn) -> HirDef
     builder.finish()
 }
 
-#[salsa::tracked(jar = HirDefnJar)]
+#[salsa::tracked]
 fn enum_hir_defn_version_stamp(db: &::salsa::Db, hir_defn: EnumHirDefn) -> HirDefnVersionStamp {
     HirDefnVersionStamp::new(hir_defn, db)
 }

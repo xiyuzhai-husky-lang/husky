@@ -1,7 +1,7 @@
 use super::*;
 use husky_hir_decl::decl::EnumPropsVariantHirDecl;
 
-#[salsa::interned(db = HirDefnDb, jar = HirDefnJar)]
+#[salsa::interned]
 pub struct EnumPropsVariantHirDefn {
     pub path: TypeVariantPath,
     pub hir_decl: EnumPropsVariantHirDecl,
@@ -23,7 +23,7 @@ impl EnumPropsVariantHirDefn {
     }
 }
 
-#[salsa::tracked(jar = HirDefnJar)]
+#[salsa::tracked]
 fn enum_props_variant_hir_defn_dependencies(
     db: &::salsa::Db,
     hir_defn: EnumPropsVariantHirDefn,
@@ -37,7 +37,7 @@ fn enum_props_variant_hir_defn_dependencies(
     builder.finish()
 }
 
-#[salsa::tracked(jar = HirDefnJar)]
+#[salsa::tracked]
 fn enum_props_variant_hir_defn_version_stamp(
     db: &::salsa::Db,
     hir_defn: EnumPropsVariantHirDefn,

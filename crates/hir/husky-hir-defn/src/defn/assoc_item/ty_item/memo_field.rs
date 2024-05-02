@@ -1,7 +1,7 @@
 use super::*;
 use husky_hir_decl::decl::TypeMemoFieldHirDecl;
 
-#[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
+#[salsa::interned(constructor = new_inner)]
 pub struct TypeMemoizedFieldHirDefn {
     pub path: TypeItemPath,
     pub hir_decl: TypeMemoFieldHirDecl,
@@ -47,7 +47,7 @@ impl TypeMemoizedFieldHirDefn {
     }
 }
 
-#[salsa::tracked(jar = HirDefnJar)]
+#[salsa::tracked]
 fn ty_memo_field_hir_defn_dependencies(
     db: &::salsa::Db,
     hir_defn: TypeMemoizedFieldHirDefn,
@@ -63,7 +63,7 @@ fn ty_memo_field_hir_defn_dependencies(
     builder.finish()
 }
 
-#[salsa::tracked(jar = HirDefnJar)]
+#[salsa::tracked]
 fn ty_memo_field_hir_defn_version_stamp(
     db: &::salsa::Db,
     hir_defn: TypeMemoizedFieldHirDefn,

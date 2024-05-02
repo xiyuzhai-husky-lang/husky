@@ -43,7 +43,7 @@ impl TypeImplBlockHirDefn {
     }
 }
 
-#[salsa::tracked(jar = HirDefnJar)]
+#[salsa::tracked]
 fn ty_impl_block_dependencies(
     db: &::salsa::Db,
     hir_defn: TypeImplBlockHirDefn,
@@ -55,7 +55,7 @@ fn ty_impl_block_dependencies(
     builder.finish()
 }
 
-#[salsa::tracked(jar = HirDefnJar)]
+#[salsa::tracked]
 fn ty_impl_block_version_stamp(
     db: &::salsa::Db,
     hir_defn: TypeImplBlockHirDefn,

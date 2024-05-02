@@ -1,17 +1,16 @@
 pub mod r#const;
 pub mod function_ritchie;
 pub mod r#static;
-pub mod type_alias;
+pub mod ty_alias;
 pub mod val;
 
-use husky_hir_decl::decl::MajorFormHirDecl;
-
-pub use self::function_ritchie::*;
+use self::function_ritchie::*;
 use self::r#const::*;
 use self::r#static::*;
-pub use self::type_alias::*;
-pub use self::val::*;
+use self::ty_alias::*;
+use self::val::*;
 use super::*;
+use husky_hir_decl::decl::MajorFormHirDecl;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]
@@ -104,7 +103,7 @@ impl HasHirDefn for MajorFormPath {
     }
 }
 
-#[salsa::tracked(jar = HirDefnJar)]
+#[salsa::tracked]
 pub(crate) fn form_hir_defn(db: &::salsa::Db, path: MajorFormPath) -> Option<MajorFormHirDefn> {
     match path.hir_decl(db)? {
         MajorFormHirDecl::Ritchie(hir_decl) => {

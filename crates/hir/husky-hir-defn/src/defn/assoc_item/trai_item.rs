@@ -1,13 +1,12 @@
-mod assoc_ritchie;
-mod assoc_ty;
-mod assoc_val;
-mod method_ritchie;
+pub mod assoc_ritchie;
+pub mod assoc_ty;
+pub mod assoc_val;
+pub mod method_ritchie;
 
-pub use self::assoc_ritchie::*;
-pub use self::assoc_ty::*;
-pub use self::assoc_val::*;
-pub use self::method_ritchie::*;
-
+use self::assoc_ritchie::*;
+use self::assoc_ty::*;
+use self::assoc_val::*;
+use self::method_ritchie::*;
 use super::*;
 use husky_entity_path::AssocItemPath;
 use husky_hir_decl::decl::TraitItemHirDecl;
@@ -67,7 +66,7 @@ impl HasHirDefn for TraitItemPath {
     }
 }
 
-#[salsa::tracked(jar = HirDefnJar)]
+#[salsa::tracked]
 pub(crate) fn trai_item_hir_defn(
     db: &::salsa::Db,
     path: TraitItemPath,

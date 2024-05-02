@@ -5,7 +5,7 @@ use crate::*;
 
 use vec_like::VecSet;
 
-#[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
+#[salsa::interned(constructor = new_inner)]
 pub struct HirDefnVersionStamp {
     hir_defn: HirDefn,
     #[return_ref]

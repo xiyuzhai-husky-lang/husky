@@ -1,5 +1,6 @@
 use super::*;
 use crate::builder::keyword::RustKeyword;
+use husky_hir_defn::defn::submodule::SubmoduleHirDefn;
 
 impl<E> TranspileToRustWith<E> for SubmoduleHirDefn {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<E>) {
