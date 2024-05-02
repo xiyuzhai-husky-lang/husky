@@ -1937,6 +1937,57 @@ EntityTreeSheet {
                 ),
             },
             EntitySymbolEntry {
+                ident: `task`,
+                visible_scope: Scope::PubUnder(
+                    `core::vec`,
+                ),
+                symbol: EntitySymbol::Use(
+                    UseSymbol {
+                        original_symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::MajorItem {
+                                            major_item_path: MajorItemPath::Form(
+                                                FormPath(`core::task::task`, `Static`),
+                                            ),
+                                        },
+                                        path: PrincipalEntityPath::MajorItem(
+                                            MajorItemPath::Form(
+                                                FormPath(`core::task::task`, `Static`),
+                                            ),
+                                        ),
+                                        visibility: Scope::Pub,
+                                        ast_idx: 5,
+                                        use_expr_idx: 15,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Form(
+                                        FormPath(`core::task::task`, `Static`),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core`,
+                                ),
+                                ast_idx: 20,
+                                use_expr_idx: 0,
+                            },
+                        ),
+                        path: PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Form(
+                                FormPath(`core::task::task`, `Static`),
+                            ),
+                        ),
+                        visibility: Scope::PubUnder(
+                            `core::vec`,
+                        ),
+                        ast_idx: 8,
+                        use_expr_idx: 0,
+                    },
+                ),
+            },
+            EntitySymbolEntry {
                 ident: `Visualize`,
                 visible_scope: Scope::PubUnder(
                     `core::vec`,
@@ -2778,7 +2829,7 @@ EntityTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 125,
+                                                value: 126,
                                             },
                                         ),
                                     ),
@@ -2798,7 +2849,7 @@ EntityTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 125,
+                                                    value: 126,
                                                 },
                                             ),
                                         ),
@@ -2865,7 +2916,7 @@ EntityTreeSheet {
                     `core::vec`,
                 ),
                 progress: Ok(
-                    61,
+                    62,
                 ),
             },
         ],

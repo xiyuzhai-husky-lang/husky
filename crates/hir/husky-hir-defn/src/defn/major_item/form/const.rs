@@ -36,16 +36,16 @@ impl MajorConstHirDefn {
     }
 
     pub(super) fn dependencies(self, db: &::salsa::Db) -> HirDefnDependencies {
-        const_hir_defn_dependencies(db, self)
+        major_const_hir_defn_dependencies(db, self)
     }
 
     pub(super) fn version_stamp(self, db: &::salsa::Db) -> HirDefnVersionStamp {
-        const_hir_defn_version_stamp(db, self)
+        major_const_hir_defn_version_stamp(db, self)
     }
 }
 
 #[salsa::tracked(jar = HirDefnJar)]
-fn const_hir_defn_dependencies(
+fn major_const_hir_defn_dependencies(
     db: &::salsa::Db,
     hir_defn: MajorConstHirDefn,
 ) -> HirDefnDependencies {
@@ -60,7 +60,7 @@ fn const_hir_defn_dependencies(
 }
 
 #[salsa::tracked(jar = HirDefnJar)]
-fn const_hir_defn_version_stamp(
+fn major_const_hir_defn_version_stamp(
     db: &::salsa::Db,
     hir_defn: MajorConstHirDefn,
 ) -> HirDefnVersionStamp {

@@ -5,5 +5,10 @@
             TypePath(`core::task::Task`, `Extern`),
         ),
     ),
+    ItemPath::MajorItem(
+        MajorItemPath::Form(
+            FormPath(`core::task::task`, `Static`),
+        ),
+    ),
 ]
 ```

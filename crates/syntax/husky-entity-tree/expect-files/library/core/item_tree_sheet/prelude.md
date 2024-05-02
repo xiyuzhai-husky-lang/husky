@@ -553,6 +553,27 @@ EntityTreeSheet {
                 ),
             },
             EntitySymbolEntry {
+                ident: `task`,
+                visible_scope: Scope::Pub,
+                symbol: EntitySymbol::Use(
+                    UseSymbol {
+                        original_symbol: EntitySymbol::MajorItem {
+                            major_item_path: MajorItemPath::Form(
+                                FormPath(`core::task::task`, `Static`),
+                            ),
+                        },
+                        path: PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Form(
+                                FormPath(`core::task::task`, `Static`),
+                            ),
+                        ),
+                        visibility: Scope::Pub,
+                        ast_idx: 5,
+                        use_expr_idx: 15,
+                    },
+                ),
+            },
+            EntitySymbolEntry {
                 ident: `Visualize`,
                 visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
@@ -1789,7 +1810,7 @@ EntityTreeSheet {
                 use_expr_idx: 0,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    69,
+                    70,
                 ),
             },
             UseAllRule {
@@ -1799,7 +1820,7 @@ EntityTreeSheet {
                 use_expr_idx: 3,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    62,
+                    63,
                 ),
             },
             UseAllRule {
@@ -1809,7 +1830,7 @@ EntityTreeSheet {
                 use_expr_idx: 6,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    76,
+                    77,
                 ),
             },
             UseAllRule {
@@ -1819,7 +1840,7 @@ EntityTreeSheet {
                 use_expr_idx: 9,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    62,
+                    63,
                 ),
             },
             UseAllRule {
@@ -1829,7 +1850,7 @@ EntityTreeSheet {
                 use_expr_idx: 12,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    62,
+                    63,
                 ),
             },
             UseAllRule {
@@ -1839,7 +1860,7 @@ EntityTreeSheet {
                 use_expr_idx: 15,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    1,
+                    2,
                 ),
             },
             UseAllRule {
@@ -1849,7 +1870,7 @@ EntityTreeSheet {
                 use_expr_idx: 18,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    63,
+                    64,
                 ),
             },
             UseAllRule {
@@ -1859,7 +1880,7 @@ EntityTreeSheet {
                 use_expr_idx: 21,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    63,
+                    64,
                 ),
             },
             UseAllRule {
@@ -1869,7 +1890,7 @@ EntityTreeSheet {
                 use_expr_idx: 24,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    62,
+                    63,
                 ),
             },
             UseAllRule {
@@ -1879,7 +1900,7 @@ EntityTreeSheet {
                 use_expr_idx: 27,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    64,
+                    65,
                 ),
             },
             UseAllRule {
@@ -1889,7 +1910,7 @@ EntityTreeSheet {
                 use_expr_idx: 30,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    65,
+                    66,
                 ),
             },
             UseAllRule {
@@ -1899,7 +1920,7 @@ EntityTreeSheet {
                 use_expr_idx: 33,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    63,
+                    64,
                 ),
             },
             UseAllRule {
@@ -1909,7 +1930,7 @@ EntityTreeSheet {
                 use_expr_idx: 36,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    62,
+                    63,
                 ),
             },
         ],

@@ -32,6 +32,7 @@ pub fn form_path_declarative_ty(
         MajorFormDecTemplate::Const(signature) => {
             const_path_declarative_ty(db, signature, dec_term_menu)
         }
+        MajorFormDecTemplate::Static(_) => todo!(),
     }
 }
 

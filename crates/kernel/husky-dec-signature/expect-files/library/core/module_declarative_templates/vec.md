@@ -38,7 +38,7 @@
                 TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 125,
+                            value: 126,
                         },
                     ),
                 ),
