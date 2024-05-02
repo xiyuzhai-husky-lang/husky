@@ -2,7 +2,7 @@ use crate::*;
 use husky_vfs::Toolchain;
 use vec_like::VecPairMap;
 
-#[salsa::tracked(db = SynExprDb, jar = SynExprJar)]
+#[salsa::tracked]
 pub struct SynExprRegion {
     #[return_ref]
     pub data: SynExprRegionData,

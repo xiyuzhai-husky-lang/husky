@@ -2,8 +2,6 @@ mod contract;
 mod region;
 mod symbol;
 
-use std::ops::ControlFlow;
-
 pub use self::region::*;
 pub use self::symbol::*;
 
@@ -13,6 +11,7 @@ use husky_entity_kind::MajorFormKind;
 use husky_entity_path::{ItemPath, TypePath, TypeVariantPath};
 use idx_arena::{map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange};
 use parsec::{IsStreamParser, PunctuatedSmallList, TryParseOptionFromStream};
+use std::ops::ControlFlow;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
