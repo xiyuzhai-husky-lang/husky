@@ -8,6 +8,7 @@ use self::assoc_ty::*;
 use self::assoc_val::*;
 use self::method_ritchie::*;
 use super::*;
+use husky_entity_path::path::assoc_item::trai_for_ty_item::TraitForTypeItemPath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]

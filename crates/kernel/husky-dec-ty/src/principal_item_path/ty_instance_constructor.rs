@@ -5,6 +5,7 @@ use husky_dec_signature::signature::major_item::ty::{
     TypeDecTemplate,
 };
 use husky_entity_kind::ritchie::RitchieItemKind;
+use husky_entity_path::path::major_item::ty::TypePath;
 
 #[salsa::tracked(jar = DeclarativeTypeJar)]
 pub fn ty_instance_constructor_path_declarative_ty(

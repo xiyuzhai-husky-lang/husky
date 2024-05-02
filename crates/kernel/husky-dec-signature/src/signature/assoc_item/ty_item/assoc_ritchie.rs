@@ -1,4 +1,5 @@
 use super::*;
+use husky_entity_path::path::assoc_item::ty_item::TypeItemPath;
 
 #[salsa::interned]
 pub struct TypeAssocRitchieDecTemplate {

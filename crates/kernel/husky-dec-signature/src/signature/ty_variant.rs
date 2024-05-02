@@ -8,6 +8,7 @@ use self::enum_unit_ty_variant::*;
 use super::*;
 use crate::signature::major_item::ty::r#enum::EnumDecTemplate;
 use crate::signature::major_item::ty::TypeDecTemplate;
+use husky_entity_path::path::ty_variant::TypeVariantPath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]

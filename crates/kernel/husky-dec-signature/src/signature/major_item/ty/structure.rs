@@ -1,4 +1,5 @@
 use crate::*;
+use husky_entity_path::path::major_item::ty::TypePath;
 
 #[salsa::tracked]
 pub struct StructureTypeDecTemplate {

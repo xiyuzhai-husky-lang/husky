@@ -4,6 +4,7 @@ pub mod ty_impl_block;
 use self::trai_for_ty_impl_block::*;
 use self::ty_impl_block::*;
 use super::*;
+use husky_entity_path::path::impl_block::ImplBlockPath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]
