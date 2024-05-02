@@ -1,5 +1,8 @@
 use super::*;
-use husky_entity_path::trai_for_ty_impl_block::TraitForTypeImplBlockPath;
+use husky_entity_path::path::{
+    impl_block::{trai_for_ty_impl_block::TraitForTypeImplBlockPath, TypeSketch},
+    major_item::trai::TraitPath,
+};
 
 // trait side
 

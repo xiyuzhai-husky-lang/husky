@@ -1,6 +1,15 @@
 use super::*;
 use husky_entity_kind::{MajorItemConnectionKind, MajorItemKind, TypeKind};
-use husky_entity_path::*;
+use husky_entity_path::{
+    path::{
+        major_item::{
+            connection::MajorItemConnection, form::MajorFormPath, trai::TraitPath, ty::TypePath,
+        },
+        submodule::SubmoduleItemPath,
+        ty_variant::TypeVariantRegistry,
+    },
+    *,
+};
 use parsec::IsStreamParser;
 
 impl<'a> AstParser<'a> {

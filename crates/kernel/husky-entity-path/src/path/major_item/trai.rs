@@ -154,7 +154,7 @@ impl TraitPath {
     }
 }
 
-#[salsa::tracked(jar = EntityPathJar)]
+#[salsa::tracked]
 fn prelude_trai_path(db: &::salsa::Db, path: TraitPath) -> Option<PreludeTraitPath> {
     let menu: &ItemPathMenu = item_path_menu(db, path.toolchain(db));
     let vfs_path_menu: &VfsPathMenu = db.vfs_path_menu(path.toolchain(db));

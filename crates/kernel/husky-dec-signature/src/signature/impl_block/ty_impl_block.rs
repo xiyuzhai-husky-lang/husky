@@ -1,5 +1,5 @@
 use super::*;
-use husky_entity_path::ty_impl_block::TypeImplBlockPath;
+use husky_entity_path::path::impl_block::ty_impl_block::TypeImplBlockPath;
 
 #[salsa::interned]
 pub struct TypeImplBlockDecTemplate {

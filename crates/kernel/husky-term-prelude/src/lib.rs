@@ -22,7 +22,7 @@ pub use self::sort::*;
 pub use self::universe::*;
 
 use self::jar::TermPreludeJar as Jar;
-use husky_entity_path::*;
+use husky_entity_path::path::major_item::ty::TypePath;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db]

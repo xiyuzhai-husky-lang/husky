@@ -1,6 +1,5 @@
-use husky_coword::IdentPairMap;
-
 use super::*;
+use husky_coword::IdentPairMap;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum MajorItemConnection {

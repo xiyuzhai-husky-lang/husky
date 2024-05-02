@@ -8,6 +8,11 @@ pub use self::ty_impl_block::*;
 
 use crate::*;
 
+use husky_entity_path::path::{
+    impl_block::{ImplBlockPath, ImplBlockRegistry, TypeSketch},
+    major_item::MajorItemPath,
+    ItemPath,
+};
 use husky_token::ImplToken;
 use husky_token::*;
 

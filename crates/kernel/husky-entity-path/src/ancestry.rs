@@ -1,4 +1,5 @@
-use crate::*;
+use super::*;
+use crate::path::ItemPath;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]

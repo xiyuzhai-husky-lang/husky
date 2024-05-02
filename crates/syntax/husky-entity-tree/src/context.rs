@@ -1,6 +1,7 @@
 use crate::*;
 use husky_coword::Ident;
 use husky_entity_kind::TypeKind;
+use husky_entity_path::path::{major_item::MajorItemPath, MajorEntityPath};
 use husky_token::IdentToken;
 use vec_like::VecMap;
 

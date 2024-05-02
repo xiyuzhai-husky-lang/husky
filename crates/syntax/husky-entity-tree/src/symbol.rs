@@ -1,4 +1,8 @@
 use crate::*;
+use husky_entity_path::path::{
+    major_item::MajorItemPath, submodule::SubmoduleItemPath, ty_variant::TypeVariantPath,
+    PrincipalEntityPath,
+};
 use husky_regional_token::RegionalTokenIdx;
 
 #[salsa::tracked(db = EntityTreeDb, jar = EntityTreeJar)]
