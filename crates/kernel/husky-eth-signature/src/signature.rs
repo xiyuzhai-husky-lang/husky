@@ -12,6 +12,7 @@ use self::ty_variant::*;
 use crate::parameter::EtherealParenateParameters;
 use crate::*;
 use husky_dec_signature::signature::HasDecTemplate;
+use husky_entity_path::path::ItemPath;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

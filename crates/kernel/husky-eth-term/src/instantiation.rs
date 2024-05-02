@@ -1,7 +1,10 @@
 use self::fmt::EthTermFmtContext;
 use crate::fmt::with_eth_term_fmt_context;
 use crate::{term::symbolic_variable::EthSymbolicVariable, *};
-use husky_entity_path::region::RegionPath;
+use husky_entity_path::{
+    path::{ItemPath, ItemPathId},
+    region::RegionPath,
+};
 use husky_syn_decl::decl::HasSynDecl;
 use maybe_result::*;
 use salsa::fmt::WithFmtContext;

@@ -12,9 +12,8 @@ use self::{
     signature::impl_block::trai_for_ty_impl_block::EthTraitForTypeImplBlockSignatureBuilder,
 };
 use super::*;
-use husky_dec_signature::signature::{
-    assoc_item::trai_for_ty_item::TraitForTypeItemDecTemplate, HasDecTemplate,
-};
+use husky_dec_signature::signature::assoc_item::trai_for_ty_item::TraitForTypeItemDecTemplate;
+use husky_entity_path::path::assoc_item::trai_for_ty_item::TraitForTypeItemPath;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[enum_class::from_variants]

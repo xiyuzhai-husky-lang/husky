@@ -5,6 +5,7 @@ pub mod method_ritchie;
 
 use self::assoc_ritchie::*;
 use super::*;
+use husky_entity_path::path::assoc_item::trai_item::TraitItemPath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]

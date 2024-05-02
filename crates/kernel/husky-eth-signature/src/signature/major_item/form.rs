@@ -7,6 +7,7 @@ use self::ty_alias::*;
 use self::val::*;
 use super::*;
 use husky_dec_signature::signature::major_item::form::MajorFormDecTemplate;
+use husky_entity_path::path::major_item::form::MajorFormPath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]

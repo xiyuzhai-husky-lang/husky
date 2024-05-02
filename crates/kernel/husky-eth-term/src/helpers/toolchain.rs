@@ -1,4 +1,5 @@
 use super::*;
+use husky_entity_path::menu::{item_path_menu, ItemPathMenu};
 
 impl EthTerm {
     /// returns a toolchain except for universe, literals and categories

@@ -18,6 +18,7 @@ use crate::{instantiation::*, term::application::TermFunctionReduced};
 use crate::{term::application::term_uncheck_from_dec_term_application_aux, *};
 use husky_coword::Ident;
 use husky_dec_term::term::DecTerm;
+use husky_entity_path::{menu::item_path_menu, path::major_item::ty::PreludeTypePath};
 use husky_term_prelude::literal::Literal;
 use salsa::DisplayWithDb;
 use std::fmt::Debug;

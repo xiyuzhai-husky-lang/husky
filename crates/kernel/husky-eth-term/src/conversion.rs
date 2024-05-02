@@ -1,5 +1,6 @@
 use self::term::EthTerm;
 use crate::*;
+use husky_entity_path::path::major_item::ty::PreludeTypePath;
 
 impl EthTerm {
     /// whether two types are trivially convertible

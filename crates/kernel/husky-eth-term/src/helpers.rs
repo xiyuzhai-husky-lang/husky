@@ -8,6 +8,7 @@ use self::term::{
     ritchie::EthRitchie,
 };
 use crate::*;
+use husky_entity_path::path::major_item::{trai::TraitPath, ty::TypePath};
 
 impl EthTerm {
     pub fn leading_ty_path(self, db: &::salsa::Db) -> Option<TypePath> {
