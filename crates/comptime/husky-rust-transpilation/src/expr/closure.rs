@@ -6,11 +6,8 @@ use husky_hir_eager_expr::{
 impl TranspileToRustWith<HirEagerExprRegion> for &HirEagerClosureParameterPattern {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         match *self {
-            HirEagerClosureParameterPattern::Simple {
-                pattern_expr_idx,
-                ty,
-            } => {
-                pattern_expr_idx.transpile_to_rust(builder);
+            HirEagerClosureParameterPattern::Simple { pattern_idx, ty } => {
+                pattern_idx.transpile_to_rust(builder);
                 if let Some(ty) = ty {
                     builder.punctuation(RustPunctuation::Colon);
                     ty.transpile_to_rust(builder);

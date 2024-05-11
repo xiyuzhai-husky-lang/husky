@@ -7,8 +7,8 @@ use husky_token_data::LiteralTokenData;
 
 impl<'a> SemExprBuilder<'a> {
     /// subpatterns get its type from its parent
-    pub(crate) fn infer_subpattern_tys(&mut self, pattern_expr_idx: SynPatternIdx, ty: FlyTerm) {
-        match self.syn_expr_region_data()[pattern_expr_idx] {
+    pub(crate) fn infer_subpattern_tys(&mut self, pattern_idx: SynPatternIdx, ty: FlyTerm) {
+        match self.syn_expr_region_data()[pattern_idx] {
             SynPatternData::Literal { .. } => (), // there is no subpattern to infer
             SynPatternData::Ident { .. } => (),   // there is no subpattern to infer
             SynPatternData::UnitTypeVariant { .. } => (), // there is no subpattern to infer
@@ -84,8 +84,8 @@ impl<'a> SemExprBuilder<'a> {
         pattern_variable_idx: PatternVariableIdx,
     ) -> PatternSymbolTypeResult<FlyTerm> {
         match self.syn_expr_region_data()[pattern_variable_idx] {
-            PatternVariable::Atom(pattern_expr_idx) => self
-                .get_pattern_expr_ty(pattern_expr_idx)
+            PatternVariable::Atom(pattern_idx) => self
+                .get_pattern_expr_ty(pattern_idx)
                 .ok_or(DerivedPatternSymbolTypeError::PatternSemExprError.into()),
         }
     }

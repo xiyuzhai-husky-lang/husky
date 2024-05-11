@@ -30,7 +30,7 @@ impl<'a> DecTermEngine<'a> {
         for (_, pattern_symbol) in self
             .syn_expr_region_data
             .pattern_expr_region()
-            .pattern_expr_symbols(syn_pattern_expr_root.syn_pattern_expr_idx())
+            .pattern_expr_symbols(syn_pattern_expr_root.syn_pattern_idx())
         {
             self.infer_new_pattern_symbol_ty(*pattern_symbol)
         }

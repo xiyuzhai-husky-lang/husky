@@ -453,7 +453,7 @@ impl ToHirLazy for SemExprIdx {
             } => todo!(),
             SemExprData::Todo {
                 regional_token_idx: _,
-            } => todo!(),
+            } => HirLazyExprData::Todo,
             SemExprData::Unreachable {
                 regional_token_idx: _,
             } => todo!(),

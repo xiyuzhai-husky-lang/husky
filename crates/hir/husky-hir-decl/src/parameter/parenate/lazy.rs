@@ -1,12 +1,12 @@
 use super::*;
-use husky_hir_lazy_expr::HirLazyPatternExprIdx;
+use husky_hir_lazy_expr::HirLazyPatternIdx;
 use husky_syn_expr::SynVariadicParameterVariant;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum HirLazyParenateParameter {
     SelfValue,
     Simple {
-        pattern_expr_idx: HirLazyPatternExprIdx,
+        pattern_idx: HirLazyPatternIdx,
         ty: HirType,
     },
     Keyed {
@@ -51,7 +51,7 @@ impl HirLazyParenateParameter {
                 ty,
                 ..
             } => HirLazyParenateParameter::Simple {
-                pattern_expr_idx: builder.hir_lazy_pattern_expr_idx(syn_pattern_root),
+                pattern_idx: builder.hir_lazy_pattern_idx(syn_pattern_root),
                 ty: builder.hir_ty(ty).unwrap(),
             },
             ParenateParameterSyndicate::Variadic {

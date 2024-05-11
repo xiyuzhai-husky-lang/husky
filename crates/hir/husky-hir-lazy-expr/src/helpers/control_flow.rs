@@ -287,6 +287,7 @@ impl<'a> HirLazyExprControlFlowRegionBuilder<'a> {
             }
             // ad hoc
             HirLazyStmtData::Match {} => HasControlFlow::False,
+            HirLazyStmtData::Narrate { .. } => HasControlFlow::False,
         }
     }
 

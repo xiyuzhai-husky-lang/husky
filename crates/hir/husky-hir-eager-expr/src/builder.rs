@@ -15,7 +15,7 @@ use husky_sem_expr::{
 use husky_sem_place_contract::region::{sem_place_contract_region, SemPlaceContractRegion};
 use husky_syn_expr::{
     CurrentVariableIdx, InheritedSymbolicVariableIdx, SynExprRegionData, SynExprRootKind,
-    SynPatternExprRootKind, SynPatternIdx, SynPatternMap, VariableMap,
+    SynPatternIdx, SynPatternMap, SynPatternRootKind, VariableMap,
 };
 
 pub(crate) struct HirEagerExprBuilder<'a> {
@@ -38,7 +38,7 @@ impl<'a> HirEagerExprBuilder<'a> {
     fn new(db: &'a ::salsa::Db, sem_expr_region: SemExprRegion) -> Self {
         let syn_expr_region_data = sem_expr_region.syn_expr_region(db).data(db);
         let sem_expr_region_data = sem_expr_region.data(db);
-        let syn_to_hir_eager_pattern_expr_idx_map =
+        let syn_to_hir_eager_pattern_idx_map =
             SynPatternMap::new(syn_expr_region_data.pattern_expr_arena());
         let sem_to_hir_eager_expr_idx_map = SemExprMap::new(sem_expr_region_data.sem_expr_arena());
         let sem_to_hir_eager_stmt_idx_map = SemStmtMap::new(sem_expr_region_data.sem_stmt_arena());
@@ -57,7 +57,7 @@ impl<'a> HirEagerExprBuilder<'a> {
             hir_eager_expr_arena: Default::default(),
             hir_eager_pattern_arena: Default::default(),
             hir_eager_stmt_arena: Default::default(),
-            syn_to_hir_eager_pattern_idx_map: syn_to_hir_eager_pattern_expr_idx_map,
+            syn_to_hir_eager_pattern_idx_map: syn_to_hir_eager_pattern_idx_map,
             sem_to_hir_eager_expr_idx_map,
             sem_to_hir_eager_stmt_idx_map,
             hir_eager_comptime_symbol_region_data,
@@ -100,14 +100,14 @@ impl<'a> HirEagerExprBuilder<'a> {
         }
         for &syn_pattern_expr_root in self.syn_expr_region_data.syn_pattern_expr_roots() {
             match syn_pattern_expr_root.kind() {
-                SynPatternExprRootKind::Parenate => {
+                SynPatternRootKind::Parenate => {
                     self.new_pattern(syn_pattern_expr_root);
                 }
                 // already covered when building expr roots
-                SynPatternExprRootKind::Let
-                | SynPatternExprRootKind::Case
-                | SynPatternExprRootKind::Be
-                | SynPatternExprRootKind::Closure => continue,
+                SynPatternRootKind::Let
+                | SynPatternRootKind::Case
+                | SynPatternRootKind::Be
+                | SynPatternRootKind::Closure => continue,
             }
         }
         self.finish()

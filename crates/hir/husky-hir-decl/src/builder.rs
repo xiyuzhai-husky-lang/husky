@@ -4,7 +4,7 @@ use husky_hir_eager_expr::{HirEagerExprIdx, HirEagerPatternIdx};
 use husky_hir_expr::{
     helpers::hir_expr_region_with_source_map, source_map::HirExprSourceMap, HirExprRegion,
 };
-use husky_hir_lazy_expr::HirLazyPatternExprIdx;
+use husky_hir_lazy_expr::HirLazyPatternIdx;
 use husky_hir_ty::{db::HirTypeDb, menu::HirTypeMenu, trai::HirTrait, HirType};
 use husky_sem_expr::{SemExprDb, SemExprRegionData};
 use husky_syn_expr::{
@@ -128,7 +128,7 @@ impl<'a> HirDeclBuilder<'a> {
             .sem_to_hir_eager_expr_idx(sem_expr_idx)
     }
 
-    pub(crate) fn hir_eager_pattern_expr_idx(
+    pub(crate) fn hir_eager_pattern_idx(
         &self,
         syn_pattern_root: impl Into<SynPatternRoot>,
     ) -> HirEagerPatternIdx {
@@ -141,14 +141,21 @@ impl<'a> HirDeclBuilder<'a> {
             .syn_pattern_root_to_sem_expr_idx(syn_pattern_root)
     }
 
-    pub(crate) fn hir_lazy_pattern_expr_idx(
+    pub(crate) fn hir_lazy_pattern_idx(
         &self,
         syn_pattern_root: impl Into<SynPatternRoot>,
-    ) -> HirLazyPatternExprIdx {
+    ) -> HirLazyPatternIdx {
         let HirExprSourceMap::Lazy(source_map) = self.hir_expr_source_map else {
             unreachable!()
         };
         let db = self.db;
+        let syn_pattern_root: SynPatternRoot = syn_pattern_root.into();
+        {
+            use husky_print_utils::p;
+            use salsa::DebugWithDb;
+
+            p!(self.syn_expr_region_data[syn_pattern_root.syn_pattern_idx()].debug(db));
+        }
         source_map
             .data(db)
             .syn_pattern_root_to_sem_expr_idx(syn_pattern_root)

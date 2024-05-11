@@ -16,7 +16,7 @@ pub struct SynExprContext<'a> {
     syn_symbol_context: SynSymbolContextMut<'a>,
     syn_expr_arena: SynExprArena,
     syn_principal_entity_path_expr_arena: SynPrincipalEntityPathExprArena,
-    syn_pattern_expr_region: SynPatternExprRegion,
+    syn_pattern_expr_region: SynPatternRegion,
     syn_stmt_arena: SynStmtArena,
     syn_pattern_expr_roots: Vec<SynPatternRoot>,
     syn_expr_roots: Vec<SynExprRoot>,
@@ -121,7 +121,7 @@ impl<'a> SynExprContext<'a> {
         SynExprParser::new(self, env, token_stream)
     }
 
-    pub(crate) fn pattern_expr_region(&self) -> &SynPatternExprRegion {
+    pub(crate) fn pattern_expr_region(&self) -> &SynPatternRegion {
         &self.syn_pattern_expr_region
     }
 
@@ -161,7 +161,7 @@ impl<'a> SynExprContext<'a> {
         self.module_path
     }
 
-    pub fn syn_pattern_expr_region(&self) -> &SynPatternExprRegion {
+    pub fn syn_pattern_expr_region(&self) -> &SynPatternRegion {
         &self.syn_pattern_expr_region
     }
 

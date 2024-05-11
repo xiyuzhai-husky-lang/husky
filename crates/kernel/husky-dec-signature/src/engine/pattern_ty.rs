@@ -13,8 +13,8 @@ impl<'a> DecTermEngine<'a> {
         syn_pattern_expr_root: impl Into<SynPatternRoot> + Copy,
         ty: DecTerm,
     ) {
-        let syn_pattern_expr_idx = syn_pattern_expr_root.into().syn_pattern_expr_idx();
-        self.infer_pattern_expr_tys(syn_pattern_expr_idx, ty);
+        let syn_pattern_idx = syn_pattern_expr_root.into().syn_pattern_idx();
+        self.infer_pattern_expr_tys(syn_pattern_idx, ty);
         self.infer_pattern_symbol_tys(syn_pattern_expr_root)
     }
 }

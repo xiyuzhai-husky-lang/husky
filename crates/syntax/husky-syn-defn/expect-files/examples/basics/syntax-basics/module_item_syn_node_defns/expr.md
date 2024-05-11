@@ -35,7 +35,7 @@
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_region: SynPatternRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -130,7 +130,7 @@
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
                                             syn_pattern_expr_root: LetPatternSynExprRoot {
-                                                syn_pattern_expr_idx: 0,
+                                                syn_pattern_idx: 0,
                                             },
                                             variables: ArenaIdxRange(
                                                 0..1,
@@ -152,7 +152,7 @@
                                 },
                             ],
                         },
-                        pattern_expr_region: SynPatternExprRegion {
+                        pattern_expr_region: SynPatternRegion {
                             pattern_expr_arena: Arena {
                                 data: [
                                     SynPatternData::Ident {
@@ -223,8 +223,8 @@
                         },
                         pattern_roots: [
                             SynPatternRoot {
-                                kind: SynPatternExprRootKind::Let,
-                                syn_pattern_expr_idx: 0,
+                                kind: SynPatternRootKind::Let,
+                                syn_pattern_idx: 0,
                             },
                         ],
                         expr_roots: [
@@ -289,7 +289,7 @@
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_region: SynPatternRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -382,8 +382,8 @@
                                     parameters: PunctuatedSmallList {
                                         elements: [
                                             Simple {
-                                                syn_pattern_root: ClosureSynPatternExprRoot {
-                                                    syn_pattern_expr_idx: 1,
+                                                syn_pattern_root: ClosureSynPatternRoot {
+                                                    syn_pattern_idx: 1,
                                                 },
                                                 variables: ArenaIdxRange(
                                                     1..2,
@@ -448,7 +448,7 @@
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
                                             syn_pattern_expr_root: LetPatternSynExprRoot {
-                                                syn_pattern_expr_idx: 0,
+                                                syn_pattern_idx: 0,
                                             },
                                             variables: ArenaIdxRange(
                                                 0..1,
@@ -470,7 +470,7 @@
                                 },
                             ],
                         },
-                        pattern_expr_region: SynPatternExprRegion {
+                        pattern_expr_region: SynPatternRegion {
                             pattern_expr_arena: Arena {
                                 data: [
                                     SynPatternData::Ident {
@@ -577,8 +577,8 @@
                             pattern_ty_constraints: [
                                 (
                                     SimpleClosureParameter {
-                                        syn_pattern_root: ClosureSynPatternExprRoot {
-                                            syn_pattern_expr_idx: 1,
+                                        syn_pattern_root: ClosureSynPatternRoot {
+                                            syn_pattern_idx: 1,
                                         },
                                         ty: 0,
                                     },
@@ -590,12 +590,12 @@
                         },
                         pattern_roots: [
                             SynPatternRoot {
-                                kind: SynPatternExprRootKind::Let,
-                                syn_pattern_expr_idx: 0,
+                                kind: SynPatternRootKind::Let,
+                                syn_pattern_idx: 0,
                             },
                             SynPatternRoot {
-                                kind: SynPatternExprRootKind::Closure,
-                                syn_pattern_expr_idx: 1,
+                                kind: SynPatternRootKind::Closure,
+                                syn_pattern_idx: 1,
                             },
                         ],
                         expr_roots: [
@@ -660,7 +660,7 @@
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_region: SynPatternRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -766,8 +766,8 @@
                                     parameters: PunctuatedSmallList {
                                         elements: [
                                             Simple {
-                                                syn_pattern_root: ClosureSynPatternExprRoot {
-                                                    syn_pattern_expr_idx: 1,
+                                                syn_pattern_root: ClosureSynPatternRoot {
+                                                    syn_pattern_idx: 1,
                                                 },
                                                 variables: ArenaIdxRange(
                                                     1..2,
@@ -838,7 +838,7 @@
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
                                             syn_pattern_expr_root: LetPatternSynExprRoot {
-                                                syn_pattern_expr_idx: 0,
+                                                syn_pattern_idx: 0,
                                             },
                                             variables: ArenaIdxRange(
                                                 0..1,
@@ -860,7 +860,7 @@
                                 },
                             ],
                         },
-                        pattern_expr_region: SynPatternExprRegion {
+                        pattern_expr_region: SynPatternRegion {
                             pattern_expr_arena: Arena {
                                 data: [
                                     SynPatternData::Ident {
@@ -967,8 +967,8 @@
                             pattern_ty_constraints: [
                                 (
                                     SimpleClosureParameter {
-                                        syn_pattern_root: ClosureSynPatternExprRoot {
-                                            syn_pattern_expr_idx: 1,
+                                        syn_pattern_root: ClosureSynPatternRoot {
+                                            syn_pattern_idx: 1,
                                         },
                                         ty: 0,
                                     },
@@ -980,12 +980,12 @@
                         },
                         pattern_roots: [
                             SynPatternRoot {
-                                kind: SynPatternExprRootKind::Let,
-                                syn_pattern_expr_idx: 0,
+                                kind: SynPatternRootKind::Let,
+                                syn_pattern_idx: 0,
                             },
                             SynPatternRoot {
-                                kind: SynPatternExprRootKind::Closure,
-                                syn_pattern_expr_idx: 1,
+                                kind: SynPatternRootKind::Closure,
+                                syn_pattern_idx: 1,
                             },
                         ],
                         expr_roots: [

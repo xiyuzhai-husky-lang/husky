@@ -46,8 +46,8 @@ SynDeclSheet {
                             ],
                             parenate_parameters: [
                                 ParenateParameterSyndicate::Simple {
-                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                        syn_pattern_expr_idx: 0,
+                                    syn_pattern_root: ParenateParameterSynPatternRoot {
+                                        syn_pattern_idx: 0,
                                     },
                                     variables: ArenaIdxRange(
                                         1..2,
@@ -142,7 +142,7 @@ SynDeclSheet {
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_region: SynPatternRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
                                                 SynPatternData::Ident {
@@ -249,8 +249,8 @@ SynDeclSheet {
                                             ),
                                             (
                                                 SimpleParenateParameter {
-                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                                        syn_pattern_expr_idx: 0,
+                                                    syn_pattern_root: ParenateParameterSynPatternRoot {
+                                                        syn_pattern_idx: 0,
                                                     },
                                                     ty: 3,
                                                 },
@@ -262,8 +262,8 @@ SynDeclSheet {
                                     },
                                     pattern_roots: [
                                         SynPatternRoot {
-                                            kind: SynPatternExprRootKind::Parenate,
-                                            syn_pattern_expr_idx: 0,
+                                            kind: SynPatternRootKind::Parenate,
+                                            syn_pattern_idx: 0,
                                         },
                                     ],
                                     expr_roots: [
@@ -336,8 +336,8 @@ SynDeclSheet {
                             ],
                             parenate_parameters: [
                                 ParenateParameterSyndicate::Simple {
-                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                        syn_pattern_expr_idx: 0,
+                                    syn_pattern_root: ParenateParameterSynPatternRoot {
+                                        syn_pattern_idx: 0,
                                     },
                                     variables: ArenaIdxRange(
                                         1..2,
@@ -350,8 +350,8 @@ SynDeclSheet {
                                     ty: 3,
                                 },
                                 ParenateParameterSyndicate::Simple {
-                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                        syn_pattern_expr_idx: 1,
+                                    syn_pattern_root: ParenateParameterSynPatternRoot {
+                                        syn_pattern_idx: 1,
                                     },
                                     variables: ArenaIdxRange(
                                         2..3,
@@ -364,8 +364,8 @@ SynDeclSheet {
                                     ty: 4,
                                 },
                                 ParenateParameterSyndicate::Simple {
-                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                        syn_pattern_expr_idx: 2,
+                                    syn_pattern_root: ParenateParameterSynPatternRoot {
+                                        syn_pattern_idx: 2,
                                     },
                                     variables: ArenaIdxRange(
                                         3..4,
@@ -510,7 +510,7 @@ SynDeclSheet {
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_region: SynPatternRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
                                                 SynPatternData::Ident {
@@ -679,8 +679,8 @@ SynDeclSheet {
                                             ),
                                             (
                                                 SimpleParenateParameter {
-                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                                        syn_pattern_expr_idx: 0,
+                                                    syn_pattern_root: ParenateParameterSynPatternRoot {
+                                                        syn_pattern_idx: 0,
                                                     },
                                                     ty: 3,
                                                 },
@@ -690,8 +690,8 @@ SynDeclSheet {
                                             ),
                                             (
                                                 SimpleParenateParameter {
-                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                                        syn_pattern_expr_idx: 1,
+                                                    syn_pattern_root: ParenateParameterSynPatternRoot {
+                                                        syn_pattern_idx: 1,
                                                     },
                                                     ty: 4,
                                                 },
@@ -701,8 +701,8 @@ SynDeclSheet {
                                             ),
                                             (
                                                 SimpleParenateParameter {
-                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                                        syn_pattern_expr_idx: 2,
+                                                    syn_pattern_root: ParenateParameterSynPatternRoot {
+                                                        syn_pattern_idx: 2,
                                                     },
                                                     ty: 5,
                                                 },
@@ -714,16 +714,16 @@ SynDeclSheet {
                                     },
                                     pattern_roots: [
                                         SynPatternRoot {
-                                            kind: SynPatternExprRootKind::Parenate,
-                                            syn_pattern_expr_idx: 0,
+                                            kind: SynPatternRootKind::Parenate,
+                                            syn_pattern_idx: 0,
                                         },
                                         SynPatternRoot {
-                                            kind: SynPatternExprRootKind::Parenate,
-                                            syn_pattern_expr_idx: 1,
+                                            kind: SynPatternRootKind::Parenate,
+                                            syn_pattern_idx: 1,
                                         },
                                         SynPatternRoot {
-                                            kind: SynPatternExprRootKind::Parenate,
-                                            syn_pattern_expr_idx: 2,
+                                            kind: SynPatternRootKind::Parenate,
+                                            syn_pattern_idx: 2,
                                         },
                                     ],
                                     expr_roots: [
@@ -812,8 +812,8 @@ SynDeclSheet {
                             ],
                             parenate_parameters: [
                                 ParenateParameterSyndicate::Simple {
-                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                        syn_pattern_expr_idx: 0,
+                                    syn_pattern_root: ParenateParameterSynPatternRoot {
+                                        syn_pattern_idx: 0,
                                     },
                                     variables: ArenaIdxRange(
                                         1..2,
@@ -826,8 +826,8 @@ SynDeclSheet {
                                     ty: 3,
                                 },
                                 ParenateParameterSyndicate::Simple {
-                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                        syn_pattern_expr_idx: 1,
+                                    syn_pattern_root: ParenateParameterSynPatternRoot {
+                                        syn_pattern_idx: 1,
                                     },
                                     variables: ArenaIdxRange(
                                         2..3,
@@ -840,8 +840,8 @@ SynDeclSheet {
                                     ty: 4,
                                 },
                                 ParenateParameterSyndicate::Simple {
-                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                        syn_pattern_expr_idx: 2,
+                                    syn_pattern_root: ParenateParameterSynPatternRoot {
+                                        syn_pattern_idx: 2,
                                     },
                                     variables: ArenaIdxRange(
                                         3..4,
@@ -1015,7 +1015,7 @@ SynDeclSheet {
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_region: SynPatternRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
                                                 SynPatternData::Ident {
@@ -1184,8 +1184,8 @@ SynDeclSheet {
                                             ),
                                             (
                                                 SimpleParenateParameter {
-                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                                        syn_pattern_expr_idx: 0,
+                                                    syn_pattern_root: ParenateParameterSynPatternRoot {
+                                                        syn_pattern_idx: 0,
                                                     },
                                                     ty: 3,
                                                 },
@@ -1195,8 +1195,8 @@ SynDeclSheet {
                                             ),
                                             (
                                                 SimpleParenateParameter {
-                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                                        syn_pattern_expr_idx: 1,
+                                                    syn_pattern_root: ParenateParameterSynPatternRoot {
+                                                        syn_pattern_idx: 1,
                                                     },
                                                     ty: 4,
                                                 },
@@ -1206,8 +1206,8 @@ SynDeclSheet {
                                             ),
                                             (
                                                 SimpleParenateParameter {
-                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                                        syn_pattern_expr_idx: 2,
+                                                    syn_pattern_root: ParenateParameterSynPatternRoot {
+                                                        syn_pattern_idx: 2,
                                                     },
                                                     ty: 5,
                                                 },
@@ -1219,16 +1219,16 @@ SynDeclSheet {
                                     },
                                     pattern_roots: [
                                         SynPatternRoot {
-                                            kind: SynPatternExprRootKind::Parenate,
-                                            syn_pattern_expr_idx: 0,
+                                            kind: SynPatternRootKind::Parenate,
+                                            syn_pattern_idx: 0,
                                         },
                                         SynPatternRoot {
-                                            kind: SynPatternExprRootKind::Parenate,
-                                            syn_pattern_expr_idx: 1,
+                                            kind: SynPatternRootKind::Parenate,
+                                            syn_pattern_idx: 1,
                                         },
                                         SynPatternRoot {
-                                            kind: SynPatternExprRootKind::Parenate,
-                                            syn_pattern_expr_idx: 2,
+                                            kind: SynPatternRootKind::Parenate,
+                                            syn_pattern_idx: 2,
                                         },
                                     ],
                                     expr_roots: [
@@ -1316,7 +1316,7 @@ SynDeclSheet {
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_region: SynPatternRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -1394,7 +1394,7 @@ SynDeclSheet {
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_region: SynPatternRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },

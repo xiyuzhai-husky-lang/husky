@@ -108,6 +108,8 @@ impl<'a> PlaceContractEngine<'a> {
                     self.infer_stmts(case_branch.stmts, contract, site.clone());
                 }
             }
+            // ad hoc
+            SemStmtData::Narrate { narrate_token } => (),
         }
     }
 

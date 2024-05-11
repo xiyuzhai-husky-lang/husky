@@ -20,7 +20,7 @@ impl<'a, 'b> SynDefnExprParser<'a, 'b> {
         };
         let symbols = self
             .pattern_expr_region()
-            .pattern_expr_symbols(syn_pattern_expr_root.syn_pattern_expr_idx());
+            .pattern_expr_symbols(syn_pattern_expr_root.syn_pattern_idx());
         let access_start = self.state().next_regional_token_idx();
         let symbols = symbols
             .iter()

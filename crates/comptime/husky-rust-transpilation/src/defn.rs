@@ -184,11 +184,11 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirEagerParenateParameter {
         let db = builder.db();
         match self {
             HirEagerParenateParameter::Simple {
-                pattern_expr_idx,
+                pattern_idx,
                 contract,
                 ty,
             } => {
-                pattern_expr_idx.transpile_to_rust(builder);
+                pattern_idx.transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::Colon);
                 match contract {
                     HirContract::Pure => match ty.always_copyable(db) {

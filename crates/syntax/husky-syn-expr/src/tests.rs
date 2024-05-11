@@ -88,7 +88,7 @@ fn parse_expr_works() {
             stmt_arena: Arena {
                 data: [],
             },
-            pattern_expr_region: SynPatternExprRegion {
+            pattern_expr_region: SynPatternRegion {
                 pattern_expr_arena: Arena {
                     data: [],
                 },
@@ -189,7 +189,7 @@ fn parse_expr_works() {
                 stmt_arena: Arena {
                     data: [],
                 },
-                pattern_expr_region: SynPatternExprRegion {
+                pattern_expr_region: SynPatternRegion {
                     pattern_expr_arena: Arena {
                         data: [],
                     },
@@ -283,7 +283,7 @@ fn parse_expr_works() {
                 stmt_arena: Arena {
                     data: [],
                 },
-                pattern_expr_region: SynPatternExprRegion {
+                pattern_expr_region: SynPatternRegion {
                     pattern_expr_arena: Arena {
                         data: [],
                     },
@@ -377,7 +377,7 @@ fn parse_expr_works() {
                 stmt_arena: Arena {
                     data: [],
                 },
-                pattern_expr_region: SynPatternExprRegion {
+                pattern_expr_region: SynPatternRegion {
                     pattern_expr_arena: Arena {
                         data: [],
                     },
@@ -468,7 +468,7 @@ fn parse_expr_works() {
                     stmt_arena: Arena {
                         data: [],
                     },
-                    pattern_expr_region: SynPatternExprRegion {
+                    pattern_expr_region: SynPatternRegion {
                         pattern_expr_arena: Arena {
                             data: [],
                         },
@@ -582,7 +582,7 @@ fn parse_expr_works() {
                 stmt_arena: Arena {
                     data: [],
                 },
-                pattern_expr_region: SynPatternExprRegion {
+                pattern_expr_region: SynPatternRegion {
                     pattern_expr_arena: Arena {
                         data: [],
                     },
@@ -689,7 +689,7 @@ fn parse_expr_works() {
                 stmt_arena: Arena {
                     data: [],
                 },
-                pattern_expr_region: SynPatternExprRegion {
+                pattern_expr_region: SynPatternRegion {
                     pattern_expr_arena: Arena {
                         data: [],
                     },
@@ -811,7 +811,7 @@ fn parse_expr_works() {
                 stmt_arena: Arena {
                     data: [],
                 },
-                pattern_expr_region: SynPatternExprRegion {
+                pattern_expr_region: SynPatternRegion {
                     pattern_expr_arena: Arena {
                         data: [],
                     },
@@ -937,7 +937,7 @@ fn parse_expr_works() {
                 stmt_arena: Arena {
                     data: [],
                 },
-                pattern_expr_region: SynPatternExprRegion {
+                pattern_expr_region: SynPatternRegion {
                     pattern_expr_arena: Arena {
                         data: [],
                     },
@@ -1043,7 +1043,7 @@ fn parse_expr_works() {
                 stmt_arena: Arena {
                     data: [],
                 },
-                pattern_expr_region: SynPatternExprRegion {
+                pattern_expr_region: SynPatternRegion {
                     pattern_expr_arena: Arena {
                         data: [],
                     },
@@ -1157,7 +1157,7 @@ fn parse_expr_works() {
                 stmt_arena: Arena {
                     data: [],
                 },
-                pattern_expr_region: SynPatternExprRegion {
+                pattern_expr_region: SynPatternRegion {
                     pattern_expr_arena: Arena {
                         data: [],
                     },
@@ -1284,7 +1284,7 @@ fn parse_application_expr_works() {
                 stmt_arena: Arena {
                     data: [],
                 },
-                pattern_expr_region: SynPatternExprRegion {
+                pattern_expr_region: SynPatternRegion {
                     pattern_expr_arena: Arena {
                         data: [],
                     },
