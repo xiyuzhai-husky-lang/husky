@@ -4160,8 +4160,8 @@
                                         101,
                                     ),
                                     target: BePatternSyndicate {
-                                        pattern_expr_root: BeSynPatternExprRoot {
-                                            syn_pattern_expr_idx: 4,
+                                        pattern_expr_root: BeSynPatternRoot {
+                                            syn_pattern_idx: 4,
                                         },
                                         variables: ArenaIdxRange(
                                             4..4,
@@ -8547,8 +8547,8 @@
                                         229,
                                     ),
                                     target: BePatternSyndicate {
-                                        pattern_expr_root: BeSynPatternExprRoot {
-                                            syn_pattern_expr_idx: 7,
+                                        pattern_expr_root: BeSynPatternRoot {
+                                            syn_pattern_idx: 7,
                                         },
                                         variables: ArenaIdxRange(
                                             5..5,
@@ -11901,8 +11901,8 @@
                                         339,
                                     ),
                                     target: BePatternSyndicate {
-                                        pattern_expr_root: BeSynPatternExprRoot {
-                                            syn_pattern_expr_idx: 11,
+                                        pattern_expr_root: BeSynPatternRoot {
+                                            syn_pattern_idx: 11,
                                         },
                                         variables: ArenaIdxRange(
                                             7..7,
@@ -16860,7 +16860,7 @@
                                     },
                                     let_pattern_sem_obelisk: LetVariableObelisk {
                                         syn_pattern_root: LetPatternSynExprRoot {
-                                            syn_pattern_expr_idx: 8,
+                                            syn_pattern_idx: 8,
                                         },
                                         variables: ArenaIdxRange(
                                             5..6,
@@ -16899,7 +16899,7 @@
                                     },
                                     let_pattern_sem_obelisk: LetVariableObelisk {
                                         syn_pattern_root: LetPatternSynExprRoot {
-                                            syn_pattern_expr_idx: 9,
+                                            syn_pattern_idx: 9,
                                         },
                                         variables: ArenaIdxRange(
                                             6..7,
@@ -17100,7 +17100,7 @@
                                     },
                                     let_pattern_sem_obelisk: LetVariableObelisk {
                                         syn_pattern_root: LetPatternSynExprRoot {
-                                            syn_pattern_expr_idx: 1,
+                                            syn_pattern_idx: 1,
                                         },
                                         variables: ArenaIdxRange(
                                             1..2,
@@ -17139,7 +17139,7 @@
                                     },
                                     let_pattern_sem_obelisk: LetVariableObelisk {
                                         syn_pattern_root: LetPatternSynExprRoot {
-                                            syn_pattern_expr_idx: 2,
+                                            syn_pattern_idx: 2,
                                         },
                                         variables: ArenaIdxRange(
                                             2..3,
@@ -17178,7 +17178,7 @@
                                     },
                                     let_pattern_sem_obelisk: LetVariableObelisk {
                                         syn_pattern_root: LetPatternSynExprRoot {
-                                            syn_pattern_expr_idx: 3,
+                                            syn_pattern_idx: 3,
                                         },
                                         variables: ArenaIdxRange(
                                             3..4,
@@ -17224,8 +17224,8 @@
                                                 101,
                                             ),
                                             target: BePatternSyndicate {
-                                                pattern_expr_root: BeSynPatternExprRoot {
-                                                    syn_pattern_expr_idx: 4,
+                                                pattern_expr_root: BeSynPatternRoot {
+                                                    syn_pattern_idx: 4,
                                                 },
                                                 variables: ArenaIdxRange(
                                                     4..4,
@@ -17266,7 +17266,7 @@
                                     },
                                     let_pattern_sem_obelisk: LetVariableObelisk {
                                         syn_pattern_root: LetPatternSynExprRoot {
-                                            syn_pattern_expr_idx: 5,
+                                            syn_pattern_idx: 5,
                                         },
                                         variables: ArenaIdxRange(
                                             4..5,
@@ -17395,8 +17395,8 @@
                                                 229,
                                             ),
                                             target: BePatternSyndicate {
-                                                pattern_expr_root: BeSynPatternExprRoot {
-                                                    syn_pattern_expr_idx: 7,
+                                                pattern_expr_root: BeSynPatternRoot {
+                                                    syn_pattern_idx: 7,
                                                 },
                                                 variables: ArenaIdxRange(
                                                     5..5,
@@ -17444,8 +17444,8 @@
                                                 339,
                                             ),
                                             target: BePatternSyndicate {
-                                                pattern_expr_root: BeSynPatternExprRoot {
-                                                    syn_pattern_expr_idx: 11,
+                                                pattern_expr_root: BeSynPatternRoot {
+                                                    syn_pattern_idx: 11,
                                                 },
                                                 variables: ArenaIdxRange(
                                                     7..7,
@@ -17511,7 +17511,7 @@
                                     },
                                     let_pattern_sem_obelisk: LetVariableObelisk {
                                         syn_pattern_root: LetPatternSynExprRoot {
-                                            syn_pattern_expr_idx: 12,
+                                            syn_pattern_idx: 12,
                                         },
                                         variables: ArenaIdxRange(
                                             7..8,
@@ -17550,7 +17550,7 @@
                                     },
                                     let_pattern_sem_obelisk: LetVariableObelisk {
                                         syn_pattern_root: LetPatternSynExprRoot {
-                                            syn_pattern_expr_idx: 13,
+                                            syn_pattern_idx: 13,
                                         },
                                         variables: ArenaIdxRange(
                                             8..9,
@@ -17589,7 +17589,7 @@
                                     },
                                     let_pattern_sem_obelisk: LetVariableObelisk {
                                         syn_pattern_root: LetPatternSynExprRoot {
-                                            syn_pattern_expr_idx: 14,
+                                            syn_pattern_idx: 14,
                                         },
                                         variables: ArenaIdxRange(
                                             9..10,
@@ -17628,7 +17628,7 @@
                                     },
                                     let_pattern_sem_obelisk: LetVariableObelisk {
                                         syn_pattern_root: LetPatternSynExprRoot {
-                                            syn_pattern_expr_idx: 15,
+                                            syn_pattern_idx: 15,
                                         },
                                         variables: ArenaIdxRange(
                                             10..11,
@@ -17721,7 +17721,7 @@
                                     },
                                     let_pattern_sem_obelisk: LetVariableObelisk {
                                         syn_pattern_root: LetPatternSynExprRoot {
-                                            syn_pattern_expr_idx: 16,
+                                            syn_pattern_idx: 16,
                                         },
                                         variables: ArenaIdxRange(
                                             11..12,
@@ -17760,7 +17760,7 @@
                                     },
                                     let_pattern_sem_obelisk: LetVariableObelisk {
                                         syn_pattern_root: LetPatternSynExprRoot {
-                                            syn_pattern_expr_idx: 17,
+                                            syn_pattern_idx: 17,
                                         },
                                         variables: ArenaIdxRange(
                                             12..13,
@@ -17799,7 +17799,7 @@
                                     },
                                     let_pattern_sem_obelisk: LetVariableObelisk {
                                         syn_pattern_root: LetPatternSynExprRoot {
-                                            syn_pattern_expr_idx: 18,
+                                            syn_pattern_idx: 18,
                                         },
                                         variables: ArenaIdxRange(
                                             13..14,
@@ -17838,7 +17838,7 @@
                                     },
                                     let_pattern_sem_obelisk: LetVariableObelisk {
                                         syn_pattern_root: LetPatternSynExprRoot {
-                                            syn_pattern_expr_idx: 19,
+                                            syn_pattern_idx: 19,
                                         },
                                         variables: ArenaIdxRange(
                                             14..15,
@@ -17987,7 +17987,7 @@
                                     },
                                     let_pattern_sem_obelisk: LetVariableObelisk {
                                         syn_pattern_root: LetPatternSynExprRoot {
-                                            syn_pattern_expr_idx: 0,
+                                            syn_pattern_idx: 0,
                                         },
                                         variables: ArenaIdxRange(
                                             0..1,
@@ -18090,7 +18090,7 @@
                 ),
             ],
             syn_pattern_expr_ty_infos: [
-                PatternExprTypeInfo {
+                PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
                             place: None,
@@ -18110,7 +18110,7 @@
                         },
                     ),
                 },
-                PatternExprTypeInfo {
+                PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
                             place: Some(
@@ -18130,7 +18130,7 @@
                         },
                     ),
                 },
-                PatternExprTypeInfo {
+                PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
                             place: Some(
@@ -18150,7 +18150,7 @@
                         },
                     ),
                 },
-                PatternExprTypeInfo {
+                PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
                             place: Some(
@@ -18170,7 +18170,7 @@
                         },
                     ),
                 },
-                PatternExprTypeInfo {
+                PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
                             place: Some(
@@ -18192,7 +18192,7 @@
                         },
                     ),
                 },
-                PatternExprTypeInfo {
+                PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
                             place: None,
@@ -18212,7 +18212,7 @@
                         },
                     ),
                 },
-                PatternExprTypeInfo {
+                PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
                             place: Some(
@@ -18234,7 +18234,7 @@
                         },
                     ),
                 },
-                PatternExprTypeInfo {
+                PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
                             place: Some(
@@ -18258,7 +18258,7 @@
                         },
                     ),
                 },
-                PatternExprTypeInfo {
+                PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
                             place: None,
@@ -18278,7 +18278,7 @@
                         },
                     ),
                 },
-                PatternExprTypeInfo {
+                PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
                             place: Some(
@@ -18300,7 +18300,7 @@
                         },
                     ),
                 },
-                PatternExprTypeInfo {
+                PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
                             place: Some(
@@ -18324,7 +18324,7 @@
                         },
                     ),
                 },
-                PatternExprTypeInfo {
+                PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
                             place: None,
@@ -18344,7 +18344,7 @@
                         },
                     ),
                 },
-                PatternExprTypeInfo {
+                PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
                             place: Some(
@@ -18368,7 +18368,7 @@
                         },
                     ),
                 },
-                PatternExprTypeInfo {
+                PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
                             place: None,
@@ -18388,7 +18388,7 @@
                         },
                     ),
                 },
-                PatternExprTypeInfo {
+                PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
                             place: Some(
@@ -18412,7 +18412,7 @@
                         },
                     ),
                 },
-                PatternExprTypeInfo {
+                PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
                             place: Some(
@@ -18436,7 +18436,7 @@
                         },
                     ),
                 },
-                PatternExprTypeInfo {
+                PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
                             place: None,
@@ -18456,7 +18456,7 @@
                         },
                     ),
                 },
-                PatternExprTypeInfo {
+                PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
                             place: None,
@@ -31927,7 +31927,7 @@
                                     },
                                     let_pattern_sem_obelisk: LetVariableObelisk {
                                         syn_pattern_root: LetPatternSynExprRoot {
-                                            syn_pattern_expr_idx: 0,
+                                            syn_pattern_idx: 0,
                                         },
                                         variables: ArenaIdxRange(
                                             0..1,
@@ -32027,7 +32027,7 @@
                 ),
             ],
             syn_pattern_expr_ty_infos: [
-                PatternExprTypeInfo {
+                PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
                             place: None,
@@ -33156,7 +33156,7 @@
                                     },
                                     let_pattern_sem_obelisk: LetVariableObelisk {
                                         syn_pattern_root: LetPatternSynExprRoot {
-                                            syn_pattern_expr_idx: 0,
+                                            syn_pattern_idx: 0,
                                         },
                                         variables: ArenaIdxRange(
                                             0..1,
@@ -33252,7 +33252,7 @@
                 ),
             ],
             syn_pattern_expr_ty_infos: [
-                PatternExprTypeInfo {
+                PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
                             place: None,
@@ -34738,7 +34738,7 @@
                                     },
                                     let_pattern_sem_obelisk: LetVariableObelisk {
                                         syn_pattern_root: LetPatternSynExprRoot {
-                                            syn_pattern_expr_idx: 0,
+                                            syn_pattern_idx: 0,
                                         },
                                         variables: ArenaIdxRange(
                                             0..1,
@@ -34857,7 +34857,7 @@
                 ),
             ],
             syn_pattern_expr_ty_infos: [
-                PatternExprTypeInfo {
+                PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
                             place: None,

@@ -176,7 +176,8 @@ where
                     regional_token_idx,
                     SynBinaryOpr::Shift(BinaryShiftOpr::Shr),
                 ),
-                PunctuationMapped::DeriveAssign => return TokenDisambiguationResult::Break(()),
+                PunctuationMapped::ColonHyphen => todo!(),
+                PunctuationMapped::ColonEq => return TokenDisambiguationResult::Break(()),
                 PunctuationMapped::Minus => {
                     DisambiguatedTokenData::SynPrefixOpr(regional_token_idx, SynPrefixOpr::Minus)
                 }

@@ -48,7 +48,7 @@ impl<'a> SemExprBuilder<'a> {
                 branch
                     .case_pattern_sem_obelisk
                     .syn_pattern_root()
-                    .syn_pattern_expr_idx(),
+                    .syn_pattern_idx(),
             )
         }));
         (

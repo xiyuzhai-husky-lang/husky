@@ -19,7 +19,7 @@ pub(super) struct DecTermEngine<'a> {
     symbolic_variable_region: DecSymbolicVariableRegion,
     expr_terms: SynExprMap<SynExprDecTermResult<DecTerm>>,
     /// todo: change this to ordered
-    pattern_expr_ty_infos: SynPatternMap<PatternExprDeclarativeTypeInfo>,
+    pattern_expr_ty_infos: SynPatternMap<PatternDeclarativeTypeInfo>,
     pattern_symbol_ty_infos: SynPatternSymbolMap<DecPatternVariableTypeInfo>,
 }
 
@@ -251,7 +251,7 @@ impl<'a> DecTermEngine<'a> {
     /// let variables, be variables and match variables are infered in `husky-expr-ty`
     fn init_current_variable_signatures_in_parenate_or_lambda_parameter(
         &mut self,
-        parenate_syn_pattern_expr_root: ParenateParameterSynPatternExprRoot,
+        parenate_syn_pattern_expr_root: ParenateParameterSynPatternRoot,
         ty: SynExprIdx,
         symbols: CurrentSynSymbolIdxRange,
     ) {

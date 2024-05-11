@@ -175,6 +175,7 @@ impl ToHirEager for SemStmtIdx {
                 opd: match_opd.to_hir_eager(builder),
                 case_branches: case_branches.to_hir_eager(builder),
             },
+            SemStmtData::Narrate { narrate_token } => todo!(),
         })
     }
 }

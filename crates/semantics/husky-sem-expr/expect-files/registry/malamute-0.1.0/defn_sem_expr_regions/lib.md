@@ -1247,8 +1247,8 @@
                                                 ),
                                             ),
                                             case_pattern_sem_obelisk: CaseVariableObelisk {
-                                                syn_pattern_root: CaseSynPatternExprRoot {
-                                                    syn_pattern_expr_idx: 0,
+                                                syn_pattern_root: CaseSynPatternRoot {
+                                                    syn_pattern_idx: 0,
                                                 },
                                                 variables: ArenaIdxRange(
                                                     0..0,
@@ -1272,8 +1272,8 @@
                                                 ),
                                             ),
                                             case_pattern_sem_obelisk: CaseVariableObelisk {
-                                                syn_pattern_root: CaseSynPatternExprRoot {
-                                                    syn_pattern_expr_idx: 1,
+                                                syn_pattern_root: CaseSynPatternRoot {
+                                                    syn_pattern_idx: 1,
                                                 },
                                                 variables: ArenaIdxRange(
                                                     0..0,
@@ -1319,7 +1319,7 @@
                 ),
             ],
             syn_pattern_expr_ty_infos: [
-                PatternExprTypeInfo {
+                PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
                             place: Some(
@@ -1341,7 +1341,7 @@
                         },
                     ),
                 },
-                PatternExprTypeInfo {
+                PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
                             place: Some(
@@ -3295,8 +3295,8 @@
                                                 ),
                                             ),
                                             case_pattern_sem_obelisk: CaseVariableObelisk {
-                                                syn_pattern_root: CaseSynPatternExprRoot {
-                                                    syn_pattern_expr_idx: 0,
+                                                syn_pattern_root: CaseSynPatternRoot {
+                                                    syn_pattern_idx: 0,
                                                 },
                                                 variables: ArenaIdxRange(
                                                     0..0,
@@ -3320,8 +3320,8 @@
                                                 ),
                                             ),
                                             case_pattern_sem_obelisk: CaseVariableObelisk {
-                                                syn_pattern_root: CaseSynPatternExprRoot {
-                                                    syn_pattern_expr_idx: 1,
+                                                syn_pattern_root: CaseSynPatternRoot {
+                                                    syn_pattern_idx: 1,
                                                 },
                                                 variables: ArenaIdxRange(
                                                     0..0,
@@ -3345,8 +3345,8 @@
                                                 ),
                                             ),
                                             case_pattern_sem_obelisk: CaseVariableObelisk {
-                                                syn_pattern_root: CaseSynPatternExprRoot {
-                                                    syn_pattern_expr_idx: 2,
+                                                syn_pattern_root: CaseSynPatternRoot {
+                                                    syn_pattern_idx: 2,
                                                 },
                                                 variables: ArenaIdxRange(
                                                     0..0,
@@ -3392,7 +3392,7 @@
                 ),
             ],
             syn_pattern_expr_ty_infos: [
-                PatternExprTypeInfo {
+                PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
                             place: Some(
@@ -3414,7 +3414,7 @@
                         },
                     ),
                 },
-                PatternExprTypeInfo {
+                PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
                             place: Some(
@@ -3436,7 +3436,7 @@
                         },
                     ),
                 },
-                PatternExprTypeInfo {
+                PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
                             place: Some(

@@ -141,7 +141,7 @@
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_region: SynPatternRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
                                                 SynPatternData::Ident {
@@ -205,8 +205,8 @@
                                         pattern_ty_constraints: [
                                             (
                                                 SimpleParenateParameter {
-                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                                        syn_pattern_expr_idx: 0,
+                                                    syn_pattern_root: ParenateParameterSynPatternRoot {
+                                                        syn_pattern_idx: 0,
                                                     },
                                                     ty: 1,
                                                 },
@@ -218,8 +218,8 @@
                                     },
                                     pattern_roots: [
                                         SynPatternRoot {
-                                            kind: SynPatternExprRootKind::Parenate,
-                                            syn_pattern_expr_idx: 0,
+                                            kind: SynPatternRootKind::Parenate,
+                                            syn_pattern_idx: 0,
                                         },
                                     ],
                                     expr_roots: [
@@ -1127,7 +1127,7 @@
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
                                             syn_pattern_expr_root: LetPatternSynExprRoot {
-                                                syn_pattern_expr_idx: 0,
+                                                syn_pattern_idx: 0,
                                             },
                                             variables: ArenaIdxRange(
                                                 0..1,
@@ -1164,7 +1164,7 @@
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
                                             syn_pattern_expr_root: LetPatternSynExprRoot {
-                                                syn_pattern_expr_idx: 1,
+                                                syn_pattern_idx: 1,
                                             },
                                             variables: ArenaIdxRange(
                                                 1..2,
@@ -1193,7 +1193,7 @@
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
                                             syn_pattern_expr_root: LetPatternSynExprRoot {
-                                                syn_pattern_expr_idx: 2,
+                                                syn_pattern_idx: 2,
                                             },
                                             variables: ArenaIdxRange(
                                                 2..3,
@@ -1222,7 +1222,7 @@
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
                                             syn_pattern_expr_root: LetPatternSynExprRoot {
-                                                syn_pattern_expr_idx: 3,
+                                                syn_pattern_idx: 3,
                                             },
                                             variables: ArenaIdxRange(
                                                 3..4,
@@ -1273,7 +1273,7 @@
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
                                             syn_pattern_expr_root: LetPatternSynExprRoot {
-                                                syn_pattern_expr_idx: 4,
+                                                syn_pattern_idx: 4,
                                             },
                                             variables: ArenaIdxRange(
                                                 4..5,
@@ -1325,7 +1325,7 @@
                                 },
                             ],
                         },
-                        pattern_expr_region: SynPatternExprRegion {
+                        pattern_expr_region: SynPatternRegion {
                             pattern_expr_arena: Arena {
                                 data: [
                                     SynPatternData::Ident {
@@ -1575,7 +1575,7 @@
                                 (
                                     LetPattern {
                                         pattern: LetPatternSynExprRoot {
-                                            syn_pattern_expr_idx: 0,
+                                            syn_pattern_idx: 0,
                                         },
                                         ty: 2,
                                     },
@@ -1587,24 +1587,24 @@
                         },
                         pattern_roots: [
                             SynPatternRoot {
-                                kind: SynPatternExprRootKind::Let,
-                                syn_pattern_expr_idx: 0,
+                                kind: SynPatternRootKind::Let,
+                                syn_pattern_idx: 0,
                             },
                             SynPatternRoot {
-                                kind: SynPatternExprRootKind::Let,
-                                syn_pattern_expr_idx: 1,
+                                kind: SynPatternRootKind::Let,
+                                syn_pattern_idx: 1,
                             },
                             SynPatternRoot {
-                                kind: SynPatternExprRootKind::Let,
-                                syn_pattern_expr_idx: 2,
+                                kind: SynPatternRootKind::Let,
+                                syn_pattern_idx: 2,
                             },
                             SynPatternRoot {
-                                kind: SynPatternExprRootKind::Let,
-                                syn_pattern_expr_idx: 3,
+                                kind: SynPatternRootKind::Let,
+                                syn_pattern_idx: 3,
                             },
                             SynPatternRoot {
-                                kind: SynPatternExprRootKind::Let,
-                                syn_pattern_expr_idx: 4,
+                                kind: SynPatternRootKind::Let,
+                                syn_pattern_idx: 4,
                             },
                         ],
                         expr_roots: [
@@ -1822,7 +1822,7 @@
                                                 stmt_arena: Arena {
                                                     data: [],
                                                 },
-                                                pattern_expr_region: SynPatternExprRegion {
+                                                pattern_expr_region: SynPatternRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
@@ -1926,7 +1926,7 @@
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_region: SynPatternRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -2049,7 +2049,7 @@
                                 },
                             ],
                         },
-                        pattern_expr_region: SynPatternExprRegion {
+                        pattern_expr_region: SynPatternRegion {
                             pattern_expr_arena: Arena {
                                 data: [],
                             },
@@ -2208,7 +2208,7 @@
                                                 stmt_arena: Arena {
                                                     data: [],
                                                 },
-                                                pattern_expr_region: SynPatternExprRegion {
+                                                pattern_expr_region: SynPatternRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
@@ -2303,7 +2303,7 @@
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_region: SynPatternRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -2401,7 +2401,7 @@
                                 },
                             ],
                         },
-                        pattern_expr_region: SynPatternExprRegion {
+                        pattern_expr_region: SynPatternRegion {
                             pattern_expr_arena: Arena {
                                 data: [],
                             },
@@ -2536,7 +2536,7 @@
                                                 stmt_arena: Arena {
                                                     data: [],
                                                 },
-                                                pattern_expr_region: SynPatternExprRegion {
+                                                pattern_expr_region: SynPatternRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
@@ -2631,7 +2631,7 @@
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_region: SynPatternRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -2784,7 +2784,7 @@
                                 },
                             ],
                         },
-                        pattern_expr_region: SynPatternExprRegion {
+                        pattern_expr_region: SynPatternRegion {
                             pattern_expr_arena: Arena {
                                 data: [],
                             },
@@ -2919,7 +2919,7 @@
                                                 stmt_arena: Arena {
                                                     data: [],
                                                 },
-                                                pattern_expr_region: SynPatternExprRegion {
+                                                pattern_expr_region: SynPatternRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
@@ -3014,7 +3014,7 @@
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_region: SynPatternRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -3518,7 +3518,7 @@
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
                                             syn_pattern_expr_root: LetPatternSynExprRoot {
-                                                syn_pattern_expr_idx: 4,
+                                                syn_pattern_idx: 4,
                                             },
                                             variables: ArenaIdxRange(
                                                 5..6,
@@ -3547,7 +3547,7 @@
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
                                             syn_pattern_expr_root: LetPatternSynExprRoot {
-                                                syn_pattern_expr_idx: 5,
+                                                syn_pattern_idx: 5,
                                             },
                                             variables: ArenaIdxRange(
                                                 6..7,
@@ -3600,7 +3600,7 @@
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
                                             syn_pattern_expr_root: LetPatternSynExprRoot {
-                                                syn_pattern_expr_idx: 0,
+                                                syn_pattern_idx: 0,
                                             },
                                             variables: ArenaIdxRange(
                                                 0..1,
@@ -3629,7 +3629,7 @@
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
                                             syn_pattern_expr_root: LetPatternSynExprRoot {
-                                                syn_pattern_expr_idx: 1,
+                                                syn_pattern_idx: 1,
                                             },
                                             variables: ArenaIdxRange(
                                                 1..2,
@@ -3658,7 +3658,7 @@
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
                                             syn_pattern_expr_root: LetPatternSynExprRoot {
-                                                syn_pattern_expr_idx: 2,
+                                                syn_pattern_idx: 2,
                                             },
                                             variables: ArenaIdxRange(
                                                 2..3,
@@ -3687,7 +3687,7 @@
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
                                             syn_pattern_expr_root: LetPatternSynExprRoot {
-                                                syn_pattern_expr_idx: 3,
+                                                syn_pattern_idx: 3,
                                             },
                                             variables: ArenaIdxRange(
                                                 3..4,
@@ -3763,7 +3763,7 @@
                                 },
                             ],
                         },
-                        pattern_expr_region: SynPatternExprRegion {
+                        pattern_expr_region: SynPatternRegion {
                             pattern_expr_arena: Arena {
                                 data: [
                                     SynPatternData::Ident {
@@ -4051,28 +4051,28 @@
                         },
                         pattern_roots: [
                             SynPatternRoot {
-                                kind: SynPatternExprRootKind::Let,
-                                syn_pattern_expr_idx: 0,
+                                kind: SynPatternRootKind::Let,
+                                syn_pattern_idx: 0,
                             },
                             SynPatternRoot {
-                                kind: SynPatternExprRootKind::Let,
-                                syn_pattern_expr_idx: 1,
+                                kind: SynPatternRootKind::Let,
+                                syn_pattern_idx: 1,
                             },
                             SynPatternRoot {
-                                kind: SynPatternExprRootKind::Let,
-                                syn_pattern_expr_idx: 2,
+                                kind: SynPatternRootKind::Let,
+                                syn_pattern_idx: 2,
                             },
                             SynPatternRoot {
-                                kind: SynPatternExprRootKind::Let,
-                                syn_pattern_expr_idx: 3,
+                                kind: SynPatternRootKind::Let,
+                                syn_pattern_idx: 3,
                             },
                             SynPatternRoot {
-                                kind: SynPatternExprRootKind::Let,
-                                syn_pattern_expr_idx: 4,
+                                kind: SynPatternRootKind::Let,
+                                syn_pattern_idx: 4,
                             },
                             SynPatternRoot {
-                                kind: SynPatternExprRootKind::Let,
-                                syn_pattern_expr_idx: 5,
+                                kind: SynPatternRootKind::Let,
+                                syn_pattern_idx: 5,
                             },
                         ],
                         expr_roots: [
@@ -4236,7 +4236,7 @@
                                                 stmt_arena: Arena {
                                                     data: [],
                                                 },
-                                                pattern_expr_region: SynPatternExprRegion {
+                                                pattern_expr_region: SynPatternRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
@@ -4331,7 +4331,7 @@
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_region: SynPatternRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -4801,7 +4801,7 @@
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
                                             syn_pattern_expr_root: LetPatternSynExprRoot {
-                                                syn_pattern_expr_idx: 2,
+                                                syn_pattern_idx: 2,
                                             },
                                             variables: ArenaIdxRange(
                                                 3..4,
@@ -4842,7 +4842,7 @@
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
                                             syn_pattern_expr_root: LetPatternSynExprRoot {
-                                                syn_pattern_expr_idx: 0,
+                                                syn_pattern_idx: 0,
                                             },
                                             variables: ArenaIdxRange(
                                                 0..1,
@@ -4871,7 +4871,7 @@
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
                                             syn_pattern_expr_root: LetPatternSynExprRoot {
-                                                syn_pattern_expr_idx: 1,
+                                                syn_pattern_idx: 1,
                                             },
                                             variables: ArenaIdxRange(
                                                 1..2,
@@ -4947,7 +4947,7 @@
                                 },
                             ],
                         },
-                        pattern_expr_region: SynPatternExprRegion {
+                        pattern_expr_region: SynPatternRegion {
                             pattern_expr_arena: Arena {
                                 data: [
                                     SynPatternData::Ident {
@@ -5132,16 +5132,16 @@
                         },
                         pattern_roots: [
                             SynPatternRoot {
-                                kind: SynPatternExprRootKind::Let,
-                                syn_pattern_expr_idx: 0,
+                                kind: SynPatternRootKind::Let,
+                                syn_pattern_idx: 0,
                             },
                             SynPatternRoot {
-                                kind: SynPatternExprRootKind::Let,
-                                syn_pattern_expr_idx: 1,
+                                kind: SynPatternRootKind::Let,
+                                syn_pattern_idx: 1,
                             },
                             SynPatternRoot {
-                                kind: SynPatternExprRootKind::Let,
-                                syn_pattern_expr_idx: 2,
+                                kind: SynPatternRootKind::Let,
+                                syn_pattern_idx: 2,
                             },
                         ],
                         expr_roots: [
@@ -5285,7 +5285,7 @@
                                                 stmt_arena: Arena {
                                                     data: [],
                                                 },
-                                                pattern_expr_region: SynPatternExprRegion {
+                                                pattern_expr_region: SynPatternRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
@@ -5380,7 +5380,7 @@
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_region: SynPatternRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -6256,7 +6256,7 @@
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
                                             syn_pattern_expr_root: LetPatternSynExprRoot {
-                                                syn_pattern_expr_idx: 5,
+                                                syn_pattern_idx: 5,
                                             },
                                             variables: ArenaIdxRange(
                                                 6..7,
@@ -6309,7 +6309,7 @@
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
                                             syn_pattern_expr_root: LetPatternSynExprRoot {
-                                                syn_pattern_expr_idx: 0,
+                                                syn_pattern_idx: 0,
                                             },
                                             variables: ArenaIdxRange(
                                                 0..1,
@@ -6338,7 +6338,7 @@
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
                                             syn_pattern_expr_root: LetPatternSynExprRoot {
-                                                syn_pattern_expr_idx: 1,
+                                                syn_pattern_idx: 1,
                                             },
                                             variables: ArenaIdxRange(
                                                 1..2,
@@ -6367,7 +6367,7 @@
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
                                             syn_pattern_expr_root: LetPatternSynExprRoot {
-                                                syn_pattern_expr_idx: 2,
+                                                syn_pattern_idx: 2,
                                             },
                                             variables: ArenaIdxRange(
                                                 2..3,
@@ -6396,7 +6396,7 @@
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
                                             syn_pattern_expr_root: LetPatternSynExprRoot {
-                                                syn_pattern_expr_idx: 3,
+                                                syn_pattern_idx: 3,
                                             },
                                             variables: ArenaIdxRange(
                                                 3..4,
@@ -6425,7 +6425,7 @@
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
                                             syn_pattern_expr_root: LetPatternSynExprRoot {
-                                                syn_pattern_expr_idx: 4,
+                                                syn_pattern_idx: 4,
                                             },
                                             variables: ArenaIdxRange(
                                                 4..5,
@@ -6501,7 +6501,7 @@
                                 },
                             ],
                         },
-                        pattern_expr_region: SynPatternExprRegion {
+                        pattern_expr_region: SynPatternRegion {
                             pattern_expr_arena: Arena {
                                 data: [
                                     SynPatternData::Ident {
@@ -6813,28 +6813,28 @@
                         },
                         pattern_roots: [
                             SynPatternRoot {
-                                kind: SynPatternExprRootKind::Let,
-                                syn_pattern_expr_idx: 0,
+                                kind: SynPatternRootKind::Let,
+                                syn_pattern_idx: 0,
                             },
                             SynPatternRoot {
-                                kind: SynPatternExprRootKind::Let,
-                                syn_pattern_expr_idx: 1,
+                                kind: SynPatternRootKind::Let,
+                                syn_pattern_idx: 1,
                             },
                             SynPatternRoot {
-                                kind: SynPatternExprRootKind::Let,
-                                syn_pattern_expr_idx: 2,
+                                kind: SynPatternRootKind::Let,
+                                syn_pattern_idx: 2,
                             },
                             SynPatternRoot {
-                                kind: SynPatternExprRootKind::Let,
-                                syn_pattern_expr_idx: 3,
+                                kind: SynPatternRootKind::Let,
+                                syn_pattern_idx: 3,
                             },
                             SynPatternRoot {
-                                kind: SynPatternExprRootKind::Let,
-                                syn_pattern_expr_idx: 4,
+                                kind: SynPatternRootKind::Let,
+                                syn_pattern_idx: 4,
                             },
                             SynPatternRoot {
-                                kind: SynPatternExprRootKind::Let,
-                                syn_pattern_expr_idx: 5,
+                                kind: SynPatternRootKind::Let,
+                                syn_pattern_idx: 5,
                             },
                         ],
                         expr_roots: [
@@ -7010,7 +7010,7 @@
                                                 stmt_arena: Arena {
                                                     data: [],
                                                 },
-                                                pattern_expr_region: SynPatternExprRegion {
+                                                pattern_expr_region: SynPatternRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
@@ -7105,7 +7105,7 @@
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_region: SynPatternRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -7257,7 +7257,7 @@
                                 },
                             ],
                         },
-                        pattern_expr_region: SynPatternExprRegion {
+                        pattern_expr_region: SynPatternRegion {
                             pattern_expr_arena: Arena {
                                 data: [],
                             },
@@ -7394,7 +7394,7 @@
                                                 stmt_arena: Arena {
                                                     data: [],
                                                 },
-                                                pattern_expr_region: SynPatternExprRegion {
+                                                pattern_expr_region: SynPatternRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
@@ -7491,7 +7491,7 @@
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_region: SynPatternRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -7776,7 +7776,7 @@
                                 },
                             ],
                         },
-                        pattern_expr_region: SynPatternExprRegion {
+                        pattern_expr_region: SynPatternRegion {
                             pattern_expr_arena: Arena {
                                 data: [],
                             },
@@ -7913,7 +7913,7 @@
                                                 stmt_arena: Arena {
                                                     data: [],
                                                 },
-                                                pattern_expr_region: SynPatternExprRegion {
+                                                pattern_expr_region: SynPatternRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
@@ -8010,7 +8010,7 @@
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_region: SynPatternRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -8169,7 +8169,7 @@
                                 },
                             ],
                         },
-                        pattern_expr_region: SynPatternExprRegion {
+                        pattern_expr_region: SynPatternRegion {
                             pattern_expr_arena: Arena {
                                 data: [],
                             },
@@ -8306,7 +8306,7 @@
                                                 stmt_arena: Arena {
                                                     data: [],
                                                 },
-                                                pattern_expr_region: SynPatternExprRegion {
+                                                pattern_expr_region: SynPatternRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
@@ -8403,7 +8403,7 @@
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_region: SynPatternRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -8562,7 +8562,7 @@
                                 },
                             ],
                         },
-                        pattern_expr_region: SynPatternExprRegion {
+                        pattern_expr_region: SynPatternRegion {
                             pattern_expr_arena: Arena {
                                 data: [],
                             },
@@ -8699,7 +8699,7 @@
                                                 stmt_arena: Arena {
                                                     data: [],
                                                 },
-                                                pattern_expr_region: SynPatternExprRegion {
+                                                pattern_expr_region: SynPatternRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
@@ -8796,7 +8796,7 @@
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_region: SynPatternRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -8924,7 +8924,7 @@
                                 },
                             ],
                         },
-                        pattern_expr_region: SynPatternExprRegion {
+                        pattern_expr_region: SynPatternRegion {
                             pattern_expr_arena: Arena {
                                 data: [],
                             },
@@ -9061,7 +9061,7 @@
                                                 stmt_arena: Arena {
                                                     data: [],
                                                 },
-                                                pattern_expr_region: SynPatternExprRegion {
+                                                pattern_expr_region: SynPatternRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
@@ -9158,7 +9158,7 @@
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_region: SynPatternRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -9305,7 +9305,7 @@
                                 },
                             ],
                         },
-                        pattern_expr_region: SynPatternExprRegion {
+                        pattern_expr_region: SynPatternRegion {
                             pattern_expr_arena: Arena {
                                 data: [],
                             },
@@ -9442,7 +9442,7 @@
                                                 stmt_arena: Arena {
                                                     data: [],
                                                 },
-                                                pattern_expr_region: SynPatternExprRegion {
+                                                pattern_expr_region: SynPatternRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
@@ -9539,7 +9539,7 @@
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_region: SynPatternRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -9686,7 +9686,7 @@
                                 },
                             ],
                         },
-                        pattern_expr_region: SynPatternExprRegion {
+                        pattern_expr_region: SynPatternRegion {
                             pattern_expr_arena: Arena {
                                 data: [],
                             },

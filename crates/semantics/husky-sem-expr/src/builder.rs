@@ -42,7 +42,7 @@ pub(crate) struct SemExprBuilder<'a> {
     sem_expr_term_results: VecPairMap<SemExprIdx, SemExprTermResult<FlyTerm>>,
     symbol_terms: SymbolMap<FlyTerm>,
     symbol_tys: SymbolMap<SymbolType>,
-    pattern_expr_ty_infos: SynPatternMap<PatternExprTypeInfo>,
+    pattern_expr_ty_infos: SynPatternMap<PatternTypeInfo>,
     pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
     pattern_expr_contracts: SynPatternMap<Contract>,
     return_ty: Option<EthTerm>,
@@ -379,9 +379,9 @@ impl<'a> SemExprBuilder<'a> {
         self.self_value_ty
     }
 
-    pub(crate) fn get_pattern_expr_ty(&self, pattern_expr_idx: SynPatternIdx) -> Option<FlyTerm> {
+    pub(crate) fn get_pattern_expr_ty(&self, pattern_idx: SynPatternIdx) -> Option<FlyTerm> {
         self.pattern_expr_ty_infos
-            .get(pattern_expr_idx)
+            .get(pattern_idx)
             .map(|info| info.ty().ok().copied())
             .flatten()
     }
@@ -514,17 +514,17 @@ impl<'a> SemExprBuilder<'a> {
         ty: FlyTerm,
         symbols: CurrentSynSymbolIdxRange,
     ) {
-        self.infer_pattern_ty(syn_pattern_root.into().syn_pattern_expr_idx(), ty);
+        self.infer_pattern_ty(syn_pattern_root.into().syn_pattern_idx(), ty);
         for symbol in symbols {
             self.infer_new_current_variable_syn_symbol_ty(symbol)
         }
     }
 
     /// the way type inference works for patterns is dual to that of expression
-    pub(crate) fn infer_pattern_ty(&mut self, syn_pattern_expr_idx: SynPatternIdx, ty: FlyTerm) {
+    pub(crate) fn infer_pattern_ty(&mut self, syn_pattern_idx: SynPatternIdx, ty: FlyTerm) {
         self.pattern_expr_ty_infos
-            .insert_new(syn_pattern_expr_idx, PatternExprTypeInfo::new(Ok(ty)));
-        self.infer_subpattern_tys(syn_pattern_expr_idx, ty)
+            .insert_new(syn_pattern_idx, PatternTypeInfo::new(Ok(ty)));
+        self.infer_subpattern_tys(syn_pattern_idx, ty)
     }
 
     pub(crate) fn infer_new_pattern_symbol_ty(

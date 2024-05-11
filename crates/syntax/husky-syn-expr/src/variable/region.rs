@@ -44,7 +44,7 @@ impl AllowSelfType {
 pub enum SyndicateTypeConstraint {
     TemplateTypeParameter,
     SimpleParenateParameter {
-        syn_pattern_root: ParenateParameterSynPatternExprRoot,
+        syn_pattern_root: ParenateParameterSynPatternRoot,
         ty: SynExprIdx,
     },
     VariadicParenateParameter {
@@ -52,7 +52,7 @@ pub enum SyndicateTypeConstraint {
         ty: SynExprIdx,
     },
     SimpleClosureParameter {
-        syn_pattern_root: ClosureSynPatternExprRoot,
+        syn_pattern_root: ClosureSynPatternRoot,
         ty: SynExprIdx,
     },
     LetPattern {

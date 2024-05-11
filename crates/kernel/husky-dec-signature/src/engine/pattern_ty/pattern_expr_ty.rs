@@ -2,11 +2,11 @@ use super::*;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub struct PatternExprDeclarativeTypeInfo {
+pub struct PatternDeclarativeTypeInfo {
     ty: DecTerm,
 }
 
-impl PatternExprDeclarativeTypeInfo {
+impl PatternDeclarativeTypeInfo {
     fn new(ty: DecTerm) -> Self {
         Self { ty }
     }
@@ -22,14 +22,14 @@ impl<'a> DecTermEngine<'a> {
     }
 
     /// the way type inference works for pattern expressions is dual to that of regular expression
-    fn save_pattern_expr_ty(&mut self, pattern_expr_idx: SynPatternIdx, ty: DecTerm) {
+    fn save_pattern_expr_ty(&mut self, pattern_idx: SynPatternIdx, ty: DecTerm) {
         self.pattern_expr_ty_infos
-            .insert_new(pattern_expr_idx, PatternExprDeclarativeTypeInfo::new(ty))
+            .insert_new(pattern_idx, PatternDeclarativeTypeInfo::new(ty))
     }
 
     /// subpattern expressions get its type from its parent
-    fn infer_subpattern_expr_tys(&mut self, pattern_expr_idx: SynPatternIdx) {
-        match self.syn_expr_region_data[pattern_expr_idx] {
+    fn infer_subpattern_expr_tys(&mut self, pattern_idx: SynPatternIdx) {
+        match self.syn_expr_region_data[pattern_idx] {
             SynPatternData::Literal { .. }
             | SynPatternData::Ident { .. }
             | SynPatternData::UnitTypeVariant { .. } => (), //  no subpatterns to infer
@@ -43,9 +43,9 @@ impl<'a> DecTermEngine<'a> {
         }
     }
 
-    pub(super) fn get_pattern_expr_ty(&self, pattern_expr_idx: SynPatternIdx) -> Option<DecTerm> {
+    pub(super) fn get_pattern_expr_ty(&self, pattern_idx: SynPatternIdx) -> Option<DecTerm> {
         self.pattern_expr_ty_infos
-            .get(pattern_expr_idx)
+            .get(pattern_idx)
             .map(|info| info.ty)
     }
 }

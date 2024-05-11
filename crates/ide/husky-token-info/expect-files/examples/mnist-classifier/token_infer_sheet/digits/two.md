@@ -228,7 +228,7 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
+                    src: TokenInfoSource::Pattern(
                         0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
@@ -305,7 +305,7 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
+                    src: TokenInfoSource::Pattern(
                         0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
@@ -430,7 +430,7 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
+                    src: TokenInfoSource::Pattern(
                         0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
@@ -507,7 +507,7 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
+                    src: TokenInfoSource::Pattern(
                         0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
@@ -632,7 +632,7 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
+                    src: TokenInfoSource::Pattern(
                         0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
@@ -709,7 +709,7 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
+                    src: TokenInfoSource::Pattern(
                         0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
@@ -922,7 +922,7 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
+                    src: TokenInfoSource::Pattern(
                         0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
@@ -970,7 +970,7 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
+                    src: TokenInfoSource::Pattern(
                         1,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
@@ -1076,7 +1076,7 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
+                    src: TokenInfoSource::Pattern(
                         3,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
@@ -1125,7 +1125,7 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
+                    src: TokenInfoSource::Pattern(
                         4,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
@@ -1174,7 +1174,7 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
+                    src: TokenInfoSource::Pattern(
                         5,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
@@ -1242,7 +1242,7 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
+                    src: TokenInfoSource::Pattern(
                         6,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
@@ -1456,7 +1456,7 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
+                    src: TokenInfoSource::Pattern(
                         11,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
@@ -1520,7 +1520,7 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
+                    src: TokenInfoSource::Pattern(
                         12,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
@@ -1580,7 +1580,7 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
+                    src: TokenInfoSource::Pattern(
                         13,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
@@ -1637,7 +1637,7 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
+                    src: TokenInfoSource::Pattern(
                         14,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
@@ -1694,7 +1694,7 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
+                    src: TokenInfoSource::Pattern(
                         15,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
@@ -1751,7 +1751,7 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
+                    src: TokenInfoSource::Pattern(
                         16,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
@@ -1808,7 +1808,7 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
+                    src: TokenInfoSource::Pattern(
                         17,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
@@ -1861,7 +1861,7 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
+                    src: TokenInfoSource::Pattern(
                         18,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
@@ -1918,7 +1918,7 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
+                    src: TokenInfoSource::Pattern(
                         19,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
@@ -1975,7 +1975,7 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
+                    src: TokenInfoSource::Pattern(
                         20,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
@@ -2273,7 +2273,7 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
+                    src: TokenInfoSource::Pattern(
                         27,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {

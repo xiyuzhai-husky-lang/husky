@@ -8,7 +8,7 @@ use husky_sem_expr::{
 use husky_sem_place_contract::region::{sem_place_contract_region, SemPlaceContractRegion};
 use husky_syn_expr::{
     CurrentVariableIdx, InheritedSymbolicVariableIdx, SynExprRegionData, SynExprRootKind,
-    SynPatternMap, VariableMap,
+    SynPatternIdx, SynPatternMap, SynPatternRootKind, VariableMap,
 };
 use salsa::DebugWithDb;
 
@@ -19,8 +19,8 @@ pub(crate) struct HirLazyExprBuilder<'a> {
     sem_place_contract_region: &'a SemPlaceContractRegion,
     hir_lazy_expr_arena: HirLazyExprArena,
     hir_lazy_stmt_arena: HirLazyStmtArena,
-    hir_lazy_pattern_expr_arena: HirLazyPatternExprArena,
-    syn_to_hir_lazy_pattern_expr_idx_map: SynPatternMap<HirLazyPatternExprIdx>,
+    hir_lazy_pattern_expr_arena: HirLazyPatternArena,
+    syn_to_hir_lazy_pattern_idx_map: SynPatternMap<HirLazyPatternIdx>,
     sem_to_hir_lazy_expr_idx_map: SemExprMap<HirLazyExprIdx>,
     sem_to_hir_lazy_stmt_idx_map: SemStmtMap<HirLazyStmtIdx>,
     hir_lazy_variable_region: HirLazyVariableRegion,
@@ -31,7 +31,7 @@ impl<'a> HirLazyExprBuilder<'a> {
     fn new(db: &'a ::salsa::Db, sem_expr_region: SemExprRegion) -> Self {
         let syn_expr_region_data = sem_expr_region.syn_expr_region(db).data(db);
         let sem_expr_region_data = sem_expr_region.data(db);
-        let syn_to_hir_lazy_pattern_expr_idx_map =
+        let syn_to_hir_lazy_pattern_idx_map =
             SynPatternMap::new(syn_expr_region_data.pattern_expr_arena());
         let (hir_lazy_variable_region, syn_symbol_to_hir_lazy_variable_map) =
             HirLazyVariableRegion::from_syn(syn_expr_region_data.variable_region());
@@ -43,7 +43,7 @@ impl<'a> HirLazyExprBuilder<'a> {
             hir_lazy_expr_arena: Default::default(),
             hir_lazy_stmt_arena: Default::default(),
             hir_lazy_pattern_expr_arena: Default::default(),
-            syn_to_hir_lazy_pattern_expr_idx_map,
+            syn_to_hir_lazy_pattern_idx_map,
             sem_to_hir_lazy_expr_idx_map: SemExprMap::new(sem_expr_region_data.sem_expr_arena()),
             sem_to_hir_lazy_stmt_idx_map: SemStmtMap::new(sem_expr_region_data.sem_stmt_arena()),
             hir_lazy_variable_region,
@@ -94,12 +94,15 @@ impl<'a> HirLazyExprBuilder<'a> {
         hir_lazy_expr_idx
     }
 
-    pub(crate) fn alloc_pattern_expr(
+    pub(crate) fn alloc_pattern(
         &mut self,
-        pattern_expr: HirLazyPatternExpr,
-    ) -> HirLazyPatternExprIdx {
-        // todo: record in source map
-        self.hir_lazy_pattern_expr_arena.alloc_one(pattern_expr)
+        syn_pattern_idx: SynPatternIdx,
+        pattern_data: HirLazyPatternData,
+    ) -> HirLazyPatternIdx {
+        let hir_lazy_pattern_idx = self.hir_lazy_pattern_expr_arena.alloc_one(pattern_data);
+        self.syn_to_hir_lazy_pattern_idx_map
+            .insert_new(syn_pattern_idx, hir_lazy_pattern_idx);
+        hir_lazy_pattern_idx
     }
 
     pub fn db(&self) -> &'a ::salsa::Db {
@@ -151,6 +154,18 @@ impl<'a> HirLazyExprBuilder<'a> {
                 _ => continue,
             }
         }
+        for &syn_pattern_expr_root in self.syn_expr_region_data.syn_pattern_expr_roots() {
+            match syn_pattern_expr_root.kind() {
+                SynPatternRootKind::Parenate => {
+                    self.new_pattern(syn_pattern_expr_root);
+                }
+                // already covered when building expr roots
+                SynPatternRootKind::Let
+                | SynPatternRootKind::Case
+                | SynPatternRootKind::Be
+                | SynPatternRootKind::Closure => continue,
+            }
+        }
         self.finish()
     }
 
@@ -183,7 +198,7 @@ impl<'a> HirLazyExprBuilder<'a> {
             ),
             HirLazyExprSourceMap::new(
                 self.db,
-                self.syn_to_hir_lazy_pattern_expr_idx_map,
+                self.syn_to_hir_lazy_pattern_idx_map,
                 self.sem_to_hir_lazy_expr_idx_map,
                 self.sem_to_hir_lazy_stmt_idx_map,
                 self.syn_symbol_to_hir_lazy_variable_map,

@@ -96,7 +96,7 @@ impl<'a> HirEagerExprBuilder<'a> {
         &mut self,
         syn_pattern_root: impl Into<SynPatternRoot>,
     ) -> HirEagerPatternIdx {
-        let syn_pattern = syn_pattern_root.into().syn_pattern_expr_idx();
+        let syn_pattern = syn_pattern_root.into().syn_pattern_idx();
         let pattern = self.new_pattern_aux(syn_pattern);
         self.alloc_pattern(pattern, syn_pattern)
     }

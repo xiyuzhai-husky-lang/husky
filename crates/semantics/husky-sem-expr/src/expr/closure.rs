@@ -58,7 +58,7 @@ impl<'a> SemExprBuilder<'a> {
                                         None => self.new_hole(ty, HoleKind::ImplicitType),
                                     },
                                     None => self.new_hole(
-                                        syn_pattern_root.syn_pattern_expr_idx(),
+                                        syn_pattern_root.syn_pattern_idx(),
                                         HoleKind::ImplicitType,
                                     ),
                                 };

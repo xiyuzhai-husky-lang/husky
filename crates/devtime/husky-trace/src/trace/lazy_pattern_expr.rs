@@ -2,33 +2,33 @@ use super::*;
 use crate::registry::assoc_trace::VoidAssocTraceRegistry;
 use husky_coword::IdentPairMap;
 use husky_hir_lazy_expr::{
-    variable::HirLazyVariableIdx, HirLazyExprRegion, HirLazyPatternExpr, HirLazyPatternExprIdx,
+    variable::HirLazyVariableIdx, HirLazyExprRegion, HirLazyPatternData, HirLazyPatternIdx,
 };
 use husky_ki_repr::expansion::KiReprExpansion;
 use husky_sem_expr::{helpers::range::sem_expr_range_region, SemExprRegion};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-pub struct LazyPatternExprTracePath(TracePath);
+pub struct LazyPatternTracePath(TracePath);
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-pub struct LazyPatternExprTracePathData {
+pub struct LazyPatternTracePathData {
     biological_parent_path: TracePath,
-    essence: LazyPatternExprEssence,
-    disambiguator: TracePathDisambiguator<LazyPatternExprEssence>,
+    essence: LazyPatternEssence,
+    disambiguator: TracePathDisambiguator<LazyPatternEssence>,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub enum LazyPatternExprEssence {
+pub enum LazyPatternEssence {
     AdHoc,
 }
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub struct LazyPatternExprTraceData {
+pub struct LazyPatternTraceData {
     path: TracePath,
     biological_parent: Trace,
-    syn_pattern_expr_idx: SynPatternIdx,
-    hir_lazy_pattern_expr_idx: Option<HirLazyPatternExprIdx>,
+    syn_pattern_idx: SynPatternIdx,
+    hir_lazy_pattern_idx: Option<HirLazyPatternIdx>,
     hir_lazy_variable_idxs: IdentPairMap<Option<HirLazyVariableIdx>>,
     #[skip_fmt]
     sem_expr_region: SemExprRegion,
@@ -40,17 +40,17 @@ impl Trace {
     pub(crate) fn new_lazy_pattern_expr(
         biological_parent_path: TracePath,
         biological_parent: Trace,
-        syn_pattern_expr_idx: SynPatternIdx,
-        hir_lazy_pattern_expr_idx: Option<HirLazyPatternExprIdx>,
+        syn_pattern_idx: SynPatternIdx,
+        hir_lazy_pattern_idx: Option<HirLazyPatternIdx>,
         hir_lazy_variable_idxs: IdentPairMap<Option<HirLazyVariableIdx>>,
         sem_expr_region: SemExprRegion,
         hir_lazy_expr_region: HirLazyExprRegion,
-        lazy_expr_trace_path_registry: &mut TracePathRegistry<LazyPatternExprEssence>,
+        lazy_expr_trace_path_registry: &mut TracePathRegistry<LazyPatternEssence>,
         db: &::salsa::Db,
     ) -> Self {
-        let essence = LazyPatternExprEssence::AdHoc;
+        let essence = LazyPatternEssence::AdHoc;
         let path = TracePath::new(
-            LazyPatternExprTracePathData {
+            LazyPatternTracePathData {
                 biological_parent_path,
                 essence: essence.clone(),
                 disambiguator: lazy_expr_trace_path_registry.issue(essence),
@@ -59,11 +59,11 @@ impl Trace {
         );
         Trace::new(
             path,
-            LazyPatternExprTraceData {
+            LazyPatternTraceData {
                 path,
                 biological_parent: biological_parent.into(),
-                syn_pattern_expr_idx,
-                hir_lazy_pattern_expr_idx,
+                syn_pattern_idx,
+                hir_lazy_pattern_idx,
                 hir_lazy_variable_idxs,
                 sem_expr_region,
                 hir_lazy_expr_region,
@@ -74,7 +74,7 @@ impl Trace {
     }
 }
 
-impl LazyPatternExprTraceData {
+impl LazyPatternTraceData {
     pub fn have_subtraces(&self) -> bool {
         false
     }
@@ -88,7 +88,7 @@ impl LazyPatternExprTraceData {
         let sem_expr_range_region = sem_expr_range_region(db, sem_expr_region);
         let sem_expr_range_region_data = sem_expr_range_region.data(db);
         let region_path = sem_expr_region.path(db);
-        let regional_token_idx_range = sem_expr_range_region_data[self.syn_pattern_expr_idx];
+        let regional_token_idx_range = sem_expr_range_region_data[self.syn_pattern_idx];
         let token_idx_range = regional_token_idx_range
             .token_idx_range(region_path.regional_token_idx_base(db).unwrap());
         TraceViewLines::new(
@@ -101,22 +101,21 @@ impl LazyPatternExprTraceData {
 
     pub(super) fn ki_repr(&self, trace_id: Trace, db: &::salsa::Db) -> Option<KiRepr> {
         let ki_repr_expansion = trace_ki_repr_expansion(db, trace_id);
-        match self.hir_lazy_expr_region.hir_lazy_pattern_expr_arena(db)
-            [self.hir_lazy_pattern_expr_idx?]
+        match self.hir_lazy_expr_region.hir_lazy_pattern_expr_arena(db)[self.hir_lazy_pattern_idx?]
         {
-            HirLazyPatternExpr::Literal(_) => todo!(),
-            HirLazyPatternExpr::Ident { .. } => {
+            HirLazyPatternData::Literal(_) => todo!(),
+            HirLazyPatternData::Ident { .. } => {
                 let hir_lazy_variable_idxs = &self.hir_lazy_variable_idxs;
                 debug_assert_eq!(hir_lazy_variable_idxs.len(), 1);
                 let hir_lazy_variable_idx = hir_lazy_variable_idxs.data()[0].1?;
                 Some(ki_repr_expansion.hir_lazy_variable_ki_repr_map(db)[hir_lazy_variable_idx])
             }
-            HirLazyPatternExpr::Unit(_) => todo!(),
-            HirLazyPatternExpr::Tuple { path: _, fields: _ } => todo!(),
-            HirLazyPatternExpr::Props { path: _, fields: _ } => todo!(),
-            HirLazyPatternExpr::OneOf { options: _ } => todo!(),
-            HirLazyPatternExpr::Binding { ident: _, src: _ } => todo!(),
-            HirLazyPatternExpr::Range { start: _, end: _ } => todo!(),
+            HirLazyPatternData::Unit(_) => todo!(),
+            HirLazyPatternData::Tuple { path: _, fields: _ } => todo!(),
+            HirLazyPatternData::Props { path: _, fields: _ } => todo!(),
+            HirLazyPatternData::OneOf { options: _ } => todo!(),
+            HirLazyPatternData::Binding { ident: _, src: _ } => todo!(),
+            HirLazyPatternData::Range { start: _, end: _ } => todo!(),
         }
     }
 

@@ -3,7 +3,7 @@ use super::*;
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct CasePatternSyndicate {
-    syn_pattern_root: CaseSynPatternExprRoot,
+    syn_pattern_root: CaseSynPatternRoot,
     variables: CurrentSynSymbolIdxRange,
 }
 
@@ -16,12 +16,12 @@ where
         access_end: RegionalTokenIdxRangeEnd,
     ) -> SynExprResult<CasePatternSyndicate> {
         let state = self.state();
-        let Some(syn_pattern_root) = self.try_parse_option::<CaseSynPatternExprRoot>()? else {
+        let Some(syn_pattern_root) = self.try_parse_option::<CaseSynPatternRoot>()? else {
             Err(OriginalSynExprError::ExpectedCasePattern(state))?
         };
         let symbols = self
             .pattern_expr_region()
-            .pattern_expr_symbols(syn_pattern_root.syn_pattern_expr_idx());
+            .pattern_expr_symbols(syn_pattern_root.syn_pattern_idx());
         let access_start = self.state().next_regional_token_idx();
         let symbols = symbols
             .iter()
@@ -46,7 +46,7 @@ where
 }
 
 impl CasePatternSyndicate {
-    pub fn syn_pattern_root(&self) -> CaseSynPatternExprRoot {
+    pub fn syn_pattern_root(&self) -> CaseSynPatternRoot {
         self.syn_pattern_root
     }
 

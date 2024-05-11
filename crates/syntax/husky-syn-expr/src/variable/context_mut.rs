@@ -44,7 +44,7 @@ impl<'a> SynSymbolContextMut<'a> {
         path: SynNodeRegionPath,
         expr_arena: SynExprArena,
         principal_item_path_expr_arena: SynPrincipalEntityPathExprArena,
-        pattern_expr_region: SynPatternExprRegion,
+        pattern_expr_region: SynPatternRegion,
         stmt_arena: SynStmtArena,
         syn_pattern_expr_roots: Vec<SynPatternRoot>,
         syn_expr_roots: Vec<SynExprRoot>,

@@ -6,15 +6,15 @@ use crate::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 pub struct HirLazyLetVariablesPattern {
-    pattern_expr_idx: HirLazyPatternExprIdx,
+    pattern_idx: HirLazyPatternIdx,
     variables: SmallVec<[HirLazyVariableIdx; 2]>,
     // variables: CurrentHirLazySymbolIdxRange,
     ty: Option<HirType>,
 }
 
 impl HirLazyLetVariablesPattern {
-    pub fn pattern_expr_idx(&self) -> HirLazyPatternExprIdx {
-        self.pattern_expr_idx
+    pub fn pattern_idx(&self) -> HirLazyPatternIdx {
+        self.pattern_idx
     }
 
     pub fn variables(&self) -> &[HirLazyVariableIdx] {
@@ -28,7 +28,7 @@ impl<'a> HirLazyExprBuilder<'a> {
         let_variables_pattern: &LetVariableObelisk,
     ) -> HirLazyLetVariablesPattern {
         HirLazyLetVariablesPattern {
-            pattern_expr_idx: self.new_pattern_expr(let_variables_pattern.syn_pattern_root()),
+            pattern_idx: self.new_pattern(let_variables_pattern.syn_pattern_root()),
             variables: let_variables_pattern
                 .variables()
                 .into_iter()
@@ -56,7 +56,7 @@ impl ToHirLazy for BePatternSyndicate {
     fn to_hir_lazy(&self, builder: &mut HirLazyExprBuilder) -> Self::Output {
         let db = builder.db();
         let pattern_expr_arena = builder.syn_expr_region_data().pattern_expr_arena();
-        match pattern_expr_arena[self.syn_pattern_root().syn_pattern_expr_idx()] {
+        match pattern_expr_arena[self.syn_pattern_root().syn_pattern_idx()] {
             SynPatternData::Literal {
                 regional_token_idx: _,
                 literal: _,

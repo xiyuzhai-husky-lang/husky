@@ -24,7 +24,7 @@ pub enum TokenInfoSource {
     UseExpr(UseExprIdx),
     SemExpr(SemExprIdx),
     SynPrincipalEntityPathExpr(SynPrincipalEntityPathSynExprIdx, PrincipalEntityPath),
-    PatternExpr(SynPatternIdx),
+    Pattern(SynPatternIdx),
     // todo: add #[skip] attribute
     TemplateParameter(CurrentVariableIdx),
     AstIdentifiable,

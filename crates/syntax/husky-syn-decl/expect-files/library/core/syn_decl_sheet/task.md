@@ -45,7 +45,7 @@ SynDeclSheet {
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_region: SynPatternRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -144,7 +144,7 @@ SynDeclSheet {
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_region: SynPatternRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
