@@ -29,7 +29,7 @@ impl AssocItemSynNodeDecl {
             AssocItemSynNodeDecl::TraitForTypeItem(syn_node_decl) => {
                 syn_node_decl.syn_expr_region(db)
             }
-            AssocItemSynNodeDecl::IllFormedItem(_) => todo!(),
+            AssocItemSynNodeDecl::IllFormedItem(syn_node_decl) => syn_node_decl.syn_expr_region(db),
         }
     }
 
