@@ -88,5 +88,27 @@
             ),
         ),
     ),
+    (
+        MajorItem(
+            Type(
+                TypePath(
+                    ItemPathId(
+                        Id {
+                            value: 45,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        Some(
+            Some(
+                HirDefnVersionStamp(
+                    Id {
+                        value: 26,
+                    },
+                ),
+            ),
+        ),
+    ),
 ]
 ```

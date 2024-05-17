@@ -1,7 +1,9 @@
 pub trait IsFrontend;
 
-pub struct Graphics2DFrontend;
+pub struct Cv2dFrontend;
 
-pub struct Graphics3DFrontend;
+pub struct Cv3dFrontend;
 
-pub struct TextFrontend;
+pub struct NlpFrontend;
+
+pub struct Rl2dFrontend;

@@ -705,7 +705,7 @@ SynNodeDeclSheet {
                                                         TypeVariantPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 280,
+                                                                    value: 281,
                                                                 },
                                                             ),
                                                         ),
@@ -785,7 +785,7 @@ SynNodeDeclSheet {
                                                         TypeVariantPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 280,
+                                                                    value: 281,
                                                                 },
                                                             ),
                                                         ),
