@@ -20,6 +20,8 @@ pub fn sem_expr_region_requires_lazy(db: &::salsa::Db, sem_expr_region: SemExprR
                     RitchieItemKind::Vn => todo!(),
                     RitchieItemKind::Pn => todo!(),
                     RitchieItemKind::Qn => todo!(),
+                    RitchieItemKind::Bn => todo!(),
+                    RitchieItemKind::Sn => todo!(),
                     RitchieItemKind::Tn => todo!(),
                 },
                 _ => return false,

@@ -105,6 +105,8 @@ pub fn trai_path_for_ty_term_impl_block_ethereal_signature_builder_exists<'a>(
                     RitchieItemKind::Vn => todo!(),
                     RitchieItemKind::Pn => todo!(),
                     RitchieItemKind::Qn => todo!(),
+                    RitchieItemKind::Bn => todo!(),
+                    RitchieItemKind::Sn => todo!(),
                     RitchieItemKind::Tn => todo!(),
                 },
                 RitchieTypeKind::Closure(_) => todo!(),

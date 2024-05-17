@@ -82,6 +82,8 @@ impl TranspileToRustWith<()> for Linkage {
                 RitchieItemKind::Vn => todo!(),
                 RitchieItemKind::Pn => todo!(),
                 RitchieItemKind::Qn => todo!(),
+                RitchieItemKind::Bn => todo!(),
+                RitchieItemKind::Sn => todo!(),
                 RitchieItemKind::Tn => todo!(),
             },
             LinkageData::MajorVal {

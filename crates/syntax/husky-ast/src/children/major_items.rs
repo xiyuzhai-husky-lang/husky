@@ -17,6 +17,8 @@ impl IsAstChildren for MajorItems {
             EntityKindKeywordGroup::Vn(_) => MajorFormKind::VN.into(),
             EntityKindKeywordGroup::Pn(_) => MajorFormKind::PN.into(),
             EntityKindKeywordGroup::Qn(_) => MajorFormKind::QN.into(),
+            EntityKindKeywordGroup::Bn(_) => MajorFormKind::BN.into(),
+            EntityKindKeywordGroup::Sn(_) => MajorFormKind::SN.into(),
             EntityKindKeywordGroup::Tn(_) => MajorFormKind::TN.into(),
             EntityKindKeywordGroup::StaticFn(_, _) => {
                 Err(OriginalAstError::UnexpectedStaticFnOutsideImplBlock)?

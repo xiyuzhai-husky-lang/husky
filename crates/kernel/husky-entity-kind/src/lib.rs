@@ -34,6 +34,8 @@ impl MajorFormKind {
     pub const VN: Self = MajorFormKind::Ritchie(RitchieItemKind::Vn);
     pub const PN: Self = MajorFormKind::Ritchie(RitchieItemKind::Pn);
     pub const QN: Self = MajorFormKind::Ritchie(RitchieItemKind::Qn);
+    pub const BN: Self = MajorFormKind::Ritchie(RitchieItemKind::Bn);
+    pub const SN: Self = MajorFormKind::Ritchie(RitchieItemKind::Sn);
     pub const TN: Self = MajorFormKind::Ritchie(RitchieItemKind::Tn);
 }
 
@@ -134,6 +136,8 @@ impl TypeItemKind {
     pub const ASSOC_VN: Self = TypeItemKind::AssocRitchie(RitchieItemKind::Vn);
     pub const ASSOC_PN: Self = TypeItemKind::AssocRitchie(RitchieItemKind::Pn);
     pub const ASSOC_QN: Self = TypeItemKind::AssocRitchie(RitchieItemKind::Qn);
+    pub const ASSOC_BN: Self = TypeItemKind::AssocRitchie(RitchieItemKind::Bn);
+    pub const ASSOC_SN: Self = TypeItemKind::AssocRitchie(RitchieItemKind::Sn);
     pub const ASSOC_TN: Self = TypeItemKind::AssocRitchie(RitchieItemKind::Tn);
 
     // # associated formal
@@ -146,6 +150,8 @@ impl TypeItemKind {
     pub const METHOD_VN: Self = TypeItemKind::MethodRitchie(RitchieItemKind::Vn);
     pub const METHOD_PN: Self = TypeItemKind::MethodRitchie(RitchieItemKind::Pn);
     pub const METHOD_QN: Self = TypeItemKind::MethodRitchie(RitchieItemKind::Qn);
+    pub const METHOD_BN: Self = TypeItemKind::MethodRitchie(RitchieItemKind::Bn);
+    pub const METHOD_SN: Self = TypeItemKind::MethodRitchie(RitchieItemKind::Sn);
     pub const METHOD_TN: Self = TypeItemKind::MethodRitchie(RitchieItemKind::Tn);
 }
 
@@ -185,6 +191,8 @@ impl TraitItemKind {
     pub const ASSOC_VN: Self = TraitItemKind::AssocRitchie(RitchieItemKind::Vn);
     pub const ASSOC_PN: Self = TraitItemKind::AssocRitchie(RitchieItemKind::Pn);
     pub const ASSOC_QN: Self = TraitItemKind::AssocRitchie(RitchieItemKind::Qn);
+    pub const ASSOC_BN: Self = TraitItemKind::AssocRitchie(RitchieItemKind::Bn);
+    pub const ASSOC_SN: Self = TraitItemKind::AssocRitchie(RitchieItemKind::Sn);
     pub const ASSOC_TN: Self = TraitItemKind::AssocRitchie(RitchieItemKind::Tn);
 
     // # associated formal
@@ -197,6 +205,8 @@ impl TraitItemKind {
     pub const METHOD_VN: Self = TraitItemKind::MethodRitchie(RitchieItemKind::Vn);
     pub const METHOD_PN: Self = TraitItemKind::MethodRitchie(RitchieItemKind::Pn);
     pub const METHOD_QN: Self = TraitItemKind::MethodRitchie(RitchieItemKind::Qn);
+    pub const METHOD_BN: Self = TraitItemKind::MethodRitchie(RitchieItemKind::Bn);
+    pub const METHOD_SN: Self = TraitItemKind::MethodRitchie(RitchieItemKind::Sn);
     pub const METHOD_TN: Self = TraitItemKind::MethodRitchie(RitchieItemKind::Tn);
 }
 
