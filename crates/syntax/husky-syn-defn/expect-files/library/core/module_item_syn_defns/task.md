@@ -2,6 +2,30 @@
 [
     (
         ItemPath::MajorItem(
+            MajorItemPath::Trait(
+                TraitPath(`core::task::IsTask`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TraitItem(
+                TraitItemPath(`core::task::IsTask::Backend`, `AssocType`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TraitItem(
+                TraitItemPath(`core::task::IsTask::Frontend`, `AssocType`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::MajorItem(
             MajorItemPath::Type(
                 TypePath(`core::task::Task`, `Extern`),
             ),

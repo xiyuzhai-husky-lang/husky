@@ -2,7 +2,7 @@ use super::*;
 use husky_syn_decl::decl::TypeTupleVariantSynDecl;
 use husky_syn_expr::TupleFieldSyndicate;
 
-#[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
+#[salsa::interned]
 pub struct EnumTupleVariantHirDecl {
     pub path: TypeVariantPath,
     #[return_ref]

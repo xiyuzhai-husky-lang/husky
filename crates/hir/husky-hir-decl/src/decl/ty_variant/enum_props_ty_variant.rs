@@ -2,7 +2,7 @@ use super::*;
 use husky_syn_decl::decl::TypePropsVariantSynDecl;
 use husky_syn_expr::PropsFieldSyndicate;
 
-#[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
+#[salsa::interned]
 pub struct EnumPropsVariantHirDecl {
     pub path: TypeVariantPath,
     #[return_ref]

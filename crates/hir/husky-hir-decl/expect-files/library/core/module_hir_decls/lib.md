@@ -220,5 +220,27 @@
             ),
         },
     ),
+    HirDecl::Submodule(
+        SubmoduleHirDecl {
+            path: SubmoduleItemPath(
+                ItemPathId(
+                    Id {
+                        value: 21,
+                    },
+                ),
+            ),
+        },
+    ),
+    HirDecl::Submodule(
+        SubmoduleHirDecl {
+            path: SubmoduleItemPath(
+                ItemPathId(
+                    Id {
+                        value: 22,
+                    },
+                ),
+            ),
+        },
+    ),
 ]
 ```

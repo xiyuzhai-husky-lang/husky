@@ -5,6 +5,62 @@ TokenSheetData {
             Keyword::Pub,
         ),
         TokenData::Keyword(
+            Keyword::Trait,
+        ),
+        TokenData::Ident(
+            `IsTask`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Colon,
+            ),
+        ),
+        TokenData::Keyword(
+            Keyword::Form(
+                Type,
+            ),
+        ),
+        TokenData::Ident(
+            `Backend`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Colon,
+            ),
+        ),
+        TokenData::Ident(
+            `IsBackend`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Semicolon,
+            ),
+        ),
+        TokenData::Keyword(
+            Keyword::Form(
+                Type,
+            ),
+        ),
+        TokenData::Ident(
+            `Frontend`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Colon,
+            ),
+        ),
+        TokenData::Ident(
+            `IsFrontend`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Semicolon,
+            ),
+        ),
+        TokenData::Keyword(
+            Keyword::Pub,
+        ),
+        TokenData::Keyword(
             Keyword::TypeEntity(
                 Extern,
             ),
@@ -55,6 +111,30 @@ TokenSheetData {
                     start: TokenVerseStart(
                         TokenIdx(
                             5,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            10,
+                        ),
+                    ),
+                    indent: 4,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            15,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            19,
                         ),
                     ),
                     indent: 0,

@@ -17,6 +17,15 @@ TokenSheetData {
             Keyword::Mod,
         ),
         TokenData::Ident(
+            `backend`,
+        ),
+        TokenData::Keyword(
+            Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::Mod,
+        ),
+        TokenData::Ident(
             `basic`,
         ),
         TokenData::Keyword(
@@ -45,6 +54,15 @@ TokenSheetData {
         ),
         TokenData::Ident(
             `default`,
+        ),
+        TokenData::Keyword(
+            Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::Mod,
+        ),
+        TokenData::Ident(
+            `frontend`,
         ),
         TokenData::Keyword(
             Keyword::Pub,
@@ -379,6 +397,22 @@ TokenSheetData {
                     start: TokenVerseStart(
                         TokenIdx(
                             61,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            64,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            67,
                         ),
                     ),
                     indent: 0,

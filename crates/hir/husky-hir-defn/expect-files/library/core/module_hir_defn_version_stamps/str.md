@@ -6,7 +6,7 @@
                 TypePath(
                     ItemPathId(
                         Id {
-                            value: 89,
+                            value: 99,
                         },
                     ),
                 ),
@@ -16,7 +16,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 158,
+                        value: 165,
                     },
                 ),
             ),
@@ -28,7 +28,7 @@
                 TypePath(
                     ItemPathId(
                         Id {
-                            value: 90,
+                            value: 100,
                         },
                     ),
                 ),
@@ -38,7 +38,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 159,
+                        value: 166,
                     },
                 ),
             ),

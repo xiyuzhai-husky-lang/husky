@@ -1,7 +1,7 @@
 use super::*;
 use parsec::{PunctuatedSmallList, TryParseFromStream};
 
-#[salsa::tracked]
+#[salsa::tracked(constructor = pub(super) new)]
 pub struct TupleStructSynNodeDecl {
     #[id]
     pub syn_node_path: TypeSynNodePath,

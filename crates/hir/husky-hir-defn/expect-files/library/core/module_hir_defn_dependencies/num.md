@@ -2,41 +2,6 @@
 [
     HirDefnDependencies(
         Id {
-            value: 27,
-        },
-    ),
-    HirDefnDependencies(
-        Id {
-            value: 28,
-        },
-    ),
-    HirDefnDependencies(
-        Id {
-            value: 29,
-        },
-    ),
-    HirDefnDependencies(
-        Id {
-            value: 30,
-        },
-    ),
-    HirDefnDependencies(
-        Id {
-            value: 31,
-        },
-    ),
-    HirDefnDependencies(
-        Id {
-            value: 32,
-        },
-    ),
-    HirDefnDependencies(
-        Id {
-            value: 33,
-        },
-    ),
-    HirDefnDependencies(
-        Id {
             value: 34,
         },
     ),
@@ -408,6 +373,41 @@
     HirDefnDependencies(
         Id {
             value: 108,
+        },
+    ),
+    HirDefnDependencies(
+        Id {
+            value: 109,
+        },
+    ),
+    HirDefnDependencies(
+        Id {
+            value: 110,
+        },
+    ),
+    HirDefnDependencies(
+        Id {
+            value: 111,
+        },
+    ),
+    HirDefnDependencies(
+        Id {
+            value: 112,
+        },
+    ),
+    HirDefnDependencies(
+        Id {
+            value: 113,
+        },
+    ),
+    HirDefnDependencies(
+        Id {
+            value: 114,
+        },
+    ),
+    HirDefnDependencies(
+        Id {
+            value: 115,
         },
     ),
 ]

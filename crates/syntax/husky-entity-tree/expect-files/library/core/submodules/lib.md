@@ -4,6 +4,9 @@
         `core::array`,
     ),
     SubmodulePath(
+        `core::backend`,
+    ),
+    SubmodulePath(
         `core::basic`,
     ),
     SubmodulePath(
@@ -14,6 +17,9 @@
     ),
     SubmodulePath(
         `core::default`,
+    ),
+    SubmodulePath(
+        `core::frontend`,
     ),
     SubmodulePath(
         `core::fmt`,

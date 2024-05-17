@@ -300,5 +300,35 @@
             None,
         ),
     ),
+    (
+        Submodule(
+            Room32,
+            SubmoduleItemPath(
+                ItemPathId(
+                    Id {
+                        value: 21,
+                    },
+                ),
+            ),
+        ),
+        Some(
+            None,
+        ),
+    ),
+    (
+        Submodule(
+            Room32,
+            SubmoduleItemPath(
+                ItemPathId(
+                    Id {
+                        value: 22,
+                    },
+                ),
+            ),
+        ),
+        Some(
+            None,
+        ),
+    ),
 ]
 ```

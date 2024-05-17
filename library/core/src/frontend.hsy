@@ -1,0 +1,7 @@
+pub trait IsFrontend;
+
+pub struct Graphics2DFrontend;
+
+pub struct Graphics3DFrontend;
+
+pub struct TextFrontend;

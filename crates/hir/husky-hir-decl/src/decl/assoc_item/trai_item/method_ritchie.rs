@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
+#[salsa::interned]
 pub struct TraitMethodFnHirDecl {
     pub path: TraitItemPath,
     pub template_parameters: HirTemplateParameters,

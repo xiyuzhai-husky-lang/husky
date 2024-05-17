@@ -960,7 +960,7 @@ SynDeclSheet {
                                                         TypeVariantPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 273,
+                                                                    value: 283,
                                                                 },
                                                             ),
                                                         ),
@@ -1040,7 +1040,7 @@ SynDeclSheet {
                                                         TypeVariantPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 273,
+                                                                    value: 283,
                                                                 },
                                                             ),
                                                         ),

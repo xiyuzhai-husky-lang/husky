@@ -260,5 +260,31 @@
             },
         },
     ),
+    HirDefn::Submodule(
+        SubmoduleHirDefn {
+            hir_decl: SubmoduleHirDecl {
+                path: SubmoduleItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 21,
+                        },
+                    ),
+                ),
+            },
+        },
+    ),
+    HirDefn::Submodule(
+        SubmoduleHirDefn {
+            hir_decl: SubmoduleHirDecl {
+                path: SubmoduleItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 22,
+                        },
+                    ),
+                ),
+            },
+        },
+    ),
 ]
 ```
