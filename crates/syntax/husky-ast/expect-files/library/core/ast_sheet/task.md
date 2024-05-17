@@ -63,7 +63,7 @@ AstSheet {
                     connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
-                    ident: `task`,
+                    ident: `TASK`,
                     token_idx: TokenIdx(
                         7,
                     ),
@@ -76,7 +76,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Form {
-                    path: FormPath(`core::task::task`, `Static`),
+                    path: FormPath(`core::task::TASK`, `Static`),
                     body: None,
                 },
             },

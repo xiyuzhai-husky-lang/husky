@@ -553,18 +553,18 @@ EntityTreeSheet {
                 ),
             },
             EntitySymbolEntry {
-                ident: `task`,
+                ident: `TASK`,
                 visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Form(
-                                FormPath(`core::task::task`, `Static`),
+                                FormPath(`core::task::TASK`, `Static`),
                             ),
                         },
                         path: PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`core::task::task`, `Static`),
+                                FormPath(`core::task::TASK`, `Static`),
                             ),
                         ),
                         visibility: Scope::Pub,

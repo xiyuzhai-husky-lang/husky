@@ -70,7 +70,7 @@
         path: RegionPath::Decl(
             ItemPath::MajorItem(
                 MajorItemPath::Form(
-                    FormPath(`core::task::task`, `Static`),
+                    FormPath(`core::task::TASK`, `Static`),
                 ),
             ),
         ),
@@ -78,7 +78,7 @@
             path: RegionPath::Decl(
                 ItemPath::MajorItem(
                     MajorItemPath::Form(
-                        FormPath(`core::task::task`, `Static`),
+                        FormPath(`core::task::TASK`, `Static`),
                     ),
                 ),
             ),
