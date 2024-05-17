@@ -200,5 +200,25 @@
             ),
         ),
     ),
+    ItemPath::Submodule(
+        Room32,
+        SubmoduleItemPath(
+            ItemPathId(
+                Id {
+                    value: 21,
+                },
+            ),
+        ),
+    ),
+    ItemPath::Submodule(
+        Room32,
+        SubmoduleItemPath(
+            ItemPathId(
+                Id {
+                    value: 22,
+                },
+            ),
+        ),
+    ),
 ]
 ```

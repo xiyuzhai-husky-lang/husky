@@ -623,6 +623,68 @@ Ok(
                 },
             ),
             None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::Submodule(
+                            Room32,
+                            SubmoduleSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 21,
+                                                        },
+                                                    ),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                },
+                            ),
+                        ),
+                        EntityKind::Module,
+                    ),
+                },
+            ),
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::Submodule(
+                            Room32,
+                            SubmoduleSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::Submodule(
+                                        SubmoduleSynNodePathData {
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: SubmoduleItemPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 22,
+                                                        },
+                                                    ),
+                                                ),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                },
+                            ),
+                        ),
+                        EntityKind::Module,
+                    ),
+                },
+            ),
+            None,
             Some(
                 TokenInfo {
                     src: TokenInfoSource::UseExpr(
@@ -660,7 +722,7 @@ Ok(
                                     submodule_item_path: SubmoduleItemPath(
                                         ItemPathId(
                                             Id {
-                                                value: 13,
+                                                value: 15,
                                             },
                                         ),
                                     ),

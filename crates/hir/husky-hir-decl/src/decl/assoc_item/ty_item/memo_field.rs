@@ -1,7 +1,7 @@
 use super::*;
 use husky_syn_decl::decl::TypeMemoizedFieldSynDecl;
 
-#[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
+#[salsa::interned]
 pub struct TypeMemoFieldHirDecl {
     pub path: TypeItemPath,
     pub return_ty: HirType,

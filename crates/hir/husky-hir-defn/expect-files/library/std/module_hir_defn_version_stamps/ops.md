@@ -28,7 +28,7 @@
                 TraitItemPath(
                     ItemPathId(
                         Id {
-                            value: 140,
+                            value: 150,
                         },
                     ),
                 ),
@@ -42,7 +42,7 @@
                 TraitItemPath(
                     ItemPathId(
                         Id {
-                            value: 141,
+                            value: 151,
                         },
                     ),
                 ),

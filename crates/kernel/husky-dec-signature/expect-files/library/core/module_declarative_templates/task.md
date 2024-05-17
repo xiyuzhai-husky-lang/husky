@@ -2,6 +2,34 @@
 [
     (
         ItemPath::MajorItem(
+            MajorItemPath::Trait(
+                TraitPath(`core::task::IsTask`),
+            ),
+        ),
+        Ok(
+            DecTemplate::MajorItem(
+                MajorItemDecTemplate::Trait(
+                    TraitDecTemplate {
+                        template_parameters: DecTemplateParameters {
+                            data: [
+                                DeclarativeTemplateParameter {
+                                    annotated_variance: None,
+                                    svar: DecSymbolicVariable(
+                                        Id {
+                                            value: 5,
+                                        },
+                                    ),
+                                    annotated_traits: [],
+                                },
+                            ],
+                        },
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::MajorItem(
             MajorItemPath::Type(
                 TypePath(`core::task::Task`, `Extern`),
             ),
@@ -36,7 +64,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 84,
+                                                value: 94,
                                             },
                                         ),
                                     ),

@@ -1,7 +1,7 @@
 use super::*;
 use husky_syn_decl::decl::{HasSynDecl, TypeAssocRitchieSynDecl, TypeItemSynDecl};
 
-#[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
+#[salsa::interned]
 pub struct TypeAssocRitchieHirDecl {
     pub path: TypeItemPath,
     #[return_ref]

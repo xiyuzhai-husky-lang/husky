@@ -2,7 +2,7 @@ use super::*;
 use husky_eth_signature::signature::HasEthTemplate;
 use husky_syn_decl::decl::TypeMethodRitchieSynDecl;
 
-#[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
+#[salsa::interned]
 pub struct TypeMethodRitchieHirDecl {
     pub path: TypeItemPath,
     #[return_ref]

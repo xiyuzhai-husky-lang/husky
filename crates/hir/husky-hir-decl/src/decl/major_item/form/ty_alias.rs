@@ -1,7 +1,7 @@
 use super::*;
 use husky_syn_decl::decl::TypeAliasSynDecl;
 
-#[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
+#[salsa::interned]
 pub struct MajorTypeAliasHirDecl {
     pub path: MajorFormPath,
     #[return_ref]

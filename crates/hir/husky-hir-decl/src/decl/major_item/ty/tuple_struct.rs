@@ -3,7 +3,7 @@ use husky_syn_expr::TupleFieldSyndicate;
 
 use super::*;
 
-#[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
+#[salsa::interned]
 pub struct TupleStructHirDecl {
     pub path: TypePath,
     #[return_ref]

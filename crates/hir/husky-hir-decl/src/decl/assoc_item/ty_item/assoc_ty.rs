@@ -1,7 +1,7 @@
 use super::*;
 use husky_syn_decl::decl::TypeAssocTypeSynDecl;
 
-#[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
+#[salsa::interned]
 pub struct TypeAssocTypeHirDecl {
     pub path: TypeItemPath,
     pub ty: HirType,

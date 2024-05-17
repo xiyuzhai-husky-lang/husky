@@ -260,5 +260,31 @@
         ),
         None,
     ),
+    (
+        ItemPath::Submodule(
+            Room32,
+            SubmoduleItemPath(
+                ItemPathId(
+                    Id {
+                        value: 21,
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::Submodule(
+            Room32,
+            SubmoduleItemPath(
+                ItemPathId(
+                    Id {
+                        value: 22,
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
 ]
 ```

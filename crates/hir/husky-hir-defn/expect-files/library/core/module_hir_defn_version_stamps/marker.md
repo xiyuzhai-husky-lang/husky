@@ -6,7 +6,7 @@
                 TraitPath(
                     ItemPathId(
                         Id {
-                            value: 37,
+                            value: 46,
                         },
                     ),
                 ),
@@ -16,7 +16,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 19,
+                        value: 26,
                     },
                 ),
             ),
@@ -28,7 +28,7 @@
                 TraitPath(
                     ItemPathId(
                         Id {
-                            value: 38,
+                            value: 47,
                         },
                     ),
                 ),
@@ -38,7 +38,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 20,
+                        value: 27,
                     },
                 ),
             ),
@@ -50,7 +50,7 @@
                 TraitForTypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 94,
+                            value: 104,
                         },
                     ),
                 ),
@@ -60,7 +60,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 21,
+                        value: 28,
                     },
                 ),
             ),

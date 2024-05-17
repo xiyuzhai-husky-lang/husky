@@ -6,6 +6,66 @@ EntityTreePresheet {
             ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
+                        syn_node_path: MajorItemSynNodePath::Trait(
+                            TraitSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::MajorItem(
+                                        MajorItemSynNodePathData::Trait(
+                                            TraitSynNodePathData {
+                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                    maybe_ambiguous_item_path: TraitPath(`core::task::IsTask`),
+                                                    disambiguator: 0,
+                                                },
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                        ),
+                        visibility: Scope::Pub,
+                        ast_idx: 2,
+                        ident_token: IdentToken {
+                            ident: `IsTask`,
+                            token_idx: TokenIdx(
+                                3,
+                            ),
+                        },
+                        block: DefnBlock::Trait {
+                            path: TraitPath(`core::task::IsTask`),
+                            items: Some(
+                                TraitItems {
+                                    ast_idx_range: ArenaIdxRange(
+                                        0..2,
+                                    ),
+                                },
+                            ),
+                        },
+                    },
+                ),
+                syn_node_path: ItemSynNodePath::MajorItem(
+                    MajorItemSynNodePath::Trait(
+                        TraitSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::MajorItem(
+                                    MajorItemSynNodePathData::Trait(
+                                        TraitSynNodePathData {
+                                            disambiguated_item_path: DisambiguatedItemPath {
+                                                maybe_ambiguous_item_path: TraitPath(`core::task::IsTask`),
+                                                disambiguator: 0,
+                                            },
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    ),
+                ),
+                ident: `IsTask`,
+                visibility: Scope::Pub,
+            },
+            ItemNodeEntry {
+                node: ItemSynNode::MajorItem(
+                    MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(
                             TypeSynNodePath(
                                 ItemSynNodePathId {
@@ -23,11 +83,11 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 0,
+                        ast_idx: 3,
                         ident_token: IdentToken {
                             ident: `Task`,
                             token_idx: TokenIdx(
-                                3,
+                                17,
                             ),
                         },
                         block: DefnBlock::Type {
@@ -64,11 +124,11 @@ EntityTreePresheet {
                             FormSynNodePath(`core::task::TASK`, `Static`, (0)),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 1,
+                        ast_idx: 4,
                         ident_token: IdentToken {
                             ident: `TASK`,
                             token_idx: TokenIdx(
-                                7,
+                                21,
                             ),
                         },
                         block: DefnBlock::Form {
