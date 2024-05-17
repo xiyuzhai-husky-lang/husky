@@ -24,7 +24,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Ident(
-            `Graphics2DFrontend`,
+            `Cv2dFrontend`,
         ),
         TokenData::Punctuation(
             Punctuation(
@@ -40,7 +40,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Ident(
-            `Graphics3DFrontend`,
+            `Cv3dFrontend`,
         ),
         TokenData::Punctuation(
             Punctuation(
@@ -56,7 +56,23 @@ TokenSheetData {
             ),
         ),
         TokenData::Ident(
-            `TextFrontend`,
+            `NlpFrontend`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Semicolon,
+            ),
+        ),
+        TokenData::Keyword(
+            Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::TypeEntity(
+                Struct,
+            ),
+        ),
+        TokenData::Ident(
+            `Rl2dFrontend`,
         ),
         TokenData::Punctuation(
             Punctuation(
@@ -95,6 +111,14 @@ TokenSheetData {
                     start: TokenVerseStart(
                         TokenIdx(
                             13,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            17,
                         ),
                     ),
                     indent: 0,

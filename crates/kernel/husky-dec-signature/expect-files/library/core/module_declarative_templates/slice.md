@@ -70,7 +70,7 @@
                 TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 137,
+                            value: 138,
                         },
                     ),
                 ),
@@ -171,7 +171,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 63,
+                                                value: 64,
                                             },
                                         ),
                                     ),
@@ -261,7 +261,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 63,
+                                                                value: 64,
                                                             },
                                                         ),
                                                     ),
@@ -277,7 +277,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 63,
+                                                                value: 64,
                                                             },
                                                         ),
                                                     ),
@@ -332,7 +332,7 @@
                                 TraitPath(
                                     ItemPathId(
                                         Id {
-                                            value: 76,
+                                            value: 77,
                                         },
                                     ),
                                 ),
@@ -392,7 +392,7 @@
                 TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 139,
+                            value: 140,
                         },
                     ),
                 ),
@@ -493,7 +493,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 54,
+                                                value: 55,
                                             },
                                         ),
                                     ),
@@ -571,7 +571,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 54,
+                                                value: 55,
                                             },
                                         ),
                                     ),
@@ -649,7 +649,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 54,
+                                                value: 55,
                                             },
                                         ),
                                     ),

@@ -20,5 +20,10 @@
             value: 25,
         },
     ),
+    HirDefnDependencies(
+        Id {
+            value: 26,
+        },
+    ),
 ]
 ```

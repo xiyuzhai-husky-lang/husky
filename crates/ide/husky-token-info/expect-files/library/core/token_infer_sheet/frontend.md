@@ -48,7 +48,7 @@ Ok(
                                             MajorItemSynNodePathData::Type(
                                                 TypeSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypePath(`core::frontend::Graphics2DFrontend`, `Struct`),
+                                                        maybe_ambiguous_item_path: TypePath(`core::frontend::Cv2dFrontend`, `Struct`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -82,7 +82,7 @@ Ok(
                                             MajorItemSynNodePathData::Type(
                                                 TypeSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypePath(`core::frontend::Graphics3DFrontend`, `Struct`),
+                                                        maybe_ambiguous_item_path: TypePath(`core::frontend::Cv3dFrontend`, `Struct`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -116,7 +116,41 @@ Ok(
                                             MajorItemSynNodePathData::Type(
                                                 TypeSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypePath(`core::frontend::TextFrontend`, `Struct`),
+                                                        maybe_ambiguous_item_path: TypePath(`core::frontend::NlpFrontend`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Type(
+                                TypeKind::Struct,
+                            ),
+                            connection: MajorItemConnectionKind::Connected,
+                        },
+                    ),
+                },
+            ),
+            None,
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::MajorItem(
+                            MajorItemSynNodePath::Type(
+                                TypeSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`core::frontend::Rl2dFrontend`, `Struct`),
                                                         disambiguator: 0,
                                                     },
                                                 },

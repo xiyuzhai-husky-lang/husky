@@ -31,7 +31,7 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Type(
-                TypePath(`core::frontend::Graphics2DFrontend`, `Struct`),
+                TypePath(`core::frontend::Cv2dFrontend`, `Struct`),
             ),
         ),
         Ok(
@@ -62,7 +62,7 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Type(
-                TypePath(`core::frontend::Graphics3DFrontend`, `Struct`),
+                TypePath(`core::frontend::Cv3dFrontend`, `Struct`),
             ),
         ),
         Ok(
@@ -93,7 +93,7 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Type(
-                TypePath(`core::frontend::TextFrontend`, `Struct`),
+                TypePath(`core::frontend::NlpFrontend`, `Struct`),
             ),
         ),
         Ok(
@@ -110,6 +110,37 @@
                                         ItemPathId(
                                             Id {
                                                 value: 44,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Type(
+                TypePath(`core::frontend::Rl2dFrontend`, `Struct`),
+            ),
+        ),
+        Ok(
+            DecTemplate::MajorItem(
+                MajorItemDecTemplate::Type(
+                    TypeDecTemplate::UnitStruct(
+                        UnitStructDecTemplate {
+                            template_parameters: DecTemplateParameters {
+                                data: [],
+                            },
+                            self_ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 45,
                                             },
                                         ),
                                     ),

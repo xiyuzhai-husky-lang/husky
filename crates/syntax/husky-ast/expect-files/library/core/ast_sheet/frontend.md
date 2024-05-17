@@ -61,7 +61,7 @@ AstSheet {
                     connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
-                    ident: `Graphics2DFrontend`,
+                    ident: `Cv2dFrontend`,
                     token_idx: TokenIdx(
                         7,
                     ),
@@ -74,7 +74,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Type {
-                    path: TypePath(`core::frontend::Graphics2DFrontend`, `Struct`),
+                    path: TypePath(`core::frontend::Cv2dFrontend`, `Struct`),
                     variants: None,
                 },
             },
@@ -100,7 +100,7 @@ AstSheet {
                     connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
-                    ident: `Graphics3DFrontend`,
+                    ident: `Cv3dFrontend`,
                     token_idx: TokenIdx(
                         11,
                     ),
@@ -113,7 +113,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Type {
-                    path: TypePath(`core::frontend::Graphics3DFrontend`, `Struct`),
+                    path: TypePath(`core::frontend::Cv3dFrontend`, `Struct`),
                     variants: None,
                 },
             },
@@ -139,7 +139,7 @@ AstSheet {
                     connection: MajorItemConnectionKind::Connected,
                 },
                 ident_token: IdentToken {
-                    ident: `TextFrontend`,
+                    ident: `NlpFrontend`,
                     token_idx: TokenIdx(
                         15,
                     ),
@@ -152,14 +152,53 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Type {
-                    path: TypePath(`core::frontend::TextFrontend`, `Struct`),
+                    path: TypePath(`core::frontend::NlpFrontend`, `Struct`),
+                    variants: None,
+                },
+            },
+            AstData::Identifiable {
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: 4,
+                },
+                visibility_expr: VisibilityExpr {
+                    data: VisibilityExprData::Pub {
+                        pub_token: PubToken {
+                            token_idx: TokenIdx(
+                                17,
+                            ),
+                        },
+                    },
+                    visibility: Scope::Pub,
+                },
+                item_kind: EntityKind::MajorItem {
+                    module_item_kind: MajorItemKind::Type(
+                        TypeKind::Struct,
+                    ),
+                    connection: MajorItemConnectionKind::Connected,
+                },
+                ident_token: IdentToken {
+                    ident: `Rl2dFrontend`,
+                    token_idx: TokenIdx(
+                        19,
+                    ),
+                },
+                is_generic: false,
+                saved_stream_state: TokenStreamState {
+                    next_token_idx: TokenIdx(
+                        20,
+                    ),
+                    drained: false,
+                },
+                block: DefnBlock::Type {
+                    path: TypePath(`core::frontend::Rl2dFrontend`, `Struct`),
                     variants: None,
                 },
             },
         ],
     },
     top_level_asts: ArenaIdxRange(
-        0..4,
+        0..5,
     ),
     nested_top_level_asts: [],
     siblings: [
@@ -167,7 +206,7 @@ AstSheet {
             0..0,
         ),
         ArenaIdxRange(
-            0..4,
+            0..5,
         ),
     ],
 }

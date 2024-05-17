@@ -185,7 +185,7 @@
                                 TraitPath(
                                     ItemPathId(
                                         Id {
-                                            value: 46,
+                                            value: 47,
                                         },
                                     ),
                                 ),

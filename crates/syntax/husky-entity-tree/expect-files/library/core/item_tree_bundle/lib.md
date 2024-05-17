@@ -2778,71 +2778,6 @@ EntityTreeCrateBundle {
                                                     ty_variant_path: TypeVariantPath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 87,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                                path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 87,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                                visibility: Scope::Pub,
-                                                ast_idx: 3,
-                                                use_expr_idx: 2,
-                                            },
-                                        ),
-                                        path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 87,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                        visibility: Scope::Pub,
-                                        ast_idx: 9,
-                                        use_expr_idx: 27,
-                                    },
-                                ),
-                                path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 87,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                visibility: Scope::PubUnder(
-                                    `core`,
-                                ),
-                                ast_idx: 22,
-                                use_expr_idx: 0,
-                            },
-                        ),
-                    },
-                    EntitySymbolEntry {
-                        ident: `None`,
-                        visible_scope: Scope::PubUnder(
-                            `core`,
-                        ),
-                        symbol: EntitySymbol::Use(
-                            UseSymbol {
-                                original_symbol: EntitySymbol::Use(
-                                    UseSymbol {
-                                        original_symbol: EntitySymbol::Use(
-                                            UseSymbol {
-                                                original_symbol: EntitySymbol::TypeVariant {
-                                                    ty_variant_path: TypeVariantPath(
-                                                        ItemPathId(
-                                                            Id {
                                                                 value: 88,
                                                             },
                                                         ),
@@ -2881,6 +2816,71 @@ EntityTreeCrateBundle {
                                         ItemPathId(
                                             Id {
                                                 value: 88,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core`,
+                                ),
+                                ast_idx: 22,
+                                use_expr_idx: 0,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `None`,
+                        visible_scope: Scope::PubUnder(
+                            `core`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::TypeVariant {
+                                                    ty_variant_path: TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 89,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::TypeVariant(
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 89,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 3,
+                                                use_expr_idx: 2,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::TypeVariant(
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 89,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        visibility: Scope::Pub,
+                                        ast_idx: 9,
+                                        use_expr_idx: 27,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::TypeVariant(
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 89,
                                             },
                                         ),
                                     ),
@@ -5663,89 +5663,6 @@ EntityTreeCrateBundle {
                                                             ty_variant_path: TypeVariantPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 87,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                        path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 87,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        visibility: Scope::Pub,
-                                                        ast_idx: 3,
-                                                        use_expr_idx: 2,
-                                                    },
-                                                ),
-                                                path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 87,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                                visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 27,
-                                            },
-                                        ),
-                                        path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 87,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                        visibility: Scope::PubUnder(
-                                            `core`,
-                                        ),
-                                        ast_idx: 22,
-                                        use_expr_idx: 0,
-                                    },
-                                ),
-                                path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 87,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                visibility: Scope::PubUnder(
-                                    `core::array`,
-                                ),
-                                ast_idx: 0,
-                                use_expr_idx: 0,
-                            },
-                        ),
-                    },
-                    EntitySymbolEntry {
-                        ident: `None`,
-                        visible_scope: Scope::PubUnder(
-                            `core::array`,
-                        ),
-                        symbol: EntitySymbol::Use(
-                            UseSymbol {
-                                original_symbol: EntitySymbol::Use(
-                                    UseSymbol {
-                                        original_symbol: EntitySymbol::Use(
-                                            UseSymbol {
-                                                original_symbol: EntitySymbol::Use(
-                                                    UseSymbol {
-                                                        original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath(
-                                                                ItemPathId(
-                                                                    Id {
                                                                         value: 88,
                                                                     },
                                                                 ),
@@ -5800,6 +5717,89 @@ EntityTreeCrateBundle {
                                         ItemPathId(
                                             Id {
                                                 value: 88,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::array`,
+                                ),
+                                ast_idx: 0,
+                                use_expr_idx: 0,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `None`,
+                        visible_scope: Scope::PubUnder(
+                            `core::array`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::Use(
+                                                    UseSymbol {
+                                                        original_symbol: EntitySymbol::TypeVariant {
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 89,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                        path: PrincipalEntityPath::TypeVariant(
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 89,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        visibility: Scope::Pub,
+                                                        ast_idx: 3,
+                                                        use_expr_idx: 2,
+                                                    },
+                                                ),
+                                                path: PrincipalEntityPath::TypeVariant(
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 89,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 9,
+                                                use_expr_idx: 27,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::TypeVariant(
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 89,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 22,
+                                        use_expr_idx: 0,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::TypeVariant(
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 89,
                                             },
                                         ),
                                     ),
@@ -9286,89 +9286,6 @@ EntityTreeCrateBundle {
                                                             ty_variant_path: TypeVariantPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 87,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                        path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 87,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        visibility: Scope::Pub,
-                                                        ast_idx: 3,
-                                                        use_expr_idx: 2,
-                                                    },
-                                                ),
-                                                path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 87,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                                visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 27,
-                                            },
-                                        ),
-                                        path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 87,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                        visibility: Scope::PubUnder(
-                                            `core`,
-                                        ),
-                                        ast_idx: 22,
-                                        use_expr_idx: 0,
-                                    },
-                                ),
-                                path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 87,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                visibility: Scope::PubUnder(
-                                    `core::basic`,
-                                ),
-                                ast_idx: 0,
-                                use_expr_idx: 0,
-                            },
-                        ),
-                    },
-                    EntitySymbolEntry {
-                        ident: `None`,
-                        visible_scope: Scope::PubUnder(
-                            `core::basic`,
-                        ),
-                        symbol: EntitySymbol::Use(
-                            UseSymbol {
-                                original_symbol: EntitySymbol::Use(
-                                    UseSymbol {
-                                        original_symbol: EntitySymbol::Use(
-                                            UseSymbol {
-                                                original_symbol: EntitySymbol::Use(
-                                                    UseSymbol {
-                                                        original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath(
-                                                                ItemPathId(
-                                                                    Id {
                                                                         value: 88,
                                                                     },
                                                                 ),
@@ -9423,6 +9340,89 @@ EntityTreeCrateBundle {
                                         ItemPathId(
                                             Id {
                                                 value: 88,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::basic`,
+                                ),
+                                ast_idx: 0,
+                                use_expr_idx: 0,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `None`,
+                        visible_scope: Scope::PubUnder(
+                            `core::basic`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::Use(
+                                                    UseSymbol {
+                                                        original_symbol: EntitySymbol::TypeVariant {
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 89,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                        path: PrincipalEntityPath::TypeVariant(
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 89,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        visibility: Scope::Pub,
+                                                        ast_idx: 3,
+                                                        use_expr_idx: 2,
+                                                    },
+                                                ),
+                                                path: PrincipalEntityPath::TypeVariant(
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 89,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 9,
+                                                use_expr_idx: 27,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::TypeVariant(
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 89,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 22,
+                                        use_expr_idx: 0,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::TypeVariant(
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 89,
                                             },
                                         ),
                                     ),
@@ -12266,89 +12266,6 @@ EntityTreeCrateBundle {
                                                             ty_variant_path: TypeVariantPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 87,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                        path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 87,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        visibility: Scope::Pub,
-                                                        ast_idx: 3,
-                                                        use_expr_idx: 2,
-                                                    },
-                                                ),
-                                                path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 87,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                                visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 27,
-                                            },
-                                        ),
-                                        path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 87,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                        visibility: Scope::PubUnder(
-                                            `core`,
-                                        ),
-                                        ast_idx: 22,
-                                        use_expr_idx: 0,
-                                    },
-                                ),
-                                path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 87,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                visibility: Scope::PubUnder(
-                                    `core::clone`,
-                                ),
-                                ast_idx: 2,
-                                use_expr_idx: 0,
-                            },
-                        ),
-                    },
-                    EntitySymbolEntry {
-                        ident: `None`,
-                        visible_scope: Scope::PubUnder(
-                            `core::clone`,
-                        ),
-                        symbol: EntitySymbol::Use(
-                            UseSymbol {
-                                original_symbol: EntitySymbol::Use(
-                                    UseSymbol {
-                                        original_symbol: EntitySymbol::Use(
-                                            UseSymbol {
-                                                original_symbol: EntitySymbol::Use(
-                                                    UseSymbol {
-                                                        original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath(
-                                                                ItemPathId(
-                                                                    Id {
                                                                         value: 88,
                                                                     },
                                                                 ),
@@ -12403,6 +12320,89 @@ EntityTreeCrateBundle {
                                         ItemPathId(
                                             Id {
                                                 value: 88,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::clone`,
+                                ),
+                                ast_idx: 2,
+                                use_expr_idx: 0,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `None`,
+                        visible_scope: Scope::PubUnder(
+                            `core::clone`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::Use(
+                                                    UseSymbol {
+                                                        original_symbol: EntitySymbol::TypeVariant {
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 89,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                        path: PrincipalEntityPath::TypeVariant(
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 89,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        visibility: Scope::Pub,
+                                                        ast_idx: 3,
+                                                        use_expr_idx: 2,
+                                                    },
+                                                ),
+                                                path: PrincipalEntityPath::TypeVariant(
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 89,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 9,
+                                                use_expr_idx: 27,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::TypeVariant(
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 89,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 22,
+                                        use_expr_idx: 0,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::TypeVariant(
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 89,
                                             },
                                         ),
                                     ),
@@ -15496,89 +15496,6 @@ EntityTreeCrateBundle {
                                                             ty_variant_path: TypeVariantPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 87,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                        path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 87,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        visibility: Scope::Pub,
-                                                        ast_idx: 3,
-                                                        use_expr_idx: 2,
-                                                    },
-                                                ),
-                                                path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 87,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                                visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 27,
-                                            },
-                                        ),
-                                        path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 87,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                        visibility: Scope::PubUnder(
-                                            `core`,
-                                        ),
-                                        ast_idx: 22,
-                                        use_expr_idx: 0,
-                                    },
-                                ),
-                                path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 87,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                visibility: Scope::PubUnder(
-                                    `core::cmp`,
-                                ),
-                                ast_idx: 0,
-                                use_expr_idx: 0,
-                            },
-                        ),
-                    },
-                    EntitySymbolEntry {
-                        ident: `None`,
-                        visible_scope: Scope::PubUnder(
-                            `core::cmp`,
-                        ),
-                        symbol: EntitySymbol::Use(
-                            UseSymbol {
-                                original_symbol: EntitySymbol::Use(
-                                    UseSymbol {
-                                        original_symbol: EntitySymbol::Use(
-                                            UseSymbol {
-                                                original_symbol: EntitySymbol::Use(
-                                                    UseSymbol {
-                                                        original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath(
-                                                                ItemPathId(
-                                                                    Id {
                                                                         value: 88,
                                                                     },
                                                                 ),
@@ -15633,6 +15550,89 @@ EntityTreeCrateBundle {
                                         ItemPathId(
                                             Id {
                                                 value: 88,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::cmp`,
+                                ),
+                                ast_idx: 0,
+                                use_expr_idx: 0,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `None`,
+                        visible_scope: Scope::PubUnder(
+                            `core::cmp`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::Use(
+                                                    UseSymbol {
+                                                        original_symbol: EntitySymbol::TypeVariant {
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 89,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                        path: PrincipalEntityPath::TypeVariant(
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 89,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        visibility: Scope::Pub,
+                                                        ast_idx: 3,
+                                                        use_expr_idx: 2,
+                                                    },
+                                                ),
+                                                path: PrincipalEntityPath::TypeVariant(
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 89,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 9,
+                                                use_expr_idx: 27,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::TypeVariant(
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 89,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 22,
+                                        use_expr_idx: 0,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::TypeVariant(
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 89,
                                             },
                                         ),
                                     ),
@@ -18476,89 +18476,6 @@ EntityTreeCrateBundle {
                                                             ty_variant_path: TypeVariantPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 87,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                        path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 87,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        visibility: Scope::Pub,
-                                                        ast_idx: 3,
-                                                        use_expr_idx: 2,
-                                                    },
-                                                ),
-                                                path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 87,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                                visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 27,
-                                            },
-                                        ),
-                                        path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 87,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                        visibility: Scope::PubUnder(
-                                            `core`,
-                                        ),
-                                        ast_idx: 22,
-                                        use_expr_idx: 0,
-                                    },
-                                ),
-                                path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 87,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                visibility: Scope::PubUnder(
-                                    `core::default`,
-                                ),
-                                ast_idx: 1,
-                                use_expr_idx: 0,
-                            },
-                        ),
-                    },
-                    EntitySymbolEntry {
-                        ident: `None`,
-                        visible_scope: Scope::PubUnder(
-                            `core::default`,
-                        ),
-                        symbol: EntitySymbol::Use(
-                            UseSymbol {
-                                original_symbol: EntitySymbol::Use(
-                                    UseSymbol {
-                                        original_symbol: EntitySymbol::Use(
-                                            UseSymbol {
-                                                original_symbol: EntitySymbol::Use(
-                                                    UseSymbol {
-                                                        original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath(
-                                                                ItemPathId(
-                                                                    Id {
                                                                         value: 88,
                                                                     },
                                                                 ),
@@ -18613,6 +18530,89 @@ EntityTreeCrateBundle {
                                         ItemPathId(
                                             Id {
                                                 value: 88,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::default`,
+                                ),
+                                ast_idx: 1,
+                                use_expr_idx: 0,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `None`,
+                        visible_scope: Scope::PubUnder(
+                            `core::default`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::Use(
+                                                    UseSymbol {
+                                                        original_symbol: EntitySymbol::TypeVariant {
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 89,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                        path: PrincipalEntityPath::TypeVariant(
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 89,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        visibility: Scope::Pub,
+                                                        ast_idx: 3,
+                                                        use_expr_idx: 2,
+                                                    },
+                                                ),
+                                                path: PrincipalEntityPath::TypeVariant(
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 89,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 9,
+                                                use_expr_idx: 27,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::TypeVariant(
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 89,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 22,
+                                        use_expr_idx: 0,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::TypeVariant(
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 89,
                                             },
                                         ),
                                     ),
@@ -19102,7 +19102,7 @@ EntityTreeCrateBundle {
                                                 MajorItemSynNodePathData::Type(
                                                     TypeSynNodePathData {
                                                         disambiguated_item_path: DisambiguatedItemPath {
-                                                            maybe_ambiguous_item_path: TypePath(`core::frontend::Graphics2DFrontend`, `Struct`),
+                                                            maybe_ambiguous_item_path: TypePath(`core::frontend::Cv2dFrontend`, `Struct`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -19114,13 +19114,13 @@ EntityTreeCrateBundle {
                                 visibility: Scope::Pub,
                                 ast_idx: 1,
                                 ident_token: IdentToken {
-                                    ident: `Graphics2DFrontend`,
+                                    ident: `Cv2dFrontend`,
                                     token_idx: TokenIdx(
                                         7,
                                     ),
                                 },
                                 block: DefnBlock::Type {
-                                    path: TypePath(`core::frontend::Graphics2DFrontend`, `Struct`),
+                                    path: TypePath(`core::frontend::Cv2dFrontend`, `Struct`),
                                     variants: None,
                                 },
                             },
@@ -19133,7 +19133,7 @@ EntityTreeCrateBundle {
                                             MajorItemSynNodePathData::Type(
                                                 TypeSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypePath(`core::frontend::Graphics2DFrontend`, `Struct`),
+                                                        maybe_ambiguous_item_path: TypePath(`core::frontend::Cv2dFrontend`, `Struct`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -19143,7 +19143,7 @@ EntityTreeCrateBundle {
                                 ),
                             ),
                         ),
-                        ident: `Graphics2DFrontend`,
+                        ident: `Cv2dFrontend`,
                         visibility: Scope::Pub,
                     },
                     ItemNodeEntry {
@@ -19156,7 +19156,7 @@ EntityTreeCrateBundle {
                                                 MajorItemSynNodePathData::Type(
                                                     TypeSynNodePathData {
                                                         disambiguated_item_path: DisambiguatedItemPath {
-                                                            maybe_ambiguous_item_path: TypePath(`core::frontend::Graphics3DFrontend`, `Struct`),
+                                                            maybe_ambiguous_item_path: TypePath(`core::frontend::Cv3dFrontend`, `Struct`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -19168,13 +19168,13 @@ EntityTreeCrateBundle {
                                 visibility: Scope::Pub,
                                 ast_idx: 2,
                                 ident_token: IdentToken {
-                                    ident: `Graphics3DFrontend`,
+                                    ident: `Cv3dFrontend`,
                                     token_idx: TokenIdx(
                                         11,
                                     ),
                                 },
                                 block: DefnBlock::Type {
-                                    path: TypePath(`core::frontend::Graphics3DFrontend`, `Struct`),
+                                    path: TypePath(`core::frontend::Cv3dFrontend`, `Struct`),
                                     variants: None,
                                 },
                             },
@@ -19187,7 +19187,7 @@ EntityTreeCrateBundle {
                                             MajorItemSynNodePathData::Type(
                                                 TypeSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypePath(`core::frontend::Graphics3DFrontend`, `Struct`),
+                                                        maybe_ambiguous_item_path: TypePath(`core::frontend::Cv3dFrontend`, `Struct`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -19197,7 +19197,7 @@ EntityTreeCrateBundle {
                                 ),
                             ),
                         ),
-                        ident: `Graphics3DFrontend`,
+                        ident: `Cv3dFrontend`,
                         visibility: Scope::Pub,
                     },
                     ItemNodeEntry {
@@ -19210,7 +19210,7 @@ EntityTreeCrateBundle {
                                                 MajorItemSynNodePathData::Type(
                                                     TypeSynNodePathData {
                                                         disambiguated_item_path: DisambiguatedItemPath {
-                                                            maybe_ambiguous_item_path: TypePath(`core::frontend::TextFrontend`, `Struct`),
+                                                            maybe_ambiguous_item_path: TypePath(`core::frontend::NlpFrontend`, `Struct`),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -19222,13 +19222,13 @@ EntityTreeCrateBundle {
                                 visibility: Scope::Pub,
                                 ast_idx: 3,
                                 ident_token: IdentToken {
-                                    ident: `TextFrontend`,
+                                    ident: `NlpFrontend`,
                                     token_idx: TokenIdx(
                                         15,
                                     ),
                                 },
                                 block: DefnBlock::Type {
-                                    path: TypePath(`core::frontend::TextFrontend`, `Struct`),
+                                    path: TypePath(`core::frontend::NlpFrontend`, `Struct`),
                                     variants: None,
                                 },
                             },
@@ -19241,7 +19241,7 @@ EntityTreeCrateBundle {
                                             MajorItemSynNodePathData::Type(
                                                 TypeSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypePath(`core::frontend::TextFrontend`, `Struct`),
+                                                        maybe_ambiguous_item_path: TypePath(`core::frontend::NlpFrontend`, `Struct`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -19251,7 +19251,61 @@ EntityTreeCrateBundle {
                                 ),
                             ),
                         ),
-                        ident: `TextFrontend`,
+                        ident: `NlpFrontend`,
+                        visibility: Scope::Pub,
+                    },
+                    ItemNodeEntry {
+                        node: ItemSynNode::MajorItem(
+                            MajorItemSynNode {
+                                syn_node_path: MajorItemSynNodePath::Type(
+                                    TypeSynNodePath(
+                                        ItemSynNodePathId {
+                                            data: ItemSynNodePathData::MajorItem(
+                                                MajorItemSynNodePathData::Type(
+                                                    TypeSynNodePathData {
+                                                        disambiguated_item_path: DisambiguatedItemPath {
+                                                            maybe_ambiguous_item_path: TypePath(`core::frontend::Rl2dFrontend`, `Struct`),
+                                                            disambiguator: 0,
+                                                        },
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                                visibility: Scope::Pub,
+                                ast_idx: 4,
+                                ident_token: IdentToken {
+                                    ident: `Rl2dFrontend`,
+                                    token_idx: TokenIdx(
+                                        19,
+                                    ),
+                                },
+                                block: DefnBlock::Type {
+                                    path: TypePath(`core::frontend::Rl2dFrontend`, `Struct`),
+                                    variants: None,
+                                },
+                            },
+                        ),
+                        syn_node_path: ItemSynNodePath::MajorItem(
+                            MajorItemSynNodePath::Type(
+                                TypeSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Type(
+                                                TypeSynNodePathData {
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TypePath(`core::frontend::Rl2dFrontend`, `Struct`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        ident: `Rl2dFrontend`,
                         visibility: Scope::Pub,
                     },
                 ],
@@ -19268,29 +19322,38 @@ EntityTreeCrateBundle {
                         },
                     },
                     EntitySymbolEntry {
-                        ident: `Graphics2DFrontend`,
+                        ident: `Cv2dFrontend`,
                         visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
-                                TypePath(`core::frontend::Graphics2DFrontend`, `Struct`),
+                                TypePath(`core::frontend::Cv2dFrontend`, `Struct`),
                             ),
                         },
                     },
                     EntitySymbolEntry {
-                        ident: `Graphics3DFrontend`,
+                        ident: `Cv3dFrontend`,
                         visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
-                                TypePath(`core::frontend::Graphics3DFrontend`, `Struct`),
+                                TypePath(`core::frontend::Cv3dFrontend`, `Struct`),
                             ),
                         },
                     },
                     EntitySymbolEntry {
-                        ident: `TextFrontend`,
+                        ident: `NlpFrontend`,
                         visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Type(
-                                TypePath(`core::frontend::TextFrontend`, `Struct`),
+                                TypePath(`core::frontend::NlpFrontend`, `Struct`),
+                            ),
+                        },
+                    },
+                    EntitySymbolEntry {
+                        ident: `Rl2dFrontend`,
+                        visible_scope: Scope::Pub,
+                        symbol: EntitySymbol::MajorItem {
+                            major_item_path: MajorItemPath::Type(
+                                TypePath(`core::frontend::Rl2dFrontend`, `Struct`),
                             ),
                         },
                     },
@@ -21721,89 +21784,6 @@ EntityTreeCrateBundle {
                                                             ty_variant_path: TypeVariantPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 87,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                        path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 87,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        visibility: Scope::Pub,
-                                                        ast_idx: 3,
-                                                        use_expr_idx: 2,
-                                                    },
-                                                ),
-                                                path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 87,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                                visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 27,
-                                            },
-                                        ),
-                                        path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 87,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                        visibility: Scope::PubUnder(
-                                            `core`,
-                                        ),
-                                        ast_idx: 22,
-                                        use_expr_idx: 0,
-                                    },
-                                ),
-                                path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 87,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                visibility: Scope::PubUnder(
-                                    `core::fmt`,
-                                ),
-                                ast_idx: 0,
-                                use_expr_idx: 0,
-                            },
-                        ),
-                    },
-                    EntitySymbolEntry {
-                        ident: `None`,
-                        visible_scope: Scope::PubUnder(
-                            `core::fmt`,
-                        ),
-                        symbol: EntitySymbol::Use(
-                            UseSymbol {
-                                original_symbol: EntitySymbol::Use(
-                                    UseSymbol {
-                                        original_symbol: EntitySymbol::Use(
-                                            UseSymbol {
-                                                original_symbol: EntitySymbol::Use(
-                                                    UseSymbol {
-                                                        original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath(
-                                                                ItemPathId(
-                                                                    Id {
                                                                         value: 88,
                                                                     },
                                                                 ),
@@ -21858,6 +21838,89 @@ EntityTreeCrateBundle {
                                         ItemPathId(
                                             Id {
                                                 value: 88,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::fmt`,
+                                ),
+                                ast_idx: 0,
+                                use_expr_idx: 0,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `None`,
+                        visible_scope: Scope::PubUnder(
+                            `core::fmt`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::Use(
+                                                    UseSymbol {
+                                                        original_symbol: EntitySymbol::TypeVariant {
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 89,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                        path: PrincipalEntityPath::TypeVariant(
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 89,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        visibility: Scope::Pub,
+                                                        ast_idx: 3,
+                                                        use_expr_idx: 2,
+                                                    },
+                                                ),
+                                                path: PrincipalEntityPath::TypeVariant(
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 89,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 9,
+                                                use_expr_idx: 27,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::TypeVariant(
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 89,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 22,
+                                        use_expr_idx: 0,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::TypeVariant(
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 89,
                                             },
                                         ),
                                     ),
@@ -24775,89 +24838,6 @@ EntityTreeCrateBundle {
                                                             ty_variant_path: TypeVariantPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 87,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                        path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 87,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        visibility: Scope::Pub,
-                                                        ast_idx: 3,
-                                                        use_expr_idx: 2,
-                                                    },
-                                                ),
-                                                path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 87,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                                visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 27,
-                                            },
-                                        ),
-                                        path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 87,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                        visibility: Scope::PubUnder(
-                                            `core`,
-                                        ),
-                                        ast_idx: 22,
-                                        use_expr_idx: 0,
-                                    },
-                                ),
-                                path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 87,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                visibility: Scope::PubUnder(
-                                    `core::marker`,
-                                ),
-                                ast_idx: 0,
-                                use_expr_idx: 0,
-                            },
-                        ),
-                    },
-                    EntitySymbolEntry {
-                        ident: `None`,
-                        visible_scope: Scope::PubUnder(
-                            `core::marker`,
-                        ),
-                        symbol: EntitySymbol::Use(
-                            UseSymbol {
-                                original_symbol: EntitySymbol::Use(
-                                    UseSymbol {
-                                        original_symbol: EntitySymbol::Use(
-                                            UseSymbol {
-                                                original_symbol: EntitySymbol::Use(
-                                                    UseSymbol {
-                                                        original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath(
-                                                                ItemPathId(
-                                                                    Id {
                                                                         value: 88,
                                                                     },
                                                                 ),
@@ -24912,6 +24892,89 @@ EntityTreeCrateBundle {
                                         ItemPathId(
                                             Id {
                                                 value: 88,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::marker`,
+                                ),
+                                ast_idx: 0,
+                                use_expr_idx: 0,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `None`,
+                        visible_scope: Scope::PubUnder(
+                            `core::marker`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::Use(
+                                                    UseSymbol {
+                                                        original_symbol: EntitySymbol::TypeVariant {
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 89,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                        path: PrincipalEntityPath::TypeVariant(
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 89,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        visibility: Scope::Pub,
+                                                        ast_idx: 3,
+                                                        use_expr_idx: 2,
+                                                    },
+                                                ),
+                                                path: PrincipalEntityPath::TypeVariant(
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 89,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 9,
+                                                use_expr_idx: 27,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::TypeVariant(
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 89,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 22,
+                                        use_expr_idx: 0,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::TypeVariant(
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 89,
                                             },
                                         ),
                                     ),
@@ -27997,89 +28060,6 @@ EntityTreeCrateBundle {
                                                             ty_variant_path: TypeVariantPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 87,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                        path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 87,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        visibility: Scope::Pub,
-                                                        ast_idx: 3,
-                                                        use_expr_idx: 2,
-                                                    },
-                                                ),
-                                                path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 87,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                                visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 27,
-                                            },
-                                        ),
-                                        path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 87,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                        visibility: Scope::PubUnder(
-                                            `core`,
-                                        ),
-                                        ast_idx: 22,
-                                        use_expr_idx: 0,
-                                    },
-                                ),
-                                path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 87,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                visibility: Scope::PubUnder(
-                                    `core::mem`,
-                                ),
-                                ast_idx: 0,
-                                use_expr_idx: 0,
-                            },
-                        ),
-                    },
-                    EntitySymbolEntry {
-                        ident: `None`,
-                        visible_scope: Scope::PubUnder(
-                            `core::mem`,
-                        ),
-                        symbol: EntitySymbol::Use(
-                            UseSymbol {
-                                original_symbol: EntitySymbol::Use(
-                                    UseSymbol {
-                                        original_symbol: EntitySymbol::Use(
-                                            UseSymbol {
-                                                original_symbol: EntitySymbol::Use(
-                                                    UseSymbol {
-                                                        original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath(
-                                                                ItemPathId(
-                                                                    Id {
                                                                         value: 88,
                                                                     },
                                                                 ),
@@ -28134,6 +28114,89 @@ EntityTreeCrateBundle {
                                         ItemPathId(
                                             Id {
                                                 value: 88,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::mem`,
+                                ),
+                                ast_idx: 0,
+                                use_expr_idx: 0,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `None`,
+                        visible_scope: Scope::PubUnder(
+                            `core::mem`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::Use(
+                                                    UseSymbol {
+                                                        original_symbol: EntitySymbol::TypeVariant {
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 89,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                        path: PrincipalEntityPath::TypeVariant(
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 89,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        visibility: Scope::Pub,
+                                                        ast_idx: 3,
+                                                        use_expr_idx: 2,
+                                                    },
+                                                ),
+                                                path: PrincipalEntityPath::TypeVariant(
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 89,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 9,
+                                                use_expr_idx: 27,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::TypeVariant(
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 89,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 22,
+                                        use_expr_idx: 0,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::TypeVariant(
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 89,
                                             },
                                         ),
                                     ),
@@ -31860,89 +31923,6 @@ EntityTreeCrateBundle {
                                                             ty_variant_path: TypeVariantPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 87,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                        path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 87,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        visibility: Scope::Pub,
-                                                        ast_idx: 3,
-                                                        use_expr_idx: 2,
-                                                    },
-                                                ),
-                                                path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 87,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                                visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 27,
-                                            },
-                                        ),
-                                        path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 87,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                        visibility: Scope::PubUnder(
-                                            `core`,
-                                        ),
-                                        ast_idx: 22,
-                                        use_expr_idx: 0,
-                                    },
-                                ),
-                                path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 87,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                visibility: Scope::PubUnder(
-                                    `core::num`,
-                                ),
-                                ast_idx: 47,
-                                use_expr_idx: 0,
-                            },
-                        ),
-                    },
-                    EntitySymbolEntry {
-                        ident: `None`,
-                        visible_scope: Scope::PubUnder(
-                            `core::num`,
-                        ),
-                        symbol: EntitySymbol::Use(
-                            UseSymbol {
-                                original_symbol: EntitySymbol::Use(
-                                    UseSymbol {
-                                        original_symbol: EntitySymbol::Use(
-                                            UseSymbol {
-                                                original_symbol: EntitySymbol::Use(
-                                                    UseSymbol {
-                                                        original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath(
-                                                                ItemPathId(
-                                                                    Id {
                                                                         value: 88,
                                                                     },
                                                                 ),
@@ -31997,6 +31977,89 @@ EntityTreeCrateBundle {
                                         ItemPathId(
                                             Id {
                                                 value: 88,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::num`,
+                                ),
+                                ast_idx: 47,
+                                use_expr_idx: 0,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `None`,
+                        visible_scope: Scope::PubUnder(
+                            `core::num`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::Use(
+                                                    UseSymbol {
+                                                        original_symbol: EntitySymbol::TypeVariant {
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 89,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                        path: PrincipalEntityPath::TypeVariant(
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 89,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        visibility: Scope::Pub,
+                                                        ast_idx: 3,
+                                                        use_expr_idx: 2,
+                                                    },
+                                                ),
+                                                path: PrincipalEntityPath::TypeVariant(
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 89,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 9,
+                                                use_expr_idx: 27,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::TypeVariant(
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 89,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 22,
+                                        use_expr_idx: 0,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::TypeVariant(
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 89,
                                             },
                                         ),
                                     ),
@@ -32379,7 +32442,7 @@ EntityTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 106,
+                                                        value: 107,
                                                     },
                                                 ),
                                             ),
@@ -32399,7 +32462,7 @@ EntityTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 106,
+                                                            value: 107,
                                                         },
                                                     ),
                                                 ),
@@ -32485,7 +32548,7 @@ EntityTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 108,
+                                                        value: 109,
                                                     },
                                                 ),
                                             ),
@@ -32505,7 +32568,7 @@ EntityTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 108,
+                                                            value: 109,
                                                         },
                                                     ),
                                                 ),
@@ -32591,7 +32654,7 @@ EntityTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 110,
+                                                        value: 111,
                                                     },
                                                 ),
                                             ),
@@ -32611,7 +32674,7 @@ EntityTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 110,
+                                                            value: 111,
                                                         },
                                                     ),
                                                 ),
@@ -32697,7 +32760,7 @@ EntityTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 112,
+                                                        value: 113,
                                                     },
                                                 ),
                                             ),
@@ -32717,7 +32780,7 @@ EntityTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 112,
+                                                            value: 113,
                                                         },
                                                     ),
                                                 ),
@@ -32803,7 +32866,7 @@ EntityTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 114,
+                                                        value: 115,
                                                     },
                                                 ),
                                             ),
@@ -32823,7 +32886,7 @@ EntityTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 114,
+                                                            value: 115,
                                                         },
                                                     ),
                                                 ),
@@ -32909,7 +32972,7 @@ EntityTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 116,
+                                                        value: 117,
                                                     },
                                                 ),
                                             ),
@@ -32929,7 +32992,7 @@ EntityTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 116,
+                                                            value: 117,
                                                         },
                                                     ),
                                                 ),
@@ -33015,7 +33078,7 @@ EntityTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 118,
+                                                        value: 119,
                                                     },
                                                 ),
                                             ),
@@ -33035,7 +33098,7 @@ EntityTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 118,
+                                                            value: 119,
                                                         },
                                                     ),
                                                 ),
@@ -33121,7 +33184,7 @@ EntityTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 120,
+                                                        value: 121,
                                                     },
                                                 ),
                                             ),
@@ -33141,7 +33204,7 @@ EntityTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 120,
+                                                            value: 121,
                                                         },
                                                     ),
                                                 ),
@@ -33227,7 +33290,7 @@ EntityTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 122,
+                                                        value: 123,
                                                     },
                                                 ),
                                             ),
@@ -33247,7 +33310,7 @@ EntityTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 122,
+                                                            value: 123,
                                                         },
                                                     ),
                                                 ),
@@ -33333,7 +33396,7 @@ EntityTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 124,
+                                                        value: 125,
                                                     },
                                                 ),
                                             ),
@@ -33353,7 +33416,7 @@ EntityTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 124,
+                                                            value: 125,
                                                         },
                                                     ),
                                                 ),
@@ -33439,7 +33502,7 @@ EntityTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 126,
+                                                        value: 127,
                                                     },
                                                 ),
                                             ),
@@ -33459,7 +33522,7 @@ EntityTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 126,
+                                                            value: 127,
                                                         },
                                                     ),
                                                 ),
@@ -33545,7 +33608,7 @@ EntityTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 128,
+                                                        value: 129,
                                                     },
                                                 ),
                                             ),
@@ -33565,7 +33628,7 @@ EntityTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 128,
+                                                            value: 129,
                                                         },
                                                     ),
                                                 ),
@@ -33651,7 +33714,7 @@ EntityTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 130,
+                                                        value: 131,
                                                     },
                                                 ),
                                             ),
@@ -33671,7 +33734,7 @@ EntityTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 130,
+                                                            value: 131,
                                                         },
                                                     ),
                                                 ),
@@ -33757,7 +33820,7 @@ EntityTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 132,
+                                                        value: 133,
                                                     },
                                                 ),
                                             ),
@@ -33777,7 +33840,7 @@ EntityTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 132,
+                                                            value: 133,
                                                         },
                                                     ),
                                                 ),
@@ -37608,89 +37671,6 @@ EntityTreeCrateBundle {
                                                             ty_variant_path: TypeVariantPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 87,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                        path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 87,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        visibility: Scope::Pub,
-                                                        ast_idx: 3,
-                                                        use_expr_idx: 2,
-                                                    },
-                                                ),
-                                                path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 87,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                                visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 27,
-                                            },
-                                        ),
-                                        path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 87,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                        visibility: Scope::PubUnder(
-                                            `core`,
-                                        ),
-                                        ast_idx: 22,
-                                        use_expr_idx: 0,
-                                    },
-                                ),
-                                path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 87,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                visibility: Scope::PubUnder(
-                                    `core::ops`,
-                                ),
-                                ast_idx: 30,
-                                use_expr_idx: 0,
-                            },
-                        ),
-                    },
-                    EntitySymbolEntry {
-                        ident: `None`,
-                        visible_scope: Scope::PubUnder(
-                            `core::ops`,
-                        ),
-                        symbol: EntitySymbol::Use(
-                            UseSymbol {
-                                original_symbol: EntitySymbol::Use(
-                                    UseSymbol {
-                                        original_symbol: EntitySymbol::Use(
-                                            UseSymbol {
-                                                original_symbol: EntitySymbol::Use(
-                                                    UseSymbol {
-                                                        original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath(
-                                                                ItemPathId(
-                                                                    Id {
                                                                         value: 88,
                                                                     },
                                                                 ),
@@ -37745,6 +37725,89 @@ EntityTreeCrateBundle {
                                         ItemPathId(
                                             Id {
                                                 value: 88,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::ops`,
+                                ),
+                                ast_idx: 30,
+                                use_expr_idx: 0,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `None`,
+                        visible_scope: Scope::PubUnder(
+                            `core::ops`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::Use(
+                                                    UseSymbol {
+                                                        original_symbol: EntitySymbol::TypeVariant {
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 89,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                        path: PrincipalEntityPath::TypeVariant(
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 89,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        visibility: Scope::Pub,
+                                                        ast_idx: 3,
+                                                        use_expr_idx: 2,
+                                                    },
+                                                ),
+                                                path: PrincipalEntityPath::TypeVariant(
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 89,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 9,
+                                                use_expr_idx: 27,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::TypeVariant(
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 89,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 22,
+                                        use_expr_idx: 0,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::TypeVariant(
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 89,
                                             },
                                         ),
                                     ),
@@ -38252,7 +38315,7 @@ EntityTreeCrateBundle {
                                     ty_variant_path: TypeVariantPath(
                                         ItemPathId(
                                             Id {
-                                                value: 87,
+                                                value: 88,
                                             },
                                         ),
                                     ),
@@ -38261,7 +38324,7 @@ EntityTreeCrateBundle {
                                     TypeVariantPath(
                                         ItemPathId(
                                             Id {
-                                                value: 87,
+                                                value: 88,
                                             },
                                         ),
                                     ),
@@ -38281,7 +38344,7 @@ EntityTreeCrateBundle {
                                     ty_variant_path: TypeVariantPath(
                                         ItemPathId(
                                             Id {
-                                                value: 88,
+                                                value: 89,
                                             },
                                         ),
                                     ),
@@ -38290,7 +38353,7 @@ EntityTreeCrateBundle {
                                     TypeVariantPath(
                                         ItemPathId(
                                             Id {
-                                                value: 88,
+                                                value: 89,
                                             },
                                         ),
                                     ),
@@ -40646,89 +40709,6 @@ EntityTreeCrateBundle {
                                                             ty_variant_path: TypeVariantPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 87,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                        path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 87,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        visibility: Scope::Pub,
-                                                        ast_idx: 3,
-                                                        use_expr_idx: 2,
-                                                    },
-                                                ),
-                                                path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 87,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                                visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 27,
-                                            },
-                                        ),
-                                        path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 87,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                        visibility: Scope::PubUnder(
-                                            `core`,
-                                        ),
-                                        ast_idx: 22,
-                                        use_expr_idx: 0,
-                                    },
-                                ),
-                                path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 87,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                visibility: Scope::PubUnder(
-                                    `core::option`,
-                                ),
-                                ast_idx: 2,
-                                use_expr_idx: 0,
-                            },
-                        ),
-                    },
-                    EntitySymbolEntry {
-                        ident: `None`,
-                        visible_scope: Scope::PubUnder(
-                            `core::option`,
-                        ),
-                        symbol: EntitySymbol::Use(
-                            UseSymbol {
-                                original_symbol: EntitySymbol::Use(
-                                    UseSymbol {
-                                        original_symbol: EntitySymbol::Use(
-                                            UseSymbol {
-                                                original_symbol: EntitySymbol::Use(
-                                                    UseSymbol {
-                                                        original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath(
-                                                                ItemPathId(
-                                                                    Id {
                                                                         value: 88,
                                                                     },
                                                                 ),
@@ -40783,6 +40763,89 @@ EntityTreeCrateBundle {
                                         ItemPathId(
                                             Id {
                                                 value: 88,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::option`,
+                                ),
+                                ast_idx: 2,
+                                use_expr_idx: 0,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `None`,
+                        visible_scope: Scope::PubUnder(
+                            `core::option`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::Use(
+                                                    UseSymbol {
+                                                        original_symbol: EntitySymbol::TypeVariant {
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 89,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                        path: PrincipalEntityPath::TypeVariant(
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 89,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        visibility: Scope::Pub,
+                                                        ast_idx: 3,
+                                                        use_expr_idx: 2,
+                                                    },
+                                                ),
+                                                path: PrincipalEntityPath::TypeVariant(
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 89,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 9,
+                                                use_expr_idx: 27,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::TypeVariant(
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 89,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 22,
+                                        use_expr_idx: 0,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::TypeVariant(
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 89,
                                             },
                                         ),
                                     ),
@@ -41989,51 +42052,6 @@ EntityTreeCrateBundle {
                                             ty_variant_path: TypeVariantPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 87,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                        path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 87,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                        visibility: Scope::Pub,
-                                        ast_idx: 3,
-                                        use_expr_idx: 2,
-                                    },
-                                ),
-                                path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 87,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                visibility: Scope::Pub,
-                                ast_idx: 9,
-                                use_expr_idx: 27,
-                            },
-                        ),
-                    },
-                    EntitySymbolEntry {
-                        ident: `None`,
-                        visible_scope: Scope::Pub,
-                        symbol: EntitySymbol::Use(
-                            UseSymbol {
-                                original_symbol: EntitySymbol::Use(
-                                    UseSymbol {
-                                        original_symbol: EntitySymbol::TypeVariant {
-                                            ty_variant_path: TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
                                                         value: 88,
                                                     },
                                                 ),
@@ -42058,6 +42076,51 @@ EntityTreeCrateBundle {
                                         ItemPathId(
                                             Id {
                                                 value: 88,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                visibility: Scope::Pub,
+                                ast_idx: 9,
+                                use_expr_idx: 27,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `None`,
+                        visible_scope: Scope::Pub,
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::TypeVariant {
+                                            ty_variant_path: TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 89,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        path: PrincipalEntityPath::TypeVariant(
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 89,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        visibility: Scope::Pub,
+                                        ast_idx: 3,
+                                        use_expr_idx: 2,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::TypeVariant(
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 89,
                                             },
                                         ),
                                     ),
@@ -45632,89 +45695,6 @@ EntityTreeCrateBundle {
                                                             ty_variant_path: TypeVariantPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 87,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                        path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 87,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        visibility: Scope::Pub,
-                                                        ast_idx: 3,
-                                                        use_expr_idx: 2,
-                                                    },
-                                                ),
-                                                path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 87,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                                visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 27,
-                                            },
-                                        ),
-                                        path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 87,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                        visibility: Scope::PubUnder(
-                                            `core`,
-                                        ),
-                                        ast_idx: 22,
-                                        use_expr_idx: 0,
-                                    },
-                                ),
-                                path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 87,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                visibility: Scope::PubUnder(
-                                    `core::raw_bits`,
-                                ),
-                                ast_idx: 5,
-                                use_expr_idx: 0,
-                            },
-                        ),
-                    },
-                    EntitySymbolEntry {
-                        ident: `None`,
-                        visible_scope: Scope::PubUnder(
-                            `core::raw_bits`,
-                        ),
-                        symbol: EntitySymbol::Use(
-                            UseSymbol {
-                                original_symbol: EntitySymbol::Use(
-                                    UseSymbol {
-                                        original_symbol: EntitySymbol::Use(
-                                            UseSymbol {
-                                                original_symbol: EntitySymbol::Use(
-                                                    UseSymbol {
-                                                        original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath(
-                                                                ItemPathId(
-                                                                    Id {
                                                                         value: 88,
                                                                     },
                                                                 ),
@@ -45769,6 +45749,89 @@ EntityTreeCrateBundle {
                                         ItemPathId(
                                             Id {
                                                 value: 88,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::raw_bits`,
+                                ),
+                                ast_idx: 5,
+                                use_expr_idx: 0,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `None`,
+                        visible_scope: Scope::PubUnder(
+                            `core::raw_bits`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::Use(
+                                                    UseSymbol {
+                                                        original_symbol: EntitySymbol::TypeVariant {
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 89,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                        path: PrincipalEntityPath::TypeVariant(
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 89,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        visibility: Scope::Pub,
+                                                        ast_idx: 3,
+                                                        use_expr_idx: 2,
+                                                    },
+                                                ),
+                                                path: PrincipalEntityPath::TypeVariant(
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 89,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 9,
+                                                use_expr_idx: 27,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::TypeVariant(
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 89,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 22,
+                                        use_expr_idx: 0,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::TypeVariant(
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 89,
                                             },
                                         ),
                                     ),
@@ -46151,7 +46214,7 @@ EntityTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 134,
+                                                        value: 135,
                                                     },
                                                 ),
                                             ),
@@ -46171,7 +46234,7 @@ EntityTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 134,
+                                                            value: 135,
                                                         },
                                                     ),
                                                 ),
@@ -46331,7 +46394,7 @@ EntityTreeCrateBundle {
                                     ty_variant_path: TypeVariantPath(
                                         ItemPathId(
                                             Id {
-                                                value: 91,
+                                                value: 92,
                                             },
                                         ),
                                     ),
@@ -46340,7 +46403,7 @@ EntityTreeCrateBundle {
                                     TypeVariantPath(
                                         ItemPathId(
                                             Id {
-                                                value: 91,
+                                                value: 92,
                                             },
                                         ),
                                     ),
@@ -46360,7 +46423,7 @@ EntityTreeCrateBundle {
                                     ty_variant_path: TypeVariantPath(
                                         ItemPathId(
                                             Id {
-                                                value: 92,
+                                                value: 93,
                                             },
                                         ),
                                     ),
@@ -46369,7 +46432,7 @@ EntityTreeCrateBundle {
                                     TypeVariantPath(
                                         ItemPathId(
                                             Id {
-                                                value: 92,
+                                                value: 93,
                                             },
                                         ),
                                     ),
@@ -48725,89 +48788,6 @@ EntityTreeCrateBundle {
                                                             ty_variant_path: TypeVariantPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 87,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                        path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 87,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        visibility: Scope::Pub,
-                                                        ast_idx: 3,
-                                                        use_expr_idx: 2,
-                                                    },
-                                                ),
-                                                path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 87,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                                visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 27,
-                                            },
-                                        ),
-                                        path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 87,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                        visibility: Scope::PubUnder(
-                                            `core`,
-                                        ),
-                                        ast_idx: 22,
-                                        use_expr_idx: 0,
-                                    },
-                                ),
-                                path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 87,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                visibility: Scope::PubUnder(
-                                    `core::result`,
-                                ),
-                                ast_idx: 4,
-                                use_expr_idx: 0,
-                            },
-                        ),
-                    },
-                    EntitySymbolEntry {
-                        ident: `None`,
-                        visible_scope: Scope::PubUnder(
-                            `core::result`,
-                        ),
-                        symbol: EntitySymbol::Use(
-                            UseSymbol {
-                                original_symbol: EntitySymbol::Use(
-                                    UseSymbol {
-                                        original_symbol: EntitySymbol::Use(
-                                            UseSymbol {
-                                                original_symbol: EntitySymbol::Use(
-                                                    UseSymbol {
-                                                        original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath(
-                                                                ItemPathId(
-                                                                    Id {
                                                                         value: 88,
                                                                     },
                                                                 ),
@@ -48862,6 +48842,89 @@ EntityTreeCrateBundle {
                                         ItemPathId(
                                             Id {
                                                 value: 88,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::result`,
+                                ),
+                                ast_idx: 4,
+                                use_expr_idx: 0,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `None`,
+                        visible_scope: Scope::PubUnder(
+                            `core::result`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::Use(
+                                                    UseSymbol {
+                                                        original_symbol: EntitySymbol::TypeVariant {
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 89,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                        path: PrincipalEntityPath::TypeVariant(
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 89,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        visibility: Scope::Pub,
+                                                        ast_idx: 3,
+                                                        use_expr_idx: 2,
+                                                    },
+                                                ),
+                                                path: PrincipalEntityPath::TypeVariant(
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 89,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 9,
+                                                use_expr_idx: 27,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::TypeVariant(
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 89,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 22,
+                                        use_expr_idx: 0,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::TypeVariant(
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 89,
                                             },
                                         ),
                                     ),
@@ -51993,89 +52056,6 @@ EntityTreeCrateBundle {
                                                             ty_variant_path: TypeVariantPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 87,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                        path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 87,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        visibility: Scope::Pub,
-                                                        ast_idx: 3,
-                                                        use_expr_idx: 2,
-                                                    },
-                                                ),
-                                                path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 87,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                                visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 27,
-                                            },
-                                        ),
-                                        path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 87,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                        visibility: Scope::PubUnder(
-                                            `core`,
-                                        ),
-                                        ast_idx: 22,
-                                        use_expr_idx: 0,
-                                    },
-                                ),
-                                path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 87,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                visibility: Scope::PubUnder(
-                                    `core::vec`,
-                                ),
-                                ast_idx: 8,
-                                use_expr_idx: 0,
-                            },
-                        ),
-                    },
-                    EntitySymbolEntry {
-                        ident: `None`,
-                        visible_scope: Scope::PubUnder(
-                            `core::vec`,
-                        ),
-                        symbol: EntitySymbol::Use(
-                            UseSymbol {
-                                original_symbol: EntitySymbol::Use(
-                                    UseSymbol {
-                                        original_symbol: EntitySymbol::Use(
-                                            UseSymbol {
-                                                original_symbol: EntitySymbol::Use(
-                                                    UseSymbol {
-                                                        original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath(
-                                                                ItemPathId(
-                                                                    Id {
                                                                         value: 88,
                                                                     },
                                                                 ),
@@ -52130,6 +52110,89 @@ EntityTreeCrateBundle {
                                         ItemPathId(
                                             Id {
                                                 value: 88,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::vec`,
+                                ),
+                                ast_idx: 8,
+                                use_expr_idx: 0,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `None`,
+                        visible_scope: Scope::PubUnder(
+                            `core::vec`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::Use(
+                                                    UseSymbol {
+                                                        original_symbol: EntitySymbol::TypeVariant {
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 89,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                        path: PrincipalEntityPath::TypeVariant(
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 89,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        visibility: Scope::Pub,
+                                                        ast_idx: 3,
+                                                        use_expr_idx: 2,
+                                                    },
+                                                ),
+                                                path: PrincipalEntityPath::TypeVariant(
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 89,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 9,
+                                                use_expr_idx: 27,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::TypeVariant(
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 89,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 22,
+                                        use_expr_idx: 0,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::TypeVariant(
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 89,
                                             },
                                         ),
                                     ),
@@ -52512,7 +52575,7 @@ EntityTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 136,
+                                                        value: 137,
                                                     },
                                                 ),
                                             ),
@@ -52532,7 +52595,7 @@ EntityTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 136,
+                                                            value: 137,
                                                         },
                                                     ),
                                                 ),
@@ -55085,89 +55148,6 @@ EntityTreeCrateBundle {
                                                             ty_variant_path: TypeVariantPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 87,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                        path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 87,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        visibility: Scope::Pub,
-                                                        ast_idx: 3,
-                                                        use_expr_idx: 2,
-                                                    },
-                                                ),
-                                                path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 87,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                                visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 27,
-                                            },
-                                        ),
-                                        path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 87,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                        visibility: Scope::PubUnder(
-                                            `core`,
-                                        ),
-                                        ast_idx: 22,
-                                        use_expr_idx: 0,
-                                    },
-                                ),
-                                path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 87,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                visibility: Scope::PubUnder(
-                                    `core::slice`,
-                                ),
-                                ast_idx: 8,
-                                use_expr_idx: 0,
-                            },
-                        ),
-                    },
-                    EntitySymbolEntry {
-                        ident: `None`,
-                        visible_scope: Scope::PubUnder(
-                            `core::slice`,
-                        ),
-                        symbol: EntitySymbol::Use(
-                            UseSymbol {
-                                original_symbol: EntitySymbol::Use(
-                                    UseSymbol {
-                                        original_symbol: EntitySymbol::Use(
-                                            UseSymbol {
-                                                original_symbol: EntitySymbol::Use(
-                                                    UseSymbol {
-                                                        original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath(
-                                                                ItemPathId(
-                                                                    Id {
                                                                         value: 88,
                                                                     },
                                                                 ),
@@ -55222,6 +55202,89 @@ EntityTreeCrateBundle {
                                         ItemPathId(
                                             Id {
                                                 value: 88,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::slice`,
+                                ),
+                                ast_idx: 8,
+                                use_expr_idx: 0,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `None`,
+                        visible_scope: Scope::PubUnder(
+                            `core::slice`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::Use(
+                                                    UseSymbol {
+                                                        original_symbol: EntitySymbol::TypeVariant {
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 89,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                        path: PrincipalEntityPath::TypeVariant(
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 89,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        visibility: Scope::Pub,
+                                                        ast_idx: 3,
+                                                        use_expr_idx: 2,
+                                                    },
+                                                ),
+                                                path: PrincipalEntityPath::TypeVariant(
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 89,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 9,
+                                                use_expr_idx: 27,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::TypeVariant(
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 89,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 22,
+                                        use_expr_idx: 0,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::TypeVariant(
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 89,
                                             },
                                         ),
                                     ),
@@ -55604,7 +55667,7 @@ EntityTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 137,
+                                                        value: 138,
                                                     },
                                                 ),
                                             ),
@@ -55624,7 +55687,7 @@ EntityTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 137,
+                                                            value: 138,
                                                         },
                                                     ),
                                                 ),
@@ -55710,7 +55773,7 @@ EntityTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 139,
+                                                        value: 140,
                                                     },
                                                 ),
                                             ),
@@ -55730,7 +55793,7 @@ EntityTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 139,
+                                                            value: 140,
                                                         },
                                                     ),
                                                 ),
@@ -58283,89 +58346,6 @@ EntityTreeCrateBundle {
                                                             ty_variant_path: TypeVariantPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 87,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                        path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 87,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        visibility: Scope::Pub,
-                                                        ast_idx: 3,
-                                                        use_expr_idx: 2,
-                                                    },
-                                                ),
-                                                path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 87,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                                visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 27,
-                                            },
-                                        ),
-                                        path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 87,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                        visibility: Scope::PubUnder(
-                                            `core`,
-                                        ),
-                                        ast_idx: 22,
-                                        use_expr_idx: 0,
-                                    },
-                                ),
-                                path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 87,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                visibility: Scope::PubUnder(
-                                    `core::str`,
-                                ),
-                                ast_idx: 0,
-                                use_expr_idx: 0,
-                            },
-                        ),
-                    },
-                    EntitySymbolEntry {
-                        ident: `None`,
-                        visible_scope: Scope::PubUnder(
-                            `core::str`,
-                        ),
-                        symbol: EntitySymbol::Use(
-                            UseSymbol {
-                                original_symbol: EntitySymbol::Use(
-                                    UseSymbol {
-                                        original_symbol: EntitySymbol::Use(
-                                            UseSymbol {
-                                                original_symbol: EntitySymbol::Use(
-                                                    UseSymbol {
-                                                        original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath(
-                                                                ItemPathId(
-                                                                    Id {
                                                                         value: 88,
                                                                     },
                                                                 ),
@@ -58420,6 +58400,89 @@ EntityTreeCrateBundle {
                                         ItemPathId(
                                             Id {
                                                 value: 88,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::str`,
+                                ),
+                                ast_idx: 0,
+                                use_expr_idx: 0,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `None`,
+                        visible_scope: Scope::PubUnder(
+                            `core::str`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::Use(
+                                                    UseSymbol {
+                                                        original_symbol: EntitySymbol::TypeVariant {
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 89,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                        path: PrincipalEntityPath::TypeVariant(
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 89,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        visibility: Scope::Pub,
+                                                        ast_idx: 3,
+                                                        use_expr_idx: 2,
+                                                    },
+                                                ),
+                                                path: PrincipalEntityPath::TypeVariant(
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 89,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 9,
+                                                use_expr_idx: 27,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::TypeVariant(
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 89,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 22,
+                                        use_expr_idx: 0,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::TypeVariant(
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 89,
                                             },
                                         ),
                                     ),
@@ -61326,89 +61389,6 @@ EntityTreeCrateBundle {
                                                             ty_variant_path: TypeVariantPath(
                                                                 ItemPathId(
                                                                     Id {
-                                                                        value: 87,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        },
-                                                        path: PrincipalEntityPath::TypeVariant(
-                                                            TypeVariantPath(
-                                                                ItemPathId(
-                                                                    Id {
-                                                                        value: 87,
-                                                                    },
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        visibility: Scope::Pub,
-                                                        ast_idx: 3,
-                                                        use_expr_idx: 2,
-                                                    },
-                                                ),
-                                                path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 87,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                                visibility: Scope::Pub,
-                                                ast_idx: 9,
-                                                use_expr_idx: 27,
-                                            },
-                                        ),
-                                        path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 87,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                        visibility: Scope::PubUnder(
-                                            `core`,
-                                        ),
-                                        ast_idx: 22,
-                                        use_expr_idx: 0,
-                                    },
-                                ),
-                                path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 87,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                visibility: Scope::PubUnder(
-                                    `core::visual`,
-                                ),
-                                ast_idx: 2,
-                                use_expr_idx: 0,
-                            },
-                        ),
-                    },
-                    EntitySymbolEntry {
-                        ident: `None`,
-                        visible_scope: Scope::PubUnder(
-                            `core::visual`,
-                        ),
-                        symbol: EntitySymbol::Use(
-                            UseSymbol {
-                                original_symbol: EntitySymbol::Use(
-                                    UseSymbol {
-                                        original_symbol: EntitySymbol::Use(
-                                            UseSymbol {
-                                                original_symbol: EntitySymbol::Use(
-                                                    UseSymbol {
-                                                        original_symbol: EntitySymbol::TypeVariant {
-                                                            ty_variant_path: TypeVariantPath(
-                                                                ItemPathId(
-                                                                    Id {
                                                                         value: 88,
                                                                     },
                                                                 ),
@@ -61463,6 +61443,89 @@ EntityTreeCrateBundle {
                                         ItemPathId(
                                             Id {
                                                 value: 88,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core::visual`,
+                                ),
+                                ast_idx: 2,
+                                use_expr_idx: 0,
+                            },
+                        ),
+                    },
+                    EntitySymbolEntry {
+                        ident: `None`,
+                        visible_scope: Scope::PubUnder(
+                            `core::visual`,
+                        ),
+                        symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::Use(
+                                                    UseSymbol {
+                                                        original_symbol: EntitySymbol::TypeVariant {
+                                                            ty_variant_path: TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 89,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                        path: PrincipalEntityPath::TypeVariant(
+                                                            TypeVariantPath(
+                                                                ItemPathId(
+                                                                    Id {
+                                                                        value: 89,
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        ),
+                                                        visibility: Scope::Pub,
+                                                        ast_idx: 3,
+                                                        use_expr_idx: 2,
+                                                    },
+                                                ),
+                                                path: PrincipalEntityPath::TypeVariant(
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 89,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 9,
+                                                use_expr_idx: 27,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::TypeVariant(
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 89,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `core`,
+                                        ),
+                                        ast_idx: 22,
+                                        use_expr_idx: 0,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::TypeVariant(
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 89,
                                             },
                                         ),
                                     ),

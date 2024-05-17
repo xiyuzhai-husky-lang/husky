@@ -250,7 +250,7 @@
         AttrItemPath(
             ItemPathId(
                 Id {
-                    value: 141,
+                    value: 142,
                 },
             ),
         ),
@@ -265,7 +265,7 @@
         AttrItemPath(
             ItemPathId(
                 Id {
-                    value: 142,
+                    value: 143,
                 },
             ),
         ),
@@ -280,7 +280,7 @@
         AttrItemPath(
             ItemPathId(
                 Id {
-                    value: 143,
+                    value: 144,
                 },
             ),
         ),
@@ -376,17 +376,22 @@
     ),
     ItemPath::MajorItem(
         MajorItemPath::Type(
-            TypePath(`core::frontend::Graphics2DFrontend`, `Struct`),
+            TypePath(`core::frontend::Cv2dFrontend`, `Struct`),
         ),
     ),
     ItemPath::MajorItem(
         MajorItemPath::Type(
-            TypePath(`core::frontend::Graphics3DFrontend`, `Struct`),
+            TypePath(`core::frontend::Cv3dFrontend`, `Struct`),
         ),
     ),
     ItemPath::MajorItem(
         MajorItemPath::Type(
-            TypePath(`core::frontend::TextFrontend`, `Struct`),
+            TypePath(`core::frontend::NlpFrontend`, `Struct`),
+        ),
+    ),
+    ItemPath::MajorItem(
+        MajorItemPath::Type(
+            TypePath(`core::frontend::Rl2dFrontend`, `Struct`),
         ),
     ),
     ItemPath::MajorItem(
@@ -444,7 +449,7 @@
         AttrItemPath(
             ItemPathId(
                 Id {
-                    value: 147,
+                    value: 148,
                 },
             ),
         ),
@@ -459,7 +464,7 @@
         AttrItemPath(
             ItemPathId(
                 Id {
-                    value: 148,
+                    value: 149,
                 },
             ),
         ),
@@ -474,7 +479,7 @@
         AttrItemPath(
             ItemPathId(
                 Id {
-                    value: 149,
+                    value: 150,
                 },
             ),
         ),
@@ -489,7 +494,7 @@
         AttrItemPath(
             ItemPathId(
                 Id {
-                    value: 150,
+                    value: 151,
                 },
             ),
         ),
@@ -504,7 +509,7 @@
         AttrItemPath(
             ItemPathId(
                 Id {
-                    value: 151,
+                    value: 152,
                 },
             ),
         ),
@@ -519,7 +524,7 @@
         AttrItemPath(
             ItemPathId(
                 Id {
-                    value: 152,
+                    value: 153,
                 },
             ),
         ),
@@ -534,7 +539,7 @@
         AttrItemPath(
             ItemPathId(
                 Id {
-                    value: 153,
+                    value: 154,
                 },
             ),
         ),
@@ -549,7 +554,7 @@
         AttrItemPath(
             ItemPathId(
                 Id {
-                    value: 154,
+                    value: 155,
                 },
             ),
         ),
@@ -564,7 +569,7 @@
         AttrItemPath(
             ItemPathId(
                 Id {
-                    value: 155,
+                    value: 156,
                 },
             ),
         ),
@@ -579,7 +584,7 @@
         AttrItemPath(
             ItemPathId(
                 Id {
-                    value: 156,
+                    value: 157,
                 },
             ),
         ),
@@ -594,7 +599,7 @@
         AttrItemPath(
             ItemPathId(
                 Id {
-                    value: 157,
+                    value: 158,
                 },
             ),
         ),
@@ -609,7 +614,7 @@
         AttrItemPath(
             ItemPathId(
                 Id {
-                    value: 158,
+                    value: 159,
                 },
             ),
         ),
@@ -624,7 +629,7 @@
         AttrItemPath(
             ItemPathId(
                 Id {
-                    value: 159,
+                    value: 160,
                 },
             ),
         ),
@@ -639,7 +644,7 @@
         AttrItemPath(
             ItemPathId(
                 Id {
-                    value: 160,
+                    value: 161,
                 },
             ),
         ),
@@ -649,7 +654,7 @@
             TypeImplBlockPath(
                 ItemPathId(
                     Id {
-                        value: 106,
+                        value: 107,
                     },
                 ),
             ),
@@ -689,7 +694,7 @@
             TypeImplBlockPath(
                 ItemPathId(
                     Id {
-                        value: 108,
+                        value: 109,
                     },
                 ),
             ),
@@ -729,7 +734,7 @@
             TypeImplBlockPath(
                 ItemPathId(
                     Id {
-                        value: 110,
+                        value: 111,
                     },
                 ),
             ),
@@ -776,7 +781,7 @@
             TypeImplBlockPath(
                 ItemPathId(
                     Id {
-                        value: 112,
+                        value: 113,
                     },
                 ),
             ),
@@ -809,7 +814,7 @@
             TypeImplBlockPath(
                 ItemPathId(
                     Id {
-                        value: 114,
+                        value: 115,
                     },
                 ),
             ),
@@ -842,7 +847,7 @@
             TypeImplBlockPath(
                 ItemPathId(
                     Id {
-                        value: 116,
+                        value: 117,
                     },
                 ),
             ),
@@ -875,7 +880,7 @@
             TypeImplBlockPath(
                 ItemPathId(
                     Id {
-                        value: 118,
+                        value: 119,
                     },
                 ),
             ),
@@ -908,7 +913,7 @@
             TypeImplBlockPath(
                 ItemPathId(
                     Id {
-                        value: 120,
+                        value: 121,
                     },
                 ),
             ),
@@ -941,7 +946,7 @@
             TypeImplBlockPath(
                 ItemPathId(
                     Id {
-                        value: 122,
+                        value: 123,
                     },
                 ),
             ),
@@ -974,7 +979,7 @@
             TypeImplBlockPath(
                 ItemPathId(
                     Id {
-                        value: 124,
+                        value: 125,
                     },
                 ),
             ),
@@ -1007,7 +1012,7 @@
             TypeImplBlockPath(
                 ItemPathId(
                     Id {
-                        value: 126,
+                        value: 127,
                     },
                 ),
             ),
@@ -1040,7 +1045,7 @@
             TypeImplBlockPath(
                 ItemPathId(
                     Id {
-                        value: 128,
+                        value: 129,
                     },
                 ),
             ),
@@ -1073,7 +1078,7 @@
             TypeImplBlockPath(
                 ItemPathId(
                     Id {
-                        value: 130,
+                        value: 131,
                     },
                 ),
             ),
@@ -1091,7 +1096,7 @@
         AttrItemPath(
             ItemPathId(
                 Id {
-                    value: 197,
+                    value: 198,
                 },
             ),
         ),
@@ -1108,7 +1113,7 @@
         AttrItemPath(
             ItemPathId(
                 Id {
-                    value: 198,
+                    value: 199,
                 },
             ),
         ),
@@ -1125,7 +1130,7 @@
         AttrItemPath(
             ItemPathId(
                 Id {
-                    value: 199,
+                    value: 200,
                 },
             ),
         ),
@@ -1142,7 +1147,7 @@
         AttrItemPath(
             ItemPathId(
                 Id {
-                    value: 200,
+                    value: 201,
                 },
             ),
         ),
@@ -1166,7 +1171,7 @@
         AttrItemPath(
             ItemPathId(
                 Id {
-                    value: 201,
+                    value: 202,
                 },
             ),
         ),
@@ -1183,7 +1188,7 @@
         AttrItemPath(
             ItemPathId(
                 Id {
-                    value: 202,
+                    value: 203,
                 },
             ),
         ),
@@ -1215,7 +1220,7 @@
         AttrItemPath(
             ItemPathId(
                 Id {
-                    value: 204,
+                    value: 205,
                 },
             ),
         ),
@@ -1225,7 +1230,7 @@
             TypeImplBlockPath(
                 ItemPathId(
                     Id {
-                        value: 132,
+                        value: 133,
                     },
                 ),
             ),
@@ -1527,7 +1532,7 @@
         TypeVariantPath(
             ItemPathId(
                 Id {
-                    value: 84,
+                    value: 85,
                 },
             ),
         ),
@@ -1537,7 +1542,7 @@
         TypeVariantPath(
             ItemPathId(
                 Id {
-                    value: 85,
+                    value: 86,
                 },
             ),
         ),
@@ -1552,17 +1557,7 @@
         AttrItemPath(
             ItemPathId(
                 Id {
-                    value: 236,
-                },
-            ),
-        ),
-    ),
-    ItemPath::TypeVariant(
-        Room32,
-        TypeVariantPath(
-            ItemPathId(
-                Id {
-                    value: 87,
+                    value: 237,
                 },
             ),
         ),
@@ -1577,6 +1572,16 @@
             ),
         ),
     ),
+    ItemPath::TypeVariant(
+        Room32,
+        TypeVariantPath(
+            ItemPathId(
+                Id {
+                    value: 89,
+                },
+            ),
+        ),
+    ),
     ItemPath::MajorItem(
         MajorItemPath::Type(
             TypePath(`core::raw_bits::r32`, `Extern`),
@@ -1587,7 +1592,7 @@
         AttrItemPath(
             ItemPathId(
                 Id {
-                    value: 237,
+                    value: 238,
                 },
             ),
         ),
@@ -1597,7 +1602,7 @@
             TypeImplBlockPath(
                 ItemPathId(
                     Id {
-                        value: 134,
+                        value: 135,
                     },
                 ),
             ),
@@ -1648,7 +1653,7 @@
         TypeVariantPath(
             ItemPathId(
                 Id {
-                    value: 91,
+                    value: 92,
                 },
             ),
         ),
@@ -1658,7 +1663,7 @@
         TypeVariantPath(
             ItemPathId(
                 Id {
-                    value: 92,
+                    value: 93,
                 },
             ),
         ),
@@ -1721,7 +1726,7 @@
         AttrItemPath(
             ItemPathId(
                 Id {
-                    value: 247,
+                    value: 248,
                 },
             ),
         ),
@@ -1731,7 +1736,7 @@
             TypeImplBlockPath(
                 ItemPathId(
                     Id {
-                        value: 136,
+                        value: 137,
                     },
                 ),
             ),
@@ -1808,7 +1813,7 @@
         AttrItemPath(
             ItemPathId(
                 Id {
-                    value: 256,
+                    value: 257,
                 },
             ),
         ),
@@ -1818,7 +1823,7 @@
             TypeImplBlockPath(
                 ItemPathId(
                     Id {
-                        value: 137,
+                        value: 138,
                     },
                 ),
             ),
@@ -1856,7 +1861,7 @@
             TypeImplBlockPath(
                 ItemPathId(
                     Id {
-                        value: 139,
+                        value: 140,
                     },
                 ),
             ),
