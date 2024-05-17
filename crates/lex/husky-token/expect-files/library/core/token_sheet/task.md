@@ -24,7 +24,7 @@ TokenSheetData {
             Keyword::Static,
         ),
         TokenData::Ident(
-            `task`,
+            `TASK`,
         ),
         TokenData::Punctuation(
             Punctuation(

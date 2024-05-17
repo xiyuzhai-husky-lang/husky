@@ -1638,7 +1638,7 @@
     ),
     ItemPath::MajorItem(
         MajorItemPath::Form(
-            FormPath(`core::task::task`, `Static`),
+            FormPath(`core::task::TASK`, `Static`),
         ),
     ),
     ItemPath::MajorItem(

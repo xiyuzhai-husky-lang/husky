@@ -2332,7 +2332,7 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `task`,
+                        ident: `TASK`,
                         visible_scope: Scope::PubUnder(
                             `core`,
                         ),
@@ -2342,12 +2342,12 @@ EntityTreeCrateBundle {
                                     UseSymbol {
                                         original_symbol: EntitySymbol::MajorItem {
                                             major_item_path: MajorItemPath::Form(
-                                                FormPath(`core::task::task`, `Static`),
+                                                FormPath(`core::task::TASK`, `Static`),
                                             ),
                                         },
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`core::task::task`, `Static`),
+                                                FormPath(`core::task::TASK`, `Static`),
                                             ),
                                         ),
                                         visibility: Scope::Pub,
@@ -2357,7 +2357,7 @@ EntityTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`core::task::task`, `Static`),
+                                        FormPath(`core::task::TASK`, `Static`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -5012,7 +5012,7 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `task`,
+                        ident: `TASK`,
                         visible_scope: Scope::PubUnder(
                             `core::array`,
                         ),
@@ -5024,12 +5024,12 @@ EntityTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     major_item_path: MajorItemPath::Form(
-                                                        FormPath(`core::task::task`, `Static`),
+                                                        FormPath(`core::task::TASK`, `Static`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Form(
-                                                        FormPath(`core::task::task`, `Static`),
+                                                        FormPath(`core::task::TASK`, `Static`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -5039,7 +5039,7 @@ EntityTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`core::task::task`, `Static`),
+                                                FormPath(`core::task::TASK`, `Static`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -5051,7 +5051,7 @@ EntityTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`core::task::task`, `Static`),
+                                        FormPath(`core::task::TASK`, `Static`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -8322,7 +8322,7 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `task`,
+                        ident: `TASK`,
                         visible_scope: Scope::PubUnder(
                             `core::basic`,
                         ),
@@ -8334,12 +8334,12 @@ EntityTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     major_item_path: MajorItemPath::Form(
-                                                        FormPath(`core::task::task`, `Static`),
+                                                        FormPath(`core::task::TASK`, `Static`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Form(
-                                                        FormPath(`core::task::task`, `Static`),
+                                                        FormPath(`core::task::TASK`, `Static`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -8349,7 +8349,7 @@ EntityTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`core::task::task`, `Static`),
+                                                FormPath(`core::task::TASK`, `Static`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -8361,7 +8361,7 @@ EntityTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`core::task::task`, `Static`),
+                                        FormPath(`core::task::TASK`, `Static`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -11197,7 +11197,7 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `task`,
+                        ident: `TASK`,
                         visible_scope: Scope::PubUnder(
                             `core::clone`,
                         ),
@@ -11209,12 +11209,12 @@ EntityTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     major_item_path: MajorItemPath::Form(
-                                                        FormPath(`core::task::task`, `Static`),
+                                                        FormPath(`core::task::TASK`, `Static`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Form(
-                                                        FormPath(`core::task::task`, `Static`),
+                                                        FormPath(`core::task::TASK`, `Static`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -11224,7 +11224,7 @@ EntityTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`core::task::task`, `Static`),
+                                                FormPath(`core::task::TASK`, `Static`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -11236,7 +11236,7 @@ EntityTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`core::task::task`, `Static`),
+                                        FormPath(`core::task::TASK`, `Static`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -14322,7 +14322,7 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `task`,
+                        ident: `TASK`,
                         visible_scope: Scope::PubUnder(
                             `core::cmp`,
                         ),
@@ -14334,12 +14334,12 @@ EntityTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     major_item_path: MajorItemPath::Form(
-                                                        FormPath(`core::task::task`, `Static`),
+                                                        FormPath(`core::task::TASK`, `Static`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Form(
-                                                        FormPath(`core::task::task`, `Static`),
+                                                        FormPath(`core::task::TASK`, `Static`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -14349,7 +14349,7 @@ EntityTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`core::task::task`, `Static`),
+                                                FormPath(`core::task::TASK`, `Static`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -14361,7 +14361,7 @@ EntityTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`core::task::task`, `Static`),
+                                        FormPath(`core::task::TASK`, `Static`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -17197,7 +17197,7 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `task`,
+                        ident: `TASK`,
                         visible_scope: Scope::PubUnder(
                             `core::default`,
                         ),
@@ -17209,12 +17209,12 @@ EntityTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     major_item_path: MajorItemPath::Form(
-                                                        FormPath(`core::task::task`, `Static`),
+                                                        FormPath(`core::task::TASK`, `Static`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Form(
-                                                        FormPath(`core::task::task`, `Static`),
+                                                        FormPath(`core::task::TASK`, `Static`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -17224,7 +17224,7 @@ EntityTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`core::task::task`, `Static`),
+                                                FormPath(`core::task::TASK`, `Static`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -17236,7 +17236,7 @@ EntityTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`core::task::task`, `Static`),
+                                        FormPath(`core::task::TASK`, `Static`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -20066,7 +20066,7 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `task`,
+                        ident: `TASK`,
                         visible_scope: Scope::PubUnder(
                             `core::fmt`,
                         ),
@@ -20078,12 +20078,12 @@ EntityTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     major_item_path: MajorItemPath::Form(
-                                                        FormPath(`core::task::task`, `Static`),
+                                                        FormPath(`core::task::TASK`, `Static`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Form(
-                                                        FormPath(`core::task::task`, `Static`),
+                                                        FormPath(`core::task::TASK`, `Static`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -20093,7 +20093,7 @@ EntityTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`core::task::task`, `Static`),
+                                                FormPath(`core::task::TASK`, `Static`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -20105,7 +20105,7 @@ EntityTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`core::task::task`, `Static`),
+                                        FormPath(`core::task::TASK`, `Static`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -23015,7 +23015,7 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `task`,
+                        ident: `TASK`,
                         visible_scope: Scope::PubUnder(
                             `core::marker`,
                         ),
@@ -23027,12 +23027,12 @@ EntityTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     major_item_path: MajorItemPath::Form(
-                                                        FormPath(`core::task::task`, `Static`),
+                                                        FormPath(`core::task::TASK`, `Static`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Form(
-                                                        FormPath(`core::task::task`, `Static`),
+                                                        FormPath(`core::task::TASK`, `Static`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -23042,7 +23042,7 @@ EntityTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`core::task::task`, `Static`),
+                                                FormPath(`core::task::TASK`, `Static`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -23054,7 +23054,7 @@ EntityTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`core::task::task`, `Static`),
+                                        FormPath(`core::task::TASK`, `Static`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -26132,7 +26132,7 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `task`,
+                        ident: `TASK`,
                         visible_scope: Scope::PubUnder(
                             `core::mem`,
                         ),
@@ -26144,12 +26144,12 @@ EntityTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     major_item_path: MajorItemPath::Form(
-                                                        FormPath(`core::task::task`, `Static`),
+                                                        FormPath(`core::task::TASK`, `Static`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Form(
-                                                        FormPath(`core::task::task`, `Static`),
+                                                        FormPath(`core::task::TASK`, `Static`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -26159,7 +26159,7 @@ EntityTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`core::task::task`, `Static`),
+                                                FormPath(`core::task::TASK`, `Static`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -26171,7 +26171,7 @@ EntityTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`core::task::task`, `Static`),
+                                        FormPath(`core::task::TASK`, `Static`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -29890,7 +29890,7 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `task`,
+                        ident: `TASK`,
                         visible_scope: Scope::PubUnder(
                             `core::num`,
                         ),
@@ -29902,12 +29902,12 @@ EntityTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     major_item_path: MajorItemPath::Form(
-                                                        FormPath(`core::task::task`, `Static`),
+                                                        FormPath(`core::task::TASK`, `Static`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Form(
-                                                        FormPath(`core::task::task`, `Static`),
+                                                        FormPath(`core::task::TASK`, `Static`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -29917,7 +29917,7 @@ EntityTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`core::task::task`, `Static`),
+                                                FormPath(`core::task::TASK`, `Static`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -29929,7 +29929,7 @@ EntityTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`core::task::task`, `Static`),
+                                        FormPath(`core::task::TASK`, `Static`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -35533,7 +35533,7 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `task`,
+                        ident: `TASK`,
                         visible_scope: Scope::PubUnder(
                             `core::ops`,
                         ),
@@ -35545,12 +35545,12 @@ EntityTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     major_item_path: MajorItemPath::Form(
-                                                        FormPath(`core::task::task`, `Static`),
+                                                        FormPath(`core::task::TASK`, `Static`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Form(
-                                                        FormPath(`core::task::task`, `Static`),
+                                                        FormPath(`core::task::TASK`, `Static`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -35560,7 +35560,7 @@ EntityTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`core::task::task`, `Static`),
+                                                FormPath(`core::task::TASK`, `Static`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -35572,7 +35572,7 @@ EntityTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`core::task::task`, `Static`),
+                                        FormPath(`core::task::TASK`, `Static`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -38466,7 +38466,7 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `task`,
+                        ident: `TASK`,
                         visible_scope: Scope::PubUnder(
                             `core::option`,
                         ),
@@ -38478,12 +38478,12 @@ EntityTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     major_item_path: MajorItemPath::Form(
-                                                        FormPath(`core::task::task`, `Static`),
+                                                        FormPath(`core::task::TASK`, `Static`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Form(
-                                                        FormPath(`core::task::task`, `Static`),
+                                                        FormPath(`core::task::TASK`, `Static`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -38493,7 +38493,7 @@ EntityTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`core::task::task`, `Static`),
+                                                FormPath(`core::task::TASK`, `Static`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -38505,7 +38505,7 @@ EntityTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`core::task::task`, `Static`),
+                                        FormPath(`core::task::TASK`, `Static`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -40004,18 +40004,18 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `task`,
+                        ident: `TASK`,
                         visible_scope: Scope::Pub,
                         symbol: EntitySymbol::Use(
                             UseSymbol {
                                 original_symbol: EntitySymbol::MajorItem {
                                     major_item_path: MajorItemPath::Form(
-                                        FormPath(`core::task::task`, `Static`),
+                                        FormPath(`core::task::TASK`, `Static`),
                                     ),
                                 },
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`core::task::task`, `Static`),
+                                        FormPath(`core::task::TASK`, `Static`),
                                     ),
                                 ),
                                 visibility: Scope::Pub,
@@ -43326,7 +43326,7 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `task`,
+                        ident: `TASK`,
                         visible_scope: Scope::PubUnder(
                             `core::raw_bits`,
                         ),
@@ -43338,12 +43338,12 @@ EntityTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     major_item_path: MajorItemPath::Form(
-                                                        FormPath(`core::task::task`, `Static`),
+                                                        FormPath(`core::task::TASK`, `Static`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Form(
-                                                        FormPath(`core::task::task`, `Static`),
+                                                        FormPath(`core::task::TASK`, `Static`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -43353,7 +43353,7 @@ EntityTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`core::task::task`, `Static`),
+                                                FormPath(`core::task::TASK`, `Static`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -43365,7 +43365,7 @@ EntityTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`core::task::task`, `Static`),
+                                        FormPath(`core::task::TASK`, `Static`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -46314,7 +46314,7 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `task`,
+                        ident: `TASK`,
                         visible_scope: Scope::PubUnder(
                             `core::result`,
                         ),
@@ -46326,12 +46326,12 @@ EntityTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     major_item_path: MajorItemPath::Form(
-                                                        FormPath(`core::task::task`, `Static`),
+                                                        FormPath(`core::task::TASK`, `Static`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Form(
-                                                        FormPath(`core::task::task`, `Static`),
+                                                        FormPath(`core::task::TASK`, `Static`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -46341,7 +46341,7 @@ EntityTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`core::task::task`, `Static`),
+                                                FormPath(`core::task::TASK`, `Static`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -46353,7 +46353,7 @@ EntityTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`core::task::task`, `Static`),
+                                        FormPath(`core::task::TASK`, `Static`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -47413,28 +47413,28 @@ EntityTreeCrateBundle {
                         node: ItemSynNode::MajorItem(
                             MajorItemSynNode {
                                 syn_node_path: MajorItemSynNodePath::Form(
-                                    FormSynNodePath(`core::task::task`, `Static`, (0)),
+                                    FormSynNodePath(`core::task::TASK`, `Static`, (0)),
                                 ),
                                 visibility: Scope::Pub,
                                 ast_idx: 1,
                                 ident_token: IdentToken {
-                                    ident: `task`,
+                                    ident: `TASK`,
                                     token_idx: TokenIdx(
                                         7,
                                     ),
                                 },
                                 block: DefnBlock::Form {
-                                    path: FormPath(`core::task::task`, `Static`),
+                                    path: FormPath(`core::task::TASK`, `Static`),
                                     body: None,
                                 },
                             },
                         ),
                         syn_node_path: ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Form(
-                                FormSynNodePath(`core::task::task`, `Static`, (0)),
+                                FormSynNodePath(`core::task::TASK`, `Static`, (0)),
                             ),
                         ),
-                        ident: `task`,
+                        ident: `TASK`,
                         visibility: Scope::Pub,
                     },
                 ],
@@ -47451,11 +47451,11 @@ EntityTreeCrateBundle {
                         },
                     },
                     EntitySymbolEntry {
-                        ident: `task`,
+                        ident: `TASK`,
                         visible_scope: Scope::Pub,
                         symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Form(
-                                FormPath(`core::task::task`, `Static`),
+                                FormPath(`core::task::TASK`, `Static`),
                             ),
                         },
                     },
@@ -49408,7 +49408,7 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `task`,
+                        ident: `TASK`,
                         visible_scope: Scope::PubUnder(
                             `core::vec`,
                         ),
@@ -49420,12 +49420,12 @@ EntityTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     major_item_path: MajorItemPath::Form(
-                                                        FormPath(`core::task::task`, `Static`),
+                                                        FormPath(`core::task::TASK`, `Static`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Form(
-                                                        FormPath(`core::task::task`, `Static`),
+                                                        FormPath(`core::task::TASK`, `Static`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -49435,7 +49435,7 @@ EntityTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`core::task::task`, `Static`),
+                                                FormPath(`core::task::TASK`, `Static`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -49447,7 +49447,7 @@ EntityTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`core::task::task`, `Static`),
+                                        FormPath(`core::task::TASK`, `Static`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -52395,7 +52395,7 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `task`,
+                        ident: `TASK`,
                         visible_scope: Scope::PubUnder(
                             `core::slice`,
                         ),
@@ -52407,12 +52407,12 @@ EntityTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     major_item_path: MajorItemPath::Form(
-                                                        FormPath(`core::task::task`, `Static`),
+                                                        FormPath(`core::task::TASK`, `Static`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Form(
-                                                        FormPath(`core::task::task`, `Static`),
+                                                        FormPath(`core::task::TASK`, `Static`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -52422,7 +52422,7 @@ EntityTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`core::task::task`, `Static`),
+                                                FormPath(`core::task::TASK`, `Static`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -52434,7 +52434,7 @@ EntityTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`core::task::task`, `Static`),
+                                        FormPath(`core::task::TASK`, `Static`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -55488,7 +55488,7 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `task`,
+                        ident: `TASK`,
                         visible_scope: Scope::PubUnder(
                             `core::str`,
                         ),
@@ -55500,12 +55500,12 @@ EntityTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     major_item_path: MajorItemPath::Form(
-                                                        FormPath(`core::task::task`, `Static`),
+                                                        FormPath(`core::task::TASK`, `Static`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Form(
-                                                        FormPath(`core::task::task`, `Static`),
+                                                        FormPath(`core::task::TASK`, `Static`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -55515,7 +55515,7 @@ EntityTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`core::task::task`, `Static`),
+                                                FormPath(`core::task::TASK`, `Static`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -55527,7 +55527,7 @@ EntityTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`core::task::task`, `Static`),
+                                        FormPath(`core::task::TASK`, `Static`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(
@@ -58426,7 +58426,7 @@ EntityTreeCrateBundle {
                         ),
                     },
                     EntitySymbolEntry {
-                        ident: `task`,
+                        ident: `TASK`,
                         visible_scope: Scope::PubUnder(
                             `core::visual`,
                         ),
@@ -58438,12 +58438,12 @@ EntityTreeCrateBundle {
                                             UseSymbol {
                                                 original_symbol: EntitySymbol::MajorItem {
                                                     major_item_path: MajorItemPath::Form(
-                                                        FormPath(`core::task::task`, `Static`),
+                                                        FormPath(`core::task::TASK`, `Static`),
                                                     ),
                                                 },
                                                 path: PrincipalEntityPath::MajorItem(
                                                     MajorItemPath::Form(
-                                                        FormPath(`core::task::task`, `Static`),
+                                                        FormPath(`core::task::TASK`, `Static`),
                                                     ),
                                                 ),
                                                 visibility: Scope::Pub,
@@ -58453,7 +58453,7 @@ EntityTreeCrateBundle {
                                         ),
                                         path: PrincipalEntityPath::MajorItem(
                                             MajorItemPath::Form(
-                                                FormPath(`core::task::task`, `Static`),
+                                                FormPath(`core::task::TASK`, `Static`),
                                             ),
                                         ),
                                         visibility: Scope::PubUnder(
@@ -58465,7 +58465,7 @@ EntityTreeCrateBundle {
                                 ),
                                 path: PrincipalEntityPath::MajorItem(
                                     MajorItemPath::Form(
-                                        FormPath(`core::task::task`, `Static`),
+                                        FormPath(`core::task::TASK`, `Static`),
                                     ),
                                 ),
                                 visibility: Scope::PubUnder(

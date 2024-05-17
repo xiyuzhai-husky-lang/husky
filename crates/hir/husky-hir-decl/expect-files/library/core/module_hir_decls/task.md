@@ -45,7 +45,7 @@
         MajorItemHirDecl::Form(
             MajorFormHirDecl::Static(
                 MajorStaticHirDecl {
-                    path: FormPath(`core::task::task`, `Static`),
+                    path: FormPath(`core::task::TASK`, `Static`),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {
                             ty_path: TypePath(`core::task::Task`, `Extern`),
@@ -57,7 +57,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::MajorItem(
                                 MajorItemPath::Form(
-                                    FormPath(`core::task::task`, `Static`),
+                                    FormPath(`core::task::TASK`, `Static`),
                                 ),
                             ),
                         ),

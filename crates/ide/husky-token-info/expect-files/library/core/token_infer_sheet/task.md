@@ -44,7 +44,7 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Form(
-                                FormSynNodePath(`core::task::task`, `Static`, (0)),
+                                FormSynNodePath(`core::task::TASK`, `Static`, (0)),
                             ),
                         ),
                         EntityKind::MajorItem {
