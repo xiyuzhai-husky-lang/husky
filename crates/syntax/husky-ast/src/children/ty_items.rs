@@ -24,6 +24,8 @@ impl IsAstChildren for TypeItems {
             EntityKindKeywordGroup::Vn(_) => TypeItemKind::METHOD_VN,
             EntityKindKeywordGroup::Pn(_) => TypeItemKind::METHOD_PN,
             EntityKindKeywordGroup::Qn(_) => TypeItemKind::METHOD_QN,
+            EntityKindKeywordGroup::Bn(_) => TypeItemKind::METHOD_BN,
+            EntityKindKeywordGroup::Sn(_) => TypeItemKind::METHOD_SN,
             EntityKindKeywordGroup::Tn(_) => TypeItemKind::METHOD_TN,
             EntityKindKeywordGroup::StaticFn(_, _) => TypeItemKind::ASSOC_FN,
             EntityKindKeywordGroup::FormalEntity(_) => TypeItemKind::AssocFormal,
@@ -34,9 +36,10 @@ impl IsAstChildren for TypeItems {
             EntityKindKeywordGroup::Trait(_) => {
                 Err(OriginalAstError::UnexpectedTraitInsideImplBlock)?
             }
-            EntityKindKeywordGroup::Ki(_) => TypeItemKind::AssocVal,
+            EntityKindKeywordGroup::Val(_) => TypeItemKind::AssocVal,
             EntityKindKeywordGroup::Memo(_) => TypeItemKind::MemoizedField,
             EntityKindKeywordGroup::Const(_) => TypeItemKind::AssocConst,
+            EntityKindKeywordGroup::Static(_) => todo!(),
         };
         Ok(EntityKind::AssocItem {
             assoc_item_kind: AssocItemKind::TypeItem(ty_item_kind),

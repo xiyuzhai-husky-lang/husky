@@ -18,6 +18,7 @@ pub use self::unit_struct::*;
 
 use super::*;
 use husky_entity_kind::TypeKind;
+use husky_entity_path::path::major_item::ty::TypePath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]
@@ -252,6 +253,8 @@ pub(crate) fn ty_decl(db: &::salsa::Db, path: TypePath) -> SynDeclResult<TypeSyn
 
 #[test]
 fn ty_decl_works() {
+    use husky_entity_path::menu::item_path_menu;
+
     let db = DB::default();
     let db = &*db;
     let toolchain = db.dev_toolchain().unwrap();

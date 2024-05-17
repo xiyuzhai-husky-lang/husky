@@ -46,6 +46,9 @@
         `core::result`,
     ),
     SubmodulePath(
+        `core::task`,
+    ),
+    SubmodulePath(
         `core::vec`,
     ),
     SubmodulePath(

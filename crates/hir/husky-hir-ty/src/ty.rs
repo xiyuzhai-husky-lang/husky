@@ -4,7 +4,10 @@ pub mod ritchie;
 use self::{path_leading::HirTypePathLeading, ritchie::HirRitchieType};
 use crate::*;
 use either::*;
-use husky_eth_signature::{helpers::trai_for_ty::is_ty_term_always_copyable, HasEthTemplate};
+use husky_entity_path::path::major_item::ty::{PreludeNumTypePath, PreludeTypePath};
+use husky_eth_signature::{
+    helpers::trai_for_ty::is_ty_term_always_copyable, signature::HasEthTemplate,
+};
 use husky_eth_term::term::{
     application::{EthApplication, TermFunctionReduced},
     symbolic_variable::EthTermSymbolIndexImpl,

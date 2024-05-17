@@ -2,7 +2,7 @@ use super::*;
 use std::fmt::Debug;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
-#[salsa::as_id(jar = EntityPathJar)]
+#[salsa::as_id]
 #[salsa::deref_id]
 pub struct TypePath(ItemPathId);
 
@@ -257,7 +257,7 @@ impl TypePath {
     }
 }
 
-#[salsa::tracked(jar = EntityPathJar)]
+#[salsa::tracked]
 fn prelude_ty_path(db: &::salsa::Db, path: TypePath) -> Option<PreludeTypePath> {
     let menu: &ItemPathMenu = item_path_menu(db, path.toolchain(db));
     let vfs_path_menu: &VfsPathMenu = db.vfs_path_menu(path.toolchain(db));

@@ -1,7 +1,11 @@
+use super::*;
 use husky_coword::coword_menu;
 use husky_entity_kind::MajorFormKind;
-
-use super::*;
+use husky_entity_path::path::{
+    major_item::{form::MajorFormPath, MajorItemPath},
+    submodule::SubmoduleItemPath,
+    ItemPath, ItemPathId,
+};
 
 pub trait HasItemPaths: Copy {
     fn item_paths<'a>(self, _db: &'a ::salsa::Db) -> &'a [ItemPath];

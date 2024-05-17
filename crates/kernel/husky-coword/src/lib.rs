@@ -1,5 +1,5 @@
-mod db;
 mod ident;
+pub mod jar;
 mod kebab;
 mod label;
 mod menu;
@@ -7,22 +7,14 @@ mod style;
 #[cfg(test)]
 mod tests;
 
-use salsa::Db;
-
 pub use self::ident::*;
 pub use self::kebab::*;
 pub use self::label::*;
 pub use self::menu::*;
 pub use self::style::*;
 
-#[salsa::jar]
-pub struct CowordJar(
-    Coword,
-    coword_menu,
-    kebab_to_ident,
-    is_coword_valid_kebab,
-    ident_to_name,
-);
+use self::jar::CowordJar as Jar;
+use salsa::Db;
 
 /// the underlying type for all word like types used in representing source code
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord, Hash, Debug)]
@@ -34,7 +26,7 @@ pub struct __CowordData {
     data: String,
 }
 impl salsa::storage::IngredientsFor for Coword {
-    type Jar = CowordJar;
+    type Jar = Jar;
     type Ingredients = salsa::interned::InternedIngredient<Coword, __CowordData>;
     fn create_ingredients(routes: &mut salsa::routes::Routes) -> Self::Ingredients {
         let index = routes.push(
@@ -61,13 +53,13 @@ impl salsa::AsId for Coword {
 
 impl Coword {
     pub fn data<'db>(self, db: &'db Db) -> &'db str {
-        let (jar, runtime) = db.jar::<CowordJar>();
-        let ingredients = <CowordJar as salsa::storage::HasIngredientsFor<Coword>>::ingredient(jar);
+        let (jar, runtime) = db.jar::<Jar>();
+        let ingredients = <Jar as salsa::storage::HasIngredientsFor<Coword>>::ingredient(jar);
         &ingredients.data(runtime, self).data
     }
     pub fn new(db: &::salsa::Db, data: String) -> Self {
-        let (jar, runtime) = db.jar::<CowordJar>();
-        let ingredients = <CowordJar as salsa::storage::HasIngredientsFor<Coword>>::ingredient(jar);
+        let (jar, runtime) = db.jar::<Jar>();
+        let ingredients = <Jar as salsa::storage::HasIngredientsFor<Coword>>::ingredient(jar);
         ingredients.intern(runtime, __CowordData { data })
     }
 }
@@ -100,14 +92,14 @@ impl<'a> From<&'a str> for __CowordData {
 
 impl Coword {
     pub fn from_owned(db: &::salsa::Db, data: String) -> Self {
-        let (jar, runtime) = db.jar::<CowordJar>();
-        let ingredients = <CowordJar as salsa::storage::HasIngredientsFor<Coword>>::ingredient(jar);
+        let (jar, runtime) = db.jar::<Jar>();
+        let ingredients = <Jar as salsa::storage::HasIngredientsFor<Coword>>::ingredient(jar);
         ingredients.intern(runtime, __CowordData { data })
     }
 
     pub fn from_ref(db: &::salsa::Db, data: &str) -> Self {
-        let (jar, runtime) = db.jar::<CowordJar>();
-        let ingredients = <CowordJar as salsa::storage::HasIngredientsFor<Coword>>::ingredient(jar);
+        let (jar, runtime) = db.jar::<Jar>();
+        let ingredients = <Jar as salsa::storage::HasIngredientsFor<Coword>>::ingredient(jar);
         ingredients.intern_borrowed(runtime, data)
     }
 }

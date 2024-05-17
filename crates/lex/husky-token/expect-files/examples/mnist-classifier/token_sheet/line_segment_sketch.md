@@ -219,7 +219,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::DeriveAssign,
+                PunctuationMapped::ColonEq,
             ),
         ),
         TokenData::Ident(
@@ -292,7 +292,7 @@ TokenSheetData {
         ),
         TokenData::Punctuation(
             Punctuation(
-                PunctuationMapped::DeriveAssign,
+                PunctuationMapped::ColonEq,
             ),
         ),
         TokenData::Ident(

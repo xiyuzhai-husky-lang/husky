@@ -54,6 +54,7 @@ pub fn atom_one_theme_map(token_class: TokenClass) -> Color32 {
         TokenClass::MethodEntity => ATOM_ONE_DARK_COLOR_BLUE,
         TokenClass::MemoizedFieldEntity => ATOM_ONE_DARK_COLOR_WHITE,
         TokenClass::ConstEntity => ATOM_ONE_DARK_COLOR_BRIGHT_PURPLE,
+        TokenClass::StaticEntity => ATOM_ONE_DARK_COLOR_BRIGHT_PURPLE,
         TokenClass::FormalEntity => ATOM_ONE_DARK_COLOR_BRIGHT_CYAN,
         TokenClass::ImplicitParameter => ATOM_ONE_DARK_COLOR_WHITE,
         TokenClass::Method => ATOM_ONE_DARK_COLOR_BLUE,

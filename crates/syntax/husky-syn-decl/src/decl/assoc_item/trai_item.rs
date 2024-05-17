@@ -12,6 +12,7 @@ pub use self::method_ritchie::*;
 use self::memo_field::TraitMemoizedFieldSynNodeDecl;
 use super::*;
 use husky_entity_kind::TraitItemKind;
+use husky_entity_path::path::assoc_item::trai_item::TraitItemPath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]

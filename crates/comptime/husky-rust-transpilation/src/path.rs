@@ -1,9 +1,19 @@
 use super::*;
 use either::*;
-use husky_entity_path::{
-    AssocItemPath, MajorFormPath, MajorItemPath, PatternPath, PreludeIntTypePath,
-    PreludeNumTypePath, PreludeTypePath, PrincipalEntityPath, TraitForTypeItemPath, TraitItemPath,
-    TraitPath, TypeItemPath, TypePath, TypeSketch, TypeVariantPath,
+use husky_entity_path::path::{
+    assoc_item::{
+        trai_for_ty_item::TraitForTypeItemPath, trai_item::TraitItemPath, ty_item::TypeItemPath,
+        AssocItemPath,
+    },
+    impl_block::TypeSketch,
+    major_item::{
+        form::MajorFormPath,
+        trai::TraitPath,
+        ty::{PreludeIntTypePath, PreludeNumTypePath, PreludeTypePath, TypePath},
+        MajorItemPath,
+    },
+    ty_variant::TypeVariantPath,
+    PatternPath, PrincipalEntityPath,
 };
 use husky_vfs::{ModulePathData, PackagePathSource};
 

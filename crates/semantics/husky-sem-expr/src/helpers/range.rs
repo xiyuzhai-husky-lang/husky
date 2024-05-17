@@ -372,7 +372,7 @@ impl<'a> SemExprRangeCalculator<'a> {
                 target,
             } => {
                 let start = self[src].start().regional_token_idx();
-                let end = self[target.syn_pattern_root().syn_pattern_expr_idx()].end();
+                let end = self[target.syn_pattern_root().syn_pattern_idx()].end();
                 RegionalTokenIdxRange::new(start, end)
             }
             SemExprData::Prefix {
@@ -701,13 +701,21 @@ impl<'a> SemExprRangeCalculator<'a> {
                 // ad hoc
                 RegionalTokenIdxRange::new_single(match_token.regional_token_idx())
             }
+            SemStmtData::Assert {
+                assert_token,
+                condition,
+            } => todo!(),
+            SemStmtData::Narrate { narrate_token } => {
+                // ad hoc
+                RegionalTokenIdxRange::new_single(narrate_token.regional_token_idx())
+            }
         }
     }
 
     fn calc_condition_end(&self, condition: SemaCondition) -> RegionalTokenIdxRangeEnd {
         match condition {
             SemaCondition::Be { target, .. } => {
-                self[target.syn_pattern_root().syn_pattern_expr_idx()].end()
+                self[target.syn_pattern_root().syn_pattern_idx()].end()
             }
             SemaCondition::Other {
                 sem_expr_idx,

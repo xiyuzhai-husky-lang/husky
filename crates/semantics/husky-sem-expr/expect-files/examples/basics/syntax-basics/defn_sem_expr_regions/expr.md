@@ -197,7 +197,7 @@
                                     },
                                     let_pattern_sem_obelisk: LetVariableObelisk {
                                         syn_pattern_root: LetPatternSynExprRoot {
-                                            syn_pattern_expr_idx: 0,
+                                            syn_pattern_idx: 0,
                                         },
                                         variables: ArenaIdxRange(
                                             0..1,
@@ -241,7 +241,7 @@
                 ),
             ],
             syn_pattern_expr_ty_infos: [
-                PatternExprTypeInfo {
+                PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
                             place: Some(
@@ -691,8 +691,8 @@
                                     ),
                                     parameter_obelisks: [
                                         Simple {
-                                            syn_pattern_root: ClosureSynPatternExprRoot {
-                                                syn_pattern_expr_idx: 1,
+                                            syn_pattern_root: ClosureSynPatternRoot {
+                                                syn_pattern_idx: 1,
                                             },
                                             variables: ArenaIdxRange(
                                                 1..2,
@@ -788,7 +788,7 @@
                                     },
                                     let_pattern_sem_obelisk: LetVariableObelisk {
                                         syn_pattern_root: LetPatternSynExprRoot {
-                                            syn_pattern_expr_idx: 0,
+                                            syn_pattern_idx: 0,
                                         },
                                         variables: ArenaIdxRange(
                                             0..1,
@@ -841,7 +841,7 @@
                 ),
             ],
             syn_pattern_expr_ty_infos: [
-                PatternExprTypeInfo {
+                PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
                             place: None,
@@ -857,7 +857,7 @@
                         },
                     ),
                 },
-                PatternExprTypeInfo {
+                PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
                             place: None,
@@ -1524,8 +1524,8 @@
                                     ),
                                     parameter_obelisks: [
                                         Simple {
-                                            syn_pattern_root: ClosureSynPatternExprRoot {
-                                                syn_pattern_expr_idx: 1,
+                                            syn_pattern_root: ClosureSynPatternRoot {
+                                                syn_pattern_idx: 1,
                                             },
                                             variables: ArenaIdxRange(
                                                 1..2,
@@ -1644,7 +1644,7 @@
                                     },
                                     let_pattern_sem_obelisk: LetVariableObelisk {
                                         syn_pattern_root: LetPatternSynExprRoot {
-                                            syn_pattern_expr_idx: 0,
+                                            syn_pattern_idx: 0,
                                         },
                                         variables: ArenaIdxRange(
                                             0..1,
@@ -1697,7 +1697,7 @@
                 ),
             ],
             syn_pattern_expr_ty_infos: [
-                PatternExprTypeInfo {
+                PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
                             place: None,
@@ -1713,7 +1713,7 @@
                         },
                     ),
                 },
-                PatternExprTypeInfo {
+                PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
                             place: None,

@@ -1,8 +1,8 @@
-use husky_entity_path::trai_for_ty_impl_block::TraitForTypeImplBlockPath;
+use husky_entity_path::path::impl_block::trai_for_ty_impl_block::TraitForTypeImplBlockPath;
 
 use super::*;
 
-#[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
+#[salsa::interned]
 pub struct TraitForTypeImplBlockDecTemplate {
     #[return_ref]
     pub template_parameters: DecTemplateParameters,
@@ -35,7 +35,7 @@ impl HasDecTemplate for TraitForTypeImplBlockPath {
     }
 }
 
-#[salsa::tracked(jar = DecSignatureJar)]
+#[salsa::tracked]
 pub(crate) fn trai_for_ty_impl_block_syn_dec_template(
     db: &::salsa::Db,
     path: TraitForTypeImplBlockPath,

@@ -83,7 +83,7 @@ pub struct CurrentVariableEntry {
 
 impl CurrentVariableEntry {
     pub fn new(
-        pattern_expr_region: &SynPatternExprRegion,
+        pattern_expr_region: &SynPatternRegion,
         access_start: RegionalTokenIdx,
         access_end: Option<RegionalTokenIdxRangeEnd>,
         variant: CurrentVariableData,
@@ -308,7 +308,7 @@ pub enum TemplateSymbolSynAttr {
 }
 
 impl CurrentVariableData {
-    fn modifier(&self, pattern_expr_region: &SynPatternExprRegion) -> VariableModifier {
+    fn modifier(&self, pattern_expr_region: &SynPatternRegion) -> VariableModifier {
         match self {
             CurrentVariableData::TemplateParameter { .. } => VariableModifier::Const,
             CurrentVariableData::SimpleParenateParameter {

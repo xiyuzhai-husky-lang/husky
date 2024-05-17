@@ -1782,7 +1782,7 @@
                                     },
                                     let_pattern_sem_obelisk: LetVariableObelisk {
                                         syn_pattern_root: LetPatternSynExprRoot {
-                                            syn_pattern_expr_idx: 2,
+                                            syn_pattern_idx: 2,
                                         },
                                         variables: ArenaIdxRange(
                                             3..4,
@@ -1860,7 +1860,7 @@
                                     },
                                     let_pattern_sem_obelisk: LetVariableObelisk {
                                         syn_pattern_root: LetPatternSynExprRoot {
-                                            syn_pattern_expr_idx: 0,
+                                            syn_pattern_idx: 0,
                                         },
                                         variables: ArenaIdxRange(
                                             0..1,
@@ -1899,7 +1899,7 @@
                                     },
                                     let_pattern_sem_obelisk: LetVariableObelisk {
                                         syn_pattern_root: LetPatternSynExprRoot {
-                                            syn_pattern_expr_idx: 1,
+                                            syn_pattern_idx: 1,
                                         },
                                         variables: ArenaIdxRange(
                                             1..2,
@@ -2028,7 +2028,7 @@
                 ),
             ],
             syn_pattern_expr_ty_infos: [
-                PatternExprTypeInfo {
+                PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
                             place: Some(
@@ -2042,7 +2042,7 @@
                         },
                     ),
                 },
-                PatternExprTypeInfo {
+                PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
                             place: Some(
@@ -2056,7 +2056,7 @@
                         },
                     ),
                 },
-                PatternExprTypeInfo {
+                PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
                             place: Some(
@@ -4093,7 +4093,7 @@
                                     },
                                     let_pattern_sem_obelisk: LetVariableObelisk {
                                         syn_pattern_root: LetPatternSynExprRoot {
-                                            syn_pattern_expr_idx: 0,
+                                            syn_pattern_idx: 0,
                                         },
                                         variables: ArenaIdxRange(
                                             0..1,
@@ -4226,7 +4226,7 @@
                 ),
             ],
             syn_pattern_expr_ty_infos: [
-                PatternExprTypeInfo {
+                PatternTypeInfo {
                     ty: Ok(
                         FlyTerm {
                             place: Some(

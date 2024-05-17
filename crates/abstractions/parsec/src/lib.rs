@@ -1,4 +1,5 @@
 #![feature(let_chains)]
+mod either;
 mod list;
 mod rollback;
 mod seq;

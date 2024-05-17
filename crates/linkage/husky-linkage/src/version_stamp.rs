@@ -6,9 +6,11 @@ use crate::{
     *,
 };
 use ::version_stamp::HasVersionStamp;
-use husky_entity_path::TypePath;
-use husky_hir_defn::HasHirDefn;
-use husky_hir_defn::{version_stamp::HirDefnVersionStamp, HirDefn};
+use husky_entity_path::path::major_item::ty::TypePath;
+use husky_hir_defn::{
+    defn::{HasHirDefn, HirDefn},
+    version_stamp::HirDefnVersionStamp,
+};
 
 #[salsa::interned(db = LinkageDb, jar = LinkageJar, constructor = new)]
 pub struct LinkageVersionStamp {

@@ -1,6 +1,6 @@
 #[cfg(test)]
 use crate::*;
-use crate::{engine::PlaceContractEngine, site::SemaPlaceContractSite};
+use crate::{engine::PlaceContractEngine, site::SemPlaceContractSite};
 #[cfg(test)]
 use husky_sem_expr::SemExprDb;
 use husky_sem_expr::{SemExprIdx, SemExprMap, SemExprRegion};
@@ -11,19 +11,19 @@ use husky_vfs::ModulePath;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub struct SemaPlaceContractRegion {
-    expr_sites: SemExprMap<SemaPlaceContractSite>,
+pub struct SemPlaceContractRegion {
+    expr_sites: SemExprMap<SemPlaceContractSite>,
 }
 
 /// # constructor
-impl SemaPlaceContractRegion {
-    pub(crate) fn new(expr_sites: SemExprMap<SemaPlaceContractSite>) -> Self {
+impl SemPlaceContractRegion {
+    pub(crate) fn new(expr_sites: SemExprMap<SemPlaceContractSite>) -> Self {
         Self { expr_sites }
     }
 }
 
-impl std::ops::Index<SemExprIdx> for SemaPlaceContractRegion {
-    type Output = SemaPlaceContractSite;
+impl std::ops::Index<SemExprIdx> for SemPlaceContractRegion {
+    type Output = SemPlaceContractSite;
 
     fn index(&self, expr: SemExprIdx) -> &Self::Output {
         &self.expr_sites[expr]
@@ -34,7 +34,7 @@ impl std::ops::Index<SemExprIdx> for SemaPlaceContractRegion {
 pub fn sem_place_contract_region(
     db: &::salsa::Db,
     sem_expr_region: SemExprRegion,
-) -> SemaPlaceContractRegion {
+) -> SemPlaceContractRegion {
     let mut engine = PlaceContractEngine::new(db, sem_expr_region);
     engine.infer_all_exprs();
     engine.finish()
@@ -44,7 +44,7 @@ pub fn sem_place_contract_region(
 fn decl_sem_place_contract_regions(
     db: &::salsa::Db,
     module_path: ModulePath,
-) -> Vec<&SemaPlaceContractRegion> {
+) -> Vec<&SemPlaceContractRegion> {
     use husky_syn_decl::HasSynDeclSheet;
 
     module_path
@@ -77,7 +77,7 @@ fn decl_sem_place_contract_regions_works() {
 fn defn_sem_place_contract_regions(
     db: &::salsa::Db,
     module_path: ModulePath,
-) -> Vec<&SemaPlaceContractRegion> {
+) -> Vec<&SemPlaceContractRegion> {
     module_item_syn_defns(db, module_path)
         .iter()
         .copied()

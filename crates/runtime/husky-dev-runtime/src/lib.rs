@@ -6,7 +6,6 @@ mod eval;
 pub use self::config::*;
 
 use husky_dev_comptime::{DevComptime, DevComptimeTarget};
-use husky_entity_path::TypeVariantIndex;
 use husky_ki::{KiRuntimeConstant, KiRuntimeConstantData};
 use husky_ki_repr::repr::KiRepr;
 use husky_linkage::linkage::Linkage;

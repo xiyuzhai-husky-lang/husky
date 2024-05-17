@@ -1,4 +1,4 @@
-use crate::{data::entry::NamEntryAstData, *};
+use crate::data::entry::NamEntryAstData;
 
 #[salsa::input]
 pub struct NamAstDistrict {

@@ -3,7 +3,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Val(
-                ValHirDefn {
+                MajorValHirDefn {
                     path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
                     hir_decl: MajorValHirDecl {
                         path: FormPath(`mnist_classifier::digits::two::two_match`, `Val`),
@@ -81,7 +81,7 @@
                             HirEagerParenateParameters(
                                 [
                                     HirEagerParenateParameter::Simple {
-                                        pattern_expr_idx: 0,
+                                        pattern_idx: 0,
                                         contract: Pure,
                                         ty: HirType::PathLeading(
                                             HirTypePathLeading {
@@ -166,7 +166,7 @@
                             HirEagerParenateParameters(
                                 [
                                     HirEagerParenateParameter::Simple {
-                                        pattern_expr_idx: 0,
+                                        pattern_idx: 0,
                                         contract: Pure,
                                         ty: HirType::PathLeading(
                                             HirTypePathLeading {
@@ -251,7 +251,7 @@
                             HirEagerParenateParameters(
                                 [
                                     HirEagerParenateParameter::Simple {
-                                        pattern_expr_idx: 0,
+                                        pattern_idx: 0,
                                         contract: Pure,
                                         ty: HirType::PathLeading(
                                             HirTypePathLeading {
@@ -320,7 +320,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Val(
-                ValHirDefn {
+                MajorValHirDefn {
                     path: FormPath(`mnist_classifier::digits::two::is_two`, `Val`),
                     hir_decl: MajorValHirDecl {
                         path: FormPath(`mnist_classifier::digits::two::is_two`, `Val`),

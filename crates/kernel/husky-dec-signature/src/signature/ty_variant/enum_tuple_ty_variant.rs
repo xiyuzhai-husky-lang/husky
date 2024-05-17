@@ -1,7 +1,7 @@
-use crate::*;
+use super::*;
 use husky_entity_kind::ritchie::RitchieItemKind;
 
-#[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
+#[salsa::interned]
 pub struct EnumTupleVariantDecTemplate {
     pub parent_ty_template: EnumDecTemplate,
     pub fields: SmallVec<[EnumTupleVariantFieldDecTemplate; 4]>,

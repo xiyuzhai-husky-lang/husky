@@ -248,7 +248,7 @@ impl CowordMenu {
     }
 }
 
-// #[salsa::tracked(jar = CowordJar, return_ref)]
+// #[salsa::tracked(jar = Jar, return_ref)]
 // pub(crate) fn coword_menu(db: &::salsa::Db,) -> CowordMenu {
 //     CowordMenu::new(db)
 // }
@@ -259,7 +259,7 @@ pub(crate) struct coword_menu {
     function: salsa::function::FunctionIngredient<Self>,
 }
 impl salsa::function::Configuration for coword_menu {
-    type Jar = CowordJar;
+    type Jar = Jar;
     type SalsaStruct = salsa::salsa_struct::Singleton;
     type Key = ();
     type Value = CowordMenu;
@@ -272,7 +272,7 @@ impl salsa::function::Configuration for coword_menu {
         pub(crate) fn __fn(db: &::salsa::Db) -> CowordMenu {
             CowordMenu::new(db)
         }
-        let (__jar, __runtime) = __db.jar::<CowordJar>();
+        let (__jar, __runtime) = __db.jar::<Jar>();
         let __ingredients =
             <_ as salsa::storage::HasIngredientsFor<coword_menu>>::ingredient(__jar);
         let __key = __ingredients.intern_map.data(__runtime, __id).clone();
@@ -288,7 +288,7 @@ impl salsa::function::Configuration for coword_menu {
 }
 impl salsa::storage::IngredientsFor for coword_menu {
     type Ingredients = Self;
-    type Jar = CowordJar;
+    type Jar = Jar;
     fn create_ingredients(routes: &mut salsa::routes::Routes) -> Self::Ingredients {
         Self {
             intern_map: salsa::interned::IdentityInterner::new(),
@@ -319,7 +319,7 @@ impl salsa::storage::IngredientsFor for coword_menu {
 impl coword_menu {
     #[allow(dead_code, clippy::needless_lifetimes)]
     pub(crate) fn get<'__db>(db: &'__db Db) -> &'__db CowordMenu {
-        let (__jar, __runtime) = db.jar::<CowordJar>();
+        let (__jar, __runtime) = db.jar::<Jar>();
         let __ingredients =
             <_ as salsa::storage::HasIngredientsFor<coword_menu>>::ingredient(__jar);
         let __key = __ingredients.intern_map.intern(__runtime, ());
@@ -327,7 +327,7 @@ impl coword_menu {
     }
     #[allow(dead_code, clippy::needless_lifetimes)]
     pub(crate) fn set(db: &mut Db, __value: CowordMenu) {
-        let (__jar, __runtime) = db.jar_mut::<CowordJar>();
+        let (__jar, __runtime) = db.jar_mut::<Jar>();
         let __ingredients =
             <_ as salsa::storage::HasIngredientsFor<coword_menu>>::ingredient_mut(__jar);
         let __key = __ingredients.intern_map.intern(__runtime, ());
@@ -339,7 +339,7 @@ impl coword_menu {
     pub(crate) fn accumulated<'__db, __A: salsa::accumulator::Accumulator>(
         db: &'__db Db,
     ) -> Vec<<__A as salsa::accumulator::Accumulator>::Data> {
-        let (__jar, __runtime) = db.jar::<CowordJar>();
+        let (__jar, __runtime) = db.jar::<Jar>();
         let __ingredients =
             <_ as salsa::storage::HasIngredientsFor<coword_menu>>::ingredient(__jar);
         let __key = __ingredients.intern_map.intern(__runtime, ());

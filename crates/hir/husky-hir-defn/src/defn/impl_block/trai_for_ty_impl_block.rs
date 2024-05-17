@@ -1,5 +1,5 @@
 use super::*;
-use husky_entity_path::trai_for_ty_impl_block::TraitForTypeImplBlockPath;
+use husky_entity_path::path::impl_block::trai_for_ty_impl_block::TraitForTypeImplBlockPath;
 use husky_hir_decl::decl::TraitForTypeImplBlockHirDecl;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -43,7 +43,7 @@ impl TraitForTypeImplBlockHirDefn {
     }
 }
 
-#[salsa::tracked(jar = HirDefnJar)]
+#[salsa::tracked]
 fn trai_for_ty_impl_block_dependencies(
     db: &::salsa::Db,
     hir_defn: TraitForTypeImplBlockHirDefn,
@@ -56,7 +56,7 @@ fn trai_for_ty_impl_block_dependencies(
     builder.finish()
 }
 
-#[salsa::tracked(jar = HirDefnJar)]
+#[salsa::tracked]
 fn trai_for_ty_impl_block_version_stamp(
     db: &::salsa::Db,
     hir_defn: TraitForTypeImplBlockHirDefn,

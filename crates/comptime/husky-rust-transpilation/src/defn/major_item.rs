@@ -3,6 +3,7 @@ pub(crate) mod trai;
 pub(crate) mod ty;
 
 use super::*;
+use husky_hir_defn::defn::major_item::MajorItemHirDefn;
 
 impl TranspileToRustWith for MajorItemHirDefn {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {

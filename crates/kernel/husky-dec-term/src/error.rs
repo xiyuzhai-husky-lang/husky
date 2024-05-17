@@ -1,5 +1,4 @@
-use husky_entity_path::{EntityPathError, ItemPath};
-
+use husky_entity_path::{error::EntityPathError, path::ItemPath};
 use thiserror::Error;
 
 #[derive(Error, Debug, PartialEq, Eq, Clone, Copy)]

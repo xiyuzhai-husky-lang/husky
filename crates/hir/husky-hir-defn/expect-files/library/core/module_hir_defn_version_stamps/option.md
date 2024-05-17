@@ -6,7 +6,7 @@
                 TypePath(
                     ItemPathId(
                         Id {
-                            value: 76,
+                            value: 77,
                         },
                     ),
                 ),
@@ -28,7 +28,7 @@
             AttrItemPath(
                 ItemPathId(
                     Id {
-                        value: 229,
+                        value: 232,
                     },
                 ),
             ),
@@ -41,7 +41,7 @@
             TypeVariantPath(
                 ItemPathId(
                     Id {
-                        value: 77,
+                        value: 78,
                     },
                 ),
             ),
@@ -62,7 +62,7 @@
             TypeVariantPath(
                 ItemPathId(
                     Id {
-                        value: 78,
+                        value: 79,
                     },
                 ),
             ),

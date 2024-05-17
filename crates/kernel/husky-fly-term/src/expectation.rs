@@ -28,6 +28,7 @@ pub use self::sort::*;
 pub use self::subtype::*;
 
 use super::*;
+use husky_entity_path::path::major_item::ty::TypePath;
 use husky_term_prelude::ritchie::RitchieKind;
 use idx_arena::ArenaIdx;
 use thiserror::Error;

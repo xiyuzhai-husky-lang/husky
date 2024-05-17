@@ -5683,6 +5683,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-pattern-analysis"
+version = "0.1.0"
+dependencies = [
+ "husky-entity-path",
+ "husky-fly-term",
+ "husky-lifetime-utils",
+ "rustc-pattern-analysis",
+]
+
+[[package]]
 name = "husky-place"
 version = "0.1.0"
 dependencies = [
@@ -5937,16 +5947,6 @@ name = "husky-sem-opr"
 version = "0.1.0"
 dependencies = [
  "husky-opr",
-]
-
-[[package]]
-name = "husky-sem-pattern-analysis"
-version = "0.1.0"
-dependencies = [
- "husky-entity-path",
- "husky-fly-term",
- "husky-lifetime-utils",
- "rustc-pattern-analysis",
 ]
 
 [[package]]
@@ -6660,6 +6660,10 @@ dependencies = [
  "ui",
  "vec-like",
 ]
+
+[[package]]
+name = "husky-trai-analysis"
+version = "0.1.0"
 
 [[package]]
 name = "husky-unicode-symbols"
@@ -8569,6 +8573,7 @@ dependencies = [
 name = "parsec"
 version = "0.1.0"
 dependencies = [
+ "either",
  "original-error",
  "salsa",
  "smallvec",

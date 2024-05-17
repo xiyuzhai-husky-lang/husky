@@ -23,7 +23,7 @@ pub struct EagerCallInputTraceData {
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum EagerCallInputSketch {
     Simple {
-        // parameter_syn_pattern_expr_idx: SynPatternExprIdx,
+        // parameter_syn_pattern_idx: SynPatternIdx,
         argument_sem_expr_idx: SemExprIdx,
         argument_hir_eager_expr_idx: Option<HirEagerExprIdx>,
     },

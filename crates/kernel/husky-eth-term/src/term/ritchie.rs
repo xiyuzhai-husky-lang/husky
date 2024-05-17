@@ -10,7 +10,7 @@ use super::*;
 use husky_term_prelude::ritchie::RitchieKind;
 
 /// representing term `x -> y`
-#[salsa::interned(db = EthTermDb, jar = EthTermJar, constructor = new_inner)]
+#[salsa::interned(constructor = new_inner)]
 pub struct EthRitchie {
     pub ritchie_kind: RitchieKind,
     #[return_ref]
@@ -97,7 +97,7 @@ impl EthRitchie {
     }
 }
 
-#[salsa::tracked(jar = EthTermJar)]
+#[salsa::tracked]
 pub(crate) fn ethereal_term_ritchie_from_dec_term_ritchie(
     db: &::salsa::Db,
     declarative_term_ritchie: DecRitchie,

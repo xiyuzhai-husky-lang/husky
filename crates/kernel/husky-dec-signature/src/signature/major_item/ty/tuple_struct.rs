@@ -1,7 +1,7 @@
 use super::*;
 use husky_term_prelude::ritchie::RitchieKind;
 
-#[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
+#[salsa::interned]
 pub struct TupleStructDecTemplate {
     #[return_ref]
     pub template_parameters: DecTemplateParameters,
@@ -11,8 +11,8 @@ pub struct TupleStructDecTemplate {
     pub instance_constructor_ritchie_ty: DecRitchie,
 }
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct TupleStructFieldDecTemplate {
     ty: DecTerm,
 }

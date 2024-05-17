@@ -32,7 +32,7 @@ use self::parser::*;
 use self::tests::*;
 use husky_coword::*;
 use husky_entity_kind::EntityKind;
-use husky_entity_path::{ItemPath, TypeVariantPath};
+use husky_entity_path::path::{ty_variant::TypeVariantPath, ItemPath};
 use husky_scope_expr::VisibilityExpr;
 use husky_token::{
     verse::{idx::TokenVerseIdx, iter::TokenVerseIter, TokenVerse},

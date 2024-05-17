@@ -1,6 +1,7 @@
 use crate::*;
 
 use husky_entity_kind::{TraitItemKind, TypeItemKind};
+use husky_entity_path::path::ItemPath;
 use husky_entity_tree::helpers::paths::{module_item_paths, module_item_syn_node_paths};
 use husky_syn_expr::helpers::block_expr::parse_defn_block_expr;
 
@@ -11,7 +12,7 @@ pub struct ItemSynNodeDefn {
     pub syn_expr_region: SynExprRegion,
 }
 
-#[salsa::tracked(jar = SynDefnJar)]
+#[salsa::tracked]
 pub fn item_syn_node_defn(
     db: &::salsa::Db,
     item_syn_node_path_id: ItemSynNodePathId,

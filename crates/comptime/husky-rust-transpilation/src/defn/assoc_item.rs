@@ -3,6 +3,7 @@ mod trai_item;
 mod ty_item;
 
 use super::*;
+use husky_hir_defn::defn::assoc_item::AssocItemHirDefn;
 
 impl TranspileToRustWith for AssocItemHirDefn {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder) {

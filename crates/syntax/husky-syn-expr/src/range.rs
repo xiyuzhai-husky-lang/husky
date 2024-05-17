@@ -15,7 +15,7 @@ impl SynExprRegion {
     }
 }
 
-#[salsa::tracked(jar = SynExprJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub(crate) fn syn_expr_range_region(
     db: &::salsa::Db,
     expr_region: SynExprRegion,
@@ -279,7 +279,7 @@ impl<'a> SynExprRangeCalculator<'a> {
             } => {
                 let start = self[src].start().regional_token_idx();
                 let end = if let Ok(target) = target {
-                    self[target.syn_pattern_root().syn_pattern_expr_idx()].end()
+                    self[target.syn_pattern_root().syn_pattern_idx()].end()
                 } else {
                     RegionalTokenIdxRangeEnd::new_after(be_regional_token_idx)
                 };
@@ -545,6 +545,10 @@ impl<'a> SynExprRangeCalculator<'a> {
             SynStmtData::Match { match_token, .. } => {
                 // ad hoc
                 RegionalTokenIdxRange::new_single(match_token.regional_token_idx())
+            }
+            SynStmtData::Narrate { narrate_token } => {
+                // ad hoc
+                RegionalTokenIdxRange::new_single(narrate_token.regional_token_idx())
             }
         }
     }

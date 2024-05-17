@@ -1,6 +1,5 @@
-use husky_entity_path::PreludeTypePath;
-
 use super::*;
+use husky_entity_path::path::major_item::ty::PreludeTypePath;
 
 impl salsa::DisplayWithDb for LambdaVariableIndex {
     fn display_fmt_with_db(

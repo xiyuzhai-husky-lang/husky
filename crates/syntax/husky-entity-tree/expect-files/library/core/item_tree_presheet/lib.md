@@ -852,7 +852,7 @@ EntityTreePresheet {
                         visibility: Scope::Pub,
                         ast_idx: 15,
                         ident_token: IdentToken {
-                            ident: `vec`,
+                            ident: `task`,
                             token_idx: TokenIdx(
                                 48,
                             ),
@@ -880,7 +880,7 @@ EntityTreePresheet {
                         },
                     ),
                 ),
-                ident: `vec`,
+                ident: `task`,
                 visibility: Scope::Pub,
             },
             ItemNodeEntry {
@@ -907,7 +907,7 @@ EntityTreePresheet {
                         visibility: Scope::Pub,
                         ast_idx: 16,
                         ident_token: IdentToken {
-                            ident: `slice`,
+                            ident: `vec`,
                             token_idx: TokenIdx(
                                 51,
                             ),
@@ -935,7 +935,7 @@ EntityTreePresheet {
                         },
                     ),
                 ),
-                ident: `slice`,
+                ident: `vec`,
                 visibility: Scope::Pub,
             },
             ItemNodeEntry {
@@ -962,7 +962,7 @@ EntityTreePresheet {
                         visibility: Scope::Pub,
                         ast_idx: 17,
                         ident_token: IdentToken {
-                            ident: `str`,
+                            ident: `slice`,
                             token_idx: TokenIdx(
                                 54,
                             ),
@@ -990,7 +990,7 @@ EntityTreePresheet {
                         },
                     ),
                 ),
-                ident: `str`,
+                ident: `slice`,
                 visibility: Scope::Pub,
             },
             ItemNodeEntry {
@@ -1017,7 +1017,7 @@ EntityTreePresheet {
                         visibility: Scope::Pub,
                         ast_idx: 18,
                         ident_token: IdentToken {
-                            ident: `visual`,
+                            ident: `str`,
                             token_idx: TokenIdx(
                                 57,
                             ),
@@ -1045,6 +1045,61 @@ EntityTreePresheet {
                         },
                     ),
                 ),
+                ident: `str`,
+                visibility: Scope::Pub,
+            },
+            ItemNodeEntry {
+                node: ItemSynNode::Submodule(
+                    SubmoduleSynNode {
+                        syn_node_path: SubmoduleSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        disambiguated_item_path: DisambiguatedItemPath {
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 20,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            },
+                        ),
+                        visibility: Scope::Pub,
+                        ast_idx: 19,
+                        ident_token: IdentToken {
+                            ident: `visual`,
+                            token_idx: TokenIdx(
+                                60,
+                            ),
+                        },
+                    },
+                ),
+                syn_node_path: ItemSynNodePath::Submodule(
+                    Room32,
+                    SubmoduleSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 20,
+                                                },
+                                            ),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        },
+                    ),
+                ),
                 ident: `visual`,
                 visibility: Scope::Pub,
             },
@@ -1053,7 +1108,7 @@ EntityTreePresheet {
     once_use_rules: OnceUseRules(
         [
             OnceUseRule {
-                ast_idx: 19,
+                ast_idx: 20,
                 use_expr_idx: 2,
                 visibility: Scope::PubUnder(
                     `core`,
@@ -1062,7 +1117,7 @@ EntityTreePresheet {
                     parent_name_token: PathNameToken::SelfMod(
                         SelfModToken {
                             token_idx: TokenIdx(
-                                59,
+                                62,
                             ),
                         },
                     ),
@@ -1083,7 +1138,7 @@ EntityTreePresheet {
             UseExpr::All {
                 star_token: StarToken(
                     TokenIdx(
-                        63,
+                        66,
                     ),
                 ),
             },
@@ -1093,14 +1148,14 @@ EntityTreePresheet {
                         IdentToken {
                             ident: `prelude`,
                             token_idx: TokenIdx(
-                                61,
+                                64,
                             ),
                         },
                     ),
                     colon_colon_token: Ok(
                         ColonColonToken(
                             TokenIdx(
-                                62,
+                                65,
                             ),
                         ),
                     ),
@@ -1116,14 +1171,14 @@ EntityTreePresheet {
                     parent_name_token: PathNameToken::SelfMod(
                         SelfModToken {
                             token_idx: TokenIdx(
-                                59,
+                                62,
                             ),
                         },
                     ),
                     colon_colon_token: Ok(
                         ColonColonToken(
                             TokenIdx(
-                                60,
+                                63,
                             ),
                         ),
                     ),

@@ -1,7 +1,7 @@
 use super::*;
 use husky_hir_decl::decl::ExternTypeHirDecl;
 
-#[salsa::interned(db = HirDefnDb, jar = HirDefnJar)]
+#[salsa::interned]
 pub struct ExternHirDefn {
     pub path: TypePath,
     pub hir_decl: ExternTypeHirDecl,
@@ -29,7 +29,7 @@ impl ExternHirDefn {
     }
 }
 
-#[salsa::tracked(jar = HirDefnJar)]
+#[salsa::tracked]
 fn extern_hir_defn_dependencies(db: &::salsa::Db, hir_defn: ExternHirDefn) -> HirDefnDependencies {
     let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
     let hir_decl = hir_defn.hir_decl(db);
@@ -37,7 +37,7 @@ fn extern_hir_defn_dependencies(db: &::salsa::Db, hir_defn: ExternHirDefn) -> Hi
     builder.finish()
 }
 
-#[salsa::tracked(jar = HirDefnJar)]
+#[salsa::tracked]
 fn extern_hir_defn_version_stamp(db: &::salsa::Db, hir_defn: ExternHirDefn) -> HirDefnVersionStamp {
     HirDefnVersionStamp::new(hir_defn, db)
 }

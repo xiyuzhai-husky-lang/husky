@@ -852,7 +852,7 @@ EntityTreeSheet {
                         visibility: Scope::Pub,
                         ast_idx: 15,
                         ident_token: IdentToken {
-                            ident: `vec`,
+                            ident: `task`,
                             token_idx: TokenIdx(
                                 48,
                             ),
@@ -880,7 +880,7 @@ EntityTreeSheet {
                         },
                     ),
                 ),
-                ident: `vec`,
+                ident: `task`,
                 visibility: Scope::Pub,
             },
             ItemNodeEntry {
@@ -907,7 +907,7 @@ EntityTreeSheet {
                         visibility: Scope::Pub,
                         ast_idx: 16,
                         ident_token: IdentToken {
-                            ident: `slice`,
+                            ident: `vec`,
                             token_idx: TokenIdx(
                                 51,
                             ),
@@ -935,7 +935,7 @@ EntityTreeSheet {
                         },
                     ),
                 ),
-                ident: `slice`,
+                ident: `vec`,
                 visibility: Scope::Pub,
             },
             ItemNodeEntry {
@@ -962,7 +962,7 @@ EntityTreeSheet {
                         visibility: Scope::Pub,
                         ast_idx: 17,
                         ident_token: IdentToken {
-                            ident: `str`,
+                            ident: `slice`,
                             token_idx: TokenIdx(
                                 54,
                             ),
@@ -990,7 +990,7 @@ EntityTreeSheet {
                         },
                     ),
                 ),
-                ident: `str`,
+                ident: `slice`,
                 visibility: Scope::Pub,
             },
             ItemNodeEntry {
@@ -1017,7 +1017,7 @@ EntityTreeSheet {
                         visibility: Scope::Pub,
                         ast_idx: 18,
                         ident_token: IdentToken {
-                            ident: `visual`,
+                            ident: `str`,
                             token_idx: TokenIdx(
                                 57,
                             ),
@@ -1035,6 +1035,61 @@ EntityTreeSheet {
                                             ItemPathId(
                                                 Id {
                                                     value: 19,
+                                                },
+                                            ),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        },
+                    ),
+                ),
+                ident: `str`,
+                visibility: Scope::Pub,
+            },
+            ItemNodeEntry {
+                node: ItemSynNode::Submodule(
+                    SubmoduleSynNode {
+                        syn_node_path: SubmoduleSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        disambiguated_item_path: DisambiguatedItemPath {
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 20,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            },
+                        ),
+                        visibility: Scope::Pub,
+                        ast_idx: 19,
+                        ident_token: IdentToken {
+                            ident: `visual`,
+                            token_idx: TokenIdx(
+                                60,
+                            ),
+                        },
+                    },
+                ),
+                syn_node_path: ItemSynNodePath::Submodule(
+                    Room32,
+                    SubmoduleSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 20,
                                                 },
                                             ),
                                         ),
@@ -1248,7 +1303,7 @@ EntityTreeSheet {
                 },
             },
             EntitySymbolEntry {
-                ident: `vec`,
+                ident: `task`,
                 visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Submodule {
                     submodule_item_path: SubmoduleItemPath(
@@ -1261,7 +1316,7 @@ EntityTreeSheet {
                 },
             },
             EntitySymbolEntry {
-                ident: `slice`,
+                ident: `vec`,
                 visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Submodule {
                     submodule_item_path: SubmoduleItemPath(
@@ -1274,7 +1329,7 @@ EntityTreeSheet {
                 },
             },
             EntitySymbolEntry {
-                ident: `str`,
+                ident: `slice`,
                 visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Submodule {
                     submodule_item_path: SubmoduleItemPath(
@@ -1287,13 +1342,26 @@ EntityTreeSheet {
                 },
             },
             EntitySymbolEntry {
-                ident: `visual`,
+                ident: `str`,
                 visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Submodule {
                     submodule_item_path: SubmoduleItemPath(
                         ItemPathId(
                             Id {
                                 value: 19,
+                            },
+                        ),
+                    ),
+                },
+            },
+            EntitySymbolEntry {
+                ident: `visual`,
+                visible_scope: Scope::Pub,
+                symbol: EntitySymbol::Submodule {
+                    submodule_item_path: SubmoduleItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 20,
                             },
                         ),
                     ),
@@ -1331,7 +1399,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core`,
                         ),
-                        ast_idx: 19,
+                        ast_idx: 20,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1368,7 +1436,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core`,
                         ),
-                        ast_idx: 19,
+                        ast_idx: 20,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1405,7 +1473,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core`,
                         ),
-                        ast_idx: 19,
+                        ast_idx: 20,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1442,7 +1510,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core`,
                         ),
-                        ast_idx: 19,
+                        ast_idx: 20,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1479,7 +1547,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core`,
                         ),
-                        ast_idx: 19,
+                        ast_idx: 20,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1516,7 +1584,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core`,
                         ),
-                        ast_idx: 19,
+                        ast_idx: 20,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1553,7 +1621,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core`,
                         ),
-                        ast_idx: 19,
+                        ast_idx: 20,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1590,7 +1658,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core`,
                         ),
-                        ast_idx: 19,
+                        ast_idx: 20,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1627,7 +1695,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core`,
                         ),
-                        ast_idx: 19,
+                        ast_idx: 20,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1664,7 +1732,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core`,
                         ),
-                        ast_idx: 19,
+                        ast_idx: 20,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1701,7 +1769,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core`,
                         ),
-                        ast_idx: 19,
+                        ast_idx: 20,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1738,7 +1806,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core`,
                         ),
-                        ast_idx: 19,
+                        ast_idx: 20,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1775,7 +1843,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core`,
                         ),
-                        ast_idx: 19,
+                        ast_idx: 20,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1812,7 +1880,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core`,
                         ),
-                        ast_idx: 19,
+                        ast_idx: 20,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1849,7 +1917,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core`,
                         ),
-                        ast_idx: 19,
+                        ast_idx: 20,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1886,7 +1954,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core`,
                         ),
-                        ast_idx: 19,
+                        ast_idx: 20,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1923,7 +1991,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core`,
                         ),
-                        ast_idx: 19,
+                        ast_idx: 20,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1960,7 +2028,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core`,
                         ),
-                        ast_idx: 19,
+                        ast_idx: 20,
                         use_expr_idx: 0,
                     },
                 ),
@@ -1997,7 +2065,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core`,
                         ),
-                        ast_idx: 19,
+                        ast_idx: 20,
                         use_expr_idx: 0,
                     },
                 ),
@@ -2034,7 +2102,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core`,
                         ),
-                        ast_idx: 19,
+                        ast_idx: 20,
                         use_expr_idx: 0,
                     },
                 ),
@@ -2071,7 +2139,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core`,
                         ),
-                        ast_idx: 19,
+                        ast_idx: 20,
                         use_expr_idx: 0,
                     },
                 ),
@@ -2108,7 +2176,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core`,
                         ),
-                        ast_idx: 19,
+                        ast_idx: 20,
                         use_expr_idx: 0,
                     },
                 ),
@@ -2145,7 +2213,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core`,
                         ),
-                        ast_idx: 19,
+                        ast_idx: 20,
                         use_expr_idx: 0,
                     },
                 ),
@@ -2182,7 +2250,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core`,
                         ),
-                        ast_idx: 19,
+                        ast_idx: 20,
                         use_expr_idx: 0,
                     },
                 ),
@@ -2219,7 +2287,81 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core`,
                         ),
-                        ast_idx: 19,
+                        ast_idx: 20,
+                        use_expr_idx: 0,
+                    },
+                ),
+            },
+            EntitySymbolEntry {
+                ident: `Task`,
+                visible_scope: Scope::PubUnder(
+                    `core`,
+                ),
+                symbol: EntitySymbol::Use(
+                    UseSymbol {
+                        original_symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::MajorItem {
+                                    major_item_path: MajorItemPath::Type(
+                                        TypePath(`core::task::Task`, `Extern`),
+                                    ),
+                                },
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Type(
+                                        TypePath(`core::task::Task`, `Extern`),
+                                    ),
+                                ),
+                                visibility: Scope::Pub,
+                                ast_idx: 5,
+                                use_expr_idx: 15,
+                            },
+                        ),
+                        path: PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::task::Task`, `Extern`),
+                            ),
+                        ),
+                        visibility: Scope::PubUnder(
+                            `core`,
+                        ),
+                        ast_idx: 20,
+                        use_expr_idx: 0,
+                    },
+                ),
+            },
+            EntitySymbolEntry {
+                ident: `task`,
+                visible_scope: Scope::PubUnder(
+                    `core`,
+                ),
+                symbol: EntitySymbol::Use(
+                    UseSymbol {
+                        original_symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::MajorItem {
+                                    major_item_path: MajorItemPath::Form(
+                                        FormPath(`core::task::task`, `Static`),
+                                    ),
+                                },
+                                path: PrincipalEntityPath::MajorItem(
+                                    MajorItemPath::Form(
+                                        FormPath(`core::task::task`, `Static`),
+                                    ),
+                                ),
+                                visibility: Scope::Pub,
+                                ast_idx: 5,
+                                use_expr_idx: 15,
+                            },
+                        ),
+                        path: PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Form(
+                                FormPath(`core::task::task`, `Static`),
+                            ),
+                        ),
+                        visibility: Scope::PubUnder(
+                            `core`,
+                        ),
+                        ast_idx: 20,
                         use_expr_idx: 0,
                     },
                 ),
@@ -2244,8 +2386,8 @@ EntityTreeSheet {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 5,
-                                use_expr_idx: 15,
+                                ast_idx: 6,
+                                use_expr_idx: 18,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -2256,7 +2398,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core`,
                         ),
-                        ast_idx: 19,
+                        ast_idx: 20,
                         use_expr_idx: 0,
                     },
                 ),
@@ -2281,8 +2423,8 @@ EntityTreeSheet {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 5,
-                                use_expr_idx: 15,
+                                ast_idx: 6,
+                                use_expr_idx: 18,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -2293,7 +2435,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core`,
                         ),
-                        ast_idx: 19,
+                        ast_idx: 20,
                         use_expr_idx: 0,
                     },
                 ),
@@ -2318,8 +2460,8 @@ EntityTreeSheet {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 6,
-                                use_expr_idx: 18,
+                                ast_idx: 7,
+                                use_expr_idx: 21,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -2330,7 +2472,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core`,
                         ),
-                        ast_idx: 19,
+                        ast_idx: 20,
                         use_expr_idx: 0,
                     },
                 ),
@@ -2355,8 +2497,8 @@ EntityTreeSheet {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 6,
-                                use_expr_idx: 18,
+                                ast_idx: 7,
+                                use_expr_idx: 21,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -2367,7 +2509,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core`,
                         ),
-                        ast_idx: 19,
+                        ast_idx: 20,
                         use_expr_idx: 0,
                     },
                 ),
@@ -2392,8 +2534,8 @@ EntityTreeSheet {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 7,
-                                use_expr_idx: 21,
+                                ast_idx: 8,
+                                use_expr_idx: 24,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -2404,7 +2546,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core`,
                         ),
-                        ast_idx: 19,
+                        ast_idx: 20,
                         use_expr_idx: 0,
                     },
                 ),
@@ -2429,8 +2571,8 @@ EntityTreeSheet {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 8,
-                                use_expr_idx: 24,
+                                ast_idx: 9,
+                                use_expr_idx: 27,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -2441,78 +2583,13 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core`,
                         ),
-                        ast_idx: 19,
+                        ast_idx: 20,
                         use_expr_idx: 0,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `Some`,
-                visible_scope: Scope::PubUnder(
-                    `core`,
-                ),
-                symbol: EntitySymbol::Use(
-                    UseSymbol {
-                        original_symbol: EntitySymbol::Use(
-                            UseSymbol {
-                                original_symbol: EntitySymbol::Use(
-                                    UseSymbol {
-                                        original_symbol: EntitySymbol::TypeVariant {
-                                            ty_variant_path: TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 77,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                        path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 77,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                        visibility: Scope::Pub,
-                                        ast_idx: 3,
-                                        use_expr_idx: 2,
-                                    },
-                                ),
-                                path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 77,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                visibility: Scope::Pub,
-                                ast_idx: 8,
-                                use_expr_idx: 24,
-                            },
-                        ),
-                        path: PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 77,
-                                    },
-                                ),
-                            ),
-                        ),
-                        visibility: Scope::PubUnder(
-                            `core`,
-                        ),
-                        ast_idx: 19,
-                        use_expr_idx: 0,
-                    },
-                ),
-            },
-            EntitySymbolEntry {
-                ident: `None`,
                 visible_scope: Scope::PubUnder(
                     `core`,
                 ),
@@ -2555,8 +2632,8 @@ EntityTreeSheet {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 8,
-                                use_expr_idx: 24,
+                                ast_idx: 9,
+                                use_expr_idx: 27,
                             },
                         ),
                         path: PrincipalEntityPath::TypeVariant(
@@ -2571,7 +2648,72 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core`,
                         ),
-                        ast_idx: 19,
+                        ast_idx: 20,
+                        use_expr_idx: 0,
+                    },
+                ),
+            },
+            EntitySymbolEntry {
+                ident: `None`,
+                visible_scope: Scope::PubUnder(
+                    `core`,
+                ),
+                symbol: EntitySymbol::Use(
+                    UseSymbol {
+                        original_symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::TypeVariant {
+                                            ty_variant_path: TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 79,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        path: PrincipalEntityPath::TypeVariant(
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 79,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        visibility: Scope::Pub,
+                                        ast_idx: 3,
+                                        use_expr_idx: 2,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::TypeVariant(
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 79,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                visibility: Scope::Pub,
+                                ast_idx: 9,
+                                use_expr_idx: 27,
+                            },
+                        ),
+                        path: PrincipalEntityPath::TypeVariant(
+                            TypeVariantPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 79,
+                                    },
+                                ),
+                            ),
+                        ),
+                        visibility: Scope::PubUnder(
+                            `core`,
+                        ),
+                        ast_idx: 20,
                         use_expr_idx: 0,
                     },
                 ),
@@ -2596,8 +2738,8 @@ EntityTreeSheet {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 9,
-                                use_expr_idx: 27,
+                                ast_idx: 10,
+                                use_expr_idx: 30,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -2608,7 +2750,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core`,
                         ),
-                        ast_idx: 19,
+                        ast_idx: 20,
                         use_expr_idx: 0,
                     },
                 ),
@@ -2633,8 +2775,8 @@ EntityTreeSheet {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 9,
-                                use_expr_idx: 27,
+                                ast_idx: 10,
+                                use_expr_idx: 30,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -2645,7 +2787,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core`,
                         ),
-                        ast_idx: 19,
+                        ast_idx: 20,
                         use_expr_idx: 0,
                     },
                 ),
@@ -2670,8 +2812,8 @@ EntityTreeSheet {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 9,
-                                use_expr_idx: 27,
+                                ast_idx: 10,
+                                use_expr_idx: 30,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -2682,7 +2824,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core`,
                         ),
-                        ast_idx: 19,
+                        ast_idx: 20,
                         use_expr_idx: 0,
                     },
                 ),
@@ -2707,8 +2849,8 @@ EntityTreeSheet {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 9,
-                                use_expr_idx: 27,
+                                ast_idx: 10,
+                                use_expr_idx: 30,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -2719,7 +2861,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core`,
                         ),
-                        ast_idx: 19,
+                        ast_idx: 20,
                         use_expr_idx: 0,
                     },
                 ),
@@ -2744,8 +2886,8 @@ EntityTreeSheet {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 10,
-                                use_expr_idx: 30,
+                                ast_idx: 11,
+                                use_expr_idx: 33,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -2756,7 +2898,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core`,
                         ),
-                        ast_idx: 19,
+                        ast_idx: 20,
                         use_expr_idx: 0,
                     },
                 ),
@@ -2781,8 +2923,8 @@ EntityTreeSheet {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 10,
-                                use_expr_idx: 30,
+                                ast_idx: 11,
+                                use_expr_idx: 33,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -2793,7 +2935,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core`,
                         ),
-                        ast_idx: 19,
+                        ast_idx: 20,
                         use_expr_idx: 0,
                     },
                 ),
@@ -2818,8 +2960,8 @@ EntityTreeSheet {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 11,
-                                use_expr_idx: 33,
+                                ast_idx: 12,
+                                use_expr_idx: 36,
                             },
                         ),
                         path: PrincipalEntityPath::MajorItem(
@@ -2830,7 +2972,7 @@ EntityTreeSheet {
                         visibility: Scope::PubUnder(
                             `core`,
                         ),
-                        ast_idx: 19,
+                        ast_idx: 20,
                         use_expr_idx: 0,
                     },
                 ),
@@ -2841,7 +2983,7 @@ EntityTreeSheet {
     once_use_rules: OnceUseRules(
         [
             OnceUseRule {
-                ast_idx: 19,
+                ast_idx: 20,
                 use_expr_idx: 2,
                 visibility: Scope::PubUnder(
                     `core`,
@@ -2850,7 +2992,7 @@ EntityTreeSheet {
                     parent_name_token: PathNameToken::SelfMod(
                         SelfModToken {
                             token_idx: TokenIdx(
-                                59,
+                                62,
                             ),
                         },
                     ),
@@ -2868,7 +3010,7 @@ EntityTreeSheet {
                 },
             },
             OnceUseRule {
-                ast_idx: 19,
+                ast_idx: 20,
                 use_expr_idx: 1,
                 visibility: Scope::PubUnder(
                     `core`,
@@ -2878,7 +3020,7 @@ EntityTreeSheet {
                         IdentToken {
                             ident: `prelude`,
                             token_idx: TokenIdx(
-                                61,
+                                64,
                             ),
                         },
                     ),
@@ -2917,13 +3059,13 @@ EntityTreeSheet {
             UseAllRule {
                 parent_module_path: `core::prelude`,
                 is_same_crate: true,
-                ast_idx: 19,
+                ast_idx: 20,
                 use_expr_idx: 0,
                 visibility: Scope::PubUnder(
                     `core`,
                 ),
                 progress: Ok(
-                    40,
+                    42,
                 ),
             },
         ],

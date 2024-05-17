@@ -1,7 +1,7 @@
 use super::*;
-use husky_dec_signature::UnitStructDecTemplate;
+use husky_dec_signature::signature::major_item::ty::unit_struct::UnitStructDecTemplate;
 
-#[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
+#[salsa::interned]
 pub struct UnitStructEthTemplate {
     pub path: TypePath,
     #[return_ref]

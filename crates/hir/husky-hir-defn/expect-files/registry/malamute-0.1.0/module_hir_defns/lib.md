@@ -1221,7 +1221,7 @@
                         parenate_parameters: HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 0,
+                                    pattern_idx: 0,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -1500,7 +1500,7 @@
                                                 path: TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 101,
+                                                            value: 102,
                                                         },
                                                     ),
                                                 ),
@@ -1615,7 +1615,7 @@
                                                 path: TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 100,
+                                                            value: 101,
                                                         },
                                                     ),
                                                 ),
@@ -2013,7 +2013,7 @@
                         parenate_parameters: HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 0,
+                                    pattern_idx: 0,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -2177,7 +2177,7 @@
                                                 path: TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 101,
+                                                            value: 102,
                                                         },
                                                     ),
                                                 ),
@@ -2286,7 +2286,7 @@
                                                 path: TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 101,
+                                                            value: 102,
                                                         },
                                                     ),
                                                 ),
@@ -2389,7 +2389,7 @@
                                                 path: TypeVariantPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 100,
+                                                            value: 101,
                                                         },
                                                     ),
                                                 ),

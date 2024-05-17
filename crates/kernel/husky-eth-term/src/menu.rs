@@ -39,7 +39,7 @@ impl EthTermMenu {
     }
 }
 
-#[salsa::tracked(jar = EthTermJar,return_ref)]
+#[salsa::tracked(return_ref)]
 pub(crate) fn term_menu(db: &::salsa::Db, toolchain: Toolchain) -> EthTermMenu {
     EthTermMenu::new(db, toolchain)
 }

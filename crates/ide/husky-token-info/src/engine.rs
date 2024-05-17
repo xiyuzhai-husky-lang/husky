@@ -550,14 +550,14 @@ impl<'a, 'b> DeclTokenInfoEngine<'a, 'b> {
             | CurrentVariableKind::SimpleClosureParameter {
                 pattern_variable_idx: pattern_symbol,
             } => match self.syn_expr_region_data[pattern_symbol] {
-                PatternVariable::Atom(pattern_expr_idx) => {
-                    match self.syn_expr_region_data[pattern_expr_idx] {
+                PatternVariable::Atom(pattern_idx) => {
+                    match self.syn_expr_region_data[pattern_idx] {
                         SynPatternData::Ident {
                             ident_token,
                             symbol_modifier_tokens: _,
                         } => self.override_add(
                             ident_token.regional_token_idx(),
-                            pattern_expr_idx,
+                            pattern_idx,
                             TokenInfoData::CurrentSynSymbol {
                                 current_variable_idx: current_variable_idx,
                                 syn_expr_region: self.syn_expr_region,

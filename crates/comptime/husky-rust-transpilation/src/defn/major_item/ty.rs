@@ -1,12 +1,14 @@
-use crate::{defn::attr::Attrs, expr::site::HirEagerExprSite};
-
 use super::*;
-
+use crate::{defn::attr::Attrs, expr::site::HirEagerExprSite};
 use husky_coword::Ident;
 use husky_entity_tree::{HasAttrPaths, HasTypeVariantPaths};
 use husky_hir_decl::decl::{
     HasHirDecl, PropsFieldHirInitialization, PropsStructFieldHirDecl, TupleFieldHirDecl,
     TypeVariantHirDecl,
+};
+use husky_hir_defn::defn::major_item::ty::{
+    props_struct::PropsStructHirDefn, r#enum::EnumHirDefn, tuple_struct::TupleStructHirDefn,
+    TypeHirDefn,
 };
 use husky_hir_ty::HirType;
 

@@ -2,6 +2,7 @@ mod int_index;
 
 use self::int_index::*;
 use super::*;
+use husky_entity_path::path::major_item::ty::{CustomTypePath, PreludeTypePath};
 
 pub(crate) fn ethereal_owner_ty_index_signature(
     engine: &mut impl FlyTermEngineMut,

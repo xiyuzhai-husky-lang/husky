@@ -123,7 +123,7 @@
                         HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 0,
+                                    pattern_idx: 0,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -308,7 +308,7 @@
                 path: TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 296,
+                            value: 299,
                         },
                     ),
                 ),
@@ -329,7 +329,7 @@
                                 TypeImplBlockPath(
                                     ItemPathId(
                                         Id {
-                                            value: 296,
+                                            value: 299,
                                         },
                                     ),
                                 ),

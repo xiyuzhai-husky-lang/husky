@@ -112,7 +112,7 @@
                 path: TypeVariantPath(
                     ItemPathId(
                         Id {
-                            value: 81,
+                            value: 82,
                         },
                     ),
                 ),
@@ -120,7 +120,7 @@
                     path: TypeVariantPath(
                         ItemPathId(
                             Id {
-                                value: 81,
+                                value: 82,
                             },
                         ),
                     ),
@@ -144,7 +144,7 @@
                                 TypeVariantPath(
                                     ItemPathId(
                                         Id {
-                                            value: 81,
+                                            value: 82,
                                         },
                                     ),
                                 ),
@@ -212,7 +212,7 @@
                 path: TypeVariantPath(
                     ItemPathId(
                         Id {
-                            value: 82,
+                            value: 83,
                         },
                     ),
                 ),
@@ -220,7 +220,7 @@
                     path: TypeVariantPath(
                         ItemPathId(
                             Id {
-                                value: 82,
+                                value: 83,
                             },
                         ),
                     ),
@@ -244,7 +244,7 @@
                                 TypeVariantPath(
                                     ItemPathId(
                                         Id {
-                                            value: 82,
+                                            value: 83,
                                         },
                                     ),
                                 ),
@@ -682,7 +682,7 @@
                         parenate_parameters: HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 0,
+                                    pattern_idx: 0,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {

@@ -1,12 +1,14 @@
-mod enum_props_ty_variant;
-mod enum_tuple_ty_variant;
-mod enum_unit_ty_variant;
+pub mod enum_props_ty_variant;
+pub mod enum_tuple_ty_variant;
+pub mod enum_unit_ty_variant;
 
-pub use self::enum_props_ty_variant::*;
-pub use self::enum_tuple_ty_variant::*;
-pub use self::enum_unit_ty_variant::*;
-
+use self::enum_props_ty_variant::*;
+use self::enum_tuple_ty_variant::*;
+use self::enum_unit_ty_variant::*;
 use super::*;
+use crate::signature::major_item::ty::r#enum::EnumDecTemplate;
+use crate::signature::major_item::ty::TypeDecTemplate;
+use husky_entity_path::path::ty_variant::TypeVariantPath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]
@@ -27,7 +29,7 @@ impl HasDecTemplate for TypeVariantPath {
     }
 }
 
-#[salsa::tracked(jar = DecSignatureJar)]
+#[salsa::tracked]
 pub(crate) fn ty_variant_dec_template(
     db: &::salsa::Db,
     path: TypeVariantPath,

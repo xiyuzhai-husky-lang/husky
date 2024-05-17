@@ -8,6 +8,7 @@ use self::{
     test::TestAttrHirDecl,
 };
 use super::*;
+use husky_entity_path::path::attr::AttrItemPath;
 use husky_syn_decl::decl::AttrSynDecl;
 
 #[salsa::derive_debug_with_db]

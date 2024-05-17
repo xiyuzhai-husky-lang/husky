@@ -7,7 +7,7 @@ use super::*;
 use crate::fmt::symbol_name;
 use thiserror::Error;
 
-#[salsa::interned(db = EthTermDb, jar = EthTermJar, constructor = pub new_inner, override_debug)]
+#[salsa::interned(constructor = pub new_inner, override_debug)]
 pub struct EthSymbolicVariable {
     pub toolchain: Toolchain,
     pub ty: EthTerm,

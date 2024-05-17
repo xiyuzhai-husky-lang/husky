@@ -6,7 +6,7 @@
                 TypePath(
                     ItemPathId(
                         Id {
-                            value: 21,
+                            value: 22,
                         },
                     ),
                 ),
@@ -28,42 +28,7 @@
             AttrItemPath(
                 ItemPathId(
                     Id {
-                        value: 137,
-                    },
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        MajorItem(
-            Type(
-                TypePath(
-                    ItemPathId(
-                        Id {
-                            value: 22,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        Some(
-            Some(
-                HirDefnVersionStamp(
-                    Id {
-                        value: 3,
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        Attr(
-            Room32,
-            AttrItemPath(
-                ItemPathId(
-                    Id {
-                        value: 138,
+                        value: 140,
                     },
                 ),
             ),
@@ -86,7 +51,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 4,
+                        value: 3,
                     },
                 ),
             ),
@@ -98,7 +63,7 @@
             AttrItemPath(
                 ItemPathId(
                     Id {
-                        value: 139,
+                        value: 141,
                     },
                 ),
             ),
@@ -121,11 +86,24 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 5,
+                        value: 4,
                     },
                 ),
             ),
         ),
+    ),
+    (
+        Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 142,
+                    },
+                ),
+            ),
+        ),
+        None,
     ),
     (
         MajorItem(
@@ -143,7 +121,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 6,
+                        value: 5,
                     },
                 ),
             ),
@@ -165,7 +143,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 7,
+                        value: 6,
                     },
                 ),
             ),
@@ -187,7 +165,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 8,
+                        value: 7,
                     },
                 ),
             ),
@@ -200,6 +178,28 @@
                     ItemPathId(
                         Id {
                             value: 28,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        Some(
+            Some(
+                HirDefnVersionStamp(
+                    Id {
+                        value: 8,
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        MajorItem(
+            Type(
+                TypePath(
+                    ItemPathId(
+                        Id {
+                            value: 29,
                         },
                     ),
                 ),

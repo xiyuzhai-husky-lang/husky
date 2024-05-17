@@ -1,10 +1,10 @@
 pub mod trai_for_ty_impl_block;
 pub mod ty_impl_block;
 
-pub use self::trai_for_ty_impl_block::*;
-pub use self::ty_impl_block::*;
-
+use self::trai_for_ty_impl_block::*;
+use self::ty_impl_block::*;
 use super::*;
+use husky_entity_path::path::impl_block::ImplBlockPath;
 use husky_hir_decl::decl::ImplBlockHirDecl;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]

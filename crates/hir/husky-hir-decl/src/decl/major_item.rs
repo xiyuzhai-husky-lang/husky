@@ -1,6 +1,8 @@
-mod form;
+pub mod form;
 mod trai;
 mod ty;
+
+use husky_entity_path::path::major_item::MajorItemPath;
 
 pub use self::form::*;
 pub use self::trai::*;

@@ -5,7 +5,10 @@ use self::{
     trai_for_ty_impl_block::{TraitForTypeImplBlockPath, TraitForTypeImplBlockPathData},
     ty_impl_block::{TypeImplBlockPath, TypeImplBlockPathData},
 };
-use super::*;
+use super::{
+    major_item::{trai::TraitPath, ty::TypePath},
+    *,
+};
 use vec_like::VecPairMap;
 
 #[salsa::derive_debug_with_db]

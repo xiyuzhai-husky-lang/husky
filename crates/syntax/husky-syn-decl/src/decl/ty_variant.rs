@@ -7,6 +7,7 @@ pub use self::tuple_ty_variant::*;
 pub use self::unit_ty_variant::*;
 
 use super::*;
+use husky_entity_path::path::ty_variant::TypeVariantPath;
 use husky_token_data::Punctuation;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

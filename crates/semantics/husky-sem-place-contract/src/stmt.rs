@@ -1,4 +1,4 @@
-use crate::{engine::PlaceContractEngine, site::SemaPlaceContractSite};
+use crate::{engine::PlaceContractEngine, site::SemPlaceContractSite};
 use husky_sem_expr::{stmt::condition::SemaCondition, SemStmtData, SemStmtIdx, SemStmtIdxRange};
 use husky_term_prelude::Contract;
 
@@ -7,7 +7,7 @@ impl<'a> PlaceContractEngine<'a> {
         &mut self,
         stmts: SemStmtIdxRange,
         contract: Contract,
-        site: SemaPlaceContractSite,
+        site: SemPlaceContractSite,
     ) {
         let (non_last_stmts, last_stmt) = stmts.split_last();
         for non_last_stmt in non_last_stmts {
@@ -16,7 +16,7 @@ impl<'a> PlaceContractEngine<'a> {
         self.infer_stmt(last_stmt, contract, site)
     }
 
-    fn infer_stmt(&mut self, stmt: SemStmtIdx, contract: Contract, site: SemaPlaceContractSite) {
+    fn infer_stmt(&mut self, stmt: SemStmtIdx, contract: Contract, site: SemPlaceContractSite) {
         match *stmt.data(self.sem_expr_region_data().sem_stmt_arena()) {
             SemStmtData::Let {
                 contract,
@@ -108,6 +108,8 @@ impl<'a> PlaceContractEngine<'a> {
                     self.infer_stmts(case_branch.stmts, contract, site.clone());
                 }
             }
+            // ad hoc
+            SemStmtData::Narrate { narrate_token } => (),
         }
     }
 

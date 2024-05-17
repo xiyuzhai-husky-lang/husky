@@ -1,6 +1,6 @@
-use crate::*;
+use super::*;
 
-#[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
+#[salsa::interned]
 pub struct TraitForTypeAssocRitchieDecTemplate {
     pub self_ty: DecTerm,
     #[return_ref]

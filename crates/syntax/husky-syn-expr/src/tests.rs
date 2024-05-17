@@ -1,33 +1,25 @@
 pub(crate) use husky_vfs::*;
 
-use crate::*;
 use expect_test::{expect, Expect};
-use husky_corgi_config::CorgiConfigJar;
-use husky_corgi_config_ast::CorgiConfigAstJar;
-use husky_entity_tree::*;
-use husky_manifest::ManifestJar;
-use husky_manifest_ast::ManifestAstJar;
-use husky_token::TokenJar;
-use husky_toml_ast::TomlAstJar;
 use husky_vfs::script::Script;
 use salsa::DebugWithDb;
 
 #[salsa::db(
-    CowordJar,
-    VfsJar,
+    husky_coword::jar::CowordJar,
+    husky_vfs::jar::VfsJar,
     husky_entity_path::jar::EntityPathJar,
-    TermPreludeJar,
+    husky_term_prelude::jar::TermPreludeJar,
     husky_token_data::jar::TokenDataJar,
-    TokenJar,
+    husky_token::jar::TokenJar,
     husky_ast::jar::AstJar,
-    EntityTreeJar,
+    husky_entity_tree::jar::EntityTreeJar,
     husky_toml_token::jar::TomlTokenJar,
-    TomlAstJar,
-    ManifestAstJar,
-    CorgiConfigJar,
-    CorgiConfigAstJar,
-    ManifestJar,
-    SynExprJar
+    husky_toml_ast::jar::TomlAstJar,
+    husky_manifest_ast::jar::ManifestAstJar,
+    husky_corgi_config::jar::CorgiConfigJar,
+    husky_corgi_config_ast::jar::CorgiConfigAstJar,
+    husky_manifest::jar::ManifestJar,
+    crate::Jar
 )]
 pub(crate) struct DB;
 
@@ -96,7 +88,7 @@ fn parse_expr_works() {
             stmt_arena: Arena {
                 data: [],
             },
-            pattern_expr_region: SynPatternExprRegion {
+            pattern_expr_region: SynPatternRegion {
                 pattern_expr_arena: Arena {
                     data: [],
                 },
@@ -197,7 +189,7 @@ fn parse_expr_works() {
                 stmt_arena: Arena {
                     data: [],
                 },
-                pattern_expr_region: SynPatternExprRegion {
+                pattern_expr_region: SynPatternRegion {
                     pattern_expr_arena: Arena {
                         data: [],
                     },
@@ -291,7 +283,7 @@ fn parse_expr_works() {
                 stmt_arena: Arena {
                     data: [],
                 },
-                pattern_expr_region: SynPatternExprRegion {
+                pattern_expr_region: SynPatternRegion {
                     pattern_expr_arena: Arena {
                         data: [],
                     },
@@ -385,7 +377,7 @@ fn parse_expr_works() {
                 stmt_arena: Arena {
                     data: [],
                 },
-                pattern_expr_region: SynPatternExprRegion {
+                pattern_expr_region: SynPatternRegion {
                     pattern_expr_arena: Arena {
                         data: [],
                     },
@@ -476,7 +468,7 @@ fn parse_expr_works() {
                     stmt_arena: Arena {
                         data: [],
                     },
-                    pattern_expr_region: SynPatternExprRegion {
+                    pattern_expr_region: SynPatternRegion {
                         pattern_expr_arena: Arena {
                             data: [],
                         },
@@ -590,7 +582,7 @@ fn parse_expr_works() {
                 stmt_arena: Arena {
                     data: [],
                 },
-                pattern_expr_region: SynPatternExprRegion {
+                pattern_expr_region: SynPatternRegion {
                     pattern_expr_arena: Arena {
                         data: [],
                     },
@@ -697,7 +689,7 @@ fn parse_expr_works() {
                 stmt_arena: Arena {
                     data: [],
                 },
-                pattern_expr_region: SynPatternExprRegion {
+                pattern_expr_region: SynPatternRegion {
                     pattern_expr_arena: Arena {
                         data: [],
                     },
@@ -819,7 +811,7 @@ fn parse_expr_works() {
                 stmt_arena: Arena {
                     data: [],
                 },
-                pattern_expr_region: SynPatternExprRegion {
+                pattern_expr_region: SynPatternRegion {
                     pattern_expr_arena: Arena {
                         data: [],
                     },
@@ -945,7 +937,7 @@ fn parse_expr_works() {
                 stmt_arena: Arena {
                     data: [],
                 },
-                pattern_expr_region: SynPatternExprRegion {
+                pattern_expr_region: SynPatternRegion {
                     pattern_expr_arena: Arena {
                         data: [],
                     },
@@ -1051,7 +1043,7 @@ fn parse_expr_works() {
                 stmt_arena: Arena {
                     data: [],
                 },
-                pattern_expr_region: SynPatternExprRegion {
+                pattern_expr_region: SynPatternRegion {
                     pattern_expr_arena: Arena {
                         data: [],
                     },
@@ -1165,7 +1157,7 @@ fn parse_expr_works() {
                 stmt_arena: Arena {
                     data: [],
                 },
-                pattern_expr_region: SynPatternExprRegion {
+                pattern_expr_region: SynPatternRegion {
                     pattern_expr_arena: Arena {
                         data: [],
                     },
@@ -1292,7 +1284,7 @@ fn parse_application_expr_works() {
                 stmt_arena: Arena {
                     data: [],
                 },
-                pattern_expr_region: SynPatternExprRegion {
+                pattern_expr_region: SynPatternRegion {
                     pattern_expr_arena: Arena {
                         data: [],
                     },

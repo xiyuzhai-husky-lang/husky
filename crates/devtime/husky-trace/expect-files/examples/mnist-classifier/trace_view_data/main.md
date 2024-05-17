@@ -1289,7 +1289,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: LazyPatternExpr,
+            trace_kind: LazyPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -2816,7 +2816,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: LazyPatternExpr,
+            trace_kind: LazyPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -3131,7 +3131,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: LazyPatternExpr,
+            trace_kind: LazyPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -3551,7 +3551,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: LazyPatternExpr,
+            trace_kind: LazyPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -3939,7 +3939,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: LazyPatternExpr,
+            trace_kind: LazyPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -4133,7 +4133,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: LazyPatternExpr,
+            trace_kind: LazyPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -5327,7 +5327,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: LazyPatternExpr,
+            trace_kind: LazyPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -8959,7 +8959,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: LazyPatternExpr,
+            trace_kind: LazyPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -9207,7 +9207,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: LazyPatternExpr,
+            trace_kind: LazyPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -9411,7 +9411,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: LazyPatternExpr,
+            trace_kind: LazyPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -13050,7 +13050,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -13232,7 +13232,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -13414,7 +13414,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -13923,7 +13923,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -14303,7 +14303,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -14479,7 +14479,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -14657,7 +14657,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -16654,7 +16654,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -16981,7 +16981,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -17261,7 +17261,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -17512,7 +17512,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -20038,7 +20038,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -20962,7 +20962,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -21661,7 +21661,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -23088,7 +23088,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -23415,7 +23415,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -23695,7 +23695,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -23946,7 +23946,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -25891,7 +25891,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -26091,7 +26091,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -26418,7 +26418,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -26600,7 +26600,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -26782,7 +26782,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -27040,7 +27040,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -29555,7 +29555,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -29633,7 +29633,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -29818,7 +29818,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -30692,7 +30692,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -33784,7 +33784,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: LazyPatternExpr,
+            trace_kind: LazyPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -36744,7 +36744,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: LazyPatternExpr,
+            trace_kind: LazyPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -36992,7 +36992,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: LazyPatternExpr,
+            trace_kind: LazyPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -37196,7 +37196,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: LazyPatternExpr,
+            trace_kind: LazyPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -40805,7 +40805,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: LazyPatternExpr,
+            trace_kind: LazyPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -42332,7 +42332,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: LazyPatternExpr,
+            trace_kind: LazyPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -42647,7 +42647,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: LazyPatternExpr,
+            trace_kind: LazyPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -43067,7 +43067,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: LazyPatternExpr,
+            trace_kind: LazyPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -43455,7 +43455,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: LazyPatternExpr,
+            trace_kind: LazyPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -43649,7 +43649,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: LazyPatternExpr,
+            trace_kind: LazyPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -44101,7 +44101,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -45025,7 +45025,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -45407,7 +45407,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -46590,7 +46590,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -46772,7 +46772,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -46954,7 +46954,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -47463,7 +47463,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -47843,7 +47843,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -48019,7 +48019,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -48197,7 +48197,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -48877,7 +48877,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -49204,7 +49204,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -49484,7 +49484,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -49735,7 +49735,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -51452,7 +51452,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -51652,7 +51652,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -51979,7 +51979,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -52161,7 +52161,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -52343,7 +52343,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [
@@ -52601,7 +52601,7 @@
             },
         ),
         TraceViewData {
-            trace_kind: EagerPatternExpr,
+            trace_kind: EagerPattern,
             lines_data: [
                 TraceViewLineData {
                     tokens_data: [

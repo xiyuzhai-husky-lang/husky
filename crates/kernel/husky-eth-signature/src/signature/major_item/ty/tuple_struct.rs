@@ -1,8 +1,10 @@
 use super::*;
-use husky_dec_signature::{TupleStructDecTemplate, TupleStructFieldDecTemplate};
+use husky_dec_signature::signature::major_item::ty::tuple_struct::{
+    TupleStructDecTemplate, TupleStructFieldDecTemplate,
+};
 use husky_eth_term::term::ritchie::EthRitchie;
 
-#[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
+#[salsa::interned]
 pub struct TupleStructEthTemplate {
     pub path: TypePath,
     #[return_ref]

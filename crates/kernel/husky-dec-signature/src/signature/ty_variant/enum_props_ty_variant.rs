@@ -1,7 +1,7 @@
 use super::*;
 use husky_entity_kind::ritchie::RitchieItemKind;
 
-#[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
+#[salsa::interned]
 pub struct EnumPropsVariantDecTemplate {
     pub parent_ty_template: EnumDecTemplate,
     pub field_tys: SmallVec<[EnumPropsVariantFieldDecTemplate; 4]>,

@@ -113,7 +113,7 @@ SynNodeDeclSheet {
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_region: SynPatternRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -200,7 +200,7 @@ SynNodeDeclSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 123,
+                                                    value: 126,
                                                 },
                                             ),
                                         ),
@@ -222,7 +222,7 @@ SynNodeDeclSheet {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 123,
+                                                        value: 126,
                                                     },
                                                 ),
                                             ),
@@ -297,7 +297,7 @@ SynNodeDeclSheet {
                                                                 path: TypeImplBlockPath(
                                                                     ItemPathId(
                                                                         Id {
-                                                                            value: 123,
+                                                                            value: 126,
                                                                         },
                                                                     ),
                                                                 ),
@@ -366,7 +366,7 @@ SynNodeDeclSheet {
                                 stmt_arena: Arena {
                                     data: [],
                                 },
-                                pattern_expr_region: SynPatternExprRegion {
+                                pattern_expr_region: SynPatternRegion {
                                     pattern_expr_arena: Arena {
                                         data: [],
                                     },
@@ -542,7 +542,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 123,
+                                                                                            value: 126,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -611,7 +611,7 @@ SynNodeDeclSheet {
                                                 stmt_arena: Arena {
                                                     data: [],
                                                 },
-                                                pattern_expr_region: SynPatternExprRegion {
+                                                pattern_expr_region: SynPatternRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
@@ -738,7 +738,7 @@ SynNodeDeclSheet {
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_region: SynPatternRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -874,8 +874,8 @@ SynNodeDeclSheet {
                                     ),
                                     parenate_parameters: [
                                         ParenateParameterSyndicate::Simple {
-                                            syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                                syn_pattern_expr_idx: 0,
+                                            syn_pattern_root: ParenateParameterSynPatternRoot {
+                                                syn_pattern_idx: 0,
                                             },
                                             variables: ArenaIdxRange(
                                                 0..1,
@@ -928,7 +928,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 123,
+                                                                                            value: 126,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -997,7 +997,7 @@ SynNodeDeclSheet {
                                                 stmt_arena: Arena {
                                                     data: [],
                                                 },
-                                                pattern_expr_region: SynPatternExprRegion {
+                                                pattern_expr_region: SynPatternRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
@@ -1110,7 +1110,7 @@ SynNodeDeclSheet {
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_region: SynPatternRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
                                                 SynPatternData::Ident {
@@ -1191,8 +1191,8 @@ SynNodeDeclSheet {
                                         pattern_ty_constraints: [
                                             (
                                                 SimpleParenateParameter {
-                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                                        syn_pattern_expr_idx: 0,
+                                                    syn_pattern_root: ParenateParameterSynPatternRoot {
+                                                        syn_pattern_idx: 0,
                                                     },
                                                     ty: 0,
                                                 },
@@ -1204,8 +1204,8 @@ SynNodeDeclSheet {
                                     },
                                     pattern_roots: [
                                         SynPatternRoot {
-                                            kind: SynPatternExprRootKind::Parenate,
-                                            syn_pattern_expr_idx: 0,
+                                            kind: SynPatternRootKind::Parenate,
+                                            syn_pattern_idx: 0,
                                         },
                                     ],
                                     expr_roots: [
@@ -1351,7 +1351,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 123,
+                                                                                            value: 126,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -1420,7 +1420,7 @@ SynNodeDeclSheet {
                                                 stmt_arena: Arena {
                                                     data: [],
                                                 },
-                                                pattern_expr_region: SynPatternExprRegion {
+                                                pattern_expr_region: SynPatternRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
@@ -1573,7 +1573,7 @@ SynNodeDeclSheet {
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_region: SynPatternRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -1747,7 +1747,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 123,
+                                                                                            value: 126,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -1816,7 +1816,7 @@ SynNodeDeclSheet {
                                                 stmt_arena: Arena {
                                                     data: [],
                                                 },
-                                                pattern_expr_region: SynPatternExprRegion {
+                                                pattern_expr_region: SynPatternRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
@@ -1969,7 +1969,7 @@ SynNodeDeclSheet {
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_region: SynPatternRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -2148,7 +2148,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 123,
+                                                                                            value: 126,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -2217,7 +2217,7 @@ SynNodeDeclSheet {
                                                 stmt_arena: Arena {
                                                     data: [],
                                                 },
-                                                pattern_expr_region: SynPatternExprRegion {
+                                                pattern_expr_region: SynPatternRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
@@ -2360,7 +2360,7 @@ SynNodeDeclSheet {
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_region: SynPatternRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -2533,7 +2533,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 123,
+                                                                                            value: 126,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -2602,7 +2602,7 @@ SynNodeDeclSheet {
                                                 stmt_arena: Arena {
                                                     data: [],
                                                 },
-                                                pattern_expr_region: SynPatternExprRegion {
+                                                pattern_expr_region: SynPatternRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
@@ -2735,7 +2735,7 @@ SynNodeDeclSheet {
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_region: SynPatternRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -2865,8 +2865,8 @@ SynNodeDeclSheet {
                                     ),
                                     parenate_parameters: [
                                         ParenateParameterSyndicate::Simple {
-                                            syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                                syn_pattern_expr_idx: 0,
+                                            syn_pattern_root: ParenateParameterSynPatternRoot {
+                                                syn_pattern_idx: 0,
                                             },
                                             variables: ArenaIdxRange(
                                                 0..1,
@@ -2879,8 +2879,8 @@ SynNodeDeclSheet {
                                             ty: 0,
                                         },
                                         ParenateParameterSyndicate::Simple {
-                                            syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                                syn_pattern_expr_idx: 1,
+                                            syn_pattern_root: ParenateParameterSynPatternRoot {
+                                                syn_pattern_idx: 1,
                                             },
                                             variables: ArenaIdxRange(
                                                 1..2,
@@ -2949,7 +2949,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 123,
+                                                                                            value: 126,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -3018,7 +3018,7 @@ SynNodeDeclSheet {
                                                 stmt_arena: Arena {
                                                     data: [],
                                                 },
-                                                pattern_expr_region: SynPatternExprRegion {
+                                                pattern_expr_region: SynPatternRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
@@ -3218,7 +3218,7 @@ SynNodeDeclSheet {
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_region: SynPatternRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
                                                 SynPatternData::Ident {
@@ -3322,8 +3322,8 @@ SynNodeDeclSheet {
                                         pattern_ty_constraints: [
                                             (
                                                 SimpleParenateParameter {
-                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                                        syn_pattern_expr_idx: 0,
+                                                    syn_pattern_root: ParenateParameterSynPatternRoot {
+                                                        syn_pattern_idx: 0,
                                                     },
                                                     ty: 0,
                                                 },
@@ -3333,8 +3333,8 @@ SynNodeDeclSheet {
                                             ),
                                             (
                                                 SimpleParenateParameter {
-                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                                        syn_pattern_expr_idx: 1,
+                                                    syn_pattern_root: ParenateParameterSynPatternRoot {
+                                                        syn_pattern_idx: 1,
                                                     },
                                                     ty: 1,
                                                 },
@@ -3346,12 +3346,12 @@ SynNodeDeclSheet {
                                     },
                                     pattern_roots: [
                                         SynPatternRoot {
-                                            kind: SynPatternExprRootKind::Parenate,
-                                            syn_pattern_expr_idx: 0,
+                                            kind: SynPatternRootKind::Parenate,
+                                            syn_pattern_idx: 0,
                                         },
                                         SynPatternRoot {
-                                            kind: SynPatternExprRootKind::Parenate,
-                                            syn_pattern_expr_idx: 1,
+                                            kind: SynPatternRootKind::Parenate,
+                                            syn_pattern_idx: 1,
                                         },
                                     ],
                                     expr_roots: [
@@ -3471,8 +3471,8 @@ SynNodeDeclSheet {
                                     ),
                                     parenate_parameters: [
                                         ParenateParameterSyndicate::Simple {
-                                            syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                                syn_pattern_expr_idx: 0,
+                                            syn_pattern_root: ParenateParameterSynPatternRoot {
+                                                syn_pattern_idx: 0,
                                             },
                                             variables: ArenaIdxRange(
                                                 0..1,
@@ -3535,7 +3535,7 @@ SynNodeDeclSheet {
                                                                                 path: TypeImplBlockPath(
                                                                                     ItemPathId(
                                                                                         Id {
-                                                                                            value: 123,
+                                                                                            value: 126,
                                                                                         },
                                                                                     ),
                                                                                 ),
@@ -3604,7 +3604,7 @@ SynNodeDeclSheet {
                                                 stmt_arena: Arena {
                                                     data: [],
                                                 },
-                                                pattern_expr_region: SynPatternExprRegion {
+                                                pattern_expr_region: SynPatternRegion {
                                                     pattern_expr_arena: Arena {
                                                         data: [],
                                                     },
@@ -3803,7 +3803,7 @@ SynNodeDeclSheet {
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_region: SynPatternRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
                                                 SynPatternData::Ident {
@@ -3876,8 +3876,8 @@ SynNodeDeclSheet {
                                         pattern_ty_constraints: [
                                             (
                                                 SimpleParenateParameter {
-                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                                        syn_pattern_expr_idx: 0,
+                                                    syn_pattern_root: ParenateParameterSynPatternRoot {
+                                                        syn_pattern_idx: 0,
                                                     },
                                                     ty: 3,
                                                 },
@@ -3889,8 +3889,8 @@ SynNodeDeclSheet {
                                     },
                                     pattern_roots: [
                                         SynPatternRoot {
-                                            kind: SynPatternExprRootKind::Parenate,
-                                            syn_pattern_expr_idx: 0,
+                                            kind: SynPatternRootKind::Parenate,
+                                            syn_pattern_idx: 0,
                                         },
                                     ],
                                     expr_roots: [

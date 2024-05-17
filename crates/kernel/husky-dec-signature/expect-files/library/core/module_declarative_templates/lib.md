@@ -285,5 +285,20 @@
             DecTemplate::Submodule,
         ),
     ),
+    (
+        ItemPath::Submodule(
+            Room32,
+            SubmoduleItemPath(
+                ItemPathId(
+                    Id {
+                        value: 20,
+                    },
+                ),
+            ),
+        ),
+        Ok(
+            DecTemplate::Submodule,
+        ),
+    ),
 ]
 ```

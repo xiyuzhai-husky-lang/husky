@@ -1,7 +1,7 @@
 use super::*;
 use crate::helpers::paths::HasItemPaths;
 use husky_entity_kind::*;
-use husky_entity_path::{ItemPath, ItemPathId};
+use husky_entity_path::path::{ItemPath, ItemPathId};
 use husky_task_interface::TaskIngredientIndex;
 
 #[salsa::derive_debug_with_db]
@@ -53,7 +53,8 @@ impl IngredientPath {
                     MajorFormKind::TypeAlias => false,
                     MajorFormKind::Val => true,
                     MajorFormKind::Formal => false,
-                    MajorFormKind::Const => false,
+                    MajorFormKind::Const => true,
+                    MajorFormKind::Static => true,
                 },
                 MajorItemKind::Trait => false,
             },

@@ -13,6 +13,7 @@ pub mod option
 pub mod prelude
 pub mod raw_bits
 pub mod result
+pub mod task
 pub mod vec
 pub mod slice
 pub mod str

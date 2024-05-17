@@ -5,7 +5,7 @@ use husky_syn_expr::closure_parameter::ClosureParameterSyndicate;
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum ClosureParameterObelisk {
     Simple {
-        syn_pattern_root: ClosureSynPatternExprRoot,
+        syn_pattern_root: ClosureSynPatternRoot,
         variables: CurrentSynSymbolIdxRange,
         colon_token: Option<ColonRegionalToken>,
         ty: Option<SemExprIdx>,

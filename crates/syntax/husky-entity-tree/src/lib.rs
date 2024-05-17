@@ -7,7 +7,7 @@ mod context;
 mod error;
 mod expr;
 pub mod helpers;
-mod jar;
+pub mod jar;
 pub mod node;
 mod prelude;
 mod presheet;
@@ -36,7 +36,6 @@ pub use self::table::*;
 
 use self::collector::*;
 use self::context::*;
-use self::jar::EntityTreeJar as Jar;
 use self::submodule::*;
 #[cfg(test)]
 use self::tests::*;

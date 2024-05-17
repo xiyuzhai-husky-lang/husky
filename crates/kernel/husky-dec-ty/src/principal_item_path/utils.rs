@@ -1,4 +1,5 @@
 use super::*;
+use husky_dec_signature::parameter::DeclarativeTemplateParameter;
 use husky_vfs::Toolchain;
 
 pub(super) fn curry_from_template_parameters(

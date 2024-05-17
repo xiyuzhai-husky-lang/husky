@@ -1,5 +1,6 @@
 use crate::{ParentUseExprData, *};
 use husky_coword::Ident;
+use husky_entity_path::path::{major_item::ty::TypePath, MajorEntityPath};
 use husky_token::{IdentToken, PathNameToken, SelfModToken};
 
 /// a use rule that only needs to be applied once

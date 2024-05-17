@@ -58,7 +58,7 @@
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_region: SynPatternRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -248,7 +248,7 @@
                                 },
                             ],
                         },
-                        pattern_expr_region: SynPatternExprRegion {
+                        pattern_expr_region: SynPatternRegion {
                             pattern_expr_arena: Arena {
                                 data: [],
                             },
@@ -348,7 +348,7 @@
                                                         TypeVariantPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 271,
+                                                                    value: 274,
                                                                 },
                                                             ),
                                                         ),
@@ -428,7 +428,7 @@
                                                         TypeVariantPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 271,
+                                                                    value: 274,
                                                                 },
                                                             ),
                                                         ),
@@ -440,7 +440,7 @@
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_region: SynPatternRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -608,8 +608,8 @@
                                     ),
                                     target: Ok(
                                         BePatternSyndicate {
-                                            pattern_expr_root: BeSynPatternExprRoot {
-                                                syn_pattern_expr_idx: 1,
+                                            pattern_expr_root: BeSynPatternRoot {
+                                                syn_pattern_idx: 1,
                                             },
                                             variables: ArenaIdxRange(
                                                 1..1,
@@ -683,8 +683,8 @@
                                     ),
                                     target: Ok(
                                         BePatternSyndicate {
-                                            pattern_expr_root: BeSynPatternExprRoot {
-                                                syn_pattern_expr_idx: 2,
+                                            pattern_expr_root: BeSynPatternRoot {
+                                                syn_pattern_idx: 2,
                                             },
                                             variables: ArenaIdxRange(
                                                 1..1,
@@ -715,7 +715,7 @@
                                             TypeVariantPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 252,
+                                                        value: 255,
                                                     },
                                                 ),
                                             ),
@@ -789,7 +789,7 @@
                                         TypeVariantPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 207,
+                                                    value: 208,
                                                 },
                                             ),
                                         ),
@@ -823,7 +823,7 @@
                                         TypeVariantPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 207,
+                                                    value: 208,
                                                 },
                                             ),
                                         ),
@@ -864,7 +864,7 @@
                                             TypeVariantPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 252,
+                                                        value: 255,
                                                     },
                                                 ),
                                             ),
@@ -924,7 +924,7 @@
                                     let_variables_pattern: Ok(
                                         LetPatternSyndicate {
                                             syn_pattern_expr_root: LetPatternSynExprRoot {
-                                                syn_pattern_expr_idx: 0,
+                                                syn_pattern_idx: 0,
                                             },
                                             variables: ArenaIdxRange(
                                                 0..1,
@@ -976,7 +976,7 @@
                                 },
                             ],
                         },
-                        pattern_expr_region: SynPatternExprRegion {
+                        pattern_expr_region: SynPatternRegion {
                             pattern_expr_arena: Arena {
                                 data: [
                                     SynPatternData::Ident {
@@ -993,7 +993,7 @@
                                         path: TypeVariantPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 207,
+                                                    value: 208,
                                                 },
                                             ),
                                         ),
@@ -1003,7 +1003,7 @@
                                         path: TypeVariantPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 207,
+                                                    value: 208,
                                                 },
                                             ),
                                         ),
@@ -1071,16 +1071,16 @@
                         },
                         pattern_roots: [
                             SynPatternRoot {
-                                kind: SynPatternExprRootKind::Let,
-                                syn_pattern_expr_idx: 0,
+                                kind: SynPatternRootKind::Let,
+                                syn_pattern_idx: 0,
                             },
                             SynPatternRoot {
-                                kind: SynPatternExprRootKind::Be,
-                                syn_pattern_expr_idx: 1,
+                                kind: SynPatternRootKind::Be,
+                                syn_pattern_idx: 1,
                             },
                             SynPatternRoot {
-                                kind: SynPatternExprRootKind::Be,
-                                syn_pattern_expr_idx: 2,
+                                kind: SynPatternRootKind::Be,
+                                syn_pattern_idx: 2,
                             },
                         ],
                         expr_roots: [
@@ -1219,7 +1219,7 @@
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_region: SynPatternRegion {
                                         pattern_expr_arena: Arena {
                                             data: [
                                                 SynPatternData::Ident {
@@ -1283,8 +1283,8 @@
                                         pattern_ty_constraints: [
                                             (
                                                 SimpleParenateParameter {
-                                                    syn_pattern_root: ParenateParameterSynPatternExprRoot {
-                                                        syn_pattern_expr_idx: 0,
+                                                    syn_pattern_root: ParenateParameterSynPatternRoot {
+                                                        syn_pattern_idx: 0,
                                                     },
                                                     ty: 1,
                                                 },
@@ -1296,8 +1296,8 @@
                                     },
                                     pattern_roots: [
                                         SynPatternRoot {
-                                            kind: SynPatternExprRootKind::Parenate,
-                                            syn_pattern_expr_idx: 0,
+                                            kind: SynPatternRootKind::Parenate,
+                                            syn_pattern_idx: 0,
                                         },
                                     ],
                                     expr_roots: [
@@ -1648,7 +1648,7 @@
                                 },
                             ],
                         },
-                        pattern_expr_region: SynPatternExprRegion {
+                        pattern_expr_region: SynPatternRegion {
                             pattern_expr_arena: Arena {
                                 data: [],
                             },

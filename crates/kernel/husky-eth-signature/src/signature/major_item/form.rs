@@ -1,12 +1,13 @@
-mod function_ritchie;
-mod ty_alias;
-mod val;
+pub mod function_ritchie;
+pub mod ty_alias;
+pub mod val;
 
-pub use self::function_ritchie::*;
-pub use self::ty_alias::*;
-pub use self::val::*;
-
+use self::function_ritchie::*;
+use self::ty_alias::*;
+use self::val::*;
 use super::*;
+use husky_dec_signature::signature::major_item::form::MajorFormDecTemplate;
+use husky_entity_path::path::major_item::form::MajorFormPath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
@@ -35,7 +36,7 @@ impl HasEthTemplate for MajorFormPath {
     }
 }
 
-#[salsa::tracked(jar = EtherealSignatureJar)]
+#[salsa::tracked]
 fn form_eth_template(
     db: &::salsa::Db,
     path: MajorFormPath,
@@ -50,5 +51,7 @@ fn form_eth_template(
         MajorFormDecTemplate::Val(dec_template) => {
             MajorValEthTemplate::from_dec(db, path, dec_template)?.into()
         }
+        MajorFormDecTemplate::Const(_) => todo!(),
+        MajorFormDecTemplate::Static(_) => todo!(),
     })
 }

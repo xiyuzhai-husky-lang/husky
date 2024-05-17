@@ -1,5 +1,5 @@
 use super::*;
-use crate::ty_impl_block::TypeImplBlockPath;
+use crate::path::impl_block::ty_impl_block::TypeImplBlockPath;
 use std::fmt::Debug;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

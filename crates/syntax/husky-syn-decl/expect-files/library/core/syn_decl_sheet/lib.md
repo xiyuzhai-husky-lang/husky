@@ -438,6 +438,29 @@ SynDeclSheet {
                 },
             ),
         ),
+        (
+            ItemPath::Submodule(
+                Room32,
+                SubmoduleItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 20,
+                        },
+                    ),
+                ),
+            ),
+            SynDecl::Submodule(
+                SubmoduleSynDecl {
+                    path: SubmoduleItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 20,
+                            },
+                        ),
+                    ),
+                },
+            ),
+        ),
     ],
 }
 ```

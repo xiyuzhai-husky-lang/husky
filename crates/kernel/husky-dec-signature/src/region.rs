@@ -1,14 +1,10 @@
 // todo: move this to husky-dec-term
-mod error;
-mod variable;
-
-pub use self::error::*;
-pub use self::variable::*;
+pub mod error;
+pub mod variable;
 
 pub(crate) use engine::*;
 
 use crate::*;
-
 use husky_entity_tree::SynNodeRegionPath;
 use husky_syn_expr::{
     CurrentVariableIdx, SynExprIdx, SynExprMap, SynPatternMap, SynPatternSymbolMap,
@@ -24,7 +20,7 @@ pub struct SynExprDecTermRegion {
     path: SynNodeRegionPath,
     symbolic_variable_region: DecSymbolicVariableRegion,
     expr_terms: SynExprMap<SynExprDecTermResult<DecTerm>>,
-    pattern_expr_ty_infos: SynPatternMap<PatternExprDeclarativeTypeInfo>,
+    pattern_expr_ty_infos: SynPatternMap<PatternDeclarativeTypeInfo>,
     pattern_symbol_ty_infos: SynPatternSymbolMap<DecPatternVariableTypeInfo>,
 }
 
@@ -33,7 +29,7 @@ impl SynExprDecTermRegion {
         path: SynNodeRegionPath,
         symbolic_variable_region: DecSymbolicVariableRegion,
         expr_terms: SynExprMap<SynExprDecTermResult<DecTerm>>,
-        pattern_expr_ty_infos: SynPatternMap<PatternExprDeclarativeTypeInfo>,
+        pattern_expr_ty_infos: SynPatternMap<PatternDeclarativeTypeInfo>,
         pattern_symbol_ty_infos: SynPatternSymbolMap<DecPatternVariableTypeInfo>,
     ) -> Self {
         Self {

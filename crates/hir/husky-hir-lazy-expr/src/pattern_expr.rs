@@ -1,12 +1,12 @@
 use crate::*;
-use husky_entity_path::PatternPath;
+use husky_entity_path::path::PatternPath;
 use husky_syn_expr::{SynPatternData, SynPatternIdx, SynPatternRoot};
 use husky_term_prelude::literal::Literal;
 use idx_arena::ArenaRef;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub enum HirLazyPatternExpr {
+pub enum HirLazyPatternData {
     /// example: `1`
     /// todo: change this to primitive value data
     Literal(Literal),
@@ -20,53 +20,53 @@ pub enum HirLazyPatternExpr {
     /// example: `(a, b)`
     Tuple {
         path: Option<PatternPath>,
-        fields: HirLazyPatternExprIdxRange,
+        fields: HirLazyPatternIdxRange,
     },
     /// example: `C { .. }`
     Props {
         path: Option<PatternPath>,
         // todo: change to punctuated
-        fields: HirLazyPatternExprIdxRange,
+        fields: HirLazyPatternIdxRange,
     },
     /// example: `A | B | C { .. }`
-    OneOf { options: HirLazyPatternExprIdxRange },
+    OneOf { options: HirLazyPatternIdxRange },
     /// example: `x @ 1..9`
     Binding {
         ident: Ident,
         /// example: `1..9`
-        src: HirLazyPatternExprIdx,
+        src: HirLazyPatternIdx,
     },
     /// example: `1..9`
     Range {
-        start: HirLazyPatternExprIdx,
-        end: HirLazyPatternExprIdx,
+        start: HirLazyPatternIdx,
+        end: HirLazyPatternIdx,
     },
 }
 
-pub type HirLazyPatternExprArena = Arena<HirLazyPatternExpr>;
-pub type HirLazyPatternExprArenaRef<'a> = ArenaRef<'a, HirLazyPatternExpr>;
-pub type HirLazyPatternExprIdx = ArenaIdx<HirLazyPatternExpr>;
-pub type HirLazyPatternExprIdxRange = ArenaIdxRange<HirLazyPatternExpr>;
-pub type HirLazyPatternExprMap<V> = ArenaMap<HirLazyPatternExpr, V>;
-pub type HirLazyPatternExprOrderedMap<V> = ArenaOrderedMap<HirLazyPatternExpr, V>;
+pub type HirLazyPatternArena = Arena<HirLazyPatternData>;
+pub type HirLazyPatternArenaRef<'a> = ArenaRef<'a, HirLazyPatternData>;
+pub type HirLazyPatternIdx = ArenaIdx<HirLazyPatternData>;
+pub type HirLazyPatternIdxRange = ArenaIdxRange<HirLazyPatternData>;
+pub type HirLazyPatternMap<V> = ArenaMap<HirLazyPatternData, V>;
+pub type HirLazyPatternOrderedMap<V> = ArenaOrderedMap<HirLazyPatternData, V>;
 
 impl<'a> HirLazyExprBuilder<'a> {
-    pub(super) fn new_pattern_expr(
+    pub(super) fn new_pattern(
         &mut self,
         syn_pattern_root: impl Into<SynPatternRoot>,
-    ) -> HirLazyPatternExprIdx {
-        let pattern_expr =
-            self.new_pattern_expr_aux(syn_pattern_root.into().syn_pattern_expr_idx());
-        self.alloc_pattern_expr(pattern_expr)
+    ) -> HirLazyPatternIdx {
+        let syn_pattern_idx = syn_pattern_root.into().syn_pattern_idx();
+        let pattern_data = self.new_pattern_aux(syn_pattern_idx);
+        self.alloc_pattern(syn_pattern_idx, pattern_data)
     }
 
-    fn new_pattern_expr_aux(&mut self, syn_pattern_expr_idx: SynPatternIdx) -> HirLazyPatternExpr {
-        match self.syn_expr_region_data()[syn_pattern_expr_idx] {
+    fn new_pattern_aux(&mut self, syn_pattern_idx: SynPatternIdx) -> HirLazyPatternData {
+        match self.syn_expr_region_data()[syn_pattern_idx] {
             SynPatternData::Literal { .. } => todo!(),
             SynPatternData::Ident {
                 symbol_modifier_tokens: _symbol_modifier_keyword_group,
                 ident_token,
-            } => HirLazyPatternExpr::Ident {
+            } => HirLazyPatternData::Ident {
                 // symbol_modifier: (),
                 ident: ident_token.ident(),
             },

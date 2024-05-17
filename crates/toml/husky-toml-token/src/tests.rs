@@ -1,6 +1,6 @@
 use super::*;
 use expect_test::expect_file;
-use husky_coword::CowordJar;
+use husky_coword::jar::CowordJar;
 use husky_vfs::*;
 
 #[salsa::db(CowordJar, VfsJar, Jar)]

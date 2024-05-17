@@ -3,6 +3,7 @@ mod pattern_ty;
 pub(crate) use self::pattern_ty::*;
 
 use crate::*;
+use husky_entity_path::path::{major_item::MajorItemPath, PrincipalEntityPath};
 use husky_entity_tree::SynNodeRegionPath;
 use husky_print_utils::p;
 use husky_syn_expr::*;
@@ -18,12 +19,12 @@ pub(super) struct DecTermEngine<'a> {
     symbolic_variable_region: DecSymbolicVariableRegion,
     expr_terms: SynExprMap<SynExprDecTermResult<DecTerm>>,
     /// todo: change this to ordered
-    pattern_expr_ty_infos: SynPatternMap<PatternExprDeclarativeTypeInfo>,
+    pattern_expr_ty_infos: SynPatternMap<PatternDeclarativeTypeInfo>,
     pattern_symbol_ty_infos: SynPatternSymbolMap<DecPatternVariableTypeInfo>,
 }
 
 /// returns None for defn region
-#[salsa::tracked(jar = DecSignatureJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub fn syn_expr_dec_term_region(
     db: &::salsa::Db,
     syn_expr_region: SynExprRegion,
@@ -250,7 +251,7 @@ impl<'a> DecTermEngine<'a> {
     /// let variables, be variables and match variables are infered in `husky-expr-ty`
     fn init_current_variable_signatures_in_parenate_or_lambda_parameter(
         &mut self,
-        parenate_syn_pattern_expr_root: ParenateParameterSynPatternExprRoot,
+        parenate_syn_pattern_expr_root: ParenateParameterSynPatternRoot,
         ty: SynExprIdx,
         symbols: CurrentSynSymbolIdxRange,
     ) {

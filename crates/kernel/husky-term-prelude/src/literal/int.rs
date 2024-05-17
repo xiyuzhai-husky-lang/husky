@@ -1,61 +1,61 @@
 use super::*;
 
-#[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
+#[salsa::interned]
 pub struct I64Literal {
     pub value: i64,
 }
 
-#[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
+#[salsa::interned]
 pub struct I128Literal {
     pub value: i128,
 }
 
-#[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
+#[salsa::interned]
 pub struct TermI256Literal {
     pub value: [i128; 2],
 }
 
-#[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
+#[salsa::interned]
 pub struct ISizeLiteral {
     pub value: i64,
 }
 
-#[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
+#[salsa::interned]
 pub struct U64Literal {
     pub value: u64,
 }
 
-#[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
+#[salsa::interned]
 pub struct U128Literal {
     pub value: u128,
 }
 
-#[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
+#[salsa::interned]
 pub struct TermU256Literal {
     pub value: [u128; 2],
 }
 
-#[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
+#[salsa::interned]
 pub struct USizeLiteral {
     pub value: u64,
 }
 
-#[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
+#[salsa::interned]
 pub struct R64Literal {
     pub value: u64,
 }
 
-#[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
+#[salsa::interned]
 pub struct R128Literal {
     pub value: u128,
 }
 
-#[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
+#[salsa::interned]
 pub struct TermR256Literal {
     pub value: [u128; 2],
 }
 
-#[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
+#[salsa::interned]
 pub struct RSizeLiteral {
     pub value: u64,
 }

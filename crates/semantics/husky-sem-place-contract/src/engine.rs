@@ -1,4 +1,4 @@
-use crate::{region::SemaPlaceContractRegion, site::SemaPlaceContractSite};
+use crate::{region::SemPlaceContractRegion, site::SemPlaceContractSite};
 use husky_place::place::EthPlace;
 use husky_sem_expr::{SemExprIdx, SemExprMap, SemExprRegion, SemExprRegionData};
 
@@ -6,7 +6,7 @@ pub struct PlaceContractEngine<'a> {
     db: &'a ::salsa::Db,
     sem_expr_region: SemExprRegion,
     sem_expr_region_data: &'a SemExprRegionData,
-    expr_sites: SemExprMap<SemaPlaceContractSite>,
+    expr_sites: SemExprMap<SemPlaceContractSite>,
 }
 
 impl<'a> PlaceContractEngine<'a> {
@@ -42,11 +42,11 @@ impl<'a> PlaceContractEngine<'a> {
 
 /// # actions
 impl<'a> PlaceContractEngine<'a> {
-    pub(crate) fn set_expr_site(&mut self, expr: SemExprIdx, site: SemaPlaceContractSite) {
+    pub(crate) fn set_expr_site(&mut self, expr: SemExprIdx, site: SemPlaceContractSite) {
         self.expr_sites.insert_new(expr, site)
     }
 
-    pub(crate) fn finish(self) -> SemaPlaceContractRegion {
-        SemaPlaceContractRegion::new(self.expr_sites)
+    pub(crate) fn finish(self) -> SemPlaceContractRegion {
+        SemPlaceContractRegion::new(self.expr_sites)
     }
 }

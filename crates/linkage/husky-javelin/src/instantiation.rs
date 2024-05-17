@@ -1,5 +1,5 @@
 use crate::template_argument::{ty::JavelinType, JavTemplateArgument};
-use husky_entity_path::ItemPath;
+use husky_entity_path::path::ItemPath;
 use husky_hir_ty::{
     instantiation::{HirInstantiation, HirTermSymbolicVariableResolution},
     HirTemplateVariable, HirTemplateVariableClass,

@@ -532,6 +532,48 @@ EntityTreeSheet {
                 ),
             },
             EntitySymbolEntry {
+                ident: `Task`,
+                visible_scope: Scope::Pub,
+                symbol: EntitySymbol::Use(
+                    UseSymbol {
+                        original_symbol: EntitySymbol::MajorItem {
+                            major_item_path: MajorItemPath::Type(
+                                TypePath(`core::task::Task`, `Extern`),
+                            ),
+                        },
+                        path: PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Type(
+                                TypePath(`core::task::Task`, `Extern`),
+                            ),
+                        ),
+                        visibility: Scope::Pub,
+                        ast_idx: 5,
+                        use_expr_idx: 15,
+                    },
+                ),
+            },
+            EntitySymbolEntry {
+                ident: `task`,
+                visible_scope: Scope::Pub,
+                symbol: EntitySymbol::Use(
+                    UseSymbol {
+                        original_symbol: EntitySymbol::MajorItem {
+                            major_item_path: MajorItemPath::Form(
+                                FormPath(`core::task::task`, `Static`),
+                            ),
+                        },
+                        path: PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Form(
+                                FormPath(`core::task::task`, `Static`),
+                            ),
+                        ),
+                        visibility: Scope::Pub,
+                        ast_idx: 5,
+                        use_expr_idx: 15,
+                    },
+                ),
+            },
+            EntitySymbolEntry {
                 ident: `Visualize`,
                 visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
@@ -547,8 +589,8 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 5,
-                        use_expr_idx: 15,
+                        ast_idx: 6,
+                        use_expr_idx: 18,
                     },
                 ),
             },
@@ -568,8 +610,8 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 5,
-                        use_expr_idx: 15,
+                        ast_idx: 6,
+                        use_expr_idx: 18,
                     },
                 ),
             },
@@ -589,8 +631,8 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 6,
-                        use_expr_idx: 18,
+                        ast_idx: 7,
+                        use_expr_idx: 21,
                     },
                 ),
             },
@@ -610,8 +652,8 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 6,
-                        use_expr_idx: 18,
+                        ast_idx: 7,
+                        use_expr_idx: 21,
                     },
                 ),
             },
@@ -631,8 +673,8 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 7,
-                        use_expr_idx: 21,
+                        ast_idx: 8,
+                        use_expr_idx: 24,
                     },
                 ),
             },
@@ -652,58 +694,13 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 8,
-                        use_expr_idx: 24,
+                        ast_idx: 9,
+                        use_expr_idx: 27,
                     },
                 ),
             },
             EntitySymbolEntry {
                 ident: `Some`,
-                visible_scope: Scope::Pub,
-                symbol: EntitySymbol::Use(
-                    UseSymbol {
-                        original_symbol: EntitySymbol::Use(
-                            UseSymbol {
-                                original_symbol: EntitySymbol::TypeVariant {
-                                    ty_variant_path: TypeVariantPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 77,
-                                            },
-                                        ),
-                                    ),
-                                },
-                                path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 77,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                visibility: Scope::Pub,
-                                ast_idx: 3,
-                                use_expr_idx: 2,
-                            },
-                        ),
-                        path: PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 77,
-                                    },
-                                ),
-                            ),
-                        ),
-                        visibility: Scope::Pub,
-                        ast_idx: 8,
-                        use_expr_idx: 24,
-                    },
-                ),
-            },
-            EntitySymbolEntry {
-                ident: `None`,
                 visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
@@ -742,8 +739,53 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 8,
-                        use_expr_idx: 24,
+                        ast_idx: 9,
+                        use_expr_idx: 27,
+                    },
+                ),
+            },
+            EntitySymbolEntry {
+                ident: `None`,
+                visible_scope: Scope::Pub,
+                symbol: EntitySymbol::Use(
+                    UseSymbol {
+                        original_symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::TypeVariant {
+                                    ty_variant_path: TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 79,
+                                            },
+                                        ),
+                                    ),
+                                },
+                                path: PrincipalEntityPath::TypeVariant(
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 79,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                visibility: Scope::Pub,
+                                ast_idx: 3,
+                                use_expr_idx: 2,
+                            },
+                        ),
+                        path: PrincipalEntityPath::TypeVariant(
+                            TypeVariantPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 79,
+                                    },
+                                ),
+                            ),
+                        ),
+                        visibility: Scope::Pub,
+                        ast_idx: 9,
+                        use_expr_idx: 27,
                     },
                 ),
             },
@@ -763,8 +805,8 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 9,
-                        use_expr_idx: 27,
+                        ast_idx: 10,
+                        use_expr_idx: 30,
                     },
                 ),
             },
@@ -784,8 +826,8 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 9,
-                        use_expr_idx: 27,
+                        ast_idx: 10,
+                        use_expr_idx: 30,
                     },
                 ),
             },
@@ -805,8 +847,8 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 9,
-                        use_expr_idx: 27,
+                        ast_idx: 10,
+                        use_expr_idx: 30,
                     },
                 ),
             },
@@ -826,8 +868,8 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 9,
-                        use_expr_idx: 27,
+                        ast_idx: 10,
+                        use_expr_idx: 30,
                     },
                 ),
             },
@@ -847,8 +889,8 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 10,
-                        use_expr_idx: 30,
+                        ast_idx: 11,
+                        use_expr_idx: 33,
                     },
                 ),
             },
@@ -868,8 +910,8 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 10,
-                        use_expr_idx: 30,
+                        ast_idx: 11,
+                        use_expr_idx: 33,
                     },
                 ),
             },
@@ -889,8 +931,8 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 11,
-                        use_expr_idx: 33,
+                        ast_idx: 12,
+                        use_expr_idx: 36,
                     },
                 ),
             },
@@ -1200,6 +1242,31 @@ EntityTreeSheet {
                 },
             },
             OnceUseRule {
+                ast_idx: 12,
+                use_expr_idx: 38,
+                visibility: Scope::Pub,
+                variant: OnceUseRuleVariant::Parent {
+                    parent_name_token: PathNameToken::CrateRoot(
+                        CrateToken {
+                            token_idx: TokenIdx(
+                                87,
+                            ),
+                        },
+                    ),
+                    children: ArenaIdxRange(
+                        37..38,
+                    ),
+                },
+                parent: None,
+                state: UseOneRuleState::Resolved {
+                    original_symbol: Some(
+                        EntitySymbol::CrateRoot {
+                            root_module_path: `core`,
+                        },
+                    ),
+                },
+            },
+            OnceUseRule {
                 ast_idx: 0,
                 use_expr_idx: 1,
                 visibility: Scope::Pub,
@@ -1411,7 +1478,7 @@ EntityTreeSheet {
                 variant: OnceUseRuleVariant::Parent {
                     parent_name_token: PathNameToken::Ident(
                         IdentToken {
-                            ident: `visual`,
+                            ident: `task`,
                             token_idx: TokenIdx(
                                 40,
                             ),
@@ -1437,7 +1504,7 @@ EntityTreeSheet {
                             submodule_item_path: SubmoduleItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 19,
+                                        value: 16,
                                     },
                                 ),
                             ),
@@ -1452,7 +1519,7 @@ EntityTreeSheet {
                 variant: OnceUseRuleVariant::Parent {
                     parent_name_token: PathNameToken::Ident(
                         IdentToken {
-                            ident: `marker`,
+                            ident: `visual`,
                             token_idx: TokenIdx(
                                 47,
                             ),
@@ -1460,6 +1527,47 @@ EntityTreeSheet {
                     ),
                     children: ArenaIdxRange(
                         18..19,
+                    ),
+                },
+                parent: Some(
+                    (
+                        MajorEntityPath::Module(
+                            `core`,
+                        ),
+                        EntitySymbol::CrateRoot {
+                            root_module_path: `core`,
+                        },
+                    ),
+                ),
+                state: UseOneRuleState::Resolved {
+                    original_symbol: Some(
+                        EntitySymbol::Submodule {
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 20,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                },
+            },
+            OnceUseRule {
+                ast_idx: 7,
+                use_expr_idx: 22,
+                visibility: Scope::Pub,
+                variant: OnceUseRuleVariant::Parent {
+                    parent_name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `marker`,
+                            token_idx: TokenIdx(
+                                54,
+                            ),
+                        },
+                    ),
+                    children: ArenaIdxRange(
+                        21..22,
                     ),
                 },
                 parent: Some(
@@ -1487,20 +1595,20 @@ EntityTreeSheet {
                 },
             },
             OnceUseRule {
-                ast_idx: 7,
-                use_expr_idx: 22,
+                ast_idx: 8,
+                use_expr_idx: 25,
                 visibility: Scope::Pub,
                 variant: OnceUseRuleVariant::Parent {
                     parent_name_token: PathNameToken::Ident(
                         IdentToken {
                             ident: `clone`,
                             token_idx: TokenIdx(
-                                54,
+                                61,
                             ),
                         },
                     ),
                     children: ArenaIdxRange(
-                        21..22,
+                        24..25,
                     ),
                 },
                 parent: Some(
@@ -1528,20 +1636,20 @@ EntityTreeSheet {
                 },
             },
             OnceUseRule {
-                ast_idx: 8,
-                use_expr_idx: 25,
+                ast_idx: 9,
+                use_expr_idx: 28,
                 visibility: Scope::Pub,
                 variant: OnceUseRuleVariant::Parent {
                     parent_name_token: PathNameToken::Ident(
                         IdentToken {
                             ident: `option`,
                             token_idx: TokenIdx(
-                                61,
+                                68,
                             ),
                         },
                     ),
                     children: ArenaIdxRange(
-                        24..25,
+                        27..28,
                     ),
                 },
                 parent: Some(
@@ -1569,20 +1677,20 @@ EntityTreeSheet {
                 },
             },
             OnceUseRule {
-                ast_idx: 9,
-                use_expr_idx: 28,
+                ast_idx: 10,
+                use_expr_idx: 31,
                 visibility: Scope::Pub,
                 variant: OnceUseRuleVariant::Parent {
                     parent_name_token: PathNameToken::Ident(
                         IdentToken {
                             ident: `cmp`,
                             token_idx: TokenIdx(
-                                68,
+                                75,
                             ),
                         },
                     ),
                     children: ArenaIdxRange(
-                        27..28,
+                        30..31,
                     ),
                 },
                 parent: Some(
@@ -1610,20 +1718,61 @@ EntityTreeSheet {
                 },
             },
             OnceUseRule {
-                ast_idx: 10,
-                use_expr_idx: 31,
+                ast_idx: 11,
+                use_expr_idx: 34,
                 visibility: Scope::Pub,
                 variant: OnceUseRuleVariant::Parent {
                     parent_name_token: PathNameToken::Ident(
                         IdentToken {
                             ident: `slice`,
                             token_idx: TokenIdx(
-                                75,
+                                82,
                             ),
                         },
                     ),
                     children: ArenaIdxRange(
-                        30..31,
+                        33..34,
+                    ),
+                },
+                parent: Some(
+                    (
+                        MajorEntityPath::Module(
+                            `core`,
+                        ),
+                        EntitySymbol::CrateRoot {
+                            root_module_path: `core`,
+                        },
+                    ),
+                ),
+                state: UseOneRuleState::Resolved {
+                    original_symbol: Some(
+                        EntitySymbol::Submodule {
+                            submodule_item_path: SubmoduleItemPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 18,
+                                    },
+                                ),
+                            ),
+                        },
+                    ),
+                },
+            },
+            OnceUseRule {
+                ast_idx: 12,
+                use_expr_idx: 37,
+                visibility: Scope::Pub,
+                variant: OnceUseRuleVariant::Parent {
+                    parent_name_token: PathNameToken::Ident(
+                        IdentToken {
+                            ident: `vec`,
+                            token_idx: TokenIdx(
+                                89,
+                            ),
+                        },
+                    ),
+                    children: ArenaIdxRange(
+                        36..37,
                     ),
                 },
                 parent: Some(
@@ -1650,47 +1799,6 @@ EntityTreeSheet {
                     ),
                 },
             },
-            OnceUseRule {
-                ast_idx: 11,
-                use_expr_idx: 34,
-                visibility: Scope::Pub,
-                variant: OnceUseRuleVariant::Parent {
-                    parent_name_token: PathNameToken::Ident(
-                        IdentToken {
-                            ident: `vec`,
-                            token_idx: TokenIdx(
-                                82,
-                            ),
-                        },
-                    ),
-                    children: ArenaIdxRange(
-                        33..34,
-                    ),
-                },
-                parent: Some(
-                    (
-                        MajorEntityPath::Module(
-                            `core`,
-                        ),
-                        EntitySymbol::CrateRoot {
-                            root_module_path: `core`,
-                        },
-                    ),
-                ),
-                state: UseOneRuleState::Resolved {
-                    original_symbol: Some(
-                        EntitySymbol::Submodule {
-                            submodule_item_path: SubmoduleItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 16,
-                                    },
-                                ),
-                            ),
-                        },
-                    ),
-                },
-            },
         ],
     ),
     use_all_rules: UseAllRules(
@@ -1702,7 +1810,7 @@ EntityTreeSheet {
                 use_expr_idx: 0,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    67,
+                    70,
                 ),
             },
             UseAllRule {
@@ -1712,7 +1820,7 @@ EntityTreeSheet {
                 use_expr_idx: 3,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    60,
+                    63,
                 ),
             },
             UseAllRule {
@@ -1722,7 +1830,7 @@ EntityTreeSheet {
                 use_expr_idx: 6,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    74,
+                    77,
                 ),
             },
             UseAllRule {
@@ -1732,7 +1840,7 @@ EntityTreeSheet {
                 use_expr_idx: 9,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    60,
+                    63,
                 ),
             },
             UseAllRule {
@@ -1742,77 +1850,87 @@ EntityTreeSheet {
                 use_expr_idx: 12,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    60,
+                    63,
                 ),
             },
             UseAllRule {
-                parent_module_path: `core::visual`,
+                parent_module_path: `core::task`,
                 is_same_crate: true,
                 ast_idx: 5,
                 use_expr_idx: 15,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    61,
+                    2,
                 ),
             },
             UseAllRule {
-                parent_module_path: `core::marker`,
+                parent_module_path: `core::visual`,
                 is_same_crate: true,
                 ast_idx: 6,
                 use_expr_idx: 18,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    61,
+                    64,
                 ),
             },
             UseAllRule {
-                parent_module_path: `core::clone`,
+                parent_module_path: `core::marker`,
                 is_same_crate: true,
                 ast_idx: 7,
                 use_expr_idx: 21,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    60,
+                    64,
                 ),
             },
             UseAllRule {
-                parent_module_path: `core::option`,
+                parent_module_path: `core::clone`,
                 is_same_crate: true,
                 ast_idx: 8,
                 use_expr_idx: 24,
-                visibility: Scope::Pub,
-                progress: Ok(
-                    62,
-                ),
-            },
-            UseAllRule {
-                parent_module_path: `core::cmp`,
-                is_same_crate: true,
-                ast_idx: 9,
-                use_expr_idx: 27,
                 visibility: Scope::Pub,
                 progress: Ok(
                     63,
                 ),
             },
             UseAllRule {
-                parent_module_path: `core::slice`,
+                parent_module_path: `core::option`,
+                is_same_crate: true,
+                ast_idx: 9,
+                use_expr_idx: 27,
+                visibility: Scope::Pub,
+                progress: Ok(
+                    65,
+                ),
+            },
+            UseAllRule {
+                parent_module_path: `core::cmp`,
                 is_same_crate: true,
                 ast_idx: 10,
                 use_expr_idx: 30,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    61,
+                    66,
                 ),
             },
             UseAllRule {
-                parent_module_path: `core::vec`,
+                parent_module_path: `core::slice`,
                 is_same_crate: true,
                 ast_idx: 11,
                 use_expr_idx: 33,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    60,
+                    64,
+                ),
+            },
+            UseAllRule {
+                parent_module_path: `core::vec`,
+                is_same_crate: true,
+                ast_idx: 12,
+                use_expr_idx: 36,
+                visibility: Scope::Pub,
+                progress: Ok(
+                    63,
                 ),
             },
         ],

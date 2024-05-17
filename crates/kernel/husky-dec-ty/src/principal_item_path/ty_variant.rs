@@ -1,4 +1,7 @@
 use super::*;
+use husky_dec_signature::{jar::DecSignatureDb, signature::ty_variant::TypeVariantDecTemplate};
+use husky_entity_path::path::ty_variant::TypeVariantPath;
+use husky_syn_decl::decl::HasSynDecl;
 
 // todo: this should return a template
 #[salsa::tracked(jar = DeclarativeTypeJar)]

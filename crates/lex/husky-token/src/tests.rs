@@ -1,7 +1,7 @@
 mod adv;
 
 use crate::*;
-use husky_coword::CowordJar;
+use husky_coword::jar::CowordJar;
 use husky_expect_test_snippets_utils::*;
 use husky_vfs::{script::Script, *};
 use salsa::DebugWithDb;
@@ -11,7 +11,7 @@ use salsa::DebugWithDb;
     VfsJar,
     husky_token_data::jar::TokenDataJar,
     TokenJar,
-    TermPreludeJar,
+    husky_term_prelude::jar::TermPreludeJar,
     husky_entity_path::jar::EntityPathJar
 )]
 #[derive(Default)]

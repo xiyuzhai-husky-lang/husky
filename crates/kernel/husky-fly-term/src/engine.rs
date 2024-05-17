@@ -1,4 +1,5 @@
 use super::*;
+use husky_entity_path::menu::ItemPathMenu;
 use husky_entity_tree::helpers::AvailableTraitItemsTable;
 use husky_eth_term::term::symbolic_variable::EthSymbolicVariable;
 use husky_place::{place::idx::PlaceIdx, PlaceInfo, PlaceRegistry};
@@ -104,10 +105,7 @@ pub trait FlyTermEngineMut<'a>: FlyTermEngine<'a> {
         }
         match argument_ty.data(self) {
             FlyTermData::Curry {
-                curry_kind: argument_curry_kind,
-                variance: argument_variance,
                 parameter_hvar: argument_parameter_variable,
-                parameter_ty: argument_parameter_ty,
                 return_ty: argument_return_ty,
                 ..
             } => {

@@ -3,12 +3,12 @@ use husky_regional_token::ColonRegionalToken;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct CaseVariableObelisk {
-    syn_pattern_root: CaseSynPatternExprRoot,
+    syn_pattern_root: CaseSynPatternRoot,
     variables: CurrentSynSymbolIdxRange,
 }
 
 impl CaseVariableObelisk {
-    pub fn syn_pattern_root(&self) -> CaseSynPatternExprRoot {
+    pub fn syn_pattern_root(&self) -> CaseSynPatternRoot {
         self.syn_pattern_root
     }
 

@@ -372,7 +372,7 @@ Ok(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 272,
+                                        value: 275,
                                     },
                                 ),
                             ),
@@ -384,7 +384,7 @@ Ok(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 272,
+                                        value: 275,
                                     },
                                 ),
                             ),
@@ -396,7 +396,7 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
+                    src: TokenInfoSource::Pattern(
                         0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
@@ -479,7 +479,7 @@ Ok(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 207,
+                                        value: 208,
                                     },
                                 ),
                             ),
@@ -491,7 +491,7 @@ Ok(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 207,
+                                        value: 208,
                                     },
                                 ),
                             ),
@@ -502,7 +502,7 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
+                    src: TokenInfoSource::Pattern(
                         2,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
@@ -574,7 +574,7 @@ Ok(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 206,
+                                        value: 207,
                                     },
                                 ),
                             ),
@@ -586,7 +586,7 @@ Ok(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 206,
+                                        value: 207,
                                     },
                                 ),
                             ),
@@ -600,7 +600,7 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
+                    src: TokenInfoSource::Pattern(
                         5,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
@@ -657,7 +657,7 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
+                    src: TokenInfoSource::Pattern(
                         6,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
@@ -790,7 +790,7 @@ Ok(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 207,
+                                        value: 208,
                                     },
                                 ),
                             ),
@@ -802,7 +802,7 @@ Ok(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 207,
+                                        value: 208,
                                     },
                                 ),
                             ),
@@ -849,7 +849,7 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
+                    src: TokenInfoSource::Pattern(
                         8,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
@@ -921,7 +921,7 @@ Ok(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 206,
+                                        value: 207,
                                     },
                                 ),
                             ),
@@ -933,7 +933,7 @@ Ok(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 206,
+                                        value: 207,
                                     },
                                 ),
                             ),
@@ -980,7 +980,7 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
+                    src: TokenInfoSource::Pattern(
                         11,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
@@ -1057,7 +1057,7 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
+                    src: TokenInfoSource::Pattern(
                         12,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
@@ -1129,7 +1129,7 @@ Ok(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 206,
+                                        value: 207,
                                     },
                                 ),
                             ),
@@ -1141,7 +1141,7 @@ Ok(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 206,
+                                        value: 207,
                                     },
                                 ),
                             ),
@@ -1264,7 +1264,7 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
+                    src: TokenInfoSource::Pattern(
                         15,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
@@ -1377,7 +1377,7 @@ Ok(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 252,
+                                        value: 255,
                                     },
                                 ),
                             ),
@@ -1389,7 +1389,7 @@ Ok(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 252,
+                                        value: 255,
                                     },
                                 ),
                             ),
@@ -1425,7 +1425,7 @@ Ok(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 252,
+                                        value: 255,
                                     },
                                 ),
                             ),
@@ -1437,7 +1437,7 @@ Ok(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 252,
+                                        value: 255,
                                     },
                                 ),
                             ),
@@ -1471,7 +1471,7 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
+                    src: TokenInfoSource::Pattern(
                         0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
@@ -1548,7 +1548,7 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
+                    src: TokenInfoSource::Pattern(
                         0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
@@ -1673,7 +1673,7 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
+                    src: TokenInfoSource::Pattern(
                         0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
@@ -1750,7 +1750,7 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
+                    src: TokenInfoSource::Pattern(
                         0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {

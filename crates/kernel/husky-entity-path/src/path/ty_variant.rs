@@ -1,4 +1,4 @@
-use crate::*;
+use super::{major_item::ty::TypePath, *};
 use rustc_index::Idx;
 
 #[salsa::derive_debug_with_db]

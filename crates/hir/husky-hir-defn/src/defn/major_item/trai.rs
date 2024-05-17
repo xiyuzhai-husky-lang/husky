@@ -1,7 +1,8 @@
 use super::*;
+use husky_entity_path::path::major_item::trai::TraitPath;
 use husky_hir_decl::decl::TraitHirDecl;
 
-#[salsa::interned(db = HirDefnDb, jar = HirDefnJar)]
+#[salsa::interned]
 pub struct TraitHirDefn {
     pub path: TraitPath,
     pub hir_decl: TraitHirDecl,
@@ -21,7 +22,7 @@ impl HasHirDefn for TraitPath {
     }
 }
 
-#[salsa::tracked(jar = HirDefnJar)]
+#[salsa::tracked]
 pub(crate) fn trai_hir_defn(db: &::salsa::Db, path: TraitPath) -> Option<TraitHirDefn> {
     let hir_decl = path.hir_decl(db)?;
     Some(TraitHirDefn::new(db, path, hir_decl))
@@ -37,7 +38,7 @@ impl TraitHirDefn {
     }
 }
 
-#[salsa::tracked(jar = HirDefnJar)]
+#[salsa::tracked]
 fn trai_hir_defn_dependencies(db: &::salsa::Db, hir_defn: TraitHirDefn) -> HirDefnDependencies {
     let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
     let hir_decl = hir_defn.hir_decl(db);
@@ -50,7 +51,7 @@ fn trai_hir_defn_dependencies(db: &::salsa::Db, hir_defn: TraitHirDefn) -> HirDe
     builder.finish()
 }
 
-#[salsa::tracked(jar = HirDefnJar)]
+#[salsa::tracked]
 fn trai_hir_defn_version_stamp(db: &::salsa::Db, hir_defn: TraitHirDefn) -> HirDefnVersionStamp {
     HirDefnVersionStamp::new(hir_defn, db)
 }

@@ -1,5 +1,5 @@
 use super::*;
-use crate::trai_for_ty_impl_block::TraitForTypeImplBlockPath;
+use crate::path::impl_block::trai_for_ty_impl_block::TraitForTypeImplBlockPath;
 
 #[salsa::as_id]
 #[salsa::deref_id]

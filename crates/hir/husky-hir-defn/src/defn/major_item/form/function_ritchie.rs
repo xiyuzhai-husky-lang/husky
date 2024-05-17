@@ -7,7 +7,7 @@ use husky_hir_decl::{
 };
 use husky_hir_expr::helpers::hir_body_with_expr_region;
 
-#[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
+#[salsa::interned(constructor = new_inner)]
 pub struct MajorFunctionRitchieHirDefn {
     pub path: MajorFormPath,
     pub hir_decl: MajorFunctionRitchieHirDecl,
@@ -53,7 +53,7 @@ impl MajorFunctionRitchieHirDefn {
     }
 }
 
-#[salsa::tracked(jar = HirDefnJar)]
+#[salsa::tracked]
 fn major_function_ritchie_hir_defn_dependencies(
     db: &::salsa::Db,
     hir_defn: MajorFunctionRitchieHirDefn,
@@ -89,7 +89,7 @@ fn major_function_ritchie_hir_defn_dependencies(
     builder.finish()
 }
 
-#[salsa::tracked(jar = HirDefnJar)]
+#[salsa::tracked]
 fn major_function_ritchie_hir_defn_version_stamp(
     db: &::salsa::Db,
     hir_defn: MajorFunctionRitchieHirDefn,

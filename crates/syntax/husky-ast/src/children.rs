@@ -14,7 +14,13 @@ pub use self::ty_variants::*;
 
 use crate::*;
 use husky_entity_kind::*;
-use husky_entity_path::*;
+use husky_entity_path::{
+    path::{
+        major_item::{form::MajorFormPath, trai::TraitPath, ty::TypePath},
+        submodule::SubmoduleItemPath,
+    },
+    *,
+};
 use husky_token::*;
 use parsec::*;
 

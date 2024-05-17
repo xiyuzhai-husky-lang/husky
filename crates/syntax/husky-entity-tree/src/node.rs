@@ -16,6 +16,7 @@ pub use self::ty_variant::*;
 use self::script::{ScriptSynNodePath, ScriptSynNodePathData};
 use crate::*;
 use enum_class::Room32;
+use husky_entity_path::path::ItemPath;
 use husky_token::IdentToken;
 use smallvec::{smallvec, SmallVec};
 use vec_like::VecPairMap;

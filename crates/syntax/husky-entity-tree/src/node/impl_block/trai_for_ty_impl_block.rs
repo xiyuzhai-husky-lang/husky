@@ -1,5 +1,8 @@
 use husky_entity_kind::{AssocItemKind, EntityKind};
-use husky_entity_path::trai_for_ty_impl_block::TraitForTypeImplBlockPath;
+use husky_entity_path::path::{
+    assoc_item::trai_for_ty_item::TraitForTypeItemPath,
+    impl_block::trai_for_ty_impl_block::TraitForTypeImplBlockPath, major_item::trai::TraitPath,
+};
 use vec_like::SmallVecPairMap;
 
 use super::*;

@@ -27,13 +27,16 @@ impl IsAstChildren for FormBody {
             EntityKindKeywordGroup::Vn(_) => MajorFormKind::VN.into(),
             EntityKindKeywordGroup::Pn(_) => MajorFormKind::PN.into(),
             EntityKindKeywordGroup::Qn(_) => MajorFormKind::QN.into(),
+            EntityKindKeywordGroup::Bn(_) => todo!(),
+            EntityKindKeywordGroup::Sn(_) => todo!(),
             EntityKindKeywordGroup::Tn(_) => MajorFormKind::TN.into(),
             EntityKindKeywordGroup::FormalEntity(_) => MajorFormKind::Formal.into(),
             EntityKindKeywordGroup::MajorType(token) => token.type_kind().into(),
             EntityKindKeywordGroup::AliasOrAssociateType(_) => MajorFormKind::TypeAlias.into(),
             EntityKindKeywordGroup::Trait(_) => MajorItemKind::Trait,
-            EntityKindKeywordGroup::Ki(_) => MajorFormKind::Val.into(),
+            EntityKindKeywordGroup::Val(_) => MajorFormKind::Val.into(),
             EntityKindKeywordGroup::Const(_) => MajorFormKind::Const.into(),
+            EntityKindKeywordGroup::Static(_) => MajorFormKind::Static.into(),
             EntityKindKeywordGroup::Memo(_) => Err(OriginalAstError::UnexpectedMemoUnderForm)?,
         };
         Ok(EntityKind::MajorItem {

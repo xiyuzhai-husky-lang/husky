@@ -604,7 +604,7 @@ AstSheet {
                 },
                 item_kind: EntityKind::Module,
                 ident_token: IdentToken {
-                    ident: `vec`,
+                    ident: `task`,
                     token_idx: TokenIdx(
                         48,
                     ),
@@ -643,7 +643,7 @@ AstSheet {
                 },
                 item_kind: EntityKind::Module,
                 ident_token: IdentToken {
-                    ident: `slice`,
+                    ident: `vec`,
                     token_idx: TokenIdx(
                         51,
                     ),
@@ -682,7 +682,7 @@ AstSheet {
                 },
                 item_kind: EntityKind::Module,
                 ident_token: IdentToken {
-                    ident: `str`,
+                    ident: `slice`,
                     token_idx: TokenIdx(
                         54,
                     ),
@@ -721,7 +721,7 @@ AstSheet {
                 },
                 item_kind: EntityKind::Module,
                 ident_token: IdentToken {
-                    ident: `visual`,
+                    ident: `str`,
                     token_idx: TokenIdx(
                         57,
                     ),
@@ -743,10 +743,49 @@ AstSheet {
                     ),
                 },
             },
-            AstData::Use {
+            AstData::Identifiable {
                 token_verse_idx: TokenVerseIdx {
                     lcurl: None,
                     raw: 19,
+                },
+                visibility_expr: VisibilityExpr {
+                    data: VisibilityExprData::Pub {
+                        pub_token: PubToken {
+                            token_idx: TokenIdx(
+                                58,
+                            ),
+                        },
+                    },
+                    visibility: Scope::Pub,
+                },
+                item_kind: EntityKind::Module,
+                ident_token: IdentToken {
+                    ident: `visual`,
+                    token_idx: TokenIdx(
+                        60,
+                    ),
+                },
+                is_generic: false,
+                saved_stream_state: TokenStreamState {
+                    next_token_idx: TokenIdx(
+                        61,
+                    ),
+                    drained: true,
+                },
+                block: DefnBlock::Submodule {
+                    path: SubmoduleItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 20,
+                            },
+                        ),
+                    ),
+                },
+            },
+            AstData::Use {
+                token_verse_idx: TokenVerseIdx {
+                    lcurl: None,
+                    raw: 20,
                 },
                 visibility_expr: VisibilityExpr {
                     data: VisibilityExprData::Protected,
@@ -759,12 +798,12 @@ AstSheet {
         ],
     },
     top_level_asts: ArenaIdxRange(
-        0..20,
+        0..21,
     ),
     nested_top_level_asts: [],
     siblings: [
         ArenaIdxRange(
-            0..20,
+            0..21,
         ),
     ],
 }

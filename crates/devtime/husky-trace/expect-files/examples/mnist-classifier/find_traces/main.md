@@ -981,8 +981,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::LazyPatternExpr(
-                    LazyPatternExprTracePathData {
+                data: TracePathData::LazyPattern(
+                    LazyPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 20,
@@ -993,8 +993,8 @@
                     },
                 ),
             },
-            data: LazyPatternExpr(
-                LazyPatternExprTraceData {
+            data: LazyPattern(
+                LazyPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 42,
@@ -1005,8 +1005,10 @@
                             value: 20,
                         },
                     ),
-                    syn_pattern_expr_idx: 4,
-                    hir_lazy_pattern_expr_idx: None,
+                    syn_pattern_idx: 4,
+                    hir_lazy_pattern_idx: Some(
+                        2,
+                    ),
                     hir_lazy_variable_idxs: [
                         (
                             Ident(
@@ -2226,8 +2228,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::LazyPatternExpr(
-                    LazyPatternExprTracePathData {
+                data: TracePathData::LazyPattern(
+                    LazyPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 25,
@@ -2238,8 +2240,8 @@
                     },
                 ),
             },
-            data: LazyPatternExpr(
-                LazyPatternExprTraceData {
+            data: LazyPattern(
+                LazyPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 57,
@@ -2250,8 +2252,10 @@
                             value: 25,
                         },
                     ),
-                    syn_pattern_expr_idx: 8,
-                    hir_lazy_pattern_expr_idx: None,
+                    syn_pattern_idx: 8,
+                    hir_lazy_pattern_idx: Some(
+                        3,
+                    ),
                     hir_lazy_variable_idxs: [
                         (
                             Ident(
@@ -2469,8 +2473,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::LazyPatternExpr(
-                    LazyPatternExprTracePathData {
+                data: TracePathData::LazyPattern(
+                    LazyPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 26,
@@ -2481,8 +2485,8 @@
                     },
                 ),
             },
-            data: LazyPatternExpr(
-                LazyPatternExprTraceData {
+            data: LazyPattern(
+                LazyPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 60,
@@ -2493,8 +2497,10 @@
                             value: 26,
                         },
                     ),
-                    syn_pattern_expr_idx: 9,
-                    hir_lazy_pattern_expr_idx: None,
+                    syn_pattern_idx: 9,
+                    hir_lazy_pattern_idx: Some(
+                        4,
+                    ),
                     hir_lazy_variable_idxs: [
                         (
                             Ident(
@@ -2896,8 +2902,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::LazyPatternExpr(
-                    LazyPatternExprTracePathData {
+                data: TracePathData::LazyPattern(
+                    LazyPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 27,
@@ -2908,8 +2914,8 @@
                     },
                 ),
             },
-            data: LazyPatternExpr(
-                LazyPatternExprTraceData {
+            data: LazyPattern(
+                LazyPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 67,
@@ -2920,8 +2926,10 @@
                             value: 27,
                         },
                     ),
-                    syn_pattern_expr_idx: 10,
-                    hir_lazy_pattern_expr_idx: None,
+                    syn_pattern_idx: 10,
+                    hir_lazy_pattern_idx: Some(
+                        5,
+                    ),
                     hir_lazy_variable_idxs: [
                         (
                             Ident(
@@ -3273,8 +3281,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::LazyPatternExpr(
-                    LazyPatternExprTracePathData {
+                data: TracePathData::LazyPattern(
+                    LazyPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 28,
@@ -3285,8 +3293,8 @@
                     },
                 ),
             },
-            data: LazyPatternExpr(
-                LazyPatternExprTraceData {
+            data: LazyPattern(
+                LazyPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 73,
@@ -3297,8 +3305,10 @@
                             value: 28,
                         },
                     ),
-                    syn_pattern_expr_idx: 11,
-                    hir_lazy_pattern_expr_idx: None,
+                    syn_pattern_idx: 11,
+                    hir_lazy_pattern_idx: Some(
+                        6,
+                    ),
                     hir_lazy_variable_idxs: [
                         (
                             Ident(
@@ -3592,8 +3602,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::LazyPatternExpr(
-                    LazyPatternExprTracePathData {
+                data: TracePathData::LazyPattern(
+                    LazyPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 30,
@@ -3604,8 +3614,8 @@
                     },
                 ),
             },
-            data: LazyPatternExpr(
-                LazyPatternExprTraceData {
+            data: LazyPattern(
+                LazyPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 77,
@@ -3616,8 +3626,10 @@
                             value: 30,
                         },
                     ),
-                    syn_pattern_expr_idx: 12,
-                    hir_lazy_pattern_expr_idx: None,
+                    syn_pattern_idx: 12,
+                    hir_lazy_pattern_idx: Some(
+                        7,
+                    ),
                     hir_lazy_variable_idxs: [
                         (
                             Ident(
@@ -4408,8 +4420,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::LazyPatternExpr(
-                    LazyPatternExprTracePathData {
+                data: TracePathData::LazyPattern(
+                    LazyPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 85,
@@ -4420,8 +4432,8 @@
                     },
                 ),
             },
-            data: LazyPatternExpr(
-                LazyPatternExprTraceData {
+            data: LazyPattern(
+                LazyPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 91,
@@ -4432,8 +4444,10 @@
                             value: 91,
                         },
                     ),
-                    syn_pattern_expr_idx: 0,
-                    hir_lazy_pattern_expr_idx: None,
+                    syn_pattern_idx: 0,
+                    hir_lazy_pattern_idx: Some(
+                        0,
+                    ),
                     hir_lazy_variable_idxs: [
                         (
                             Ident(
@@ -7177,8 +7191,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::LazyPatternExpr(
-                    LazyPatternExprTracePathData {
+                data: TracePathData::LazyPattern(
+                    LazyPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 131,
@@ -7189,8 +7203,8 @@
                     },
                 ),
             },
-            data: LazyPatternExpr(
-                LazyPatternExprTraceData {
+            data: LazyPattern(
+                LazyPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 142,
@@ -7201,8 +7215,10 @@
                             value: 141,
                         },
                     ),
-                    syn_pattern_expr_idx: 0,
-                    hir_lazy_pattern_expr_idx: None,
+                    syn_pattern_idx: 0,
+                    hir_lazy_pattern_idx: Some(
+                        0,
+                    ),
                     hir_lazy_variable_idxs: [
                         (
                             Ident(
@@ -7471,8 +7487,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::LazyPatternExpr(
-                    LazyPatternExprTracePathData {
+                data: TracePathData::LazyPattern(
+                    LazyPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 133,
@@ -7483,8 +7499,8 @@
                     },
                 ),
             },
-            data: LazyPatternExpr(
-                LazyPatternExprTraceData {
+            data: LazyPattern(
+                LazyPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 145,
@@ -7495,8 +7511,10 @@
                             value: 143,
                         },
                     ),
-                    syn_pattern_expr_idx: 3,
-                    hir_lazy_pattern_expr_idx: None,
+                    syn_pattern_idx: 3,
+                    hir_lazy_pattern_idx: Some(
+                        1,
+                    ),
                     hir_lazy_variable_idxs: [
                         (
                             Ident(
@@ -7661,8 +7679,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::LazyPatternExpr(
-                    LazyPatternExprTracePathData {
+                data: TracePathData::LazyPattern(
+                    LazyPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 134,
@@ -7673,8 +7691,8 @@
                     },
                 ),
             },
-            data: LazyPatternExpr(
-                LazyPatternExprTraceData {
+            data: LazyPattern(
+                LazyPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 147,
@@ -7685,8 +7703,10 @@
                             value: 144,
                         },
                     ),
-                    syn_pattern_expr_idx: 4,
-                    hir_lazy_pattern_expr_idx: None,
+                    syn_pattern_idx: 4,
+                    hir_lazy_pattern_idx: Some(
+                        2,
+                    ),
                     hir_lazy_variable_idxs: [
                         (
                             Ident(
@@ -10498,8 +10518,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 182,
@@ -10510,8 +10530,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 199,
@@ -10522,7 +10542,7 @@
                             value: 199,
                         },
                     ),
-                    syn_pattern_expr_idx: 0,
+                    syn_pattern_idx: 0,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -10688,8 +10708,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 183,
@@ -10700,8 +10720,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 201,
@@ -10712,7 +10732,7 @@
                             value: 200,
                         },
                     ),
-                    syn_pattern_expr_idx: 1,
+                    syn_pattern_idx: 1,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -10878,8 +10898,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 184,
@@ -10890,8 +10910,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 203,
@@ -10902,7 +10922,7 @@
                             value: 201,
                         },
                     ),
-                    syn_pattern_expr_idx: 2,
+                    syn_pattern_idx: 2,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -11459,8 +11479,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 188,
@@ -11471,8 +11491,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 209,
@@ -11483,7 +11503,7 @@
                             value: 205,
                         },
                     ),
-                    syn_pattern_expr_idx: 7,
+                    syn_pattern_idx: 7,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -11914,8 +11934,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 190,
@@ -11926,8 +11946,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 215,
@@ -11938,7 +11958,7 @@
                             value: 207,
                         },
                     ),
-                    syn_pattern_expr_idx: 8,
+                    syn_pattern_idx: 8,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -12137,8 +12157,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 191,
@@ -12149,8 +12169,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 218,
@@ -12161,7 +12181,7 @@
                             value: 208,
                         },
                     ),
-                    syn_pattern_expr_idx: 9,
+                    syn_pattern_idx: 9,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -12360,8 +12380,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 192,
@@ -12372,8 +12392,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 221,
@@ -12384,7 +12404,7 @@
                             value: 209,
                         },
                     ),
-                    syn_pattern_expr_idx: 10,
+                    syn_pattern_idx: 10,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -14126,8 +14146,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 241,
@@ -14138,8 +14158,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 252,
@@ -14150,7 +14170,7 @@
                             value: 267,
                         },
                     ),
-                    syn_pattern_expr_idx: 4,
+                    syn_pattern_idx: 4,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -14487,8 +14507,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 243,
@@ -14499,8 +14519,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 256,
@@ -14511,7 +14531,7 @@
                             value: 269,
                         },
                     ),
-                    syn_pattern_expr_idx: 6,
+                    syn_pattern_idx: 6,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -14787,8 +14807,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 245,
@@ -14799,8 +14819,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 259,
@@ -14811,7 +14831,7 @@
                             value: 271,
                         },
                     ),
-                    syn_pattern_expr_idx: 9,
+                    syn_pattern_idx: 9,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -15071,8 +15091,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 246,
@@ -15083,8 +15103,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 263,
@@ -15095,7 +15115,7 @@
                             value: 272,
                         },
                     ),
-                    syn_pattern_expr_idx: 10,
+                    syn_pattern_idx: 10,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -17137,8 +17157,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 293,
@@ -17149,8 +17169,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 301,
@@ -17161,7 +17181,7 @@
                             value: 327,
                         },
                     ),
-                    syn_pattern_expr_idx: 0,
+                    syn_pattern_idx: 0,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -18076,8 +18096,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 297,
@@ -18088,8 +18108,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 313,
@@ -18100,7 +18120,7 @@
                             value: 331,
                         },
                     ),
-                    syn_pattern_expr_idx: 9,
+                    syn_pattern_idx: 9,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -18648,8 +18668,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 319,
@@ -18660,8 +18680,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 322,
@@ -18672,7 +18692,7 @@
                             value: 358,
                         },
                     ),
-                    syn_pattern_expr_idx: 0,
+                    syn_pattern_idx: 0,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -19816,8 +19836,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 336,
@@ -19828,8 +19848,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 345,
@@ -19840,7 +19860,7 @@
                             value: 380,
                         },
                     ),
-                    syn_pattern_expr_idx: 0,
+                    syn_pattern_idx: 0,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -20177,8 +20197,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 338,
@@ -20189,8 +20209,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 349,
@@ -20201,7 +20221,7 @@
                             value: 382,
                         },
                     ),
-                    syn_pattern_expr_idx: 2,
+                    syn_pattern_idx: 2,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -20477,8 +20497,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 340,
@@ -20489,8 +20509,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 352,
@@ -20501,7 +20521,7 @@
                             value: 384,
                         },
                     ),
-                    syn_pattern_expr_idx: 5,
+                    syn_pattern_idx: 5,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -20761,8 +20781,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 341,
@@ -20773,8 +20793,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 356,
@@ -20785,7 +20805,7 @@
                             value: 385,
                         },
                     ),
-                    syn_pattern_expr_idx: 6,
+                    syn_pattern_idx: 6,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -22356,8 +22376,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 380,
@@ -22368,8 +22388,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 392,
@@ -22380,7 +22400,7 @@
                             value: 429,
                         },
                     ),
-                    syn_pattern_expr_idx: 0,
+                    syn_pattern_idx: 0,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -22546,8 +22566,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 381,
@@ -22558,8 +22578,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 394,
@@ -22570,7 +22590,7 @@
                             value: 430,
                         },
                     ),
-                    syn_pattern_expr_idx: 1,
+                    syn_pattern_idx: 1,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -22907,8 +22927,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 383,
@@ -22919,8 +22939,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 398,
@@ -22931,7 +22951,7 @@
                             value: 432,
                         },
                     ),
-                    syn_pattern_expr_idx: 3,
+                    syn_pattern_idx: 3,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -23097,8 +23117,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 384,
@@ -23109,8 +23129,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 400,
@@ -23121,7 +23141,7 @@
                             value: 433,
                         },
                     ),
-                    syn_pattern_expr_idx: 4,
+                    syn_pattern_idx: 4,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -23287,8 +23307,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 385,
@@ -23299,8 +23319,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 402,
@@ -23311,7 +23331,7 @@
                             value: 434,
                         },
                     ),
-                    syn_pattern_expr_idx: 5,
+                    syn_pattern_idx: 5,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -23587,8 +23607,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 387,
@@ -23599,8 +23619,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 405,
@@ -23611,7 +23631,7 @@
                             value: 436,
                         },
                     ),
-                    syn_pattern_expr_idx: 6,
+                    syn_pattern_idx: 6,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -25442,7 +25462,7 @@
                     val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
-                                value: 275,
+                                value: 278,
                             },
                         ),
                     ),
@@ -25692,8 +25712,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 438,
@@ -25704,8 +25724,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 442,
@@ -25716,7 +25736,7 @@
                             value: 498,
                         },
                     ),
-                    syn_pattern_expr_idx: 0,
+                    syn_pattern_idx: 0,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -25793,8 +25813,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 439,
@@ -25805,8 +25825,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 443,
@@ -25817,7 +25837,7 @@
                             value: 499,
                         },
                     ),
-                    syn_pattern_expr_idx: 1,
+                    syn_pattern_idx: 1,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -25961,8 +25981,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 444,
@@ -25973,8 +25993,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 446,
@@ -25985,7 +26005,7 @@
                             value: 504,
                         },
                     ),
-                    syn_pattern_expr_idx: 2,
+                    syn_pattern_idx: 2,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -26657,7 +26677,7 @@
                                 TypeItemPath(
                                     ItemPathId(
                                         Id {
-                                            value: 376,
+                                            value: 379,
                                         },
                                     ),
                                 ),
@@ -26683,7 +26703,7 @@
                             TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 376,
+                                        value: 379,
                                     },
                                 ),
                             ),
@@ -26961,8 +26981,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 457,
@@ -26973,8 +26993,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 460,
@@ -26985,7 +27005,7 @@
                             value: 522,
                         },
                     ),
-                    syn_pattern_expr_idx: 0,
+                    syn_pattern_idx: 0,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -27549,7 +27569,7 @@
                                 TypeItemPath(
                                     ItemPathId(
                                         Id {
-                                            value: 376,
+                                            value: 379,
                                         },
                                     ),
                                 ),
@@ -27575,7 +27595,7 @@
                             TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 376,
+                                        value: 379,
                                     },
                                 ),
                             ),
@@ -29614,8 +29634,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::LazyPatternExpr(
-                    LazyPatternExprTracePathData {
+                data: TracePathData::LazyPattern(
+                    LazyPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 85,
@@ -29626,8 +29646,8 @@
                     },
                 ),
             },
-            data: LazyPatternExpr(
-                LazyPatternExprTraceData {
+            data: LazyPattern(
+                LazyPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 91,
@@ -29638,8 +29658,10 @@
                             value: 577,
                         },
                     ),
-                    syn_pattern_expr_idx: 0,
-                    hir_lazy_pattern_expr_idx: None,
+                    syn_pattern_idx: 0,
+                    hir_lazy_pattern_idx: Some(
+                        0,
+                    ),
                     hir_lazy_variable_idxs: [
                         (
                             Ident(
@@ -31949,8 +31971,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::LazyPatternExpr(
-                    LazyPatternExprTracePathData {
+                data: TracePathData::LazyPattern(
+                    LazyPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 131,
@@ -31961,8 +31983,8 @@
                     },
                 ),
             },
-            data: LazyPatternExpr(
-                LazyPatternExprTraceData {
+            data: LazyPattern(
+                LazyPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 142,
@@ -31973,8 +31995,10 @@
                             value: 619,
                         },
                     ),
-                    syn_pattern_expr_idx: 0,
-                    hir_lazy_pattern_expr_idx: None,
+                    syn_pattern_idx: 0,
+                    hir_lazy_pattern_idx: Some(
+                        0,
+                    ),
                     hir_lazy_variable_idxs: [
                         (
                             Ident(
@@ -32243,8 +32267,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::LazyPatternExpr(
-                    LazyPatternExprTracePathData {
+                data: TracePathData::LazyPattern(
+                    LazyPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 133,
@@ -32255,8 +32279,8 @@
                     },
                 ),
             },
-            data: LazyPatternExpr(
-                LazyPatternExprTraceData {
+            data: LazyPattern(
+                LazyPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 145,
@@ -32267,8 +32291,10 @@
                             value: 621,
                         },
                     ),
-                    syn_pattern_expr_idx: 3,
-                    hir_lazy_pattern_expr_idx: None,
+                    syn_pattern_idx: 3,
+                    hir_lazy_pattern_idx: Some(
+                        1,
+                    ),
                     hir_lazy_variable_idxs: [
                         (
                             Ident(
@@ -32433,8 +32459,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::LazyPatternExpr(
-                    LazyPatternExprTracePathData {
+                data: TracePathData::LazyPattern(
+                    LazyPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 134,
@@ -32445,8 +32471,8 @@
                     },
                 ),
             },
-            data: LazyPatternExpr(
-                LazyPatternExprTraceData {
+            data: LazyPattern(
+                LazyPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 147,
@@ -32457,8 +32483,10 @@
                             value: 622,
                         },
                     ),
-                    syn_pattern_expr_idx: 4,
-                    hir_lazy_pattern_expr_idx: None,
+                    syn_pattern_idx: 4,
+                    hir_lazy_pattern_idx: Some(
+                        2,
+                    ),
                     hir_lazy_variable_idxs: [
                         (
                             Ident(
@@ -35403,8 +35431,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::LazyPatternExpr(
-                    LazyPatternExprTracePathData {
+                data: TracePathData::LazyPattern(
+                    LazyPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 20,
@@ -35415,8 +35443,8 @@
                     },
                 ),
             },
-            data: LazyPatternExpr(
-                LazyPatternExprTraceData {
+            data: LazyPattern(
+                LazyPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 42,
@@ -35427,8 +35455,10 @@
                             value: 672,
                         },
                     ),
-                    syn_pattern_expr_idx: 4,
-                    hir_lazy_pattern_expr_idx: None,
+                    syn_pattern_idx: 4,
+                    hir_lazy_pattern_idx: Some(
+                        2,
+                    ),
                     hir_lazy_variable_idxs: [
                         (
                             Ident(
@@ -36648,8 +36678,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::LazyPatternExpr(
-                    LazyPatternExprTracePathData {
+                data: TracePathData::LazyPattern(
+                    LazyPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 25,
@@ -36660,8 +36690,8 @@
                     },
                 ),
             },
-            data: LazyPatternExpr(
-                LazyPatternExprTraceData {
+            data: LazyPattern(
+                LazyPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 57,
@@ -36672,8 +36702,10 @@
                             value: 677,
                         },
                     ),
-                    syn_pattern_expr_idx: 8,
-                    hir_lazy_pattern_expr_idx: None,
+                    syn_pattern_idx: 8,
+                    hir_lazy_pattern_idx: Some(
+                        3,
+                    ),
                     hir_lazy_variable_idxs: [
                         (
                             Ident(
@@ -36891,8 +36923,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::LazyPatternExpr(
-                    LazyPatternExprTracePathData {
+                data: TracePathData::LazyPattern(
+                    LazyPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 26,
@@ -36903,8 +36935,8 @@
                     },
                 ),
             },
-            data: LazyPatternExpr(
-                LazyPatternExprTraceData {
+            data: LazyPattern(
+                LazyPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 60,
@@ -36915,8 +36947,10 @@
                             value: 678,
                         },
                     ),
-                    syn_pattern_expr_idx: 9,
-                    hir_lazy_pattern_expr_idx: None,
+                    syn_pattern_idx: 9,
+                    hir_lazy_pattern_idx: Some(
+                        4,
+                    ),
                     hir_lazy_variable_idxs: [
                         (
                             Ident(
@@ -37318,8 +37352,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::LazyPatternExpr(
-                    LazyPatternExprTracePathData {
+                data: TracePathData::LazyPattern(
+                    LazyPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 27,
@@ -37330,8 +37364,8 @@
                     },
                 ),
             },
-            data: LazyPatternExpr(
-                LazyPatternExprTraceData {
+            data: LazyPattern(
+                LazyPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 67,
@@ -37342,8 +37376,10 @@
                             value: 679,
                         },
                     ),
-                    syn_pattern_expr_idx: 10,
-                    hir_lazy_pattern_expr_idx: None,
+                    syn_pattern_idx: 10,
+                    hir_lazy_pattern_idx: Some(
+                        5,
+                    ),
                     hir_lazy_variable_idxs: [
                         (
                             Ident(
@@ -37695,8 +37731,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::LazyPatternExpr(
-                    LazyPatternExprTracePathData {
+                data: TracePathData::LazyPattern(
+                    LazyPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 28,
@@ -37707,8 +37743,8 @@
                     },
                 ),
             },
-            data: LazyPatternExpr(
-                LazyPatternExprTraceData {
+            data: LazyPattern(
+                LazyPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 73,
@@ -37719,8 +37755,10 @@
                             value: 680,
                         },
                     ),
-                    syn_pattern_expr_idx: 11,
-                    hir_lazy_pattern_expr_idx: None,
+                    syn_pattern_idx: 11,
+                    hir_lazy_pattern_idx: Some(
+                        6,
+                    ),
                     hir_lazy_variable_idxs: [
                         (
                             Ident(
@@ -38014,8 +38052,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::LazyPatternExpr(
-                    LazyPatternExprTracePathData {
+                data: TracePathData::LazyPattern(
+                    LazyPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 30,
@@ -38026,8 +38064,8 @@
                     },
                 ),
             },
-            data: LazyPatternExpr(
-                LazyPatternExprTraceData {
+            data: LazyPattern(
+                LazyPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 77,
@@ -38038,8 +38076,10 @@
                             value: 682,
                         },
                     ),
-                    syn_pattern_expr_idx: 12,
-                    hir_lazy_pattern_expr_idx: None,
+                    syn_pattern_idx: 12,
+                    hir_lazy_pattern_idx: Some(
+                        7,
+                    ),
                     hir_lazy_variable_idxs: [
                         (
                             Ident(
@@ -38493,8 +38533,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 293,
@@ -38505,8 +38545,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 301,
@@ -38517,7 +38557,7 @@
                             value: 739,
                         },
                     ),
-                    syn_pattern_expr_idx: 0,
+                    syn_pattern_idx: 0,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -39432,8 +39472,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 297,
@@ -39444,8 +39484,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 313,
@@ -39456,7 +39496,7 @@
                             value: 743,
                         },
                     ),
-                    syn_pattern_expr_idx: 9,
+                    syn_pattern_idx: 9,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -39797,8 +39837,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 319,
@@ -39809,8 +39849,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 322,
@@ -39821,7 +39861,7 @@
                             value: 766,
                         },
                     ),
-                    syn_pattern_expr_idx: 0,
+                    syn_pattern_idx: 0,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -40807,8 +40847,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 182,
@@ -40819,8 +40859,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 199,
@@ -40831,7 +40871,7 @@
                             value: 782,
                         },
                     ),
-                    syn_pattern_expr_idx: 0,
+                    syn_pattern_idx: 0,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -40997,8 +41037,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 183,
@@ -41009,8 +41049,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 201,
@@ -41021,7 +41061,7 @@
                             value: 783,
                         },
                     ),
-                    syn_pattern_expr_idx: 1,
+                    syn_pattern_idx: 1,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -41187,8 +41227,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 184,
@@ -41199,8 +41239,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 203,
@@ -41211,7 +41251,7 @@
                             value: 784,
                         },
                     ),
-                    syn_pattern_expr_idx: 2,
+                    syn_pattern_idx: 2,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -41768,8 +41808,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 188,
@@ -41780,8 +41820,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 209,
@@ -41792,7 +41832,7 @@
                             value: 788,
                         },
                     ),
-                    syn_pattern_expr_idx: 7,
+                    syn_pattern_idx: 7,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -42223,8 +42263,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 190,
@@ -42235,8 +42275,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 215,
@@ -42247,7 +42287,7 @@
                             value: 790,
                         },
                     ),
-                    syn_pattern_expr_idx: 8,
+                    syn_pattern_idx: 8,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -42446,8 +42486,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 191,
@@ -42458,8 +42498,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 218,
@@ -42470,7 +42510,7 @@
                             value: 791,
                         },
                     ),
-                    syn_pattern_expr_idx: 9,
+                    syn_pattern_idx: 9,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -42669,8 +42709,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 192,
@@ -42681,8 +42721,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 221,
@@ -42693,7 +42733,7 @@
                             value: 792,
                         },
                     ),
-                    syn_pattern_expr_idx: 10,
+                    syn_pattern_idx: 10,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -43498,8 +43538,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 336,
@@ -43510,8 +43550,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 345,
@@ -43522,7 +43562,7 @@
                             value: 836,
                         },
                     ),
-                    syn_pattern_expr_idx: 0,
+                    syn_pattern_idx: 0,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -43859,8 +43899,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 338,
@@ -43871,8 +43911,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 349,
@@ -43883,7 +43923,7 @@
                             value: 838,
                         },
                     ),
-                    syn_pattern_expr_idx: 2,
+                    syn_pattern_idx: 2,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -44159,8 +44199,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 340,
@@ -44171,8 +44211,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 352,
@@ -44183,7 +44223,7 @@
                             value: 840,
                         },
                     ),
-                    syn_pattern_expr_idx: 5,
+                    syn_pattern_idx: 5,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -44443,8 +44483,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 341,
@@ -44455,8 +44495,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 356,
@@ -44467,7 +44507,7 @@
                             value: 841,
                         },
                     ),
-                    syn_pattern_expr_idx: 6,
+                    syn_pattern_idx: 6,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -45957,8 +45997,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 380,
@@ -45969,8 +46009,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 392,
@@ -45981,7 +46021,7 @@
                             value: 883,
                         },
                     ),
-                    syn_pattern_expr_idx: 0,
+                    syn_pattern_idx: 0,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -46147,8 +46187,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 381,
@@ -46159,8 +46199,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 394,
@@ -46171,7 +46211,7 @@
                             value: 884,
                         },
                     ),
-                    syn_pattern_expr_idx: 1,
+                    syn_pattern_idx: 1,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -46508,8 +46548,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 383,
@@ -46520,8 +46560,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 398,
@@ -46532,7 +46572,7 @@
                             value: 886,
                         },
                     ),
-                    syn_pattern_expr_idx: 3,
+                    syn_pattern_idx: 3,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -46698,8 +46738,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 384,
@@ -46710,8 +46750,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 400,
@@ -46722,7 +46762,7 @@
                             value: 887,
                         },
                     ),
-                    syn_pattern_expr_idx: 4,
+                    syn_pattern_idx: 4,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -46888,8 +46928,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 385,
@@ -46900,8 +46940,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 402,
@@ -46912,7 +46952,7 @@
                             value: 888,
                         },
                     ),
-                    syn_pattern_expr_idx: 5,
+                    syn_pattern_idx: 5,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(
@@ -47188,8 +47228,8 @@
     (
         Trace {
             path: TracePath {
-                data: TracePathData::EagerPatternExpr(
-                    EagerPatternExprTracePathData {
+                data: TracePathData::EagerPattern(
+                    EagerPatternTracePathData {
                         biological_parent_path: TracePath(
                             Id {
                                 value: 387,
@@ -47200,8 +47240,8 @@
                     },
                 ),
             },
-            data: EagerPatternExpr(
-                EagerPatternExprTraceData {
+            data: EagerPattern(
+                EagerPatternTraceData {
                     path: TracePath(
                         Id {
                             value: 405,
@@ -47212,7 +47252,7 @@
                             value: 890,
                         },
                     ),
-                    syn_pattern_expr_idx: 6,
+                    syn_pattern_idx: 6,
                     hir_eager_runtime_symbol_idxs: [
                         (
                             Ident(

@@ -219,7 +219,7 @@ where
                             .show(ui, |ui| self.render_traces(subtrace_ids, ui))
                     });
             }
-            TraceKind::EagerPatternExpr => todo!(),
+            TraceKind::EagerPattern => todo!(),
             TraceKind::ValItem => {
                 Frame::none()
                     .inner_margin(0.)
@@ -228,7 +228,7 @@ where
             TraceKind::LazyCall => todo!(),
             TraceKind::LazyCallInput => todo!(),
             TraceKind::LazyExpr => todo!(),
-            TraceKind::LazyPatternExpr => todo!(),
+            TraceKind::LazyPattern => todo!(),
             TraceKind::LazyStmt => {
                 self.render_traces(subtrace_ids, ui);
             }

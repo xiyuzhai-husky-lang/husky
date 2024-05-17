@@ -1,5 +1,11 @@
 use super::default::*;
 use super::*;
+use husky_dec_signature::signature::HasDecTemplate;
+use husky_entity_path::path::{
+    assoc_item::ty_item::TypeItemPath,
+    major_item::{form::MajorFormPath, trai::TraitPath, ty::TypePath, MajorItemPath},
+    ItemPath,
+};
 
 #[derive(Debug, PartialEq, Eq)]
 pub(crate) struct VarianceRepr {

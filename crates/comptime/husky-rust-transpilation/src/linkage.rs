@@ -2,9 +2,13 @@ use crate::*;
 use either::*;
 use husky_corgi_config::transpilation_setup::TranspilationSetup;
 use husky_entity_kind::ritchie::RitchieItemKind;
-use husky_entity_path::{
-    AssocItemPath, MajorFormPath, PreludeTypePath, TraitForTypeItemPath, TraitItemPath,
-    TypeItemPath, TypeVariantPath,
+use husky_entity_path::path::{
+    assoc_item::{
+        trai_for_ty_item::TraitForTypeItemPath, trai_item::TraitItemPath, ty_item::TypeItemPath,
+        AssocItemPath,
+    },
+    major_item::{form::MajorFormPath, ty::PreludeTypePath},
+    ty_variant::TypeVariantPath,
 };
 use husky_eth_signature::signature::HasEthTemplate;
 use husky_hir_decl::decl::{HasHirDecl, TypeHirDecl, TypeVariantHirDecl};
@@ -78,6 +82,8 @@ impl TranspileToRustWith<()> for Linkage {
                 RitchieItemKind::Vn => todo!(),
                 RitchieItemKind::Pn => todo!(),
                 RitchieItemKind::Qn => todo!(),
+                RitchieItemKind::Bn => todo!(),
+                RitchieItemKind::Sn => todo!(),
                 RitchieItemKind::Tn => todo!(),
             },
             LinkageData::MajorVal {

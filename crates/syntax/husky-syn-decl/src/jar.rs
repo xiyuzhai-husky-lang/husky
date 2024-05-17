@@ -48,11 +48,15 @@ pub struct SynDeclJar(
     crate::decl::major_item::trai_syn_node_decl,
     crate::decl::major_item::TraitSynDecl,
     crate::decl::major_item::trai_syn_decl,
-    // - Form
+    // - form
     crate::decl::major_item::form_syn_node_decl,
     crate::decl::major_item::form_syn_decl,
     crate::decl::major_item::MajorValSynNodeDecl,
     crate::decl::major_item::MajorValSynDecl,
+    crate::decl::major_item::form::r#const::MajorConstSynNodeDecl,
+    crate::decl::major_item::form::r#const::MajorConstSynDecl,
+    crate::decl::major_item::form::r#static::MajorStaticSynNodeDecl,
+    crate::decl::major_item::form::r#static::MajorStaticSynDecl,
     crate::decl::major_item::MajorFunctionRitchieSynNodeDecl,
     crate::decl::major_item::MajorFunctionRitchieSynDecl,
     crate::decl::major_item::TypeAliasSynNodeDecl,

@@ -3,7 +3,7 @@ use crate::{
     jar::LinkageJar,
     template_argument::{LinTemplateArgument, LinTemplateArguments},
 };
-use husky_entity_path::TraitPath;
+use husky_entity_path::path::major_item::trai::TraitPath;
 use husky_hir_ty::trai::HirTrait;
 
 #[salsa::interned(jar = LinkageJar, constructor = new)]

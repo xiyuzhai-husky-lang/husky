@@ -1,13 +1,13 @@
 ```rust
 [
-    SemaPlaceContractRegion {
+    SemPlaceContractRegion {
         expr_sites: SemExprMap(
             ArenaMap {
                 data: [],
             },
         ),
     },
-    SemaPlaceContractRegion {
+    SemPlaceContractRegion {
         expr_sites: SemExprMap(
             ArenaMap {
                 data: [
@@ -16,7 +16,7 @@
             },
         ),
     },
-    SemaPlaceContractRegion {
+    SemPlaceContractRegion {
         expr_sites: SemExprMap(
             ArenaMap {
                 data: [
@@ -25,7 +25,7 @@
             },
         ),
     },
-    SemaPlaceContractRegion {
+    SemPlaceContractRegion {
         expr_sites: SemExprMap(
             ArenaMap {
                 data: [
@@ -33,7 +33,7 @@
                     None,
                     None,
                     Some(
-                        SemaPlaceContractSite {
+                        SemPlaceContractSite {
                             place_contracts: [],
                         },
                     ),
@@ -46,7 +46,7 @@
             },
         ),
     },
-    SemaPlaceContractRegion {
+    SemPlaceContractRegion {
         expr_sites: SemExprMap(
             ArenaMap {
                 data: [
@@ -61,7 +61,7 @@
             },
         ),
     },
-    SemaPlaceContractRegion {
+    SemPlaceContractRegion {
         expr_sites: SemExprMap(
             ArenaMap {
                 data: [
@@ -70,58 +70,10 @@
             },
         ),
     },
-    SemaPlaceContractRegion {
+    SemPlaceContractRegion {
         expr_sites: SemExprMap(
             ArenaMap {
                 data: [
-                    None,
-                    None,
-                    None,
-                    None,
-                    None,
-                    None,
-                    None,
-                    None,
-                    None,
-                    None,
-                    None,
-                ],
-            },
-        ),
-    },
-    SemaPlaceContractRegion {
-        expr_sites: SemExprMap(
-            ArenaMap {
-                data: [
-                    None,
-                ],
-            },
-        ),
-    },
-    SemaPlaceContractRegion {
-        expr_sites: SemExprMap(
-            ArenaMap {
-                data: [
-                    None,
-                    None,
-                    None,
-                    None,
-                    None,
-                    None,
-                    None,
-                    None,
-                    None,
-                    None,
-                ],
-            },
-        ),
-    },
-    SemaPlaceContractRegion {
-        expr_sites: SemExprMap(
-            ArenaMap {
-                data: [
-                    None,
-                    None,
                     None,
                     None,
                     None,
@@ -137,7 +89,7 @@
             },
         ),
     },
-    SemaPlaceContractRegion {
+    SemPlaceContractRegion {
         expr_sites: SemExprMap(
             ArenaMap {
                 data: [
@@ -146,7 +98,55 @@
             },
         ),
     },
-    SemaPlaceContractRegion {
+    SemPlaceContractRegion {
+        expr_sites: SemExprMap(
+            ArenaMap {
+                data: [
+                    None,
+                    None,
+                    None,
+                    None,
+                    None,
+                    None,
+                    None,
+                    None,
+                    None,
+                    None,
+                ],
+            },
+        ),
+    },
+    SemPlaceContractRegion {
+        expr_sites: SemExprMap(
+            ArenaMap {
+                data: [
+                    None,
+                    None,
+                    None,
+                    None,
+                    None,
+                    None,
+                    None,
+                    None,
+                    None,
+                    None,
+                    None,
+                    None,
+                    None,
+                ],
+            },
+        ),
+    },
+    SemPlaceContractRegion {
+        expr_sites: SemExprMap(
+            ArenaMap {
+                data: [
+                    None,
+                ],
+            },
+        ),
+    },
+    SemPlaceContractRegion {
         expr_sites: SemExprMap(
             ArenaMap {
                 data: [

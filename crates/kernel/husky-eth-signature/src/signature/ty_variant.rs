@@ -1,12 +1,13 @@
-mod enum_props_ty_variant;
-mod enum_tuple_ty_variant;
-mod enum_unit_ty_variant;
+pub mod enum_props_ty_variant;
+pub mod enum_tuple_ty_variant;
+pub mod enum_unit_ty_variant;
 
-pub use self::enum_props_ty_variant::*;
-pub use self::enum_tuple_ty_variant::*;
-pub use self::enum_unit_ty_variant::*;
-
+use self::enum_props_ty_variant::*;
+use self::enum_tuple_ty_variant::*;
+use self::enum_unit_ty_variant::*;
 use super::*;
+use husky_dec_signature::signature::ty_variant::TypeVariantDecTemplate;
+use husky_entity_path::path::ty_variant::TypeVariantPath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]
@@ -43,7 +44,7 @@ impl HasEthTemplate for TypeVariantPath {
     }
 }
 
-#[salsa::tracked(jar = EtherealSignatureJar)]
+#[salsa::tracked]
 fn ty_variant_eth_template(
     db: &::salsa::Db,
     path: TypeVariantPath,

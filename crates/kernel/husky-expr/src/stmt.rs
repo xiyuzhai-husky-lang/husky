@@ -1,4 +1,4 @@
-use husky_entity_path::PreludeIntTypePath;
+use husky_entity_path::path::major_item::ty::PreludeIntTypePath;
 use husky_opr::BinaryComparisonOpr;
 
 /// loop step

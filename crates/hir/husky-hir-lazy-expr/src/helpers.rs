@@ -1,7 +1,7 @@
 pub mod control_flow;
 
 use crate::{source_map::HirLazyExprSourceMap, *};
-use husky_entity_path::ItemPath;
+use husky_entity_path::path::ItemPath;
 use husky_sem_expr::{SemExprDb, SemExprRegion};
 use husky_syn_defn::item_syn_defn;
 use husky_syn_defn::ItemSynDefn;

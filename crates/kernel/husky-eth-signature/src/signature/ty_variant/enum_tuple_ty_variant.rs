@@ -1,7 +1,9 @@
 use super::*;
+use crate::signature::major_item::ty::{r#enum::EnumEthTemplate, TypeEthTemplate};
+use husky_dec_signature::signature::ty_variant::enum_tuple_ty_variant::EnumTupleVariantDecTemplate;
 use husky_eth_term::term::ritchie::EthRitchie;
 
-#[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
+#[salsa::interned]
 pub struct EnumTupleVariantEthTemplate {
     pub parent_ty_template: EnumEthTemplate,
     pub instance_constructor_ritchie_ty: EthRitchie,

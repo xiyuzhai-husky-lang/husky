@@ -35,6 +35,7 @@ pub enum HirLazyStmtData {
         else_branch: Option<HirLazyElseBranch>,
     },
     Match {},
+    Narrate {},
 }
 
 pub type HirLazyStmtArena = Arena<HirLazyStmtData>;
@@ -106,6 +107,7 @@ impl ToHirLazy for SemStmtIdx {
                     .map(|else_branch| else_branch.to_hir_lazy(builder)),
             },
             SemStmtData::Match { .. } => todo!(),
+            SemStmtData::Narrate { narrate_token } => HirLazyStmtData::Narrate {},
         })
     }
 }

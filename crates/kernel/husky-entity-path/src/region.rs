@@ -1,4 +1,4 @@
-use crate::*;
+use crate::{path::ItemPath, *};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::derive_debug_with_db]

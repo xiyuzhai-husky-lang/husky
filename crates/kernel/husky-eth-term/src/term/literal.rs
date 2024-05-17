@@ -1,4 +1,5 @@
 use super::*;
+use husky_entity_path::path::major_item::ty::PreludeNumTypePath;
 
 impl EthTerm {
     pub(super) fn from_literal_declarative_term(

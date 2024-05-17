@@ -3,7 +3,7 @@ use crate::registry::{
     assoc_trace::IsAssocTraceRegistry,
     trace_path::{TracePathDisambiguator, TracePathRegistry},
 };
-use husky_entity_path::PrincipalEntityPath;
+use husky_entity_path::path::PrincipalEntityPath;
 use husky_hir_lazy_expr::{
     builder::hir_lazy_expr_region_with_source_map, source_map::HirLazyExprSourceMap,
     HirLazyExprRegion,
@@ -208,7 +208,7 @@ struct LazyStmtAssocTraceRegistry<'a> {
     hir_lazy_expr_source_map_data: &'a HirLazyExprSourceMapData,
     lazy_expr_trace_path_registry: TracePathRegistry<LazyExprEssence>,
     lazy_expr_traces_issued: VecPairMap<SemExprIdx, Trace>,
-    lazy_pattern_expr_trace_path_registry: TracePathRegistry<LazyPatternExprEssence>,
+    lazy_pattern_expr_trace_path_registry: TracePathRegistry<LazyPatternEssence>,
     lazy_pattern_expr_traces_issued: VecPairMap<SynPatternIdx, Trace>,
 }
 
@@ -275,18 +275,18 @@ impl<'a> IsAssocTraceRegistry for LazyStmtAssocTraceRegistry<'a> {
                 }
                 PrincipalEntityPath::TypeVariant(_) => None,
             },
-            TokenInfoSource::PatternExpr(syn_pattern_expr_idx) => Some(
+            TokenInfoSource::Pattern(syn_pattern_idx) => Some(
                 self.lazy_pattern_expr_traces_issued
-                    .get_value_copied_or_insert_with(syn_pattern_expr_idx, || {
+                    .get_value_copied_or_insert_with(syn_pattern_idx, || {
                         Trace::new_lazy_pattern_expr(
                             self.biological_parent_path,
                             self.biological_parent,
-                            syn_pattern_expr_idx,
+                            syn_pattern_idx,
                             self.hir_lazy_expr_source_map_data
-                                .syn_to_hir_lazy_pattern_expr_idx(syn_pattern_expr_idx),
+                                .syn_to_hir_lazy_pattern_idx(syn_pattern_idx),
                             self.syn_expr_region_data
                                 .syn_pattern_expr_current_variables_mapped(
-                                    syn_pattern_expr_idx,
+                                    syn_pattern_idx,
                                     |current_variable_idx| {
                                         self.hir_lazy_expr_source_map_data
                                             .current_variable_to_hir_lazy_variable(
@@ -530,6 +530,7 @@ impl Trace {
                     }
                 }
                 SemStmtData::Match { .. } => todo!(),
+                SemStmtData::Narrate { narrate_token } => todo!(),
             }
         }
         subtraces

@@ -1,6 +1,7 @@
 use super::*;
+use husky_entity_path::path::major_item::trai::TraitPath;
 
-#[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
+#[salsa::interned]
 pub struct TraitEthTemplate {
     pub path: TraitPath,
     #[return_ref]
@@ -15,7 +16,7 @@ impl HasEthTemplate for TraitPath {
     }
 }
 
-#[salsa::tracked(jar = EtherealSignatureJar)]
+#[salsa::tracked]
 fn trai_eth_template(
     db: &::salsa::Db,
     trai_path: TraitPath,

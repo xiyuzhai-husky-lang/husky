@@ -1,52 +1,34 @@
 pub(crate) use husky_ast::test_utils::*;
 
 use crate::*;
-use husky_corgi_config::CorgiConfigJar;
-use husky_corgi_config_ast::CorgiConfigAstJar;
-use husky_coword::CowordJar;
-use husky_dec_signature::DecSignatureJar;
-use husky_dec_ty::DeclarativeTypeJar;
-use husky_entity_path::{MajorItemPath, TypePath};
-use husky_entity_tree::{EntityTreeDb, EntityTreeJar};
-use husky_eth_signature::EtherealSignatureJar;
-use husky_eth_term::EthTermJar;
-use husky_manifest::ManifestJar;
-use husky_manifest_ast::ManifestAstJar;
-use husky_print_utils::p;
-use husky_syn_decl::{SynDeclDb, SynDeclJar};
-use husky_syn_expr::jar::SynExprJar;
-use husky_term_prelude::TermPreludeJar;
-use husky_token::TokenJar;
-use husky_toml_ast::TomlAstJar;
-use husky_toml_token::jar::TomlTokenJar;
-use husky_vfs::*;
+use husky_vfs::ModulePath;
 
 #[salsa::db(
-    CowordJar,
-    VfsJar,
+    husky_coword::jar::CowordJar,
+    husky_vfs::jar::VfsJar,
     husky_entity_path::jar::EntityPathJar,
     husky_token_data::jar::TokenDataJar,
     husky_text::jar::TextJar,
-    TokenJar,
+    husky_token::jar::TokenJar,
     husky_ast::jar::AstJar,
-    EntityTreeJar,
+    husky_entity_tree::jar::EntityTreeJar,
     husky_toml_token::jar::TomlTokenJar,
-    TomlAstJar,
-    ManifestAstJar,
-    CorgiConfigJar,
-    CorgiConfigAstJar,
-    ManifestJar,
-    SynExprJar,
-    SynDefnJar,
-    SynDeclJar,
-    TermPreludeJar,
+    husky_toml_ast::jar::TomlAstJar,
+    husky_manifest_ast::jar::ManifestAstJar,
+    husky_corgi_config::jar::CorgiConfigJar,
+    husky_corgi_config_ast::jar::CorgiConfigAstJar,
+    husky_manifest::jar::ManifestJar,
+    husky_syn_expr::jar::SynExprJar,
+    husky_syn_defn::jar::SynDefnJar,
+    husky_syn_decl::jar::SynDeclJar,
+    husky_term_prelude::jar::TermPreludeJar,
     husky_dec_term::jar::DecTermJar,
-    DecSignatureJar,
+    husky_dec_signature::jar::DecSignatureJar,
     husky_dec_ty::jar::DeclarativeTypeJar,
-    EthTermJar,
-    EtherealSignatureJar,
-    FlyTermJar,
-    SemExprJar
+    husky_eth_term::jar::EthTermJar,
+    husky_eth_signature::jar::EthSignatureJar,
+    husky_fly_term::jar::FlyTermJar,
+    Jar
 )]
 #[derive(Default)]
 pub(crate) struct DB;

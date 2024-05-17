@@ -911,7 +911,7 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
+                    src: TokenInfoSource::Pattern(
                         0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
@@ -1191,7 +1191,7 @@ Ok(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 101,
+                                        value: 102,
                                     },
                                 ),
                             ),
@@ -1203,7 +1203,7 @@ Ok(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 101,
+                                        value: 102,
                                     },
                                 ),
                             ),
@@ -1427,7 +1427,7 @@ Ok(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 100,
+                                        value: 101,
                                     },
                                 ),
                             ),
@@ -1439,7 +1439,7 @@ Ok(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 100,
+                                        value: 101,
                                     },
                                 ),
                             ),
@@ -2018,7 +2018,7 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
+                    src: TokenInfoSource::Pattern(
                         0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {
@@ -2298,7 +2298,7 @@ Ok(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 101,
+                                        value: 102,
                                     },
                                 ),
                             ),
@@ -2310,7 +2310,7 @@ Ok(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 101,
+                                        value: 102,
                                     },
                                 ),
                             ),
@@ -2496,7 +2496,7 @@ Ok(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 101,
+                                        value: 102,
                                     },
                                 ),
                             ),
@@ -2508,7 +2508,7 @@ Ok(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 101,
+                                        value: 102,
                                     },
                                 ),
                             ),
@@ -2694,7 +2694,7 @@ Ok(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 100,
+                                        value: 101,
                                     },
                                 ),
                             ),
@@ -2706,7 +2706,7 @@ Ok(
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 100,
+                                        value: 101,
                                     },
                                 ),
                             ),
@@ -2896,7 +2896,7 @@ Ok(
             None,
             Some(
                 TokenInfo {
-                    src: TokenInfoSource::PatternExpr(
+                    src: TokenInfoSource::Pattern(
                         0,
                     ),
                     data: TokenInfoData::CurrentSynSymbol {

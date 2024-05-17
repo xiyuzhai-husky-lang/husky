@@ -167,7 +167,7 @@
                     path: TypeImplBlockPath(
                         ItemPathId(
                             Id {
-                                value: 124,
+                                value: 127,
                             },
                         ),
                     ),
@@ -216,7 +216,7 @@
                                     TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 124,
+                                                value: 127,
                                             },
                                         ),
                                     ),
@@ -385,7 +385,7 @@
                         parenate_parameters: HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 0,
+                                    pattern_idx: 0,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -396,7 +396,7 @@
                                     ),
                                 },
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 1,
+                                    pattern_idx: 1,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -683,7 +683,7 @@
                     path: TypeImplBlockPath(
                         ItemPathId(
                             Id {
-                                value: 126,
+                                value: 129,
                             },
                         ),
                     ),
@@ -732,7 +732,7 @@
                                     TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 126,
+                                                value: 129,
                                             },
                                         ),
                                     ),

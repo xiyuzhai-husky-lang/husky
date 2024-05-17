@@ -3,7 +3,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Val(
-                ValHirDefn {
+                MajorValHirDefn {
                     path: FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
                     hir_decl: MajorValHirDecl {
                         path: FormPath(`mnist_classifier::digits::eight::upper_mouth_match`, `Val`),
@@ -65,7 +65,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Val(
-                ValHirDefn {
+                MajorValHirDefn {
                     path: FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
                     hir_decl: MajorValHirDecl {
                         path: FormPath(`mnist_classifier::digits::eight::is_eight`, `Val`),
@@ -143,7 +143,7 @@
                             HirEagerParenateParameters(
                                 [
                                     HirEagerParenateParameter::Simple {
-                                        pattern_expr_idx: 0,
+                                        pattern_idx: 0,
                                         contract: Pure,
                                         ty: HirType::PathLeading(
                                             HirTypePathLeading {

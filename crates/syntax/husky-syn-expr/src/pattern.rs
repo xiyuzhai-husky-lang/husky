@@ -2,17 +2,16 @@ mod contract;
 mod region;
 mod symbol;
 
-use std::ops::ControlFlow;
-
 pub use self::region::*;
 pub use self::symbol::*;
 
 use super::*;
 use husky_coword::Ident;
 use husky_entity_kind::MajorFormKind;
-use husky_entity_path::{ItemPath, TypePath, TypeVariantPath};
+use husky_entity_path::path::{major_item::ty::TypePath, ty_variant::TypeVariantPath, ItemPath};
 use idx_arena::{map::ArenaMap, ordered_map::ArenaOrderedMap, Arena, ArenaIdx, ArenaIdxRange};
 use parsec::{IsStreamParser, PunctuatedSmallList, TryParseOptionFromStream};
+use std::ops::ControlFlow;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
@@ -155,6 +154,7 @@ where
                                         MajorFormKind::TypeAlias => todo!(),
                                         MajorFormKind::Formal => todo!(),
                                         MajorFormKind::Const => todo!(),
+                                        MajorFormKind::Static => todo!(),
                                     },
                                 },
                                 PrincipalEntityPath::TypeVariant(path) => {
@@ -258,7 +258,7 @@ where
 {
     fn try_parse_option_syn_pattern_expr_root_from_stream_without_guaranteed_rollback(
         self: &mut SynExprParser<'a, C>,
-        root_kind: SynPatternExprRootKind,
+        root_kind: SynPatternRootKind,
     ) -> SynExprResult<Option<SynPatternRoot>> {
         let punctuated_patterns = self.try_parse::<PunctuatedSmallList<
             SynPatternComponent,
@@ -291,17 +291,17 @@ where
 /// # parenate
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct ParenateParameterSynPatternExprRoot {
-    syn_pattern_expr_idx: SynPatternIdx,
+pub struct ParenateParameterSynPatternRoot {
+    syn_pattern_idx: SynPatternIdx,
 }
 
-impl ParenateParameterSynPatternExprRoot {
-    pub fn syn_pattern_expr_idx(&self) -> SynPatternIdx {
-        self.syn_pattern_expr_idx
+impl ParenateParameterSynPatternRoot {
+    pub fn syn_pattern_idx(&self) -> SynPatternIdx {
+        self.syn_pattern_idx
     }
 }
 
-impl<'a, C> TryParseOptionFromStream<SynExprParser<'a, C>> for ParenateParameterSynPatternExprRoot
+impl<'a, C> TryParseOptionFromStream<SynExprParser<'a, C>> for ParenateParameterSynPatternRoot
 where
     C: IsSynExprContext<'a>,
 {
@@ -312,13 +312,13 @@ where
     ) -> Result<Option<Self>, Self::Error> {
         let Some(root) = sp
             .try_parse_option_syn_pattern_expr_root_from_stream_without_guaranteed_rollback(
-                SynPatternExprRootKind::Parenate,
+                SynPatternRootKind::Parenate,
             )?
         else {
             return Ok(None);
         };
-        Ok(Some(ParenateParameterSynPatternExprRoot {
-            syn_pattern_expr_idx: root.syn_pattern_expr_idx(),
+        Ok(Some(ParenateParameterSynPatternRoot {
+            syn_pattern_idx: root.syn_pattern_idx(),
         }))
     }
 }
@@ -326,17 +326,17 @@ where
 /// # closure parameter
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct ClosureSynPatternExprRoot {
-    syn_pattern_expr_idx: SynPatternIdx,
+pub struct ClosureSynPatternRoot {
+    syn_pattern_idx: SynPatternIdx,
 }
 
-impl ClosureSynPatternExprRoot {
-    pub fn syn_pattern_expr_idx(&self) -> SynPatternIdx {
-        self.syn_pattern_expr_idx
+impl ClosureSynPatternRoot {
+    pub fn syn_pattern_idx(&self) -> SynPatternIdx {
+        self.syn_pattern_idx
     }
 }
 
-impl<'a, C> TryParseOptionFromStream<SynExprParser<'a, C>> for ClosureSynPatternExprRoot
+impl<'a, C> TryParseOptionFromStream<SynExprParser<'a, C>> for ClosureSynPatternRoot
 where
     C: IsSynExprContext<'a>,
 {
@@ -347,13 +347,13 @@ where
     ) -> Result<Option<Self>, Self::Error> {
         let Some(root) = sp
             .try_parse_option_syn_pattern_expr_root_from_stream_without_guaranteed_rollback(
-                SynPatternExprRootKind::Closure,
+                SynPatternRootKind::Closure,
             )?
         else {
             return Ok(None);
         };
-        Ok(Some(ClosureSynPatternExprRoot {
-            syn_pattern_expr_idx: root.syn_pattern_expr_idx(),
+        Ok(Some(ClosureSynPatternRoot {
+            syn_pattern_idx: root.syn_pattern_idx(),
         }))
     }
 }
@@ -362,12 +362,12 @@ where
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct LetPatternSynExprRoot {
-    syn_pattern_expr_idx: SynPatternIdx,
+    syn_pattern_idx: SynPatternIdx,
 }
 
 impl LetPatternSynExprRoot {
-    pub fn syn_pattern_expr_idx(&self) -> SynPatternIdx {
-        self.syn_pattern_expr_idx
+    pub fn syn_pattern_idx(&self) -> SynPatternIdx {
+        self.syn_pattern_idx
     }
 }
 
@@ -382,13 +382,13 @@ where
     ) -> Result<Option<Self>, Self::Error> {
         let Some(root) = sp
             .try_parse_option_syn_pattern_expr_root_from_stream_without_guaranteed_rollback(
-                SynPatternExprRootKind::Let,
+                SynPatternRootKind::Let,
             )?
         else {
             return Ok(None);
         };
         Ok(Some(LetPatternSynExprRoot {
-            syn_pattern_expr_idx: root.syn_pattern_expr_idx(),
+            syn_pattern_idx: root.syn_pattern_idx(),
         }))
     }
 }
@@ -396,17 +396,17 @@ where
 // case
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct CaseSynPatternExprRoot {
-    syn_pattern_expr_idx: SynPatternIdx,
+pub struct CaseSynPatternRoot {
+    syn_pattern_idx: SynPatternIdx,
 }
 
-impl CaseSynPatternExprRoot {
-    pub fn syn_pattern_expr_idx(&self) -> SynPatternIdx {
-        self.syn_pattern_expr_idx
+impl CaseSynPatternRoot {
+    pub fn syn_pattern_idx(&self) -> SynPatternIdx {
+        self.syn_pattern_idx
     }
 }
 
-impl<'a, C> TryParseOptionFromStream<SynExprParser<'a, C>> for CaseSynPatternExprRoot
+impl<'a, C> TryParseOptionFromStream<SynExprParser<'a, C>> for CaseSynPatternRoot
 where
     C: IsSynExprContext<'a>,
 {
@@ -417,13 +417,13 @@ where
     ) -> Result<Option<Self>, Self::Error> {
         let Some(root) = sp
             .try_parse_option_syn_pattern_expr_root_from_stream_without_guaranteed_rollback(
-                SynPatternExprRootKind::Case,
+                SynPatternRootKind::Case,
             )?
         else {
             return Ok(None);
         };
-        Ok(Some(CaseSynPatternExprRoot {
-            syn_pattern_expr_idx: root.syn_pattern_expr_idx(),
+        Ok(Some(CaseSynPatternRoot {
+            syn_pattern_idx: root.syn_pattern_idx(),
         }))
     }
 }
@@ -431,17 +431,17 @@ where
 // be
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct BeSynPatternExprRoot {
-    syn_pattern_expr_idx: SynPatternIdx,
+pub struct BeSynPatternRoot {
+    syn_pattern_idx: SynPatternIdx,
 }
 
-impl BeSynPatternExprRoot {
-    pub fn syn_pattern_expr_idx(&self) -> SynPatternIdx {
-        self.syn_pattern_expr_idx
+impl BeSynPatternRoot {
+    pub fn syn_pattern_idx(&self) -> SynPatternIdx {
+        self.syn_pattern_idx
     }
 }
 
-impl<'a, C> TryParseOptionFromStream<SynExprParser<'a, C>> for BeSynPatternExprRoot
+impl<'a, C> TryParseOptionFromStream<SynExprParser<'a, C>> for BeSynPatternRoot
 where
     C: IsSynExprContext<'a>,
 {
@@ -452,13 +452,13 @@ where
     ) -> Result<Option<Self>, Self::Error> {
         let Some(root) = sp
             .try_parse_option_syn_pattern_expr_root_from_stream_without_guaranteed_rollback(
-                SynPatternExprRootKind::Be,
+                SynPatternRootKind::Be,
             )?
         else {
             return Ok(None);
         };
-        Ok(Some(BeSynPatternExprRoot {
-            syn_pattern_expr_idx: root.syn_pattern_expr_idx(),
+        Ok(Some(BeSynPatternRoot {
+            syn_pattern_idx: root.syn_pattern_idx(),
         }))
     }
 }

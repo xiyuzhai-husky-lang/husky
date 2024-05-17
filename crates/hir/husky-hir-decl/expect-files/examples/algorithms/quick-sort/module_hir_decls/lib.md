@@ -36,7 +36,7 @@
                         HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 0,
+                                    pattern_idx: 0,
                                     contract: BorrowMut,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -115,7 +115,7 @@
                         HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 0,
+                                    pattern_idx: 0,
                                     contract: BorrowMut,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -138,7 +138,7 @@
                                     ),
                                 },
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 1,
+                                    pattern_idx: 1,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -149,7 +149,7 @@
                                     ),
                                 },
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 2,
+                                    pattern_idx: 2,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -216,7 +216,7 @@
                         HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 0,
+                                    pattern_idx: 0,
                                     contract: BorrowMut,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -239,7 +239,7 @@
                                     ),
                                 },
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 1,
+                                    pattern_idx: 1,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -250,7 +250,7 @@
                                     ),
                                 },
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 2,
+                                    pattern_idx: 2,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -321,7 +321,7 @@
                 path: AttrItemPath(
                     ItemPathId(
                         Id {
-                            value: 138,
+                            value: 141,
                         },
                     ),
                 ),
@@ -368,7 +368,7 @@
                 path: AttrItemPath(
                     ItemPathId(
                         Id {
-                            value: 139,
+                            value: 142,
                         },
                     ),
                 ),

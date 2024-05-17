@@ -30,8 +30,9 @@ pub use self::syndicates::*;
 pub use self::variable::*;
 
 use self::entity_path::*;
+use self::jar::SynExprJar as Jar;
 use husky_coword::*;
-use husky_entity_path::{EntityPath, MajorItemPath, PrincipalEntityPath};
+use husky_entity_path::path::{major_item::MajorItemPath, EntityPath, PrincipalEntityPath};
 use husky_entity_tree::*;
 use husky_regional_token::*;
 use husky_syn_opr::*;
