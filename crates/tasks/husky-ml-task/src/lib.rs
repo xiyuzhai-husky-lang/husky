@@ -13,7 +13,7 @@ use husky_task::{
 use husky_task_interface::{
     ki_control_flow::KiControlFlow,
     ki_repr::{KiDomainReprInterface, KiReprInterface},
-    IsDevRuntime,
+    IsDevRuntime, IsDevRuntimeDyn,
 };
 use husky_trace_protocol::{
     figure::IsFigure, id::TraceId, protocol::IsTraceProtocol, server::ValVisualCache,
@@ -73,11 +73,11 @@ where
         &DEV_EVAL_CONTEXT
     }
 
-    fn calc_figure<DevRuntime: IsDevRuntime<Self::LinkageImpl>>(
+    fn calc_figure(
         followed: Option<(TraceId, KiReprInterface, KiDomainReprInterface)>,
         accompanyings: &[(TraceId, KiReprInterface)],
         pedestal: Self::Pedestal,
-        runtime: &DevRuntime,
+        runtime: &dyn IsDevRuntimeDyn<Self::LinkageImpl>,
         visual_synchrotron: &mut VisualSynchrotron,
         val_visual_cache: &mut ValVisualCache<Self::Pedestal>,
     ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure {
@@ -111,7 +111,7 @@ where
                         let Some(ki_domain_repr_interface) = domain else {
                             return Some(pedestal)
                         };
-                        match runtime.eval_ki_domain_repr_interface_at_pedestal(
+                        match runtime.eval_ki_domain_repr_interface_dyn(
                             ki_domain_repr_interface,
                             pedestal
                         ) {
