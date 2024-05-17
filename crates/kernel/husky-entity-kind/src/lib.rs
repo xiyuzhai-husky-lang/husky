@@ -199,7 +199,6 @@ impl TraitItemKind {
     pub const ASSOC_FORMAL: Self = TraitItemKind::AssocFormal;
 
     // # method ritchie
-
     pub const METHOD_FN: Self = TraitItemKind::MethodRitchie(RitchieItemKind::Fn);
     pub const METHOD_GN: Self = TraitItemKind::MethodRitchie(RitchieItemKind::Gn);
     pub const METHOD_VN: Self = TraitItemKind::MethodRitchie(RitchieItemKind::Vn);
