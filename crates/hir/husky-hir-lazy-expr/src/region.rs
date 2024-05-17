@@ -8,7 +8,7 @@ pub struct HirLazyExprRegion {
     #[return_ref]
     pub hir_lazy_stmt_arena: HirLazyStmtArena,
     #[return_ref]
-    pub hir_lazy_pattern_expr_arena: HirLazyPatternExprArena,
+    pub hir_lazy_pattern_expr_arena: HirLazyPatternArena,
     #[return_ref]
     pub hir_lazy_variable_region: HirLazyVariableRegion,
 }
@@ -28,7 +28,7 @@ impl HirLazyExprRegion {
 pub struct HirLazyExprRegionData<'a> {
     hir_lazy_expr_arena: HirLazyExprArenaRef<'a>,
     hir_lazy_stmt_arena: HirLazyStmtArenaRef<'a>,
-    hir_lazy_pattern_expr_arena: HirLazyPatternExprArenaRef<'a>,
+    hir_lazy_pattern_expr_arena: HirLazyPatternArenaRef<'a>,
     hir_lazy_variable_region: &'a HirLazyVariableRegion,
 }
 
@@ -44,7 +44,7 @@ impl<'a> HirLazyExprRegionData<'a> {
     }
 
     #[inline(always)]
-    pub fn hir_lazy_pattern_expr_arena(self) -> HirLazyPatternExprArenaRef<'a> {
+    pub fn hir_lazy_pattern_expr_arena(self) -> HirLazyPatternArenaRef<'a> {
         self.hir_lazy_pattern_expr_arena
     }
 

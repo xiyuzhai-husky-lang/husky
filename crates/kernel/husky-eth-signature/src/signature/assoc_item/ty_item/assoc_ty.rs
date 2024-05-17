@@ -1,6 +1,7 @@
 use super::*;
+use husky_entity_path::path::assoc_item::trai_for_ty_item::TraitForTypeItemPath;
 
-#[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
+#[salsa::interned]
 pub struct TypeAssocTypeEthTemplate {
     pub path: TraitForTypeItemPath,
     #[return_ref]

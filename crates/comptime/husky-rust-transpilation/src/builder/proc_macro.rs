@@ -1,5 +1,5 @@
 use super::*;
-use husky_entity_path::ItemPath;
+use husky_entity_path::path::ItemPath;
 use husky_entity_tree::helpers::ingredient::HasIngredientIndex;
 
 impl<'a, 'b> RustTranspilationBuilder<'a, 'b> {

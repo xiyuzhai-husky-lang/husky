@@ -3,14 +3,14 @@ mod assoc_ty;
 mod assoc_val;
 mod method_ritchie;
 
-use husky_syn_decl::decl::TraitForTypeItemSynDecl;
-
 pub use self::assoc_ritchie::*;
 pub use self::assoc_ty::*;
 pub use self::assoc_val::*;
 pub use self::method_ritchie::*;
 
 use super::*;
+use husky_entity_path::path::assoc_item::trai_for_ty_item::TraitForTypeItemPath;
+use husky_syn_decl::decl::TraitForTypeItemSynDecl;
 
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]

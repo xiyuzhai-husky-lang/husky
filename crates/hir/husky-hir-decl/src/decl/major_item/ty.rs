@@ -13,7 +13,8 @@ pub use self::tuple_struct::*;
 pub use self::unit_struct::*;
 
 use super::*;
-use husky_entity_path::TypePath;
+use husky_entity_path::path::major_item::ty::TypePath;
+use husky_eth_signature::signature::major_item::ty::props_struct::PropsStructFieldEtherealSignature;
 use husky_syn_decl::decl::TypeSynDecl;
 
 #[salsa::derive_debug_with_db]

@@ -1,6 +1,7 @@
-use crate::*;
+use super::*;
+use husky_entity_path::path::major_item::trai::TraitPath;
 
-#[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
+#[salsa::interned]
 pub struct TraitDecTemplate {
     #[return_ref]
     pub template_parameters: DecTemplateParameters,
@@ -33,7 +34,7 @@ impl HasDecTemplate for TraitPath {
     }
 }
 
-#[salsa::tracked(jar = DecSignatureJar)]
+#[salsa::tracked]
 pub fn trai_syn_dec_template(
     db: &::salsa::Db,
     path: TraitPath,

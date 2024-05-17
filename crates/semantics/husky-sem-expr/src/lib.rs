@@ -25,6 +25,7 @@ pub use self::obelisks::*;
 pub use self::region::*;
 pub use self::stmt::*;
 
+use self::jar::SemExprJar as Jar;
 use either::*;
 use husky_dec_signature::*;
 use husky_entity_kind::*;
@@ -37,6 +38,5 @@ use husky_syn_expr::*;
 use husky_term_prelude::*;
 use salsa::DebugWithDb;
 use smallvec::*;
-
 #[cfg(test)]
 use tests::*;

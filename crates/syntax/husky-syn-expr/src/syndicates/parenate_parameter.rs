@@ -6,7 +6,7 @@ use husky_token_data::delimiter::Delimiter;
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub enum ParenateParameterSyndicate {
     Simple {
-        syn_pattern_root: ParenateParameterSynPatternExprRoot,
+        syn_pattern_root: ParenateParameterSynPatternRoot,
         variables: CurrentSynSymbolIdxRange,
         colon: ColonRegionalToken,
         ty: SynExprIdx,
@@ -21,7 +21,7 @@ pub enum ParenateParameterSyndicate {
         ty: SynExprIdx,
     },
     Keyed {
-        syn_pattern_root: ParenateParameterSynPatternExprRoot,
+        syn_pattern_root: ParenateParameterSynPatternRoot,
         symbol_modifier_keyword_group: Option<EphemSymbolModifierRegionalTokens>,
         ident_token: IdentRegionalToken,
         variable: CurrentVariableIdx,
@@ -49,12 +49,10 @@ impl<'a> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateParameterSy
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut SynDeclExprParser<'a>,
     ) -> SynExprResult<Option<Self>> {
-        if let Some(syn_pattern_root) =
-            ctx.try_parse_option::<ParenateParameterSynPatternExprRoot>()?
-        {
+        if let Some(syn_pattern_root) = ctx.try_parse_option::<ParenateParameterSynPatternRoot>()? {
             let symbols = ctx
                 .pattern_expr_region()
-                .pattern_expr_symbols(syn_pattern_root.syn_pattern_expr_idx());
+                .pattern_expr_symbols(syn_pattern_root.syn_pattern_idx());
             let access_start = ctx.state().next_regional_token_idx();
             let variables = symbols
                 .iter()
@@ -89,7 +87,7 @@ impl<'a> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateParameterSy
                 let SynPatternData::Ident {
                     symbol_modifier_tokens: symbol_modifier_keyword_group,
                     ident_token,
-                } = ctx.pattern_expr_region()[syn_pattern_root.syn_pattern_expr_idx()]
+                } = ctx.pattern_expr_region()[syn_pattern_root.syn_pattern_idx()]
                 else {
                     todo!()
                 };

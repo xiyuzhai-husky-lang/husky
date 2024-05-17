@@ -1,7 +1,7 @@
 // use super::*;
 // use vec_like::VecSet;
 
-// #[salsa::tracked(db = EthTermDb, jar = EthTermJar)]
+// #[salsa::tracked]
 // pub struct EthTermSymbols {
 //     #[return_ref]
 //     pub(crate) data: VecSet<SymbolEthTerm>,
@@ -53,14 +53,14 @@
 //     }
 // }
 
-// #[salsa::tracked(jar = EthTermJar)]
+// #[salsa::tracked]
 // pub(crate) fn term_curry_symbols(db: &::salsa::Db, term: CurryEthTerm) -> Option<EthTermSymbols> {
 //     let parameter_ty_symbols = term.parameter_ty(db).symbols(db);
 //     let return_ty_symbols = term.return_ty(db).symbols(db);
 //     EthTermSymbols::merge(parameter_ty_symbols, return_ty_symbols)
 // }
 
-// #[salsa::tracked(jar = EthTermJar)]
+// #[salsa::tracked]
 // pub(crate) fn term_ritchie_symbols(
 //     db: &::salsa::Db,
 //     term: RitchieEthTerm,
@@ -72,7 +72,7 @@
 //     EthTermSymbols::merge(symbols, term.return_ty(db).symbols(db))
 // }
 
-// #[salsa::tracked(jar = EthTermJar)]
+// #[salsa::tracked]
 // pub(crate) fn term_application_symbols(
 //     db: &::salsa::Db,
 //     term: ApplicationEthTerm,

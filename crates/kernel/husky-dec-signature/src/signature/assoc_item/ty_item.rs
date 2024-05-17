@@ -1,18 +1,19 @@
-mod assoc_ritchie;
-mod assoc_ty;
-mod assoc_val;
-mod memo_field;
-mod method_curry;
-mod method_ritchie;
+pub mod assoc_ritchie;
+pub mod assoc_ty;
+pub mod assoc_val;
+pub mod memo_field;
+pub mod method_curry;
+pub mod method_ritchie;
 
-pub use self::assoc_ritchie::*;
-pub use self::assoc_ty::*;
-pub use self::assoc_val::*;
-pub use self::memo_field::*;
-pub use self::method_curry::*;
-pub use self::method_ritchie::*;
-
-use crate::*;
+use self::assoc_ritchie::*;
+use self::assoc_ty::*;
+use self::assoc_val::*;
+use self::memo_field::*;
+use self::method_curry::*;
+use self::method_ritchie::*;
+use super::*;
+use crate::signature::impl_block::ty_impl_block::TypeImplBlockDecTemplate;
+use husky_entity_path::path::assoc_item::ty_item::TypeItemPath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]
@@ -56,7 +57,7 @@ impl HasDecTemplate for TypeItemPath {
     }
 }
 
-#[salsa::tracked(jar = DecSignatureJar)]
+#[salsa::tracked]
 pub(crate) fn ty_item_syn_dec_template(
     db: &::salsa::Db,
     path: TypeItemPath,

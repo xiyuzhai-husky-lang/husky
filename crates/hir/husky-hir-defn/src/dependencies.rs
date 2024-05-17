@@ -1,4 +1,5 @@
 use crate::*;
+use husky_entity_path::path::{ItemPath, PrincipalEntityPath};
 #[cfg(test)]
 use husky_entity_tree::helpers::paths::module_item_paths;
 use husky_hir_ty::{
@@ -10,7 +11,7 @@ use husky_hir_ty::{
 };
 use vec_like::VecSet;
 
-#[salsa::tracked(db = HirDefnDb, jar = HirDefnJar, constructor = new)]
+#[salsa::tracked(constructor = new)]
 pub(crate) struct HirDefnDependencies {
     #[return_ref]
     pub(crate) item_paths_in_current_crate: VecSet<ItemPath>,

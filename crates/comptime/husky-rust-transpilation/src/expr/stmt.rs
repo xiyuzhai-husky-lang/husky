@@ -344,7 +344,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for &HirEagerCondition {
 
 impl TranspileToRustWith<HirEagerExprRegion> for HirEagerLetVariablesPattern {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
-        self.pattern_expr_idx().transpile_to_rust(builder);
+        self.pattern_idx().transpile_to_rust(builder);
         if let Some(ty) = self.ty() {
             builder.punctuation(RustPunctuation::Colon);
             ty.transpile_to_rust(builder)

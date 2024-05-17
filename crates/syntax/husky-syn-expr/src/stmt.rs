@@ -84,6 +84,9 @@ pub enum SynStmtData {
         eol_with_token: SynExprResult<EolWithRegionalToken>,
         case_branches: Vec<SynCaseBranch>,
     },
+    Narrate {
+        narrate_token: NarrateRegionalToken,
+    },
 }
 
 pub type SynStmtArena = Arena<SynStmtData>;
@@ -252,6 +255,9 @@ impl<'a> SynExprContext<'a> {
                         Ok(None) => todo!(),
                         Err(_) => todo!(),
                     }
+                }
+                BasicStmtKeywordRegionalToken::Narrate(narrate_token) => {
+                    SynStmtData::Narrate { narrate_token }
                 }
             },
             Ok(None) => match parser.parse_expr_root(None, SynExprRootKind::EvalExpr) {

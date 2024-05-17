@@ -1,9 +1,13 @@
 use super::*;
 use husky_coword::coword_menu;
+use husky_entity_path::{
+    menu::item_path_menu,
+    path::major_item::ty::{PreludeIndirectionTypePath, TypePath},
+};
 use husky_eth_signature::{
-    helpers::trai_for_ty::*, EthTraitForTypeImplBlockSignatureBuilder, EtherealSignatureError,
-    EtherealSignatureMaybeResult, EtherealSignatureResult, TraitForTypeAssocTypeEtherealSignature,
-    TraitForTypeImplBlockEthTemplate, TraitForTypeImplBlockEtherealSignature,
+    error::{EtherealSignatureError, EtherealSignatureMaybeResult, EtherealSignatureResult},
+    helpers::trai_for_ty::*,
+    signature::impl_block::trai_for_ty_impl_block::EthTraitForTypeImplBlockSignatureBuilder,
 };
 use husky_eth_term::term::{
     application::{EthApplication, TermFunctionReduced},

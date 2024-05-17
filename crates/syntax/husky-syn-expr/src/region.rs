@@ -2,7 +2,7 @@ use crate::*;
 use husky_vfs::Toolchain;
 use vec_like::VecPairMap;
 
-#[salsa::tracked(db = SynExprDb, jar = SynExprJar)]
+#[salsa::tracked]
 pub struct SynExprRegion {
     #[return_ref]
     pub data: SynExprRegionData,
@@ -16,7 +16,7 @@ pub struct SynExprRegionData {
     expr_arena: SynExprArena,
     principal_item_path_expr_arena: SynPrincipalEntityPathExprArena,
     stmt_arena: SynStmtArena,
-    pattern_expr_region: SynPatternExprRegion,
+    pattern_expr_region: SynPatternRegion,
     variable_region: VariableRegionData,
     pattern_roots: Vec<SynPatternRoot>,
     expr_roots: Vec<SynExprRoot>,
@@ -32,7 +32,7 @@ impl SynExprRegionData {
         expr_arena: SynExprArena,
         principal_item_path_expr_arena: SynPrincipalEntityPathExprArena,
         stmt_arena: SynStmtArena,
-        pattern_expr_region: SynPatternExprRegion,
+        pattern_expr_region: SynPatternRegion,
         variable_region: VariableRegionData,
         pattern_roots: Vec<SynPatternRoot>,
         expr_roots: Vec<SynExprRoot>,
@@ -110,7 +110,7 @@ impl SynExprRegionData {
         &self.stmt_arena
     }
 
-    pub fn pattern_expr_region(&self) -> &SynPatternExprRegion {
+    pub fn pattern_expr_region(&self) -> &SynPatternRegion {
         &self.pattern_expr_region
     }
 
@@ -150,13 +150,13 @@ impl SynExprRegionData {
 
     pub fn syn_pattern_expr_current_variables_mapped<R>(
         &self,
-        syn_pattern_expr_idx: SynPatternIdx,
+        syn_pattern_idx: SynPatternIdx,
         f: impl Fn(CurrentVariableIdx) -> R,
     ) -> IdentPairMap<R> {
         unsafe {
             IdentPairMap::from_iter_assuming_no_repetitions_unchecked(
                 self.pattern_expr_region()
-                    .pattern_expr_symbols(syn_pattern_expr_idx)
+                    .pattern_expr_symbols(syn_pattern_idx)
                     .iter()
                     .map(|&(ident, syn_pattern_variable_idx)| {
                         let current_variable_idx =

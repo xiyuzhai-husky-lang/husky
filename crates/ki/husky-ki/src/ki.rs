@@ -1,6 +1,5 @@
 use crate::*;
-
-use husky_entity_path::{MajorFormPath, TypeVariantPath};
+use husky_entity_path::path::{major_item::form::MajorFormPath, ty_variant::TypeVariantPath};
 use husky_hir_opr::{binary::HirBinaryOpr, prefix::HirPrefixOpr, suffix::HirSuffixOpr};
 use husky_linkage::linkage::Linkage;
 use husky_term_prelude::literal::Literal;

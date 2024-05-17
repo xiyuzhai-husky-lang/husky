@@ -34,7 +34,7 @@ impl DeclarativeParenateParameters {
                             ty,
                         } => DeclarativeRitchieSimpleParameter::new(
                             syn_expr_region_data
-                                .pattern_contract(syn_pattern_root.syn_pattern_expr_idx()),
+                                .pattern_contract(syn_pattern_root.syn_pattern_idx()),
                             signature_region.expr_term(*ty).map_err(|_| {
                                 DecSignatureError::ParameterTypeDecTermError(i.try_into().unwrap())
                             })?,

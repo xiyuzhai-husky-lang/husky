@@ -1,5 +1,5 @@
 use crate::{
-    ClosureSynPatternExprRoot, CurrentSynSymbolIdxRange, CurrentVariableData, CurrentVariableEntry,
+    ClosureSynPatternRoot, CurrentSynSymbolIdxRange, CurrentVariableData, CurrentVariableEntry,
     ExprEnvironment, IsSynExprContext, OriginalSynExprError, SynExprError, SynExprIdx,
     SynExprParser, SynExprResult, SynExprRootKind, SyndicateTypeConstraint,
 };
@@ -10,7 +10,7 @@ use parsec::TryParseOptionFromStream;
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum ClosureParameterSyndicate {
     Simple {
-        syn_pattern_root: ClosureSynPatternExprRoot,
+        syn_pattern_root: ClosureSynPatternRoot,
         variables: CurrentSynSymbolIdxRange,
         ty: Option<(ColonRegionalToken, SynExprIdx)>,
     },
@@ -27,10 +27,10 @@ where
     ) -> SynExprResult<Option<Self>> {
         use parsec::{HasStreamState, IsStreamParser};
 
-        if let Some(syn_pattern_root) = ctx.try_parse_option::<ClosureSynPatternExprRoot>()? {
+        if let Some(syn_pattern_root) = ctx.try_parse_option::<ClosureSynPatternRoot>()? {
             let symbols = ctx
                 .pattern_expr_region()
-                .pattern_expr_symbols(syn_pattern_root.syn_pattern_expr_idx());
+                .pattern_expr_symbols(syn_pattern_root.syn_pattern_idx());
             let access_start = ctx.state().next_regional_token_idx();
             let variables = symbols
                 .iter()

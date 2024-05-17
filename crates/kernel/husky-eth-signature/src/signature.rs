@@ -1,17 +1,18 @@
-mod assoc_item;
-mod attr;
-mod impl_block;
-mod major_item;
-mod ty_variant;
+pub mod assoc_item;
+pub mod attr;
+pub mod impl_block;
+pub mod major_item;
+pub mod ty_variant;
 
-pub use self::assoc_item::*;
-pub use self::attr::*;
-pub use self::impl_block::*;
-pub use self::major_item::*;
-pub use self::ty_variant::*;
-
+use self::assoc_item::*;
+use self::attr::*;
+use self::impl_block::*;
+use self::major_item::*;
+use self::ty_variant::*;
+use crate::parameter::EtherealParenateParameters;
 use crate::*;
-use husky_dec_signature::*;
+use husky_dec_signature::signature::HasDecTemplate;
+use husky_entity_path::path::ItemPath;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]

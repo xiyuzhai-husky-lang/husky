@@ -37,7 +37,7 @@ impl<'a> SemExprBuilder<'a> {
                 .as_ref()
                 .expect("must be okay")
                 .syn_pattern_root()
-                .syn_pattern_expr_idx(),
+                .syn_pattern_idx(),
         );
         let ((initial_value_sem_expr_idx, pattern_ty), coercion_outcome) =
             match annotated_pattern_ty {

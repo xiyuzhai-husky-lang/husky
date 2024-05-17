@@ -1,6 +1,18 @@
 use super::*;
+use crate::signature::{
+    attr::derive::HasDeriveAttrShardEthTemplates,
+    impl_block::trai_for_ty_impl_block::{
+        EthTraitForTypeImplBlockSignatureBuilder, TraitForTypeImplBlockEthTemplate,
+        TraitForTypeImplBlockSignatureTemplates,
+    },
+    HasEthTemplate,
+};
 use either::*;
 use husky_entity_kind::ritchie::RitchieItemKind;
+use husky_entity_path::path::major_item::{
+    trai::{PreludeTraitPath, TraitPath},
+    ty::TypePath,
+};
 use husky_entity_tree::{
     helpers::trai_side_derive_any_trai_for_ty_impl_block_paths_map,
     helpers::trai_side_path_leading_trai_for_ty_impl_block_paths_map,
@@ -93,6 +105,8 @@ pub fn trai_path_for_ty_term_impl_block_ethereal_signature_builder_exists<'a>(
                     RitchieItemKind::Vn => todo!(),
                     RitchieItemKind::Pn => todo!(),
                     RitchieItemKind::Qn => todo!(),
+                    RitchieItemKind::Bn => todo!(),
+                    RitchieItemKind::Sn => todo!(),
                     RitchieItemKind::Tn => todo!(),
                 },
                 RitchieTypeKind::Closure(_) => todo!(),
@@ -132,7 +146,7 @@ pub fn is_ty_term_always_copyable(
 
 // trait side
 
-#[salsa::tracked(jar = EtherealSignatureJar, return_ref)]
+#[salsa::tracked(return_ref)]
 fn trai_side_derive_any_eth_templates(
     db: &::salsa::Db,
     trai_path: TraitPath,
@@ -157,7 +171,7 @@ fn trai_side_path_leading_eth_templates(
     }
 }
 
-#[salsa::tracked(jar = EtherealSignatureJar, return_ref)]
+#[salsa::tracked(return_ref)]
 fn trai_side_path_leading_trai_for_ty_impl_block_eth_templates_map(
     db: &::salsa::Db,
     trai_path: TraitPath,
@@ -186,7 +200,7 @@ pub fn ty_side_trai_for_ty_impl_block_signature_templates(
     }
 }
 
-#[salsa::tracked(jar = EtherealSignatureJar, return_ref)]
+#[salsa::tracked(return_ref)]
 fn ty_side_impl_block_signature_templates_map(
     db: &::salsa::Db,
     ty_path: TypePath,

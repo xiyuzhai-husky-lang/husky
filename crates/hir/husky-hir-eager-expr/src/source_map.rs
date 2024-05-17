@@ -14,7 +14,7 @@ pub struct HirEagerExprSourceMap {
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
 pub struct HirEagerExprSourceMapData {
-    syn_to_hir_eager_pattern_expr_idx_map: SynPatternMap<HirEagerPatternIdx>,
+    syn_to_hir_eager_pattern_idx_map: SynPatternMap<HirEagerPatternIdx>,
     sem_to_hir_eager_expr_idx_map: SemExprMap<HirEagerExprIdx>,
     sem_to_hir_eager_stmt_idx_map: SemStmtMap<HirEagerStmtIdx>,
     syn_symbol_to_hir_eager_runtime_symbol_map: VariableMap<HirEagerRvarIdx>,
@@ -23,7 +23,7 @@ pub struct HirEagerExprSourceMapData {
 impl HirEagerExprSourceMap {
     pub fn new(
         db: &::salsa::Db,
-        syn_to_hir_eager_pattern_expr_idx_map: SynPatternMap<HirEagerPatternIdx>,
+        syn_to_hir_eager_pattern_idx_map: SynPatternMap<HirEagerPatternIdx>,
         sem_to_hir_eager_expr_idx_map: SemExprMap<HirEagerExprIdx>,
         sem_to_hir_eager_stmt_idx_map: SemStmtMap<HirEagerStmtIdx>,
         syn_symbol_to_hir_eager_runtime_symbol_map: VariableMap<HirEagerRvarIdx>,
@@ -31,7 +31,7 @@ impl HirEagerExprSourceMap {
         Self::new_inner(
             db,
             HirEagerExprSourceMapData {
-                syn_to_hir_eager_pattern_expr_idx_map,
+                syn_to_hir_eager_pattern_idx_map,
                 sem_to_hir_eager_expr_idx_map,
                 sem_to_hir_eager_stmt_idx_map,
                 syn_symbol_to_hir_eager_runtime_symbol_map,
@@ -45,7 +45,7 @@ impl HirEagerExprSourceMapData {
         &self,
         syn_pattern_root: impl Into<SynPatternRoot>,
     ) -> HirEagerPatternIdx {
-        self.syn_to_hir_eager_pattern_expr_idx_map[syn_pattern_root.into().syn_pattern_expr_idx()]
+        self.syn_to_hir_eager_pattern_idx_map[syn_pattern_root.into().syn_pattern_idx()]
     }
 
     pub fn sem_to_hir_eager_expr_idx(&self, sem_expr_idx: SemExprIdx) -> Option<HirEagerExprIdx> {

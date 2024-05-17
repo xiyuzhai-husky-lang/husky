@@ -1,5 +1,5 @@
 [package]
-name = "husky-sem-pattern-analysis"
+name = "husky-pattern-analysis"
 version.workspace = true
 rust-version.workspace = true
 authors.workspace = true

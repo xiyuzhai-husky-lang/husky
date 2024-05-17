@@ -31,7 +31,7 @@ impl Punctuation {
             PunctuationMapped::ColonColonLa => Convexity::Concave,
             PunctuationMapped::RaOrGt => Convexity::Any,
             PunctuationMapped::Shr => Convexity::Concave,
-            PunctuationMapped::DeriveAssign => Convexity::Concave,
+            PunctuationMapped::ColonEq => Convexity::Concave,
             PunctuationMapped::Minus => Convexity::Concave,
             PunctuationMapped::VertVert => Convexity::Concave,
             PunctuationMapped::Tilde => Convexity::Concave,
@@ -182,7 +182,9 @@ impl Punctuation {
     /// `∃`
     pub const EXISTS: Self = Self(PunctuationMapped::Exists);
     /// `:=`
-    pub const COLON_EQ: Self = Self(PunctuationMapped::DeriveAssign);
+    pub const COLON_EQ: Self = Self(PunctuationMapped::ColonEq);
+    /// `:=`
+    pub const COLON_HYPHEN: Self = Self(PunctuationMapped::ColonHyphen);
     /// `,`
     pub const COMMA: Self = Self(PunctuationMapped::Comma);
     /// `@=`
@@ -231,7 +233,8 @@ pub enum PunctuationMapped {
     RaOrGt,
     /// `>>` shift right
     Shr,
-    DeriveAssign,      // :=
+    ColonEq,           // :=
+    ColonHyphen,       // :-
     Minus,             // -
     VertVert,          // ||
     Dot,               // `.`
@@ -276,7 +279,8 @@ impl PunctuationMapped {
             PunctuationMapped::ColonColonLa => "::<",
             PunctuationMapped::RaOrGt => ">",
             PunctuationMapped::Shr => ">>",
-            PunctuationMapped::DeriveAssign => ":=",
+            PunctuationMapped::ColonEq => ":=",
+            PunctuationMapped::ColonHyphen => ":-",
             PunctuationMapped::Minus => "-",
             PunctuationMapped::VertVert => "||",
             PunctuationMapped::Tilde => "~",

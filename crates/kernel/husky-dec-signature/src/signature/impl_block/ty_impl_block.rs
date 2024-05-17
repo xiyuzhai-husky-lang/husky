@@ -1,7 +1,7 @@
 use super::*;
-use husky_entity_path::ty_impl_block::TypeImplBlockPath;
+use husky_entity_path::path::impl_block::ty_impl_block::TypeImplBlockPath;
 
-#[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
+#[salsa::interned]
 pub struct TypeImplBlockDecTemplate {
     #[return_ref]
     pub template_parameters: DecTemplateParameters,
@@ -16,7 +16,7 @@ impl HasDecTemplate for TypeImplBlockPath {
     }
 }
 
-#[salsa::tracked(jar = DecSignatureJar)]
+#[salsa::tracked]
 pub(crate) fn ty_impl_block_syn_dec_template(
     db: &::salsa::Db,
     path: TypeImplBlockPath,

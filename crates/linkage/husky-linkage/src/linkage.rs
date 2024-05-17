@@ -9,11 +9,16 @@ use crate::{
 use either::*;
 use husky_coword::Ident;
 use husky_entity_kind::{MajorFormKind, TraitItemKind, TypeItemKind, TypeKind};
-use husky_entity_path::{AssocItemPath, MajorFormPath, PreludeTraitPath, TypeVariantPath};
-use husky_entity_path::{TraitForTypeItemPath, TypePath};
-use husky_hir_decl::decl::{HasHirDecl, TypeHirDecl};
-use husky_hir_decl::helpers::enum_ty_has_only_unit_variants;
-use husky_hir_defn::{HasHirDefn, MajorFormHirDefn};
+use husky_entity_path::path::{
+    assoc_item::{trai_for_ty_item::TraitForTypeItemPath, AssocItemPath},
+    major_item::{form::MajorFormPath, trai::PreludeTraitPath, ty::TypePath},
+    ty_variant::TypeVariantPath,
+};
+use husky_hir_decl::{
+    decl::{HasHirDecl, TypeHirDecl},
+    helpers::enum_ty_has_only_unit_variants,
+};
+use husky_hir_defn::defn::{major_item::form::MajorFormHirDefn, HasHirDefn};
 use husky_hir_expr::HirExprIdx;
 use husky_hir_ty::{instantiation::HirInstantiation, HirType};
 use husky_javelin::{
@@ -362,6 +367,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                         )]
                     }
                     MajorFormKind::Const => todo!(),
+                    MajorFormKind::Static => todo!(),
                     MajorFormKind::TypeAlias | MajorFormKind::Formal => unreachable!(),
                 },
                 JavPath::TypeItem(path) => match path.item_kind(db) {

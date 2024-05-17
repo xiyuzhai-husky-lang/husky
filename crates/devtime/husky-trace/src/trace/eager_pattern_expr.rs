@@ -7,26 +7,26 @@ use crate::registry::assoc_trace::VoidAssocTraceRegistry;
 use super::*;
 
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]
-pub struct EagerPatternExprTracePathData {
+pub struct EagerPatternTracePathData {
     biological_parent_path: TracePath,
-    essence: EagerPatternExprEssence,
-    disambiguator: TracePathDisambiguator<EagerPatternExprEssence>,
+    essence: EagerPatternEssence,
+    disambiguator: TracePathDisambiguator<EagerPatternEssence>,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
-pub enum EagerPatternExprEssence {
+pub enum EagerPatternEssence {
     Haha,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct EagerPatternExprTrace(Trace);
+pub struct EagerPatternTrace(Trace);
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq)]
-pub struct EagerPatternExprTraceData {
+pub struct EagerPatternTraceData {
     path: TracePath,
     biological_parent: Trace,
-    syn_pattern_expr_idx: SynPatternIdx,
+    syn_pattern_idx: SynPatternIdx,
     hir_eager_runtime_symbol_idxs: IdentPairMap<Option<HirEagerRvarIdx>>,
     #[skip_fmt]
     sem_expr_region: SemExprRegion,
@@ -36,15 +36,15 @@ impl Trace {
     pub(crate) fn new_eager_pattern_expr(
         biological_parent_path: TracePath,
         biological_parent: Trace,
-        syn_pattern_expr_idx: SynPatternIdx,
+        syn_pattern_idx: SynPatternIdx,
         hir_eager_runtime_symbol_idxs: IdentPairMap<Option<HirEagerRvarIdx>>,
         sem_expr_region: SemExprRegion,
-        eager_pattern_expr_trace_path_registry: &mut TracePathRegistry<EagerPatternExprEssence>,
+        eager_pattern_expr_trace_path_registry: &mut TracePathRegistry<EagerPatternEssence>,
         db: &::salsa::Db,
     ) -> Self {
-        let essence = EagerPatternExprEssence::Haha;
+        let essence = EagerPatternEssence::Haha;
         let path = TracePath::new(
-            EagerPatternExprTracePathData {
+            EagerPatternTracePathData {
                 biological_parent_path,
                 essence: essence.clone(),
                 disambiguator: eager_pattern_expr_trace_path_registry.issue(essence),
@@ -53,10 +53,10 @@ impl Trace {
         );
         Trace::new(
             path,
-            EagerPatternExprTraceData {
+            EagerPatternTraceData {
                 path,
                 biological_parent: biological_parent.into(),
-                syn_pattern_expr_idx,
+                syn_pattern_idx,
                 hir_eager_runtime_symbol_idxs,
                 sem_expr_region,
             }
@@ -66,13 +66,13 @@ impl Trace {
     }
 }
 
-impl EagerPatternExprTraceData {
+impl EagerPatternTraceData {
     pub(super) fn view_lines(&self, db: &::salsa::Db) -> TraceViewLines {
         let sem_expr_region = self.sem_expr_region;
         let sem_expr_range_region = sem_expr_range_region(db, sem_expr_region);
         let sem_expr_range_region_data = sem_expr_range_region.data(db);
         let region_path = sem_expr_region.path(db);
-        let regional_token_idx_range = sem_expr_range_region_data[self.syn_pattern_expr_idx];
+        let regional_token_idx_range = sem_expr_range_region_data[self.syn_pattern_idx];
         let token_idx_range = regional_token_idx_range
             .token_idx_range(region_path.regional_token_idx_base(db).unwrap());
         TraceViewLines::new(

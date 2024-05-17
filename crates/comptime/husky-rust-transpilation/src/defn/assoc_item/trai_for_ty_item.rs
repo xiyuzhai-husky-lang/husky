@@ -1,6 +1,11 @@
 use either::Either;
-use husky_entity_path::PreludeTraitPath;
+use husky_entity_path::path::major_item::trai::PreludeTraitPath;
 use husky_hir_decl::decl::HasHirDecl;
+use husky_hir_defn::defn::assoc_item::trai_for_ty_item::{
+    assoc_ritchie::TraitForTypeAssocRitchieHirDefn, assoc_ty::TraitForTypeAssocTypeHirDefn,
+    assoc_val::TraitForTypeAssocValHirDefn, method_ritchie::TraitForTypeMethodRitchieHirDefn,
+    TraitForTypeItemHirDefn,
+};
 use husky_hir_ty::{HirConstTemplateVariable, HirTemplateVariable, HirTemplateVariableClass};
 use smallvec::SmallVec;
 

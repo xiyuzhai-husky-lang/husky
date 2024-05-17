@@ -4488,200 +4488,6 @@
             path: TypeVariantPath(
                 ItemPathId(
                     Id {
-                        value: 206,
-                    },
-                ),
-            ),
-            instantiation: LinInstantiation {
-                symbol_resolutions: [
-                    (
-                        Type(
-                            Type {
-                                attrs: HirTemplateVariableAttrs {
-                                    class: Comptime,
-                                },
-                                variance: None,
-                                disambiguator: 0,
-                            },
-                        ),
-                        Explicit(
-                            Type(
-                                PathLeading(
-                                    LinTypePathLeading(
-                                        Id {
-                                            value: 25,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::EnumVariantDiscriminator {
-            self_ty: LinTypePathLeading {
-                ty_path: TypePath(`core::option::Option`, `Enum`),
-                template_arguments: [
-                    LinTemplateArgument::Type(
-                        LinType::PathLeading(
-                            LinTypePathLeading {
-                                ty_path: TypePath(`core::num::f32`, `Extern`),
-                                template_arguments: [],
-                            },
-                        ),
-                    ),
-                ],
-            },
-            path: TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 206,
-                    },
-                ),
-            ),
-            instantiation: LinInstantiation {
-                symbol_resolutions: [
-                    (
-                        Type(
-                            Type {
-                                attrs: HirTemplateVariableAttrs {
-                                    class: Comptime,
-                                },
-                                variance: None,
-                                disambiguator: 0,
-                            },
-                        ),
-                        Explicit(
-                            Type(
-                                PathLeading(
-                                    LinTypePathLeading(
-                                        Id {
-                                            value: 25,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::EnumVariantDestructor {
-            self_ty: LinTypePathLeading {
-                ty_path: TypePath(`core::option::Option`, `Enum`),
-                template_arguments: [
-                    LinTemplateArgument::Type(
-                        LinType::PathLeading(
-                            LinTypePathLeading {
-                                ty_path: TypePath(`core::num::f32`, `Extern`),
-                                template_arguments: [],
-                            },
-                        ),
-                    ),
-                ],
-            },
-            path: TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 206,
-                    },
-                ),
-            ),
-            instantiation: LinInstantiation {
-                symbol_resolutions: [
-                    (
-                        Type(
-                            Type {
-                                attrs: HirTemplateVariableAttrs {
-                                    class: Comptime,
-                                },
-                                variance: None,
-                                disambiguator: 0,
-                            },
-                        ),
-                        Explicit(
-                            Type(
-                                PathLeading(
-                                    LinTypePathLeading(
-                                        Id {
-                                            value: 25,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ],
-                separator: None,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::EnumVariantField {
-            path: TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 206,
-                    },
-                ),
-            ),
-            instantiation: LinInstantiation {
-                symbol_resolutions: [
-                    (
-                        Type(
-                            Type {
-                                attrs: HirTemplateVariableAttrs {
-                                    class: Comptime,
-                                },
-                                variance: None,
-                                disambiguator: 0,
-                            },
-                        ),
-                        Explicit(
-                            Type(
-                                PathLeading(
-                                    LinTypePathLeading(
-                                        Id {
-                                            value: 25,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ],
-                separator: None,
-            },
-            field: Tuple {
-                index: 0,
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::EnumVariantConstructor {
-            self_ty: LinTypePathLeading {
-                ty_path: TypePath(`core::option::Option`, `Enum`),
-                template_arguments: [
-                    LinTemplateArgument::Type(
-                        LinType::PathLeading(
-                            LinTypePathLeading {
-                                ty_path: TypePath(`core::num::f32`, `Extern`),
-                                template_arguments: [],
-                            },
-                        ),
-                    ),
-                ],
-            },
-            path: TypeVariantPath(
-                ItemPathId(
-                    Id {
                         value: 207,
                     },
                 ),
@@ -4767,6 +4573,200 @@
         },
     },
     Linkage {
+        data: LinkageData::EnumVariantDestructor {
+            self_ty: LinTypePathLeading {
+                ty_path: TypePath(`core::option::Option`, `Enum`),
+                template_arguments: [
+                    LinTemplateArgument::Type(
+                        LinType::PathLeading(
+                            LinTypePathLeading {
+                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                template_arguments: [],
+                            },
+                        ),
+                    ),
+                ],
+            },
+            path: TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 207,
+                    },
+                ),
+            ),
+            instantiation: LinInstantiation {
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateVariableAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinTypePathLeading(
+                                        Id {
+                                            value: 25,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::EnumVariantField {
+            path: TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 207,
+                    },
+                ),
+            ),
+            instantiation: LinInstantiation {
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateVariableAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinTypePathLeading(
+                                        Id {
+                                            value: 25,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
+                separator: None,
+            },
+            field: Tuple {
+                index: 0,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::EnumVariantConstructor {
+            self_ty: LinTypePathLeading {
+                ty_path: TypePath(`core::option::Option`, `Enum`),
+                template_arguments: [
+                    LinTemplateArgument::Type(
+                        LinType::PathLeading(
+                            LinTypePathLeading {
+                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                template_arguments: [],
+                            },
+                        ),
+                    ),
+                ],
+            },
+            path: TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 208,
+                    },
+                ),
+            ),
+            instantiation: LinInstantiation {
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateVariableAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinTypePathLeading(
+                                        Id {
+                                            value: 25,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::EnumVariantDiscriminator {
+            self_ty: LinTypePathLeading {
+                ty_path: TypePath(`core::option::Option`, `Enum`),
+                template_arguments: [
+                    LinTemplateArgument::Type(
+                        LinType::PathLeading(
+                            LinTypePathLeading {
+                                ty_path: TypePath(`core::num::f32`, `Extern`),
+                                template_arguments: [],
+                            },
+                        ),
+                    ),
+                ],
+            },
+            path: TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 208,
+                    },
+                ),
+            ),
+            instantiation: LinInstantiation {
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateVariableAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinTypePathLeading(
+                                        Id {
+                                            value: 25,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
+                separator: None,
+            },
+        },
+    },
+    Linkage {
         data: LinkageData::EnumVariantConstructor {
             self_ty: LinTypePathLeading {
                 ty_path: TypePath(`malamute::Class`, `Enum`),
@@ -4784,7 +4784,7 @@
             path: TypeVariantPath(
                 ItemPathId(
                     Id {
-                        value: 249,
+                        value: 252,
                     },
                 ),
             ),
@@ -4835,7 +4835,7 @@
             path: TypeVariantPath(
                 ItemPathId(
                     Id {
-                        value: 249,
+                        value: 252,
                     },
                 ),
             ),
@@ -4886,7 +4886,7 @@
             path: TypeVariantPath(
                 ItemPathId(
                     Id {
-                        value: 249,
+                        value: 252,
                     },
                 ),
             ),
@@ -4924,7 +4924,7 @@
             path: TypeVariantPath(
                 ItemPathId(
                     Id {
-                        value: 249,
+                        value: 252,
                     },
                 ),
             ),
@@ -4978,7 +4978,7 @@
             path: TypeVariantPath(
                 ItemPathId(
                     Id {
-                        value: 250,
+                        value: 253,
                     },
                 ),
             ),
@@ -5029,7 +5029,7 @@
             path: TypeVariantPath(
                 ItemPathId(
                     Id {
-                        value: 250,
+                        value: 253,
                     },
                 ),
             ),
@@ -5097,7 +5097,7 @@
             path: TypeVariantPath(
                 ItemPathId(
                     Id {
-                        value: 204,
+                        value: 205,
                     },
                 ),
             ),
@@ -5187,7 +5187,7 @@
             path: TypeVariantPath(
                 ItemPathId(
                     Id {
-                        value: 204,
+                        value: 205,
                     },
                 ),
             ),
@@ -5277,7 +5277,7 @@
             path: TypeVariantPath(
                 ItemPathId(
                     Id {
-                        value: 204,
+                        value: 205,
                     },
                 ),
             ),
@@ -5337,7 +5337,7 @@
             path: TypeVariantPath(
                 ItemPathId(
                     Id {
-                        value: 204,
+                        value: 205,
                     },
                 ),
             ),
@@ -5430,7 +5430,7 @@
             path: TypeVariantPath(
                 ItemPathId(
                     Id {
-                        value: 205,
+                        value: 206,
                     },
                 ),
             ),
@@ -5520,7 +5520,7 @@
             path: TypeVariantPath(
                 ItemPathId(
                     Id {
-                        value: 205,
+                        value: 206,
                     },
                 ),
             ),
@@ -5610,7 +5610,7 @@
             path: TypeVariantPath(
                 ItemPathId(
                     Id {
-                        value: 205,
+                        value: 206,
                     },
                 ),
             ),
@@ -5670,7 +5670,7 @@
             path: TypeVariantPath(
                 ItemPathId(
                     Id {
-                        value: 205,
+                        value: 206,
                     },
                 ),
             ),

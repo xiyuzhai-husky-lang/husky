@@ -255,7 +255,7 @@
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_region: SynPatternRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },
@@ -463,7 +463,7 @@
                                             TypeVariantPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 250,
+                                                        value: 253,
                                                     },
                                                 ),
                                             ),
@@ -649,7 +649,7 @@
                                             TypeVariantPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 250,
+                                                        value: 253,
                                                     },
                                                 ),
                                             ),
@@ -722,7 +722,7 @@
                                 },
                             ],
                         },
-                        pattern_expr_region: SynPatternExprRegion {
+                        pattern_expr_region: SynPatternRegion {
                             pattern_expr_arena: Arena {
                                 data: [],
                             },

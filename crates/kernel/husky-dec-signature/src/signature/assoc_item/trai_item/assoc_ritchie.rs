@@ -1,6 +1,6 @@
 use crate::*;
 
-#[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
+#[salsa::interned]
 pub struct TraitAssocRitchieDecTemplate {
     #[return_ref]
     pub template_parameters: DecTemplateParameters,

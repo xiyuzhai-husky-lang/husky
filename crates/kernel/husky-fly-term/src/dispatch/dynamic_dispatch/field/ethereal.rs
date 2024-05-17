@@ -1,7 +1,10 @@
-use husky_eth_signature::{HasPropsFieldEtherealSignature, HasTypeMemoizedFieldEtherealSignature};
-use husky_eth_term::term::application::{EthApplication, TermFunctionReduced};
-
 use super::*;
+use husky_entity_path::path::major_item::ty::{PreludeIndirectionTypePath, PreludeTypePath};
+use husky_eth_signature::signature::{
+    assoc_item::ty_item::memo_field::HasTypeMemoizedFieldEtherealSignature,
+    major_item::ty::HasPropsFieldEtherealSignature,
+};
+use husky_eth_term::term::application::{EthApplication, TermFunctionReduced};
 
 pub(super) fn ethereal_ty_field_dispatch(
     db: &::salsa::Db,

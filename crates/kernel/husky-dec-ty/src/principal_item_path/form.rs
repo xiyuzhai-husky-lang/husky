@@ -1,8 +1,11 @@
-use husky_entity_kind::ritchie::RitchieItemKind;
+use super::*;
+use husky_dec_signature::signature::major_item::form::{
+    function_ritchie::MajorFunctionRitchieDecTemplate, r#const::MajorConstDecTemplate,
+    val::MajorValDecTemplate, MajorFormDecTemplate,
+};
+use husky_entity_path::path::major_item::form::MajorFormPath;
 use husky_vfs::Toolchain;
 use smallvec::ToSmallVec;
-
-use super::*;
 
 #[salsa::tracked(jar = DeclarativeTypeJar)]
 pub fn form_path_declarative_ty(
@@ -24,9 +27,13 @@ pub fn form_path_declarative_ty(
             ritchie_path_declarative_ty(db, path.toolchain(db), variances, signature)
         }
         MajorFormDecTemplate::Val(signature) => {
-            ki_path_declarative_ty(db, signature, dec_term_menu)
+            val_path_declarative_ty(db, signature, dec_term_menu)
         }
         MajorFormDecTemplate::TypeAlias(_) => todo!(),
+        MajorFormDecTemplate::Const(signature) => {
+            const_path_declarative_ty(db, signature, dec_term_menu)
+        }
+        MajorFormDecTemplate::Static(_) => todo!(),
     }
 }
 
@@ -53,9 +60,17 @@ pub(crate) fn ritchie_path_declarative_ty(
     )
 }
 
-pub(crate) fn ki_path_declarative_ty(
+pub(crate) fn val_path_declarative_ty(
     db: &::salsa::Db,
     signature: MajorValDecTemplate,
+    _declarative_term_menu: &DecTermMenu,
+) -> DeclarativeTypeResult<DecTerm> {
+    Ok(signature.return_ty(db).leashed_ty(db))
+}
+
+pub(crate) fn const_path_declarative_ty(
+    db: &::salsa::Db,
+    signature: MajorConstDecTemplate,
     _declarative_term_menu: &DecTermMenu,
 ) -> DeclarativeTypeResult<DecTerm> {
     Ok(signature.return_ty(db).leashed_ty(db))

@@ -12,8 +12,10 @@ pub enum FormKeyword {
     Vn,
     Gn,
     Pn,
-    Tn,
     Qn,
+    Bn,
+    Sn,
+    Tn,
     Memo,
 }
 
@@ -32,6 +34,8 @@ impl FormKeyword {
             FormKeyword::Vn => "vn",
             FormKeyword::Pn => "pn",
             FormKeyword::Qn => "qn",
+            FormKeyword::Bn => "bn",
+            FormKeyword::Sn => "sn",
             FormKeyword::Tn => "tn",
         }
     }

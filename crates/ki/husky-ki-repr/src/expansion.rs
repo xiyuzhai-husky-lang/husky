@@ -3,14 +3,16 @@ use crate::{
     *,
 };
 use husky_entity_kind::{ritchie::RitchieItemKind, MajorFormKind};
-use husky_entity_path::{MajorItemPath, PrincipalEntityPath};
-use husky_hir_defn::{HasHirDefn, MajorFormHirDefn};
+#[cfg(test)]
+use husky_entity_path::path::major_item::form::MajorFormPath;
+use husky_entity_path::path::{major_item::MajorItemPath, PrincipalEntityPath};
+use husky_hir_defn::defn::{major_item::form::MajorFormHirDefn, HasHirDefn};
 use husky_hir_expr::{HirExprIdx, HirExprRegion};
 use husky_hir_lazy_expr::{
     helpers::control_flow::{HasControlFlow, HirLazyExprRegionControlFlowChart},
     variable::HirLazyVariableMap,
     HirLazyBeVariablesPattern, HirLazyCallListArgument, HirLazyCondition, HirLazyExprData,
-    HirLazyExprIdx, HirLazyExprMap, HirLazyExprRegion, HirLazyExprRegionData, HirLazyPatternExpr,
+    HirLazyExprIdx, HirLazyExprMap, HirLazyExprRegion, HirLazyExprRegionData, HirLazyPatternData,
     HirLazyStmtData, HirLazyStmtIdx, HirLazyStmtIdxRange, HirLazyStmtMap,
 };
 use husky_hir_ty::{
@@ -180,10 +182,10 @@ impl<'a> KiReprExpansionBuilder<'a> {
             } => {
                 let initial_value_ki_repr = self.build_expr(ki_domain_repr_guard, initial_value);
                 match self.hir_lazy_expr_region_data.hir_lazy_pattern_expr_arena()
-                    [pattern.pattern_expr_idx()]
+                    [pattern.pattern_idx()]
                 {
-                    HirLazyPatternExpr::Literal(_) => todo!(),
-                    HirLazyPatternExpr::Ident { ident: _ } => {
+                    HirLazyPatternData::Literal(_) => todo!(),
+                    HirLazyPatternData::Ident { ident: _ } => {
                         debug_assert_eq!(pattern.variables().len(), 1);
                         self.hir_lazy_variable_ki_repr_map.insert_new(
                             pattern.variables()[0],
@@ -197,12 +199,12 @@ impl<'a> KiReprExpansionBuilder<'a> {
                         );
                         return None;
                     }
-                    HirLazyPatternExpr::Unit(_) => todo!(),
-                    HirLazyPatternExpr::Tuple { path: _, fields: _ } => todo!(),
-                    HirLazyPatternExpr::Props { path: _, fields: _ } => todo!(),
-                    HirLazyPatternExpr::OneOf { options: _ } => todo!(),
-                    HirLazyPatternExpr::Binding { ident: _, src: _ } => todo!(),
-                    HirLazyPatternExpr::Range { start: _, end: _ } => todo!(),
+                    HirLazyPatternData::Unit(_) => todo!(),
+                    HirLazyPatternData::Tuple { path: _, fields: _ } => todo!(),
+                    HirLazyPatternData::Props { path: _, fields: _ } => todo!(),
+                    HirLazyPatternData::OneOf { options: _ } => todo!(),
+                    HirLazyPatternData::Binding { ident: _, src: _ } => todo!(),
+                    HirLazyPatternData::Range { start: _, end: _ } => todo!(),
                 }
             }
             HirLazyStmtData::Return { result } => (
@@ -307,6 +309,7 @@ impl<'a> KiReprExpansionBuilder<'a> {
                 (KiOpn::Branches, branches)
             }
             HirLazyStmtData::Match {} => todo!(),
+            HirLazyStmtData::Narrate {} => todo!(),
         };
         let ki_repr = ki_domain_repr_guard.new_stmt_ki_repr(stmt, opn, arguments);
         self.hir_lazy_stmt_ki_repr_map.insert_new(stmt, ki_repr);
@@ -371,6 +374,7 @@ impl<'a> KiReprExpansionBuilder<'a> {
                         MajorFormKind::Const => todo!(),
                         MajorFormKind::Val => return KiRepr::new_val_item(path, db),
                         MajorFormKind::TypeAlias | MajorFormKind::Formal => unreachable!(),
+                        MajorFormKind::Static => todo!(),
                     },
                 },
                 PrincipalEntityPath::TypeVariant(path) => (KiOpn::TypeVariant(path), smallvec![]),
@@ -515,6 +519,8 @@ impl<'a> KiReprExpansionBuilder<'a> {
                     RitchieItemKind::Vn => todo!(),
                     RitchieItemKind::Pn => todo!(),
                     RitchieItemKind::Qn => todo!(),
+                    RitchieItemKind::Bn => todo!(),
+                    RitchieItemKind::Sn => todo!(),
                     RitchieItemKind::Tn => todo!(),
                 };
                 let mut arguments: SmallVec<[KiArgumentRepr; 4]> = smallvec![];
@@ -769,7 +775,7 @@ fn runtime_constants(
 fn val_item_ki_repr_expansions(
     db: &::salsa::Db,
     module_path: ModulePath,
-) -> Vec<(husky_entity_path::MajorFormPath, Option<KiReprExpansion>)> {
+) -> Vec<(MajorFormPath, Option<KiReprExpansion>)> {
     val_item_ki_reprs(db, module_path)
         .into_iter()
         .map(|(path, ki_repr)| (path, ki_repr.expansion(db)))

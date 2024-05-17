@@ -1,9 +1,9 @@
-mod assoc_item;
+pub mod assoc_item;
 pub mod attr;
-mod impl_block;
-mod major_item;
-mod submodule;
-mod ty_variant;
+pub mod impl_block;
+pub mod major_item;
+pub mod submodule;
+pub mod ty_variant;
 
 pub use self::assoc_item::*;
 pub use self::attr::*;
@@ -13,6 +13,7 @@ pub use self::submodule::*;
 pub use self::ty_variant::*;
 
 use crate::{jar::*, *};
+use husky_entity_path::path::ItemPath;
 use husky_hir_eager_expr::helpers::region::hir_eager_expr_region;
 use husky_syn_decl::decl::HasSynDecl;
 

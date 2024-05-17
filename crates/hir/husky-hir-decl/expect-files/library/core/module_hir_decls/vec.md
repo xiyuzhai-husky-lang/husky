@@ -83,7 +83,7 @@
                 path: AttrItemPath(
                     ItemPathId(
                         Id {
-                            value: 247,
+                            value: 250,
                         },
                     ),
                 ),
@@ -108,7 +108,7 @@
                             AttrItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 247,
+                                        value: 250,
                                     },
                                 ),
                             ),
@@ -162,7 +162,7 @@
                 path: TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 123,
+                            value: 126,
                         },
                     ),
                 ),
@@ -211,7 +211,7 @@
                                 TypeImplBlockPath(
                                     ItemPathId(
                                         Id {
-                                            value: 123,
+                                            value: 126,
                                         },
                                     ),
                                 ),
@@ -273,7 +273,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 23,
+                                    value: 24,
                                 },
                             ),
                         ),
@@ -361,7 +361,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 23,
+                                    value: 24,
                                 },
                             ),
                         ),
@@ -369,7 +369,7 @@
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 0,
+                                pattern_idx: 0,
                                 contract: Move,
                                 ty: HirType::Variable(
                                     HirTypeTemplateVariable::Type {
@@ -479,7 +479,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 23,
+                                    value: 24,
                                 },
                             ),
                         ),
@@ -594,7 +594,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 23,
+                                    value: 24,
                                 },
                             ),
                         ),
@@ -709,7 +709,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 23,
+                                    value: 24,
                                 },
                             ),
                         ),
@@ -809,7 +809,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 23,
+                                    value: 24,
                                 },
                             ),
                         ),
@@ -919,7 +919,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 23,
+                                    value: 24,
                                 },
                             ),
                         ),
@@ -927,7 +927,7 @@
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 0,
+                                pattern_idx: 0,
                                 contract: Pure,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -938,7 +938,7 @@
                                 ),
                             },
                             HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 1,
+                                pattern_idx: 1,
                                 contract: Pure,
                                 ty: HirType::PathLeading(
                                     HirTypePathLeading {
@@ -1079,7 +1079,7 @@
                         self_ty: PathLeading(
                             HirTypePathLeading(
                                 Id {
-                                    value: 23,
+                                    value: 24,
                                 },
                             ),
                         ),
@@ -1087,7 +1087,7 @@
                     parenate_parameters: HirEagerParenateParameters(
                         [
                             HirEagerParenateParameter::Simple {
-                                pattern_expr_idx: 0,
+                                pattern_idx: 0,
                                 contract: Pure,
                                 ty: HirType::Ritchie(
                                     HirRitchieType {

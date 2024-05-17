@@ -1,6 +1,7 @@
-use crate::*;
+use super::*;
+use husky_entity_path::path::assoc_item::ty_item::TypeItemPath;
 
-#[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
+#[salsa::interned]
 pub struct TypeMethodRitchieDecTemplate {
     pub path: TypeItemPath,
     pub impl_block: TypeImplBlockDecTemplate,

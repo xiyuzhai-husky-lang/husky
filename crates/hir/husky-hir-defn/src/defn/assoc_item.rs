@@ -1,12 +1,12 @@
-mod trai_for_ty_item;
-mod trai_item;
-mod ty_item;
+pub mod trai_for_ty_item;
+pub mod trai_item;
+pub mod ty_item;
 
-pub use self::trai_for_ty_item::*;
-pub use self::trai_item::*;
-pub use self::ty_item::*;
-
+use self::trai_for_ty_item::*;
+use self::trai_item::*;
+use self::ty_item::*;
 use super::*;
+use husky_entity_path::path::assoc_item::AssocItemPath;
 use husky_hir_decl::decl::AssocItemHirDecl;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]

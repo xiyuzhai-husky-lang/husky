@@ -1,25 +1,24 @@
-mod r#enum;
-mod r#extern;
-mod inductive;
-mod props_struct;
-mod structure;
-mod tuple_struct;
-mod union;
-mod unit_struct;
+pub mod r#enum;
+pub mod r#extern;
+pub mod inductive;
+pub mod props_struct;
+pub mod structure;
+pub mod tuple_struct;
+pub mod union;
+pub mod unit_struct;
 
-pub use self::inductive::*;
-pub use self::props_struct::*;
-pub use self::r#enum::*;
-pub use self::r#extern::*;
-pub use self::structure::*;
-pub use self::tuple_struct::*;
-pub use self::union::*;
-pub use self::unit_struct::*;
-
-use crate::*;
+use self::inductive::*;
+use self::props_struct::*;
+use self::r#enum::*;
+use self::r#extern::*;
+use self::structure::*;
+use self::tuple_struct::*;
+use self::union::*;
+use self::unit_struct::*;
+use super::*;
 use husky_coword::Ident;
-use husky_dec_signature::{HasDecTemplate, TypeDecTemplate};
-use husky_entity_path::TypePath;
+use husky_dec_signature::signature::major_item::ty::TypeDecTemplate;
+use husky_entity_path::path::major_item::ty::TypePath;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 #[enum_class::from_variants]
@@ -71,7 +70,7 @@ impl HasEthTemplate for TypePath {
     }
 }
 
-#[salsa::tracked(jar = EtherealSignatureJar)]
+#[salsa::tracked]
 fn ty_eth_template(db: &::salsa::Db, path: TypePath) -> EtherealSignatureResult<TypeEthTemplate> {
     Ok(match path.dec_template(db)? {
         TypeDecTemplate::Enum(dec_template) => {

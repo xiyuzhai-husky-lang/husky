@@ -1,8 +1,9 @@
 use super::*;
+use husky_dec_signature::signature::assoc_item::ty_item::assoc_ritchie::TypeAssocRitchieDecTemplate;
 use husky_entity_kind::ritchie::RitchieItemKind;
 use husky_eth_term::term::ritchie::EthRitchie;
 
-#[salsa::tracked(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
+#[salsa::tracked]
 pub struct TypeAssocRitchieEthTemplate {
     #[id]
     pub path: TypeItemPath,

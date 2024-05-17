@@ -1,6 +1,6 @@
 use crate::{
     amazon::package_amazon_javelins, instantiation::JavInstantiation, path::JavPath,
-    template_argument::ty::JavelinType, valkyrie::package_valkyrie_javelins, *,
+    template_argument::ty::JavelinType, valkyrie::package_valkyrie_javelins,
 };
 
 use husky_vfs::PackagePath;

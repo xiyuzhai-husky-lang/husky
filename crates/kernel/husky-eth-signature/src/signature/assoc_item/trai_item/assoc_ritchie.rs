@@ -1,4 +1,2 @@
-use super::*;
-
-#[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
+#[salsa::interned]
 pub struct TraitAssocRitchieEthTemplate {}

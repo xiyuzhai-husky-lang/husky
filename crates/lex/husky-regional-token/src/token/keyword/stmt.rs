@@ -112,6 +112,18 @@ impl DoRegionalToken {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 #[salsa::derive_debug_with_db]
+pub struct NarrateRegionalToken {
+    regional_token_idx: RegionalTokenIdx,
+}
+
+impl NarrateRegionalToken {
+    pub fn regional_token_idx(&self) -> RegionalTokenIdx {
+        self.regional_token_idx
+    }
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[salsa::derive_debug_with_db]
 #[enum_class::from_variants]
 pub enum BasicStmtKeywordRegionalToken {
     Let(LetRegionalToken),
@@ -123,6 +135,7 @@ pub enum BasicStmtKeywordRegionalToken {
     ForExt(ForextRegionalToken),
     While(WhileRegionalToken),
     Do(DoRegionalToken),
+    Narrate(NarrateRegionalToken),
 }
 
 impl<'a, Context> parsec::TryParseOptionFromStream<Context> for WhileRegionalToken
@@ -193,6 +206,9 @@ where
                     | StmtKeyword::Else
                     | StmtKeyword::Match => Ok(None),
                 },
+                TokenData::Punctuation(Punctuation::COLON_HYPHEN) => {
+                    Ok(Some(NarrateRegionalToken { regional_token_idx }.into()))
+                }
                 TokenData::Error(error) => Err(error),
                 TokenData::Label(_)
                 | TokenData::Keyword(_)

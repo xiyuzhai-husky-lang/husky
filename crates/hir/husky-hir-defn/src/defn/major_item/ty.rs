@@ -1,20 +1,19 @@
-mod r#enum;
-mod r#extern;
-mod props_struct;
-mod tuple_struct;
-mod union;
-mod unit_struct;
+pub mod r#enum;
+pub mod r#extern;
+pub mod props_struct;
+pub mod tuple_struct;
+pub mod union;
+pub mod unit_struct;
 
-use husky_hir_decl::decl::TypeHirDecl;
-
-pub use self::props_struct::*;
-pub use self::r#enum::*;
-pub use self::r#extern::*;
-pub use self::tuple_struct::*;
-pub use self::union::*;
-pub use self::unit_struct::*;
-
+use self::props_struct::*;
+use self::r#enum::*;
+use self::r#extern::*;
+use self::tuple_struct::*;
+use self::union::*;
+use self::unit_struct::*;
 use super::*;
+use husky_entity_path::path::major_item::ty::TypePath;
+use husky_hir_decl::decl::TypeHirDecl;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::derive_debug_with_db]
@@ -88,7 +87,7 @@ impl HasHirDefn for TypePath {
     }
 }
 
-#[salsa::tracked(jar = HirDefnJar)]
+#[salsa::tracked]
 pub(crate) fn ty_hir_defn(db: &::salsa::Db, path: TypePath) -> Option<TypeHirDefn> {
     Some(match path.hir_decl(db)? {
         TypeHirDecl::Enum(hir_decl) => EnumHirDefn::new(db, path, hir_decl).into(),

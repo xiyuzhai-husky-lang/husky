@@ -80,7 +80,7 @@ impl SemExprRegion {
         sem_expr_arena: SemExprArena,
         sem_stmt_arena: SemStmtArena,
         sem_expr_roots: VecPairMap<SynExprIdx, (SemExprIdx, SynExprRootKind)>,
-        pattern_expr_ty_infos: SynPatternMap<PatternExprTypeInfo>,
+        pattern_expr_ty_infos: SynPatternMap<PatternTypeInfo>,
         pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
         sem_expr_terms: VecPairMap<SemExprIdx, SemExprTermResult<FlyTerm>>,
         symbol_tys: SymbolMap<SymbolType>,
@@ -121,7 +121,7 @@ pub struct SemExprRegionData {
     sem_expr_arena: SemExprArena,
     sem_stmt_arena: SemStmtArena,
     sem_expr_roots: VecPairMap<SynExprIdx, (SemExprIdx, SynExprRootKind)>,
-    syn_pattern_expr_ty_infos: SynPatternMap<PatternExprTypeInfo>,
+    syn_pattern_expr_ty_infos: SynPatternMap<PatternTypeInfo>,
     syn_pattern_symbol_ty_infos: SynPatternSymbolMap<PatternSymbolTypeInfo>,
     sem_expr_terms: VecPairMap<SemExprIdx, SemExprTermResult<FlyTerm>>,
     symbol_tys: SymbolMap<SymbolType>,
@@ -197,10 +197,10 @@ impl SemExprRegionData {
 
     pub fn syn_pattern_ty(
         &self,
-        syn_pattern_expr_idx: idx_arena::ArenaIdx<SynPatternData>,
+        syn_pattern_idx: idx_arena::ArenaIdx<SynPatternData>,
         db: &::salsa::Db,
     ) -> EthTerm {
-        match self.syn_pattern_expr_ty_infos[syn_pattern_expr_idx].ty {
+        match self.syn_pattern_expr_ty_infos[syn_pattern_idx].ty {
             Ok(ty_term) => match ty_term.base_resolved_inner(self.fly_term_region.terms()) {
                 FlyTermBase::Eth(ty_term) => ty_term,
                 FlyTermBase::Sol(_) => todo!(),
@@ -220,7 +220,7 @@ impl SemExprRegionData {
     }
 }
 
-#[salsa::tracked(jar = SemExprJar)]
+#[salsa::tracked]
 pub(crate) fn sem_expr_region(db: &::salsa::Db, syn_expr_region: SynExprRegion) -> SemExprRegion {
     let mut engine = SemExprBuilder::new(db, syn_expr_region);
     engine.infer_all();
@@ -229,11 +229,11 @@ pub(crate) fn sem_expr_region(db: &::salsa::Db, syn_expr_region: SynExprRegion) 
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq)]
-pub struct PatternExprTypeInfo {
+pub struct PatternTypeInfo {
     ty: PatternSemExprResult<FlyTerm>,
 }
 
-impl PatternExprTypeInfo {
+impl PatternTypeInfo {
     pub(crate) fn new(ty: PatternSemExprResult<FlyTerm>) -> Self {
         Self { ty }
     }

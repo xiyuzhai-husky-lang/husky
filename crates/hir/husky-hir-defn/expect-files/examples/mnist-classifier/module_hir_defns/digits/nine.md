@@ -3,7 +3,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Val(
-                ValHirDefn {
+                MajorValHirDefn {
                     path: FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
                     hir_decl: MajorValHirDecl {
                         path: FormPath(`mnist_classifier::digits::nine::nine_match`, `Val`),
@@ -65,7 +65,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Val(
-                ValHirDefn {
+                MajorValHirDefn {
                     path: FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
                     hir_decl: MajorValHirDecl {
                         path: FormPath(`mnist_classifier::digits::nine::nine_match_refine`, `Val`),
@@ -127,7 +127,7 @@
     HirDefn::MajorItem(
         MajorItemHirDefn::Form(
             MajorFormHirDefn::Val(
-                ValHirDefn {
+                MajorValHirDefn {
                     path: FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
                     hir_decl: MajorValHirDecl {
                         path: FormPath(`mnist_classifier::digits::nine::is_nine`, `Val`),
@@ -205,7 +205,7 @@
                             HirEagerParenateParameters(
                                 [
                                     HirEagerParenateParameter::Simple {
-                                        pattern_expr_idx: 0,
+                                        pattern_idx: 0,
                                         contract: Pure,
                                         ty: HirType::PathLeading(
                                             HirTypePathLeading {
@@ -290,7 +290,7 @@
                             HirEagerParenateParameters(
                                 [
                                     HirEagerParenateParameter::Simple {
-                                        pattern_expr_idx: 0,
+                                        pattern_idx: 0,
                                         contract: Pure,
                                         ty: HirType::PathLeading(
                                             HirTypePathLeading {

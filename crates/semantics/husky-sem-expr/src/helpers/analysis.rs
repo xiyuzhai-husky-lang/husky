@@ -1,5 +1,8 @@
 use husky_entity_kind::ritchie::RitchieItemKind;
-use husky_entity_path::region::RegionPath;
+use husky_entity_path::{
+    path::{major_item::MajorItemPath, ItemPath, PrincipalEntityPath},
+    region::RegionPath,
+};
 use husky_fly_term::dispatch::StaticDispatch;
 
 use super::*;
@@ -17,6 +20,8 @@ pub fn sem_expr_region_requires_lazy(db: &::salsa::Db, sem_expr_region: SemExprR
                     RitchieItemKind::Vn => todo!(),
                     RitchieItemKind::Pn => todo!(),
                     RitchieItemKind::Qn => todo!(),
+                    RitchieItemKind::Bn => todo!(),
+                    RitchieItemKind::Sn => todo!(),
                     RitchieItemKind::Tn => todo!(),
                 },
                 _ => return false,
@@ -31,6 +36,7 @@ pub fn sem_expr_region_requires_lazy(db: &::salsa::Db, sem_expr_region: SemExprR
                 MajorFormKind::Val => (),
                 MajorFormKind::Formal => todo!(),
                 MajorFormKind::Const => todo!(),
+                MajorFormKind::Static => todo!(),
             },
             ItemPath::AssocItem(path) => todo!(),
             _ => return false,

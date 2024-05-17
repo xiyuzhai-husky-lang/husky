@@ -3,7 +3,7 @@ use husky_entity_tree::node::script::ScriptSynNodePath;
 use husky_token::TokenDb;
 use husky_vfs::{script::Script, CratePath};
 
-#[salsa::tracked(jar = SynExprJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub fn parse_expr_from_script(
     db: &::salsa::Db,
     crate_path: CratePath,

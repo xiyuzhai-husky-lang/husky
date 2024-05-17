@@ -149,6 +149,8 @@ impl<'a, 'b> RegionDiagnosticsCollector<'a, 'b> {
                         self.visit_syn_expr_result(&case_branch.stmts);
                     }
                 }
+                // ad hoc
+                SynStmtData::Narrate { narrate_token } => (),
             }
         }
         for item_path_expr in expr_region_data.principal_item_path_expr_arena().data() {

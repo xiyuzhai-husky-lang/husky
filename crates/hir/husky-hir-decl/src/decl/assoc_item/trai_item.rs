@@ -9,6 +9,7 @@ pub use self::assoc_val::*;
 pub use self::method_ritchie::*;
 
 use super::*;
+use husky_entity_path::path::assoc_item::trai_item::TraitItemPath;
 
 #[salsa::derive_debug_with_db]
 #[enum_class::from_variants]

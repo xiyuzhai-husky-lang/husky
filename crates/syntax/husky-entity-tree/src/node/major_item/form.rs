@@ -1,6 +1,6 @@
-use husky_entity_kind::MajorFormKind;
-
 use super::*;
+use husky_entity_kind::MajorFormKind;
+use husky_entity_path::path::major_item::form::MajorFormPath;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[salsa::as_id]

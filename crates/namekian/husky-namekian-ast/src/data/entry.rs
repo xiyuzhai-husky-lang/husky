@@ -1,5 +1,3 @@
-use super::*;
-
 #[derive(Debug, PartialEq, Eq)]
 pub enum NamEntryAstData {
     Notion {},

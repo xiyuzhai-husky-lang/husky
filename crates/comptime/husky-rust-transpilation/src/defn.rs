@@ -14,6 +14,7 @@ use husky_hir_decl::parameter::{
     self_value::eager::HirEagerSelfValueParameter,
     template::{HirTemplateParameter, HirTemplateParameterData, HirTemplateParameters},
 };
+use husky_hir_defn::defn::{HasHirDefn, HirDefn};
 use husky_hir_defn::*;
 use husky_hir_eager_expr::HirEagerExprRegion;
 use husky_hir_ty::ritchie::{HirContract, HirRitchieParameter, HirRitchieSimpleParameter};
@@ -183,11 +184,11 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirEagerParenateParameter {
         let db = builder.db();
         match self {
             HirEagerParenateParameter::Simple {
-                pattern_expr_idx,
+                pattern_idx,
                 contract,
                 ty,
             } => {
-                pattern_expr_idx.transpile_to_rust(builder);
+                pattern_idx.transpile_to_rust(builder);
                 builder.punctuation(RustPunctuation::Colon);
                 match contract {
                     HirContract::Pure => match ty.always_copyable(db) {

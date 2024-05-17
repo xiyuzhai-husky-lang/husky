@@ -185,6 +185,39 @@ TokenSheetData {
             ),
         ),
         TokenData::Ident(
+            `task`,
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    SynBinaryOpr::ScopeResolution,
+                ),
+            ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Star,
+            ),
+        ),
+        TokenData::Keyword(
+            Keyword::Pub,
+        ),
+        TokenData::Keyword(
+            Keyword::Use,
+        ),
+        TokenData::Keyword(
+            Keyword::Pronoun(
+                Crate,
+            ),
+        ),
+        TokenData::Punctuation(
+            Punctuation(
+                PunctuationMapped::Binary(
+                    SynBinaryOpr::ScopeResolution,
+                ),
+            ),
+        ),
+        TokenData::Ident(
             `visual`,
         ),
         TokenData::Punctuation(
@@ -493,6 +526,14 @@ TokenSheetData {
                     start: TokenVerseStart(
                         TokenIdx(
                             78,
+                        ),
+                    ),
+                    indent: 0,
+                },
+                TokenVerseData {
+                    start: TokenVerseStart(
+                        TokenIdx(
+                            85,
                         ),
                     ),
                     indent: 0,

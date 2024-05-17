@@ -1,0 +1,8 @@
+gn some_neural_network(input: [3]f32) -> [3]f32:
+    :- begin session
+    // let layer1 = nn::linear(input)
+    // let layer2 = nn::pooling(layer1)
+    // let loss = ml::cross_entropy(layer2)
+    :- end session by sgd(loss)
+    // layer2
+    todo

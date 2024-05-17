@@ -59,7 +59,7 @@ SynDeclSheet {
                                                         TypeVariantPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 268,
+                                                                    value: 271,
                                                                 },
                                                             ),
                                                         ),
@@ -139,7 +139,7 @@ SynDeclSheet {
                                                         TypeVariantPath(
                                                             ItemPathId(
                                                                 Id {
-                                                                    value: 268,
+                                                                    value: 271,
                                                                 },
                                                             ),
                                                         ),
@@ -151,7 +151,7 @@ SynDeclSheet {
                                     stmt_arena: Arena {
                                         data: [],
                                     },
-                                    pattern_expr_region: SynPatternExprRegion {
+                                    pattern_expr_region: SynPatternRegion {
                                         pattern_expr_arena: Arena {
                                             data: [],
                                         },

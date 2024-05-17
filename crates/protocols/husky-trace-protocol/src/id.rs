@@ -31,11 +31,11 @@ pub enum TraceKind {
     LazyCall,
     LazyCallInput,
     LazyExpr,
-    LazyPatternExpr,
+    LazyPattern,
     LazyStmt,
     EagerCall,
     EagerExpr,
-    EagerPatternExpr,
+    EagerPattern,
     EagerStmt,
     EagerCallInput,
 }

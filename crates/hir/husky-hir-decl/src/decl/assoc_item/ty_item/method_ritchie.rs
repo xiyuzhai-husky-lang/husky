@@ -1,5 +1,5 @@
 use super::*;
-
+use husky_eth_signature::signature::HasEthTemplate;
 use husky_syn_decl::decl::TypeMethodRitchieSynDecl;
 
 #[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]

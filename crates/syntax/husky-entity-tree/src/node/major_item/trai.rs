@@ -1,5 +1,5 @@
 use super::*;
-
+use husky_entity_path::path::{assoc_item::trai_item::TraitItemPath, major_item::trai::TraitPath};
 use vec_like::SmallVecPairMap;
 
 #[salsa::derive_debug_with_db]

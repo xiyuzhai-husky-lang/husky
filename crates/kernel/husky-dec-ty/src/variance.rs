@@ -4,6 +4,11 @@ mod graph;
 mod repr;
 
 pub(crate) use dependency::*;
+use husky_entity_path::path::{
+    assoc_item::ty_item::TypeItemPath,
+    major_item::{form::MajorFormPath, trai::TraitPath, ty::TypePath, MajorItemPath},
+    ItemPath,
+};
 pub(crate) use repr::*;
 
 use super::*;

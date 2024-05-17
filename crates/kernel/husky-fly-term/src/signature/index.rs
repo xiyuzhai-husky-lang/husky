@@ -1,5 +1,7 @@
 mod ethereal;
 
+use husky_entity_path::path::major_item::ty::{PreludeNumTypePath, PreludeTypePath};
+
 pub(crate) use self::ethereal::*;
 
 use self::quary::FlyQuary;

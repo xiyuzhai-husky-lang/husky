@@ -1,9 +1,8 @@
 use super::*;
 use crate::registry::assoc_trace::VoidAssocTraceRegistry;
 use husky_entity_kind::MajorFormKind;
-use husky_entity_path::{ItemPath, MajorItemPath, SubmoduleItemPath};
-use husky_entity_tree::helpers::paths::module_item_paths;
-use husky_entity_tree::HasSynNodePath;
+use husky_entity_path::path::submodule::SubmoduleItemPath;
+use husky_entity_tree::{helpers::paths::module_item_paths, HasSynNodePath};
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, PartialEq, Eq, Hash)]

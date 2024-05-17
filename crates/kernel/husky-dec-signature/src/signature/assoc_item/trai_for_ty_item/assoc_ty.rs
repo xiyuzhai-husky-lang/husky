@@ -1,6 +1,7 @@
-use crate::*;
+use super::*;
+use husky_entity_path::path::assoc_item::trai_for_ty_item::TraitForTypeItemPath;
 
-#[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
+#[salsa::interned]
 pub struct TraitForTypeAssocTypeDecTemplate {
     pub path: TraitForTypeItemPath,
     #[return_ref]

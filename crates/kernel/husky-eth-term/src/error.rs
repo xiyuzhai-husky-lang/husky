@@ -1,8 +1,14 @@
 use crate::{term::EthTerm, *};
-use husky_dec_signature::DecSignatureError;
+use husky_dec_signature::{error::DecSignatureError, region::error::DerivedSynExprDecTermError};
 use husky_dec_term::term::DecSymbolicVariableTypeErrorKind;
 use husky_dec_ty::DeclarativeTypeError;
-use husky_entity_path::{EntityPathError, ItemPath};
+use husky_entity_path::{
+    error::EntityPathError,
+    path::{
+        major_item::ty::{PreludeTypePath, TypePath},
+        ItemPath,
+    },
+};
 use maybe_result::MaybeResult;
 use thiserror::Error;
 

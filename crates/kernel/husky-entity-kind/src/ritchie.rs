@@ -8,6 +8,8 @@ pub enum RitchieItemKind {
     Vn,
     Pn,
     Qn,
+    Bn,
+    Sn,
     Tn,
 }
 
@@ -25,17 +27,20 @@ impl RitchieItemKind {
             RitchieItemKind::Vn => "vn",
             RitchieItemKind::Pn => "pn",
             RitchieItemKind::Qn => "qn",
+            RitchieItemKind::Bn => "bn",
+            RitchieItemKind::Sn => "sn",
             RitchieItemKind::Tn => "tn",
         }
     }
 
     pub fn is_lazy(self) -> bool {
         match self {
-            RitchieItemKind::Fn | RitchieItemKind::Pn => false,
+            RitchieItemKind::Fn | RitchieItemKind::Pn | RitchieItemKind::Tn => false,
             RitchieItemKind::Gn
             | RitchieItemKind::Vn
             | RitchieItemKind::Qn
-            | RitchieItemKind::Tn => true,
+            | RitchieItemKind::Bn
+            | RitchieItemKind::Sn => true,
         }
     }
 
@@ -46,7 +51,9 @@ impl RitchieItemKind {
             RitchieItemKind::Vn => true,
             RitchieItemKind::Pn => false,
             RitchieItemKind::Qn => false,
-            RitchieItemKind::Tn => true,
+            RitchieItemKind::Bn => todo!(),
+            RitchieItemKind::Sn => todo!(),
+            RitchieItemKind::Tn => todo!(),
         }
     }
 }

@@ -121,7 +121,7 @@ impl<LinkageImpl: IsLinkageImpl> ToVmir<LinkageImpl> for HirEagerStmtIdxRange {
                     initial_value,
                     coercion,
                 } => VmirStmtData::Let {
-                    pattern: pattern.pattern_expr_idx().to_vmir(builder),
+                    pattern: pattern.pattern_idx().to_vmir(builder),
                     initial_value: initial_value.to_vmir(builder),
                     coercion: coercion.to_vmir(builder),
                 },

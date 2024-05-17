@@ -8,6 +8,6 @@ mod stmt;
 #[cfg(test)]
 mod tests;
 
-use self::jar::SemaPlaceContractJar as Jar;
+use self::jar::SemPlaceContractJar as Jar;
 #[cfg(test)]
 use self::tests::*;

@@ -1,6 +1,6 @@
 use super::*;
 use crate::registry::assoc_trace::VoidAssocTraceRegistry;
-use husky_hir_defn::HasHirDefn;
+use husky_hir_defn::defn::HasHirDefn;
 use husky_sem_expr::{helpers::analysis::sem_expr_region_requires_lazy, SemExprData, SemExprDb};
 use husky_syn_defn::{item_syn_defn, ItemSynDefn};
 

@@ -29,11 +29,11 @@ impl<'a> SemExprBuilder<'a> {
         }
     }
 
-    // fn parameter_pattern_ty(&self, pattern_expr_idx: SynPatternExprIdx) -> EthTerm {
+    // fn parameter_pattern_ty(&self, pattern_idx: SynPatternIdx) -> EthTerm {
     //     match self
     //         .expr_region_data
     //         .symbol_region()
-    //         .regular_parameter_pattern_ty_constraint(pattern_expr_idx)
+    //         .regular_parameter_pattern_ty_constraint(pattern_idx)
     //     {
     //         Some(_) => todo!(),
     //         None => todo!(),

@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::interned(db = DecSignatureDb, jar = DecSignatureJar)]
+#[salsa::interned]
 pub struct UnionTypeDecTemplate {
     #[return_ref]
     pub template_parameters: DecTemplateParameters,

@@ -42,7 +42,7 @@ impl MajorFunctionRitchieSynNodeDecl {
 }
 
 impl<'a> DeclParser<'a> {
-    pub(super) fn parse_ritchie_node_decl(
+    pub(super) fn parse_ritchie_syn_node_decl(
         &self,
         syn_node_path: FormSynNodePath,
         ritchie_item_kind: RitchieItemKind,

@@ -1,18 +1,18 @@
-mod assoc_ritchie;
-mod assoc_ty;
-mod assoc_val;
-mod memo_field;
-mod method_curry;
-mod method_ritchie;
+pub mod assoc_ritchie;
+pub mod assoc_ty;
+pub mod assoc_val;
+pub mod memo_field;
+pub mod method_curry;
+pub mod method_ritchie;
 
-pub use self::assoc_ritchie::*;
-pub use self::assoc_ty::*;
-pub use self::memo_field::*;
-pub use self::method_curry::*;
-pub use self::method_ritchie::*;
-
+use self::assoc_ritchie::*;
+use self::memo_field::*;
+use self::method_curry::*;
+use self::method_ritchie::*;
 use super::*;
+use husky_dec_signature::signature::{assoc_item::ty_item::TypeItemDecTemplate, HasDecTemplate};
 use husky_entity_kind::TypeItemKind;
+use husky_entity_path::path::{assoc_item::ty_item::TypeItemPath, major_item::ty::TypePath};
 use husky_entity_tree::HasItemPathsMap;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
@@ -43,7 +43,7 @@ impl HasEthTemplate for TypeItemPath {
     }
 }
 
-// #[salsa::tracked(jar = EtherealSignatureJar)]
+// #[salsa::tracked]
 pub(crate) fn ty_item_eth_template(
     db: &::salsa::Db,
     path: TypeItemPath,
@@ -103,7 +103,7 @@ impl HasTypeItemTemplates for TypePath {
     }
 }
 
-#[salsa::tracked(jar = EtherealSignatureJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub(crate) fn ty_item_eth_templates_map(
     db: &::salsa::Db,
     ty_path: TypePath,

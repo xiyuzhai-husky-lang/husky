@@ -1,4 +1,4 @@
-use husky_coword::CowordJar;
+use husky_coword::jar::CowordJar;
 
 #[salsa::db(CowordJar)]
 #[derive(Default)]

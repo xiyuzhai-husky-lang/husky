@@ -27,6 +27,8 @@ impl IsAstChildren for TraitItems {
             EntityKindKeywordGroup::Vn(_) => TraitItemKind::METHOD_VN,
             EntityKindKeywordGroup::Pn(_) => TraitItemKind::METHOD_PN,
             EntityKindKeywordGroup::Qn(_) => TraitItemKind::METHOD_QN,
+            EntityKindKeywordGroup::Bn(_) => TraitItemKind::METHOD_BN,
+            EntityKindKeywordGroup::Sn(_) => TraitItemKind::METHOD_SN,
             EntityKindKeywordGroup::Tn(_) => TraitItemKind::METHOD_TN,
             EntityKindKeywordGroup::StaticFn(_, _) => TraitItemKind::ASSOC_FN,
             EntityKindKeywordGroup::FormalEntity(_) => TraitItemKind::ASSOC_FORMAL,
@@ -35,9 +37,10 @@ impl IsAstChildren for TraitItems {
             }
             EntityKindKeywordGroup::AliasOrAssociateType(_) => TraitItemKind::AssocType,
             EntityKindKeywordGroup::Trait(_) => Err(OriginalAstError::UnexpectedTraitInsideTrait)?,
-            EntityKindKeywordGroup::Ki(_) => TraitItemKind::AssocVal,
+            EntityKindKeywordGroup::Val(_) => TraitItemKind::AssocVal,
             EntityKindKeywordGroup::Memo(_) => TraitItemKind::MemoizedField,
             EntityKindKeywordGroup::Const(_) => TraitItemKind::AssocConst,
+            EntityKindKeywordGroup::Static(_) => todo!(),
         };
         let trai_item_kind = trait_item_kind;
         Ok(EntityKind::AssocItem {

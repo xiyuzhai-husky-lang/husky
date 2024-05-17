@@ -1,7 +1,9 @@
+use self::signature::impl_block::trai_for_ty_impl_block::EthTraitForTypeImplBlockSignatureBuilder;
 use super::*;
+use husky_dec_signature::signature::assoc_item::trai_for_ty_item::method_ritchie::TraitForTypeMethodRitchieDecTemplate;
 use husky_eth_term::term::ritchie::{EthRitchieSimpleParameter, EtherealRitchieParameter};
 
-#[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar, constructor = new)]
+#[salsa::interned(constructor = new)]
 pub struct TraitForTypeMethodRitchieEthTemplate {
     pub path: TraitForTypeItemPath,
     pub self_ty: EthTerm,
@@ -50,7 +52,7 @@ impl TraitForTypeMethodRitchieEthTemplate {
     }
 }
 
-#[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
+#[salsa::interned]
 pub struct TraitForTypeMethodRitchieEtherealSignatureBuilder {
     pub template: TraitForTypeMethodRitchieEthTemplate,
     #[return_ref]
@@ -67,7 +69,7 @@ impl TraitForTypeMethodRitchieEtherealSignatureBuilder {
     }
 }
 
-#[salsa::tracked(jar = EtherealSignatureJar, return_ref)]
+#[salsa::tracked(return_ref)]
 fn trai_for_ty_method_ritchie_ethereal_signature_signature_builder_try_into_signature(
     db: &::salsa::Db,
     signature_builder: TraitForTypeMethodRitchieEtherealSignatureBuilder,

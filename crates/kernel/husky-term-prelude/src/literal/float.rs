@@ -3,7 +3,7 @@ use husky_print_utils::p;
 use std::num::ParseFloatError;
 
 /// allowing representing very large number
-#[salsa::interned(jar = TermPreludeJar)]
+#[salsa::interned]
 pub struct F32Literal {
     pub value: OrderedFloat<f32>,
     #[return_ref]
@@ -31,7 +31,7 @@ impl F32Literal {
 }
 
 /// allowing representing very large number
-#[salsa::interned(jar = TermPreludeJar)]
+#[salsa::interned]
 pub struct F64Literal {
     pub value: OrderedFloat<f64>,
     #[return_ref]

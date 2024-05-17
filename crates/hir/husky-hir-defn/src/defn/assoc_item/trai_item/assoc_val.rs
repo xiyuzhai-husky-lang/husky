@@ -1,7 +1,7 @@
 use super::*;
 use husky_hir_decl::decl::TraitAssocValHirDecl;
 
-#[salsa::interned(db = HirDefnDb, jar = HirDefnJar, constructor = new_inner)]
+#[salsa::interned(constructor = new_inner)]
 pub struct TraitAssocValHirDefn {
     pub path: TraitItemPath,
     pub hir_decl: TraitAssocValHirDecl,
@@ -30,7 +30,7 @@ impl TraitAssocValHirDefn {
     }
 }
 
-#[salsa::tracked(jar = HirDefnJar)]
+#[salsa::tracked]
 fn trai_assoc_val_hir_defn_dependencies(
     db: &::salsa::Db,
     hir_defn: TraitAssocValHirDefn,
@@ -46,7 +46,7 @@ fn trai_assoc_val_hir_defn_dependencies(
     builder.finish()
 }
 
-#[salsa::tracked(jar = HirDefnJar)]
+#[salsa::tracked]
 fn trai_assoc_val_hir_defn_version_stamp(
     db: &::salsa::Db,
     hir_defn: TraitAssocValHirDefn,

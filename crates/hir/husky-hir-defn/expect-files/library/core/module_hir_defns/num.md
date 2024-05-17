@@ -623,7 +623,7 @@
                     path: TypeImplBlockPath(
                         ItemPathId(
                             Id {
-                                value: 93,
+                                value: 96,
                             },
                         ),
                     ),
@@ -644,7 +644,7 @@
                                     TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 93,
+                                                value: 96,
                                             },
                                         ),
                                     ),
@@ -781,7 +781,7 @@
                         parenate_parameters: HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 0,
+                                    pattern_idx: 0,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -953,7 +953,7 @@
                         parenate_parameters: HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 0,
+                                    pattern_idx: 0,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -1040,7 +1040,7 @@
                     path: TypeImplBlockPath(
                         ItemPathId(
                             Id {
-                                value: 95,
+                                value: 98,
                             },
                         ),
                     ),
@@ -1061,7 +1061,7 @@
                                     TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 95,
+                                                value: 98,
                                             },
                                         ),
                                     ),
@@ -1198,7 +1198,7 @@
                         parenate_parameters: HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 0,
+                                    pattern_idx: 0,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -1370,7 +1370,7 @@
                         parenate_parameters: HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 0,
+                                    pattern_idx: 0,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -1457,7 +1457,7 @@
                     path: TypeImplBlockPath(
                         ItemPathId(
                             Id {
-                                value: 97,
+                                value: 100,
                             },
                         ),
                     ),
@@ -1478,7 +1478,7 @@
                                     TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 97,
+                                                value: 100,
                                             },
                                         ),
                                     ),
@@ -1615,7 +1615,7 @@
                         parenate_parameters: HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 0,
+                                    pattern_idx: 0,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -1719,7 +1719,7 @@
                         parenate_parameters: HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 0,
+                                    pattern_idx: 0,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -1891,7 +1891,7 @@
                         parenate_parameters: HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 0,
+                                    pattern_idx: 0,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -1978,7 +1978,7 @@
                     path: TypeImplBlockPath(
                         ItemPathId(
                             Id {
-                                value: 99,
+                                value: 102,
                             },
                         ),
                     ),
@@ -1999,7 +1999,7 @@
                                     TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 99,
+                                                value: 102,
                                             },
                                         ),
                                     ),
@@ -2204,7 +2204,7 @@
                         parenate_parameters: HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 0,
+                                    pattern_idx: 0,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -2291,7 +2291,7 @@
                     path: TypeImplBlockPath(
                         ItemPathId(
                             Id {
-                                value: 101,
+                                value: 104,
                             },
                         ),
                     ),
@@ -2312,7 +2312,7 @@
                                     TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 101,
+                                                value: 104,
                                             },
                                         ),
                                     ),
@@ -2517,7 +2517,7 @@
                         parenate_parameters: HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 0,
+                                    pattern_idx: 0,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -2604,7 +2604,7 @@
                     path: TypeImplBlockPath(
                         ItemPathId(
                             Id {
-                                value: 103,
+                                value: 106,
                             },
                         ),
                     ),
@@ -2625,7 +2625,7 @@
                                     TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 103,
+                                                value: 106,
                                             },
                                         ),
                                     ),
@@ -2830,7 +2830,7 @@
                         parenate_parameters: HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 0,
+                                    pattern_idx: 0,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -2917,7 +2917,7 @@
                     path: TypeImplBlockPath(
                         ItemPathId(
                             Id {
-                                value: 105,
+                                value: 108,
                             },
                         ),
                     ),
@@ -2938,7 +2938,7 @@
                                     TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 105,
+                                                value: 108,
                                             },
                                         ),
                                     ),
@@ -3143,7 +3143,7 @@
                         parenate_parameters: HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 0,
+                                    pattern_idx: 0,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -3230,7 +3230,7 @@
                     path: TypeImplBlockPath(
                         ItemPathId(
                             Id {
-                                value: 107,
+                                value: 110,
                             },
                         ),
                     ),
@@ -3251,7 +3251,7 @@
                                     TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 107,
+                                                value: 110,
                                             },
                                         ),
                                     ),
@@ -3456,7 +3456,7 @@
                         parenate_parameters: HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 0,
+                                    pattern_idx: 0,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -3543,7 +3543,7 @@
                     path: TypeImplBlockPath(
                         ItemPathId(
                             Id {
-                                value: 109,
+                                value: 112,
                             },
                         ),
                     ),
@@ -3564,7 +3564,7 @@
                                     TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 109,
+                                                value: 112,
                                             },
                                         ),
                                     ),
@@ -3769,7 +3769,7 @@
                         parenate_parameters: HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 0,
+                                    pattern_idx: 0,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -3856,7 +3856,7 @@
                     path: TypeImplBlockPath(
                         ItemPathId(
                             Id {
-                                value: 111,
+                                value: 114,
                             },
                         ),
                     ),
@@ -3877,7 +3877,7 @@
                                     TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 111,
+                                                value: 114,
                                             },
                                         ),
                                     ),
@@ -4082,7 +4082,7 @@
                         parenate_parameters: HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 0,
+                                    pattern_idx: 0,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -4169,7 +4169,7 @@
                     path: TypeImplBlockPath(
                         ItemPathId(
                             Id {
-                                value: 113,
+                                value: 116,
                             },
                         ),
                     ),
@@ -4190,7 +4190,7 @@
                                     TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 113,
+                                                value: 116,
                                             },
                                         ),
                                     ),
@@ -4395,7 +4395,7 @@
                         parenate_parameters: HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 0,
+                                    pattern_idx: 0,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -4482,7 +4482,7 @@
                     path: TypeImplBlockPath(
                         ItemPathId(
                             Id {
-                                value: 115,
+                                value: 118,
                             },
                         ),
                     ),
@@ -4503,7 +4503,7 @@
                                     TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 115,
+                                                value: 118,
                                             },
                                         ),
                                     ),
@@ -4708,7 +4708,7 @@
                         parenate_parameters: HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 0,
+                                    pattern_idx: 0,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -4795,7 +4795,7 @@
                     path: TypeImplBlockPath(
                         ItemPathId(
                             Id {
-                                value: 117,
+                                value: 120,
                             },
                         ),
                     ),
@@ -4816,7 +4816,7 @@
                                     TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 117,
+                                                value: 120,
                                             },
                                         ),
                                     ),
@@ -5031,7 +5031,7 @@
                         parenate_parameters: HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 0,
+                                    pattern_idx: 0,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -5135,7 +5135,7 @@
                         parenate_parameters: HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 0,
+                                    pattern_idx: 0,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -5619,7 +5619,7 @@
                         parenate_parameters: HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 0,
+                                    pattern_idx: 0,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {
@@ -5706,7 +5706,7 @@
                     path: TypeImplBlockPath(
                         ItemPathId(
                             Id {
-                                value: 119,
+                                value: 122,
                             },
                         ),
                     ),
@@ -5727,7 +5727,7 @@
                                     TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 119,
+                                                value: 122,
                                             },
                                         ),
                                     ),
@@ -6010,7 +6010,7 @@
                         parenate_parameters: HirEagerParenateParameters(
                             [
                                 HirEagerParenateParameter::Simple {
-                                    pattern_expr_idx: 0,
+                                    pattern_idx: 0,
                                     contract: Pure,
                                     ty: HirType::PathLeading(
                                         HirTypePathLeading {

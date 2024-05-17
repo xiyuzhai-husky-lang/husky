@@ -1,4 +1,4 @@
-use crate::{engine::PlaceContractEngine, site::SemaPlaceContractSite};
+use crate::{engine::PlaceContractEngine, site::SemPlaceContractSite};
 use husky_fly_term::{signature::FlyFieldSignature, ExpectationOutcome, FlyCoercion};
 #[allow(unused_imports)]
 use husky_sem_expr::emit_note_on_sem_expr_codespan;
@@ -11,7 +11,7 @@ impl<'a> PlaceContractEngine<'a> {
     pub(crate) fn infer_all_exprs(&mut self) {
         for (expr, root_kind) in self.sem_expr_region_data().sem_expr_roots() {
             if let Some(contract) = root_contract(root_kind) {
-                let site = SemaPlaceContractSite::default();
+                let site = SemPlaceContractSite::default();
                 self.infer_expr(expr, contract, site)
             }
         }
@@ -21,7 +21,7 @@ impl<'a> PlaceContractEngine<'a> {
         &mut self,
         expr: SemExprIdx,
         outer_contract: Contract,
-        outer_site: SemaPlaceContractSite,
+        outer_site: SemPlaceContractSite,
     ) {
         let (contract, mut site) = if let ExpectationOutcome::Coercion(outcome) = expr
             .expectation_outcome(self.sem_expr_region_data())
@@ -48,7 +48,7 @@ impl<'a> PlaceContractEngine<'a> {
         &mut self,
         parent_expr: SemExprIdx,
         contract: Contract,
-        site: &SemaPlaceContractSite,
+        site: &SemPlaceContractSite,
     ) {
         match *parent_expr.data(self.sem_expr_region_data().sem_expr_arena()) {
             SemExprData::Literal(_, _)

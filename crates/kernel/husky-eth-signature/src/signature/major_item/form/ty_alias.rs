@@ -1,6 +1,7 @@
 use super::*;
+use husky_dec_signature::signature::major_item::form::ty_alias::TypeAliasDecTemplate;
 
-#[salsa::interned(db = EtherealSignatureDb, jar = EtherealSignatureJar)]
+#[salsa::interned]
 pub struct MajorTypeAliasEthTemplate {
     pub path: MajorFormPath,
     #[return_ref]

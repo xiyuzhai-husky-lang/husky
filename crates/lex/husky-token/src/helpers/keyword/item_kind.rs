@@ -15,12 +15,16 @@ pub enum EntityKindKeywordGroup {
     Pn(PnToken),
     /// `qn`
     Qn(QnToken),
-    /// `vn`
+    /// `tn`
+    Bn(BnToken),
+    /// `tn`
+    Sn(SnToken),
+    /// `tn`
     Tn(TnToken),
     /// `static fn`
     StaticFn(StaticToken, FnToken),
     /// `val`
-    Ki(ValToken),
+    Val(ValToken),
     /// `memo`
     Memo(MemoToken),
     /// husky will have the capacities of theorem proving
@@ -31,6 +35,7 @@ pub enum EntityKindKeywordGroup {
     AliasOrAssociateType(TypeToken),
     Trait(TraitToken),
     Const(ConstToken),
+    Static(StaticToken),
 }
 
 #[salsa::derive_debug_with_db]
@@ -60,6 +65,18 @@ pub struct PnToken {
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct QnToken {
+    token_idx: TokenIdx,
+}
+
+#[salsa::derive_debug_with_db]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct BnToken {
+    token_idx: TokenIdx,
+}
+
+#[salsa::derive_debug_with_db]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct SnToken {
     token_idx: TokenIdx,
 }
 
@@ -225,12 +242,14 @@ where
         };
         match kw {
             Keyword::Form(kw) => match kw {
-                FormKeyword::Val => Ok(Some(EntityKindKeywordGroup::Ki(ValToken { token_idx }))),
+                FormKeyword::Val => Ok(Some(EntityKindKeywordGroup::Val(ValToken { token_idx }))),
                 FormKeyword::Fn => Ok(Some(EntityKindKeywordGroup::Fn(FnToken { token_idx }))),
                 FormKeyword::Vn => Ok(Some(EntityKindKeywordGroup::Vn(VnToken { token_idx }))),
                 FormKeyword::Gn => Ok(Some(EntityKindKeywordGroup::Gn(GnToken { token_idx }))),
                 FormKeyword::Pn => Ok(Some(EntityKindKeywordGroup::Pn(PnToken { token_idx }))),
                 FormKeyword::Qn => Ok(Some(EntityKindKeywordGroup::Qn(QnToken { token_idx }))),
+                FormKeyword::Bn => Ok(Some(EntityKindKeywordGroup::Bn(BnToken { token_idx }))),
+                FormKeyword::Sn => Ok(Some(EntityKindKeywordGroup::Sn(SnToken { token_idx }))),
                 FormKeyword::Tn => Ok(Some(EntityKindKeywordGroup::Tn(TnToken { token_idx }))),
                 FormKeyword::Def => Ok(Some(EntityKindKeywordGroup::FormalEntity(
                     FormalEntityToken::Def(DefToken { token_idx }),
@@ -277,7 +296,9 @@ where
                         },
                     )))
                 }
-                _ => Ok(None),
+                _ => Ok(Some(EntityKindKeywordGroup::Static(StaticToken {
+                    token_idx,
+                }))),
             },
             _ => Ok(None),
         }

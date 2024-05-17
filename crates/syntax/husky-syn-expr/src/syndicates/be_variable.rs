@@ -3,7 +3,7 @@ use super::*;
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct BePatternSyndicate {
-    pattern_expr_root: BeSynPatternExprRoot,
+    pattern_expr_root: BeSynPatternRoot,
     variables: CurrentSynSymbolIdxRange,
 }
 
@@ -16,12 +16,12 @@ where
         access_end: RegionalTokenIdxRangeEnd,
     ) -> SynExprResult<BePatternSyndicate> {
         let state = self.state();
-        let Some(pattern_expr_root) = self.try_parse_option::<BeSynPatternExprRoot>()? else {
+        let Some(pattern_expr_root) = self.try_parse_option::<BeSynPatternRoot>()? else {
             Err(OriginalSynExprError::ExpectedBePattern(state))?
         };
         let symbols = self
             .pattern_expr_region()
-            .pattern_expr_symbols(pattern_expr_root.syn_pattern_expr_idx());
+            .pattern_expr_symbols(pattern_expr_root.syn_pattern_idx());
         let access_start = self.state().next_regional_token_idx();
         let symbols = symbols
             .iter()
@@ -46,7 +46,7 @@ where
 }
 
 impl BePatternSyndicate {
-    pub fn syn_pattern_root(&self) -> BeSynPatternExprRoot {
+    pub fn syn_pattern_root(&self) -> BeSynPatternRoot {
         self.pattern_expr_root
     }
 

@@ -3,7 +3,9 @@ pub mod int;
 
 use self::float::*;
 use self::int::*;
-use crate::*;
+use husky_entity_path::path::major_item::ty::{
+    PreludeBasicTypePath, PreludeFloatTypePath, PreludeIntTypePath, PreludeTypePath,
+};
 use husky_literal_value::LiteralValue;
 use ordered_float::OrderedFloat;
 use std::sync::Arc;
@@ -65,7 +67,7 @@ pub enum Literal {
     StaticLifetime,
 }
 
-#[salsa::tracked(db = TermPreludeDb, jar = TermPreludeJar)]
+#[salsa::tracked]
 pub struct StringLiteralTokenData {
     #[return_ref]
     pub data: Arc<str>,
@@ -116,7 +118,7 @@ impl Literal {
 }
 
 /// allowing representing very large number
-#[salsa::interned(db = TermPreludeDb, jar = TermPreludeJar)]
+#[salsa::interned]
 pub struct NatLiteral {
     pub bits: Vec<usize>,
 }

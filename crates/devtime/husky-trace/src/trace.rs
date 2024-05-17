@@ -30,8 +30,10 @@ use crate::{
     *,
 };
 use husky_entity_kind::MajorFormKind;
-use husky_entity_path::MajorItemPath;
-use husky_entity_path::{ItemPath, MajorFormPath};
+use husky_entity_path::path::{
+    major_item::{form::MajorFormPath, MajorItemPath},
+    ItemPath,
+};
 use husky_entity_tree::helpers::paths::module_item_paths;
 use husky_entity_tree::helpers::tokra_region::HasRegionalTokenIdxBase;
 use husky_ki_repr::expansion::KiReprExpansion;
@@ -61,12 +63,12 @@ pub enum TracePathData {
     LazyCallInput(LazyCallInputTracePathData),
     LazyCall(LazyCallTracePathData),
     LazyExpr(LazyExprTracePathData),
-    LazyPatternExpr(LazyPatternExprTracePathData),
+    LazyPattern(LazyPatternTracePathData),
     LazyStmt(LazyStmtTracePathData),
     EagerCallInput(EagerCallInputTracePathData),
     EagerCall(EagerCallTracePathData),
     EagerExpr(EagerExprTracePathData),
-    EagerPatternExpr(EagerPatternExprTracePathData),
+    EagerPattern(EagerPatternTracePathData),
     EagerStmt(EagerStmtTracePathData),
 }
 
@@ -104,12 +106,12 @@ pub enum TraceData {
     LazyCallInput(LazyCallInputTraceData),
     LazyCall(LazyCallTraceData),
     LazyExpr(LazyExprTraceData),
-    LazyPatternExpr(LazyPatternExprTraceData),
+    LazyPattern(LazyPatternTraceData),
     LazyStmt(LazyStmtTraceData),
     EagerCallInput(EagerCallInputTraceData),
     EagerCall(EagerCallTraceData),
     EagerExpr(EagerExprTraceData),
-    EagerPatternExpr(EagerPatternExprTraceData),
+    EagerPattern(EagerPatternTraceData),
     EagerStmt(EagerStmtTraceData),
 }
 
@@ -133,9 +135,12 @@ impl Trace {
 
     fn from_form_path(form_path: MajorFormPath, db: &::salsa::Db) -> Option<Self> {
         match form_path.major_form_kind(db) {
-            MajorFormKind::Const => todo!(),
             MajorFormKind::Val => Some(Trace::from_val_item_path(form_path, db).into()),
-            MajorFormKind::Ritchie(_) | MajorFormKind::TypeAlias | MajorFormKind::Formal => None,
+            MajorFormKind::Const
+            | MajorFormKind::Ritchie(_)
+            | MajorFormKind::TypeAlias
+            | MajorFormKind::Formal => None,
+            MajorFormKind::Static => todo!(),
         }
     }
 
@@ -189,12 +194,12 @@ impl TraceData {
             TraceData::LazyCallInput(_) => TraceKind::LazyCallInput,
             TraceData::LazyCall(_) => TraceKind::LazyCall,
             TraceData::LazyExpr(_) => TraceKind::LazyExpr,
-            TraceData::LazyPatternExpr(_) => TraceKind::LazyPatternExpr,
+            TraceData::LazyPattern(_) => TraceKind::LazyPattern,
             TraceData::LazyStmt(_) => TraceKind::LazyStmt,
             TraceData::EagerCallInput(_) => TraceKind::EagerCallInput,
             TraceData::EagerCall(_) => TraceKind::EagerCall,
             TraceData::EagerExpr(_) => TraceKind::EagerExpr,
-            TraceData::EagerPatternExpr(_) => TraceKind::EagerPatternExpr,
+            TraceData::EagerPattern(_) => TraceKind::EagerPattern,
             TraceData::EagerStmt(_) => TraceKind::EagerStmt,
         }
     }
@@ -203,13 +208,13 @@ impl TraceData {
         match self {
             TraceData::ValItem(slf) => Some(slf.ki_repr(db)),
             TraceData::LazyExpr(slf) => slf.ki_repr(trace_id, db),
-            TraceData::LazyPatternExpr(slf) => slf.ki_repr(trace_id, db),
+            TraceData::LazyPattern(slf) => slf.ki_repr(trace_id, db),
             TraceData::LazyCall(slf) => Some(slf.ki_repr(db)),
             TraceData::LazyCallInput(slf) => Some(slf.ki_repr(db)),
             TraceData::LazyStmt(slf) => slf.ki_repr(trace_id, db),
             TraceData::Submodule(_) => None,
             TraceData::EagerExpr(_) => None,
-            TraceData::EagerPatternExpr(_) => None,
+            TraceData::EagerPattern(_) => None,
             TraceData::EagerCallInput(_) => None,
             TraceData::EagerCall(_) => None,
             TraceData::EagerStmt(_) => None,
@@ -245,12 +250,12 @@ impl TraceData {
             TraceData::LazyCallInput(slf) => slf.view_lines(db),
             TraceData::LazyCall(slf) => slf.view_lines(db),
             TraceData::LazyExpr(slf) => slf.view_lines(db),
-            TraceData::LazyPatternExpr(slf) => slf.view_lines(db),
+            TraceData::LazyPattern(slf) => slf.view_lines(db),
             TraceData::LazyStmt(slf) => slf.view_lines(trace_id, db),
             TraceData::EagerCallInput(slf) => slf.view_lines(db),
             TraceData::EagerCall(slf) => slf.view_lines(db),
             TraceData::EagerExpr(slf) => slf.view_lines(db),
-            TraceData::EagerPatternExpr(slf) => slf.view_lines(db),
+            TraceData::EagerPattern(slf) => slf.view_lines(db),
             TraceData::EagerStmt(slf) => slf.view_lines(trace_id, db),
         }
     }
@@ -262,12 +267,12 @@ impl TraceData {
             TraceData::LazyCallInput(slf) => slf.have_subtraces(),
             TraceData::LazyCall(slf) => slf.have_subtraces(db),
             TraceData::LazyExpr(slf) => slf.have_subtraces(db),
-            TraceData::LazyPatternExpr(slf) => slf.have_subtraces(),
+            TraceData::LazyPattern(slf) => slf.have_subtraces(),
             TraceData::LazyStmt(slf) => slf.have_subtraces(db),
             TraceData::EagerCallInput(slf) => slf.have_subtraces(db),
             TraceData::EagerCall(slf) => slf.have_subtraces(db),
             TraceData::EagerExpr(slf) => slf.have_subtraces(db),
-            TraceData::EagerPatternExpr(slf) => slf.have_subtraces(db),
+            TraceData::EagerPattern(slf) => slf.have_subtraces(db),
             TraceData::EagerStmt(slf) => slf.have_subtraces(db),
         }
     }
@@ -279,12 +284,12 @@ impl TraceData {
             TraceData::LazyCallInput(slf) => slf.subtraces(),
             TraceData::LazyCall(slf) => slf.subtraces(trace_id, db),
             TraceData::LazyExpr(slf) => slf.subtraces(trace_id, db),
-            TraceData::LazyPatternExpr(slf) => slf.subtraces(),
+            TraceData::LazyPattern(slf) => slf.subtraces(),
             TraceData::LazyStmt(slf) => slf.subtraces(trace_id, db),
             TraceData::EagerCallInput(slf) => slf.subtraces(),
             TraceData::EagerCall(slf) => slf.subtraces(trace_id, db),
             TraceData::EagerExpr(slf) => slf.subtraces(trace_id, db),
-            TraceData::EagerPatternExpr(slf) => slf.subtraces(),
+            TraceData::EagerPattern(slf) => slf.subtraces(),
             TraceData::EagerStmt(slf) => slf.subtraces(trace_id, db),
         }
     }
@@ -296,12 +301,12 @@ impl TraceData {
             TraceData::LazyCallInput(_) => todo!(),
             TraceData::LazyCall(_) => todo!(),
             TraceData::LazyExpr(slf) => slf.ki_repr_expansion(db),
-            TraceData::LazyPatternExpr(slf) => slf.ki_repr_expansion(db),
+            TraceData::LazyPattern(slf) => slf.ki_repr_expansion(db),
             TraceData::LazyStmt(slf) => slf.ki_repr_expansion(db),
             TraceData::EagerCallInput(_) => todo!(),
             TraceData::EagerCall(_) => todo!(),
             TraceData::EagerExpr(_) => todo!(),
-            TraceData::EagerPatternExpr(_) => todo!(),
+            TraceData::EagerPattern(_) => todo!(),
             TraceData::EagerStmt(_) => todo!(),
         }
     }

@@ -1,3 +1,8 @@
+use husky_hir_defn::defn::assoc_item::trai_item::{
+    assoc_ritchie::TraitAssocRitchieHirDefn, assoc_ty::TraitAssocTypeHirDefn,
+    assoc_val::TraitAssocValHirDefn, method_ritchie::TraitMethodFnHirDefn, TraitItemHirDefn,
+};
+
 use super::*;
 
 impl TranspileToRustWith for TraitItemHirDefn {

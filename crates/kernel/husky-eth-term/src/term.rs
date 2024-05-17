@@ -18,6 +18,7 @@ use crate::{instantiation::*, term::application::TermFunctionReduced};
 use crate::{term::application::term_uncheck_from_dec_term_application_aux, *};
 use husky_coword::Ident;
 use husky_dec_term::term::DecTerm;
+use husky_entity_path::{menu::item_path_menu, path::major_item::ty::PreludeTypePath};
 use husky_term_prelude::literal::Literal;
 use salsa::DisplayWithDb;
 use std::fmt::Debug;
@@ -221,7 +222,7 @@ impl EthTerm {
     }
 }
 
-#[salsa::tracked(jar = EthTermJar)]
+#[salsa::tracked]
 pub(crate) fn ethereal_term_from_application_or_ritchie_call_declarative_term(
     db: &::salsa::Db,
     declarative_term: DecApplicationOrRitchieCall,
@@ -245,7 +246,7 @@ pub(crate) fn ethereal_term_from_application_or_ritchie_call_declarative_term(
     }
 }
 
-#[salsa::tracked(jar = EthTermJar)]
+#[salsa::tracked]
 pub(crate) fn ethereal_term_from_list_declarative_term(
     db: &::salsa::Db,
     list: DecList,
@@ -288,7 +289,7 @@ pub(crate) fn ethereal_term_from_list_declarative_term(
     }
 }
 
-#[salsa::tracked(jar = EthTermJar)]
+#[salsa::tracked]
 pub(crate) fn ethereal_term_from_dec_term_wrapper(
     db: &::salsa::Db,
     wrapper: DecWrapper,

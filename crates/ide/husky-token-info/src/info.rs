@@ -1,6 +1,6 @@
 use crate::*;
 use husky_entity_kind::EntityKind;
-use husky_entity_path::{EntityPath, PrincipalEntityPath};
+use husky_entity_path::path::{EntityPath, PrincipalEntityPath};
 use husky_entity_tree::{OnceUseRuleIdx, UseExprIdx, UseOneRuleState};
 use husky_sem_expr::SemExprIdx;
 use husky_syn_expr::{
@@ -24,7 +24,7 @@ pub enum TokenInfoSource {
     UseExpr(UseExprIdx),
     SemExpr(SemExprIdx),
     SynPrincipalEntityPathExpr(SynPrincipalEntityPathSynExprIdx, PrincipalEntityPath),
-    PatternExpr(SynPatternIdx),
+    Pattern(SynPatternIdx),
     // todo: add #[skip] attribute
     TemplateParameter(CurrentVariableIdx),
     AstIdentifiable,

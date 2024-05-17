@@ -449,6 +449,7 @@ impl<'a, 'b: 'a> PretokenStream<'a, 'b> {
                     _ => Punctuation::EQ,
                 },
                 ':' => match self.peek_char() {
+                    Some('-') => self.turn_peek_into_next(Punctuation::COLON_HYPHEN),
                     Some('=') => self.turn_peek_into_next(Punctuation::COLON_EQ),
                     Some(':') => {
                         self.char_iter.next();

@@ -29,8 +29,15 @@ pub use self::template_argument::*;
 
 use crate::{obelisks::closure_parameter::ClosureParameterObelisk, *};
 use husky_coword::{Ident, IdentMap};
-use husky_entity_path::{MajorItemPath, PrincipalEntityPath};
-use husky_eth_signature::TraitForTypeAssocTypeEtherealSignature;
+use husky_entity_path::path::{
+    assoc_item::trai_for_ty_item::TraitForTypeItemPath,
+    major_item::{
+        ty::{PreludeFloatTypePath, PreludeNumTypePath, PreludeTypePath},
+        MajorItemPath,
+    },
+    PrincipalEntityPath,
+};
+use husky_eth_signature::signature::assoc_item::trai_for_ty_item::assoc_ty::TraitForTypeAssocTypeEtherealSignature;
 use husky_eth_term::term::{
     application::EthApplication, symbolic_variable::EthSymbolicVariable,
     ty_as_trai_item::EthTypeAsTraitItem, EthTerm,

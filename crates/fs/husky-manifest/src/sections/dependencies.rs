@@ -1,13 +1,13 @@
 use super::*;
 use vec_like::VecSet;
 
-#[salsa::tracked(db = ManifestDb, jar = ManifestJar)]
+#[salsa::tracked]
 pub struct PackageDependenciesSection {
     #[return_ref]
     pub data: Vec<PackageDependency>,
 }
 
-#[salsa::tracked(jar = ManifestJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub(crate) fn package_dependencies(
     db: &::salsa::Db,
     package_path: PackagePath,
@@ -59,7 +59,7 @@ pub(crate) fn full_dependent_package_paths(
         .map(|s| s as &[_])
 }
 
-#[salsa::tracked(jar = ManifestJar, return_ref)]
+#[salsa::tracked(return_ref)]
 pub(crate) fn full_dependent_package_paths_aux(
     db: &::salsa::Db,
     package_path: PackagePath,

@@ -1,4 +1,5 @@
 use crate::*;
+use husky_entity_path::path::{impl_block::ImplBlockPath, ItemPath};
 
 #[salsa::tracked(constructor = new)]
 pub struct SynNodeDeclSheet {

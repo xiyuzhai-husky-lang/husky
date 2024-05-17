@@ -1,6 +1,6 @@
 use crate::ritchie::HirContract;
 use husky_place::place::EthPlace;
-use husky_sem_place_contract::site::SemaPlaceContractSite;
+use husky_sem_place_contract::site::SemPlaceContractSite;
 use husky_term_prelude::Contract;
 use vec_like::SmallVecPairMap;
 
@@ -11,7 +11,7 @@ pub struct HirPlaceContractSite {
 }
 
 impl HirPlaceContractSite {
-    pub fn from_sema(sem_site: &SemaPlaceContractSite) -> Self {
+    pub fn from_sema(sem_site: &SemPlaceContractSite) -> Self {
         HirPlaceContractSite {
             place_contracts: SmallVecPairMap::from_iter(
                 sem_site

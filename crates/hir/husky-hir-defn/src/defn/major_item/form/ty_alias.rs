@@ -1,7 +1,7 @@
 use super::*;
 use husky_hir_decl::decl::MajorTypeAliasHirDecl;
 
-#[salsa::interned(db = HirDefnDb, jar = HirDefnJar)]
+#[salsa::interned]
 pub struct TypeAliasHirDefn {
     pub path: MajorFormPath,
     pub hir_decl: MajorTypeAliasHirDecl,
@@ -30,7 +30,7 @@ impl TypeAliasHirDefn {
     }
 }
 
-#[salsa::tracked(jar = HirDefnJar)]
+#[salsa::tracked]
 fn ty_alias_hir_defn_dependencies(
     db: &::salsa::Db,
     hir_defn: TypeAliasHirDefn,
@@ -45,7 +45,7 @@ fn ty_alias_hir_defn_dependencies(
     builder.finish()
 }
 
-#[salsa::tracked(jar = HirDefnJar)]
+#[salsa::tracked]
 fn ty_alias_hir_defn_version_stamp(
     db: &::salsa::Db,
     hir_defn: TypeAliasHirDefn,

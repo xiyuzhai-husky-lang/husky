@@ -1,6 +1,10 @@
 use super::*;
 use crate::ParentUseExprData;
 use husky_entity_kind::TypeKind;
+use husky_entity_path::path::{
+    major_item::{ty::TypePath, MajorItemPath},
+    PrincipalEntityPath,
+};
 use husky_token::PathNameToken;
 
 #[derive(Debug)]

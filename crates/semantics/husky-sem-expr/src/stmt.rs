@@ -97,6 +97,9 @@ pub enum SemStmtData {
         eol_with_token: EolWithRegionalToken,
         case_branches: Vec<SemaCaseBranch>,
     },
+    Narrate {
+        narrate_token: husky_regional_token::NarrateRegionalToken,
+    },
 }
 
 #[salsa::derive_debug_with_db]
@@ -542,6 +545,10 @@ impl<'a> SemExprBuilder<'a> {
                 eol_with_token,
                 case_branches,
                 stmt_ty_expectation,
+            ),
+            SynStmtData::Narrate { narrate_token } => (
+                Ok(SemStmtData::Narrate { narrate_token }),
+                Ok(self.term_menu().unit_ty_ontology().into()),
             ),
         }
     }
