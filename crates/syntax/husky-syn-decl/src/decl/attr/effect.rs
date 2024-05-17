@@ -1,6 +1,7 @@
 use super::*;
+use parsec::PunctuatedSmallList;
 
-#[salsa::tracked(db = SynDeclDb, jar = SynDeclJar, constructor = new_inner)]
+#[salsa::tracked(constructor = new_inner)]
 pub struct EffectAttrSynNodeDecl {
     #[id]
     pub syn_node_path: AttrSynNodePath,
@@ -8,11 +9,19 @@ pub struct EffectAttrSynNodeDecl {
     pub effect_token: IdentRegionalToken,
     #[return_ref]
     pub lpar_token: SynNodeDeclResult<LparRegionalToken>,
-    // todo: effects
+    #[return_ref]
+    pub effects: SynNodeDeclResult<
+        PunctuatedSmallList<EffectSynNodeDecl, CommaRegionalToken, SynNodeDeclError, true, 8>,
+    >,
     #[return_ref]
     pub rpar_token: SynNodeDeclResult<RparRegionalToken>,
     #[skip_fmt]
     pub syn_expr_region: SynExprRegion,
+}
+
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
+pub enum EffectSynNodeDecl {
+    MajorStatic(),
 }
 
 /// # constructor
