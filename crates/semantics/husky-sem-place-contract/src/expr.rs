@@ -262,5 +262,6 @@ fn root_contract(root_kind: SynExprRootKind) -> Option<Contract> {
         SynExprRootKind::EvalExpr => todo!(),
         SynExprRootKind::AssocTypeTerm => None,
         SynExprRootKind::TypeAliasTypeTerm => None,
+        SynExprRootKind::Effect => todo!(),
     }
 }

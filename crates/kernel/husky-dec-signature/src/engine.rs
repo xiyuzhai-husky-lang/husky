@@ -327,6 +327,7 @@ impl<'a> DecTermEngine<'a> {
                 | SynExprRootKind::ValExpr
                 | SynExprRootKind::EvalExpr
                 | SynExprRootKind::TraitInConstraint => continue,
+                SynExprRootKind::Effect => todo!(),
             }
             self.cache_new_expr_term(expr_root.syn_expr_idx())
         }
