@@ -519,6 +519,8 @@ impl<'a> KiReprExpansionBuilder<'a> {
                     RitchieItemKind::Vn => todo!(),
                     RitchieItemKind::Pn => todo!(),
                     RitchieItemKind::Qn => todo!(),
+                    RitchieItemKind::Bn => todo!(),
+                    RitchieItemKind::Sn => todo!(),
                     RitchieItemKind::Tn => todo!(),
                 };
                 let mut arguments: SmallVec<[KiArgumentRepr; 4]> = smallvec![];

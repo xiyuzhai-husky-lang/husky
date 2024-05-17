@@ -27,6 +27,8 @@ impl IsAstChildren for FormBody {
             EntityKindKeywordGroup::Vn(_) => MajorFormKind::VN.into(),
             EntityKindKeywordGroup::Pn(_) => MajorFormKind::PN.into(),
             EntityKindKeywordGroup::Qn(_) => MajorFormKind::QN.into(),
+            EntityKindKeywordGroup::Bn(_) => todo!(),
+            EntityKindKeywordGroup::Sn(_) => todo!(),
             EntityKindKeywordGroup::Tn(_) => MajorFormKind::TN.into(),
             EntityKindKeywordGroup::FormalEntity(_) => MajorFormKind::Formal.into(),
             EntityKindKeywordGroup::MajorType(token) => token.type_kind().into(),

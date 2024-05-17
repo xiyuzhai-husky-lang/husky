@@ -36,6 +36,8 @@ impl MajorFunctionRitchieHirDecl {
             RitchieItemKind::Vn => todo!(),
             RitchieItemKind::Pn => todo!(),
             RitchieItemKind::Qn => todo!(),
+            RitchieItemKind::Bn => todo!(),
+            RitchieItemKind::Sn => todo!(),
             RitchieItemKind::Tn => todo!(),
         };
         let return_ty = builder.return_ty_before_colon(syn_decl.return_ty(db));

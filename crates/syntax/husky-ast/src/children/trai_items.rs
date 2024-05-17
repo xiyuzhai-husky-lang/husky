@@ -27,6 +27,8 @@ impl IsAstChildren for TraitItems {
             EntityKindKeywordGroup::Vn(_) => TraitItemKind::METHOD_VN,
             EntityKindKeywordGroup::Pn(_) => TraitItemKind::METHOD_PN,
             EntityKindKeywordGroup::Qn(_) => TraitItemKind::METHOD_QN,
+            EntityKindKeywordGroup::Bn(_) => TraitItemKind::METHOD_BN,
+            EntityKindKeywordGroup::Sn(_) => TraitItemKind::METHOD_SN,
             EntityKindKeywordGroup::Tn(_) => TraitItemKind::METHOD_TN,
             EntityKindKeywordGroup::StaticFn(_, _) => TraitItemKind::ASSOC_FN,
             EntityKindKeywordGroup::FormalEntity(_) => TraitItemKind::ASSOC_FORMAL,

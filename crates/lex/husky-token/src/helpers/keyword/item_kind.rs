@@ -15,7 +15,11 @@ pub enum EntityKindKeywordGroup {
     Pn(PnToken),
     /// `qn`
     Qn(QnToken),
-    /// `vn`
+    /// `tn`
+    Bn(BnToken),
+    /// `tn`
+    Sn(SnToken),
+    /// `tn`
     Tn(TnToken),
     /// `static fn`
     StaticFn(StaticToken, FnToken),
@@ -61,6 +65,18 @@ pub struct PnToken {
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub struct QnToken {
+    token_idx: TokenIdx,
+}
+
+#[salsa::derive_debug_with_db]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct BnToken {
+    token_idx: TokenIdx,
+}
+
+#[salsa::derive_debug_with_db]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct SnToken {
     token_idx: TokenIdx,
 }
 
@@ -232,6 +248,8 @@ where
                 FormKeyword::Gn => Ok(Some(EntityKindKeywordGroup::Gn(GnToken { token_idx }))),
                 FormKeyword::Pn => Ok(Some(EntityKindKeywordGroup::Pn(PnToken { token_idx }))),
                 FormKeyword::Qn => Ok(Some(EntityKindKeywordGroup::Qn(QnToken { token_idx }))),
+                FormKeyword::Bn => Ok(Some(EntityKindKeywordGroup::Bn(BnToken { token_idx }))),
+                FormKeyword::Sn => Ok(Some(EntityKindKeywordGroup::Sn(SnToken { token_idx }))),
                 FormKeyword::Tn => Ok(Some(EntityKindKeywordGroup::Tn(TnToken { token_idx }))),
                 FormKeyword::Def => Ok(Some(EntityKindKeywordGroup::FormalEntity(
                     FormalEntityToken::Def(DefToken { token_idx }),
