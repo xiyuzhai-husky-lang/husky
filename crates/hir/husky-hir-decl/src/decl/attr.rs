@@ -1,6 +1,7 @@
 pub mod backprop;
 pub mod derive;
 pub mod effect;
+pub mod marker;
 pub mod test;
 
 use self::{

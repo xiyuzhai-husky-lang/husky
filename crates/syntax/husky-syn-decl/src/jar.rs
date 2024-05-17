@@ -128,6 +128,8 @@ pub struct SynDeclJar(
     crate::decl::attr::backprop::BackpropAttrSynDecl,
     crate::decl::attr::effect::EffectAttrSynNodeDecl,
     crate::decl::attr::effect::EffectAttrSynDecl,
+    crate::decl::attr::marker::MarkerAttrSynNodeDecl,
+    crate::decl::attr::marker::MarkerAttrSynDecl,
     crate::decl::attr::test::TestAttrSynNodeDecl,
     crate::decl::attr::test::TestAttrSynDecl,
     crate::decl::attr_syn_node_decl,
