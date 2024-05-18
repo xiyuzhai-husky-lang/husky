@@ -6,112 +6,7 @@
                 TypePath(
                     ItemPathId(
                         Id {
-                            value: 22,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        Some(
-            Some(
-                HirDefnVersionStamp(
-                    Id {
-                        value: 2,
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        Attr(
-            Room32,
-            AttrItemPath(
-                ItemPathId(
-                    Id {
-                        value: 140,
-                    },
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        MajorItem(
-            Type(
-                TypePath(
-                    ItemPathId(
-                        Id {
-                            value: 23,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        Some(
-            Some(
-                HirDefnVersionStamp(
-                    Id {
-                        value: 3,
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        Attr(
-            Room32,
-            AttrItemPath(
-                ItemPathId(
-                    Id {
-                        value: 141,
-                    },
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        MajorItem(
-            Type(
-                TypePath(
-                    ItemPathId(
-                        Id {
-                            value: 24,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        Some(
-            Some(
-                HirDefnVersionStamp(
-                    Id {
-                        value: 4,
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        Attr(
-            Room32,
-            AttrItemPath(
-                ItemPathId(
-                    Id {
-                        value: 142,
-                    },
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        MajorItem(
-            Type(
-                TypePath(
-                    ItemPathId(
-                        Id {
-                            value: 25,
+                            value: 27,
                         },
                     ),
                 ),
@@ -128,12 +23,25 @@
         ),
     ),
     (
+        Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 153,
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
         MajorItem(
             Type(
                 TypePath(
                     ItemPathId(
                         Id {
-                            value: 26,
+                            value: 28,
                         },
                     ),
                 ),
@@ -150,12 +58,25 @@
         ),
     ),
     (
+        Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 154,
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
         MajorItem(
             Type(
                 TypePath(
                     ItemPathId(
                         Id {
-                            value: 27,
+                            value: 29,
                         },
                     ),
                 ),
@@ -172,12 +93,25 @@
         ),
     ),
     (
+        Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 155,
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
         MajorItem(
             Type(
                 TypePath(
                     ItemPathId(
                         Id {
-                            value: 28,
+                            value: 30,
                         },
                     ),
                 ),
@@ -199,7 +133,7 @@
                 TypePath(
                     ItemPathId(
                         Id {
-                            value: 29,
+                            value: 31,
                         },
                     ),
                 ),
@@ -210,6 +144,72 @@
                 HirDefnVersionStamp(
                     Id {
                         value: 9,
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        MajorItem(
+            Type(
+                TypePath(
+                    ItemPathId(
+                        Id {
+                            value: 32,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        Some(
+            Some(
+                HirDefnVersionStamp(
+                    Id {
+                        value: 10,
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        MajorItem(
+            Type(
+                TypePath(
+                    ItemPathId(
+                        Id {
+                            value: 33,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        Some(
+            Some(
+                HirDefnVersionStamp(
+                    Id {
+                        value: 11,
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        MajorItem(
+            Type(
+                TypePath(
+                    ItemPathId(
+                        Id {
+                            value: 34,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        Some(
+            Some(
+                HirDefnVersionStamp(
+                    Id {
+                        value: 12,
                     },
                 ),
             ),

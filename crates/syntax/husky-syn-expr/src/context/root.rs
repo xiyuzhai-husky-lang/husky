@@ -52,6 +52,7 @@ pub enum SynExprRootKind {
     TypeAliasTypeTerm,
     /// these are traits in the trait constraints
     TraitInConstraint,
+    Effect,
 }
 
 #[salsa::derive_debug_with_db]

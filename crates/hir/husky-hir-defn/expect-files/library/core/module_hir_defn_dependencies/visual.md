@@ -2,22 +2,22 @@
 [
     HirDefnDependencies(
         Id {
-            value: 172,
+            value: 181,
         },
     ),
     HirDefnDependencies(
         Id {
-            value: 173,
+            value: 182,
         },
     ),
     HirDefnDependencies(
         Id {
-            value: 174,
+            value: 183,
         },
     ),
     HirDefnDependencies(
         Id {
-            value: 175,
+            value: 184,
         },
     ),
 ]

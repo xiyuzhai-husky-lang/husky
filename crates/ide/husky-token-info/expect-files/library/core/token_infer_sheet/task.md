@@ -9,6 +9,134 @@ Ok(
                     src: TokenInfoSource::AstIdentifiable,
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
+                            MajorItemSynNodePath::Trait(
+                                TraitSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::MajorItem(
+                                            MajorItemSynNodePathData::Trait(
+                                                TraitSynNodePathData {
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TraitPath(`core::task::IsTask`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        EntityKind::MajorItem {
+                            module_item_kind: MajorItemKind::Trait,
+                            connection: MajorItemConnectionKind::Connected,
+                        },
+                    ),
+                },
+            ),
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TraitItem(
+                                TraitItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TraitItem(
+                                                TraitItemSynNodePathData {
+                                                    parent_trai_syn_node_path: TraitSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::MajorItem(
+                                                                MajorItemSynNodePathData::Trait(
+                                                                    TraitSynNodePathData {
+                                                                        disambiguated_item_path: DisambiguatedItemPath {
+                                                                            maybe_ambiguous_item_path: TraitPath(`core::task::IsTask`),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TraitItemPath(`core::task::IsTask::Backend`, `AssocType`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        EntityKind::AssocItem {
+                            assoc_item_kind: AssocItemKind::TraitItem(
+                                TraitItemKind::AssocType,
+                            ),
+                        },
+                    ),
+                },
+            ),
+            None,
+            None,
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::AssocItem(
+                            AssocItemSynNodePath::TraitItem(
+                                TraitItemSynNodePath(
+                                    ItemSynNodePathId {
+                                        data: ItemSynNodePathData::AssocItem(
+                                            AssocItemSynNodePathData::TraitItem(
+                                                TraitItemSynNodePathData {
+                                                    parent_trai_syn_node_path: TraitSynNodePath(
+                                                        ItemSynNodePathId {
+                                                            data: ItemSynNodePathData::MajorItem(
+                                                                MajorItemSynNodePathData::Trait(
+                                                                    TraitSynNodePathData {
+                                                                        disambiguated_item_path: DisambiguatedItemPath {
+                                                                            maybe_ambiguous_item_path: TraitPath(`core::task::IsTask`),
+                                                                            disambiguator: 0,
+                                                                        },
+                                                                    },
+                                                                ),
+                                                            ),
+                                                        },
+                                                    ),
+                                                    disambiguated_item_path: DisambiguatedItemPath {
+                                                        maybe_ambiguous_item_path: TraitItemPath(`core::task::IsTask::Frontend`, `AssocType`),
+                                                        disambiguator: 0,
+                                                    },
+                                                },
+                                            ),
+                                        ),
+                                    },
+                                ),
+                            ),
+                        ),
+                        EntityKind::AssocItem {
+                            assoc_item_kind: AssocItemKind::TraitItem(
+                                TraitItemKind::AssocType,
+                            ),
+                        },
+                    ),
+                },
+            ),
+            None,
+            None,
+            None,
+            None,
+            None,
+            Some(
+                TokenInfo {
+                    src: TokenInfoSource::AstIdentifiable,
+                    data: TokenInfoData::EntityNode(
+                        ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Type(
                                 TypeSynNodePath(
                                     ItemSynNodePathId {
@@ -44,7 +172,7 @@ Ok(
                     data: TokenInfoData::EntityNode(
                         ItemSynNodePath::MajorItem(
                             MajorItemSynNodePath::Form(
-                                FormSynNodePath(`core::task::task`, `Static`, (0)),
+                                FormSynNodePath(`core::task::TASK`, `Static`, (0)),
                             ),
                         ),
                         EntityKind::MajorItem {

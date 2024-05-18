@@ -50,7 +50,7 @@
                                 AttrItemPath(
                                     ItemPathId(
                                         Id {
-                                            value: 226,
+                                            value: 237,
                                         },
                                     ),
                                 ),
@@ -87,7 +87,7 @@
                                 maybe_ambiguous_item_path: TypeVariantPath(
                                     ItemPathId(
                                         Id {
-                                            value: 78,
+                                            value: 88,
                                         },
                                     ),
                                 ),
@@ -125,7 +125,7 @@
                                 maybe_ambiguous_item_path: TypeVariantPath(
                                     ItemPathId(
                                         Id {
-                                            value: 79,
+                                            value: 89,
                                         },
                                     ),
                                 ),

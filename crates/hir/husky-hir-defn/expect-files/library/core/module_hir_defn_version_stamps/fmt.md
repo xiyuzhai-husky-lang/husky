@@ -6,7 +6,7 @@
                 TraitPath(
                     ItemPathId(
                         Id {
-                            value: 36,
+                            value: 46,
                         },
                     ),
                 ),
@@ -16,7 +16,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 18,
+                        value: 21,
                     },
                 ),
             ),

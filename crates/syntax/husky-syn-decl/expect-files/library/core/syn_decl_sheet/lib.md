@@ -461,6 +461,52 @@ SynDeclSheet {
                 },
             ),
         ),
+        (
+            ItemPath::Submodule(
+                Room32,
+                SubmoduleItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 21,
+                        },
+                    ),
+                ),
+            ),
+            SynDecl::Submodule(
+                SubmoduleSynDecl {
+                    path: SubmoduleItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 21,
+                            },
+                        ),
+                    ),
+                },
+            ),
+        ),
+        (
+            ItemPath::Submodule(
+                Room32,
+                SubmoduleItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 22,
+                        },
+                    ),
+                ),
+            ),
+            SynDecl::Submodule(
+                SubmoduleSynDecl {
+                    path: SubmoduleItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 22,
+                            },
+                        ),
+                    ),
+                },
+            ),
+        ),
     ],
 }
 ```

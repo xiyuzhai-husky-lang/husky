@@ -6,7 +6,7 @@
                 TraitPath(
                     ItemPathId(
                         Id {
-                            value: 91,
+                            value: 102,
                         },
                     ),
                 ),
@@ -16,7 +16,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 172,
+                        value: 181,
                     },
                 ),
             ),
@@ -28,7 +28,7 @@
                 TraitItemPath(
                     ItemPathId(
                         Id {
-                            value: 137,
+                            value: 150,
                         },
                     ),
                 ),
@@ -42,7 +42,7 @@
                 TypePath(
                     ItemPathId(
                         Id {
-                            value: 92,
+                            value: 103,
                         },
                     ),
                 ),
@@ -52,7 +52,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 173,
+                        value: 182,
                     },
                 ),
             ),
@@ -64,7 +64,7 @@
                 TraitForTypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 130,
+                            value: 141,
                         },
                     ),
                 ),
@@ -74,7 +74,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 174,
+                        value: 183,
                     },
                 ),
             ),
@@ -86,7 +86,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 259,
+                            value: 272,
                         },
                     ),
                 ),
@@ -96,7 +96,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 175,
+                        value: 184,
                     },
                 ),
             ),

@@ -28,7 +28,7 @@
             AttrItemPath(
                 ItemPathId(
                     Id {
-                        value: 150,
+                        value: 161,
                     },
                 ),
             ),
@@ -105,7 +105,7 @@
             AttrItemPath(
                 ItemPathId(
                     Id {
-                        value: 151,
+                        value: 162,
                     },
                 ),
             ),
@@ -182,7 +182,7 @@
             AttrItemPath(
                 ItemPathId(
                     Id {
-                        value: 152,
+                        value: 163,
                     },
                 ),
             ),
@@ -280,7 +280,7 @@
                 TraitForTypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 147,
+                            value: 158,
                         },
                     ),
                 ),
@@ -302,7 +302,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 153,
+                            value: 164,
                         },
                     ),
                 ),
@@ -324,7 +324,7 @@
                 TraitForTypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 148,
+                            value: 159,
                         },
                     ),
                 ),
@@ -346,7 +346,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 154,
+                            value: 165,
                         },
                     ),
                 ),
@@ -368,7 +368,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 155,
+                            value: 166,
                         },
                     ),
                 ),
@@ -390,7 +390,7 @@
                 TraitForTypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 149,
+                            value: 160,
                         },
                     ),
                 ),
@@ -412,7 +412,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 156,
+                            value: 167,
                         },
                     ),
                 ),
@@ -434,7 +434,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 157,
+                            value: 168,
                         },
                     ),
                 ),

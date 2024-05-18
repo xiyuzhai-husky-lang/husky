@@ -278,7 +278,7 @@
             path: TypeVariantPath(
                 ItemPathId(
                     Id {
-                        value: 101,
+                        value: 111,
                     },
                 ),
             ),
@@ -359,7 +359,7 @@
             path: TypeVariantPath(
                 ItemPathId(
                     Id {
-                        value: 101,
+                        value: 111,
                     },
                 ),
             ),
@@ -440,7 +440,7 @@
             path: TypeVariantPath(
                 ItemPathId(
                     Id {
-                        value: 101,
+                        value: 111,
                     },
                 ),
             ),
@@ -500,7 +500,7 @@
             path: TypeVariantPath(
                 ItemPathId(
                     Id {
-                        value: 101,
+                        value: 111,
                     },
                 ),
             ),
@@ -584,7 +584,7 @@
             path: TypeVariantPath(
                 ItemPathId(
                     Id {
-                        value: 102,
+                        value: 112,
                     },
                 ),
             ),
@@ -665,7 +665,7 @@
             path: TypeVariantPath(
                 ItemPathId(
                     Id {
-                        value: 102,
+                        value: 112,
                     },
                 ),
             ),
@@ -746,7 +746,7 @@
             path: TypeVariantPath(
                 ItemPathId(
                     Id {
-                        value: 102,
+                        value: 112,
                     },
                 ),
             ),
@@ -806,7 +806,7 @@
             path: TypeVariantPath(
                 ItemPathId(
                     Id {
-                        value: 102,
+                        value: 112,
                     },
                 ),
             ),

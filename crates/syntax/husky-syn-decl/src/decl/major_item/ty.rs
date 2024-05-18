@@ -127,9 +127,9 @@ impl<'a> DeclParser<'a> {
                 parser.finish(),
             )
             .into()
-        } else if let Some(_semicolon) = parser.try_parse_err_as_none::<SemiColonRegionalToken>() {
-            todo!()
-            // Err(OriginalDeclError::ExpectedLCurlOrLParOrSemicolon(ctx.save_state()).into())
+        } else if let Some(semicolon) = parser.try_parse_err_as_none::<SemiColonRegionalToken>() {
+            UnitStructSynNodeDecl::new(db, syn_node_path, template_parameters, parser.finish())
+                .into()
         } else {
             let lcurl = parser.try_parse();
             let field_comma_list = parser.try_parse();

@@ -59,6 +59,7 @@ pub struct HirDeclJar(
     crate::decl::attr::backprop::BackpropAttrHirDecl,
     crate::decl::attr::derive::DeriveAttrHirDecl,
     crate::decl::attr::effect::EffectAttrHirDecl,
+    crate::decl::attr::marker::MarkerAttrHirDecl,
     crate::decl::attr::test::TestAttrHirDecl,
     // helpers
     crate::helpers::enum_ty_has_only_unit_variants,

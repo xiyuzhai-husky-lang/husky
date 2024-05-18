@@ -1,0 +1,9 @@
+pub trait IsFrontend;
+
+pub struct Cv2dFrontend;
+
+pub struct Cv3dFrontend;
+
+pub struct NlpFrontend;
+
+pub struct Rl2dFrontend;

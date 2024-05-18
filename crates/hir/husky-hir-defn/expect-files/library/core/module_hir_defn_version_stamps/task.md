@@ -2,11 +2,11 @@
 [
     (
         MajorItem(
-            Type(
-                TypePath(
+            Trait(
+                TraitPath(
                     ItemPathId(
                         Id {
-                            value: 84,
+                            value: 94,
                         },
                     ),
                 ),
@@ -16,7 +16,57 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 160,
+                        value: 168,
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 148,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 149,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        MajorItem(
+            Type(
+                TypePath(
+                    ItemPathId(
+                        Id {
+                            value: 95,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        Some(
+            Some(
+                HirDefnVersionStamp(
+                    Id {
+                        value: 169,
                     },
                 ),
             ),
@@ -28,7 +78,7 @@
                 MajorFormPath(
                     ItemPathId(
                         Id {
-                            value: 85,
+                            value: 96,
                         },
                     ),
                 ),
@@ -38,7 +88,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 161,
+                        value: 170,
                     },
                 ),
             ),

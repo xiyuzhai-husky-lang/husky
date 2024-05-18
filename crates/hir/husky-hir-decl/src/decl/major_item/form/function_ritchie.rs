@@ -2,7 +2,7 @@ use super::*;
 use husky_entity_kind::ritchie::RitchieItemKind;
 use husky_syn_decl::decl::MajorFunctionRitchieSynDecl;
 
-#[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
+#[salsa::interned]
 pub struct MajorFunctionRitchieHirDecl {
     pub path: MajorFormPath,
     pub ritchie_item_kind: RitchieItemKind,

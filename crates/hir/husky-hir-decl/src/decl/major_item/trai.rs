@@ -1,7 +1,7 @@
 use super::*;
 use husky_entity_path::path::major_item::trai::TraitPath;
 
-#[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
+#[salsa::interned]
 pub struct TraitHirDecl {
     pub path: TraitPath,
     #[return_ref]
