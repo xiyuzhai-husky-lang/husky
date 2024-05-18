@@ -532,6 +532,27 @@ EntityTreeSheet {
                 ),
             },
             EntitySymbolEntry {
+                ident: `IsTask`,
+                visible_scope: Scope::Pub,
+                symbol: EntitySymbol::Use(
+                    UseSymbol {
+                        original_symbol: EntitySymbol::MajorItem {
+                            major_item_path: MajorItemPath::Trait(
+                                TraitPath(`core::task::IsTask`),
+                            ),
+                        },
+                        path: PrincipalEntityPath::MajorItem(
+                            MajorItemPath::Trait(
+                                TraitPath(`core::task::IsTask`),
+                            ),
+                        ),
+                        visibility: Scope::Pub,
+                        ast_idx: 5,
+                        use_expr_idx: 15,
+                    },
+                ),
+            },
+            EntitySymbolEntry {
                 ident: `Task`,
                 visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
@@ -553,18 +574,18 @@ EntityTreeSheet {
                 ),
             },
             EntitySymbolEntry {
-                ident: `task`,
+                ident: `TASK`,
                 visible_scope: Scope::Pub,
                 symbol: EntitySymbol::Use(
                     UseSymbol {
                         original_symbol: EntitySymbol::MajorItem {
                             major_item_path: MajorItemPath::Form(
-                                FormPath(`core::task::task`, `Static`),
+                                FormPath(`core::task::TASK`, `Static`),
                             ),
                         },
                         path: PrincipalEntityPath::MajorItem(
                             MajorItemPath::Form(
-                                FormPath(`core::task::task`, `Static`),
+                                FormPath(`core::task::TASK`, `Static`),
                             ),
                         ),
                         visibility: Scope::Pub,
@@ -710,7 +731,7 @@ EntityTreeSheet {
                                     ty_variant_path: TypeVariantPath(
                                         ItemPathId(
                                             Id {
-                                                value: 78,
+                                                value: 88,
                                             },
                                         ),
                                     ),
@@ -719,7 +740,7 @@ EntityTreeSheet {
                                     TypeVariantPath(
                                         ItemPathId(
                                             Id {
-                                                value: 78,
+                                                value: 88,
                                             },
                                         ),
                                     ),
@@ -733,7 +754,7 @@ EntityTreeSheet {
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 78,
+                                        value: 88,
                                     },
                                 ),
                             ),
@@ -755,7 +776,7 @@ EntityTreeSheet {
                                     ty_variant_path: TypeVariantPath(
                                         ItemPathId(
                                             Id {
-                                                value: 79,
+                                                value: 89,
                                             },
                                         ),
                                     ),
@@ -764,7 +785,7 @@ EntityTreeSheet {
                                     TypeVariantPath(
                                         ItemPathId(
                                             Id {
-                                                value: 79,
+                                                value: 89,
                                             },
                                         ),
                                     ),
@@ -778,7 +799,7 @@ EntityTreeSheet {
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 79,
+                                        value: 89,
                                     },
                                 ),
                             ),
@@ -1299,7 +1320,7 @@ EntityTreeSheet {
                             submodule_item_path: SubmoduleItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 2,
+                                        value: 3,
                                     },
                                 ),
                             ),
@@ -1340,7 +1361,7 @@ EntityTreeSheet {
                             submodule_item_path: SubmoduleItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 5,
+                                        value: 6,
                                     },
                                 ),
                             ),
@@ -1381,7 +1402,7 @@ EntityTreeSheet {
                             submodule_item_path: SubmoduleItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 10,
+                                        value: 12,
                                     },
                                 ),
                             ),
@@ -1422,7 +1443,7 @@ EntityTreeSheet {
                             submodule_item_path: SubmoduleItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 14,
+                                        value: 16,
                                     },
                                 ),
                             ),
@@ -1463,7 +1484,7 @@ EntityTreeSheet {
                             submodule_item_path: SubmoduleItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 6,
+                                        value: 8,
                                     },
                                 ),
                             ),
@@ -1504,7 +1525,7 @@ EntityTreeSheet {
                             submodule_item_path: SubmoduleItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 16,
+                                        value: 18,
                                     },
                                 ),
                             ),
@@ -1545,7 +1566,7 @@ EntityTreeSheet {
                             submodule_item_path: SubmoduleItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 20,
+                                        value: 22,
                                     },
                                 ),
                             ),
@@ -1586,7 +1607,7 @@ EntityTreeSheet {
                             submodule_item_path: SubmoduleItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 8,
+                                        value: 10,
                                     },
                                 ),
                             ),
@@ -1627,7 +1648,7 @@ EntityTreeSheet {
                             submodule_item_path: SubmoduleItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 3,
+                                        value: 4,
                                     },
                                 ),
                             ),
@@ -1668,7 +1689,7 @@ EntityTreeSheet {
                             submodule_item_path: SubmoduleItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 12,
+                                        value: 14,
                                     },
                                 ),
                             ),
@@ -1709,7 +1730,7 @@ EntityTreeSheet {
                             submodule_item_path: SubmoduleItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 4,
+                                        value: 5,
                                     },
                                 ),
                             ),
@@ -1750,7 +1771,7 @@ EntityTreeSheet {
                             submodule_item_path: SubmoduleItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 18,
+                                        value: 20,
                                     },
                                 ),
                             ),
@@ -1791,7 +1812,7 @@ EntityTreeSheet {
                             submodule_item_path: SubmoduleItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 17,
+                                        value: 19,
                                     },
                                 ),
                             ),
@@ -1810,7 +1831,7 @@ EntityTreeSheet {
                 use_expr_idx: 0,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    70,
+                    73,
                 ),
             },
             UseAllRule {
@@ -1820,7 +1841,7 @@ EntityTreeSheet {
                 use_expr_idx: 3,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    63,
+                    66,
                 ),
             },
             UseAllRule {
@@ -1830,7 +1851,7 @@ EntityTreeSheet {
                 use_expr_idx: 6,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    77,
+                    80,
                 ),
             },
             UseAllRule {
@@ -1840,7 +1861,7 @@ EntityTreeSheet {
                 use_expr_idx: 9,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    63,
+                    66,
                 ),
             },
             UseAllRule {
@@ -1850,7 +1871,7 @@ EntityTreeSheet {
                 use_expr_idx: 12,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    63,
+                    66,
                 ),
             },
             UseAllRule {
@@ -1860,7 +1881,7 @@ EntityTreeSheet {
                 use_expr_idx: 15,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    2,
+                    3,
                 ),
             },
             UseAllRule {
@@ -1870,7 +1891,7 @@ EntityTreeSheet {
                 use_expr_idx: 18,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    64,
+                    67,
                 ),
             },
             UseAllRule {
@@ -1880,7 +1901,7 @@ EntityTreeSheet {
                 use_expr_idx: 21,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    64,
+                    67,
                 ),
             },
             UseAllRule {
@@ -1890,7 +1911,7 @@ EntityTreeSheet {
                 use_expr_idx: 24,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    63,
+                    66,
                 ),
             },
             UseAllRule {
@@ -1900,7 +1921,7 @@ EntityTreeSheet {
                 use_expr_idx: 27,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    65,
+                    68,
                 ),
             },
             UseAllRule {
@@ -1910,7 +1931,7 @@ EntityTreeSheet {
                 use_expr_idx: 30,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    66,
+                    69,
                 ),
             },
             UseAllRule {
@@ -1920,7 +1941,7 @@ EntityTreeSheet {
                 use_expr_idx: 33,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    64,
+                    67,
                 ),
             },
             UseAllRule {
@@ -1930,7 +1951,7 @@ EntityTreeSheet {
                 use_expr_idx: 36,
                 visibility: Scope::Pub,
                 progress: Ok(
-                    63,
+                    66,
                 ),
             },
         ],

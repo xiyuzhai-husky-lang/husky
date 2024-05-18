@@ -1,0 +1,5 @@
+pub trait IsBackend;
+
+pub struct MlBackend;
+
+pub struct RlBackend;

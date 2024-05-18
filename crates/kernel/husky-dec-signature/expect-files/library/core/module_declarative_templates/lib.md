@@ -300,5 +300,35 @@
             DecTemplate::Submodule,
         ),
     ),
+    (
+        ItemPath::Submodule(
+            Room32,
+            SubmoduleItemPath(
+                ItemPathId(
+                    Id {
+                        value: 21,
+                    },
+                ),
+            ),
+        ),
+        Ok(
+            DecTemplate::Submodule,
+        ),
+    ),
+    (
+        ItemPath::Submodule(
+            Room32,
+            SubmoduleItemPath(
+                ItemPathId(
+                    Id {
+                        value: 22,
+                    },
+                ),
+            ),
+        ),
+        Ok(
+            DecTemplate::Submodule,
+        ),
+    ),
 ]
 ```

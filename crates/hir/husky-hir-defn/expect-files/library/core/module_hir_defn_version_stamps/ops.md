@@ -6,365 +6,7 @@
                 TraitPath(
                     ItemPathId(
                         Id {
-                            value: 57,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        Some(
-            Some(
-                HirDefnVersionStamp(
-                    Id {
-                        value: 109,
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        AssocItem(
-            TraitItem(
-                TraitItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 204,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        AssocItem(
-            TraitItem(
-                TraitItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 205,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        MajorItem(
-            Trait(
-                TraitPath(
-                    ItemPathId(
-                        Id {
-                            value: 58,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        Some(
-            Some(
-                HirDefnVersionStamp(
-                    Id {
-                        value: 110,
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        AssocItem(
-            TraitItem(
-                TraitItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 206,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        AssocItem(
-            TraitItem(
-                TraitItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 207,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        MajorItem(
-            Trait(
-                TraitPath(
-                    ItemPathId(
-                        Id {
-                            value: 59,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        Some(
-            Some(
-                HirDefnVersionStamp(
-                    Id {
-                        value: 111,
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        AssocItem(
-            TraitItem(
-                TraitItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 208,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        AssocItem(
-            TraitItem(
-                TraitItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 209,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        MajorItem(
-            Trait(
-                TraitPath(
-                    ItemPathId(
-                        Id {
-                            value: 60,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        Some(
-            Some(
-                HirDefnVersionStamp(
-                    Id {
-                        value: 112,
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        AssocItem(
-            TraitItem(
-                TraitItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 210,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        MajorItem(
-            Trait(
-                TraitPath(
-                    ItemPathId(
-                        Id {
-                            value: 61,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        Some(
-            Some(
-                HirDefnVersionStamp(
-                    Id {
-                        value: 113,
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        AssocItem(
-            TraitItem(
-                TraitItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 211,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        AssocItem(
-            TraitItem(
-                TraitItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 212,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        MajorItem(
-            Trait(
-                TraitPath(
-                    ItemPathId(
-                        Id {
-                            value: 62,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        Some(
-            Some(
-                HirDefnVersionStamp(
-                    Id {
-                        value: 114,
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        AssocItem(
-            TraitItem(
-                TraitItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 213,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        MajorItem(
-            Trait(
-                TraitPath(
-                    ItemPathId(
-                        Id {
-                            value: 63,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        Some(
-            Some(
-                HirDefnVersionStamp(
-                    Id {
-                        value: 115,
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        AssocItem(
-            TraitItem(
-                TraitItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 214,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        AssocItem(
-            TraitItem(
-                TraitItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 215,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        MajorItem(
-            Trait(
-                TraitPath(
-                    ItemPathId(
-                        Id {
-                            value: 64,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        Some(
-            Some(
-                HirDefnVersionStamp(
-                    Id {
-                        value: 116,
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        AssocItem(
-            TraitItem(
-                TraitItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 216,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        MajorItem(
-            Trait(
-                TraitPath(
-                    ItemPathId(
-                        Id {
-                            value: 65,
+                            value: 67,
                         },
                     ),
                 ),
@@ -414,7 +56,7 @@
                 TraitPath(
                     ItemPathId(
                         Id {
-                            value: 66,
+                            value: 68,
                         },
                     ),
                 ),
@@ -445,28 +87,6 @@
         None,
     ),
     (
-        MajorItem(
-            Trait(
-                TraitPath(
-                    ItemPathId(
-                        Id {
-                            value: 67,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        Some(
-            Some(
-                HirDefnVersionStamp(
-                    Id {
-                        value: 119,
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
         AssocItem(
             TraitItem(
                 TraitItemPath(
@@ -486,7 +106,7 @@
                 TraitPath(
                     ItemPathId(
                         Id {
-                            value: 68,
+                            value: 69,
                         },
                     ),
                 ),
@@ -496,7 +116,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 120,
+                        value: 119,
                     },
                 ),
             ),
@@ -536,7 +156,7 @@
                 TraitPath(
                     ItemPathId(
                         Id {
-                            value: 69,
+                            value: 70,
                         },
                     ),
                 ),
@@ -546,7 +166,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 121,
+                        value: 120,
                     },
                 ),
             ),
@@ -572,7 +192,7 @@
                 TraitPath(
                     ItemPathId(
                         Id {
-                            value: 70,
+                            value: 71,
                         },
                     ),
                 ),
@@ -582,7 +202,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 122,
+                        value: 121,
                     },
                 ),
             ),
@@ -622,7 +242,43 @@
                 TraitPath(
                     ItemPathId(
                         Id {
-                            value: 71,
+                            value: 72,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        Some(
+            Some(
+                HirDefnVersionStamp(
+                    Id {
+                        value: 122,
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 226,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        MajorItem(
+            Trait(
+                TraitPath(
+                    ItemPathId(
+                        Id {
+                            value: 73,
                         },
                     ),
                 ),
@@ -644,7 +300,7 @@
                 TraitItemPath(
                     ItemPathId(
                         Id {
-                            value: 226,
+                            value: 227,
                         },
                     ),
                 ),
@@ -658,7 +314,7 @@
                 TraitItemPath(
                     ItemPathId(
                         Id {
-                            value: 227,
+                            value: 228,
                         },
                     ),
                 ),
@@ -672,7 +328,7 @@
                 TraitPath(
                     ItemPathId(
                         Id {
-                            value: 72,
+                            value: 74,
                         },
                     ),
                 ),
@@ -694,20 +350,6 @@
                 TraitItemPath(
                     ItemPathId(
                         Id {
-                            value: 228,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        AssocItem(
-            TraitItem(
-                TraitItemPath(
-                    ItemPathId(
-                        Id {
                             value: 229,
                         },
                     ),
@@ -722,7 +364,7 @@
                 TraitPath(
                     ItemPathId(
                         Id {
-                            value: 73,
+                            value: 75,
                         },
                     ),
                 ),
@@ -768,11 +410,11 @@
     ),
     (
         MajorItem(
-            Type(
-                TypePath(
+            Trait(
+                TraitPath(
                     ItemPathId(
                         Id {
-                            value: 74,
+                            value: 76,
                         },
                     ),
                 ),
@@ -789,13 +431,28 @@
         ),
     ),
     (
-        TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 75,
-                    },
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 232,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        MajorItem(
+            Trait(
+                TraitPath(
+                    ItemPathId(
+                        Id {
+                            value: 77,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -810,13 +467,28 @@
         ),
     ),
     (
-        TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 76,
-                    },
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 233,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        MajorItem(
+            Trait(
+                TraitPath(
+                    ItemPathId(
+                        Id {
+                            value: 78,
+                        },
+                    ),
                 ),
             ),
         ),
@@ -825,6 +497,334 @@
                 HirDefnVersionStamp(
                     Id {
                         value: 128,
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 234,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 235,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        MajorItem(
+            Trait(
+                TraitPath(
+                    ItemPathId(
+                        Id {
+                            value: 79,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        Some(
+            Some(
+                HirDefnVersionStamp(
+                    Id {
+                        value: 129,
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 236,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        MajorItem(
+            Trait(
+                TraitPath(
+                    ItemPathId(
+                        Id {
+                            value: 80,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        Some(
+            Some(
+                HirDefnVersionStamp(
+                    Id {
+                        value: 130,
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 237,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 238,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        MajorItem(
+            Trait(
+                TraitPath(
+                    ItemPathId(
+                        Id {
+                            value: 81,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        Some(
+            Some(
+                HirDefnVersionStamp(
+                    Id {
+                        value: 131,
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 239,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 240,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        MajorItem(
+            Trait(
+                TraitPath(
+                    ItemPathId(
+                        Id {
+                            value: 82,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        Some(
+            Some(
+                HirDefnVersionStamp(
+                    Id {
+                        value: 132,
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 241,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 242,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        MajorItem(
+            Trait(
+                TraitPath(
+                    ItemPathId(
+                        Id {
+                            value: 83,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        Some(
+            Some(
+                HirDefnVersionStamp(
+                    Id {
+                        value: 133,
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 243,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 244,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        MajorItem(
+            Type(
+                TypePath(
+                    ItemPathId(
+                        Id {
+                            value: 84,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        Some(
+            Some(
+                HirDefnVersionStamp(
+                    Id {
+                        value: 134,
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        TypeVariant(
+            Room32,
+            TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 85,
+                    },
+                ),
+            ),
+        ),
+        Some(
+            Some(
+                HirDefnVersionStamp(
+                    Id {
+                        value: 135,
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        TypeVariant(
+            Room32,
+            TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 86,
+                    },
+                ),
+            ),
+        ),
+        Some(
+            Some(
+                HirDefnVersionStamp(
+                    Id {
+                        value: 136,
                     },
                 ),
             ),

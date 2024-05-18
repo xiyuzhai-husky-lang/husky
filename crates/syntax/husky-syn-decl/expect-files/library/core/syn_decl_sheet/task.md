@@ -3,6 +3,86 @@ SynDeclSheet {
     decls: [
         (
             ItemPath::MajorItem(
+                MajorItemPath::Trait(
+                    TraitPath(`core::task::IsTask`),
+                ),
+            ),
+            SynDecl::MajorItem(
+                MajorItemSynDecl::Trait(
+                    TraitSynDecl {
+                        path: TraitPath(`core::task::IsTask`),
+                        template_parameters: [],
+                        syn_expr_region: SynExprRegion {
+                            data: SynExprRegionData {
+                                parent: None,
+                                path: SynNodeRegionPath::Decl(
+                                    ItemSynNodePath::MajorItem(
+                                        MajorItemSynNodePath::Trait(
+                                            TraitSynNodePath(
+                                                ItemSynNodePathId {
+                                                    data: ItemSynNodePathData::MajorItem(
+                                                        MajorItemSynNodePathData::Trait(
+                                                            TraitSynNodePathData {
+                                                                disambiguated_item_path: DisambiguatedItemPath {
+                                                                    maybe_ambiguous_item_path: TraitPath(`core::task::IsTask`),
+                                                                    disambiguator: 0,
+                                                                },
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                                expr_arena: Arena {
+                                    data: [],
+                                },
+                                principal_item_path_expr_arena: Arena {
+                                    data: [],
+                                },
+                                stmt_arena: Arena {
+                                    data: [],
+                                },
+                                pattern_expr_region: SynPatternRegion {
+                                    pattern_expr_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_expr_contracts: ArenaMap {
+                                        data: [],
+                                    },
+                                    pattern_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    pattern_symbol_maps: [],
+                                    pattern_symbol_modifiers: ArenaMap {
+                                        data: [],
+                                    },
+                                },
+                                variable_region: VariableRegionData {
+                                    inherited_syn_symbol_arena: Arena {
+                                        data: [],
+                                    },
+                                    current_variable_arena: Arena {
+                                        data: [],
+                                    },
+                                    allow_self_type: True,
+                                    allow_self_value: False,
+                                    pattern_ty_constraints: [],
+                                },
+                                pattern_roots: [],
+                                expr_roots: [],
+                                has_self_lifetime: false,
+                                has_self_place: false,
+                                pattern_to_current_variable_map: [],
+                            },
+                        },
+                    },
+                ),
+            ),
+        ),
+        (
+            ItemPath::MajorItem(
                 MajorItemPath::Type(
                     TypePath(`core::task::Task`, `Extern`),
                 ),
@@ -86,14 +166,14 @@ SynDeclSheet {
         (
             ItemPath::MajorItem(
                 MajorItemPath::Form(
-                    FormPath(`core::task::task`, `Static`),
+                    FormPath(`core::task::TASK`, `Static`),
                 ),
             ),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Form(
                     FormSynDecl::Static(
                         MajorStaticSynDecl {
-                            path: FormPath(`core::task::task`, `Static`),
+                            path: FormPath(`core::task::TASK`, `Static`),
                             return_ty: ReturnTypeBeforeEqSyndicate {
                                 expr: 0,
                             },
@@ -104,7 +184,7 @@ SynDeclSheet {
                                     path: SynNodeRegionPath::Decl(
                                         ItemSynNodePath::MajorItem(
                                             MajorItemSynNodePath::Form(
-                                                FormSynNodePath(`core::task::task`, `Static`, (0)),
+                                                FormSynNodePath(`core::task::TASK`, `Static`, (0)),
                                             ),
                                         ),
                                     ),

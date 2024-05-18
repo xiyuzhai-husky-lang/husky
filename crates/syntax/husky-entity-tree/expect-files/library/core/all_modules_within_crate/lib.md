@@ -2,10 +2,12 @@
 [
     `core`,
     `core::array`,
+    `core::backend`,
     `core::basic`,
     `core::clone`,
     `core::cmp`,
     `core::default`,
+    `core::frontend`,
     `core::fmt`,
     `core::logic`,
     `core::marker`,

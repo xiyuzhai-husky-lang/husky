@@ -138,7 +138,7 @@
                 TraitForTypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 285,
+                            value: 296,
                         },
                     ),
                 ),
@@ -160,7 +160,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 421,
+                            value: 434,
                         },
                     ),
                 ),
@@ -182,7 +182,7 @@
                 TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 286,
+                            value: 297,
                         },
                     ),
                 ),
@@ -204,7 +204,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 313,
+                            value: 326,
                         },
                     ),
                 ),
@@ -226,7 +226,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 314,
+                            value: 327,
                         },
                     ),
                 ),
@@ -248,7 +248,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 315,
+                            value: 328,
                         },
                     ),
                 ),
@@ -270,7 +270,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 316,
+                            value: 329,
                         },
                     ),
                 ),
@@ -292,7 +292,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 317,
+                            value: 330,
                         },
                     ),
                 ),
@@ -314,7 +314,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 318,
+                            value: 331,
                         },
                     ),
                 ),
@@ -336,7 +336,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 319,
+                            value: 332,
                         },
                     ),
                 ),
@@ -358,7 +358,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 320,
+                            value: 333,
                         },
                     ),
                 ),
@@ -380,7 +380,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 321,
+                            value: 334,
                         },
                     ),
                 ),
@@ -402,7 +402,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 322,
+                            value: 335,
                         },
                     ),
                 ),

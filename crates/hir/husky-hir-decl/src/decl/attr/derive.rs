@@ -1,8 +1,8 @@
 use super::*;
 use husky_hir_ty::trai::HirTrait;
-use husky_syn_decl::decl::DeriveAttrSynDecl;
+use husky_syn_decl::decl::attr::derive::DeriveAttrSynDecl;
 
-#[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
+#[salsa::interned]
 pub struct DeriveAttrHirDecl {
     pub path: AttrItemPath,
     #[return_ref]

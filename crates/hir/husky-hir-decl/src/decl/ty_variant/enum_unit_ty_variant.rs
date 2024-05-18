@@ -1,7 +1,7 @@
 use super::*;
 use husky_syn_decl::decl::TypeUnitVariantSynDecl;
 
-#[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
+#[salsa::interned]
 pub struct EnumUnitTypeVariantHirDecl {
     pub path: TypeVariantPath,
     pub hir_eager_expr_region: HirEagerExprRegion,

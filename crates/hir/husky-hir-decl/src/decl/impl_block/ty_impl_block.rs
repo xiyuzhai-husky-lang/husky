@@ -2,7 +2,7 @@ use super::*;
 use husky_entity_path::path::impl_block::ty_impl_block::TypeImplBlockPath;
 use husky_eth_signature::signature::HasEthTemplate;
 
-#[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
+#[salsa::interned]
 pub struct TypeImplBlockHirDecl {
     pub path: TypeImplBlockPath,
     #[return_ref]

@@ -76,7 +76,7 @@
                                 TraitPath(
                                     ItemPathId(
                                         Id {
-                                            value: 91,
+                                            value: 102,
                                         },
                                     ),
                                 ),
@@ -156,7 +156,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 92,
+                                                value: 103,
                                             },
                                         ),
                                     ),

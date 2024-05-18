@@ -1,5 +1,5 @@
 use super::*;
-use husky_syn_decl::decl::effect::EffectAttrSynDecl;
+use husky_syn_decl::decl::attr::effect::EffectAttrSynDecl;
 
 #[salsa::interned]
 pub struct EffectAttrHirDecl {

@@ -2,7 +2,7 @@ use super::*;
 use husky_syn_decl::decl::PropsStructSynDecl;
 use husky_syn_expr::{PropsFieldSynInitialization, PropsFieldSyndicate};
 
-#[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
+#[salsa::interned]
 pub struct PropsStructHirDecl {
     pub path: TypePath,
     #[return_ref]

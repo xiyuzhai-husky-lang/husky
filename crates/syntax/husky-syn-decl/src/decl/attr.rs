@@ -1,10 +1,10 @@
 pub mod backprop;
 pub mod derive;
 pub mod effect;
+pub mod marker;
 pub mod test;
 
-pub use self::derive::*;
-
+use self::derive::*;
 use self::{
     backprop::{BackpropAttrSynDecl, BackpropAttrSynNodeDecl},
     effect::{EffectAttrSynDecl, EffectAttrSynNodeDecl},

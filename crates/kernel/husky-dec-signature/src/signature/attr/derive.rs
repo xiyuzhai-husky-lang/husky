@@ -1,4 +1,5 @@
 use super::*;
+use husky_syn_decl::decl::derive::DeriveAttrSynDecl;
 
 #[salsa::interned]
 pub struct DeriveAttrDecTemplate {

@@ -4,7 +4,7 @@ use husky_task_interface::{
     ki_control_flow::KiControlFlow,
     ki_repr::{KiDomainReprInterface, KiReprInterface},
     pedestal::IsPedestalFull,
-    DevEvalContext, IsDevRuntime,
+    DevEvalContext, IsDevRuntime, IsDevRuntimeDyn,
 };
 use husky_task_interface::{
     IsLinkageImpl, LinkageImplKiControlFlow, TaskIngredientIndex, TaskJarIndex,
@@ -18,6 +18,7 @@ use husky_visual_protocol::{synchrotron::VisualSynchrotron, visual::Visual};
 
 use std::{cell::Cell, thread::LocalKey};
 
+#[deprecated]
 pub trait IsDevAscension {
     type Pedestal: IsPedestalFull;
     type LinkageImpl: IsLinkageImpl<Pedestal = Self::Pedestal>;
@@ -25,11 +26,11 @@ pub trait IsDevAscension {
     type RuntimeStorage: IsRuntimeStorage<Self::LinkageImpl>;
     type RuntimeSpecificConfig: Default + Send;
     type TraceProtocol: IsTraceProtocol<Pedestal = Self::Pedestal> + IsTraceProtocolFull;
-    fn calc_figure<DevRuntime: IsDevRuntime<Self::LinkageImpl>>(
+    fn calc_figure(
         followed: Option<(TraceId, KiReprInterface, KiDomainReprInterface)>,
         accompanyings_except_followed: &[(TraceId, KiReprInterface)],
         pedestal: Self::Pedestal,
-        runtime: &DevRuntime,
+        runtime: &dyn IsDevRuntimeDyn<Self::LinkageImpl>,
         visual_synchrotron: &mut VisualSynchrotron,
         val_visual_cache: &mut ValVisualCache<Self::Pedestal>,
     ) -> <Self::TraceProtocol as IsTraceProtocol>::Figure;
@@ -42,16 +43,16 @@ pub trait IsDevAscension {
     }
 
     /// final
-    fn get_val_visual<DevRuntime: IsDevRuntime<Self::LinkageImpl>>(
+    fn get_val_visual(
         ki_repr: KiReprInterface,
         pedestal: Self::Pedestal,
-        runtime: &DevRuntime,
+        runtime: &dyn IsDevRuntimeDyn<Self::LinkageImpl>,
         visual_synchrotron: &mut VisualSynchrotron,
         val_visual_cache: &mut ValVisualCache<Self::Pedestal>,
     ) -> Visual {
         val_visual_cache.get_visual(ki_repr, pedestal, || {
             use husky_value_interface::IsValue;
-            match runtime.eval_ki_repr_interface_at_pedestal(ki_repr, pedestal) {
+            match runtime.eval_ki_repr_interface_dyn(ki_repr, pedestal) {
                 KiControlFlow::Continue(value) => value.visualize(visual_synchrotron),
                 KiControlFlow::LoopContinue => todo!(),
                 KiControlFlow::LoopExit(_) => todo!(),

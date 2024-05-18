@@ -1,6 +1,6 @@
 use super::*;
 
-#[salsa::interned(db = HirDeclDb, jar = HirDeclJar)]
+#[salsa::interned]
 pub struct TraitAssocValHirDecl {
     pub path: TraitItemPath,
     pub return_ty: HirType,

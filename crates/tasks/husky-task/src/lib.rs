@@ -1,4 +1,3 @@
-#![feature(associated_type_bounds)]
 pub mod dev_ascension;
 pub mod helpers;
 pub mod linktime;
@@ -6,6 +5,13 @@ pub mod linktime;
 use self::dev_ascension::*;
 use self::linktime::*;
 
+#[deprecated]
 pub trait IsTask: Send + 'static {
     type DevAscension: IsDevAscension;
 }
+
+pub trait HasDevBackend {
+    type DevBackend: IsDevBackend;
+}
+
+pub trait IsDevBackend {}
