@@ -4083,6 +4083,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "husky-arxiv-search"
+version = "0.1.0"
+dependencies = [
+ "egui",
+]
+
+[[package]]
 name = "husky-ast"
 version = "0.0.0"
 dependencies = [
