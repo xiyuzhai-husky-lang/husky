@@ -6,6 +6,28 @@
                 TraitPath(
                     ItemPathId(
                         Id {
+                            value: 40,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        Some(
+            Some(
+                HirDefnVersionStamp(
+                    Id {
+                        value: 21,
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        MajorItem(
+            Type(
+                TypePath(
+                    ItemPathId(
+                        Id {
                             value: 41,
                         },
                     ),
@@ -83,28 +105,6 @@
                 HirDefnVersionStamp(
                     Id {
                         value: 25,
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        MajorItem(
-            Type(
-                TypePath(
-                    ItemPathId(
-                        Id {
-                            value: 45,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        Some(
-            Some(
-                HirDefnVersionStamp(
-                    Id {
-                        value: 26,
                     },
                 ),
             ),

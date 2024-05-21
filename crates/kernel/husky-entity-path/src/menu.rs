@@ -14,7 +14,7 @@ pub fn item_path_menu(db: &::salsa::Db, toolchain: Toolchain) -> ItemPathMenu {
 #[derive(Debug, PartialEq, Eq)]
 pub struct ItemPathMenu {
     // core::ops::Add	The addition operator +.
-    core_ops_add_trai_path: TraitPath,
+    add_trai_path: TraitPath,
     // core::ops::AddAssign	The addition assignment operator +=.
     add_assign_trai_path: TraitPath,
     // core::ops::BitAnd	The bitwise AND operator &.
@@ -96,6 +96,7 @@ pub struct ItemPathMenu {
     lifetime_ty_path: TypePath,
     place_ty_path: TypePath,
     module_ty_path: TypePath,
+    ml_backend_ty_path: TypePath,
 }
 
 impl ItemPathMenu {
@@ -119,6 +120,7 @@ impl ItemPathMenu {
         let core_vec = path_menu.core_vec().inner();
         let core_array = path_menu.core_array().inner();
         let core_visual = path_menu.core_visual().inner();
+        let core_backend = path_menu.core_backend().inner();
         let option_ty_path = TypePath::new(
             core_option,
             Ident::from_ref(db, "Option").unwrap(),
@@ -556,6 +558,13 @@ impl ItemPathMenu {
             MajorItemConnection::Connected,
             db,
         );
+        let ml_backend_ty_path = TypePath::new(
+            core_backend,
+            Ident::from_ref(db, "MlBackend").unwrap(),
+            MajorItemConnection::Connected,
+            TypeKind::Extern,
+            db,
+        );
         Self {
             unit_ty_path,
             never_ty_path,
@@ -597,7 +606,7 @@ impl ItemPathMenu {
             visual_ty_path,
             vec_ty_path,
             array_ty_path,
-            core_ops_add_trai_path,
+            add_trai_path: core_ops_add_trai_path,
             add_assign_trai_path,
             bit_and_trai_path,
             bit_and_assign_trai_path,
@@ -623,6 +632,7 @@ impl ItemPathMenu {
             default_trai_path,
             visualize_trai_path,
             result_ty_path,
+            ml_backend_ty_path,
         }
     }
 
@@ -787,7 +797,7 @@ impl ItemPathMenu {
     }
 
     pub fn add_trai_path(&self) -> TraitPath {
-        self.core_ops_add_trai_path
+        self.add_trai_path
     }
 
     pub fn add_assign_trai_path(&self) -> TraitPath {

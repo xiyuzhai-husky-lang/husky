@@ -44,27 +44,5 @@
             ),
         ),
     ),
-    (
-        MajorItem(
-            Type(
-                TypePath(
-                    ItemPathId(
-                        Id {
-                            value: 26,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        Some(
-            Some(
-                HirDefnVersionStamp(
-                    Id {
-                        value: 4,
-                    },
-                ),
-            ),
-        ),
-    ),
 ]
 ```

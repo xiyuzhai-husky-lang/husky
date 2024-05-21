@@ -44,11 +44,11 @@
     ),
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
-            TypeHirDefn::UnitStruct(
-                UnitStructHirDefn {
-                    path: TypePath(`core::frontend::Cv2dFrontend`, `Struct`),
-                    hir_decl: UnitStructHirDecl {
-                        path: TypePath(`core::frontend::Cv2dFrontend`, `Struct`),
+            TypeHirDefn::Extern(
+                ExternHirDefn {
+                    path: TypePath(`core::frontend::Cv2dFrontend`, `Extern`),
+                    hir_decl: ExternTypeHirDecl {
+                        path: TypePath(`core::frontend::Cv2dFrontend`, `Extern`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -56,7 +56,7 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::frontend::Cv2dFrontend`, `Struct`),
+                                        TypePath(`core::frontend::Cv2dFrontend`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -88,11 +88,11 @@
     ),
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
-            TypeHirDefn::UnitStruct(
-                UnitStructHirDefn {
-                    path: TypePath(`core::frontend::Cv3dFrontend`, `Struct`),
-                    hir_decl: UnitStructHirDecl {
-                        path: TypePath(`core::frontend::Cv3dFrontend`, `Struct`),
+            TypeHirDefn::Extern(
+                ExternHirDefn {
+                    path: TypePath(`core::frontend::Cv3dFrontend`, `Extern`),
+                    hir_decl: ExternTypeHirDecl {
+                        path: TypePath(`core::frontend::Cv3dFrontend`, `Extern`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -100,7 +100,7 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::frontend::Cv3dFrontend`, `Struct`),
+                                        TypePath(`core::frontend::Cv3dFrontend`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -132,11 +132,11 @@
     ),
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
-            TypeHirDefn::UnitStruct(
-                UnitStructHirDefn {
-                    path: TypePath(`core::frontend::NlpFrontend`, `Struct`),
-                    hir_decl: UnitStructHirDecl {
-                        path: TypePath(`core::frontend::NlpFrontend`, `Struct`),
+            TypeHirDefn::Extern(
+                ExternHirDefn {
+                    path: TypePath(`core::frontend::NlpFrontend`, `Extern`),
+                    hir_decl: ExternTypeHirDecl {
+                        path: TypePath(`core::frontend::NlpFrontend`, `Extern`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -144,7 +144,7 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::frontend::NlpFrontend`, `Struct`),
+                                        TypePath(`core::frontend::NlpFrontend`, `Extern`),
                                     ),
                                 ),
                             ),
@@ -176,11 +176,11 @@
     ),
     HirDefn::MajorItem(
         MajorItemHirDefn::Type(
-            TypeHirDefn::UnitStruct(
-                UnitStructHirDefn {
-                    path: TypePath(`core::frontend::Rl2dFrontend`, `Struct`),
-                    hir_decl: UnitStructHirDecl {
-                        path: TypePath(`core::frontend::Rl2dFrontend`, `Struct`),
+            TypeHirDefn::Extern(
+                ExternHirDefn {
+                    path: TypePath(`core::frontend::Rl2dFrontend`, `Extern`),
+                    hir_decl: ExternTypeHirDecl {
+                        path: TypePath(`core::frontend::Rl2dFrontend`, `Extern`),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -188,7 +188,7 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::MajorItem(
                                     MajorItemPath::Type(
-                                        TypePath(`core::frontend::Rl2dFrontend`, `Struct`),
+                                        TypePath(`core::frontend::Rl2dFrontend`, `Extern`),
                                     ),
                                 ),
                             ),

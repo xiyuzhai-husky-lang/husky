@@ -14,7 +14,20 @@
             AttrItemPath(
                 ItemPathId(
                     Id {
-                        value: 237,
+                        value: 236,
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::TypeVariant(
+            Room32,
+            TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 87,
                     },
                 ),
             ),
@@ -28,19 +41,6 @@
                 ItemPathId(
                     Id {
                         value: 88,
-                    },
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemPath::TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 89,
                     },
                 ),
             ),

@@ -6,6 +6,28 @@
                 TraitPath(
                     ItemPathId(
                         Id {
+                            value: 46,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        Some(
+            Some(
+                HirDefnVersionStamp(
+                    Id {
+                        value: 26,
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        MajorItem(
+            Trait(
+                TraitPath(
+                    ItemPathId(
+                        Id {
                             value: 47,
                         },
                     ),
@@ -23,12 +45,12 @@
         ),
     ),
     (
-        MajorItem(
-            Trait(
-                TraitPath(
+        ImplBlock(
+            TraitForTypeImplBlock(
+                TraitForTypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 48,
+                            value: 104,
                         },
                     ),
                 ),
@@ -39,28 +61,6 @@
                 HirDefnVersionStamp(
                     Id {
                         value: 28,
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        ImplBlock(
-            TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 105,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        Some(
-            Some(
-                HirDefnVersionStamp(
-                    Id {
-                        value: 29,
                     },
                 ),
             ),

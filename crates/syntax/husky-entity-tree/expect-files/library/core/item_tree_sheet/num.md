@@ -3259,6 +3259,89 @@ EntityTreeSheet {
                                                     ty_variant_path: TypeVariantPath(
                                                         ItemPathId(
                                                             Id {
+                                                                value: 87,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::TypeVariant(
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 87,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 3,
+                                                use_expr_idx: 2,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::TypeVariant(
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 87,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        visibility: Scope::Pub,
+                                        ast_idx: 9,
+                                        use_expr_idx: 27,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::TypeVariant(
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 87,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core`,
+                                ),
+                                ast_idx: 22,
+                                use_expr_idx: 0,
+                            },
+                        ),
+                        path: PrincipalEntityPath::TypeVariant(
+                            TypeVariantPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 87,
+                                    },
+                                ),
+                            ),
+                        ),
+                        visibility: Scope::PubUnder(
+                            `core::num`,
+                        ),
+                        ast_idx: 47,
+                        use_expr_idx: 0,
+                    },
+                ),
+            },
+            EntitySymbolEntry {
+                ident: `None`,
+                visible_scope: Scope::PubUnder(
+                    `core::num`,
+                ),
+                symbol: EntitySymbol::Use(
+                    UseSymbol {
+                        original_symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::TypeVariant {
+                                                    ty_variant_path: TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
                                                                 value: 88,
                                                             },
                                                         ),
@@ -3313,89 +3396,6 @@ EntityTreeSheet {
                                 ItemPathId(
                                     Id {
                                         value: 88,
-                                    },
-                                ),
-                            ),
-                        ),
-                        visibility: Scope::PubUnder(
-                            `core::num`,
-                        ),
-                        ast_idx: 47,
-                        use_expr_idx: 0,
-                    },
-                ),
-            },
-            EntitySymbolEntry {
-                ident: `None`,
-                visible_scope: Scope::PubUnder(
-                    `core::num`,
-                ),
-                symbol: EntitySymbol::Use(
-                    UseSymbol {
-                        original_symbol: EntitySymbol::Use(
-                            UseSymbol {
-                                original_symbol: EntitySymbol::Use(
-                                    UseSymbol {
-                                        original_symbol: EntitySymbol::Use(
-                                            UseSymbol {
-                                                original_symbol: EntitySymbol::TypeVariant {
-                                                    ty_variant_path: TypeVariantPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 89,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                                path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 89,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                                visibility: Scope::Pub,
-                                                ast_idx: 3,
-                                                use_expr_idx: 2,
-                                            },
-                                        ),
-                                        path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 89,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                        visibility: Scope::Pub,
-                                        ast_idx: 9,
-                                        use_expr_idx: 27,
-                                    },
-                                ),
-                                path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 89,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                visibility: Scope::PubUnder(
-                                    `core`,
-                                ),
-                                ast_idx: 22,
-                                use_expr_idx: 0,
-                            },
-                        ),
-                        path: PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 89,
                                     },
                                 ),
                             ),
@@ -3778,7 +3778,7 @@ EntityTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 107,
+                                                value: 106,
                                             },
                                         ),
                                     ),
@@ -3798,7 +3798,7 @@ EntityTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 107,
+                                                    value: 106,
                                                 },
                                             ),
                                         ),
@@ -3884,7 +3884,7 @@ EntityTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 109,
+                                                value: 108,
                                             },
                                         ),
                                     ),
@@ -3904,7 +3904,7 @@ EntityTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 109,
+                                                    value: 108,
                                                 },
                                             ),
                                         ),
@@ -3990,7 +3990,7 @@ EntityTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 111,
+                                                value: 110,
                                             },
                                         ),
                                     ),
@@ -4010,7 +4010,7 @@ EntityTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 111,
+                                                    value: 110,
                                                 },
                                             ),
                                         ),
@@ -4096,7 +4096,7 @@ EntityTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 113,
+                                                value: 112,
                                             },
                                         ),
                                     ),
@@ -4116,7 +4116,7 @@ EntityTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 113,
+                                                    value: 112,
                                                 },
                                             ),
                                         ),
@@ -4202,7 +4202,7 @@ EntityTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 115,
+                                                value: 114,
                                             },
                                         ),
                                     ),
@@ -4222,7 +4222,7 @@ EntityTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 115,
+                                                    value: 114,
                                                 },
                                             ),
                                         ),
@@ -4308,7 +4308,7 @@ EntityTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 117,
+                                                value: 116,
                                             },
                                         ),
                                     ),
@@ -4328,7 +4328,7 @@ EntityTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 117,
+                                                    value: 116,
                                                 },
                                             ),
                                         ),
@@ -4414,7 +4414,7 @@ EntityTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 119,
+                                                value: 118,
                                             },
                                         ),
                                     ),
@@ -4434,7 +4434,7 @@ EntityTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 119,
+                                                    value: 118,
                                                 },
                                             ),
                                         ),
@@ -4520,7 +4520,7 @@ EntityTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 121,
+                                                value: 120,
                                             },
                                         ),
                                     ),
@@ -4540,7 +4540,7 @@ EntityTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 121,
+                                                    value: 120,
                                                 },
                                             ),
                                         ),
@@ -4626,7 +4626,7 @@ EntityTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 123,
+                                                value: 122,
                                             },
                                         ),
                                     ),
@@ -4646,7 +4646,7 @@ EntityTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 123,
+                                                    value: 122,
                                                 },
                                             ),
                                         ),
@@ -4732,7 +4732,7 @@ EntityTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 125,
+                                                value: 124,
                                             },
                                         ),
                                     ),
@@ -4752,7 +4752,7 @@ EntityTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 125,
+                                                    value: 124,
                                                 },
                                             ),
                                         ),
@@ -4838,7 +4838,7 @@ EntityTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 127,
+                                                value: 126,
                                             },
                                         ),
                                     ),
@@ -4858,7 +4858,7 @@ EntityTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 127,
+                                                    value: 126,
                                                 },
                                             ),
                                         ),
@@ -4944,7 +4944,7 @@ EntityTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 129,
+                                                value: 128,
                                             },
                                         ),
                                     ),
@@ -4964,7 +4964,7 @@ EntityTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 129,
+                                                    value: 128,
                                                 },
                                             ),
                                         ),
@@ -5050,7 +5050,7 @@ EntityTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 131,
+                                                value: 130,
                                             },
                                         ),
                                     ),
@@ -5070,7 +5070,7 @@ EntityTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 131,
+                                                    value: 130,
                                                 },
                                             ),
                                         ),
@@ -5156,7 +5156,7 @@ EntityTreeSheet {
                                     path: TypeImplBlockPath(
                                         ItemPathId(
                                             Id {
-                                                value: 133,
+                                                value: 132,
                                             },
                                         ),
                                     ),
@@ -5176,7 +5176,7 @@ EntityTreeSheet {
                                         path: TypeImplBlockPath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 133,
+                                                    value: 132,
                                                 },
                                             ),
                                         ),

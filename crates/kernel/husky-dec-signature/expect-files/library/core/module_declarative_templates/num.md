@@ -286,7 +286,338 @@
                 TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 107,
+                            value: 106,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        Ok(
+            DecTemplate::ImplBlock(
+                ImplBlockDecTemplate::TypeImpl(
+                    TypeImplBlockDecTemplate {
+                        template_parameters: DecTemplateParameters {
+                            data: [],
+                        },
+                        ty: EntityPath(
+                            Type(
+                                TypePath(
+                                    ItemPathId(
+                                        Id {
+                                            value: 52,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
+                TypeItemPath(`<core::num::i8(0)>::abs`, `MethodRitchie(
+                    Fn,
+                )`),
+            ),
+        ),
+        Ok(
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TypeItem(
+                    TypeItemDecTemplate::MethodRitchie(
+                        TypeMethodRitchieDecTemplate {
+                            path: TypeItemPath(`<core::num::i8(0)>::abs`, `MethodRitchie(
+                                Fn,
+                            )`),
+                            impl_block: TypeImplBlockDecTemplate {
+                                template_parameters: DecTemplateParameters {
+                                    data: [],
+                                },
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 52,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                            self_ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 52,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            template_parameters: DecTemplateParameters {
+                                data: [],
+                            },
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
+                                contract: Pure,
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 52,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                            parenate_parameters: DeclarativeParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 52,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
+                TypeItemPath(`<core::num::i8(0)>::max`, `MethodRitchie(
+                    Fn,
+                )`),
+            ),
+        ),
+        Ok(
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TypeItem(
+                    TypeItemDecTemplate::MethodRitchie(
+                        TypeMethodRitchieDecTemplate {
+                            path: TypeItemPath(`<core::num::i8(0)>::max`, `MethodRitchie(
+                                Fn,
+                            )`),
+                            impl_block: TypeImplBlockDecTemplate {
+                                template_parameters: DecTemplateParameters {
+                                    data: [],
+                                },
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 52,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                            self_ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 52,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            template_parameters: DecTemplateParameters {
+                                data: [],
+                            },
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
+                                contract: Pure,
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 52,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                            parenate_parameters: DeclarativeParenateParameters {
+                                data: [
+                                    DeclarativeRitchieParameter::Simple(
+                                        DeclarativeRitchieSimpleParameter {
+                                            contract: Pure,
+                                            ty: EntityPath(
+                                                Type(
+                                                    TypePath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 52,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 52,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::ImplBlock(
+            ImplBlockPath::TraitForTypeImplBlock(
+                TraitForTypeImplBlockPath(`core::num::i8 as core::ops::Add(0)`),
+            ),
+        ),
+        Ok(
+            DecTemplate::ImplBlock(
+                ImplBlockDecTemplate::TraitForTypeImpl(
+                    TraitForTypeImplBlockDecTemplate {
+                        template_parameters: DecTemplateParameters {
+                            data: [],
+                        },
+                        trai: Application(
+                            DecApplication(
+                                Id {
+                                    value: 13,
+                                },
+                            ),
+                        ),
+                        self_ty: DeclarativeSelfType::Path(
+                            EntityPath(
+                                Type(
+                                    TypePath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 52,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TraitForTypeItem(
+                TraitForTypeItemPath(
+                    `<core::num::i8 as core::ops::Add(0)>::add`,
+                    TraitItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
+            ),
+        ),
+        Ok(
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TraitForTypeItem(
+                    TraitForTypeItemDecTemplate::MethodRitchie(
+                        TraitForTypeMethodRitchieDecTemplate {
+                            self_ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 52,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            template_parameters: DecTemplateParameters {
+                                data: [],
+                            },
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
+                                contract: Pure,
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 52,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                            parenate_parameters: DeclarativeParenateParameters {
+                                data: [
+                                    DeclarativeRitchieParameter::Simple(
+                                        DeclarativeRitchieSimpleParameter {
+                                            contract: Pure,
+                                            ty: EntityPath(
+                                                Type(
+                                                    TypePath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 52,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 52,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::ImplBlock(
+            ImplBlockPath::TypeImplBlock(
+                TypeImplBlockPath(
+                    ItemPathId(
+                        Id {
+                            value: 108,
                         },
                     ),
                 ),
@@ -318,7 +649,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::i8(0)>::abs`, `MethodRitchie(
+                TypeItemPath(`<core::num::i16(0)>::abs`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -328,7 +659,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(`<core::num::i8(0)>::abs`, `MethodRitchie(
+                            path: TypeItemPath(`<core::num::i16(0)>::abs`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -398,7 +729,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::i8(0)>::max`, `MethodRitchie(
+                TypeItemPath(`<core::num::i16(0)>::max`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -408,7 +739,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(`<core::num::i8(0)>::max`, `MethodRitchie(
+                            path: TypeItemPath(`<core::num::i16(0)>::max`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -495,7 +826,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`core::num::i8 as core::ops::Add(0)`),
+                TraitForTypeImplBlockPath(`core::num::i16 as core::ops::Add(0)`),
             ),
         ),
         Ok(
@@ -508,7 +839,7 @@
                         trai: Application(
                             DecApplication(
                                 Id {
-                                    value: 13,
+                                    value: 14,
                                 },
                             ),
                         ),
@@ -534,7 +865,7 @@
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
-                    `<core::num::i8 as core::ops::Add(0)>::add`,
+                    `<core::num::i16 as core::ops::Add(0)>::add`,
                     TraitItemKind::MethodRitchie(
                         RitchieItemKind::Fn,
                     ),
@@ -584,7 +915,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 53,
+                                                                value: 54,
                                                             },
                                                         ),
                                                     ),
@@ -617,7 +948,7 @@
                 TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 109,
+                            value: 110,
                         },
                     ),
                 ),
@@ -649,7 +980,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::i16(0)>::abs`, `MethodRitchie(
+                TypeItemPath(`<core::num::i32(0)>::abs`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -659,7 +990,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(`<core::num::i16(0)>::abs`, `MethodRitchie(
+                            path: TypeItemPath(`<core::num::i32(0)>::abs`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -729,7 +1060,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::i16(0)>::max`, `MethodRitchie(
+                TypeItemPath(`<core::num::i32(0)>::max`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -739,7 +1070,104 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(`<core::num::i16(0)>::max`, `MethodRitchie(
+                            path: TypeItemPath(`<core::num::i32(0)>::max`, `MethodRitchie(
+                                Fn,
+                            )`),
+                            impl_block: TypeImplBlockDecTemplate {
+                                template_parameters: DecTemplateParameters {
+                                    data: [],
+                                },
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 54,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                            self_ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 54,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            template_parameters: DecTemplateParameters {
+                                data: [],
+                            },
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
+                                contract: Pure,
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 54,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                            parenate_parameters: DeclarativeParenateParameters {
+                                data: [
+                                    DeclarativeRitchieParameter::Simple(
+                                        DeclarativeRitchieSimpleParameter {
+                                            contract: Pure,
+                                            ty: EntityPath(
+                                                Type(
+                                                    TypePath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 54,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 54,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
+                TypeItemPath(`<core::num::i32(0)>::min`, `MethodRitchie(
+                    Fn,
+                )`),
+            ),
+        ),
+        Ok(
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TypeItem(
+                    TypeItemDecTemplate::MethodRitchie(
+                        TypeMethodRitchieDecTemplate {
+                            path: TypeItemPath(`<core::num::i32(0)>::min`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -826,7 +1254,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`core::num::i16 as core::ops::Add(0)`),
+                TraitForTypeImplBlockPath(`core::num::i32 as core::ops::Add(0)`),
             ),
         ),
         Ok(
@@ -865,7 +1293,7 @@
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
-                    `<core::num::i16 as core::ops::Add(0)>::add`,
+                    `<core::num::i32 as core::ops::Add(0)>::add`,
                     TraitItemKind::MethodRitchie(
                         RitchieItemKind::Fn,
                     ),
@@ -915,7 +1343,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 55,
+                                                                value: 54,
                                                             },
                                                         ),
                                                     ),
@@ -948,7 +1376,7 @@
                 TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 111,
+                            value: 112,
                         },
                     ),
                 ),
@@ -980,7 +1408,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::i32(0)>::abs`, `MethodRitchie(
+                TypeItemPath(`<core::num::i64(0)>::abs`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -990,7 +1418,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(`<core::num::i32(0)>::abs`, `MethodRitchie(
+                            path: TypeItemPath(`<core::num::i64(0)>::abs`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -1039,200 +1467,6 @@
                             },
                             parenate_parameters: DeclarativeParenateParameters {
                                 data: [],
-                            },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 55,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::i32(0)>::max`, `MethodRitchie(
-                    Fn,
-                )`),
-            ),
-        ),
-        Ok(
-            DecTemplate::AssocItem(
-                AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodRitchie(
-                        TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(`<core::num::i32(0)>::max`, `MethodRitchie(
-                                Fn,
-                            )`),
-                            impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DecTemplateParameters {
-                                    data: [],
-                                },
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 55,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                            self_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 55,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            template_parameters: DecTemplateParameters {
-                                data: [],
-                            },
-                            self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 55,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                            parenate_parameters: DeclarativeParenateParameters {
-                                data: [
-                                    DeclarativeRitchieParameter::Simple(
-                                        DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 55,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                ],
-                            },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 55,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::i32(0)>::min`, `MethodRitchie(
-                    Fn,
-                )`),
-            ),
-        ),
-        Ok(
-            DecTemplate::AssocItem(
-                AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodRitchie(
-                        TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(`<core::num::i32(0)>::min`, `MethodRitchie(
-                                Fn,
-                            )`),
-                            impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DecTemplateParameters {
-                                    data: [],
-                                },
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 55,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                            self_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 55,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            template_parameters: DecTemplateParameters {
-                                data: [],
-                            },
-                            self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 55,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                            parenate_parameters: DeclarativeParenateParameters {
-                                data: [
-                                    DeclarativeRitchieParameter::Simple(
-                                        DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 55,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                ],
                             },
                             return_ty: EntityPath(
                                 Type(
@@ -1254,7 +1488,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`core::num::i32 as core::ops::Add(0)`),
+                TraitForTypeImplBlockPath(`core::num::i64 as core::ops::Add(0)`),
             ),
         ),
         Ok(
@@ -1267,7 +1501,7 @@
                         trai: Application(
                             DecApplication(
                                 Id {
-                                    value: 14,
+                                    value: 15,
                                 },
                             ),
                         ),
@@ -1293,7 +1527,7 @@
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
-                    `<core::num::i32 as core::ops::Add(0)>::add`,
+                    `<core::num::i64 as core::ops::Add(0)>::add`,
                     TraitItemKind::MethodRitchie(
                         RitchieItemKind::Fn,
                     ),
@@ -1376,7 +1610,7 @@
                 TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 113,
+                            value: 114,
                         },
                     ),
                 ),
@@ -1408,7 +1642,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::i64(0)>::abs`, `MethodRitchie(
+                TypeItemPath(`<core::num::i128(0)>::abs`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -1418,7 +1652,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(`<core::num::i64(0)>::abs`, `MethodRitchie(
+                            path: TypeItemPath(`<core::num::i128(0)>::abs`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -1488,7 +1722,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`core::num::i64 as core::ops::Add(0)`),
+                TraitForTypeImplBlockPath(`core::num::i128 as core::ops::Add(0)`),
             ),
         ),
         Ok(
@@ -1501,7 +1735,7 @@
                         trai: Application(
                             DecApplication(
                                 Id {
-                                    value: 15,
+                                    value: 16,
                                 },
                             ),
                         ),
@@ -1527,7 +1761,7 @@
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
-                    `<core::num::i64 as core::ops::Add(0)>::add`,
+                    `<core::num::i128 as core::ops::Add(0)>::add`,
                     TraitItemKind::MethodRitchie(
                         RitchieItemKind::Fn,
                     ),
@@ -1610,7 +1844,7 @@
                 TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 115,
+                            value: 116,
                         },
                     ),
                 ),
@@ -1642,7 +1876,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::i128(0)>::abs`, `MethodRitchie(
+                TypeItemPath(`<core::num::isize(0)>::abs`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -1652,7 +1886,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(`<core::num::i128(0)>::abs`, `MethodRitchie(
+                            path: TypeItemPath(`<core::num::isize(0)>::abs`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -1722,7 +1956,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`core::num::i128 as core::ops::Add(0)`),
+                TraitForTypeImplBlockPath(`core::num::isize as core::ops::Add(0)`),
             ),
         ),
         Ok(
@@ -1735,7 +1969,7 @@
                         trai: Application(
                             DecApplication(
                                 Id {
-                                    value: 16,
+                                    value: 17,
                                 },
                             ),
                         ),
@@ -1761,7 +1995,7 @@
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
-                    `<core::num::i128 as core::ops::Add(0)>::add`,
+                    `<core::num::isize as core::ops::Add(0)>::add`,
                     TraitItemKind::MethodRitchie(
                         RitchieItemKind::Fn,
                     ),
@@ -1844,7 +2078,7 @@
                 TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 117,
+                            value: 118,
                         },
                     ),
                 ),
@@ -1876,7 +2110,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::isize(0)>::abs`, `MethodRitchie(
+                TypeItemPath(`<core::num::u8(0)>::abs`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -1886,7 +2120,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(`<core::num::isize(0)>::abs`, `MethodRitchie(
+                            path: TypeItemPath(`<core::num::u8(0)>::abs`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -1956,7 +2190,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`core::num::isize as core::ops::Add(0)`),
+                TraitForTypeImplBlockPath(`core::num::u8 as core::ops::Add(0)`),
             ),
         ),
         Ok(
@@ -1969,7 +2203,7 @@
                         trai: Application(
                             DecApplication(
                                 Id {
-                                    value: 17,
+                                    value: 18,
                                 },
                             ),
                         ),
@@ -1995,7 +2229,7 @@
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
-                    `<core::num::isize as core::ops::Add(0)>::add`,
+                    `<core::num::u8 as core::ops::Add(0)>::add`,
                     TraitItemKind::MethodRitchie(
                         RitchieItemKind::Fn,
                     ),
@@ -2078,7 +2312,7 @@
                 TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 119,
+                            value: 120,
                         },
                     ),
                 ),
@@ -2110,7 +2344,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::u8(0)>::abs`, `MethodRitchie(
+                TypeItemPath(`<core::num::u16(0)>::abs`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -2120,7 +2354,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(`<core::num::u8(0)>::abs`, `MethodRitchie(
+                            path: TypeItemPath(`<core::num::u16(0)>::abs`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -2190,7 +2424,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`core::num::u8 as core::ops::Add(0)`),
+                TraitForTypeImplBlockPath(`core::num::u16 as core::ops::Add(0)`),
             ),
         ),
         Ok(
@@ -2203,7 +2437,7 @@
                         trai: Application(
                             DecApplication(
                                 Id {
-                                    value: 18,
+                                    value: 19,
                                 },
                             ),
                         ),
@@ -2229,7 +2463,7 @@
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
-                    `<core::num::u8 as core::ops::Add(0)>::add`,
+                    `<core::num::u16 as core::ops::Add(0)>::add`,
                     TraitItemKind::MethodRitchie(
                         RitchieItemKind::Fn,
                     ),
@@ -2312,7 +2546,7 @@
                 TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 121,
+                            value: 122,
                         },
                     ),
                 ),
@@ -2344,7 +2578,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::u16(0)>::abs`, `MethodRitchie(
+                TypeItemPath(`<core::num::u32(0)>::abs`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -2354,7 +2588,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(`<core::num::u16(0)>::abs`, `MethodRitchie(
+                            path: TypeItemPath(`<core::num::u32(0)>::abs`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -2424,7 +2658,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`core::num::u16 as core::ops::Add(0)`),
+                TraitForTypeImplBlockPath(`core::num::u32 as core::ops::Add(0)`),
             ),
         ),
         Ok(
@@ -2437,7 +2671,7 @@
                         trai: Application(
                             DecApplication(
                                 Id {
-                                    value: 19,
+                                    value: 20,
                                 },
                             ),
                         ),
@@ -2463,7 +2697,7 @@
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
-                    `<core::num::u16 as core::ops::Add(0)>::add`,
+                    `<core::num::u32 as core::ops::Add(0)>::add`,
                     TraitItemKind::MethodRitchie(
                         RitchieItemKind::Fn,
                     ),
@@ -2546,7 +2780,7 @@
                 TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 123,
+                            value: 124,
                         },
                     ),
                 ),
@@ -2578,7 +2812,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::u32(0)>::abs`, `MethodRitchie(
+                TypeItemPath(`<core::num::u64(0)>::abs`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -2588,7 +2822,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(`<core::num::u32(0)>::abs`, `MethodRitchie(
+                            path: TypeItemPath(`<core::num::u64(0)>::abs`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -2658,7 +2892,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`core::num::u32 as core::ops::Add(0)`),
+                TraitForTypeImplBlockPath(`core::num::u64 as core::ops::Add(0)`),
             ),
         ),
         Ok(
@@ -2671,7 +2905,7 @@
                         trai: Application(
                             DecApplication(
                                 Id {
-                                    value: 20,
+                                    value: 21,
                                 },
                             ),
                         ),
@@ -2697,7 +2931,7 @@
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
-                    `<core::num::u32 as core::ops::Add(0)>::add`,
+                    `<core::num::u64 as core::ops::Add(0)>::add`,
                     TraitItemKind::MethodRitchie(
                         RitchieItemKind::Fn,
                     ),
@@ -2780,7 +3014,7 @@
                 TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 125,
+                            value: 126,
                         },
                     ),
                 ),
@@ -2812,7 +3046,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::u64(0)>::abs`, `MethodRitchie(
+                TypeItemPath(`<core::num::u128(0)>::abs`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -2822,7 +3056,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(`<core::num::u64(0)>::abs`, `MethodRitchie(
+                            path: TypeItemPath(`<core::num::u128(0)>::abs`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -2892,7 +3126,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`core::num::u64 as core::ops::Add(0)`),
+                TraitForTypeImplBlockPath(`core::num::u128 as core::ops::Add(0)`),
             ),
         ),
         Ok(
@@ -2905,7 +3139,7 @@
                         trai: Application(
                             DecApplication(
                                 Id {
-                                    value: 21,
+                                    value: 22,
                                 },
                             ),
                         ),
@@ -2931,7 +3165,7 @@
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
-                    `<core::num::u64 as core::ops::Add(0)>::add`,
+                    `<core::num::u128 as core::ops::Add(0)>::add`,
                     TraitItemKind::MethodRitchie(
                         RitchieItemKind::Fn,
                     ),
@@ -3014,7 +3248,7 @@
                 TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 127,
+                            value: 128,
                         },
                     ),
                 ),
@@ -3046,7 +3280,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::u128(0)>::abs`, `MethodRitchie(
+                TypeItemPath(`<core::num::usize(0)>::abs`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -3056,7 +3290,7 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(`<core::num::u128(0)>::abs`, `MethodRitchie(
+                            path: TypeItemPath(`<core::num::usize(0)>::abs`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -3126,7 +3360,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`core::num::u128 as core::ops::Add(0)`),
+                TraitForTypeImplBlockPath(`core::num::usize as core::ops::Add(0)`),
             ),
         ),
         Ok(
@@ -3139,7 +3373,7 @@
                         trai: Application(
                             DecApplication(
                                 Id {
-                                    value: 22,
+                                    value: 23,
                                 },
                             ),
                         ),
@@ -3165,7 +3399,7 @@
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
-                    `<core::num::u128 as core::ops::Add(0)>::add`,
+                    `<core::num::usize as core::ops::Add(0)>::add`,
                     TraitItemKind::MethodRitchie(
                         RitchieItemKind::Fn,
                     ),
@@ -3248,7 +3482,7 @@
                 TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 129,
+                            value: 130,
                         },
                     ),
                 ),
@@ -3280,7 +3514,7 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::usize(0)>::abs`, `MethodRitchie(
+                TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
                     Fn,
                 )`),
             ),
@@ -3290,7 +3524,601 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(`<core::num::usize(0)>::abs`, `MethodRitchie(
+                            path: TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
+                                Fn,
+                            )`),
+                            impl_block: TypeImplBlockDecTemplate {
+                                template_parameters: DecTemplateParameters {
+                                    data: [],
+                                },
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 64,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                            self_ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 64,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            template_parameters: DecTemplateParameters {
+                                data: [],
+                            },
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
+                                contract: Pure,
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 64,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                            parenate_parameters: DeclarativeParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 64,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
+                TypeItemPath(`<core::num::f32(0)>::sqrt`, `MethodRitchie(
+                    Fn,
+                )`),
+            ),
+        ),
+        Ok(
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TypeItem(
+                    TypeItemDecTemplate::MethodRitchie(
+                        TypeMethodRitchieDecTemplate {
+                            path: TypeItemPath(`<core::num::f32(0)>::sqrt`, `MethodRitchie(
+                                Fn,
+                            )`),
+                            impl_block: TypeImplBlockDecTemplate {
+                                template_parameters: DecTemplateParameters {
+                                    data: [],
+                                },
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 64,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                            self_ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 64,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            template_parameters: DecTemplateParameters {
+                                data: [],
+                            },
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
+                                contract: Pure,
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 64,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                            parenate_parameters: DeclarativeParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 64,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
+                TypeItemPath(`<core::num::f32(0)>::max`, `MethodRitchie(
+                    Fn,
+                )`),
+            ),
+        ),
+        Ok(
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TypeItem(
+                    TypeItemDecTemplate::MethodRitchie(
+                        TypeMethodRitchieDecTemplate {
+                            path: TypeItemPath(`<core::num::f32(0)>::max`, `MethodRitchie(
+                                Fn,
+                            )`),
+                            impl_block: TypeImplBlockDecTemplate {
+                                template_parameters: DecTemplateParameters {
+                                    data: [],
+                                },
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 64,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                            self_ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 64,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            template_parameters: DecTemplateParameters {
+                                data: [],
+                            },
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
+                                contract: Pure,
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 64,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                            parenate_parameters: DeclarativeParenateParameters {
+                                data: [
+                                    DeclarativeRitchieParameter::Simple(
+                                        DeclarativeRitchieSimpleParameter {
+                                            contract: Pure,
+                                            ty: EntityPath(
+                                                Type(
+                                                    TypePath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 64,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 64,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
+                TypeItemPath(`<core::num::f32(0)>::min`, `MethodRitchie(
+                    Fn,
+                )`),
+            ),
+        ),
+        Ok(
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TypeItem(
+                    TypeItemDecTemplate::MethodRitchie(
+                        TypeMethodRitchieDecTemplate {
+                            path: TypeItemPath(`<core::num::f32(0)>::min`, `MethodRitchie(
+                                Fn,
+                            )`),
+                            impl_block: TypeImplBlockDecTemplate {
+                                template_parameters: DecTemplateParameters {
+                                    data: [],
+                                },
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 64,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                            self_ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 64,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            template_parameters: DecTemplateParameters {
+                                data: [],
+                            },
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
+                                contract: Pure,
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 64,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                            parenate_parameters: DeclarativeParenateParameters {
+                                data: [
+                                    DeclarativeRitchieParameter::Simple(
+                                        DeclarativeRitchieSimpleParameter {
+                                            contract: Pure,
+                                            ty: EntityPath(
+                                                Type(
+                                                    TypePath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 64,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ],
+                            },
+                            return_ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 64,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
+                TypeItemPath(`<core::num::f32(0)>::sgnx`, `MethodRitchie(
+                    Fn,
+                )`),
+            ),
+        ),
+        Ok(
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TypeItem(
+                    TypeItemDecTemplate::MethodRitchie(
+                        TypeMethodRitchieDecTemplate {
+                            path: TypeItemPath(`<core::num::f32(0)>::sgnx`, `MethodRitchie(
+                                Fn,
+                            )`),
+                            impl_block: TypeImplBlockDecTemplate {
+                                template_parameters: DecTemplateParameters {
+                                    data: [],
+                                },
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 64,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                            self_ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 64,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            template_parameters: DecTemplateParameters {
+                                data: [],
+                            },
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
+                                contract: Pure,
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 64,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                            parenate_parameters: DeclarativeParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 54,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
+                TypeItemPath(`<core::num::f32(0)>::cos`, `MethodRitchie(
+                    Fn,
+                )`),
+            ),
+        ),
+        Ok(
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TypeItem(
+                    TypeItemDecTemplate::MethodRitchie(
+                        TypeMethodRitchieDecTemplate {
+                            path: TypeItemPath(`<core::num::f32(0)>::cos`, `MethodRitchie(
+                                Fn,
+                            )`),
+                            impl_block: TypeImplBlockDecTemplate {
+                                template_parameters: DecTemplateParameters {
+                                    data: [],
+                                },
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 64,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                            self_ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 64,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            template_parameters: DecTemplateParameters {
+                                data: [],
+                            },
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
+                                contract: Pure,
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 64,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                            parenate_parameters: DeclarativeParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 64,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
+                TypeItemPath(`<core::num::f32(0)>::sin`, `MethodRitchie(
+                    Fn,
+                )`),
+            ),
+        ),
+        Ok(
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TypeItem(
+                    TypeItemDecTemplate::MethodRitchie(
+                        TypeMethodRitchieDecTemplate {
+                            path: TypeItemPath(`<core::num::f32(0)>::sin`, `MethodRitchie(
+                                Fn,
+                            )`),
+                            impl_block: TypeImplBlockDecTemplate {
+                                template_parameters: DecTemplateParameters {
+                                    data: [],
+                                },
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 64,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                            self_ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 64,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            template_parameters: DecTemplateParameters {
+                                data: [],
+                            },
+                            self_value_parameter: DeclarativeRitchieSimpleParameter {
+                                contract: Pure,
+                                ty: EntityPath(
+                                    Type(
+                                        TypePath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 64,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            },
+                            parenate_parameters: DeclarativeParenateParameters {
+                                data: [],
+                            },
+                            return_ty: EntityPath(
+                                Type(
+                                    TypePath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 64,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        },
+                    ),
+                ),
+            ),
+        ),
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
+                TypeItemPath(`<core::num::f32(0)>::acos`, `MethodRitchie(
+                    Fn,
+                )`),
+            ),
+        ),
+        Ok(
+            DecTemplate::AssocItem(
+                AssocItemDecTemplate::TypeItem(
+                    TypeItemDecTemplate::MethodRitchie(
+                        TypeMethodRitchieDecTemplate {
+                            path: TypeItemPath(`<core::num::f32(0)>::acos`, `MethodRitchie(
                                 Fn,
                             )`),
                             impl_block: TypeImplBlockDecTemplate {
@@ -3360,7 +4188,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`core::num::usize as core::ops::Add(0)`),
+                TraitForTypeImplBlockPath(`core::num::f32 as core::ops::Add(0)`),
             ),
         ),
         Ok(
@@ -3373,7 +4201,7 @@
                         trai: Application(
                             DecApplication(
                                 Id {
-                                    value: 23,
+                                    value: 24,
                                 },
                             ),
                         ),
@@ -3399,7 +4227,7 @@
         ItemPath::AssocItem(
             AssocItemPath::TraitForTypeItem(
                 TraitForTypeItemPath(
-                    `<core::num::usize as core::ops::Add(0)>::add`,
+                    `<core::num::f32 as core::ops::Add(0)>::add`,
                     TraitItemKind::MethodRitchie(
                         RitchieItemKind::Fn,
                     ),
@@ -3482,7 +4310,7 @@
                 TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 131,
+                            value: 132,
                         },
                     ),
                 ),
@@ -3501,834 +4329,6 @@
                                     ItemPathId(
                                         Id {
                                             value: 65,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
-                    Fn,
-                )`),
-            ),
-        ),
-        Ok(
-            DecTemplate::AssocItem(
-                AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodRitchie(
-                        TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
-                                Fn,
-                            )`),
-                            impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DecTemplateParameters {
-                                    data: [],
-                                },
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 65,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                            self_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 65,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            template_parameters: DecTemplateParameters {
-                                data: [],
-                            },
-                            self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 65,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                            parenate_parameters: DeclarativeParenateParameters {
-                                data: [],
-                            },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 65,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::f32(0)>::sqrt`, `MethodRitchie(
-                    Fn,
-                )`),
-            ),
-        ),
-        Ok(
-            DecTemplate::AssocItem(
-                AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodRitchie(
-                        TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(`<core::num::f32(0)>::sqrt`, `MethodRitchie(
-                                Fn,
-                            )`),
-                            impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DecTemplateParameters {
-                                    data: [],
-                                },
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 65,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                            self_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 65,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            template_parameters: DecTemplateParameters {
-                                data: [],
-                            },
-                            self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 65,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                            parenate_parameters: DeclarativeParenateParameters {
-                                data: [],
-                            },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 65,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::f32(0)>::max`, `MethodRitchie(
-                    Fn,
-                )`),
-            ),
-        ),
-        Ok(
-            DecTemplate::AssocItem(
-                AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodRitchie(
-                        TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(`<core::num::f32(0)>::max`, `MethodRitchie(
-                                Fn,
-                            )`),
-                            impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DecTemplateParameters {
-                                    data: [],
-                                },
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 65,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                            self_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 65,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            template_parameters: DecTemplateParameters {
-                                data: [],
-                            },
-                            self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 65,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                            parenate_parameters: DeclarativeParenateParameters {
-                                data: [
-                                    DeclarativeRitchieParameter::Simple(
-                                        DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 65,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                ],
-                            },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 65,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::f32(0)>::min`, `MethodRitchie(
-                    Fn,
-                )`),
-            ),
-        ),
-        Ok(
-            DecTemplate::AssocItem(
-                AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodRitchie(
-                        TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(`<core::num::f32(0)>::min`, `MethodRitchie(
-                                Fn,
-                            )`),
-                            impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DecTemplateParameters {
-                                    data: [],
-                                },
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 65,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                            self_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 65,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            template_parameters: DecTemplateParameters {
-                                data: [],
-                            },
-                            self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 65,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                            parenate_parameters: DeclarativeParenateParameters {
-                                data: [
-                                    DeclarativeRitchieParameter::Simple(
-                                        DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 65,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                ],
-                            },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 65,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::f32(0)>::sgnx`, `MethodRitchie(
-                    Fn,
-                )`),
-            ),
-        ),
-        Ok(
-            DecTemplate::AssocItem(
-                AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodRitchie(
-                        TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(`<core::num::f32(0)>::sgnx`, `MethodRitchie(
-                                Fn,
-                            )`),
-                            impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DecTemplateParameters {
-                                    data: [],
-                                },
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 65,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                            self_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 65,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            template_parameters: DecTemplateParameters {
-                                data: [],
-                            },
-                            self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 65,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                            parenate_parameters: DeclarativeParenateParameters {
-                                data: [],
-                            },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 55,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::f32(0)>::cos`, `MethodRitchie(
-                    Fn,
-                )`),
-            ),
-        ),
-        Ok(
-            DecTemplate::AssocItem(
-                AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodRitchie(
-                        TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(`<core::num::f32(0)>::cos`, `MethodRitchie(
-                                Fn,
-                            )`),
-                            impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DecTemplateParameters {
-                                    data: [],
-                                },
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 65,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                            self_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 65,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            template_parameters: DecTemplateParameters {
-                                data: [],
-                            },
-                            self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 65,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                            parenate_parameters: DeclarativeParenateParameters {
-                                data: [],
-                            },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 65,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::f32(0)>::sin`, `MethodRitchie(
-                    Fn,
-                )`),
-            ),
-        ),
-        Ok(
-            DecTemplate::AssocItem(
-                AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodRitchie(
-                        TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(`<core::num::f32(0)>::sin`, `MethodRitchie(
-                                Fn,
-                            )`),
-                            impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DecTemplateParameters {
-                                    data: [],
-                                },
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 65,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                            self_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 65,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            template_parameters: DecTemplateParameters {
-                                data: [],
-                            },
-                            self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 65,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                            parenate_parameters: DeclarativeParenateParameters {
-                                data: [],
-                            },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 65,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::f32(0)>::acos`, `MethodRitchie(
-                    Fn,
-                )`),
-            ),
-        ),
-        Ok(
-            DecTemplate::AssocItem(
-                AssocItemDecTemplate::TypeItem(
-                    TypeItemDecTemplate::MethodRitchie(
-                        TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(`<core::num::f32(0)>::acos`, `MethodRitchie(
-                                Fn,
-                            )`),
-                            impl_block: TypeImplBlockDecTemplate {
-                                template_parameters: DecTemplateParameters {
-                                    data: [],
-                                },
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 65,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                            self_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 65,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            template_parameters: DecTemplateParameters {
-                                data: [],
-                            },
-                            self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 65,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                            parenate_parameters: DeclarativeParenateParameters {
-                                data: [],
-                            },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 65,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TraitForTypeImplBlock(
-                TraitForTypeImplBlockPath(`core::num::f32 as core::ops::Add(0)`),
-            ),
-        ),
-        Ok(
-            DecTemplate::ImplBlock(
-                ImplBlockDecTemplate::TraitForTypeImpl(
-                    TraitForTypeImplBlockDecTemplate {
-                        template_parameters: DecTemplateParameters {
-                            data: [],
-                        },
-                        trai: Application(
-                            DecApplication(
-                                Id {
-                                    value: 24,
-                                },
-                            ),
-                        ),
-                        self_ty: DeclarativeSelfType::Path(
-                            EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 65,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        ),
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath::AssocItem(
-            AssocItemPath::TraitForTypeItem(
-                TraitForTypeItemPath(
-                    `<core::num::f32 as core::ops::Add(0)>::add`,
-                    TraitItemKind::MethodRitchie(
-                        RitchieItemKind::Fn,
-                    ),
-                ),
-            ),
-        ),
-        Ok(
-            DecTemplate::AssocItem(
-                AssocItemDecTemplate::TraitForTypeItem(
-                    TraitForTypeItemDecTemplate::MethodRitchie(
-                        TraitForTypeMethodRitchieDecTemplate {
-                            self_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 65,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                            template_parameters: DecTemplateParameters {
-                                data: [],
-                            },
-                            self_value_parameter: DeclarativeRitchieSimpleParameter {
-                                contract: Pure,
-                                ty: EntityPath(
-                                    Type(
-                                        TypePath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 65,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            },
-                            parenate_parameters: DeclarativeParenateParameters {
-                                data: [
-                                    DeclarativeRitchieParameter::Simple(
-                                        DeclarativeRitchieSimpleParameter {
-                                            contract: Pure,
-                                            ty: EntityPath(
-                                                Type(
-                                                    TypePath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 65,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                ],
-                            },
-                            return_ty: EntityPath(
-                                Type(
-                                    TypePath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 65,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                            ),
-                        },
-                    ),
-                ),
-            ),
-        ),
-    ),
-    (
-        ItemPath::ImplBlock(
-            ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 133,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        Ok(
-            DecTemplate::ImplBlock(
-                ImplBlockDecTemplate::TypeImpl(
-                    TypeImplBlockDecTemplate {
-                        template_parameters: DecTemplateParameters {
-                            data: [],
-                        },
-                        ty: EntityPath(
-                            Type(
-                                TypePath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 66,
                                         },
                                     ),
                                 ),
@@ -4364,7 +4364,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 66,
+                                                    value: 65,
                                                 },
                                             ),
                                         ),
@@ -4376,7 +4376,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 66,
+                                                value: 65,
                                             },
                                         ),
                                     ),
@@ -4392,7 +4392,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 66,
+                                                    value: 65,
                                                 },
                                             ),
                                         ),
@@ -4407,7 +4407,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 66,
+                                                value: 65,
                                             },
                                         ),
                                     ),
@@ -4444,7 +4444,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 66,
+                                                    value: 65,
                                                 },
                                             ),
                                         ),
@@ -4456,7 +4456,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 66,
+                                                value: 65,
                                             },
                                         ),
                                     ),
@@ -4472,7 +4472,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 66,
+                                                    value: 65,
                                                 },
                                             ),
                                         ),
@@ -4487,7 +4487,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 66,
+                                                value: 65,
                                             },
                                         ),
                                     ),
@@ -4525,7 +4525,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 66,
+                                                value: 65,
                                             },
                                         ),
                                     ),
@@ -4558,7 +4558,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 66,
+                                                value: 65,
                                             },
                                         ),
                                     ),
@@ -4574,7 +4574,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 66,
+                                                    value: 65,
                                                 },
                                             ),
                                         ),
@@ -4591,7 +4591,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 66,
+                                                                value: 65,
                                                             },
                                                         ),
                                                     ),
@@ -4606,7 +4606,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 66,
+                                                value: 65,
                                             },
                                         ),
                                     ),
