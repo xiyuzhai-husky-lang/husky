@@ -6,9 +6,43 @@
                 TypePath(
                     ItemPathId(
                         Id {
-                            value: 87,
+                            value: 86,
                         },
                     ),
+                ),
+            ),
+        ),
+        Some(
+            Some(
+                HirDefnVersionStamp(
+                    Id {
+                        value: 136,
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        Attr(
+            Room32,
+            AttrItemPath(
+                ItemPathId(
+                    Id {
+                        value: 244,
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        TypeVariant(
+            Room32,
+            TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 87,
+                    },
                 ),
             ),
         ),
@@ -21,19 +55,6 @@
                 ),
             ),
         ),
-    ),
-    (
-        Attr(
-            Room32,
-            AttrItemPath(
-                ItemPathId(
-                    Id {
-                        value: 245,
-                    },
-                ),
-            ),
-        ),
-        None,
     ),
     (
         TypeVariant(
@@ -51,27 +72,6 @@
                 HirDefnVersionStamp(
                     Id {
                         value: 138,
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 89,
-                    },
-                ),
-            ),
-        ),
-        Some(
-            Some(
-                HirDefnVersionStamp(
-                    Id {
-                        value: 139,
                     },
                 ),
             ),

@@ -67,7 +67,7 @@ EntityTreeSheet {
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: TypePath(`core::backend::MlBackend`, `Struct`),
+                                                    maybe_ambiguous_item_path: TypePath(`core::backend::MlBackend`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -85,7 +85,7 @@ EntityTreeSheet {
                             ),
                         },
                         block: DefnBlock::Type {
-                            path: TypePath(`core::backend::MlBackend`, `Struct`),
+                            path: TypePath(`core::backend::MlBackend`, `Extern`),
                             variants: None,
                         },
                     },
@@ -98,7 +98,7 @@ EntityTreeSheet {
                                     MajorItemSynNodePathData::Type(
                                         TypeSynNodePathData {
                                             disambiguated_item_path: DisambiguatedItemPath {
-                                                maybe_ambiguous_item_path: TypePath(`core::backend::MlBackend`, `Struct`),
+                                                maybe_ambiguous_item_path: TypePath(`core::backend::MlBackend`, `Extern`),
                                                 disambiguator: 0,
                                             },
                                         },
@@ -109,60 +109,6 @@ EntityTreeSheet {
                     ),
                 ),
                 ident: `MlBackend`,
-                visibility: Scope::Pub,
-            },
-            ItemNodeEntry {
-                node: ItemSynNode::MajorItem(
-                    MajorItemSynNode {
-                        syn_node_path: MajorItemSynNodePath::Type(
-                            TypeSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::MajorItem(
-                                        MajorItemSynNodePathData::Type(
-                                            TypeSynNodePathData {
-                                                disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: TypePath(`core::backend::RlBackend`, `Struct`),
-                                                    disambiguator: 0,
-                                                },
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                        ),
-                        visibility: Scope::Pub,
-                        ast_idx: 2,
-                        ident_token: IdentToken {
-                            ident: `RlBackend`,
-                            token_idx: TokenIdx(
-                                11,
-                            ),
-                        },
-                        block: DefnBlock::Type {
-                            path: TypePath(`core::backend::RlBackend`, `Struct`),
-                            variants: None,
-                        },
-                    },
-                ),
-                syn_node_path: ItemSynNodePath::MajorItem(
-                    MajorItemSynNodePath::Type(
-                        TypeSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::MajorItem(
-                                    MajorItemSynNodePathData::Type(
-                                        TypeSynNodePathData {
-                                            disambiguated_item_path: DisambiguatedItemPath {
-                                                maybe_ambiguous_item_path: TypePath(`core::backend::RlBackend`, `Struct`),
-                                                disambiguator: 0,
-                                            },
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
-                    ),
-                ),
-                ident: `RlBackend`,
                 visibility: Scope::Pub,
             },
         ],
@@ -183,16 +129,7 @@ EntityTreeSheet {
                 visible_scope: Scope::Pub,
                 symbol: EntitySymbol::MajorItem {
                     major_item_path: MajorItemPath::Type(
-                        TypePath(`core::backend::MlBackend`, `Struct`),
-                    ),
-                },
-            },
-            EntitySymbolEntry {
-                ident: `RlBackend`,
-                visible_scope: Scope::Pub,
-                symbol: EntitySymbol::MajorItem {
-                    major_item_path: MajorItemPath::Type(
-                        TypePath(`core::backend::RlBackend`, `Struct`),
+                        TypePath(`core::backend::MlBackend`, `Extern`),
                     ),
                 },
             },

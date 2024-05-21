@@ -10,7 +10,7 @@ AstSheet {
                 variant_path: TypeVariantPath(
                     ItemPathId(
                         Id {
-                            value: 88,
+                            value: 87,
                         },
                     ),
                 ),
@@ -40,7 +40,7 @@ AstSheet {
                 variant_path: TypeVariantPath(
                     ItemPathId(
                         Id {
-                            value: 89,
+                            value: 88,
                         },
                     ),
                 ),

@@ -118,7 +118,7 @@ SynNodeDeclSheet {
                                 MajorItemSynNodePathData::Type(
                                     TypeSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: TypePath(`core::frontend::Cv2dFrontend`, `Struct`),
+                                            maybe_ambiguous_item_path: TypePath(`core::frontend::Cv2dFrontend`, `Extern`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -130,15 +130,15 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Type(
-                    TypeSynNodeDecl::UnitStruct(
-                        UnitStructSynNodeDecl {
+                    TypeSynNodeDecl::Extern(
+                        ExternTypeSynNodeDecl {
                             syn_node_path: TypeSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: TypePath(`core::frontend::Cv2dFrontend`, `Struct`),
+                                                    maybe_ambiguous_item_path: TypePath(`core::frontend::Cv2dFrontend`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -161,7 +161,7 @@ SynNodeDeclSheet {
                                                             MajorItemSynNodePathData::Type(
                                                                 TypeSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypePath(`core::frontend::Cv2dFrontend`, `Struct`),
+                                                                        maybe_ambiguous_item_path: TypePath(`core::frontend::Cv2dFrontend`, `Extern`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -228,7 +228,7 @@ SynNodeDeclSheet {
                                 MajorItemSynNodePathData::Type(
                                     TypeSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: TypePath(`core::frontend::Cv3dFrontend`, `Struct`),
+                                            maybe_ambiguous_item_path: TypePath(`core::frontend::Cv3dFrontend`, `Extern`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -240,15 +240,15 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Type(
-                    TypeSynNodeDecl::UnitStruct(
-                        UnitStructSynNodeDecl {
+                    TypeSynNodeDecl::Extern(
+                        ExternTypeSynNodeDecl {
                             syn_node_path: TypeSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: TypePath(`core::frontend::Cv3dFrontend`, `Struct`),
+                                                    maybe_ambiguous_item_path: TypePath(`core::frontend::Cv3dFrontend`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -271,7 +271,7 @@ SynNodeDeclSheet {
                                                             MajorItemSynNodePathData::Type(
                                                                 TypeSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypePath(`core::frontend::Cv3dFrontend`, `Struct`),
+                                                                        maybe_ambiguous_item_path: TypePath(`core::frontend::Cv3dFrontend`, `Extern`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -338,7 +338,7 @@ SynNodeDeclSheet {
                                 MajorItemSynNodePathData::Type(
                                     TypeSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: TypePath(`core::frontend::NlpFrontend`, `Struct`),
+                                            maybe_ambiguous_item_path: TypePath(`core::frontend::NlpFrontend`, `Extern`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -350,15 +350,15 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Type(
-                    TypeSynNodeDecl::UnitStruct(
-                        UnitStructSynNodeDecl {
+                    TypeSynNodeDecl::Extern(
+                        ExternTypeSynNodeDecl {
                             syn_node_path: TypeSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: TypePath(`core::frontend::NlpFrontend`, `Struct`),
+                                                    maybe_ambiguous_item_path: TypePath(`core::frontend::NlpFrontend`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -381,7 +381,7 @@ SynNodeDeclSheet {
                                                             MajorItemSynNodePathData::Type(
                                                                 TypeSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypePath(`core::frontend::NlpFrontend`, `Struct`),
+                                                                        maybe_ambiguous_item_path: TypePath(`core::frontend::NlpFrontend`, `Extern`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -448,7 +448,7 @@ SynNodeDeclSheet {
                                 MajorItemSynNodePathData::Type(
                                     TypeSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: TypePath(`core::frontend::Rl2dFrontend`, `Struct`),
+                                            maybe_ambiguous_item_path: TypePath(`core::frontend::Rl2dFrontend`, `Extern`),
                                             disambiguator: 0,
                                         },
                                     },
@@ -460,15 +460,15 @@ SynNodeDeclSheet {
             ),
             ItemSynNodeDecl::MajorItem(
                 MajorItemSynNodeDecl::Type(
-                    TypeSynNodeDecl::UnitStruct(
-                        UnitStructSynNodeDecl {
+                    TypeSynNodeDecl::Extern(
+                        ExternTypeSynNodeDecl {
                             syn_node_path: TypeSynNodePath(
                                 ItemSynNodePathId {
                                     data: ItemSynNodePathData::MajorItem(
                                         MajorItemSynNodePathData::Type(
                                             TypeSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: TypePath(`core::frontend::Rl2dFrontend`, `Struct`),
+                                                    maybe_ambiguous_item_path: TypePath(`core::frontend::Rl2dFrontend`, `Extern`),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -491,7 +491,7 @@ SynNodeDeclSheet {
                                                             MajorItemSynNodePathData::Type(
                                                                 TypeSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypePath(`core::frontend::Rl2dFrontend`, `Struct`),
+                                                                        maybe_ambiguous_item_path: TypePath(`core::frontend::Rl2dFrontend`, `Extern`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },

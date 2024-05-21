@@ -79,7 +79,7 @@
                 path: AttrItemPath(
                     ItemPathId(
                         Id {
-                            value: 245,
+                            value: 244,
                         },
                     ),
                 ),
@@ -112,7 +112,7 @@
                             AttrItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 245,
+                                        value: 244,
                                     },
                                 ),
                             ),
@@ -164,7 +164,7 @@
                 path: TypeVariantPath(
                     ItemPathId(
                         Id {
-                            value: 88,
+                            value: 87,
                         },
                     ),
                 ),
@@ -188,7 +188,7 @@
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 88,
+                                        value: 87,
                                     },
                                 ),
                             ),
@@ -240,7 +240,7 @@
                 path: TypeVariantPath(
                     ItemPathId(
                         Id {
-                            value: 89,
+                            value: 88,
                         },
                     ),
                 ),
@@ -251,7 +251,7 @@
                             TypeVariantPath(
                                 ItemPathId(
                                     Id {
-                                        value: 89,
+                                        value: 88,
                                     },
                                 ),
                             ),

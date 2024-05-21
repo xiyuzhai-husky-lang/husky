@@ -56,7 +56,7 @@ AstSheet {
                 },
                 item_kind: EntityKind::MajorItem {
                     module_item_kind: MajorItemKind::Type(
-                        TypeKind::Struct,
+                        TypeKind::Extern,
                     ),
                     connection: MajorItemConnectionKind::Connected,
                 },
@@ -74,7 +74,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Type {
-                    path: TypePath(`core::frontend::Cv2dFrontend`, `Struct`),
+                    path: TypePath(`core::frontend::Cv2dFrontend`, `Extern`),
                     variants: None,
                 },
             },
@@ -95,7 +95,7 @@ AstSheet {
                 },
                 item_kind: EntityKind::MajorItem {
                     module_item_kind: MajorItemKind::Type(
-                        TypeKind::Struct,
+                        TypeKind::Extern,
                     ),
                     connection: MajorItemConnectionKind::Connected,
                 },
@@ -113,7 +113,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Type {
-                    path: TypePath(`core::frontend::Cv3dFrontend`, `Struct`),
+                    path: TypePath(`core::frontend::Cv3dFrontend`, `Extern`),
                     variants: None,
                 },
             },
@@ -134,7 +134,7 @@ AstSheet {
                 },
                 item_kind: EntityKind::MajorItem {
                     module_item_kind: MajorItemKind::Type(
-                        TypeKind::Struct,
+                        TypeKind::Extern,
                     ),
                     connection: MajorItemConnectionKind::Connected,
                 },
@@ -152,7 +152,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Type {
-                    path: TypePath(`core::frontend::NlpFrontend`, `Struct`),
+                    path: TypePath(`core::frontend::NlpFrontend`, `Extern`),
                     variants: None,
                 },
             },
@@ -173,7 +173,7 @@ AstSheet {
                 },
                 item_kind: EntityKind::MajorItem {
                     module_item_kind: MajorItemKind::Type(
-                        TypeKind::Struct,
+                        TypeKind::Extern,
                     ),
                     connection: MajorItemConnectionKind::Connected,
                 },
@@ -191,7 +191,7 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Type {
-                    path: TypePath(`core::frontend::Rl2dFrontend`, `Struct`),
+                    path: TypePath(`core::frontend::Rl2dFrontend`, `Extern`),
                     variants: None,
                 },
             },

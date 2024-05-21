@@ -6,6 +6,56 @@
                 TraitPath(
                     ItemPathId(
                         Id {
+                            value: 66,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        Some(
+            Some(
+                HirDefnVersionStamp(
+                    Id {
+                        value: 116,
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 216,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 217,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        MajorItem(
+            Trait(
+                TraitPath(
+                    ItemPathId(
+                        Id {
                             value: 67,
                         },
                     ),
@@ -28,7 +78,7 @@
                 TraitItemPath(
                     ItemPathId(
                         Id {
-                            value: 217,
+                            value: 218,
                         },
                     ),
                 ),
@@ -42,7 +92,7 @@
                 TraitItemPath(
                     ItemPathId(
                         Id {
-                            value: 218,
+                            value: 219,
                         },
                     ),
                 ),
@@ -78,7 +128,7 @@
                 TraitItemPath(
                     ItemPathId(
                         Id {
-                            value: 219,
+                            value: 220,
                         },
                     ),
                 ),
@@ -92,7 +142,7 @@
                 TraitItemPath(
                     ItemPathId(
                         Id {
-                            value: 220,
+                            value: 221,
                         },
                     ),
                 ),
@@ -121,20 +171,6 @@
                 ),
             ),
         ),
-    ),
-    (
-        AssocItem(
-            TraitItem(
-                TraitItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 221,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        None,
     ),
     (
         AssocItem(
@@ -187,6 +223,20 @@
         None,
     ),
     (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 224,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
         MajorItem(
             Trait(
                 TraitPath(
@@ -207,20 +257,6 @@
                 ),
             ),
         ),
-    ),
-    (
-        AssocItem(
-            TraitItem(
-                TraitItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 224,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        None,
     ),
     (
         AssocItem(
@@ -273,6 +309,20 @@
         None,
     ),
     (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 227,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
         MajorItem(
             Trait(
                 TraitPath(
@@ -293,20 +343,6 @@
                 ),
             ),
         ),
-    ),
-    (
-        AssocItem(
-            TraitItem(
-                TraitItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 227,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        None,
     ),
     (
         AssocItem(
@@ -359,6 +395,20 @@
         None,
     ),
     (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 230,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
         MajorItem(
             Trait(
                 TraitPath(
@@ -379,20 +429,6 @@
                 ),
             ),
         ),
-    ),
-    (
-        AssocItem(
-            TraitItem(
-                TraitItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 230,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        None,
     ),
     (
         AssocItem(
@@ -481,6 +517,20 @@
         None,
     ),
     (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 234,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
         MajorItem(
             Trait(
                 TraitPath(
@@ -501,20 +551,6 @@
                 ),
             ),
         ),
-    ),
-    (
-        AssocItem(
-            TraitItem(
-                TraitItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 234,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        None,
     ),
     (
         AssocItem(
@@ -567,6 +603,20 @@
         None,
     ),
     (
+        AssocItem(
+            TraitItem(
+                TraitItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 237,
+                        },
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
         MajorItem(
             Trait(
                 TraitPath(
@@ -594,7 +644,7 @@
                 TraitItemPath(
                     ItemPathId(
                         Id {
-                            value: 237,
+                            value: 238,
                         },
                     ),
                 ),
@@ -608,7 +658,7 @@
                 TraitItemPath(
                     ItemPathId(
                         Id {
-                            value: 238,
+                            value: 239,
                         },
                     ),
                 ),
@@ -644,7 +694,7 @@
                 TraitItemPath(
                     ItemPathId(
                         Id {
-                            value: 239,
+                            value: 240,
                         },
                     ),
                 ),
@@ -658,7 +708,7 @@
                 TraitItemPath(
                     ItemPathId(
                         Id {
-                            value: 240,
+                            value: 241,
                         },
                     ),
                 ),
@@ -694,7 +744,7 @@
                 TraitItemPath(
                     ItemPathId(
                         Id {
-                            value: 241,
+                            value: 242,
                         },
                     ),
                 ),
@@ -708,7 +758,7 @@
                 TraitItemPath(
                     ItemPathId(
                         Id {
-                            value: 242,
+                            value: 243,
                         },
                     ),
                 ),
@@ -718,8 +768,8 @@
     ),
     (
         MajorItem(
-            Trait(
-                TraitPath(
+            Type(
+                TypePath(
                     ItemPathId(
                         Id {
                             value: 83,
@@ -739,42 +789,13 @@
         ),
     ),
     (
-        AssocItem(
-            TraitItem(
-                TraitItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 243,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        AssocItem(
-            TraitItem(
-                TraitItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 244,
-                        },
-                    ),
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        MajorItem(
-            Type(
-                TypePath(
-                    ItemPathId(
-                        Id {
-                            value: 84,
-                        },
-                    ),
+        TypeVariant(
+            Room32,
+            TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 84,
+                    },
                 ),
             ),
         ),
@@ -804,27 +825,6 @@
                 HirDefnVersionStamp(
                     Id {
                         value: 135,
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
-                        value: 86,
-                    },
-                ),
-            ),
-        ),
-        Some(
-            Some(
-                HirDefnVersionStamp(
-                    Id {
-                        value: 136,
                     },
                 ),
             ),

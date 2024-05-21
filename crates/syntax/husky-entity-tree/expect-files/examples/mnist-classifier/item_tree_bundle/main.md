@@ -4570,7 +4570,7 @@ EntityTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 297,
+                                                        value: 296,
                                                     },
                                                 ),
                                             ),
@@ -4590,7 +4590,7 @@ EntityTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 297,
+                                                            value: 296,
                                                         },
                                                     ),
                                                 ),
@@ -7730,7 +7730,7 @@ EntityTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 299,
+                                                        value: 298,
                                                     },
                                                 ),
                                             ),
@@ -7750,7 +7750,7 @@ EntityTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 299,
+                                                            value: 298,
                                                         },
                                                     ),
                                                 ),
@@ -8469,6 +8469,60 @@ EntityTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
+                                                        value: 299,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                    ),
+                                ),
+                            },
+                        ),
+                    ),
+                    ImplBlockSynNode::TypeImplBlock(
+                        TypeImplBlockSynNode {
+                            syn_node_path: TypeImplBlockSynNodePath(
+                                ItemSynNodePathId {
+                                    data: ItemSynNodePathData::ImplBlock(
+                                        ImplBlockSynNodePathData::TypeImplBlock(
+                                            TypeImplBlockSynNodePathData {
+                                                path: TypeImplBlockPath(
+                                                    ItemPathId(
+                                                        Id {
+                                                            value: 299,
+                                                        },
+                                                    ),
+                                                ),
+                                            },
+                                        ),
+                                    ),
+                                },
+                            ),
+                            ast_idx: 80,
+                            impl_token: ImplToken {
+                                token_idx: TokenIdx(
+                                    23,
+                                ),
+                            },
+                            ty_expr: 6,
+                            items: TypeItems {
+                                ast_idx_range: ArenaIdxRange(
+                                    5..10,
+                                ),
+                            },
+                        },
+                    ),
+                ),
+                (
+                    ImplBlockSynNodePath::TypeImplBlock(
+                        TypeImplBlockSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::ImplBlock(
+                                    ImplBlockSynNodePathData::TypeImplBlock(
+                                        TypeImplBlockSynNodePathData {
+                                            path: TypeImplBlockPath(
+                                                ItemPathId(
+                                                    Id {
                                                         value: 300,
                                                     },
                                                 ),
@@ -8498,16 +8552,16 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                             ),
-                            ast_idx: 80,
+                            ast_idx: 83,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    23,
+                                    178,
                                 ),
                             },
-                            ty_expr: 6,
+                            ty_expr: 7,
                             items: TypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    5..10,
+                                    41..49,
                                 ),
                             },
                         },
@@ -8552,16 +8606,16 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                             ),
-                            ast_idx: 83,
+                            ast_idx: 85,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    178,
+                                    507,
                                 ),
                             },
-                            ty_expr: 7,
+                            ty_expr: 8,
                             items: TypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    41..49,
+                                    56..58,
                                 ),
                             },
                         },
@@ -8606,16 +8660,16 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                             ),
-                            ast_idx: 85,
+                            ast_idx: 87,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    507,
+                                    617,
                                 ),
                             },
-                            ty_expr: 8,
+                            ty_expr: 9,
                             items: TypeItems {
                                 ast_idx_range: ArenaIdxRange(
-                                    56..58,
+                                    64..70,
                                 ),
                             },
                         },
@@ -8652,60 +8706,6 @@ EntityTreeCrateBundle {
                                                     ItemPathId(
                                                         Id {
                                                             value: 303,
-                                                        },
-                                                    ),
-                                                ),
-                                            },
-                                        ),
-                                    ),
-                                },
-                            ),
-                            ast_idx: 87,
-                            impl_token: ImplToken {
-                                token_idx: TokenIdx(
-                                    617,
-                                ),
-                            },
-                            ty_expr: 9,
-                            items: TypeItems {
-                                ast_idx_range: ArenaIdxRange(
-                                    64..70,
-                                ),
-                            },
-                        },
-                    ),
-                ),
-                (
-                    ImplBlockSynNodePath::TypeImplBlock(
-                        TypeImplBlockSynNodePath(
-                            ItemSynNodePathId {
-                                data: ItemSynNodePathData::ImplBlock(
-                                    ImplBlockSynNodePathData::TypeImplBlock(
-                                        TypeImplBlockSynNodePathData {
-                                            path: TypeImplBlockPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 304,
-                                                    },
-                                                ),
-                                            ),
-                                        },
-                                    ),
-                                ),
-                            },
-                        ),
-                    ),
-                    ImplBlockSynNode::TypeImplBlock(
-                        TypeImplBlockSynNode {
-                            syn_node_path: TypeImplBlockSynNodePath(
-                                ItemSynNodePathId {
-                                    data: ItemSynNodePathData::ImplBlock(
-                                        ImplBlockSynNodePathData::TypeImplBlock(
-                                            TypeImplBlockSynNodePathData {
-                                                path: TypeImplBlockPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 304,
                                                         },
                                                     ),
                                                 ),
@@ -9785,7 +9785,7 @@ EntityTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 306,
+                                                        value: 305,
                                                     },
                                                 ),
                                             ),
@@ -9805,7 +9805,7 @@ EntityTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 306,
+                                                            value: 305,
                                                         },
                                                     ),
                                                 ),
@@ -9891,7 +9891,7 @@ EntityTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 308,
+                                                        value: 307,
                                                     },
                                                 ),
                                             ),
@@ -9911,7 +9911,7 @@ EntityTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 308,
+                                                            value: 307,
                                                         },
                                                     ),
                                                 ),
@@ -13266,7 +13266,7 @@ EntityTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 310,
+                                                        value: 309,
                                                     },
                                                 ),
                                             ),
@@ -13286,7 +13286,7 @@ EntityTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 310,
+                                                            value: 309,
                                                         },
                                                     ),
                                                 ),
@@ -16231,7 +16231,7 @@ EntityTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 312,
+                                                        value: 311,
                                                     },
                                                 ),
                                             ),
@@ -16251,7 +16251,7 @@ EntityTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 312,
+                                                            value: 311,
                                                         },
                                                     ),
                                                 ),
@@ -18336,7 +18336,7 @@ EntityTreeCrateBundle {
                                             path: TypeImplBlockPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 313,
+                                                        value: 312,
                                                     },
                                                 ),
                                             ),
@@ -18356,7 +18356,7 @@ EntityTreeCrateBundle {
                                                 path: TypeImplBlockPath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 313,
+                                                            value: 312,
                                                         },
                                                     ),
                                                 ),
