@@ -143,13 +143,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TypeImplBlock(
                                     TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 149,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeImplBlockPath(`syntax_errors::ast::A(0)`),
                                     },
                                 ),
                             ),
@@ -165,13 +159,7 @@ SynNodeDeclSheet {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
-                                            path: TypeImplBlockPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 149,
-                                                    },
-                                                ),
-                                            ),
+                                            path: TypeImplBlockPath(`syntax_errors::ast::A(0)`),
                                         },
                                     ),
                                 ),
@@ -208,13 +196,7 @@ SynNodeDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                             TypeImplBlockSynNodePathData {
-                                                                path: TypeImplBlockPath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 149,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                path: TypeImplBlockPath(`syntax_errors::ast::A(0)`),
                                                             },
                                                         ),
                                                     ),

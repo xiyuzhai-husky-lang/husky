@@ -50,9 +50,7 @@ impl TypeItemPath {
 
 impl TypeItemPathData {
     fn show_aux(self, f: &mut std::fmt::Formatter<'_>, db: &::salsa::Db) -> std::fmt::Result {
-        f.write_str("<")?;
         self.impl_block.show_aux(f, db)?;
-        f.write_str(">")?;
         f.write_str("::")?;
         f.write_str(self.ident.data(db))
     }
@@ -64,22 +62,17 @@ impl salsa::DebugWithDb for TypeItemPath {
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
-        let data = self.data(db);
-        f.write_str("TypeItemPath(`")?;
-        data.show_aux(f, db)?;
-        f.write_str("`, `")?;
-        data.item_kind.fmt(f)?;
-        f.write_str("`)")
+        item_debug_with_db_fmt!(self, f, "TypeItemPath", db)
     }
 }
 
 impl salsa::DisplayWithDb for TypeItemPath {
     fn display_fmt_with_db(
         &self,
-        _f: &mut std::fmt::Formatter<'_>,
-        _db: &::salsa::Db,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
     ) -> std::fmt::Result {
-        todo!()
+        self.data(db).show_aux(f, db)
     }
 }
 

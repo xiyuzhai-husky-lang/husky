@@ -261,13 +261,7 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
-                path: TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 312,
-                        },
-                    ),
-                ),
+                path: TypeImplBlockPath(`mnist_classifier::fermi::FermiMatchResult(0)`),
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
@@ -282,13 +276,7 @@
                     region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 312,
-                                        },
-                                    ),
-                                ),
+                                TypeImplBlockPath(`mnist_classifier::fermi::FermiMatchResult(0)`),
                             ),
                         ),
                     ),
@@ -320,7 +308,10 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MemoizedField(
                 TypeMemoFieldHirDecl {
-                    path: TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::norm`, `MemoizedField`),
+                    path: TypeItemPath(
+                        `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
+                        TypeItemKind::MemoizedField,
+                    ),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {
                             ty_path: TypePath(`core::num::f32`, `Extern`),
@@ -332,7 +323,10 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::norm`, `MemoizedField`),
+                                    TypeItemPath(
+                                        `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
+                                        TypeItemKind::MemoizedField,
+                                    ),
                                 ),
                             ),
                         ),
@@ -372,7 +366,10 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MemoizedField(
                 TypeMemoFieldHirDecl {
-                    path: TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::rel_norm`, `MemoizedField`),
+                    path: TypeItemPath(
+                        `mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`,
+                        TypeItemKind::MemoizedField,
+                    ),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {
                             ty_path: TypePath(`core::num::f32`, `Extern`),
@@ -384,7 +381,10 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::rel_norm`, `MemoizedField`),
+                                    TypeItemPath(
+                                        `mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`,
+                                        TypeItemKind::MemoizedField,
+                                    ),
                                 ),
                             ),
                         ),
@@ -424,7 +424,10 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MemoizedField(
                 TypeMemoFieldHirDecl {
-                    path: TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::angle_change_norm`, `MemoizedField`),
+                    path: TypeItemPath(
+                        `mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`,
+                        TypeItemKind::MemoizedField,
+                    ),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {
                             ty_path: TypePath(`core::num::f32`, `Extern`),
@@ -436,7 +439,10 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::angle_change_norm`, `MemoizedField`),
+                                    TypeItemPath(
+                                        `mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`,
+                                        TypeItemKind::MemoizedField,
+                                    ),
                                 ),
                             ),
                         ),

@@ -61,7 +61,10 @@ Ok(
                                                         },
                                                     ),
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TraitItemPath(`core::task::IsTask::Backend`, `AssocType`),
+                                                        maybe_ambiguous_item_path: TraitItemPath(
+                                                            `core::task::IsTask::Backend`,
+                                                            TraitItemKind::AssocType,
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -109,7 +112,10 @@ Ok(
                                                         },
                                                     ),
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TraitItemPath(`core::task::IsTask::Frontend`, `AssocType`),
+                                                        maybe_ambiguous_item_path: TraitItemPath(
+                                                            `core::task::IsTask::Frontend`,
+                                                            TraitItemKind::AssocType,
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },

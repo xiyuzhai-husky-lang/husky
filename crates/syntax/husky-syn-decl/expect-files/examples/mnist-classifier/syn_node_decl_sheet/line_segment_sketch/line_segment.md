@@ -338,13 +338,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TypeImplBlock(
                                     TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 311,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeImplBlockPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)`),
                                     },
                                 ),
                             ),
@@ -360,13 +354,7 @@ SynNodeDeclSheet {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
-                                            path: TypeImplBlockPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 311,
-                                                    },
-                                                ),
-                                            ),
+                                            path: TypeImplBlockPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)`),
                                         },
                                     ),
                                 ),
@@ -403,13 +391,7 @@ SynNodeDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                             TypeImplBlockSynNodePathData {
-                                                                path: TypeImplBlockPath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 311,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                path: TypeImplBlockPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)`),
                                                             },
                                                         ),
                                                     ),
@@ -505,9 +487,12 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)>::displacement`, `MethodRitchie(
-                                                Fn,
-                                            )`),
+                                            maybe_ambiguous_item_path: TypeItemPath(
+                                                `mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`,
+                                                TypeItemKind::MethodRitchie(
+                                                    RitchieItemKind::Fn,
+                                                ),
+                                            ),
                                             disambiguator: 0,
                                         },
                                     },
@@ -527,9 +512,12 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)>::displacement`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    maybe_ambiguous_item_path: TypeItemPath(
+                                                        `mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -597,13 +585,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 311,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -696,9 +678,12 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)>::displacement`, `MethodRitchie(
-                                                                            Fn,
-                                                                        )`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`,
+                                                                            TypeItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -797,9 +782,12 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)>::dist_to_point`, `MethodRitchie(
-                                                Fn,
-                                            )`),
+                                            maybe_ambiguous_item_path: TypeItemPath(
+                                                `mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::dist_to_point`,
+                                                TypeItemKind::MethodRitchie(
+                                                    RitchieItemKind::Fn,
+                                                ),
+                                            ),
                                             disambiguator: 0,
                                         },
                                     },
@@ -819,9 +807,12 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)>::dist_to_point`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    maybe_ambiguous_item_path: TypeItemPath(
+                                                        `mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::dist_to_point`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -904,13 +895,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 311,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -1003,9 +988,12 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)>::dist_to_point`, `MethodRitchie(
-                                                                            Fn,
-                                                                        )`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::dist_to_point`,
+                                                                            TypeItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },

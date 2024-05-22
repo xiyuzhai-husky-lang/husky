@@ -244,7 +244,10 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::norm`, `MemoizedField`),
+                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                            `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
+                                                            TypeItemKind::MemoizedField,
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -500,7 +503,10 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::rel_norm`, `MemoizedField`),
+                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                            `mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`,
+                                                            TypeItemKind::MemoizedField,
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -756,7 +762,10 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::angle_change_norm`, `MemoizedField`),
+                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                            `mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`,
+                                                            TypeItemKind::MemoizedField,
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },

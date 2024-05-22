@@ -157,9 +157,12 @@
                                         self_contract: Pure,
                                         ident: `first`,
                                         path: AssocItemPath::TypeItem(
-                                            TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
-                                                Fn,
-                                            )`),
+                                            TypeItemPath(
+                                                `core::slice::CyclicSlice(0)::first`,
+                                                TypeItemKind::MethodRitchie(
+                                                    RitchieItemKind::Fn,
+                                                ),
+                                            ),
                                         ),
                                         instantiation: HirInstantiation {
                                             symbol_map: [
@@ -293,9 +296,12 @@
                                         self_contract: Pure,
                                         ident: `last`,
                                         path: AssocItemPath::TypeItem(
-                                            TypeItemPath(`<core::slice::CyclicSlice(0)>::last`, `MethodRitchie(
-                                                Fn,
-                                            )`),
+                                            TypeItemPath(
+                                                `core::slice::CyclicSlice(0)::last`,
+                                                TypeItemKind::MethodRitchie(
+                                                    RitchieItemKind::Fn,
+                                                ),
+                                            ),
                                         ),
                                         instantiation: HirInstantiation {
                                             symbol_map: [
@@ -1027,13 +1033,7 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
-                path: TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 305,
-                        },
-                    ),
-                ),
+                path: TypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)`),
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
@@ -1048,13 +1048,7 @@
                     region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 305,
-                                        },
-                                    ),
-                                ),
+                                TypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)`),
                             ),
                         ),
                     ),
@@ -1086,9 +1080,12 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::AssocRitchie(
                 TypeAssocRitchieHirDecl {
-                    path: TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::new`, `AssocRitchie(
-                        Fn,
-                    )`),
+                    path: TypeItemPath(
+                        `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`,
+                        TypeItemKind::AssocRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -1150,9 +1147,12 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::new`, `AssocRitchie(
-                                        Fn,
-                                    )`),
+                                    TypeItemPath(
+                                        `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`,
+                                        TypeItemKind::AssocRitchie(
+                                            RitchieItemKind::Fn,
+                                        ),
+                                    ),
                                 ),
                             ),
                         ),
@@ -1232,9 +1232,12 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodRitchieHirDecl {
-                    path: TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::displacement`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    path: TypeItemPath(
+                        `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -1262,9 +1265,12 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::displacement`, `MethodRitchie(
-                                        Fn,
-                                    )`),
+                                    TypeItemPath(
+                                        `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`,
+                                        TypeItemKind::MethodRitchie(
+                                            RitchieItemKind::Fn,
+                                        ),
+                                    ),
                                 ),
                             ),
                         ),
@@ -1431,13 +1437,7 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
-                path: TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 307,
-                        },
-                    ),
-                ),
+                path: TypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)`),
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
@@ -1452,13 +1452,7 @@
                     region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 307,
-                                        },
-                                    ),
-                                ),
+                                TypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)`),
                             ),
                         ),
                     ),
@@ -1490,7 +1484,10 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MemoizedField(
                 TypeMemoFieldHirDecl {
-                    path: TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::concave_components`, `MemoizedField`),
+                    path: TypeItemPath(
+                        `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`,
+                        TypeItemKind::MemoizedField,
+                    ),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {
                             ty_path: TypePath(`core::vec::Vec`, `Extern`),
@@ -1512,7 +1509,10 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::concave_components`, `MemoizedField`),
+                                    TypeItemPath(
+                                        `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`,
+                                        TypeItemKind::MemoizedField,
+                                    ),
                                 ),
                             ),
                         ),
@@ -1552,7 +1552,10 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MemoizedField(
                 TypeMemoFieldHirDecl {
-                    path: TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::bounding_box`, `MemoizedField`),
+                    path: TypeItemPath(
+                        `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`,
+                        TypeItemKind::MemoizedField,
+                    ),
                     return_ty: HirType::PathLeading(
                         HirTypePathLeading {
                             ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -1564,7 +1567,10 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::bounding_box`, `MemoizedField`),
+                                    TypeItemPath(
+                                        `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`,
+                                        TypeItemKind::MemoizedField,
+                                    ),
                                 ),
                             ),
                         ),
@@ -1604,9 +1610,12 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::AssocRitchie(
                 TypeAssocRitchieHirDecl {
-                    path: TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::new`, `AssocRitchie(
-                        Fn,
-                    )`),
+                    path: TypeItemPath(
+                        `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`,
+                        TypeItemKind::AssocRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -1657,9 +1666,12 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::new`, `AssocRitchie(
-                                        Fn,
-                                    )`),
+                                    TypeItemPath(
+                                        `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`,
+                                        TypeItemKind::AssocRitchie(
+                                            RitchieItemKind::Fn,
+                                        ),
+                                    ),
                                 ),
                             ),
                         ),

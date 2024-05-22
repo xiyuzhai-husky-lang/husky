@@ -68,9 +68,12 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         path: JavPath::TypeItem(
-                            TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            TypeItemPath(
+                                `core::slice::CyclicSlice(0)::first`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -137,9 +140,12 @@
                     },
                     ValkyrieRide::PathLeading {
                         path: JavPath::TypeItem(
-                            TypeItemPath(`<core::slice::CyclicSlice(0)>::last`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            TypeItemPath(
+                                `core::slice::CyclicSlice(0)::last`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -248,9 +254,12 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         path: JavPath::TypeItem(
-                            TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            TypeItemPath(
+                                `core::vec::Vec(0)::ilen`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -304,9 +313,12 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         path: JavPath::TypeItem(
-                            TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            TypeItemPath(
+                                `core::vec::Vec(0)::ilen`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -369,9 +381,12 @@
                     },
                     ValkyrieRide::PathLeading {
                         path: JavPath::TypeItem(
-                            TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            TypeItemPath(
+                                `core::vec::Vec(0)::ilen`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -405,9 +420,12 @@
                     },
                     ValkyrieRide::PathLeading {
                         path: JavPath::TypeItem(
-                            TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            TypeItemPath(
+                                `core::vec::Vec(0)::ilen`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -441,9 +459,12 @@
                     },
                     ValkyrieRide::PathLeading {
                         path: JavPath::TypeItem(
-                            TypeItemPath(`<core::vec::Vec(0)>::last`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            TypeItemPath(
+                                `core::vec::Vec(0)::last`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -494,9 +515,12 @@
                     },
                     ValkyrieRide::PathLeading {
                         path: JavPath::TypeItem(
-                            TypeItemPath(`<core::vec::Vec(0)>::last`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            TypeItemPath(
+                                `core::vec::Vec(0)::last`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -547,9 +571,12 @@
                     },
                     ValkyrieRide::PathLeading {
                         path: JavPath::TypeItem(
-                            TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            TypeItemPath(
+                                `core::slice::CyclicSlice(0)::start`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -583,9 +610,12 @@
                     },
                     ValkyrieRide::PathLeading {
                         path: JavPath::TypeItem(
-                            TypeItemPath(`<core::vec::Vec(0)>::pop`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            TypeItemPath(
+                                `core::vec::Vec(0)::pop`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -625,9 +655,12 @@
                     },
                     ValkyrieRide::PathLeading {
                         path: JavPath::TypeItem(
-                            TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            TypeItemPath(
+                                `core::slice::CyclicSlice(0)::end`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -661,9 +694,12 @@
                     },
                     ValkyrieRide::PathLeading {
                         path: JavPath::TypeItem(
-                            TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            TypeItemPath(
+                                `core::vec::Vec(0)::push`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -703,9 +739,12 @@
                     },
                     ValkyrieRide::PathLeading {
                         path: JavPath::TypeItem(
-                            TypeItemPath(`<core::vec::Vec(0)>::first`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            TypeItemPath(
+                                `core::vec::Vec(0)::first`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -756,9 +795,12 @@
                     },
                     ValkyrieRide::PathLeading {
                         path: JavPath::TypeItem(
-                            TypeItemPath(`<core::vec::Vec(0)>::first`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            TypeItemPath(
+                                `core::vec::Vec(0)::first`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -853,13 +895,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 305,
-                        },
-                    ),
-                ),
+                TypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)`),
             ),
         ),
         Some(
@@ -876,9 +912,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::new`, `AssocRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`,
+                    TypeItemKind::AssocRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         Some(
@@ -891,9 +930,12 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         path: JavPath::TypeItem(
-                            TypeItemPath(`<core::vec::Vec(0)>::cyclic_slice_leashed`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            TypeItemPath(
+                                `core::vec::Vec(0)::cyclic_slice_leashed`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -932,9 +974,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::displacement`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         Some(
@@ -990,13 +1035,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 307,
-                        },
-                    ),
-                ),
+                TypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)`),
             ),
         ),
         Some(
@@ -1013,7 +1052,10 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::concave_components`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
         ),
         Some(
@@ -1026,7 +1068,10 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::bounding_box`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
         ),
         Some(
@@ -1035,9 +1080,12 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         path: JavPath::TypeItem(
-                            TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            TypeItemPath(
+                                `core::vec::Vec(0)::ilen`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -1076,9 +1124,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::new`, `AssocRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`,
+                    TypeItemKind::AssocRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         Some(

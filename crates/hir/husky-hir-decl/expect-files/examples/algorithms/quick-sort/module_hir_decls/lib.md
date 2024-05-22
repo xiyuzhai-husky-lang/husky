@@ -318,13 +318,7 @@
     HirDecl::Attr(
         AttrHirDecl::Test(
             TestAttrHirDecl {
-                path: AttrItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 151,
-                        },
-                    ),
-                ),
+                path: AttrItemPath(`quick_sort::quick_sort_works_for_integers::@test(0)`),
             },
         ),
     ),
@@ -365,13 +359,7 @@
     HirDecl::Attr(
         AttrHirDecl::Test(
             TestAttrHirDecl {
-                path: AttrItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 152,
-                        },
-                    ),
-                ),
+                path: AttrItemPath(`quick_sort::quick_sort_works_for_strs::@test(0)`),
             },
         ),
     ),

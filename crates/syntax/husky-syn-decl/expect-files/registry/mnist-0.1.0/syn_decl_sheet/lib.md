@@ -761,25 +761,13 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 161,
-                            },
-                        ),
-                    ),
+                    TypeImplBlockPath(`mnist::BinaryImage28(0)`),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::Type(
                     TypeImplBlockSynDecl {
-                        path: TypeImplBlockPath(
-                            ItemPathId(
-                                Id {
-                                    value: 161,
-                                },
-                            ),
-                        ),
+                        path: TypeImplBlockPath(`mnist::BinaryImage28(0)`),
                         template_parameters: [],
                         self_ty_expr: SelfTypeSyndicate {
                             expr: 0,
@@ -795,13 +783,7 @@ SynDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                             TypeImplBlockSynNodePathData {
-                                                                path: TypeImplBlockPath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 161,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                path: TypeImplBlockPath(`mnist::BinaryImage28(0)`),
                                                             },
                                                         ),
                                                     ),
@@ -891,18 +873,24 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<mnist::BinaryImage28(0)>::new_zeros`, `AssocRitchie(
-                        Fn,
-                    )`),
+                    TypeItemPath(
+                        `mnist::BinaryImage28(0)::new_zeros`,
+                        TypeItemKind::AssocRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::AssocRitchie(
                         TypeAssocRitchieSynDecl {
-                            path: TypeItemPath(`<mnist::BinaryImage28(0)>::new_zeros`, `AssocRitchie(
-                                Fn,
-                            )`),
+                            path: TypeItemPath(
+                                `mnist::BinaryImage28(0)::new_zeros`,
+                                TypeItemKind::AssocRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                             template_parameters: [],
                             parenate_parameters: [],
                             return_ty: Some(
@@ -924,13 +912,7 @@ SynDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 161,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`mnist::BinaryImage28(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -1023,9 +1005,12 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist::BinaryImage28(0)>::new_zeros`, `AssocRitchie(
-                                                                            Fn,
-                                                                        )`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `mnist::BinaryImage28(0)::new_zeros`,
+                                                                            TypeItemKind::AssocRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -1982,25 +1967,13 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 164,
-                            },
-                        ),
-                    ),
+                    TypeImplBlockPath(`mnist::BinaryGrid28(0)`),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::Type(
                     TypeImplBlockSynDecl {
-                        path: TypeImplBlockPath(
-                            ItemPathId(
-                                Id {
-                                    value: 164,
-                                },
-                            ),
-                        ),
+                        path: TypeImplBlockPath(`mnist::BinaryGrid28(0)`),
                         template_parameters: [],
                         self_ty_expr: SelfTypeSyndicate {
                             expr: 0,
@@ -2016,13 +1989,7 @@ SynDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                             TypeImplBlockSynNodePathData {
-                                                                path: TypeImplBlockPath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 164,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                path: TypeImplBlockPath(`mnist::BinaryGrid28(0)`),
                                                             },
                                                         ),
                                                     ),
@@ -2112,18 +2079,24 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<mnist::BinaryGrid28(0)>::new_zeros`, `AssocRitchie(
-                        Fn,
-                    )`),
+                    TypeItemPath(
+                        `mnist::BinaryGrid28(0)::new_zeros`,
+                        TypeItemKind::AssocRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::AssocRitchie(
                         TypeAssocRitchieSynDecl {
-                            path: TypeItemPath(`<mnist::BinaryGrid28(0)>::new_zeros`, `AssocRitchie(
-                                Fn,
-                            )`),
+                            path: TypeItemPath(
+                                `mnist::BinaryGrid28(0)::new_zeros`,
+                                TypeItemKind::AssocRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                             template_parameters: [],
                             parenate_parameters: [],
                             return_ty: Some(
@@ -2145,13 +2118,7 @@ SynDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 164,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`mnist::BinaryGrid28(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -2244,9 +2211,12 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist::BinaryGrid28(0)>::new_zeros`, `AssocRitchie(
-                                                                            Fn,
-                                                                        )`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `mnist::BinaryGrid28(0)::new_zeros`,
+                                                                            TypeItemKind::AssocRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },

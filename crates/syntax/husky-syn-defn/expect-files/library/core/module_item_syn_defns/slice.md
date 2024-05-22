@@ -19,24 +19,25 @@
     (
         ItemPath::Attr(
             Room32,
-            AttrItemPath(
-                ItemPathId(
-                    Id {
-                        value: 245,
-                    },
-                ),
-            ),
+            AttrItemPath(`core::slice::CyclicSlice::@derive(0)`),
         ),
         None,
     ),
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 137,
-                        },
+                TypeImplBlockPath(`core::slice::Slice(0)`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
+                TypeItemPath(
+                    `core::slice::Slice(0)::len`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
                     ),
                 ),
             ),
@@ -46,19 +47,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::slice::Slice(0)>::len`, `MethodRitchie(
-                    Fn,
-                )`),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(`<core::slice::Slice(0)>::swap`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::slice::Slice(0)::swap`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         None,
@@ -85,11 +79,18 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 139,
-                        },
+                TypeImplBlockPath(`core::slice::CyclicSlice(0)`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
+                TypeItemPath(
+                    `core::slice::CyclicSlice(0)::ilen`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
                     ),
                 ),
             ),
@@ -99,9 +100,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::slice::CyclicSlice(0)>::ilen`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::slice::CyclicSlice(0)::start`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         None,
@@ -109,9 +113,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::slice::CyclicSlice(0)::end`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         None,
@@ -119,9 +126,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::slice::CyclicSlice(0)::first`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         None,
@@ -129,19 +139,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
-                    Fn,
-                )`),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(`<core::slice::CyclicSlice(0)>::last`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::slice::CyclicSlice(0)::last`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         None,

@@ -760,13 +760,7 @@
         path: RegionPath::Decl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 161,
-                            },
-                        ),
-                    ),
+                    TypeImplBlockPath(`mnist::BinaryImage28(0)`),
                 ),
             ),
         ),
@@ -774,13 +768,7 @@
             path: RegionPath::Decl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TypeImplBlock(
-                        TypeImplBlockPath(
-                            ItemPathId(
-                                Id {
-                                    value: 161,
-                                },
-                            ),
-                        ),
+                        TypeImplBlockPath(`mnist::BinaryImage28(0)`),
                     ),
                 ),
             ),
@@ -928,9 +916,12 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<mnist::BinaryImage28(0)>::new_zeros`, `AssocRitchie(
-                        Fn,
-                    )`),
+                    TypeItemPath(
+                        `mnist::BinaryImage28(0)::new_zeros`,
+                        TypeItemKind::AssocRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                 ),
             ),
         ),
@@ -938,9 +929,12 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`<mnist::BinaryImage28(0)>::new_zeros`, `AssocRitchie(
-                            Fn,
-                        )`),
+                        TypeItemPath(
+                            `mnist::BinaryImage28(0)::new_zeros`,
+                            TypeItemKind::AssocRitchie(
+                                RitchieItemKind::Fn,
+                            ),
+                        ),
                     ),
                 ),
             ),
@@ -1885,13 +1879,7 @@
         path: RegionPath::Decl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 164,
-                            },
-                        ),
-                    ),
+                    TypeImplBlockPath(`mnist::BinaryGrid28(0)`),
                 ),
             ),
         ),
@@ -1899,13 +1887,7 @@
             path: RegionPath::Decl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TypeImplBlock(
-                        TypeImplBlockPath(
-                            ItemPathId(
-                                Id {
-                                    value: 164,
-                                },
-                            ),
-                        ),
+                        TypeImplBlockPath(`mnist::BinaryGrid28(0)`),
                     ),
                 ),
             ),
@@ -2053,9 +2035,12 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<mnist::BinaryGrid28(0)>::new_zeros`, `AssocRitchie(
-                        Fn,
-                    )`),
+                    TypeItemPath(
+                        `mnist::BinaryGrid28(0)::new_zeros`,
+                        TypeItemKind::AssocRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                 ),
             ),
         ),
@@ -2063,9 +2048,12 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`<mnist::BinaryGrid28(0)>::new_zeros`, `AssocRitchie(
-                            Fn,
-                        )`),
+                        TypeItemPath(
+                            `mnist::BinaryGrid28(0)::new_zeros`,
+                            TypeItemKind::AssocRitchie(
+                                RitchieItemKind::Fn,
+                            ),
+                        ),
                     ),
                 ),
             ),

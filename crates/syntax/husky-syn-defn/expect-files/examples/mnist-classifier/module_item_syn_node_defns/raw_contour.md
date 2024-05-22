@@ -68,13 +68,7 @@
                                 ),
                             ),
                             attr_item_path_result: Ok(
-                                AttrItemPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 376,
-                                        },
-                                    ),
-                                ),
+                                AttrItemPath(`mnist_classifier::raw_contour::Direction::@derive(0)`),
                             ),
                         },
                     ),
@@ -16679,13 +16673,7 @@
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TypeImplBlock(
                                 TypeImplBlockSynNodePathData {
-                                    path: TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 298,
-                                            },
-                                        ),
-                                    ),
+                                    path: TypeImplBlockPath(`mnist_classifier::raw_contour::RawContour(0)`),
                                 },
                             ),
                         ),
@@ -16704,7 +16692,10 @@
                             AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::line_segment_sketch`, `MemoizedField`),
+                                        maybe_ambiguous_item_path: TypeItemPath(
+                                            `mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`,
+                                            TypeItemKind::MemoizedField,
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -16734,13 +16725,7 @@
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 298,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`mnist_classifier::raw_contour::RawContour(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -16833,7 +16818,10 @@
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::line_segment_sketch`, `MemoizedField`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`,
+                                                                            TypeItemKind::MemoizedField,
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -16928,7 +16916,10 @@
                                                 AssocItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
                                                         disambiguated_item_path: DisambiguatedItemPath {
-                                                            maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::line_segment_sketch`, `MemoizedField`),
+                                                            maybe_ambiguous_item_path: TypeItemPath(
+                                                                `mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`,
+                                                                TypeItemKind::MemoizedField,
+                                                            ),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -17091,7 +17082,10 @@
                             AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::bounding_box`, `MemoizedField`),
+                                        maybe_ambiguous_item_path: TypeItemPath(
+                                            `mnist_classifier::raw_contour::RawContour(0)::bounding_box`,
+                                            TypeItemKind::MemoizedField,
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -17121,13 +17115,7 @@
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 298,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`mnist_classifier::raw_contour::RawContour(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -17220,7 +17208,10 @@
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::bounding_box`, `MemoizedField`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `mnist_classifier::raw_contour::RawContour(0)::bounding_box`,
+                                                                            TypeItemKind::MemoizedField,
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -17315,7 +17306,10 @@
                                                 AssocItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
                                                         disambiguated_item_path: DisambiguatedItemPath {
-                                                            maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::bounding_box`, `MemoizedField`),
+                                                            maybe_ambiguous_item_path: TypeItemPath(
+                                                                `mnist_classifier::raw_contour::RawContour(0)::bounding_box`,
+                                                                TypeItemKind::MemoizedField,
+                                                            ),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -18741,7 +18735,10 @@
                             AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::relative_bounding_box`, `MemoizedField`),
+                                        maybe_ambiguous_item_path: TypeItemPath(
+                                            `mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`,
+                                            TypeItemKind::MemoizedField,
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -18771,13 +18768,7 @@
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 298,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`mnist_classifier::raw_contour::RawContour(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -18870,7 +18861,10 @@
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::relative_bounding_box`, `MemoizedField`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`,
+                                                                            TypeItemKind::MemoizedField,
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -18965,7 +18959,10 @@
                                                 AssocItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
                                                         disambiguated_item_path: DisambiguatedItemPath {
-                                                            maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::relative_bounding_box`, `MemoizedField`),
+                                                            maybe_ambiguous_item_path: TypeItemPath(
+                                                                `mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`,
+                                                                TypeItemKind::MemoizedField,
+                                                            ),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -19160,7 +19157,10 @@
                             AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::contour_len`, `MemoizedField`),
+                                        maybe_ambiguous_item_path: TypeItemPath(
+                                            `mnist_classifier::raw_contour::RawContour(0)::contour_len`,
+                                            TypeItemKind::MemoizedField,
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -19190,13 +19190,7 @@
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 298,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`mnist_classifier::raw_contour::RawContour(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -19289,7 +19283,10 @@
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::contour_len`, `MemoizedField`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `mnist_classifier::raw_contour::RawContour(0)::contour_len`,
+                                                                            TypeItemKind::MemoizedField,
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -19384,7 +19381,10 @@
                                                 AssocItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
                                                         disambiguated_item_path: DisambiguatedItemPath {
-                                                            maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::contour_len`, `MemoizedField`),
+                                                            maybe_ambiguous_item_path: TypeItemPath(
+                                                                `mnist_classifier::raw_contour::RawContour(0)::contour_len`,
+                                                                TypeItemKind::MemoizedField,
+                                                            ),
                                                             disambiguator: 0,
                                                         },
                                                     },
@@ -20697,9 +20697,12 @@
                             AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
-                                            Fn,
-                                        )`),
+                                        maybe_ambiguous_item_path: TypeItemPath(
+                                            `mnist_classifier::raw_contour::RawContour(0)::displacement`,
+                                            TypeItemKind::MethodRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -20729,13 +20732,7 @@
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 298,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`mnist_classifier::raw_contour::RawContour(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -20828,9 +20825,12 @@
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
-                                                                            Fn,
-                                                                        )`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `mnist_classifier::raw_contour::RawContour(0)::displacement`,
+                                                                            TypeItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -21092,9 +21092,12 @@
                                                 AssocItemSynNodePathData::TypeItem(
                                                     TypeItemSynNodePathData {
                                                         disambiguated_item_path: DisambiguatedItemPath {
-                                                            maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
-                                                                Fn,
-                                                            )`),
+                                                            maybe_ambiguous_item_path: TypeItemPath(
+                                                                `mnist_classifier::raw_contour::RawContour(0)::displacement`,
+                                                                TypeItemKind::MethodRitchie(
+                                                                    RitchieItemKind::Fn,
+                                                                ),
+                                                            ),
                                                             disambiguator: 0,
                                                         },
                                                     },

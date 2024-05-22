@@ -11,9 +11,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TraitItem(
-                TraitItemPath(`core::clone::Clone::clone`, `MethodRitchie(
-                    Fn,
-                )`),
+                TraitItemPath(
+                    `core::clone::Clone::clone`,
+                    TraitItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         None,

@@ -1417,13 +1417,7 @@
         ImplBlockHirDefn::Type(
             TypeImplBlockHirDefn {
                 hir_decl: TypeImplBlockHirDecl {
-                    path: TypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 298,
-                            },
-                        ),
-                    ),
+                    path: TypeImplBlockPath(`mnist_classifier::raw_contour::RawContour(0)`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -1438,13 +1432,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TypeImplBlock(
-                                    TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 298,
-                                            },
-                                        ),
-                                    ),
+                                    TypeImplBlockPath(`mnist_classifier::raw_contour::RawContour(0)`),
                                 ),
                             ),
                         ),
@@ -1477,9 +1465,15 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MemoizedField(
                 TypeMemoizedFieldHirDefn {
-                    path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::line_segment_sketch`, `MemoizedField`),
+                    path: TypeItemPath(
+                        `mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`,
+                        TypeItemKind::MemoizedField,
+                    ),
                     hir_decl: TypeMemoFieldHirDecl {
-                        path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::line_segment_sketch`, `MemoizedField`),
+                        path: TypeItemPath(
+                            `mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`,
+                            TypeItemKind::MemoizedField,
+                        ),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentSketch`, `Struct`),
@@ -1491,7 +1485,10 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::line_segment_sketch`, `MemoizedField`),
+                                        TypeItemPath(
+                                            `mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`,
+                                            TypeItemKind::MemoizedField,
+                                        ),
                                     ),
                                 ),
                             ),
@@ -1531,7 +1528,10 @@
                                 region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
-                                            TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::line_segment_sketch`, `MemoizedField`),
+                                            TypeItemPath(
+                                                `mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`,
+                                                TypeItemKind::MemoizedField,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -1577,9 +1577,12 @@
                                         HirEagerExprEntry {
                                             data: HirEagerExprData::AssocFunctionRitchieCall {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::new`, `AssocRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    TypeItemPath(
+                                                        `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`,
+                                                        TypeItemKind::AssocRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -1695,9 +1698,15 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MemoizedField(
                 TypeMemoizedFieldHirDefn {
-                    path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::bounding_box`, `MemoizedField`),
+                    path: TypeItemPath(
+                        `mnist_classifier::raw_contour::RawContour(0)::bounding_box`,
+                        TypeItemKind::MemoizedField,
+                    ),
                     hir_decl: TypeMemoFieldHirDecl {
-                        path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::bounding_box`, `MemoizedField`),
+                        path: TypeItemPath(
+                            `mnist_classifier::raw_contour::RawContour(0)::bounding_box`,
+                            TypeItemKind::MemoizedField,
+                        ),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`mnist_classifier::geom2d::BoundingBox`, `Struct`),
@@ -1709,7 +1718,10 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::bounding_box`, `MemoizedField`),
+                                        TypeItemPath(
+                                            `mnist_classifier::raw_contour::RawContour(0)::bounding_box`,
+                                            TypeItemKind::MemoizedField,
+                                        ),
                                     ),
                                 ),
                             ),
@@ -1749,7 +1761,10 @@
                                 region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
-                                            TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::bounding_box`, `MemoizedField`),
+                                            TypeItemPath(
+                                                `mnist_classifier::raw_contour::RawContour(0)::bounding_box`,
+                                                TypeItemKind::MemoizedField,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -2112,9 +2127,12 @@
                                                 self_contract: Pure,
                                                 ident: `ilen`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    TypeItemPath(
+                                                        `core::vec::Vec(0)::ilen`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
@@ -2368,9 +2386,12 @@
                                                 self_contract: Pure,
                                                 ident: `min`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::num::f32(0)>::min`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    TypeItemPath(
+                                                        `core::num::f32(0)::min`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -2534,9 +2555,12 @@
                                                 self_contract: Pure,
                                                 ident: `max`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::num::f32(0)>::max`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    TypeItemPath(
+                                                        `core::num::f32(0)::max`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -2700,9 +2724,12 @@
                                                 self_contract: Pure,
                                                 ident: `min`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::num::f32(0)>::min`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    TypeItemPath(
+                                                        `core::num::f32(0)::min`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -2866,9 +2893,12 @@
                                                 self_contract: Pure,
                                                 ident: `max`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::num::f32(0)>::max`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    TypeItemPath(
+                                                        `core::num::f32(0)::max`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -3491,9 +3521,15 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MemoizedField(
                 TypeMemoizedFieldHirDefn {
-                    path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::relative_bounding_box`, `MemoizedField`),
+                    path: TypeItemPath(
+                        `mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`,
+                        TypeItemKind::MemoizedField,
+                    ),
                     hir_decl: TypeMemoFieldHirDecl {
-                        path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::relative_bounding_box`, `MemoizedField`),
+                        path: TypeItemPath(
+                            `mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`,
+                            TypeItemKind::MemoizedField,
+                        ),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`mnist_classifier::geom2d::RelativeBoundingBox`, `Struct`),
@@ -3505,7 +3541,10 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::relative_bounding_box`, `MemoizedField`),
+                                        TypeItemPath(
+                                            `mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`,
+                                            TypeItemKind::MemoizedField,
+                                        ),
                                     ),
                                 ),
                             ),
@@ -3545,7 +3584,10 @@
                                 region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
-                                            TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::relative_bounding_box`, `MemoizedField`),
+                                            TypeItemPath(
+                                                `mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`,
+                                                TypeItemKind::MemoizedField,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -3632,7 +3674,10 @@
                                                 ),
                                                 ident: `raw_contours`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::raw_contours`, `MemoizedField`),
+                                                    TypeItemPath(
+                                                        `mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`,
+                                                        TypeItemKind::MemoizedField,
+                                                    ),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -3699,7 +3744,10 @@
                                                 ),
                                                 ident: `bounding_box`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::bounding_box`, `MemoizedField`),
+                                                    TypeItemPath(
+                                                        `mnist_classifier::raw_contour::RawContour(0)::bounding_box`,
+                                                        TypeItemKind::MemoizedField,
+                                                    ),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -3748,7 +3796,10 @@
                                                 ),
                                                 ident: `bounding_box`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::bounding_box`, `MemoizedField`),
+                                                    TypeItemPath(
+                                                        `mnist_classifier::raw_contour::RawContour(0)::bounding_box`,
+                                                        TypeItemKind::MemoizedField,
+                                                    ),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -3776,9 +3827,12 @@
                                                 self_contract: Pure,
                                                 ident: `relative_bounding_box`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::relative_bounding_box`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    TypeItemPath(
+                                                        `mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -3884,9 +3938,15 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MemoizedField(
                 TypeMemoizedFieldHirDefn {
-                    path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::contour_len`, `MemoizedField`),
+                    path: TypeItemPath(
+                        `mnist_classifier::raw_contour::RawContour(0)::contour_len`,
+                        TypeItemKind::MemoizedField,
+                    ),
                     hir_decl: TypeMemoFieldHirDecl {
-                        path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::contour_len`, `MemoizedField`),
+                        path: TypeItemPath(
+                            `mnist_classifier::raw_contour::RawContour(0)::contour_len`,
+                            TypeItemKind::MemoizedField,
+                        ),
                         return_ty: HirType::PathLeading(
                             HirTypePathLeading {
                                 ty_path: TypePath(`core::num::f32`, `Extern`),
@@ -3898,7 +3958,10 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::contour_len`, `MemoizedField`),
+                                        TypeItemPath(
+                                            `mnist_classifier::raw_contour::RawContour(0)::contour_len`,
+                                            TypeItemKind::MemoizedField,
+                                        ),
                                     ),
                                 ),
                             ),
@@ -3938,7 +4001,10 @@
                                 region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
-                                            TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::contour_len`, `MemoizedField`),
+                                            TypeItemPath(
+                                                `mnist_classifier::raw_contour::RawContour(0)::contour_len`,
+                                                TypeItemKind::MemoizedField,
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -4044,9 +4110,12 @@
                                                 self_contract: Pure,
                                                 ident: `ilen`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    TypeItemPath(
+                                                        `core::vec::Vec(0)::ilen`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
@@ -4477,9 +4546,12 @@
                                                 self_contract: Pure,
                                                 ident: `abs`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    TypeItemPath(
+                                                        `core::num::f32(0)::abs`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -4619,9 +4691,12 @@
                                                 self_contract: Pure,
                                                 ident: `abs`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    TypeItemPath(
+                                                        `core::num::f32(0)::abs`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -4798,9 +4873,12 @@
                                                 self_contract: Pure,
                                                 ident: `ilen`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    TypeItemPath(
+                                                        `core::vec::Vec(0)::ilen`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
@@ -5137,9 +5215,12 @@
                                                 self_contract: Pure,
                                                 ident: `abs`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    TypeItemPath(
+                                                        `core::num::f32(0)::abs`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -5279,9 +5360,12 @@
                                                 self_contract: Pure,
                                                 ident: `abs`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    TypeItemPath(
+                                                        `core::num::f32(0)::abs`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],
@@ -5597,13 +5681,19 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::MethodFn(
                 TypeMethodRitchieHirDefn {
-                    path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    path: TypeItemPath(
+                        `mnist_classifier::raw_contour::RawContour(0)::displacement`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                     hir_decl: TypeMethodRitchieHirDecl {
-                        path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
-                            Fn,
-                        )`),
+                        path: TypeItemPath(
+                            `mnist_classifier::raw_contour::RawContour(0)::displacement`,
+                            TypeItemKind::MethodRitchie(
+                                RitchieItemKind::Fn,
+                            ),
+                        ),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -5654,9 +5744,12 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
-                                            Fn,
-                                        )`),
+                                        TypeItemPath(
+                                            `mnist_classifier::raw_contour::RawContour(0)::displacement`,
+                                            TypeItemKind::MethodRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
                                     ),
                                 ),
                             ),
@@ -5723,9 +5816,12 @@
                                 region_path: RegionPath::Defn(
                                     ItemPath::AssocItem(
                                         AssocItemPath::TypeItem(
-                                            TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
-                                                Fn,
-                                            )`),
+                                            TypeItemPath(
+                                                `mnist_classifier::raw_contour::RawContour(0)::displacement`,
+                                                TypeItemKind::MethodRitchie(
+                                                    RitchieItemKind::Fn,
+                                                ),
+                                            ),
                                         ),
                                     ),
                                 ),
@@ -5814,9 +5910,12 @@
                                                 self_contract: Pure,
                                                 ident: `ilen`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    TypeItemPath(
+                                                        `core::vec::Vec(0)::ilen`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [
@@ -6270,9 +6369,12 @@
                                                 self_contract: Pure,
                                                 ident: `to`,
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::to`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    TypeItemPath(
+                                                        `mnist_classifier::geom2d::Point2d(0)::to`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 instantiation: HirInstantiation {
                                                     symbol_map: [],

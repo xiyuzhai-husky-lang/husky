@@ -7,14 +7,20 @@
     ),
     ItemPath::AssocItem(
         AssocItemPath::TraitItem(
-            TraitItemPath(`core::ops::Add::Output`, `AssocType`),
+            TraitItemPath(
+                `core::ops::Add::Output`,
+                TraitItemKind::AssocType,
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TraitItem(
-            TraitItemPath(`core::ops::Add::add`, `MethodRitchie(
-                Fn,
-            )`),
+            TraitItemPath(
+                `core::ops::Add::add`,
+                TraitItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::MajorItem(
@@ -24,14 +30,20 @@
     ),
     ItemPath::AssocItem(
         AssocItemPath::TraitItem(
-            TraitItemPath(`core::ops::AddAssign::Output`, `AssocType`),
+            TraitItemPath(
+                `core::ops::AddAssign::Output`,
+                TraitItemKind::AssocType,
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TraitItem(
-            TraitItemPath(`core::ops::AddAssign::add`, `MethodRitchie(
-                Fn,
-            )`),
+            TraitItemPath(
+                `core::ops::AddAssign::add`,
+                TraitItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::MajorItem(
@@ -41,14 +53,20 @@
     ),
     ItemPath::AssocItem(
         AssocItemPath::TraitItem(
-            TraitItemPath(`core::ops::BitAnd::Output`, `AssocType`),
+            TraitItemPath(
+                `core::ops::BitAnd::Output`,
+                TraitItemKind::AssocType,
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TraitItem(
-            TraitItemPath(`core::ops::BitAnd::bitand`, `MethodRitchie(
-                Fn,
-            )`),
+            TraitItemPath(
+                `core::ops::BitAnd::bitand`,
+                TraitItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::MajorItem(
@@ -58,9 +76,12 @@
     ),
     ItemPath::AssocItem(
         AssocItemPath::TraitItem(
-            TraitItemPath(`core::ops::BitAndAssign::bitand_assign`, `MethodRitchie(
-                Fn,
-            )`),
+            TraitItemPath(
+                `core::ops::BitAndAssign::bitand_assign`,
+                TraitItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::MajorItem(
@@ -70,14 +91,20 @@
     ),
     ItemPath::AssocItem(
         AssocItemPath::TraitItem(
-            TraitItemPath(`core::ops::BitOr::Output`, `AssocType`),
+            TraitItemPath(
+                `core::ops::BitOr::Output`,
+                TraitItemKind::AssocType,
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TraitItem(
-            TraitItemPath(`core::ops::BitOr::bitor`, `MethodRitchie(
-                Fn,
-            )`),
+            TraitItemPath(
+                `core::ops::BitOr::bitor`,
+                TraitItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::MajorItem(
@@ -87,9 +114,12 @@
     ),
     ItemPath::AssocItem(
         AssocItemPath::TraitItem(
-            TraitItemPath(`core::ops::BitOrAssign::bitor_assign`, `MethodRitchie(
-                Fn,
-            )`),
+            TraitItemPath(
+                `core::ops::BitOrAssign::bitor_assign`,
+                TraitItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::MajorItem(
@@ -99,14 +129,20 @@
     ),
     ItemPath::AssocItem(
         AssocItemPath::TraitItem(
-            TraitItemPath(`core::ops::BitXor::Output`, `AssocType`),
+            TraitItemPath(
+                `core::ops::BitXor::Output`,
+                TraitItemKind::AssocType,
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TraitItem(
-            TraitItemPath(`core::ops::BitXor::bitxor`, `MethodRitchie(
-                Fn,
-            )`),
+            TraitItemPath(
+                `core::ops::BitXor::bitxor`,
+                TraitItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::MajorItem(
@@ -116,9 +152,12 @@
     ),
     ItemPath::AssocItem(
         AssocItemPath::TraitItem(
-            TraitItemPath(`core::ops::BitXorAssign::bitxor_assign`, `MethodRitchie(
-                Fn,
-            )`),
+            TraitItemPath(
+                `core::ops::BitXorAssign::bitxor_assign`,
+                TraitItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::MajorItem(
@@ -128,14 +167,20 @@
     ),
     ItemPath::AssocItem(
         AssocItemPath::TraitItem(
-            TraitItemPath(`core::ops::Div::Output`, `AssocType`),
+            TraitItemPath(
+                `core::ops::Div::Output`,
+                TraitItemKind::AssocType,
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TraitItem(
-            TraitItemPath(`core::ops::Div::div`, `MethodRitchie(
-                Fn,
-            )`),
+            TraitItemPath(
+                `core::ops::Div::div`,
+                TraitItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::MajorItem(
@@ -145,9 +190,12 @@
     ),
     ItemPath::AssocItem(
         AssocItemPath::TraitItem(
-            TraitItemPath(`core::ops::DivAssign::div_assign`, `MethodRitchie(
-                Fn,
-            )`),
+            TraitItemPath(
+                `core::ops::DivAssign::div_assign`,
+                TraitItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::MajorItem(
@@ -157,7 +205,10 @@
     ),
     ItemPath::AssocItem(
         AssocItemPath::TraitItem(
-            TraitItemPath(`core::ops::IntIndex::Output`, `AssocType`),
+            TraitItemPath(
+                `core::ops::IntIndex::Output`,
+                TraitItemKind::AssocType,
+            ),
         ),
     ),
     ItemPath::MajorItem(
@@ -167,14 +218,20 @@
     ),
     ItemPath::AssocItem(
         AssocItemPath::TraitItem(
-            TraitItemPath(`core::ops::Mul::Output`, `AssocType`),
+            TraitItemPath(
+                `core::ops::Mul::Output`,
+                TraitItemKind::AssocType,
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TraitItem(
-            TraitItemPath(`core::ops::Mul::mul`, `MethodRitchie(
-                Fn,
-            )`),
+            TraitItemPath(
+                `core::ops::Mul::mul`,
+                TraitItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::MajorItem(
@@ -184,9 +241,12 @@
     ),
     ItemPath::AssocItem(
         AssocItemPath::TraitItem(
-            TraitItemPath(`core::ops::MulAssign::mul_assign`, `MethodRitchie(
-                Fn,
-            )`),
+            TraitItemPath(
+                `core::ops::MulAssign::mul_assign`,
+                TraitItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::MajorItem(
@@ -196,14 +256,20 @@
     ),
     ItemPath::AssocItem(
         AssocItemPath::TraitItem(
-            TraitItemPath(`core::ops::Neg::Output`, `AssocType`),
+            TraitItemPath(
+                `core::ops::Neg::Output`,
+                TraitItemKind::AssocType,
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TraitItem(
-            TraitItemPath(`core::ops::Neg::neg`, `MethodRitchie(
-                Fn,
-            )`),
+            TraitItemPath(
+                `core::ops::Neg::neg`,
+                TraitItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::MajorItem(
@@ -213,14 +279,20 @@
     ),
     ItemPath::AssocItem(
         AssocItemPath::TraitItem(
-            TraitItemPath(`core::ops::Not::Output`, `AssocType`),
+            TraitItemPath(
+                `core::ops::Not::Output`,
+                TraitItemKind::AssocType,
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TraitItem(
-            TraitItemPath(`core::ops::Not::not`, `MethodRitchie(
-                Fn,
-            )`),
+            TraitItemPath(
+                `core::ops::Not::not`,
+                TraitItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::MajorItem(
@@ -230,14 +302,20 @@
     ),
     ItemPath::AssocItem(
         AssocItemPath::TraitItem(
-            TraitItemPath(`core::ops::Sub::Output`, `AssocType`),
+            TraitItemPath(
+                `core::ops::Sub::Output`,
+                TraitItemKind::AssocType,
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TraitItem(
-            TraitItemPath(`core::ops::Sub::sub`, `MethodRitchie(
-                Fn,
-            )`),
+            TraitItemPath(
+                `core::ops::Sub::sub`,
+                TraitItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::MajorItem(
@@ -247,14 +325,20 @@
     ),
     ItemPath::AssocItem(
         AssocItemPath::TraitItem(
-            TraitItemPath(`core::ops::Unveil::Output`, `AssocType`),
+            TraitItemPath(
+                `core::ops::Unveil::Output`,
+                TraitItemKind::AssocType,
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TraitItem(
-            TraitItemPath(`core::ops::Unveil::unveil`, `AssocRitchie(
-                Fn,
-            )`),
+            TraitItemPath(
+                `core::ops::Unveil::unveil`,
+                TraitItemKind::AssocRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::MajorItem(

@@ -35,9 +35,12 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         path: JavPath::TypeItem(
-                            TypeItemPath(`<core::vec::Vec(0)>::collect_leashes`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            TypeItemPath(
+                                `core::vec::Vec(0)::collect_leashes`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -100,9 +103,12 @@
                     },
                     ValkyrieRide::PathLeading {
                         path: JavPath::TypeItem(
-                            TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            TypeItemPath(
+                                `core::vec::Vec(0)::ilen`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -179,9 +185,12 @@
                     },
                     ValkyrieRide::PathLeading {
                         path: JavPath::TypeItem(
-                            TypeItemPath(`<core::vec::Vec(0)>::pop_with_largest_opt_f32`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            TypeItemPath(
+                                `core::vec::Vec(0)::pop_with_largest_opt_f32`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -231,9 +240,12 @@
                     },
                     ValkyrieRide::PathLeading {
                         path: JavPath::TypeItem(
-                            TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            TypeItemPath(
+                                `core::vec::Vec(0)::push`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -298,13 +310,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 312,
-                        },
-                    ),
-                ),
+                TypeImplBlockPath(`mnist_classifier::fermi::FermiMatchResult(0)`),
             ),
         ),
         Some(
@@ -321,7 +327,10 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::norm`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
         ),
         Some(
@@ -330,9 +339,12 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         path: JavPath::TypeItem(
-                            TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            TypeItemPath(
+                                `core::vec::Vec(0)::ilen`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -381,7 +393,10 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::rel_norm`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
         ),
         Some(
@@ -390,9 +405,12 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         path: JavPath::TypeItem(
-                            TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            TypeItemPath(
+                                `core::vec::Vec(0)::ilen`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -441,7 +459,10 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::angle_change_norm`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
         ),
         Some(
@@ -450,9 +471,12 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         path: JavPath::TypeItem(
-                            TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            TypeItemPath(
+                                `core::vec::Vec(0)::ilen`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [

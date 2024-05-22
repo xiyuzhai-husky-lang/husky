@@ -809,7 +809,10 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::raw_contours`, `MemoizedField`),
+                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                            `mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`,
+                                                            TypeItemKind::MemoizedField,
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -934,7 +937,10 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::eff_holes`, `MemoizedField`),
+                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                            `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
+                                                            TypeItemKind::MemoizedField,
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -1387,7 +1393,10 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::max_hole_ilen`, `MemoizedField`),
+                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                            `mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`,
+                                                            TypeItemKind::MemoizedField,
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -1723,7 +1732,10 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::max_row_span`, `MemoizedField`),
+                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                            `mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`,
+                                                            TypeItemKind::MemoizedField,
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -1970,7 +1982,10 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::row_span_sum`, `MemoizedField`),
+                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                            `mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`,
+                                                            TypeItemKind::MemoizedField,
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -2168,7 +2183,10 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::distribution`, `MemoizedField`),
+                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                            `mnist_classifier::connected_component::ConnectedComponent(0)::distribution`,
+                                                            TypeItemKind::MemoizedField,
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -2901,7 +2919,10 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::upper_mass`, `MemoizedField`),
+                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                            `mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`,
+                                                            TypeItemKind::MemoizedField,
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -3005,7 +3026,10 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::lower_mass`, `MemoizedField`),
+                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                            `mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`,
+                                                            TypeItemKind::MemoizedField,
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -3109,9 +3133,12 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::top_k_row_span_sum`, `MethodRitchie(
-                                                            Fn,
-                                                        )`),
+                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                            `mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`,
+                                                            TypeItemKind::MethodRitchie(
+                                                                RitchieItemKind::Fn,
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -3493,9 +3520,12 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::top_k_row_right_mass_sum`, `MethodRitchie(
-                                                            Fn,
-                                                        )`),
+                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                            `mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`,
+                                                            TypeItemKind::MethodRitchie(
+                                                                RitchieItemKind::Fn,
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },

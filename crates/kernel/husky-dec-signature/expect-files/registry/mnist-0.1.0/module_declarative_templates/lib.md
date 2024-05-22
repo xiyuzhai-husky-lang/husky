@@ -208,13 +208,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 161,
-                        },
-                    ),
-                ),
+                TypeImplBlockPath(`mnist::BinaryImage28(0)`),
             ),
         ),
         Ok(
@@ -243,9 +237,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist::BinaryImage28(0)>::new_zeros`, `AssocRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist::BinaryImage28(0)::new_zeros`,
+                    TypeItemKind::AssocRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -253,9 +250,12 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::AssocRitchie(
                         TypeAssocRitchieDecTemplate {
-                            path: TypeItemPath(`<mnist::BinaryImage28(0)>::new_zeros`, `AssocRitchie(
-                                Fn,
-                            )`),
+                            path: TypeItemPath(
+                                `mnist::BinaryImage28(0)::new_zeros`,
+                                TypeItemKind::AssocRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                             self_ty: EntityPath(
                                 Type(
                                     TypePath(
@@ -479,13 +479,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 164,
-                        },
-                    ),
-                ),
+                TypeImplBlockPath(`mnist::BinaryGrid28(0)`),
             ),
         ),
         Ok(
@@ -514,9 +508,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist::BinaryGrid28(0)>::new_zeros`, `AssocRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist::BinaryGrid28(0)::new_zeros`,
+                    TypeItemKind::AssocRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -524,9 +521,12 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::AssocRitchie(
                         TypeAssocRitchieDecTemplate {
-                            path: TypeItemPath(`<mnist::BinaryGrid28(0)>::new_zeros`, `AssocRitchie(
-                                Fn,
-                            )`),
+                            path: TypeItemPath(
+                                `mnist::BinaryGrid28(0)::new_zeros`,
+                                TypeItemKind::AssocRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                             self_ty: EntityPath(
                                 Type(
                                     TypePath(

@@ -448,13 +448,7 @@
                                 ),
                             ),
                             attr_item_path_result: Ok(
-                                AttrItemPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 166,
-                                        },
-                                    ),
-                                ),
+                                AttrItemPath(`mnist::BinaryImage28::@derive(0)`),
                             ),
                         },
                     ),
@@ -544,13 +538,7 @@
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TypeImplBlock(
                                 TypeImplBlockSynNodePathData {
-                                    path: TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 161,
-                                            },
-                                        ),
-                                    ),
+                                    path: TypeImplBlockPath(`mnist::BinaryImage28(0)`),
                                 },
                             ),
                         ),
@@ -569,9 +557,12 @@
                             AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist::BinaryImage28(0)>::new_zeros`, `AssocRitchie(
-                                            Fn,
-                                        )`),
+                                        maybe_ambiguous_item_path: TypeItemPath(
+                                            `mnist::BinaryImage28(0)::new_zeros`,
+                                            TypeItemKind::AssocRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -677,13 +668,7 @@
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TypeImplBlock(
                                 TypeImplBlockSynNodePathData {
-                                    path: TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 164,
-                                            },
-                                        ),
-                                    ),
+                                    path: TypeImplBlockPath(`mnist::BinaryGrid28(0)`),
                                 },
                             ),
                         ),
@@ -702,9 +687,12 @@
                             AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist::BinaryGrid28(0)>::new_zeros`, `AssocRitchie(
-                                            Fn,
-                                        )`),
+                                        maybe_ambiguous_item_path: TypeItemPath(
+                                            `mnist::BinaryGrid28(0)::new_zeros`,
+                                            TypeItemKind::AssocRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },

@@ -1,6 +1,5 @@
 use super::*;
 
-#[salsa::derive_debug_with_db]
 #[salsa::as_id(jar = EntityPathJar)]
 #[salsa::deref_id]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -59,10 +58,7 @@ impl TypeImplBlockPathData {
         db: &::salsa::Db,
     ) -> std::fmt::Result {
         self.ty_path.show_aux(f, db)?;
-        use std::fmt::Display;
-        f.write_str("(")?;
-        self.disambiguator.fmt(f)?;
-        f.write_str(")")
+        f.write_fmt(format_args!("({})", self.disambiguator))
     }
 }
 
@@ -94,5 +90,17 @@ impl TypeImplBlockPath {
 impl TypeImplBlockPathData {
     pub fn toolchain(self, db: &::salsa::Db) -> Toolchain {
         self.module_path.toolchain(db)
+    }
+}
+
+impl salsa::DebugWithDb for TypeImplBlockPath {
+    fn debug_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
+        f.write_str("TypeImplBlockPath(`")?;
+        self.show_aux(f, db)?;
+        f.write_str("`)")
     }
 }

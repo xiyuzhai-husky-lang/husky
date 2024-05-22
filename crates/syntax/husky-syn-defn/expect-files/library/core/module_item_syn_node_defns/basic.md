@@ -47,13 +47,7 @@
                                 ),
                             ),
                             attr_item_path_result: Ok(
-                                AttrItemPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 141,
-                                        },
-                                    ),
-                                ),
+                                AttrItemPath(`core::basic::bool::@derive(0)`),
                             ),
                         },
                     ),
@@ -109,13 +103,7 @@
                                 ),
                             ),
                             attr_item_path_result: Ok(
-                                AttrItemPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 142,
-                                        },
-                                    ),
-                                ),
+                                AttrItemPath(`core::basic::never::@derive(0)`),
                             ),
                         },
                     ),
@@ -171,13 +159,7 @@
                                 ),
                             ),
                             attr_item_path_result: Ok(
-                                AttrItemPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 143,
-                                        },
-                                    ),
-                                ),
+                                AttrItemPath(`core::basic::unit::@derive(0)`),
                             ),
                         },
                     ),

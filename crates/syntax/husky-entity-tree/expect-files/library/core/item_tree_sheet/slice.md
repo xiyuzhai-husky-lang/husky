@@ -2994,13 +2994,7 @@ EntityTreeSheet {
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TypeImplBlock(
                                 TypeImplBlockSynNodePathData {
-                                    path: TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 137,
-                                            },
-                                        ),
-                                    ),
+                                    path: TypeImplBlockPath(`core::slice::Slice(0)`),
                                 },
                             ),
                         ),
@@ -3014,13 +3008,7 @@ EntityTreeSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TypeImplBlock(
                                     TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 137,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeImplBlockPath(`core::slice::Slice(0)`),
                                     },
                                 ),
                             ),
@@ -3100,13 +3088,7 @@ EntityTreeSheet {
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TypeImplBlock(
                                 TypeImplBlockSynNodePathData {
-                                    path: TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 139,
-                                            },
-                                        ),
-                                    ),
+                                    path: TypeImplBlockPath(`core::slice::CyclicSlice(0)`),
                                 },
                             ),
                         ),
@@ -3120,13 +3102,7 @@ EntityTreeSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TypeImplBlock(
                                     TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 139,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeImplBlockPath(`core::slice::CyclicSlice(0)`),
                                     },
                                 ),
                             ),

@@ -44,9 +44,12 @@
                     },
                     ValkyrieRide::PathLeading {
                         path: JavPath::TypeItem(
-                            TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            TypeItemPath(
+                                `core::vec::Vec(0)::ilen`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -80,9 +83,12 @@
                     },
                     ValkyrieRide::PathLeading {
                         path: JavPath::TypeItem(
-                            TypeItemPath(`<core::vec::Vec(0)>::cyclic_slice_leashed`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            TypeItemPath(
+                                `core::vec::Vec(0)::cyclic_slice_leashed`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -116,9 +122,12 @@
                     },
                     ValkyrieRide::PathLeading {
                         path: JavPath::TypeItem(
-                            TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            TypeItemPath(
+                                `core::vec::Vec(0)::push`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -202,13 +211,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 309,
-                        },
-                    ),
-                ),
+                TypeImplBlockPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)`),
             ),
         ),
         Some(
@@ -225,7 +228,10 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::norm`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
         ),
         Some(
@@ -238,7 +244,10 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::rel_norm`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
         ),
         Some(
@@ -251,7 +260,10 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::hausdorff_norm`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::hausdorff_norm`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
         ),
         Some(
@@ -260,9 +272,12 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         path: JavPath::TypeItem(
-                            TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            TypeItemPath(
+                                `core::slice::CyclicSlice(0)::first`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -296,9 +311,12 @@
                     },
                     ValkyrieRide::PathLeading {
                         path: JavPath::TypeItem(
-                            TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            TypeItemPath(
+                                `core::slice::CyclicSlice(0)::start`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -332,9 +350,12 @@
                     },
                     ValkyrieRide::PathLeading {
                         path: JavPath::TypeItem(
-                            TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            TypeItemPath(
+                                `core::slice::CyclicSlice(0)::end`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -373,7 +394,10 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::angle_change`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
         ),
         Some(
@@ -382,9 +406,12 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         path: JavPath::TypeItem(
-                            TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            TypeItemPath(
+                                `core::slice::CyclicSlice(0)::start`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -418,9 +445,12 @@
                     },
                     ValkyrieRide::PathLeading {
                         path: JavPath::TypeItem(
-                            TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            TypeItemPath(
+                                `core::slice::CyclicSlice(0)::end`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -459,7 +489,10 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::bounding_box`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
         ),
         Some(
@@ -468,9 +501,12 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         path: JavPath::TypeItem(
-                            TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            TypeItemPath(
+                                `core::slice::CyclicSlice(0)::first`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -504,9 +540,12 @@
                     },
                     ValkyrieRide::PathLeading {
                         path: JavPath::TypeItem(
-                            TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            TypeItemPath(
+                                `core::slice::CyclicSlice(0)::start`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -540,9 +579,12 @@
                     },
                     ValkyrieRide::PathLeading {
                         path: JavPath::TypeItem(
-                            TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            TypeItemPath(
+                                `core::slice::CyclicSlice(0)::end`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -581,7 +623,10 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::relative_bounding_box`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
         ),
         Some(
@@ -594,9 +639,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::line_segment`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::line_segment`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         Some(
@@ -609,9 +657,12 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         path: JavPath::TypeItem(
-                            TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            TypeItemPath(
+                                `core::slice::CyclicSlice(0)::first`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -678,101 +729,9 @@
                     },
                     ValkyrieRide::PathLeading {
                         path: JavPath::TypeItem(
-                            TypeItemPath(`<core::slice::CyclicSlice(0)>::last`, `MethodRitchie(
-                                Fn,
-                            )`),
-                        ),
-                        hir_instantiation: HirInstantiation {
-                            symbol_map: [
-                                (
-                                    HirTemplateVariable::Type(
-                                        HirTypeTemplateVariable::Type {
-                                            attrs: HirTemplateVariableAttrs {
-                                                class: Comptime,
-                                            },
-                                            variance: None,
-                                            disambiguator: 0,
-                                        },
-                                    ),
-                                    HirTermSymbolicVariableResolution::Explicit(
-                                        HirTemplateArgument::Type(
-                                            HirType::PathLeading(
-                                                HirTypePathLeading {
-                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                    template_arguments: [],
-                                                    always_copyable: false,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            ],
-                            separator: Some(
-                                1,
-                            ),
-                        },
-                    },
-                ],
-            },
-        ),
-    ),
-    (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::start`, `MethodRitchie(
-                    Fn,
-                )`),
-            ),
-        ),
-        Some(
-            ValkyrieRides {
-                hir_template_parameters: Some(
-                    HirTemplateParameters(
-                        [],
-                    ),
-                ),
-                rides: [
-                    ValkyrieRide::PathLeading {
-                        path: JavPath::TypeItem(
-                            TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
-                                Fn,
-                            )`),
-                        ),
-                        hir_instantiation: HirInstantiation {
-                            symbol_map: [
-                                (
-                                    HirTemplateVariable::Type(
-                                        HirTypeTemplateVariable::Type {
-                                            attrs: HirTemplateVariableAttrs {
-                                                class: Comptime,
-                                            },
-                                            variance: None,
-                                            disambiguator: 0,
-                                        },
-                                    ),
-                                    HirTermSymbolicVariableResolution::Explicit(
-                                        HirTemplateArgument::Type(
-                                            HirType::PathLeading(
-                                                HirTypePathLeading {
-                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
-                                                    template_arguments: [],
-                                                    always_copyable: false,
-                                                },
-                                            ),
-                                        ),
-                                    ),
-                                ),
-                            ],
-                            separator: Some(
-                                1,
-                            ),
-                        },
-                    },
-                    ValkyrieRide::PathLeading {
-                        path: JavPath::TraitForTypeItem(
-                            TraitForTypeItemPath(
-                                `<#derive _ as core::clone::Clone(0)>::clone`,
-                                TraitItemKind::MethodRitchie(
+                            TypeItemPath(
+                                `core::slice::CyclicSlice(0)::last`,
+                                TypeItemKind::MethodRitchie(
                                     RitchieItemKind::Fn,
                                 ),
                             ),
@@ -781,13 +740,19 @@
                             symbol_map: [
                                 (
                                     HirTemplateVariable::Type(
-                                        HirTypeTemplateVariable::SelfType,
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
+                                                class: Comptime,
+                                            },
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
                                     ),
                                     HirTermSymbolicVariableResolution::Explicit(
                                         HirTemplateArgument::Type(
                                             HirType::PathLeading(
                                                 HirTypePathLeading {
-                                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
                                                     template_arguments: [],
                                                     always_copyable: false,
                                                 },
@@ -808,9 +773,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::end`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         Some(
@@ -823,9 +791,12 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         path: JavPath::TypeItem(
-                            TypeItemPath(`<core::slice::CyclicSlice(0)>::last`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            TypeItemPath(
+                                `core::slice::CyclicSlice(0)::first`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -897,9 +868,107 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::displacement`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
+            ),
+        ),
+        Some(
+            ValkyrieRides {
+                hir_template_parameters: Some(
+                    HirTemplateParameters(
+                        [],
+                    ),
+                ),
+                rides: [
+                    ValkyrieRide::PathLeading {
+                        path: JavPath::TypeItem(
+                            TypeItemPath(
+                                `core::slice::CyclicSlice(0)::last`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                        ),
+                        hir_instantiation: HirInstantiation {
+                            symbol_map: [
+                                (
+                                    HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::Type {
+                                            attrs: HirTemplateVariableAttrs {
+                                                class: Comptime,
+                                            },
+                                            variance: None,
+                                            disambiguator: 0,
+                                        },
+                                    ),
+                                    HirTermSymbolicVariableResolution::Explicit(
+                                        HirTemplateArgument::Type(
+                                            HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`mnist_classifier::line_segment_sketch::LineSegmentStroke`, `Struct`),
+                                                    template_arguments: [],
+                                                    always_copyable: false,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ],
+                            separator: Some(
+                                1,
+                            ),
+                        },
+                    },
+                    ValkyrieRide::PathLeading {
+                        path: JavPath::TraitForTypeItem(
+                            TraitForTypeItemPath(
+                                `<#derive _ as core::clone::Clone(0)>::clone`,
+                                TraitItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
+                        ),
+                        hir_instantiation: HirInstantiation {
+                            symbol_map: [
+                                (
+                                    HirTemplateVariable::Type(
+                                        HirTypeTemplateVariable::SelfType,
+                                    ),
+                                    HirTermSymbolicVariableResolution::Explicit(
+                                        HirTemplateArgument::Type(
+                                            HirType::PathLeading(
+                                                HirTypePathLeading {
+                                                    ty_path: TypePath(`mnist_classifier::geom2d::Point2d`, `Struct`),
+                                                    template_arguments: [],
+                                                    always_copyable: false,
+                                                },
+                                            ),
+                                        ),
+                                    ),
+                                ),
+                            ],
+                            separator: Some(
+                                1,
+                            ),
+                        },
+                    },
+                ],
+            },
+        ),
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
+                TypeItemPath(
+                    `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         Some(
@@ -916,9 +985,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::start_tangent`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start_tangent`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         Some(
@@ -931,9 +1003,12 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         path: JavPath::TypeItem(
-                            TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            TypeItemPath(
+                                `core::slice::CyclicSlice(0)::first`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -972,9 +1047,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::end_tangent`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end_tangent`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         Some(
@@ -987,9 +1065,12 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         path: JavPath::TypeItem(
-                            TypeItemPath(`<core::slice::CyclicSlice(0)>::last`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            TypeItemPath(
+                                `core::slice::CyclicSlice(0)::last`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [

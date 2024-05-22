@@ -7,12 +7,18 @@
     ),
     ItemPath::AssocItem(
         AssocItemPath::TraitItem(
-            TraitItemPath(`core::task::IsTask::Backend`, `AssocType`),
+            TraitItemPath(
+                `core::task::IsTask::Backend`,
+                TraitItemKind::AssocType,
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TraitItem(
-            TraitItemPath(`core::task::IsTask::Frontend`, `AssocType`),
+            TraitItemPath(
+                `core::task::IsTask::Frontend`,
+                TraitItemKind::AssocType,
+            ),
         ),
     ),
     ItemPath::MajorItem(

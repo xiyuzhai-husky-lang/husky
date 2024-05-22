@@ -27,13 +27,7 @@
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
-            TypeImplBlockPath(
-                ItemPathId(
-                    Id {
-                        value: 149,
-                    },
-                ),
-            ),
+            TypeImplBlockPath(`syntax_errors::ast::A(0)`),
         ),
     ),
 ]

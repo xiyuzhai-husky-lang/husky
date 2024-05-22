@@ -89,7 +89,10 @@ Ok(
                                                         },
                                                     ),
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TraitItemPath(`std::ops::Add::Output`, `AssocType`),
+                                                        maybe_ambiguous_item_path: TraitItemPath(
+                                                            `std::ops::Add::Output`,
+                                                            TraitItemKind::AssocType,
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -135,9 +138,12 @@ Ok(
                                                         },
                                                     ),
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TraitItemPath(`std::ops::Add::add`, `MethodRitchie(
-                                                            Fn,
-                                                        )`),
+                                                        maybe_ambiguous_item_path: TraitItemPath(
+                                                            `std::ops::Add::add`,
+                                                            TraitItemKind::MethodRitchie(
+                                                                RitchieItemKind::Fn,
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },

@@ -215,9 +215,12 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::from_i_shift28`, `AssocRitchie(
-                                                            Fn,
-                                                        )`),
+                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                            `mnist_classifier::geom2d::Point2d(0)::from_i_shift28`,
+                                                            TypeItemKind::AssocRitchie(
+                                                                RitchieItemKind::Fn,
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -462,9 +465,12 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::vector`, `MethodRitchie(
-                                                            Fn,
-                                                        )`),
+                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                            `mnist_classifier::geom2d::Point2d(0)::vector`,
+                                                            TypeItemKind::MethodRitchie(
+                                                                RitchieItemKind::Fn,
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -602,9 +608,12 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::to`, `MethodRitchie(
-                                                            Fn,
-                                                        )`),
+                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                            `mnist_classifier::geom2d::Point2d(0)::to`,
+                                                            TypeItemKind::MethodRitchie(
+                                                                RitchieItemKind::Fn,
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -832,9 +841,12 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::norm`, `MethodRitchie(
-                                                            Fn,
-                                                        )`),
+                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                            `mnist_classifier::geom2d::Point2d(0)::norm`,
+                                                            TypeItemKind::MethodRitchie(
+                                                                RitchieItemKind::Fn,
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -992,9 +1004,12 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::dist`, `MethodRitchie(
-                                                            Fn,
-                                                        )`),
+                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                            `mnist_classifier::geom2d::Point2d(0)::dist`,
+                                                            TypeItemKind::MethodRitchie(
+                                                                RitchieItemKind::Fn,
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -1388,9 +1403,12 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::point`, `MethodRitchie(
-                                                            Fn,
-                                                        )`),
+                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                            `mnist_classifier::geom2d::Vector2d(0)::point`,
+                                                            TypeItemKind::MethodRitchie(
+                                                                RitchieItemKind::Fn,
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -1529,9 +1547,12 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::to`, `MethodRitchie(
-                                                            Fn,
-                                                        )`),
+                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                            `mnist_classifier::geom2d::Vector2d(0)::to`,
+                                                            TypeItemKind::MethodRitchie(
+                                                                RitchieItemKind::Fn,
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -1759,9 +1780,12 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::norm`, `MethodRitchie(
-                                                            Fn,
-                                                        )`),
+                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                            `mnist_classifier::geom2d::Vector2d(0)::norm`,
+                                                            TypeItemKind::MethodRitchie(
+                                                                RitchieItemKind::Fn,
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -1919,9 +1943,12 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::dot`, `MethodRitchie(
-                                                            Fn,
-                                                        )`),
+                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                            `mnist_classifier::geom2d::Vector2d(0)::dot`,
+                                                            TypeItemKind::MethodRitchie(
+                                                                RitchieItemKind::Fn,
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -2110,9 +2137,12 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::cross`, `MethodRitchie(
-                                                            Fn,
-                                                        )`),
+                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                            `mnist_classifier::geom2d::Vector2d(0)::cross`,
+                                                            TypeItemKind::MethodRitchie(
+                                                                RitchieItemKind::Fn,
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -2301,9 +2331,12 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::angle`, `MethodRitchie(
-                                                            Fn,
-                                                        )`),
+                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                            `mnist_classifier::geom2d::Vector2d(0)::angle`,
+                                                            TypeItemKind::MethodRitchie(
+                                                                RitchieItemKind::Fn,
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -2607,9 +2640,12 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::rotation_direction_to`, `MethodRitchie(
-                                                            Fn,
-                                                        )`),
+                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                            `mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`,
+                                                            TypeItemKind::MethodRitchie(
+                                                                RitchieItemKind::Fn,
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -2751,9 +2787,12 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::angle_to`, `MethodRitchie(
-                                                            Fn,
-                                                        )`),
+                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                            `mnist_classifier::geom2d::Vector2d(0)::angle_to`,
+                                                            TypeItemKind::MethodRitchie(
+                                                                RitchieItemKind::Fn,
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -3417,9 +3456,12 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::ClosedRange(0)>::relative_range`, `MethodRitchie(
-                                                            Fn,
-                                                        )`),
+                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                            `mnist_classifier::geom2d::ClosedRange(0)::relative_range`,
+                                                            TypeItemKind::MethodRitchie(
+                                                                RitchieItemKind::Fn,
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -3853,9 +3895,12 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::ClosedRange(0)>::relative_point`, `MethodRitchie(
-                                                            Fn,
-                                                        )`),
+                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                            `mnist_classifier::geom2d::ClosedRange(0)::relative_point`,
+                                                            TypeItemKind::MethodRitchie(
+                                                                RitchieItemKind::Fn,
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -4199,9 +4244,12 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::relative_bounding_box`, `MethodRitchie(
-                                                            Fn,
-                                                        )`),
+                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                            `mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`,
+                                                            TypeItemKind::MethodRitchie(
+                                                                RitchieItemKind::Fn,
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -4454,9 +4502,12 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::relative_point`, `MethodRitchie(
-                                                            Fn,
-                                                        )`),
+                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                            `mnist_classifier::geom2d::BoundingBox(0)::relative_point`,
+                                                            TypeItemKind::MethodRitchie(
+                                                                RitchieItemKind::Fn,
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -4709,9 +4760,12 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::xmin`, `MethodRitchie(
-                                                            Fn,
-                                                        )`),
+                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                            `mnist_classifier::geom2d::BoundingBox(0)::xmin`,
+                                                            TypeItemKind::MethodRitchie(
+                                                                RitchieItemKind::Fn,
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -4799,9 +4853,12 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::xmax`, `MethodRitchie(
-                                                            Fn,
-                                                        )`),
+                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                            `mnist_classifier::geom2d::BoundingBox(0)::xmax`,
+                                                            TypeItemKind::MethodRitchie(
+                                                                RitchieItemKind::Fn,
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -4889,9 +4946,12 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::ymin`, `MethodRitchie(
-                                                            Fn,
-                                                        )`),
+                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                            `mnist_classifier::geom2d::BoundingBox(0)::ymin`,
+                                                            TypeItemKind::MethodRitchie(
+                                                                RitchieItemKind::Fn,
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -4979,9 +5039,12 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::ymax`, `MethodRitchie(
-                                                            Fn,
-                                                        )`),
+                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                            `mnist_classifier::geom2d::BoundingBox(0)::ymax`,
+                                                            TypeItemKind::MethodRitchie(
+                                                                RitchieItemKind::Fn,
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -5205,9 +5268,12 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::xmin`, `MethodRitchie(
-                                                            Fn,
-                                                        )`),
+                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                            `mnist_classifier::geom2d::RelativeBoundingBox(0)::xmin`,
+                                                            TypeItemKind::MethodRitchie(
+                                                                RitchieItemKind::Fn,
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -5295,9 +5361,12 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::xmax`, `MethodRitchie(
-                                                            Fn,
-                                                        )`),
+                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                            `mnist_classifier::geom2d::RelativeBoundingBox(0)::xmax`,
+                                                            TypeItemKind::MethodRitchie(
+                                                                RitchieItemKind::Fn,
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -5385,9 +5454,12 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::ymin`, `MethodRitchie(
-                                                            Fn,
-                                                        )`),
+                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                            `mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`,
+                                                            TypeItemKind::MethodRitchie(
+                                                                RitchieItemKind::Fn,
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -5475,9 +5547,12 @@ Ok(
                                             AssocItemSynNodePathData::TypeItem(
                                                 TypeItemSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::ymax`, `MethodRitchie(
-                                                            Fn,
-                                                        )`),
+                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                            `mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`,
+                                                            TypeItemKind::MethodRitchie(
+                                                                RitchieItemKind::Fn,
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },

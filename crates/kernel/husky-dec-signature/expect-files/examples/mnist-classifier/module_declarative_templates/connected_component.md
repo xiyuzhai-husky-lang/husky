@@ -612,13 +612,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 296,
-                        },
-                    ),
-                ),
+                TypeImplBlockPath(`mnist_classifier::connected_component::ConnectedComponent(0)`),
             ),
         ),
         Ok(
@@ -647,7 +641,10 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::raw_contours`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
         ),
         Ok(
@@ -655,7 +652,10 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MemoizedField(
                         TypeMemoizedFieldDecTemplate {
-                            path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::raw_contours`, `MemoizedField`),
+                            path: TypeItemPath(
+                                `mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`,
+                                TypeItemKind::MemoizedField,
+                            ),
                             impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DecTemplateParameters {
                                     data: [],
@@ -688,7 +688,10 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::eff_holes`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
         ),
         Ok(
@@ -696,7 +699,10 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MemoizedField(
                         TypeMemoizedFieldDecTemplate {
-                            path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::eff_holes`, `MemoizedField`),
+                            path: TypeItemPath(
+                                `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
+                                TypeItemKind::MemoizedField,
+                            ),
                             impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DecTemplateParameters {
                                     data: [],
@@ -733,7 +739,10 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::max_hole_ilen`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
         ),
         Ok(
@@ -741,7 +750,10 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MemoizedField(
                         TypeMemoizedFieldDecTemplate {
-                            path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::max_hole_ilen`, `MemoizedField`),
+                            path: TypeItemPath(
+                                `mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`,
+                                TypeItemKind::MemoizedField,
+                            ),
                             impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DecTemplateParameters {
                                     data: [],
@@ -778,7 +790,10 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::max_row_span`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
         ),
         Ok(
@@ -786,7 +801,10 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MemoizedField(
                         TypeMemoizedFieldDecTemplate {
-                            path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::max_row_span`, `MemoizedField`),
+                            path: TypeItemPath(
+                                `mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`,
+                                TypeItemKind::MemoizedField,
+                            ),
                             impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DecTemplateParameters {
                                     data: [],
@@ -823,7 +841,10 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::row_span_sum`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
         ),
         Ok(
@@ -831,7 +852,10 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MemoizedField(
                         TypeMemoizedFieldDecTemplate {
-                            path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::row_span_sum`, `MemoizedField`),
+                            path: TypeItemPath(
+                                `mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`,
+                                TypeItemKind::MemoizedField,
+                            ),
                             impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DecTemplateParameters {
                                     data: [],
@@ -868,7 +892,10 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::distribution`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::connected_component::ConnectedComponent(0)::distribution`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
         ),
         Ok(
@@ -876,7 +903,10 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MemoizedField(
                         TypeMemoizedFieldDecTemplate {
-                            path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::distribution`, `MemoizedField`),
+                            path: TypeItemPath(
+                                `mnist_classifier::connected_component::ConnectedComponent(0)::distribution`,
+                                TypeItemKind::MemoizedField,
+                            ),
                             impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DecTemplateParameters {
                                     data: [],
@@ -913,7 +943,10 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::upper_mass`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
         ),
         Ok(
@@ -921,7 +954,10 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MemoizedField(
                         TypeMemoizedFieldDecTemplate {
-                            path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::upper_mass`, `MemoizedField`),
+                            path: TypeItemPath(
+                                `mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`,
+                                TypeItemKind::MemoizedField,
+                            ),
                             impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DecTemplateParameters {
                                     data: [],
@@ -958,7 +994,10 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::lower_mass`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
         ),
         Ok(
@@ -966,7 +1005,10 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MemoizedField(
                         TypeMemoizedFieldDecTemplate {
-                            path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::lower_mass`, `MemoizedField`),
+                            path: TypeItemPath(
+                                `mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`,
+                                TypeItemKind::MemoizedField,
+                            ),
                             impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DecTemplateParameters {
                                     data: [],
@@ -1003,9 +1045,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::top_k_row_span_sum`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -1013,9 +1058,12 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::top_k_row_span_sum`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            path: TypeItemPath(
+                                `mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                             impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DecTemplateParameters {
                                     data: [],
@@ -1100,9 +1148,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::top_k_row_right_mass_sum`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -1110,9 +1161,12 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::top_k_row_right_mass_sum`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            path: TypeItemPath(
+                                `mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                             impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DecTemplateParameters {
                                     data: [],

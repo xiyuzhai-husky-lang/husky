@@ -11,13 +11,7 @@
     (
         ItemPath::Attr(
             Room32,
-            AttrItemPath(
-                ItemPathId(
-                    Id {
-                        value: 147,
-                    },
-                ),
-            ),
+            AttrItemPath(`core::num::i8::@derive(0)`),
         ),
         None,
     ),
@@ -32,13 +26,7 @@
     (
         ItemPath::Attr(
             Room32,
-            AttrItemPath(
-                ItemPathId(
-                    Id {
-                        value: 148,
-                    },
-                ),
-            ),
+            AttrItemPath(`core::num::i16::@derive(0)`),
         ),
         None,
     ),
@@ -53,13 +41,7 @@
     (
         ItemPath::Attr(
             Room32,
-            AttrItemPath(
-                ItemPathId(
-                    Id {
-                        value: 149,
-                    },
-                ),
-            ),
+            AttrItemPath(`core::num::i32::@derive(0)`),
         ),
         None,
     ),
@@ -74,13 +56,7 @@
     (
         ItemPath::Attr(
             Room32,
-            AttrItemPath(
-                ItemPathId(
-                    Id {
-                        value: 150,
-                    },
-                ),
-            ),
+            AttrItemPath(`core::num::i64::@derive(0)`),
         ),
         None,
     ),
@@ -95,13 +71,7 @@
     (
         ItemPath::Attr(
             Room32,
-            AttrItemPath(
-                ItemPathId(
-                    Id {
-                        value: 151,
-                    },
-                ),
-            ),
+            AttrItemPath(`core::num::i128::@derive(0)`),
         ),
         None,
     ),
@@ -116,13 +86,7 @@
     (
         ItemPath::Attr(
             Room32,
-            AttrItemPath(
-                ItemPathId(
-                    Id {
-                        value: 152,
-                    },
-                ),
-            ),
+            AttrItemPath(`core::num::isize::@derive(0)`),
         ),
         None,
     ),
@@ -137,13 +101,7 @@
     (
         ItemPath::Attr(
             Room32,
-            AttrItemPath(
-                ItemPathId(
-                    Id {
-                        value: 153,
-                    },
-                ),
-            ),
+            AttrItemPath(`core::num::u8::@derive(0)`),
         ),
         None,
     ),
@@ -158,13 +116,7 @@
     (
         ItemPath::Attr(
             Room32,
-            AttrItemPath(
-                ItemPathId(
-                    Id {
-                        value: 154,
-                    },
-                ),
-            ),
+            AttrItemPath(`core::num::u16::@derive(0)`),
         ),
         None,
     ),
@@ -179,13 +131,7 @@
     (
         ItemPath::Attr(
             Room32,
-            AttrItemPath(
-                ItemPathId(
-                    Id {
-                        value: 155,
-                    },
-                ),
-            ),
+            AttrItemPath(`core::num::u32::@derive(0)`),
         ),
         None,
     ),
@@ -200,13 +146,7 @@
     (
         ItemPath::Attr(
             Room32,
-            AttrItemPath(
-                ItemPathId(
-                    Id {
-                        value: 156,
-                    },
-                ),
-            ),
+            AttrItemPath(`core::num::u64::@derive(0)`),
         ),
         None,
     ),
@@ -221,13 +161,7 @@
     (
         ItemPath::Attr(
             Room32,
-            AttrItemPath(
-                ItemPathId(
-                    Id {
-                        value: 157,
-                    },
-                ),
-            ),
+            AttrItemPath(`core::num::u128::@derive(0)`),
         ),
         None,
     ),
@@ -242,13 +176,7 @@
     (
         ItemPath::Attr(
             Room32,
-            AttrItemPath(
-                ItemPathId(
-                    Id {
-                        value: 158,
-                    },
-                ),
-            ),
+            AttrItemPath(`core::num::usize::@derive(0)`),
         ),
         None,
     ),
@@ -263,13 +191,7 @@
     (
         ItemPath::Attr(
             Room32,
-            AttrItemPath(
-                ItemPathId(
-                    Id {
-                        value: 159,
-                    },
-                ),
-            ),
+            AttrItemPath(`core::num::f32::@derive(0)`),
         ),
         None,
     ),
@@ -284,24 +206,25 @@
     (
         ItemPath::Attr(
             Room32,
-            AttrItemPath(
-                ItemPathId(
-                    Id {
-                        value: 160,
-                    },
-                ),
-            ),
+            AttrItemPath(`core::num::f64::@derive(0)`),
         ),
         None,
     ),
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 106,
-                        },
+                TypeImplBlockPath(`core::num::i8(0)`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
+                TypeItemPath(
+                    `core::num::i8(0)::abs`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
                     ),
                 ),
             ),
@@ -311,19 +234,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::i8(0)>::abs`, `MethodRitchie(
-                    Fn,
-                )`),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::i8(0)>::max`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::num::i8(0)::max`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         None,
@@ -352,11 +268,18 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 108,
-                        },
+                TypeImplBlockPath(`core::num::i16(0)`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
+                TypeItemPath(
+                    `core::num::i16(0)::abs`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
                     ),
                 ),
             ),
@@ -366,19 +289,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::i16(0)>::abs`, `MethodRitchie(
-                    Fn,
-                )`),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::i16(0)>::max`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::num::i16(0)::max`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         None,
@@ -407,11 +323,18 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 110,
-                        },
+                TypeImplBlockPath(`core::num::i32(0)`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
+                TypeItemPath(
+                    `core::num::i32(0)::abs`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
                     ),
                 ),
             ),
@@ -421,9 +344,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::i32(0)>::abs`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::num::i32(0)::max`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         None,
@@ -431,19 +357,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::i32(0)>::max`, `MethodRitchie(
-                    Fn,
-                )`),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::i32(0)>::min`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::num::i32(0)::min`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         None,
@@ -472,13 +391,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 112,
-                        },
-                    ),
-                ),
+                TypeImplBlockPath(`core::num::i64(0)`),
             ),
         ),
         None,
@@ -486,9 +399,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::i64(0)>::abs`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::num::i64(0)::abs`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         None,
@@ -517,13 +433,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 114,
-                        },
-                    ),
-                ),
+                TypeImplBlockPath(`core::num::i128(0)`),
             ),
         ),
         None,
@@ -531,9 +441,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::i128(0)>::abs`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::num::i128(0)::abs`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         None,
@@ -562,13 +475,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 116,
-                        },
-                    ),
-                ),
+                TypeImplBlockPath(`core::num::isize(0)`),
             ),
         ),
         None,
@@ -576,9 +483,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::isize(0)>::abs`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::num::isize(0)::abs`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         None,
@@ -607,13 +517,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 118,
-                        },
-                    ),
-                ),
+                TypeImplBlockPath(`core::num::u8(0)`),
             ),
         ),
         None,
@@ -621,9 +525,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::u8(0)>::abs`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::num::u8(0)::abs`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         None,
@@ -652,13 +559,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 120,
-                        },
-                    ),
-                ),
+                TypeImplBlockPath(`core::num::u16(0)`),
             ),
         ),
         None,
@@ -666,9 +567,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::u16(0)>::abs`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::num::u16(0)::abs`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         None,
@@ -697,13 +601,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 122,
-                        },
-                    ),
-                ),
+                TypeImplBlockPath(`core::num::u32(0)`),
             ),
         ),
         None,
@@ -711,9 +609,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::u32(0)>::abs`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::num::u32(0)::abs`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         None,
@@ -742,13 +643,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 124,
-                        },
-                    ),
-                ),
+                TypeImplBlockPath(`core::num::u64(0)`),
             ),
         ),
         None,
@@ -756,9 +651,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::u64(0)>::abs`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::num::u64(0)::abs`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         None,
@@ -787,13 +685,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 126,
-                        },
-                    ),
-                ),
+                TypeImplBlockPath(`core::num::u128(0)`),
             ),
         ),
         None,
@@ -801,9 +693,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::u128(0)>::abs`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::num::u128(0)::abs`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         None,
@@ -832,13 +727,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 128,
-                        },
-                    ),
-                ),
+                TypeImplBlockPath(`core::num::usize(0)`),
             ),
         ),
         None,
@@ -846,9 +735,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::usize(0)>::abs`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::num::usize(0)::abs`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         None,
@@ -877,11 +769,98 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 130,
-                        },
+                TypeImplBlockPath(`core::num::f32(0)`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
+                TypeItemPath(
+                    `core::num::f32(0)::abs`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::Attr(
+            Room32,
+            AttrItemPath(`core::num::f32(0)::abs::@backprop(0)`),
+        ),
+        None,
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
+                TypeItemPath(
+                    `core::num::f32(0)::sqrt`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::Attr(
+            Room32,
+            AttrItemPath(`core::num::f32(0)::sqrt::@backprop(0)`),
+        ),
+        None,
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
+                TypeItemPath(
+                    `core::num::f32(0)::max`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::Attr(
+            Room32,
+            AttrItemPath(`core::num::f32(0)::max::@backprop(0)`),
+        ),
+        None,
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
+                TypeItemPath(
+                    `core::num::f32(0)::min`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::Attr(
+            Room32,
+            AttrItemPath(`core::num::f32(0)::min::@backprop(0)`),
+        ),
+        None,
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
+                TypeItemPath(
+                    `core::num::f32(0)::sgnx`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
                     ),
                 ),
             ),
@@ -891,9 +870,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::num::f32(0)::cos`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         None,
@@ -901,22 +883,19 @@
     (
         ItemPath::Attr(
             Room32,
-            AttrItemPath(
-                ItemPathId(
-                    Id {
-                        value: 197,
-                    },
-                ),
-            ),
+            AttrItemPath(`core::num::f32(0)::cos::@backprop(0)`),
         ),
         None,
     ),
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::f32(0)>::sqrt`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::num::f32(0)::sin`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         None,
@@ -924,124 +903,19 @@
     (
         ItemPath::Attr(
             Room32,
-            AttrItemPath(
-                ItemPathId(
-                    Id {
-                        value: 198,
-                    },
+            AttrItemPath(`core::num::f32(0)::sin::@backprop(0)`),
+        ),
+        None,
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
+                TypeItemPath(
+                    `core::num::f32(0)::acos`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
                 ),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::f32(0)>::max`, `MethodRitchie(
-                    Fn,
-                )`),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemPath::Attr(
-            Room32,
-            AttrItemPath(
-                ItemPathId(
-                    Id {
-                        value: 199,
-                    },
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::f32(0)>::min`, `MethodRitchie(
-                    Fn,
-                )`),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemPath::Attr(
-            Room32,
-            AttrItemPath(
-                ItemPathId(
-                    Id {
-                        value: 200,
-                    },
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::f32(0)>::sgnx`, `MethodRitchie(
-                    Fn,
-                )`),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::f32(0)>::cos`, `MethodRitchie(
-                    Fn,
-                )`),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemPath::Attr(
-            Room32,
-            AttrItemPath(
-                ItemPathId(
-                    Id {
-                        value: 201,
-                    },
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::f32(0)>::sin`, `MethodRitchie(
-                    Fn,
-                )`),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemPath::Attr(
-            Room32,
-            AttrItemPath(
-                ItemPathId(
-                    Id {
-                        value: 202,
-                    },
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::f32(0)>::acos`, `MethodRitchie(
-                    Fn,
-                )`),
             ),
         ),
         None,
@@ -1070,24 +944,25 @@
     (
         ItemPath::Attr(
             Room32,
-            AttrItemPath(
-                ItemPathId(
-                    Id {
-                        value: 204,
-                    },
-                ),
-            ),
+            AttrItemPath(`<core::num::f32 as core::ops::Add(0)>::add::@backprop(0)`),
         ),
         None,
     ),
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 132,
-                        },
+                TypeImplBlockPath(`core::num::f64(0)`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TypeItem(
+                TypeItemPath(
+                    `core::num::f64(0)::abs`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
                     ),
                 ),
             ),
@@ -1097,19 +972,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::f64(0)>::abs`, `MethodRitchie(
-                    Fn,
-                )`),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemPath::AssocItem(
-            AssocItemPath::TypeItem(
-                TypeItemPath(`<core::num::f64(0)>::acos`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::num::f64(0)::acos`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         None,
