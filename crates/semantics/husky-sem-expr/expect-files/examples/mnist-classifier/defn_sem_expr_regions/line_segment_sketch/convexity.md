@@ -22,125 +22,53 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 224,
-                                },
-                            ),
-                        ),
+                        ident: `L`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 1,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 265,
-                                },
-                            ),
-                        ),
+                        ident: `current_displacement`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 2,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 266,
-                                },
-                            ),
-                        ),
+                        ident: `previous_displacement`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 3,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 267,
-                                },
-                            ),
-                        ),
+                        ident: `is_rotation_counterclockwise_result`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 4,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 268,
-                                },
-                            ),
-                        ),
+                        ident: `previous_raw_cross`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 5,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 269,
-                                },
-                            ),
-                        ),
+                        ident: `previous_interval`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 6,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 77,
-                                },
-                            ),
-                        ),
+                        ident: `i1`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 7,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 121,
-                                },
-                            ),
-                        ),
+                        ident: `displacement`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 8,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 270,
-                                },
-                            ),
-                        ),
+                        ident: `current_raw_cross`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 9,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 271,
-                                },
-                            ),
-                        ),
+                        ident: `current_interval`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 10,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 79,
-                                },
-                            ),
-                        ),
+                        ident: `i2`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 11,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 121,
-                                },
-                            ),
-                        ),
+                        ident: `displacement`,
                     },
                 ],
             },

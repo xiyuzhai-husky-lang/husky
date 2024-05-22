@@ -22,45 +22,21 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 224,
-                                },
-                            ),
-                        ),
+                        ident: `L`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 1,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 225,
-                                },
-                            ),
-                        ),
+                        ident: `dr`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 2,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 226,
-                                },
-                            ),
-                        ),
+                        ident: `dx`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 3,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 227,
-                                },
-                            ),
-                        ),
+                        ident: `dy`,
                     },
                 ],
             },
@@ -5352,45 +5328,21 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 224,
-                                },
-                            ),
-                        ),
+                        ident: `L`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 1,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 225,
-                                },
-                            ),
-                        ),
+                        ident: `dr`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 2,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 226,
-                                },
-                            ),
-                        ),
+                        ident: `dx`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 3,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 227,
-                                },
-                            ),
-                        ),
+                        ident: `dy`,
                     },
                 ],
             },
@@ -10682,105 +10634,45 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 123,
-                                },
-                            ),
-                        ),
+                        ident: `end`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 1,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 230,
-                                },
-                            ),
-                        ),
+                        ident: `dp`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 2,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 125,
-                                },
-                            ),
-                        ),
+                        ident: `N`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 3,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 231,
-                                },
-                            ),
-                        ),
+                        ident: `max_end`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 4,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 232,
-                                },
-                            ),
-                        ),
+                        ident: `right_bound`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 5,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 233,
-                                },
-                            ),
-                        ),
+                        ident: `left_bound`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 6,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 234,
-                                },
-                            ),
-                        ),
+                        ident: `r_max`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 7,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 235,
-                                },
-                            ),
-                        ),
+                        ident: `dp_norm`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 8,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 236,
-                                },
-                            ),
-                        ),
+                        ident: `dp_right`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 9,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 237,
-                                },
-                            ),
-                        ),
+                        ident: `dp_left`,
                     },
                 ],
             },
@@ -23529,105 +23421,45 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 122,
-                                },
-                            ),
-                        ),
+                        ident: `start`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 1,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 240,
-                                },
-                            ),
-                        ),
+                        ident: `dp0`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 2,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 241,
-                                },
-                            ),
-                        ),
+                        ident: `min_start`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 3,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 232,
-                                },
-                            ),
-                        ),
+                        ident: `right_bound`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 4,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 233,
-                                },
-                            ),
-                        ),
+                        ident: `left_bound`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 5,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 234,
-                                },
-                            ),
-                        ),
+                        ident: `r_max`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 6,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 230,
-                                },
-                            ),
-                        ),
+                        ident: `dp`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 7,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 235,
-                                },
-                            ),
-                        ),
+                        ident: `dp_norm`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 8,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 236,
-                                },
-                            ),
-                        ),
+                        ident: `dp_right`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 9,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 237,
-                                },
-                            ),
-                        ),
+                        ident: `dp_left`,
                     },
                 ],
             },
@@ -37537,175 +37369,73 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 242,
-                                },
-                            ),
-                        ),
+                        ident: `line_segments`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 1,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 122,
-                                },
-                            ),
-                        ),
+                        ident: `start`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 2,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 123,
-                                },
-                            ),
-                        ),
+                        ident: `end`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 3,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 231,
-                                },
-                            ),
-                        ),
+                        ident: `max_end`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 4,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 243,
-                                },
-                            ),
-                        ),
+                        ident: `ls_extend_end`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 5,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 244,
-                                },
-                            ),
-                        ),
+                        ident: `extend_start_flag`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 6,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 245,
-                                },
-                            ),
-                        ),
+                        ident: `dp_extend_end`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 7,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 246,
-                                },
-                            ),
-                        ),
+                        ident: `dp_previous`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 8,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 125,
-                                },
-                            ),
-                        ),
+                        ident: `N`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 9,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 247,
-                                },
-                            ),
-                        ),
+                        ident: `ls`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 11,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 249,
-                                },
-                            ),
-                        ),
+                        ident: `dp_last`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 12,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 230,
-                                },
-                            ),
-                        ),
+                        ident: `dp`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 13,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 250,
-                                },
-                            ),
-                        ),
+                        ident: `dp1`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 14,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 248,
-                                },
-                            ),
-                        ),
+                        ident: `ls_last`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 15,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 125,
-                                },
-                            ),
-                        ),
+                        ident: `N`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 16,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 251,
-                                },
-                            ),
-                        ),
+                        ident: `first_line_segment_points_end`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 18,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 252,
-                                },
-                            ),
-                        ),
+                        ident: `last_line_segment`,
                     },
                 ],
             },
@@ -61280,7 +61010,7 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
+                    PlaceInfo::SelfValue,
                 ],
             },
             sem_expr_arena: SemExprArena(
@@ -63456,7 +63186,7 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
+                    PlaceInfo::SelfValue,
                 ],
             },
             sem_expr_arena: SemExprArena(
@@ -64227,7 +63957,7 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
+                    PlaceInfo::SelfValue,
                 ],
             },
             sem_expr_arena: SemExprArena(
@@ -64753,7 +64483,7 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
+                    PlaceInfo::SelfValue,
                 ],
             },
             sem_expr_arena: SemExprArena(
@@ -65216,76 +64946,34 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
-                    Variable {
+                    PlaceInfo::SelfValue,
+                    PlaceInfo::Variable {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 109,
-                                },
-                            ),
-                        ),
+                        ident: `start_point`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 1,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 110,
-                                },
-                            ),
-                        ),
+                        ident: `xmin`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 2,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 111,
-                                },
-                            ),
-                        ),
+                        ident: `xmax`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 3,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 112,
-                                },
-                            ),
-                        ),
+                        ident: `ymin`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 4,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 113,
-                                },
-                            ),
-                        ),
+                        ident: `ymax`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 5,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 65,
-                                },
-                            ),
-                        ),
+                        ident: `i`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 6,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 114,
-                                },
-                            ),
-                        ),
+                        ident: `point`,
                     },
                 ],
             },
