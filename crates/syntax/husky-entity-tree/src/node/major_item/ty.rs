@@ -1,6 +1,7 @@
 use super::*;
 use husky_entity_kind::TypeKind;
 use husky_entity_path::path::major_item::ty::TypePath;
+use salsa::DebugWithDb;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -59,7 +60,13 @@ impl TypeSynNodePath {
         // otherwise cyclic when use all type variant paths
         let item_presheet = db.item_syn_tree_presheet(module_path);
         let Some(ItemSynNode::MajorItem(node)) = item_presheet.major_item_node(self.into()) else {
-            unreachable!("should be some, must be some erros in library")
+            unreachable!(
+                "the node of `{:?}` should be not none, must be some erros in library",
+                self.data(db)
+                    .disambiguated_item_path
+                    .maybe_ambiguous_item_path()
+                    .debug(db)
+            )
         };
         node
     }

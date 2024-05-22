@@ -282,6 +282,10 @@ impl VfsPathMenu {
         self.core_backend
     }
 
+    pub fn core_frontend(&self) -> SubmodulePath {
+        self.core_frontend
+    }
+
     pub fn std_root(&self) -> ModulePath {
         self.std_root
     }
