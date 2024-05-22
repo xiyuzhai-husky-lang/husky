@@ -1964,13 +1964,7 @@ EntityTreeSheet {
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TypeImplBlock(
                                 TypeImplBlockSynNodePathData {
-                                    path: TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 312,
-                                            },
-                                        ),
-                                    ),
+                                    path: TypeImplBlockPath(`mnist_classifier::fermi::FermiMatchResult(0)`),
                                 },
                             ),
                         ),
@@ -1984,13 +1978,7 @@ EntityTreeSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TypeImplBlock(
                                     TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 312,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeImplBlockPath(`mnist_classifier::fermi::FermiMatchResult(0)`),
                                     },
                                 ),
                             ),

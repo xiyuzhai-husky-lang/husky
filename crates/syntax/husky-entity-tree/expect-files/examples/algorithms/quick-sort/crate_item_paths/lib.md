@@ -30,13 +30,7 @@
     ),
     ItemPath::Attr(
         Room32,
-        AttrItemPath(
-            ItemPathId(
-                Id {
-                    value: 151,
-                },
-            ),
-        ),
+        AttrItemPath(`quick_sort::quick_sort_works_for_integers::@test(0)`),
     ),
     ItemPath::MajorItem(
         MajorItemPath::Form(
@@ -47,13 +41,7 @@
     ),
     ItemPath::Attr(
         Room32,
-        AttrItemPath(
-            ItemPathId(
-                Id {
-                    value: 152,
-                },
-            ),
-        ),
+        AttrItemPath(`quick_sort::quick_sort_works_for_strs::@test(0)`),
     ),
 ]
 ```

@@ -76,13 +76,7 @@
     HirDecl::Attr(
         AttrHirDecl::Derive(
             DeriveAttrHirDecl {
-                path: AttrItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 244,
-                        },
-                    ),
-                ),
+                path: AttrItemPath(`core::option::Option::@derive(0)`),
                 trais: [
                     HirTrait {
                         trai_path: TraitPath(`core::fmt::Debug`),
@@ -109,13 +103,7 @@
                     region_path: RegionPath::Decl(
                         ItemPath::Attr(
                             Room32,
-                            AttrItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 244,
-                                    },
-                                ),
-                            ),
+                            AttrItemPath(`core::option::Option::@derive(0)`),
                         ),
                     ),
                     expr_arena: Arena {

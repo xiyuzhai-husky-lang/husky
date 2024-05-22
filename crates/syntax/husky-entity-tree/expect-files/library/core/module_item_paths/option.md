@@ -7,13 +7,7 @@
     ),
     ItemPath::Attr(
         Room32,
-        AttrItemPath(
-            ItemPathId(
-                Id {
-                    value: 236,
-                },
-            ),
-        ),
+        AttrItemPath(`core::option::Option::@derive(0)`),
     ),
     ItemPath::TypeVariant(
         Room32,

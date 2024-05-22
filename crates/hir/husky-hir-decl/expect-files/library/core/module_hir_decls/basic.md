@@ -44,13 +44,7 @@
     HirDecl::Attr(
         AttrHirDecl::Derive(
             DeriveAttrHirDecl {
-                path: AttrItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 152,
-                        },
-                    ),
-                ),
+                path: AttrItemPath(`core::basic::bool::@derive(0)`),
                 trais: [
                     HirTrait {
                         trai_path: TraitPath(`core::fmt::Debug`),
@@ -77,13 +71,7 @@
                     region_path: RegionPath::Decl(
                         ItemPath::Attr(
                             Room32,
-                            AttrItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 152,
-                                    },
-                                ),
-                            ),
+                            AttrItemPath(`core::basic::bool::@derive(0)`),
                         ),
                     ),
                     expr_arena: Arena {
@@ -154,13 +142,7 @@
     HirDecl::Attr(
         AttrHirDecl::Derive(
             DeriveAttrHirDecl {
-                path: AttrItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 153,
-                        },
-                    ),
-                ),
+                path: AttrItemPath(`core::basic::never::@derive(0)`),
                 trais: [
                     HirTrait {
                         trai_path: TraitPath(`core::fmt::Debug`),
@@ -187,13 +169,7 @@
                     region_path: RegionPath::Decl(
                         ItemPath::Attr(
                             Room32,
-                            AttrItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 153,
-                                    },
-                                ),
-                            ),
+                            AttrItemPath(`core::basic::never::@derive(0)`),
                         ),
                     ),
                     expr_arena: Arena {
@@ -264,13 +240,7 @@
     HirDecl::Attr(
         AttrHirDecl::Derive(
             DeriveAttrHirDecl {
-                path: AttrItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 154,
-                        },
-                    ),
-                ),
+                path: AttrItemPath(`core::basic::unit::@derive(0)`),
                 trais: [
                     HirTrait {
                         trai_path: TraitPath(`core::fmt::Debug`),
@@ -297,13 +267,7 @@
                     region_path: RegionPath::Decl(
                         ItemPath::Attr(
                             Room32,
-                            AttrItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 154,
-                                    },
-                                ),
-                            ),
+                            AttrItemPath(`core::basic::unit::@derive(0)`),
                         ),
                     ),
                     expr_arena: Arena {

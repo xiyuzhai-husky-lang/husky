@@ -687,9 +687,12 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    TypeItemPath(
+                                                        `core::vec::Vec(0)::ilen`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
@@ -710,9 +713,12 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
-                                                                Fn,
-                                                            )`),
+                                                            TypeItemPath(
+                                                                `core::vec::Vec(0)::ilen`,
+                                                                TypeItemKind::MethodRitchie(
+                                                                    RitchieItemKind::Fn,
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -1025,12 +1031,18 @@
                                                 ),
                                             },
                                             path: AssocItemPath::TypeItem(
-                                                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::row_span_sum`, `MemoizedField`),
+                                                TypeItemPath(
+                                                    `mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`,
+                                                    TypeItemKind::MemoizedField,
+                                                ),
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath::AssocItem(
                                                     AssocItemPath::TypeItem(
-                                                        TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::row_span_sum`, `MemoizedField`),
+                                                        TypeItemPath(
+                                                            `mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`,
+                                                            TypeItemKind::MemoizedField,
+                                                        ),
                                                     ),
                                                 ),
                                                 env: MemoizedField,
@@ -3266,9 +3278,12 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    TypeItemPath(
+                                                        `core::vec::Vec(0)::ilen`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
@@ -3289,9 +3304,12 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
-                                                                Fn,
-                                                            )`),
+                                                            TypeItemPath(
+                                                                `core::vec::Vec(0)::ilen`,
+                                                                TypeItemKind::MethodRitchie(
+                                                                    RitchieItemKind::Fn,
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -3653,12 +3671,18 @@
                                                 ),
                                             },
                                             path: AssocItemPath::TypeItem(
-                                                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::row_span_sum`, `MemoizedField`),
+                                                TypeItemPath(
+                                                    `mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`,
+                                                    TypeItemKind::MemoizedField,
+                                                ),
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath::AssocItem(
                                                     AssocItemPath::TypeItem(
-                                                        TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::row_span_sum`, `MemoizedField`),
+                                                        TypeItemPath(
+                                                            `mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`,
+                                                            TypeItemKind::MemoizedField,
+                                                        ),
                                                     ),
                                                 ),
                                                 env: MemoizedField,
@@ -3891,12 +3915,18 @@
                                                 ),
                                             },
                                             path: AssocItemPath::TypeItem(
-                                                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::row_span_sum`, `MemoizedField`),
+                                                TypeItemPath(
+                                                    `mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`,
+                                                    TypeItemKind::MemoizedField,
+                                                ),
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath::AssocItem(
                                                     AssocItemPath::TypeItem(
-                                                        TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::row_span_sum`, `MemoizedField`),
+                                                        TypeItemPath(
+                                                            `mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`,
+                                                            TypeItemKind::MemoizedField,
+                                                        ),
                                                     ),
                                                 ),
                                                 env: MemoizedField,
@@ -5002,12 +5032,18 @@
                                                 ),
                                             },
                                             path: AssocItemPath::TypeItem(
-                                                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::raw_contours`, `MemoizedField`),
+                                                TypeItemPath(
+                                                    `mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`,
+                                                    TypeItemKind::MemoizedField,
+                                                ),
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath::AssocItem(
                                                     AssocItemPath::TypeItem(
-                                                        TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::raw_contours`, `MemoizedField`),
+                                                        TypeItemPath(
+                                                            `mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`,
+                                                            TypeItemKind::MemoizedField,
+                                                        ),
                                                     ),
                                                 ),
                                                 env: MemoizedField,
@@ -5399,12 +5435,18 @@
                                                 ),
                                             },
                                             path: AssocItemPath::TypeItem(
-                                                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::raw_contours`, `MemoizedField`),
+                                                TypeItemPath(
+                                                    `mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`,
+                                                    TypeItemKind::MemoizedField,
+                                                ),
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath::AssocItem(
                                                     AssocItemPath::TypeItem(
-                                                        TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::raw_contours`, `MemoizedField`),
+                                                        TypeItemPath(
+                                                            `mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`,
+                                                            TypeItemKind::MemoizedField,
+                                                        ),
                                                     ),
                                                 ),
                                                 env: MemoizedField,
@@ -6051,12 +6093,18 @@
                                                 ),
                                             },
                                             path: AssocItemPath::TypeItem(
-                                                TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::line_segment_sketch`, `MemoizedField`),
+                                                TypeItemPath(
+                                                    `mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`,
+                                                    TypeItemKind::MemoizedField,
+                                                ),
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath::AssocItem(
                                                     AssocItemPath::TypeItem(
-                                                        TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::line_segment_sketch`, `MemoizedField`),
+                                                        TypeItemPath(
+                                                            `mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`,
+                                                            TypeItemKind::MemoizedField,
+                                                        ),
                                                     ),
                                                 ),
                                                 env: MemoizedField,
@@ -6448,12 +6496,18 @@
                                                 ),
                                             },
                                             path: AssocItemPath::TypeItem(
-                                                TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::concave_components`, `MemoizedField`),
+                                                TypeItemPath(
+                                                    `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`,
+                                                    TypeItemKind::MemoizedField,
+                                                ),
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath::AssocItem(
                                                     AssocItemPath::TypeItem(
-                                                        TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::concave_components`, `MemoizedField`),
+                                                        TypeItemPath(
+                                                            `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`,
+                                                            TypeItemKind::MemoizedField,
+                                                        ),
                                                     ),
                                                 ),
                                                 env: MemoizedField,

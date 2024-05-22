@@ -1,5 +1,5 @@
-macro_rules! debug_with_db_fmt {
-    ($slf: ident, $f: ident, $db: ident, $ty_str: literal) => {{
+macro_rules! item_debug_with_db_fmt {
+    ($slf: ident, $f: ident, $ty_str: literal, $db: ident) => {{
         let data = $slf.data($db);
         $f.debug_tuple($ty_str)
             .field_with(|f| {
@@ -14,4 +14,4 @@ macro_rules! debug_with_db_fmt {
     }};
 }
 
-pub(crate) use debug_with_db_fmt;
+pub(crate) use item_debug_with_db_fmt;

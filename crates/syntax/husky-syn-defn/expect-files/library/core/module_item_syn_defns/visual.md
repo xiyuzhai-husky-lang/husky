@@ -11,9 +11,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TraitItem(
-                TraitItemPath(`core::visual::Visualize::visualize`, `MethodRitchie(
-                    Fn,
-                )`),
+                TraitItemPath(
+                    `core::visual::Visualize::visualize`,
+                    TraitItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         None,

@@ -756,13 +756,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 305,
-                        },
-                    ),
-                ),
+                TypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)`),
             ),
         ),
         Ok(
@@ -791,9 +785,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::new`, `AssocRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`,
+                    TypeItemKind::AssocRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -801,9 +798,12 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::AssocRitchie(
                         TypeAssocRitchieDecTemplate {
-                            path: TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::new`, `AssocRitchie(
-                                Fn,
-                            )`),
+                            path: TypeItemPath(
+                                `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`,
+                                TypeItemKind::AssocRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                             self_ty: EntityPath(
                                 Type(
                                     TypePath(
@@ -886,9 +886,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::displacement`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -896,9 +899,12 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::displacement`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            path: TypeItemPath(
+                                `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                             impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DecTemplateParameters {
                                     data: [],
@@ -1072,13 +1078,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 307,
-                        },
-                    ),
-                ),
+                TypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)`),
             ),
         ),
         Ok(
@@ -1107,7 +1107,10 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::concave_components`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
         ),
         Ok(
@@ -1115,7 +1118,10 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MemoizedField(
                         TypeMemoizedFieldDecTemplate {
-                            path: TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::concave_components`, `MemoizedField`),
+                            path: TypeItemPath(
+                                `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`,
+                                TypeItemKind::MemoizedField,
+                            ),
                             impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DecTemplateParameters {
                                     data: [],
@@ -1148,7 +1154,10 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::bounding_box`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
         ),
         Ok(
@@ -1156,7 +1165,10 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MemoizedField(
                         TypeMemoizedFieldDecTemplate {
-                            path: TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::bounding_box`, `MemoizedField`),
+                            path: TypeItemPath(
+                                `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`,
+                                TypeItemKind::MemoizedField,
+                            ),
                             impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DecTemplateParameters {
                                     data: [],
@@ -1193,9 +1205,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::new`, `AssocRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`,
+                    TypeItemKind::AssocRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -1203,9 +1218,12 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::AssocRitchie(
                         TypeAssocRitchieDecTemplate {
-                            path: TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::new`, `AssocRitchie(
-                                Fn,
-                            )`),
+                            path: TypeItemPath(
+                                `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`,
+                                TypeItemKind::AssocRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                             self_ty: EntityPath(
                                 Type(
                                     TypePath(

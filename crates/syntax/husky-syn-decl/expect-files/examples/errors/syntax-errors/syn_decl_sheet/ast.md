@@ -87,25 +87,13 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 149,
-                            },
-                        ),
-                    ),
+                    TypeImplBlockPath(`syntax_errors::ast::A(0)`),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::Type(
                     TypeImplBlockSynDecl {
-                        path: TypeImplBlockPath(
-                            ItemPathId(
-                                Id {
-                                    value: 149,
-                                },
-                            ),
-                        ),
+                        path: TypeImplBlockPath(`syntax_errors::ast::A(0)`),
                         template_parameters: [],
                         self_ty_expr: SelfTypeSyndicate {
                             expr: 0,
@@ -121,13 +109,7 @@ SynDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                             TypeImplBlockSynNodePathData {
-                                                                path: TypeImplBlockPath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 149,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                path: TypeImplBlockPath(`syntax_errors::ast::A(0)`),
                                                             },
                                                         ),
                                                     ),

@@ -298,13 +298,7 @@
         path: RegionPath::Decl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 311,
-                            },
-                        ),
-                    ),
+                    TypeImplBlockPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)`),
                 ),
             ),
         ),
@@ -312,13 +306,7 @@
             path: RegionPath::Decl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TypeImplBlock(
-                        TypeImplBlockPath(
-                            ItemPathId(
-                                Id {
-                                    value: 311,
-                                },
-                            ),
-                        ),
+                        TypeImplBlockPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)`),
                     ),
                 ),
             ),
@@ -466,9 +454,12 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)>::displacement`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    TypeItemPath(
+                        `mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                 ),
             ),
         ),
@@ -476,9 +467,12 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`<mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)>::displacement`, `MethodRitchie(
-                            Fn,
-                        )`),
+                        TypeItemPath(
+                            `mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`,
+                            TypeItemKind::MethodRitchie(
+                                RitchieItemKind::Fn,
+                            ),
+                        ),
                     ),
                 ),
             ),
@@ -628,9 +622,12 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)>::dist_to_point`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    TypeItemPath(
+                        `mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::dist_to_point`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                 ),
             ),
         ),
@@ -638,9 +635,12 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`<mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)>::dist_to_point`, `MethodRitchie(
-                            Fn,
-                        )`),
+                        TypeItemPath(
+                            `mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::dist_to_point`,
+                            TypeItemKind::MethodRitchie(
+                                RitchieItemKind::Fn,
+                            ),
+                        ),
                     ),
                 ),
             ),

@@ -198,7 +198,10 @@
     Linkage {
         data: LinkageData::MemoizedField {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::raw_contours`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -211,7 +214,10 @@
     Linkage {
         data: LinkageData::MemoizedField {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::eff_holes`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -224,7 +230,10 @@
     Linkage {
         data: LinkageData::MemoizedField {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::max_hole_ilen`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -237,7 +246,10 @@
     Linkage {
         data: LinkageData::MemoizedField {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::max_row_span`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -250,7 +262,10 @@
     Linkage {
         data: LinkageData::MemoizedField {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::row_span_sum`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -263,7 +278,10 @@
     Linkage {
         data: LinkageData::MemoizedField {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::distribution`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::connected_component::ConnectedComponent(0)::distribution`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -276,7 +294,10 @@
     Linkage {
         data: LinkageData::MemoizedField {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::upper_mass`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -289,7 +310,10 @@
     Linkage {
         data: LinkageData::MemoizedField {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::lower_mass`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -302,9 +326,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::top_k_row_span_sum`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -317,9 +344,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::top_k_row_right_mass_sum`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -679,7 +709,10 @@
     Linkage {
         data: LinkageData::MemoizedField {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::line_segment_sketch`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -692,7 +725,10 @@
     Linkage {
         data: LinkageData::MemoizedField {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::bounding_box`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::raw_contour::RawContour(0)::bounding_box`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -705,7 +741,10 @@
     Linkage {
         data: LinkageData::MemoizedField {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::relative_bounding_box`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -718,7 +757,10 @@
     Linkage {
         data: LinkageData::MemoizedField {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::contour_len`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::raw_contour::RawContour(0)::contour_len`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -731,9 +773,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::raw_contour::RawContour(0)::displacement`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1052,9 +1097,12 @@
     Linkage {
         data: LinkageData::AssocRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::from_i_shift28`, `AssocRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::geom2d::Point2d(0)::from_i_shift28`,
+                    TypeItemKind::AssocRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1067,9 +1115,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::vector`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::geom2d::Point2d(0)::vector`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1082,9 +1133,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::to`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::geom2d::Point2d(0)::to`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1097,9 +1151,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::norm`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::geom2d::Point2d(0)::norm`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1112,9 +1169,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::dist`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::geom2d::Point2d(0)::dist`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1127,9 +1187,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::point`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::geom2d::Vector2d(0)::point`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1142,9 +1205,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::to`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::geom2d::Vector2d(0)::to`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1157,9 +1223,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::norm`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::geom2d::Vector2d(0)::norm`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1172,9 +1241,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::dot`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::geom2d::Vector2d(0)::dot`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1187,9 +1259,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::cross`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::geom2d::Vector2d(0)::cross`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1202,9 +1277,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::angle`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::geom2d::Vector2d(0)::angle`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1217,9 +1295,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::rotation_direction_to`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1232,9 +1313,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::angle_to`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::geom2d::Vector2d(0)::angle_to`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1247,9 +1331,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::geom2d::ClosedRange(0)>::relative_range`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::geom2d::ClosedRange(0)::relative_range`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1262,9 +1349,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::geom2d::ClosedRange(0)>::relative_point`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::geom2d::ClosedRange(0)::relative_point`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1277,9 +1367,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::relative_bounding_box`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1292,9 +1385,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::relative_point`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::geom2d::BoundingBox(0)::relative_point`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1307,9 +1403,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::xmin`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::geom2d::BoundingBox(0)::xmin`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1322,9 +1421,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::xmax`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::geom2d::BoundingBox(0)::xmax`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1337,9 +1439,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::ymin`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::geom2d::BoundingBox(0)::ymin`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1352,9 +1457,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::ymax`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::geom2d::BoundingBox(0)::ymax`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1367,9 +1475,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::xmin`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::geom2d::RelativeBoundingBox(0)::xmin`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1382,9 +1493,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::xmax`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::geom2d::RelativeBoundingBox(0)::xmax`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1397,9 +1511,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::ymin`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1412,9 +1529,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::ymax`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1601,9 +1721,12 @@
     Linkage {
         data: LinkageData::AssocRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::new`, `AssocRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`,
+                    TypeItemKind::AssocRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1616,9 +1739,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::displacement`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1631,7 +1757,10 @@
     Linkage {
         data: LinkageData::MemoizedField {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::concave_components`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1644,7 +1773,10 @@
     Linkage {
         data: LinkageData::MemoizedField {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::bounding_box`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1657,9 +1789,12 @@
     Linkage {
         data: LinkageData::AssocRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::new`, `AssocRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`,
+                    TypeItemKind::AssocRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1734,7 +1869,10 @@
     Linkage {
         data: LinkageData::MemoizedField {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::norm`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1747,7 +1885,10 @@
     Linkage {
         data: LinkageData::MemoizedField {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::rel_norm`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1760,7 +1901,10 @@
     Linkage {
         data: LinkageData::MemoizedField {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::hausdorff_norm`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::hausdorff_norm`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1773,7 +1917,10 @@
     Linkage {
         data: LinkageData::MemoizedField {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::angle_change`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1786,7 +1933,10 @@
     Linkage {
         data: LinkageData::MemoizedField {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::bounding_box`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1799,7 +1949,10 @@
     Linkage {
         data: LinkageData::MemoizedField {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::relative_bounding_box`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1812,9 +1965,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::line_segment`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::line_segment`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1827,9 +1983,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::start`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1842,9 +2001,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::end`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1857,9 +2019,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::displacement`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1872,9 +2037,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::start_tangent`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start_tangent`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -1887,9 +2055,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::end_tangent`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end_tangent`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -2015,9 +2186,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)>::displacement`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -2030,9 +2204,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)>::dist_to_point`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::dist_to_point`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -2107,7 +2284,10 @@
     Linkage {
         data: LinkageData::MemoizedField {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::norm`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -2120,7 +2300,10 @@
     Linkage {
         data: LinkageData::MemoizedField {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::rel_norm`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -2133,7 +2316,10 @@
     Linkage {
         data: LinkageData::MemoizedField {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::angle_change_norm`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -2781,9 +2967,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::vec::Vec(0)::push`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
@@ -2825,9 +3014,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<core::vec::Vec(0)>::collect_leashes`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::vec::Vec(0)::collect_leashes`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
@@ -2891,9 +3083,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<core::vec::Vec(0)>::pop_with_largest_opt_f32`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::vec::Vec(0)::pop_with_largest_opt_f32`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
@@ -2935,9 +3130,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::vec::Vec(0)::push`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
@@ -2979,9 +3177,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::vec::Vec(0)::ilen`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
@@ -3017,9 +3218,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::vec::Vec(0)::ilen`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
@@ -3075,9 +3279,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<core::vec::Vec(0)>::last`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::vec::Vec(0)::last`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
@@ -3121,9 +3328,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<core::vec::Vec(0)>::last`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::vec::Vec(0)::last`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
@@ -3167,9 +3377,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::vec::Vec(0)::push`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
@@ -3211,9 +3424,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<core::vec::Vec(0)>::pop`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::vec::Vec(0)::pop`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
@@ -3255,9 +3471,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::vec::Vec(0)::push`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
@@ -3299,9 +3518,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::slice::CyclicSlice(0)::first`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
@@ -3372,9 +3594,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<core::slice::CyclicSlice(0)>::last`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::slice::CyclicSlice(0)::last`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
@@ -3420,9 +3645,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::vec::Vec(0)::ilen`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
@@ -3458,265 +3686,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<core::vec::Vec(0)>::last`, `MethodRitchie(
-                    Fn,
-                )`),
-            ),
-            instantiation: LinInstantiation {
-                symbol_resolutions: [
-                    (
-                        Type(
-                            Type {
-                                attrs: HirTemplateVariableAttrs {
-                                    class: Comptime,
-                                },
-                                variance: None,
-                                disambiguator: 0,
-                            },
-                        ),
-                        Explicit(
-                            Type(
-                                PathLeading(
-                                    LinTypePathLeading(
-                                        Id {
-                                            value: 13,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
+                TypeItemPath(
+                    `core::vec::Vec(0)::last`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
                     ),
-                    (
-                        Type(
-                            SelfPlace,
-                        ),
-                        SelfQual(
-                            Ref,
-                        ),
-                    ),
-                ],
-                separator: Some(
-                    1,
                 ),
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::MethodRitchie {
-            path: AssocItemPath::TypeItem(
-                TypeItemPath(`<core::vec::Vec(0)>::last`, `MethodRitchie(
-                    Fn,
-                )`),
-            ),
-            instantiation: LinInstantiation {
-                symbol_resolutions: [
-                    (
-                        Type(
-                            Type {
-                                attrs: HirTemplateVariableAttrs {
-                                    class: Comptime,
-                                },
-                                variance: None,
-                                disambiguator: 0,
-                            },
-                        ),
-                        Explicit(
-                            Type(
-                                PathLeading(
-                                    LinTypePathLeading(
-                                        Id {
-                                            value: 13,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                    (
-                        Type(
-                            SelfPlace,
-                        ),
-                        SelfQual(
-                            RefMut,
-                        ),
-                    ),
-                ],
-                separator: Some(
-                    1,
-                ),
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::MethodRitchie {
-            path: AssocItemPath::TypeItem(
-                TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
-                    Fn,
-                )`),
-            ),
-            instantiation: LinInstantiation {
-                symbol_resolutions: [
-                    (
-                        Type(
-                            Type {
-                                attrs: HirTemplateVariableAttrs {
-                                    class: Comptime,
-                                },
-                                variance: None,
-                                disambiguator: 0,
-                            },
-                        ),
-                        Explicit(
-                            Type(
-                                PathLeading(
-                                    LinTypePathLeading(
-                                        Id {
-                                            value: 7,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ],
-                separator: Some(
-                    1,
-                ),
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::MethodRitchie {
-            path: AssocItemPath::TypeItem(
-                TypeItemPath(`<core::vec::Vec(0)>::pop`, `MethodRitchie(
-                    Fn,
-                )`),
-            ),
-            instantiation: LinInstantiation {
-                symbol_resolutions: [
-                    (
-                        Type(
-                            Type {
-                                attrs: HirTemplateVariableAttrs {
-                                    class: Comptime,
-                                },
-                                variance: None,
-                                disambiguator: 0,
-                            },
-                        ),
-                        Explicit(
-                            Type(
-                                PathLeading(
-                                    LinTypePathLeading(
-                                        Id {
-                                            value: 13,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                    (
-                        Type(
-                            SelfLifetime,
-                        ),
-                        SelfLifetime,
-                    ),
-                ],
-                separator: Some(
-                    1,
-                ),
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::MethodRitchie {
-            path: AssocItemPath::TypeItem(
-                TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
-                    Fn,
-                )`),
-            ),
-            instantiation: LinInstantiation {
-                symbol_resolutions: [
-                    (
-                        Type(
-                            Type {
-                                attrs: HirTemplateVariableAttrs {
-                                    class: Comptime,
-                                },
-                                variance: None,
-                                disambiguator: 0,
-                            },
-                        ),
-                        Explicit(
-                            Type(
-                                PathLeading(
-                                    LinTypePathLeading(
-                                        Id {
-                                            value: 7,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                ],
-                separator: Some(
-                    1,
-                ),
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::MethodRitchie {
-            path: AssocItemPath::TypeItem(
-                TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
-                    Fn,
-                )`),
-            ),
-            instantiation: LinInstantiation {
-                symbol_resolutions: [
-                    (
-                        Type(
-                            Type {
-                                attrs: HirTemplateVariableAttrs {
-                                    class: Comptime,
-                                },
-                                variance: None,
-                                disambiguator: 0,
-                            },
-                        ),
-                        Explicit(
-                            Type(
-                                PathLeading(
-                                    LinTypePathLeading(
-                                        Id {
-                                            value: 13,
-                                        },
-                                    ),
-                                ),
-                            ),
-                        ),
-                    ),
-                    (
-                        Type(
-                            SelfLifetime,
-                        ),
-                        SelfLifetime,
-                    ),
-                ],
-                separator: Some(
-                    1,
-                ),
-            },
-        },
-    },
-    Linkage {
-        data: LinkageData::MethodRitchie {
-            path: AssocItemPath::TypeItem(
-                TypeItemPath(`<core::vec::Vec(0)>::first`, `MethodRitchie(
-                    Fn,
-                )`),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
@@ -3760,9 +3735,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<core::vec::Vec(0)>::first`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::vec::Vec(0)::last`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
@@ -3806,9 +3784,286 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<core::vec::Vec(0)>::cyclic_slice_leashed`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::slice::CyclicSlice(0)::start`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
+            ),
+            instantiation: LinInstantiation {
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateVariableAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinTypePathLeading(
+                                        Id {
+                                            value: 7,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
+                separator: Some(
+                    1,
+                ),
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::MethodRitchie {
+            path: AssocItemPath::TypeItem(
+                TypeItemPath(
+                    `core::vec::Vec(0)::pop`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
+            ),
+            instantiation: LinInstantiation {
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateVariableAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinTypePathLeading(
+                                        Id {
+                                            value: 13,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                    (
+                        Type(
+                            SelfLifetime,
+                        ),
+                        SelfLifetime,
+                    ),
+                ],
+                separator: Some(
+                    1,
+                ),
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::MethodRitchie {
+            path: AssocItemPath::TypeItem(
+                TypeItemPath(
+                    `core::slice::CyclicSlice(0)::end`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
+            ),
+            instantiation: LinInstantiation {
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateVariableAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinTypePathLeading(
+                                        Id {
+                                            value: 7,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                ],
+                separator: Some(
+                    1,
+                ),
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::MethodRitchie {
+            path: AssocItemPath::TypeItem(
+                TypeItemPath(
+                    `core::vec::Vec(0)::push`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
+            ),
+            instantiation: LinInstantiation {
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateVariableAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinTypePathLeading(
+                                        Id {
+                                            value: 13,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                    (
+                        Type(
+                            SelfLifetime,
+                        ),
+                        SelfLifetime,
+                    ),
+                ],
+                separator: Some(
+                    1,
+                ),
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::MethodRitchie {
+            path: AssocItemPath::TypeItem(
+                TypeItemPath(
+                    `core::vec::Vec(0)::first`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
+            ),
+            instantiation: LinInstantiation {
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateVariableAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinTypePathLeading(
+                                        Id {
+                                            value: 13,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                    (
+                        Type(
+                            SelfPlace,
+                        ),
+                        SelfQual(
+                            Ref,
+                        ),
+                    ),
+                ],
+                separator: Some(
+                    1,
+                ),
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::MethodRitchie {
+            path: AssocItemPath::TypeItem(
+                TypeItemPath(
+                    `core::vec::Vec(0)::first`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
+            ),
+            instantiation: LinInstantiation {
+                symbol_resolutions: [
+                    (
+                        Type(
+                            Type {
+                                attrs: HirTemplateVariableAttrs {
+                                    class: Comptime,
+                                },
+                                variance: None,
+                                disambiguator: 0,
+                            },
+                        ),
+                        Explicit(
+                            Type(
+                                PathLeading(
+                                    LinTypePathLeading(
+                                        Id {
+                                            value: 13,
+                                        },
+                                    ),
+                                ),
+                            ),
+                        ),
+                    ),
+                    (
+                        Type(
+                            SelfPlace,
+                        ),
+                        SelfQual(
+                            RefMut,
+                        ),
+                    ),
+                ],
+                separator: Some(
+                    1,
+                ),
+            },
+        },
+    },
+    Linkage {
+        data: LinkageData::MethodRitchie {
+            path: AssocItemPath::TypeItem(
+                TypeItemPath(
+                    `core::vec::Vec(0)::cyclic_slice_leashed`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
@@ -3854,9 +4109,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<core::vec::Vec(0)>::cyclic_slice_leashed`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::vec::Vec(0)::cyclic_slice_leashed`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
@@ -3892,9 +4150,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::vec::Vec(0)::push`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
@@ -3936,9 +4197,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::slice::CyclicSlice(0)::first`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
@@ -3974,9 +4238,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::slice::CyclicSlice(0)::start`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
@@ -4012,9 +4279,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::slice::CyclicSlice(0)::end`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
@@ -4050,9 +4320,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<core::slice::CyclicSlice(0)>::last`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::slice::CyclicSlice(0)::last`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
@@ -4088,9 +4361,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<core::vec::Vec(0)>::collect_leashes`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::vec::Vec(0)::collect_leashes`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
@@ -4154,9 +4430,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::vec::Vec(0)::ilen`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
@@ -4192,9 +4471,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<core::vec::Vec(0)>::pop_with_largest_opt_f32`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::vec::Vec(0)::pop_with_largest_opt_f32`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
@@ -4236,9 +4518,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::vec::Vec(0)::push`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
@@ -4280,9 +4565,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::vec::Vec(0)::ilen`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
@@ -4353,9 +4641,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::vec::Vec(0)::ilen`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [
@@ -4435,9 +4726,12 @@
     Linkage {
         data: LinkageData::MethodRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::vec::Vec(0)::ilen`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [

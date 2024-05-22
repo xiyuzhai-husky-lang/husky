@@ -102,27 +102,27 @@
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
-            TypeImplBlockPath(
-                ItemPathId(
-                    Id {
-                        value: 305,
-                    },
+            TypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)`),
+        ),
+    ),
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
+            TypeItemPath(
+                `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`,
+                TypeItemKind::AssocRitchie(
+                    RitchieItemKind::Fn,
                 ),
             ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::new`, `AssocRitchie(
-                Fn,
-            )`),
-        ),
-    ),
-    ItemPath::AssocItem(
-        AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::displacement`, `MethodRitchie(
-                Fn,
-            )`),
+            TypeItemPath(
+                `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::ImplBlock(
@@ -142,30 +142,33 @@
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
-            TypeImplBlockPath(
-                ItemPathId(
-                    Id {
-                        value: 307,
-                    },
-                ),
+            TypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)`),
+        ),
+    ),
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
+            TypeItemPath(
+                `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`,
+                TypeItemKind::MemoizedField,
             ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::concave_components`, `MemoizedField`),
+            TypeItemPath(
+                `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`,
+                TypeItemKind::MemoizedField,
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::bounding_box`, `MemoizedField`),
-        ),
-    ),
-    ItemPath::AssocItem(
-        AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::new`, `AssocRitchie(
-                Fn,
-            )`),
+            TypeItemPath(
+                `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`,
+                TypeItemKind::AssocRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
 ]

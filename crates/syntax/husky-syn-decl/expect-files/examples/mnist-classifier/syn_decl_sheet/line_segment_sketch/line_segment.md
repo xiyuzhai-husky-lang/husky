@@ -271,25 +271,13 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 311,
-                            },
-                        ),
-                    ),
+                    TypeImplBlockPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)`),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::Type(
                     TypeImplBlockSynDecl {
-                        path: TypeImplBlockPath(
-                            ItemPathId(
-                                Id {
-                                    value: 311,
-                                },
-                            ),
-                        ),
+                        path: TypeImplBlockPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)`),
                         template_parameters: [],
                         self_ty_expr: SelfTypeSyndicate {
                             expr: 0,
@@ -305,13 +293,7 @@ SynDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                             TypeImplBlockSynNodePathData {
-                                                                path: TypeImplBlockPath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 311,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                path: TypeImplBlockPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)`),
                                                             },
                                                         ),
                                                     ),
@@ -401,18 +383,24 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)>::displacement`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    TypeItemPath(
+                        `mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodRitchieSynDecl {
-                            path: TypeItemPath(`<mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)>::displacement`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            path: TypeItemPath(
+                                `mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -435,13 +423,7 @@ SynDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 311,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -534,9 +516,12 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)>::displacement`, `MethodRitchie(
-                                                                            Fn,
-                                                                        )`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`,
+                                                                            TypeItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -629,18 +614,24 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)>::dist_to_point`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    TypeItemPath(
+                        `mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::dist_to_point`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodRitchieSynDecl {
-                            path: TypeItemPath(`<mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)>::dist_to_point`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            path: TypeItemPath(
+                                `mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::dist_to_point`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -678,13 +669,7 @@ SynDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 311,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -777,9 +762,12 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)>::dist_to_point`, `MethodRitchie(
-                                                                            Fn,
-                                                                        )`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::dist_to_point`,
+                                                                            TypeItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },

@@ -126,12 +126,18 @@
                                                 ),
                                             },
                                             path: AssocItemPath::TypeItem(
-                                                TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::contour_len`, `MemoizedField`),
+                                                TypeItemPath(
+                                                    `mnist_classifier::raw_contour::RawContour(0)::contour_len`,
+                                                    TypeItemKind::MemoizedField,
+                                                ),
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath::AssocItem(
                                                     AssocItemPath::TypeItem(
-                                                        TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::contour_len`, `MemoizedField`),
+                                                        TypeItemPath(
+                                                            `mnist_classifier::raw_contour::RawContour(0)::contour_len`,
+                                                            TypeItemKind::MemoizedField,
+                                                        ),
                                                     ),
                                                 ),
                                                 env: MemoizedField,
@@ -6964,9 +6970,12 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::raw_bits::r32(0)>::ctz`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    TypeItemPath(
+                                                        `core::raw_bits::r32(0)::ctz`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
@@ -6987,9 +6996,12 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`<core::raw_bits::r32(0)>::ctz`, `MethodRitchie(
-                                                                Fn,
-                                                            )`),
+                                                            TypeItemPath(
+                                                                `core::raw_bits::r32(0)::ctz`,
+                                                                TypeItemKind::MethodRitchie(
+                                                                    RitchieItemKind::Fn,
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -12244,9 +12256,12 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    TypeItemPath(
+                                                        `core::vec::Vec(0)::push`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: BorrowMut,
@@ -12279,9 +12294,12 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
-                                                                Fn,
-                                                            )`),
+                                                            TypeItemPath(
+                                                                `core::vec::Vec(0)::push`,
+                                                                TypeItemKind::MethodRitchie(
+                                                                    RitchieItemKind::Fn,
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -19628,7 +19646,10 @@
         path: RegionPath::Defn(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::raw_contours`, `MemoizedField`),
+                    TypeItemPath(
+                        `mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`,
+                        TypeItemKind::MemoizedField,
+                    ),
                 ),
             ),
         ),
@@ -19636,7 +19657,10 @@
             path: RegionPath::Defn(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::raw_contours`, `MemoizedField`),
+                        TypeItemPath(
+                            `mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`,
+                            TypeItemKind::MemoizedField,
+                        ),
                     ),
                 ),
             ),
@@ -20091,7 +20115,10 @@
         path: RegionPath::Defn(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::eff_holes`, `MemoizedField`),
+                    TypeItemPath(
+                        `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
+                        TypeItemKind::MemoizedField,
+                    ),
                 ),
             ),
         ),
@@ -20099,7 +20126,10 @@
             path: RegionPath::Defn(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::eff_holes`, `MemoizedField`),
+                        TypeItemPath(
+                            `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
+                            TypeItemKind::MemoizedField,
+                        ),
                     ),
                 ),
             ),
@@ -20209,12 +20239,18 @@
                                                 ),
                                             },
                                             path: AssocItemPath::TypeItem(
-                                                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::raw_contours`, `MemoizedField`),
+                                                TypeItemPath(
+                                                    `mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`,
+                                                    TypeItemKind::MemoizedField,
+                                                ),
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath::AssocItem(
                                                     AssocItemPath::TypeItem(
-                                                        TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::raw_contours`, `MemoizedField`),
+                                                        TypeItemPath(
+                                                            `mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`,
+                                                            TypeItemKind::MemoizedField,
+                                                        ),
                                                     ),
                                                 ),
                                                 env: MemoizedField,
@@ -20292,9 +20328,12 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::vec::Vec(0)>::collect_leashes`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    TypeItemPath(
+                                                        `core::vec::Vec(0)::collect_leashes`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Leash,
@@ -20315,9 +20354,12 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`<core::vec::Vec(0)>::collect_leashes`, `MethodRitchie(
-                                                                Fn,
-                                                            )`),
+                                                            TypeItemPath(
+                                                                `core::vec::Vec(0)::collect_leashes`,
+                                                                TypeItemKind::MethodRitchie(
+                                                                    RitchieItemKind::Fn,
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -20700,9 +20742,12 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::vec::Vec(0)>::pop_with_largest_opt_f32`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    TypeItemPath(
+                                                        `core::vec::Vec(0)::pop_with_largest_opt_f32`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: BorrowMut,
@@ -20735,9 +20780,12 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`<core::vec::Vec(0)>::pop_with_largest_opt_f32`, `MethodRitchie(
-                                                                Fn,
-                                                            )`),
+                                                            TypeItemPath(
+                                                                `core::vec::Vec(0)::pop_with_largest_opt_f32`,
+                                                                TypeItemKind::MethodRitchie(
+                                                                    RitchieItemKind::Fn,
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -20999,9 +21047,12 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::vec::Vec(0)>::pop_with_largest_opt_f32`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    TypeItemPath(
+                                                        `core::vec::Vec(0)::pop_with_largest_opt_f32`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: BorrowMut,
@@ -21034,9 +21085,12 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`<core::vec::Vec(0)>::pop_with_largest_opt_f32`, `MethodRitchie(
-                                                                Fn,
-                                                            )`),
+                                                            TypeItemPath(
+                                                                `core::vec::Vec(0)::pop_with_largest_opt_f32`,
+                                                                TypeItemKind::MethodRitchie(
+                                                                    RitchieItemKind::Fn,
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -21160,9 +21214,12 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    TypeItemPath(
+                                                        `core::vec::Vec(0)::push`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: BorrowMut,
@@ -21195,9 +21252,12 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
-                                                                Fn,
-                                                            )`),
+                                                            TypeItemPath(
+                                                                `core::vec::Vec(0)::push`,
+                                                                TypeItemKind::MethodRitchie(
+                                                                    RitchieItemKind::Fn,
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -21459,9 +21519,12 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::vec::Vec(0)>::pop_with_largest_opt_f32`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    TypeItemPath(
+                                                        `core::vec::Vec(0)::pop_with_largest_opt_f32`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: BorrowMut,
@@ -21494,9 +21557,12 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`<core::vec::Vec(0)>::pop_with_largest_opt_f32`, `MethodRitchie(
-                                                                Fn,
-                                                            )`),
+                                                            TypeItemPath(
+                                                                `core::vec::Vec(0)::pop_with_largest_opt_f32`,
+                                                                TypeItemKind::MethodRitchie(
+                                                                    RitchieItemKind::Fn,
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -21620,9 +21686,12 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    TypeItemPath(
+                                                        `core::vec::Vec(0)::push`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: BorrowMut,
@@ -21655,9 +21724,12 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
-                                                                Fn,
-                                                            )`),
+                                                            TypeItemPath(
+                                                                `core::vec::Vec(0)::push`,
+                                                                TypeItemKind::MethodRitchie(
+                                                                    RitchieItemKind::Fn,
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -23298,7 +23370,10 @@
         path: RegionPath::Defn(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::max_hole_ilen`, `MemoizedField`),
+                    TypeItemPath(
+                        `mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`,
+                        TypeItemKind::MemoizedField,
+                    ),
                 ),
             ),
         ),
@@ -23306,7 +23381,10 @@
             path: RegionPath::Defn(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::max_hole_ilen`, `MemoizedField`),
+                        TypeItemPath(
+                            `mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`,
+                            TypeItemKind::MemoizedField,
+                        ),
                     ),
                 ),
             ),
@@ -23465,12 +23543,18 @@
                                                 ),
                                             },
                                             path: AssocItemPath::TypeItem(
-                                                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::raw_contours`, `MemoizedField`),
+                                                TypeItemPath(
+                                                    `mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`,
+                                                    TypeItemKind::MemoizedField,
+                                                ),
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath::AssocItem(
                                                     AssocItemPath::TypeItem(
-                                                        TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::raw_contours`, `MemoizedField`),
+                                                        TypeItemPath(
+                                                            `mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`,
+                                                            TypeItemKind::MemoizedField,
+                                                        ),
                                                     ),
                                                 ),
                                                 env: MemoizedField,
@@ -23634,9 +23718,12 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    TypeItemPath(
+                                                        `core::vec::Vec(0)::ilen`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
@@ -23657,9 +23744,12 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
-                                                                Fn,
-                                                            )`),
+                                                            TypeItemPath(
+                                                                `core::vec::Vec(0)::ilen`,
+                                                                TypeItemKind::MethodRitchie(
+                                                                    RitchieItemKind::Fn,
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -24057,9 +24147,12 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    TypeItemPath(
+                                                        `core::vec::Vec(0)::ilen`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
@@ -24080,9 +24173,12 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
-                                                                Fn,
-                                                            )`),
+                                                            TypeItemPath(
+                                                                `core::vec::Vec(0)::ilen`,
+                                                                TypeItemKind::MethodRitchie(
+                                                                    RitchieItemKind::Fn,
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -26004,7 +26100,10 @@
         path: RegionPath::Defn(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::max_row_span`, `MemoizedField`),
+                    TypeItemPath(
+                        `mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`,
+                        TypeItemKind::MemoizedField,
+                    ),
                 ),
             ),
         ),
@@ -26012,7 +26111,10 @@
             path: RegionPath::Defn(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::max_row_span`, `MemoizedField`),
+                        TypeItemPath(
+                            `mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`,
+                            TypeItemKind::MemoizedField,
+                        ),
                     ),
                 ),
             ),
@@ -26613,9 +26715,12 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::raw_bits::r32(0)>::span`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    TypeItemPath(
+                                                        `core::raw_bits::r32(0)::span`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
@@ -26636,9 +26741,12 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`<core::raw_bits::r32(0)>::span`, `MethodRitchie(
-                                                                Fn,
-                                                            )`),
+                                                            TypeItemPath(
+                                                                `core::raw_bits::r32(0)::span`,
+                                                                TypeItemKind::MethodRitchie(
+                                                                    RitchieItemKind::Fn,
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -26719,9 +26827,12 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::num::i32(0)>::max`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    TypeItemPath(
+                                                        `core::num::i32(0)::max`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
@@ -26754,9 +26865,12 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`<core::num::i32(0)>::max`, `MethodRitchie(
-                                                                Fn,
-                                                            )`),
+                                                            TypeItemPath(
+                                                                `core::num::i32(0)::max`,
+                                                                TypeItemKind::MethodRitchie(
+                                                                    RitchieItemKind::Fn,
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -28093,7 +28207,10 @@
         path: RegionPath::Defn(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::row_span_sum`, `MemoizedField`),
+                    TypeItemPath(
+                        `mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`,
+                        TypeItemKind::MemoizedField,
+                    ),
                 ),
             ),
         ),
@@ -28101,7 +28218,10 @@
             path: RegionPath::Defn(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::row_span_sum`, `MemoizedField`),
+                        TypeItemPath(
+                            `mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`,
+                            TypeItemKind::MemoizedField,
+                        ),
                     ),
                 ),
             ),
@@ -28632,9 +28752,12 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::raw_bits::r32(0)>::span`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    TypeItemPath(
+                                                        `core::raw_bits::r32(0)::span`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
@@ -28655,9 +28778,12 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`<core::raw_bits::r32(0)>::span`, `MethodRitchie(
-                                                                Fn,
-                                                            )`),
+                                                            TypeItemPath(
+                                                                `core::raw_bits::r32(0)::span`,
+                                                                TypeItemKind::MethodRitchie(
+                                                                    RitchieItemKind::Fn,
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -29858,7 +29984,10 @@
         path: RegionPath::Defn(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::distribution`, `MemoizedField`),
+                    TypeItemPath(
+                        `mnist_classifier::connected_component::ConnectedComponent(0)::distribution`,
+                        TypeItemKind::MemoizedField,
+                    ),
                 ),
             ),
         ),
@@ -29866,7 +29995,10 @@
             path: RegionPath::Defn(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::distribution`, `MemoizedField`),
+                        TypeItemPath(
+                            `mnist_classifier::connected_component::ConnectedComponent(0)::distribution`,
+                            TypeItemKind::MemoizedField,
+                        ),
                     ),
                 ),
             ),
@@ -31775,9 +31907,12 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::raw_bits::r32(0)>::co`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    TypeItemPath(
+                                                        `core::raw_bits::r32(0)::co`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
@@ -31798,9 +31933,12 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`<core::raw_bits::r32(0)>::co`, `MethodRitchie(
-                                                                Fn,
-                                                            )`),
+                                                            TypeItemPath(
+                                                                `core::raw_bits::r32(0)::co`,
+                                                                TypeItemKind::MethodRitchie(
+                                                                    RitchieItemKind::Fn,
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -32530,9 +32668,12 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::raw_bits::r32(0)>::co`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    TypeItemPath(
+                                                        `core::raw_bits::r32(0)::co`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
@@ -32553,9 +32694,12 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`<core::raw_bits::r32(0)>::co`, `MethodRitchie(
-                                                                Fn,
-                                                            )`),
+                                                            TypeItemPath(
+                                                                `core::raw_bits::r32(0)::co`,
+                                                                TypeItemKind::MethodRitchie(
+                                                                    RitchieItemKind::Fn,
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -36583,7 +36727,10 @@
         path: RegionPath::Defn(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::upper_mass`, `MemoizedField`),
+                    TypeItemPath(
+                        `mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`,
+                        TypeItemKind::MemoizedField,
+                    ),
                 ),
             ),
         ),
@@ -36591,7 +36738,10 @@
             path: RegionPath::Defn(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::upper_mass`, `MemoizedField`),
+                        TypeItemPath(
+                            `mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`,
+                            TypeItemKind::MemoizedField,
+                        ),
                     ),
                 ),
             ),
@@ -36726,12 +36876,18 @@
                                                 ),
                                             },
                                             path: AssocItemPath::TypeItem(
-                                                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::distribution`, `MemoizedField`),
+                                                TypeItemPath(
+                                                    `mnist_classifier::connected_component::ConnectedComponent(0)::distribution`,
+                                                    TypeItemKind::MemoizedField,
+                                                ),
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath::AssocItem(
                                                     AssocItemPath::TypeItem(
-                                                        TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::distribution`, `MemoizedField`),
+                                                        TypeItemPath(
+                                                            `mnist_classifier::connected_component::ConnectedComponent(0)::distribution`,
+                                                            TypeItemKind::MemoizedField,
+                                                        ),
                                                     ),
                                                 ),
                                                 env: MemoizedField,
@@ -37249,7 +37405,10 @@
         path: RegionPath::Defn(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::lower_mass`, `MemoizedField`),
+                    TypeItemPath(
+                        `mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`,
+                        TypeItemKind::MemoizedField,
+                    ),
                 ),
             ),
         ),
@@ -37257,7 +37416,10 @@
             path: RegionPath::Defn(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::lower_mass`, `MemoizedField`),
+                        TypeItemPath(
+                            `mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`,
+                            TypeItemKind::MemoizedField,
+                        ),
                     ),
                 ),
             ),
@@ -37392,12 +37554,18 @@
                                                 ),
                                             },
                                             path: AssocItemPath::TypeItem(
-                                                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::distribution`, `MemoizedField`),
+                                                TypeItemPath(
+                                                    `mnist_classifier::connected_component::ConnectedComponent(0)::distribution`,
+                                                    TypeItemKind::MemoizedField,
+                                                ),
                                             ),
                                             instantiation: FlyInstantiation {
                                                 path: ItemPath::AssocItem(
                                                     AssocItemPath::TypeItem(
-                                                        TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::distribution`, `MemoizedField`),
+                                                        TypeItemPath(
+                                                            `mnist_classifier::connected_component::ConnectedComponent(0)::distribution`,
+                                                            TypeItemKind::MemoizedField,
+                                                        ),
                                                     ),
                                                 ),
                                                 env: MemoizedField,
@@ -37915,9 +38083,12 @@
         path: RegionPath::Defn(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::top_k_row_span_sum`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    TypeItemPath(
+                        `mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                 ),
             ),
         ),
@@ -37925,9 +38096,12 @@
             path: RegionPath::Defn(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::top_k_row_span_sum`, `MethodRitchie(
-                            Fn,
-                        )`),
+                        TypeItemPath(
+                            `mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`,
+                            TypeItemKind::MethodRitchie(
+                                RitchieItemKind::Fn,
+                            ),
+                        ),
                     ),
                 ),
             ),
@@ -39083,9 +39257,12 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::raw_bits::r32(0)>::span`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    TypeItemPath(
+                                                        `core::raw_bits::r32(0)::span`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
@@ -39106,9 +39283,12 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`<core::raw_bits::r32(0)>::span`, `MethodRitchie(
-                                                                Fn,
-                                                            )`),
+                                                            TypeItemPath(
+                                                                `core::raw_bits::r32(0)::span`,
+                                                                TypeItemKind::MethodRitchie(
+                                                                    RitchieItemKind::Fn,
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -41016,9 +41196,12 @@
         path: RegionPath::Defn(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::top_k_row_right_mass_sum`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    TypeItemPath(
+                        `mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                 ),
             ),
         ),
@@ -41026,9 +41209,12 @@
             path: RegionPath::Defn(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::top_k_row_right_mass_sum`, `MethodRitchie(
-                            Fn,
-                        )`),
+                        TypeItemPath(
+                            `mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`,
+                            TypeItemKind::MethodRitchie(
+                                RitchieItemKind::Fn,
+                            ),
+                        ),
                     ),
                 ),
             ),
@@ -42184,9 +42370,12 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::raw_bits::r32(0)>::right_mass`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    TypeItemPath(
+                                                        `core::raw_bits::r32(0)::right_mass`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
@@ -42207,9 +42396,12 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`<core::raw_bits::r32(0)>::right_mass`, `MethodRitchie(
-                                                                Fn,
-                                                            )`),
+                                                            TypeItemPath(
+                                                                `core::raw_bits::r32(0)::right_mass`,
+                                                                TypeItemKind::MethodRitchie(
+                                                                    RitchieItemKind::Fn,
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                     env: MethodFn {

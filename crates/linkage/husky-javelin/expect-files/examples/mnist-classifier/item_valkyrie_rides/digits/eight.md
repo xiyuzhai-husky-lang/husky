@@ -97,9 +97,12 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         path: JavPath::TypeItem(
-                            TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            TypeItemPath(
+                                `core::slice::CyclicSlice(0)::first`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [

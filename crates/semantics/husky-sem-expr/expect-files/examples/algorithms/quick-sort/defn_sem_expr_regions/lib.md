@@ -113,9 +113,12 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::slice::Slice(0)>::len`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    TypeItemPath(
+                                                        `core::slice::Slice(0)::len`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
@@ -136,9 +139,12 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`<core::slice::Slice(0)>::len`, `MethodRitchie(
-                                                                Fn,
-                                                            )`),
+                                                            TypeItemPath(
+                                                                `core::slice::Slice(0)::len`,
+                                                                TypeItemKind::MethodRitchie(
+                                                                    RitchieItemKind::Fn,
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -7269,9 +7275,12 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::slice::Slice(0)>::swap`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    TypeItemPath(
+                                                        `core::slice::Slice(0)::swap`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: BorrowMut,
@@ -7315,9 +7324,12 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`<core::slice::Slice(0)>::swap`, `MethodRitchie(
-                                                                Fn,
-                                                            )`),
+                                                            TypeItemPath(
+                                                                `core::slice::Slice(0)::swap`,
+                                                                TypeItemKind::MethodRitchie(
+                                                                    RitchieItemKind::Fn,
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -7763,9 +7775,12 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::slice::Slice(0)>::swap`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    TypeItemPath(
+                                                        `core::slice::Slice(0)::swap`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: BorrowMut,
@@ -7809,9 +7824,12 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`<core::slice::Slice(0)>::swap`, `MethodRitchie(
-                                                                Fn,
-                                                            )`),
+                                                            TypeItemPath(
+                                                                `core::slice::Slice(0)::swap`,
+                                                                TypeItemKind::MethodRitchie(
+                                                                    RitchieItemKind::Fn,
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                     env: MethodFn {

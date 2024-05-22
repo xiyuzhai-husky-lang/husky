@@ -1956,13 +1956,7 @@
         path: RegionPath::Decl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 312,
-                            },
-                        ),
-                    ),
+                    TypeImplBlockPath(`mnist_classifier::fermi::FermiMatchResult(0)`),
                 ),
             ),
         ),
@@ -1970,13 +1964,7 @@
             path: RegionPath::Decl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TypeImplBlock(
-                        TypeImplBlockPath(
-                            ItemPathId(
-                                Id {
-                                    value: 312,
-                                },
-                            ),
-                        ),
+                        TypeImplBlockPath(`mnist_classifier::fermi::FermiMatchResult(0)`),
                     ),
                 ),
             ),
@@ -2124,7 +2112,10 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::norm`, `MemoizedField`),
+                    TypeItemPath(
+                        `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
+                        TypeItemKind::MemoizedField,
+                    ),
                 ),
             ),
         ),
@@ -2132,7 +2123,10 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::norm`, `MemoizedField`),
+                        TypeItemPath(
+                            `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
+                            TypeItemKind::MemoizedField,
+                        ),
                     ),
                 ),
             ),
@@ -2282,7 +2276,10 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::rel_norm`, `MemoizedField`),
+                    TypeItemPath(
+                        `mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`,
+                        TypeItemKind::MemoizedField,
+                    ),
                 ),
             ),
         ),
@@ -2290,7 +2287,10 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::rel_norm`, `MemoizedField`),
+                        TypeItemPath(
+                            `mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`,
+                            TypeItemKind::MemoizedField,
+                        ),
                     ),
                 ),
             ),
@@ -2440,7 +2440,10 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::angle_change_norm`, `MemoizedField`),
+                    TypeItemPath(
+                        `mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`,
+                        TypeItemKind::MemoizedField,
+                    ),
                 ),
             ),
         ),
@@ -2448,7 +2451,10 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::angle_change_norm`, `MemoizedField`),
+                        TypeItemPath(
+                            `mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`,
+                            TypeItemKind::MemoizedField,
+                        ),
                     ),
                 ),
             ),

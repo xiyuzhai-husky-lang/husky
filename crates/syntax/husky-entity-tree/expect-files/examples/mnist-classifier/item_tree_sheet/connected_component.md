@@ -2310,13 +2310,7 @@ EntityTreeSheet {
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TypeImplBlock(
                                 TypeImplBlockSynNodePathData {
-                                    path: TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 296,
-                                            },
-                                        ),
-                                    ),
+                                    path: TypeImplBlockPath(`mnist_classifier::connected_component::ConnectedComponent(0)`),
                                 },
                             ),
                         ),
@@ -2330,13 +2324,7 @@ EntityTreeSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TypeImplBlock(
                                     TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 296,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeImplBlockPath(`mnist_classifier::connected_component::ConnectedComponent(0)`),
                                     },
                                 ),
                             ),

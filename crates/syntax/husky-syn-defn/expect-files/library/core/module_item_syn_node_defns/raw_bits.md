@@ -47,13 +47,7 @@
                                 ),
                             ),
                             attr_item_path_result: Ok(
-                                AttrItemPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 237,
-                                        },
-                                    ),
-                                ),
+                                AttrItemPath(`core::raw_bits::r32::@derive(0)`),
                             ),
                         },
                     ),
@@ -70,34 +64,31 @@
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TypeImplBlock(
                                 TypeImplBlockSynNodePathData {
-                                    path: TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 134,
-                                            },
+                                    path: TypeImplBlockPath(`core::raw_bits::r32(0)`),
+                                },
+                            ),
+                        ),
+                    },
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemSynNodePath::AssocItem(
+            AssocItemSynNodePath::TypeItem(
+                TypeItemSynNodePath(
+                    ItemSynNodePathId {
+                        data: ItemSynNodePathData::AssocItem(
+                            AssocItemSynNodePathData::TypeItem(
+                                TypeItemSynNodePathData {
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: TypeItemPath(
+                                            `core::raw_bits::r32(0)::last_bits`,
+                                            TypeItemKind::MethodRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
                                         ),
-                                    ),
-                                },
-                            ),
-                        ),
-                    },
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemSynNodePath::AssocItem(
-            AssocItemSynNodePath::TypeItem(
-                TypeItemSynNodePath(
-                    ItemSynNodePathId {
-                        data: ItemSynNodePathData::AssocItem(
-                            AssocItemSynNodePathData::TypeItem(
-                                TypeItemSynNodePathData {
-                                    disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TypeItemPath(`<core::raw_bits::r32(0)>::last_bits`, `MethodRitchie(
-                                            Fn,
-                                        )`),
                                         disambiguator: 0,
                                     },
                                 },
@@ -118,9 +109,12 @@
                             AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TypeItemPath(`<core::raw_bits::r32(0)>::ctz`, `MethodRitchie(
-                                            Fn,
-                                        )`),
+                                        maybe_ambiguous_item_path: TypeItemPath(
+                                            `core::raw_bits::r32(0)::ctz`,
+                                            TypeItemKind::MethodRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -141,9 +135,12 @@
                             AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TypeItemPath(`<core::raw_bits::r32(0)>::co`, `MethodRitchie(
-                                            Fn,
-                                        )`),
+                                        maybe_ambiguous_item_path: TypeItemPath(
+                                            `core::raw_bits::r32(0)::co`,
+                                            TypeItemKind::MethodRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -164,9 +161,12 @@
                             AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TypeItemPath(`<core::raw_bits::r32(0)>::span`, `MethodRitchie(
-                                            Fn,
-                                        )`),
+                                        maybe_ambiguous_item_path: TypeItemPath(
+                                            `core::raw_bits::r32(0)::span`,
+                                            TypeItemKind::MethodRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -187,9 +187,12 @@
                             AssocItemSynNodePathData::TypeItem(
                                 TypeItemSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TypeItemPath(`<core::raw_bits::r32(0)>::right_mass`, `MethodRitchie(
-                                            Fn,
-                                        )`),
+                                        maybe_ambiguous_item_path: TypeItemPath(
+                                            `core::raw_bits::r32(0)::right_mass`,
+                                            TypeItemKind::MethodRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },

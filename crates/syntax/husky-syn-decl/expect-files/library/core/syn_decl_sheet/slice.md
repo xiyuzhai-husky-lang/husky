@@ -288,25 +288,13 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 137,
-                            },
-                        ),
-                    ),
+                    TypeImplBlockPath(`core::slice::Slice(0)`),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::Type(
                     TypeImplBlockSynDecl {
-                        path: TypeImplBlockPath(
-                            ItemPathId(
-                                Id {
-                                    value: 137,
-                                },
-                            ),
-                        ),
+                        path: TypeImplBlockPath(`core::slice::Slice(0)`),
                         template_parameters: [
                             TemplateSynParameterData {
                                 annotated_variance_token: None,
@@ -336,13 +324,7 @@ SynDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                             TypeImplBlockSynNodePathData {
-                                                                path: TypeImplBlockPath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 137,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                path: TypeImplBlockPath(`core::slice::Slice(0)`),
                                                             },
                                                         ),
                                                     ),
@@ -483,18 +465,24 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<core::slice::Slice(0)>::len`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    TypeItemPath(
+                        `core::slice::Slice(0)::len`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodRitchieSynDecl {
-                            path: TypeItemPath(`<core::slice::Slice(0)>::len`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            path: TypeItemPath(
+                                `core::slice::Slice(0)::len`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -517,13 +505,7 @@ SynDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 137,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`core::slice::Slice(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -667,9 +649,12 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<core::slice::Slice(0)>::len`, `MethodRitchie(
-                                                                            Fn,
-                                                                        )`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `core::slice::Slice(0)::len`,
+                                                                            TypeItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -771,18 +756,24 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<core::slice::Slice(0)>::swap`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    TypeItemPath(
+                        `core::slice::Slice(0)::swap`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodRitchieSynDecl {
-                            path: TypeItemPath(`<core::slice::Slice(0)>::swap`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            path: TypeItemPath(
+                                `core::slice::Slice(0)::swap`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: Some(
                                 SelfValueParameterSyndicate {
@@ -853,13 +844,7 @@ SynDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 137,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`core::slice::Slice(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -1003,9 +988,12 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<core::slice::Slice(0)>::swap`, `MethodRitchie(
-                                                                            Fn,
-                                                                        )`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `core::slice::Slice(0)::swap`,
+                                                                            TypeItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -1832,25 +1820,13 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 139,
-                            },
-                        ),
-                    ),
+                    TypeImplBlockPath(`core::slice::CyclicSlice(0)`),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::Type(
                     TypeImplBlockSynDecl {
-                        path: TypeImplBlockPath(
-                            ItemPathId(
-                                Id {
-                                    value: 139,
-                                },
-                            ),
-                        ),
+                        path: TypeImplBlockPath(`core::slice::CyclicSlice(0)`),
                         template_parameters: [
                             TemplateSynParameterData {
                                 annotated_variance_token: None,
@@ -1880,13 +1856,7 @@ SynDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                             TypeImplBlockSynNodePathData {
-                                                                path: TypeImplBlockPath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 139,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                path: TypeImplBlockPath(`core::slice::CyclicSlice(0)`),
                                                             },
                                                         ),
                                                     ),
@@ -2027,18 +1997,24 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<core::slice::CyclicSlice(0)>::ilen`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    TypeItemPath(
+                        `core::slice::CyclicSlice(0)::ilen`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodRitchieSynDecl {
-                            path: TypeItemPath(`<core::slice::CyclicSlice(0)>::ilen`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            path: TypeItemPath(
+                                `core::slice::CyclicSlice(0)::ilen`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -2061,13 +2037,7 @@ SynDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 139,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`core::slice::CyclicSlice(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -2211,9 +2181,12 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<core::slice::CyclicSlice(0)>::ilen`, `MethodRitchie(
-                                                                            Fn,
-                                                                        )`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `core::slice::CyclicSlice(0)::ilen`,
+                                                                            TypeItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -2315,18 +2288,24 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    TypeItemPath(
+                        `core::slice::CyclicSlice(0)::start`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodRitchieSynDecl {
-                            path: TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            path: TypeItemPath(
+                                `core::slice::CyclicSlice(0)::start`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -2349,13 +2328,7 @@ SynDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 139,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`core::slice::CyclicSlice(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -2499,9 +2472,12 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<core::slice::CyclicSlice(0)>::start`, `MethodRitchie(
-                                                                            Fn,
-                                                                        )`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `core::slice::CyclicSlice(0)::start`,
+                                                                            TypeItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -2603,18 +2579,24 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    TypeItemPath(
+                        `core::slice::CyclicSlice(0)::end`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodRitchieSynDecl {
-                            path: TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            path: TypeItemPath(
+                                `core::slice::CyclicSlice(0)::end`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -2637,13 +2619,7 @@ SynDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 139,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`core::slice::CyclicSlice(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -2787,9 +2763,12 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<core::slice::CyclicSlice(0)>::end`, `MethodRitchie(
-                                                                            Fn,
-                                                                        )`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `core::slice::CyclicSlice(0)::end`,
+                                                                            TypeItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -2891,18 +2870,24 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    TypeItemPath(
+                        `core::slice::CyclicSlice(0)::first`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodRitchieSynDecl {
-                            path: TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            path: TypeItemPath(
+                                `core::slice::CyclicSlice(0)::first`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -2925,13 +2910,7 @@ SynDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 139,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`core::slice::CyclicSlice(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -3075,9 +3054,12 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<core::slice::CyclicSlice(0)>::first`, `MethodRitchie(
-                                                                            Fn,
-                                                                        )`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `core::slice::CyclicSlice(0)::first`,
+                                                                            TypeItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -3179,18 +3161,24 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<core::slice::CyclicSlice(0)>::last`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    TypeItemPath(
+                        `core::slice::CyclicSlice(0)::last`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodRitchieSynDecl {
-                            path: TypeItemPath(`<core::slice::CyclicSlice(0)>::last`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            path: TypeItemPath(
+                                `core::slice::CyclicSlice(0)::last`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [],
@@ -3213,13 +3201,7 @@ SynDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 139,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`core::slice::CyclicSlice(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -3363,9 +3345,12 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<core::slice::CyclicSlice(0)>::last`, `MethodRitchie(
-                                                                            Fn,
-                                                                        )`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `core::slice::CyclicSlice(0)::last`,
+                                                                            TypeItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },

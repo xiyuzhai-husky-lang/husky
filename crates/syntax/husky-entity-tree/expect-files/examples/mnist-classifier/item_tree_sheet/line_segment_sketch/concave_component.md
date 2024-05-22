@@ -2952,13 +2952,7 @@ EntityTreeSheet {
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TypeImplBlock(
                                 TypeImplBlockSynNodePathData {
-                                    path: TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 309,
-                                            },
-                                        ),
-                                    ),
+                                    path: TypeImplBlockPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)`),
                                 },
                             ),
                         ),
@@ -2972,13 +2966,7 @@ EntityTreeSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TypeImplBlock(
                                     TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 309,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeImplBlockPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)`),
                                     },
                                 ),
                             ),

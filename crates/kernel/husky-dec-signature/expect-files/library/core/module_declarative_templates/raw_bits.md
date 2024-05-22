@@ -23,13 +23,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 134,
-                        },
-                    ),
-                ),
+                TypeImplBlockPath(`core::raw_bits::r32(0)`),
             ),
         ),
         Ok(
@@ -58,9 +52,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::raw_bits::r32(0)>::last_bits`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::raw_bits::r32(0)::last_bits`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -68,9 +65,12 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(`<core::raw_bits::r32(0)>::last_bits`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            path: TypeItemPath(
+                                `core::raw_bits::r32(0)::last_bits`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                             impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DecTemplateParameters {
                                     data: [],
@@ -155,9 +155,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::raw_bits::r32(0)>::ctz`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::raw_bits::r32(0)::ctz`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -165,9 +168,12 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(`<core::raw_bits::r32(0)>::ctz`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            path: TypeItemPath(
+                                `core::raw_bits::r32(0)::ctz`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                             impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DecTemplateParameters {
                                     data: [],
@@ -235,9 +241,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::raw_bits::r32(0)>::co`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::raw_bits::r32(0)::co`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -245,9 +254,12 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(`<core::raw_bits::r32(0)>::co`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            path: TypeItemPath(
+                                `core::raw_bits::r32(0)::co`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                             impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DecTemplateParameters {
                                     data: [],
@@ -315,9 +327,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::raw_bits::r32(0)>::span`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::raw_bits::r32(0)::span`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -325,9 +340,12 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(`<core::raw_bits::r32(0)>::span`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            path: TypeItemPath(
+                                `core::raw_bits::r32(0)::span`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                             impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DecTemplateParameters {
                                     data: [],
@@ -395,9 +413,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::raw_bits::r32(0)>::right_mass`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::raw_bits::r32(0)::right_mass`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -405,9 +426,12 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(`<core::raw_bits::r32(0)>::right_mass`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            path: TypeItemPath(
+                                `core::raw_bits::r32(0)::right_mass`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                             impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DecTemplateParameters {
                                     data: [],

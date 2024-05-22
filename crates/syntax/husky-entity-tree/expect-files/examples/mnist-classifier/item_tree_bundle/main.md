@@ -4567,13 +4567,7 @@ EntityTreeCrateBundle {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
-                                            path: TypeImplBlockPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 296,
-                                                    },
-                                                ),
-                                            ),
+                                            path: TypeImplBlockPath(`mnist_classifier::connected_component::ConnectedComponent(0)`),
                                         },
                                     ),
                                 ),
@@ -4587,13 +4581,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::ImplBlock(
                                         ImplBlockSynNodePathData::TypeImplBlock(
                                             TypeImplBlockSynNodePathData {
-                                                path: TypeImplBlockPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 296,
-                                                        },
-                                                    ),
-                                                ),
+                                                path: TypeImplBlockPath(`mnist_classifier::connected_component::ConnectedComponent(0)`),
                                             },
                                         ),
                                     ),
@@ -7727,13 +7715,7 @@ EntityTreeCrateBundle {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
-                                            path: TypeImplBlockPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 298,
-                                                    },
-                                                ),
-                                            ),
+                                            path: TypeImplBlockPath(`mnist_classifier::raw_contour::RawContour(0)`),
                                         },
                                     ),
                                 ),
@@ -7747,13 +7729,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::ImplBlock(
                                         ImplBlockSynNodePathData::TypeImplBlock(
                                             TypeImplBlockSynNodePathData {
-                                                path: TypeImplBlockPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 298,
-                                                        },
-                                                    ),
-                                                ),
+                                                path: TypeImplBlockPath(`mnist_classifier::raw_contour::RawContour(0)`),
                                             },
                                         ),
                                     ),
@@ -8466,13 +8442,7 @@ EntityTreeCrateBundle {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
-                                            path: TypeImplBlockPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 299,
-                                                    },
-                                                ),
-                                            ),
+                                            path: TypeImplBlockPath(`mnist_classifier::geom2d::Point2d(0)`),
                                         },
                                     ),
                                 ),
@@ -8486,13 +8456,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::ImplBlock(
                                         ImplBlockSynNodePathData::TypeImplBlock(
                                             TypeImplBlockSynNodePathData {
-                                                path: TypeImplBlockPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 299,
-                                                        },
-                                                    ),
-                                                ),
+                                                path: TypeImplBlockPath(`mnist_classifier::geom2d::Point2d(0)`),
                                             },
                                         ),
                                     ),
@@ -8520,13 +8484,7 @@ EntityTreeCrateBundle {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
-                                            path: TypeImplBlockPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 300,
-                                                    },
-                                                ),
-                                            ),
+                                            path: TypeImplBlockPath(`mnist_classifier::geom2d::Vector2d(0)`),
                                         },
                                     ),
                                 ),
@@ -8540,13 +8498,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::ImplBlock(
                                         ImplBlockSynNodePathData::TypeImplBlock(
                                             TypeImplBlockSynNodePathData {
-                                                path: TypeImplBlockPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 300,
-                                                        },
-                                                    ),
-                                                ),
+                                                path: TypeImplBlockPath(`mnist_classifier::geom2d::Vector2d(0)`),
                                             },
                                         ),
                                     ),
@@ -8574,13 +8526,7 @@ EntityTreeCrateBundle {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
-                                            path: TypeImplBlockPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 301,
-                                                    },
-                                                ),
-                                            ),
+                                            path: TypeImplBlockPath(`mnist_classifier::geom2d::ClosedRange(0)`),
                                         },
                                     ),
                                 ),
@@ -8594,13 +8540,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::ImplBlock(
                                         ImplBlockSynNodePathData::TypeImplBlock(
                                             TypeImplBlockSynNodePathData {
-                                                path: TypeImplBlockPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 301,
-                                                        },
-                                                    ),
-                                                ),
+                                                path: TypeImplBlockPath(`mnist_classifier::geom2d::ClosedRange(0)`),
                                             },
                                         ),
                                     ),
@@ -8628,13 +8568,7 @@ EntityTreeCrateBundle {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
-                                            path: TypeImplBlockPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 302,
-                                                    },
-                                                ),
-                                            ),
+                                            path: TypeImplBlockPath(`mnist_classifier::geom2d::BoundingBox(0)`),
                                         },
                                     ),
                                 ),
@@ -8648,13 +8582,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::ImplBlock(
                                         ImplBlockSynNodePathData::TypeImplBlock(
                                             TypeImplBlockSynNodePathData {
-                                                path: TypeImplBlockPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 302,
-                                                        },
-                                                    ),
-                                                ),
+                                                path: TypeImplBlockPath(`mnist_classifier::geom2d::BoundingBox(0)`),
                                             },
                                         ),
                                     ),
@@ -8682,13 +8610,7 @@ EntityTreeCrateBundle {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
-                                            path: TypeImplBlockPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 303,
-                                                    },
-                                                ),
-                                            ),
+                                            path: TypeImplBlockPath(`mnist_classifier::geom2d::RelativeBoundingBox(0)`),
                                         },
                                     ),
                                 ),
@@ -8702,13 +8624,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::ImplBlock(
                                         ImplBlockSynNodePathData::TypeImplBlock(
                                             TypeImplBlockSynNodePathData {
-                                                path: TypeImplBlockPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 303,
-                                                        },
-                                                    ),
-                                                ),
+                                                path: TypeImplBlockPath(`mnist_classifier::geom2d::RelativeBoundingBox(0)`),
                                             },
                                         ),
                                     ),
@@ -9782,13 +9698,7 @@ EntityTreeCrateBundle {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
-                                            path: TypeImplBlockPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 305,
-                                                    },
-                                                ),
-                                            ),
+                                            path: TypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)`),
                                         },
                                     ),
                                 ),
@@ -9802,13 +9712,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::ImplBlock(
                                         ImplBlockSynNodePathData::TypeImplBlock(
                                             TypeImplBlockSynNodePathData {
-                                                path: TypeImplBlockPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 305,
-                                                        },
-                                                    ),
-                                                ),
+                                                path: TypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)`),
                                             },
                                         ),
                                     ),
@@ -9888,13 +9792,7 @@ EntityTreeCrateBundle {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
-                                            path: TypeImplBlockPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 307,
-                                                    },
-                                                ),
-                                            ),
+                                            path: TypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)`),
                                         },
                                     ),
                                 ),
@@ -9908,13 +9806,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::ImplBlock(
                                         ImplBlockSynNodePathData::TypeImplBlock(
                                             TypeImplBlockSynNodePathData {
-                                                path: TypeImplBlockPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 307,
-                                                        },
-                                                    ),
-                                                ),
+                                                path: TypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)`),
                                             },
                                         ),
                                     ),
@@ -13263,13 +13155,7 @@ EntityTreeCrateBundle {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
-                                            path: TypeImplBlockPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 309,
-                                                    },
-                                                ),
-                                            ),
+                                            path: TypeImplBlockPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)`),
                                         },
                                     ),
                                 ),
@@ -13283,13 +13169,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::ImplBlock(
                                         ImplBlockSynNodePathData::TypeImplBlock(
                                             TypeImplBlockSynNodePathData {
-                                                path: TypeImplBlockPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 309,
-                                                        },
-                                                    ),
-                                                ),
+                                                path: TypeImplBlockPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)`),
                                             },
                                         ),
                                     ),
@@ -16228,13 +16108,7 @@ EntityTreeCrateBundle {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
-                                            path: TypeImplBlockPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 311,
-                                                    },
-                                                ),
-                                            ),
+                                            path: TypeImplBlockPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)`),
                                         },
                                     ),
                                 ),
@@ -16248,13 +16122,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::ImplBlock(
                                         ImplBlockSynNodePathData::TypeImplBlock(
                                             TypeImplBlockSynNodePathData {
-                                                path: TypeImplBlockPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 311,
-                                                        },
-                                                    ),
-                                                ),
+                                                path: TypeImplBlockPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)`),
                                             },
                                         ),
                                     ),
@@ -18333,13 +18201,7 @@ EntityTreeCrateBundle {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
-                                            path: TypeImplBlockPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 312,
-                                                    },
-                                                ),
-                                            ),
+                                            path: TypeImplBlockPath(`mnist_classifier::fermi::FermiMatchResult(0)`),
                                         },
                                     ),
                                 ),
@@ -18353,13 +18215,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::ImplBlock(
                                         ImplBlockSynNodePathData::TypeImplBlock(
                                             TypeImplBlockSynNodePathData {
-                                                path: TypeImplBlockPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 312,
-                                                        },
-                                                    ),
-                                                ),
+                                                path: TypeImplBlockPath(`mnist_classifier::fermi::FermiMatchResult(0)`),
                                             },
                                         ),
                                     ),

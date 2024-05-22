@@ -39,9 +39,12 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         path: JavPath::TypeItem(
-                            TypeItemPath(`<core::slice::Slice(0)>::len`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            TypeItemPath(
+                                `core::slice::Slice(0)::len`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -267,9 +270,12 @@
                 rides: [
                     ValkyrieRide::PathLeading {
                         path: JavPath::TypeItem(
-                            TypeItemPath(`<core::slice::Slice(0)>::swap`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            TypeItemPath(
+                                `core::slice::Slice(0)::swap`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                         ),
                         hir_instantiation: HirInstantiation {
                             symbol_map: [
@@ -345,13 +351,7 @@
     (
         ItemPath::Attr(
             Room32,
-            AttrItemPath(
-                ItemPathId(
-                    Id {
-                        value: 151,
-                    },
-                ),
-            ),
+            AttrItemPath(`quick_sort::quick_sort_works_for_integers::@test(0)`),
         ),
         None,
     ),
@@ -400,13 +400,7 @@
     (
         ItemPath::Attr(
             Room32,
-            AttrItemPath(
-                ItemPathId(
-                    Id {
-                        value: 152,
-                    },
-                ),
-            ),
+            AttrItemPath(`quick_sort::quick_sort_works_for_strs::@test(0)`),
         ),
         None,
     ),

@@ -1549,13 +1549,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TypeImplBlock(
                                     TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 106,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeImplBlockPath(`core::num::i8(0)`),
                                     },
                                 ),
                             ),
@@ -1571,13 +1565,7 @@ SynNodeDeclSheet {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
-                                            path: TypeImplBlockPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 106,
-                                                    },
-                                                ),
-                                            ),
+                                            path: TypeImplBlockPath(`core::num::i8(0)`),
                                         },
                                     ),
                                 ),
@@ -1614,13 +1602,7 @@ SynNodeDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                             TypeImplBlockSynNodePathData {
-                                                                path: TypeImplBlockPath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 106,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                path: TypeImplBlockPath(`core::num::i8(0)`),
                                                             },
                                                         ),
                                                     ),
@@ -1716,9 +1698,12 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: TypeItemPath(`<core::num::i8(0)>::abs`, `MethodRitchie(
-                                                Fn,
-                                            )`),
+                                            maybe_ambiguous_item_path: TypeItemPath(
+                                                `core::num::i8(0)::abs`,
+                                                TypeItemKind::MethodRitchie(
+                                                    RitchieItemKind::Fn,
+                                                ),
+                                            ),
                                             disambiguator: 0,
                                         },
                                     },
@@ -1738,9 +1723,12 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: TypeItemPath(`<core::num::i8(0)>::abs`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    maybe_ambiguous_item_path: TypeItemPath(
+                                                        `core::num::i8(0)::abs`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -1808,13 +1796,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 106,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`core::num::i8(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -1907,9 +1889,12 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<core::num::i8(0)>::abs`, `MethodRitchie(
-                                                                            Fn,
-                                                                        )`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `core::num::i8(0)::abs`,
+                                                                            TypeItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -2008,9 +1993,12 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: TypeItemPath(`<core::num::i8(0)>::max`, `MethodRitchie(
-                                                Fn,
-                                            )`),
+                                            maybe_ambiguous_item_path: TypeItemPath(
+                                                `core::num::i8(0)::max`,
+                                                TypeItemKind::MethodRitchie(
+                                                    RitchieItemKind::Fn,
+                                                ),
+                                            ),
                                             disambiguator: 0,
                                         },
                                     },
@@ -2030,9 +2018,12 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: TypeItemPath(`<core::num::i8(0)>::max`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    maybe_ambiguous_item_path: TypeItemPath(
+                                                        `core::num::i8(0)::max`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -2115,13 +2106,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 106,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`core::num::i8(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -2214,9 +2199,12 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<core::num::i8(0)>::max`, `MethodRitchie(
-                                                                            Fn,
-                                                                        )`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `core::num::i8(0)::max`,
+                                                                            TypeItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -3075,13 +3063,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TypeImplBlock(
                                     TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 108,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeImplBlockPath(`core::num::i16(0)`),
                                     },
                                 ),
                             ),
@@ -3097,13 +3079,7 @@ SynNodeDeclSheet {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
-                                            path: TypeImplBlockPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 108,
-                                                    },
-                                                ),
-                                            ),
+                                            path: TypeImplBlockPath(`core::num::i16(0)`),
                                         },
                                     ),
                                 ),
@@ -3140,13 +3116,7 @@ SynNodeDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                             TypeImplBlockSynNodePathData {
-                                                                path: TypeImplBlockPath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 108,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                path: TypeImplBlockPath(`core::num::i16(0)`),
                                                             },
                                                         ),
                                                     ),
@@ -3242,9 +3212,12 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: TypeItemPath(`<core::num::i16(0)>::abs`, `MethodRitchie(
-                                                Fn,
-                                            )`),
+                                            maybe_ambiguous_item_path: TypeItemPath(
+                                                `core::num::i16(0)::abs`,
+                                                TypeItemKind::MethodRitchie(
+                                                    RitchieItemKind::Fn,
+                                                ),
+                                            ),
                                             disambiguator: 0,
                                         },
                                     },
@@ -3264,9 +3237,12 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: TypeItemPath(`<core::num::i16(0)>::abs`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    maybe_ambiguous_item_path: TypeItemPath(
+                                                        `core::num::i16(0)::abs`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -3334,13 +3310,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 108,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`core::num::i16(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -3433,9 +3403,12 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<core::num::i16(0)>::abs`, `MethodRitchie(
-                                                                            Fn,
-                                                                        )`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `core::num::i16(0)::abs`,
+                                                                            TypeItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -3534,9 +3507,12 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: TypeItemPath(`<core::num::i16(0)>::max`, `MethodRitchie(
-                                                Fn,
-                                            )`),
+                                            maybe_ambiguous_item_path: TypeItemPath(
+                                                `core::num::i16(0)::max`,
+                                                TypeItemKind::MethodRitchie(
+                                                    RitchieItemKind::Fn,
+                                                ),
+                                            ),
                                             disambiguator: 0,
                                         },
                                     },
@@ -3556,9 +3532,12 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: TypeItemPath(`<core::num::i16(0)>::max`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    maybe_ambiguous_item_path: TypeItemPath(
+                                                        `core::num::i16(0)::max`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -3641,13 +3620,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 108,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`core::num::i16(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -3740,9 +3713,12 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<core::num::i16(0)>::max`, `MethodRitchie(
-                                                                            Fn,
-                                                                        )`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `core::num::i16(0)::max`,
+                                                                            TypeItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -4601,13 +4577,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TypeImplBlock(
                                     TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 110,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeImplBlockPath(`core::num::i32(0)`),
                                     },
                                 ),
                             ),
@@ -4623,13 +4593,7 @@ SynNodeDeclSheet {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
-                                            path: TypeImplBlockPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 110,
-                                                    },
-                                                ),
-                                            ),
+                                            path: TypeImplBlockPath(`core::num::i32(0)`),
                                         },
                                     ),
                                 ),
@@ -4666,13 +4630,7 @@ SynNodeDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                             TypeImplBlockSynNodePathData {
-                                                                path: TypeImplBlockPath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 110,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                path: TypeImplBlockPath(`core::num::i32(0)`),
                                                             },
                                                         ),
                                                     ),
@@ -4768,9 +4726,12 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: TypeItemPath(`<core::num::i32(0)>::abs`, `MethodRitchie(
-                                                Fn,
-                                            )`),
+                                            maybe_ambiguous_item_path: TypeItemPath(
+                                                `core::num::i32(0)::abs`,
+                                                TypeItemKind::MethodRitchie(
+                                                    RitchieItemKind::Fn,
+                                                ),
+                                            ),
                                             disambiguator: 0,
                                         },
                                     },
@@ -4790,9 +4751,12 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: TypeItemPath(`<core::num::i32(0)>::abs`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    maybe_ambiguous_item_path: TypeItemPath(
+                                                        `core::num::i32(0)::abs`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -4860,13 +4824,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 110,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`core::num::i32(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -4959,9 +4917,12 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<core::num::i32(0)>::abs`, `MethodRitchie(
-                                                                            Fn,
-                                                                        )`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `core::num::i32(0)::abs`,
+                                                                            TypeItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -5060,9 +5021,12 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: TypeItemPath(`<core::num::i32(0)>::max`, `MethodRitchie(
-                                                Fn,
-                                            )`),
+                                            maybe_ambiguous_item_path: TypeItemPath(
+                                                `core::num::i32(0)::max`,
+                                                TypeItemKind::MethodRitchie(
+                                                    RitchieItemKind::Fn,
+                                                ),
+                                            ),
                                             disambiguator: 0,
                                         },
                                     },
@@ -5082,9 +5046,12 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: TypeItemPath(`<core::num::i32(0)>::max`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    maybe_ambiguous_item_path: TypeItemPath(
+                                                        `core::num::i32(0)::max`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -5167,13 +5134,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 110,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`core::num::i32(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -5266,9 +5227,12 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<core::num::i32(0)>::max`, `MethodRitchie(
-                                                                            Fn,
-                                                                        )`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `core::num::i32(0)::max`,
+                                                                            TypeItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -5455,9 +5419,12 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: TypeItemPath(`<core::num::i32(0)>::min`, `MethodRitchie(
-                                                Fn,
-                                            )`),
+                                            maybe_ambiguous_item_path: TypeItemPath(
+                                                `core::num::i32(0)::min`,
+                                                TypeItemKind::MethodRitchie(
+                                                    RitchieItemKind::Fn,
+                                                ),
+                                            ),
                                             disambiguator: 0,
                                         },
                                     },
@@ -5477,9 +5444,12 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: TypeItemPath(`<core::num::i32(0)>::min`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    maybe_ambiguous_item_path: TypeItemPath(
+                                                        `core::num::i32(0)::min`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -5562,13 +5532,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 110,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`core::num::i32(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -5661,9 +5625,12 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<core::num::i32(0)>::min`, `MethodRitchie(
-                                                                            Fn,
-                                                                        )`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `core::num::i32(0)::min`,
+                                                                            TypeItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -6522,13 +6489,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TypeImplBlock(
                                     TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 112,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeImplBlockPath(`core::num::i64(0)`),
                                     },
                                 ),
                             ),
@@ -6544,13 +6505,7 @@ SynNodeDeclSheet {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
-                                            path: TypeImplBlockPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 112,
-                                                    },
-                                                ),
-                                            ),
+                                            path: TypeImplBlockPath(`core::num::i64(0)`),
                                         },
                                     ),
                                 ),
@@ -6587,13 +6542,7 @@ SynNodeDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                             TypeImplBlockSynNodePathData {
-                                                                path: TypeImplBlockPath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 112,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                path: TypeImplBlockPath(`core::num::i64(0)`),
                                                             },
                                                         ),
                                                     ),
@@ -6689,9 +6638,12 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: TypeItemPath(`<core::num::i64(0)>::abs`, `MethodRitchie(
-                                                Fn,
-                                            )`),
+                                            maybe_ambiguous_item_path: TypeItemPath(
+                                                `core::num::i64(0)::abs`,
+                                                TypeItemKind::MethodRitchie(
+                                                    RitchieItemKind::Fn,
+                                                ),
+                                            ),
                                             disambiguator: 0,
                                         },
                                     },
@@ -6711,9 +6663,12 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: TypeItemPath(`<core::num::i64(0)>::abs`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    maybe_ambiguous_item_path: TypeItemPath(
+                                                        `core::num::i64(0)::abs`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -6781,13 +6736,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 112,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`core::num::i64(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -6880,9 +6829,12 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<core::num::i64(0)>::abs`, `MethodRitchie(
-                                                                            Fn,
-                                                                        )`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `core::num::i64(0)::abs`,
+                                                                            TypeItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -7653,13 +7605,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TypeImplBlock(
                                     TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 114,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeImplBlockPath(`core::num::i128(0)`),
                                     },
                                 ),
                             ),
@@ -7675,13 +7621,7 @@ SynNodeDeclSheet {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
-                                            path: TypeImplBlockPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 114,
-                                                    },
-                                                ),
-                                            ),
+                                            path: TypeImplBlockPath(`core::num::i128(0)`),
                                         },
                                     ),
                                 ),
@@ -7718,13 +7658,7 @@ SynNodeDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                             TypeImplBlockSynNodePathData {
-                                                                path: TypeImplBlockPath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 114,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                path: TypeImplBlockPath(`core::num::i128(0)`),
                                                             },
                                                         ),
                                                     ),
@@ -7820,9 +7754,12 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: TypeItemPath(`<core::num::i128(0)>::abs`, `MethodRitchie(
-                                                Fn,
-                                            )`),
+                                            maybe_ambiguous_item_path: TypeItemPath(
+                                                `core::num::i128(0)::abs`,
+                                                TypeItemKind::MethodRitchie(
+                                                    RitchieItemKind::Fn,
+                                                ),
+                                            ),
                                             disambiguator: 0,
                                         },
                                     },
@@ -7842,9 +7779,12 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: TypeItemPath(`<core::num::i128(0)>::abs`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    maybe_ambiguous_item_path: TypeItemPath(
+                                                        `core::num::i128(0)::abs`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -7912,13 +7852,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 114,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`core::num::i128(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -8011,9 +7945,12 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<core::num::i128(0)>::abs`, `MethodRitchie(
-                                                                            Fn,
-                                                                        )`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `core::num::i128(0)::abs`,
+                                                                            TypeItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -8784,13 +8721,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TypeImplBlock(
                                     TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 116,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeImplBlockPath(`core::num::isize(0)`),
                                     },
                                 ),
                             ),
@@ -8806,13 +8737,7 @@ SynNodeDeclSheet {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
-                                            path: TypeImplBlockPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 116,
-                                                    },
-                                                ),
-                                            ),
+                                            path: TypeImplBlockPath(`core::num::isize(0)`),
                                         },
                                     ),
                                 ),
@@ -8849,13 +8774,7 @@ SynNodeDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                             TypeImplBlockSynNodePathData {
-                                                                path: TypeImplBlockPath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 116,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                path: TypeImplBlockPath(`core::num::isize(0)`),
                                                             },
                                                         ),
                                                     ),
@@ -8951,9 +8870,12 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: TypeItemPath(`<core::num::isize(0)>::abs`, `MethodRitchie(
-                                                Fn,
-                                            )`),
+                                            maybe_ambiguous_item_path: TypeItemPath(
+                                                `core::num::isize(0)::abs`,
+                                                TypeItemKind::MethodRitchie(
+                                                    RitchieItemKind::Fn,
+                                                ),
+                                            ),
                                             disambiguator: 0,
                                         },
                                     },
@@ -8973,9 +8895,12 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: TypeItemPath(`<core::num::isize(0)>::abs`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    maybe_ambiguous_item_path: TypeItemPath(
+                                                        `core::num::isize(0)::abs`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -9043,13 +8968,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 116,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`core::num::isize(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -9142,9 +9061,12 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<core::num::isize(0)>::abs`, `MethodRitchie(
-                                                                            Fn,
-                                                                        )`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `core::num::isize(0)::abs`,
+                                                                            TypeItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -9915,13 +9837,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TypeImplBlock(
                                     TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 118,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeImplBlockPath(`core::num::u8(0)`),
                                     },
                                 ),
                             ),
@@ -9937,13 +9853,7 @@ SynNodeDeclSheet {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
-                                            path: TypeImplBlockPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 118,
-                                                    },
-                                                ),
-                                            ),
+                                            path: TypeImplBlockPath(`core::num::u8(0)`),
                                         },
                                     ),
                                 ),
@@ -9980,13 +9890,7 @@ SynNodeDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                             TypeImplBlockSynNodePathData {
-                                                                path: TypeImplBlockPath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 118,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                path: TypeImplBlockPath(`core::num::u8(0)`),
                                                             },
                                                         ),
                                                     ),
@@ -10082,9 +9986,12 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: TypeItemPath(`<core::num::u8(0)>::abs`, `MethodRitchie(
-                                                Fn,
-                                            )`),
+                                            maybe_ambiguous_item_path: TypeItemPath(
+                                                `core::num::u8(0)::abs`,
+                                                TypeItemKind::MethodRitchie(
+                                                    RitchieItemKind::Fn,
+                                                ),
+                                            ),
                                             disambiguator: 0,
                                         },
                                     },
@@ -10104,9 +10011,12 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: TypeItemPath(`<core::num::u8(0)>::abs`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    maybe_ambiguous_item_path: TypeItemPath(
+                                                        `core::num::u8(0)::abs`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -10174,13 +10084,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 118,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`core::num::u8(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -10273,9 +10177,12 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<core::num::u8(0)>::abs`, `MethodRitchie(
-                                                                            Fn,
-                                                                        )`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `core::num::u8(0)::abs`,
+                                                                            TypeItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -11046,13 +10953,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TypeImplBlock(
                                     TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 120,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeImplBlockPath(`core::num::u16(0)`),
                                     },
                                 ),
                             ),
@@ -11068,13 +10969,7 @@ SynNodeDeclSheet {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
-                                            path: TypeImplBlockPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 120,
-                                                    },
-                                                ),
-                                            ),
+                                            path: TypeImplBlockPath(`core::num::u16(0)`),
                                         },
                                     ),
                                 ),
@@ -11111,13 +11006,7 @@ SynNodeDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                             TypeImplBlockSynNodePathData {
-                                                                path: TypeImplBlockPath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 120,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                path: TypeImplBlockPath(`core::num::u16(0)`),
                                                             },
                                                         ),
                                                     ),
@@ -11213,9 +11102,12 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: TypeItemPath(`<core::num::u16(0)>::abs`, `MethodRitchie(
-                                                Fn,
-                                            )`),
+                                            maybe_ambiguous_item_path: TypeItemPath(
+                                                `core::num::u16(0)::abs`,
+                                                TypeItemKind::MethodRitchie(
+                                                    RitchieItemKind::Fn,
+                                                ),
+                                            ),
                                             disambiguator: 0,
                                         },
                                     },
@@ -11235,9 +11127,12 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: TypeItemPath(`<core::num::u16(0)>::abs`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    maybe_ambiguous_item_path: TypeItemPath(
+                                                        `core::num::u16(0)::abs`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -11305,13 +11200,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 120,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`core::num::u16(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -11404,9 +11293,12 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<core::num::u16(0)>::abs`, `MethodRitchie(
-                                                                            Fn,
-                                                                        )`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `core::num::u16(0)::abs`,
+                                                                            TypeItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -12177,13 +12069,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TypeImplBlock(
                                     TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 122,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeImplBlockPath(`core::num::u32(0)`),
                                     },
                                 ),
                             ),
@@ -12199,13 +12085,7 @@ SynNodeDeclSheet {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
-                                            path: TypeImplBlockPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 122,
-                                                    },
-                                                ),
-                                            ),
+                                            path: TypeImplBlockPath(`core::num::u32(0)`),
                                         },
                                     ),
                                 ),
@@ -12242,13 +12122,7 @@ SynNodeDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                             TypeImplBlockSynNodePathData {
-                                                                path: TypeImplBlockPath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 122,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                path: TypeImplBlockPath(`core::num::u32(0)`),
                                                             },
                                                         ),
                                                     ),
@@ -12344,9 +12218,12 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: TypeItemPath(`<core::num::u32(0)>::abs`, `MethodRitchie(
-                                                Fn,
-                                            )`),
+                                            maybe_ambiguous_item_path: TypeItemPath(
+                                                `core::num::u32(0)::abs`,
+                                                TypeItemKind::MethodRitchie(
+                                                    RitchieItemKind::Fn,
+                                                ),
+                                            ),
                                             disambiguator: 0,
                                         },
                                     },
@@ -12366,9 +12243,12 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: TypeItemPath(`<core::num::u32(0)>::abs`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    maybe_ambiguous_item_path: TypeItemPath(
+                                                        `core::num::u32(0)::abs`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -12436,13 +12316,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 122,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`core::num::u32(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -12535,9 +12409,12 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<core::num::u32(0)>::abs`, `MethodRitchie(
-                                                                            Fn,
-                                                                        )`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `core::num::u32(0)::abs`,
+                                                                            TypeItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -13308,13 +13185,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TypeImplBlock(
                                     TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 124,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeImplBlockPath(`core::num::u64(0)`),
                                     },
                                 ),
                             ),
@@ -13330,13 +13201,7 @@ SynNodeDeclSheet {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
-                                            path: TypeImplBlockPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 124,
-                                                    },
-                                                ),
-                                            ),
+                                            path: TypeImplBlockPath(`core::num::u64(0)`),
                                         },
                                     ),
                                 ),
@@ -13373,13 +13238,7 @@ SynNodeDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                             TypeImplBlockSynNodePathData {
-                                                                path: TypeImplBlockPath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 124,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                path: TypeImplBlockPath(`core::num::u64(0)`),
                                                             },
                                                         ),
                                                     ),
@@ -13475,9 +13334,12 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: TypeItemPath(`<core::num::u64(0)>::abs`, `MethodRitchie(
-                                                Fn,
-                                            )`),
+                                            maybe_ambiguous_item_path: TypeItemPath(
+                                                `core::num::u64(0)::abs`,
+                                                TypeItemKind::MethodRitchie(
+                                                    RitchieItemKind::Fn,
+                                                ),
+                                            ),
                                             disambiguator: 0,
                                         },
                                     },
@@ -13497,9 +13359,12 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: TypeItemPath(`<core::num::u64(0)>::abs`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    maybe_ambiguous_item_path: TypeItemPath(
+                                                        `core::num::u64(0)::abs`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -13567,13 +13432,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 124,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`core::num::u64(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -13666,9 +13525,12 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<core::num::u64(0)>::abs`, `MethodRitchie(
-                                                                            Fn,
-                                                                        )`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `core::num::u64(0)::abs`,
+                                                                            TypeItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -14439,13 +14301,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TypeImplBlock(
                                     TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 126,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeImplBlockPath(`core::num::u128(0)`),
                                     },
                                 ),
                             ),
@@ -14461,13 +14317,7 @@ SynNodeDeclSheet {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
-                                            path: TypeImplBlockPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 126,
-                                                    },
-                                                ),
-                                            ),
+                                            path: TypeImplBlockPath(`core::num::u128(0)`),
                                         },
                                     ),
                                 ),
@@ -14504,13 +14354,7 @@ SynNodeDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                             TypeImplBlockSynNodePathData {
-                                                                path: TypeImplBlockPath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 126,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                path: TypeImplBlockPath(`core::num::u128(0)`),
                                                             },
                                                         ),
                                                     ),
@@ -14606,9 +14450,12 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: TypeItemPath(`<core::num::u128(0)>::abs`, `MethodRitchie(
-                                                Fn,
-                                            )`),
+                                            maybe_ambiguous_item_path: TypeItemPath(
+                                                `core::num::u128(0)::abs`,
+                                                TypeItemKind::MethodRitchie(
+                                                    RitchieItemKind::Fn,
+                                                ),
+                                            ),
                                             disambiguator: 0,
                                         },
                                     },
@@ -14628,9 +14475,12 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: TypeItemPath(`<core::num::u128(0)>::abs`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    maybe_ambiguous_item_path: TypeItemPath(
+                                                        `core::num::u128(0)::abs`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -14698,13 +14548,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 126,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`core::num::u128(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -14797,9 +14641,12 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<core::num::u128(0)>::abs`, `MethodRitchie(
-                                                                            Fn,
-                                                                        )`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `core::num::u128(0)::abs`,
+                                                                            TypeItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -15570,13 +15417,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TypeImplBlock(
                                     TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 128,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeImplBlockPath(`core::num::usize(0)`),
                                     },
                                 ),
                             ),
@@ -15592,13 +15433,7 @@ SynNodeDeclSheet {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
-                                            path: TypeImplBlockPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 128,
-                                                    },
-                                                ),
-                                            ),
+                                            path: TypeImplBlockPath(`core::num::usize(0)`),
                                         },
                                     ),
                                 ),
@@ -15635,13 +15470,7 @@ SynNodeDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                             TypeImplBlockSynNodePathData {
-                                                                path: TypeImplBlockPath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 128,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                path: TypeImplBlockPath(`core::num::usize(0)`),
                                                             },
                                                         ),
                                                     ),
@@ -15737,9 +15566,12 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: TypeItemPath(`<core::num::usize(0)>::abs`, `MethodRitchie(
-                                                Fn,
-                                            )`),
+                                            maybe_ambiguous_item_path: TypeItemPath(
+                                                `core::num::usize(0)::abs`,
+                                                TypeItemKind::MethodRitchie(
+                                                    RitchieItemKind::Fn,
+                                                ),
+                                            ),
                                             disambiguator: 0,
                                         },
                                     },
@@ -15759,9 +15591,12 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: TypeItemPath(`<core::num::usize(0)>::abs`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    maybe_ambiguous_item_path: TypeItemPath(
+                                                        `core::num::usize(0)::abs`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -15829,13 +15664,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 128,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`core::num::usize(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -15928,9 +15757,12 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<core::num::usize(0)>::abs`, `MethodRitchie(
-                                                                            Fn,
-                                                                        )`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `core::num::usize(0)::abs`,
+                                                                            TypeItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -16701,13 +16533,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TypeImplBlock(
                                     TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 130,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeImplBlockPath(`core::num::f32(0)`),
                                     },
                                 ),
                             ),
@@ -16723,13 +16549,7 @@ SynNodeDeclSheet {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
-                                            path: TypeImplBlockPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 130,
-                                                    },
-                                                ),
-                                            ),
+                                            path: TypeImplBlockPath(`core::num::f32(0)`),
                                         },
                                     ),
                                 ),
@@ -16766,13 +16586,7 @@ SynNodeDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                             TypeImplBlockSynNodePathData {
-                                                                path: TypeImplBlockPath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 130,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                path: TypeImplBlockPath(`core::num::f32(0)`),
                                                             },
                                                         ),
                                                     ),
@@ -16868,9 +16682,12 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
-                                                Fn,
-                                            )`),
+                                            maybe_ambiguous_item_path: TypeItemPath(
+                                                `core::num::f32(0)::abs`,
+                                                TypeItemKind::MethodRitchie(
+                                                    RitchieItemKind::Fn,
+                                                ),
+                                            ),
                                             disambiguator: 0,
                                         },
                                     },
@@ -16890,9 +16707,12 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    maybe_ambiguous_item_path: TypeItemPath(
+                                                        `core::num::f32(0)::abs`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -16960,13 +16780,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 130,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`core::num::f32(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -17059,9 +16873,12 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
-                                                                            Fn,
-                                                                        )`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `core::num::f32(0)::abs`,
+                                                                            TypeItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -17160,9 +16977,12 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: TypeItemPath(`<core::num::f32(0)>::sqrt`, `MethodRitchie(
-                                                Fn,
-                                            )`),
+                                            maybe_ambiguous_item_path: TypeItemPath(
+                                                `core::num::f32(0)::sqrt`,
+                                                TypeItemKind::MethodRitchie(
+                                                    RitchieItemKind::Fn,
+                                                ),
+                                            ),
                                             disambiguator: 0,
                                         },
                                     },
@@ -17182,9 +17002,12 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: TypeItemPath(`<core::num::f32(0)>::sqrt`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    maybe_ambiguous_item_path: TypeItemPath(
+                                                        `core::num::f32(0)::sqrt`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -17252,13 +17075,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 130,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`core::num::f32(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -17351,9 +17168,12 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<core::num::f32(0)>::sqrt`, `MethodRitchie(
-                                                                            Fn,
-                                                                        )`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `core::num::f32(0)::sqrt`,
+                                                                            TypeItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -17452,9 +17272,12 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: TypeItemPath(`<core::num::f32(0)>::max`, `MethodRitchie(
-                                                Fn,
-                                            )`),
+                                            maybe_ambiguous_item_path: TypeItemPath(
+                                                `core::num::f32(0)::max`,
+                                                TypeItemKind::MethodRitchie(
+                                                    RitchieItemKind::Fn,
+                                                ),
+                                            ),
                                             disambiguator: 0,
                                         },
                                     },
@@ -17474,9 +17297,12 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: TypeItemPath(`<core::num::f32(0)>::max`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    maybe_ambiguous_item_path: TypeItemPath(
+                                                        `core::num::f32(0)::max`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -17559,13 +17385,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 130,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`core::num::f32(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -17658,9 +17478,12 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<core::num::f32(0)>::max`, `MethodRitchie(
-                                                                            Fn,
-                                                                        )`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `core::num::f32(0)::max`,
+                                                                            TypeItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -17847,9 +17670,12 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: TypeItemPath(`<core::num::f32(0)>::min`, `MethodRitchie(
-                                                Fn,
-                                            )`),
+                                            maybe_ambiguous_item_path: TypeItemPath(
+                                                `core::num::f32(0)::min`,
+                                                TypeItemKind::MethodRitchie(
+                                                    RitchieItemKind::Fn,
+                                                ),
+                                            ),
                                             disambiguator: 0,
                                         },
                                     },
@@ -17869,9 +17695,12 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: TypeItemPath(`<core::num::f32(0)>::min`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    maybe_ambiguous_item_path: TypeItemPath(
+                                                        `core::num::f32(0)::min`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -17954,13 +17783,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 130,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`core::num::f32(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -18053,9 +17876,12 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<core::num::f32(0)>::min`, `MethodRitchie(
-                                                                            Fn,
-                                                                        )`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `core::num::f32(0)::min`,
+                                                                            TypeItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -18242,9 +18068,12 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: TypeItemPath(`<core::num::f32(0)>::sgnx`, `MethodRitchie(
-                                                Fn,
-                                            )`),
+                                            maybe_ambiguous_item_path: TypeItemPath(
+                                                `core::num::f32(0)::sgnx`,
+                                                TypeItemKind::MethodRitchie(
+                                                    RitchieItemKind::Fn,
+                                                ),
+                                            ),
                                             disambiguator: 0,
                                         },
                                     },
@@ -18264,9 +18093,12 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: TypeItemPath(`<core::num::f32(0)>::sgnx`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    maybe_ambiguous_item_path: TypeItemPath(
+                                                        `core::num::f32(0)::sgnx`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -18334,13 +18166,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 130,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`core::num::f32(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -18433,9 +18259,12 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<core::num::f32(0)>::sgnx`, `MethodRitchie(
-                                                                            Fn,
-                                                                        )`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `core::num::f32(0)::sgnx`,
+                                                                            TypeItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -18534,9 +18363,12 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: TypeItemPath(`<core::num::f32(0)>::cos`, `MethodRitchie(
-                                                Fn,
-                                            )`),
+                                            maybe_ambiguous_item_path: TypeItemPath(
+                                                `core::num::f32(0)::cos`,
+                                                TypeItemKind::MethodRitchie(
+                                                    RitchieItemKind::Fn,
+                                                ),
+                                            ),
                                             disambiguator: 0,
                                         },
                                     },
@@ -18556,9 +18388,12 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: TypeItemPath(`<core::num::f32(0)>::cos`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    maybe_ambiguous_item_path: TypeItemPath(
+                                                        `core::num::f32(0)::cos`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -18626,13 +18461,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 130,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`core::num::f32(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -18725,9 +18554,12 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<core::num::f32(0)>::cos`, `MethodRitchie(
-                                                                            Fn,
-                                                                        )`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `core::num::f32(0)::cos`,
+                                                                            TypeItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -18826,9 +18658,12 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: TypeItemPath(`<core::num::f32(0)>::sin`, `MethodRitchie(
-                                                Fn,
-                                            )`),
+                                            maybe_ambiguous_item_path: TypeItemPath(
+                                                `core::num::f32(0)::sin`,
+                                                TypeItemKind::MethodRitchie(
+                                                    RitchieItemKind::Fn,
+                                                ),
+                                            ),
                                             disambiguator: 0,
                                         },
                                     },
@@ -18848,9 +18683,12 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: TypeItemPath(`<core::num::f32(0)>::sin`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    maybe_ambiguous_item_path: TypeItemPath(
+                                                        `core::num::f32(0)::sin`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -18918,13 +18756,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 130,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`core::num::f32(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -19017,9 +18849,12 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<core::num::f32(0)>::sin`, `MethodRitchie(
-                                                                            Fn,
-                                                                        )`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `core::num::f32(0)::sin`,
+                                                                            TypeItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -19118,9 +18953,12 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: TypeItemPath(`<core::num::f32(0)>::acos`, `MethodRitchie(
-                                                Fn,
-                                            )`),
+                                            maybe_ambiguous_item_path: TypeItemPath(
+                                                `core::num::f32(0)::acos`,
+                                                TypeItemKind::MethodRitchie(
+                                                    RitchieItemKind::Fn,
+                                                ),
+                                            ),
                                             disambiguator: 0,
                                         },
                                     },
@@ -19140,9 +18978,12 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: TypeItemPath(`<core::num::f32(0)>::acos`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    maybe_ambiguous_item_path: TypeItemPath(
+                                                        `core::num::f32(0)::acos`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -19210,13 +19051,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 130,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`core::num::f32(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -19309,9 +19144,12 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<core::num::f32(0)>::acos`, `MethodRitchie(
-                                                                            Fn,
-                                                                        )`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `core::num::f32(0)::acos`,
+                                                                            TypeItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -20082,13 +19920,7 @@ SynNodeDeclSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TypeImplBlock(
                                     TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 132,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeImplBlockPath(`core::num::f64(0)`),
                                     },
                                 ),
                             ),
@@ -20104,13 +19936,7 @@ SynNodeDeclSheet {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
-                                            path: TypeImplBlockPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 132,
-                                                    },
-                                                ),
-                                            ),
+                                            path: TypeImplBlockPath(`core::num::f64(0)`),
                                         },
                                     ),
                                 ),
@@ -20147,13 +19973,7 @@ SynNodeDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                             TypeImplBlockSynNodePathData {
-                                                                path: TypeImplBlockPath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 132,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                path: TypeImplBlockPath(`core::num::f64(0)`),
                                                             },
                                                         ),
                                                     ),
@@ -20249,9 +20069,12 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: TypeItemPath(`<core::num::f64(0)>::abs`, `MethodRitchie(
-                                                Fn,
-                                            )`),
+                                            maybe_ambiguous_item_path: TypeItemPath(
+                                                `core::num::f64(0)::abs`,
+                                                TypeItemKind::MethodRitchie(
+                                                    RitchieItemKind::Fn,
+                                                ),
+                                            ),
                                             disambiguator: 0,
                                         },
                                     },
@@ -20271,9 +20094,12 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: TypeItemPath(`<core::num::f64(0)>::abs`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    maybe_ambiguous_item_path: TypeItemPath(
+                                                        `core::num::f64(0)::abs`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -20341,13 +20167,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 132,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`core::num::f64(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -20440,9 +20260,12 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<core::num::f64(0)>::abs`, `MethodRitchie(
-                                                                            Fn,
-                                                                        )`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `core::num::f64(0)::abs`,
+                                                                            TypeItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -20541,9 +20364,12 @@ SynNodeDeclSheet {
                                 AssocItemSynNodePathData::TypeItem(
                                     TypeItemSynNodePathData {
                                         disambiguated_item_path: DisambiguatedItemPath {
-                                            maybe_ambiguous_item_path: TypeItemPath(`<core::num::f64(0)>::acos`, `MethodRitchie(
-                                                Fn,
-                                            )`),
+                                            maybe_ambiguous_item_path: TypeItemPath(
+                                                `core::num::f64(0)::acos`,
+                                                TypeItemKind::MethodRitchie(
+                                                    RitchieItemKind::Fn,
+                                                ),
+                                            ),
                                             disambiguator: 0,
                                         },
                                     },
@@ -20563,9 +20389,12 @@ SynNodeDeclSheet {
                                         AssocItemSynNodePathData::TypeItem(
                                             TypeItemSynNodePathData {
                                                 disambiguated_item_path: DisambiguatedItemPath {
-                                                    maybe_ambiguous_item_path: TypeItemPath(`<core::num::f64(0)>::acos`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    maybe_ambiguous_item_path: TypeItemPath(
+                                                        `core::num::f64(0)::acos`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                     disambiguator: 0,
                                                 },
                                             },
@@ -20633,13 +20462,7 @@ SynNodeDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 132,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`core::num::f64(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -20732,9 +20555,12 @@ SynNodeDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<core::num::f64(0)>::acos`, `MethodRitchie(
-                                                                            Fn,
-                                                                        )`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `core::num::f64(0)::acos`,
+                                                                            TypeItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
