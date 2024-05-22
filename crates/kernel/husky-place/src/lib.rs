@@ -5,6 +5,7 @@ use husky_coword::Ident;
 use husky_syn_expr::CurrentVariableIdx;
 use shifted_unsigned_int::ShiftedU32;
 
+#[salsa::derive_debug_with_db]
 #[derive(Default, Debug, PartialEq, Eq)]
 pub struct PlaceRegistry {
     infos: Vec<PlaceInfo>,

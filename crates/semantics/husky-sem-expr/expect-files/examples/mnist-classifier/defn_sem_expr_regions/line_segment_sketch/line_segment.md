@@ -22,7 +22,7 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
+                    PlaceInfo::SelfValue,
                 ],
             },
             sem_expr_arena: SemExprArena(
@@ -787,36 +787,18 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
-                    Variable {
+                    PlaceInfo::SelfValue,
+                    PlaceInfo::Variable {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 273,
-                                },
-                            ),
-                        ),
+                        ident: `ab`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 1,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 274,
-                                },
-                            ),
-                        ),
+                        ident: `ap`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 2,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 275,
-                                },
-                            ),
-                        ),
+                        ident: `bp`,
                     },
                 ],
             },

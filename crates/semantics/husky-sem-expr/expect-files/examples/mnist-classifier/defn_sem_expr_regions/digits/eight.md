@@ -711,15 +711,9 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 358,
-                                },
-                            ),
-                        ),
+                        ident: `upper_excess`,
                     },
                 ],
             },

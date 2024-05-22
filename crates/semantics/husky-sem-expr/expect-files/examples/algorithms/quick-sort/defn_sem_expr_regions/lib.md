@@ -22,15 +22,9 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 6,
-                                },
-                            ),
-                        ),
+                        ident: `len`,
                     },
                 ],
             },
@@ -1661,15 +1655,9 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 11,
-                                },
-                            ),
-                        ),
+                        ident: `p`,
                     },
                 ],
             },
@@ -4863,35 +4851,17 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
-                        ),
+                        ident: `pivot`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 1,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 15,
-                                },
-                            ),
-                        ),
+                        ident: `store_index`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 2,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 16,
-                                },
-                            ),
-                        ),
+                        ident: `last_index`,
                     },
                 ],
             },
@@ -11327,15 +11297,9 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 20,
-                                },
-                            ),
-                        ),
+                        ident: `v`,
                     },
                 ],
             },
@@ -13013,15 +12977,9 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 23,
-                                },
-                            ),
-                        ),
+                        ident: `strs`,
                     },
                 ],
             },

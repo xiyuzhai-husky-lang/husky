@@ -18,25 +18,13 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    Parameter {
+                    PlaceInfo::Parameter {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 88,
-                                },
-                            ),
-                        ),
+                        ident: `x`,
                     },
-                    Parameter {
+                    PlaceInfo::Parameter {
                         current_variable_idx: 1,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 89,
-                                },
-                            ),
-                        ),
+                        ident: `y`,
                     },
                 ],
             },
@@ -324,25 +312,13 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    Parameter {
+                    PlaceInfo::Parameter {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 88,
-                                },
-                            ),
-                        ),
+                        ident: `x`,
                     },
-                    Parameter {
+                    PlaceInfo::Parameter {
                         current_variable_idx: 1,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 89,
-                                },
-                            ),
-                        ),
+                        ident: `y`,
                     },
                 ],
             },
@@ -630,25 +606,13 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    Parameter {
+                    PlaceInfo::Parameter {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 88,
-                                },
-                            ),
-                        ),
+                        ident: `x`,
                     },
-                    Parameter {
+                    PlaceInfo::Parameter {
                         current_variable_idx: 1,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 89,
-                                },
-                            ),
-                        ),
+                        ident: `y`,
                     },
                 ],
             },
@@ -936,25 +900,13 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    Parameter {
+                    PlaceInfo::Parameter {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 115,
-                                },
-                            ),
-                        ),
+                        ident: `min`,
                     },
-                    Parameter {
+                    PlaceInfo::Parameter {
                         current_variable_idx: 1,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 71,
-                                },
-                            ),
-                        ),
+                        ident: `max`,
                     },
                 ],
             },
@@ -1242,25 +1194,13 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    Parameter {
+                    PlaceInfo::Parameter {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 208,
-                                },
-                            ),
-                        ),
+                        ident: `xrange`,
                     },
-                    Parameter {
+                    PlaceInfo::Parameter {
                         current_variable_idx: 1,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 209,
-                                },
-                            ),
-                        ),
+                        ident: `yrange`,
                     },
                 ],
             },
@@ -1548,25 +1488,13 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    Parameter {
+                    PlaceInfo::Parameter {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 208,
-                                },
-                            ),
-                        ),
+                        ident: `xrange`,
                     },
-                    Parameter {
+                    PlaceInfo::Parameter {
                         current_variable_idx: 1,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 209,
-                                },
-                            ),
-                        ),
+                        ident: `yrange`,
                     },
                 ],
             },
@@ -2026,25 +1954,13 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    Parameter {
+                    PlaceInfo::Parameter {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 65,
-                                },
-                            ),
-                        ),
+                        ident: `i`,
                     },
-                    Parameter {
+                    PlaceInfo::Parameter {
                         current_variable_idx: 1,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 96,
-                                },
-                            ),
-                        ),
+                        ident: `shift`,
                     },
                 ],
             },
@@ -2411,7 +2327,7 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
+                    PlaceInfo::SelfValue,
                 ],
             },
             sem_expr_arena: SemExprArena(
@@ -2573,16 +2489,10 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
-                    Parameter {
+                    PlaceInfo::SelfValue,
+                    PlaceInfo::Parameter {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 185,
-                                },
-                            ),
-                        ),
+                        ident: `other`,
                     },
                 ],
             },
@@ -2848,7 +2758,7 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
+                    PlaceInfo::SelfValue,
                 ],
             },
             sem_expr_arena: SemExprArena(
@@ -3010,16 +2920,10 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
-                    Parameter {
+                    PlaceInfo::SelfValue,
+                    PlaceInfo::Parameter {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 185,
-                                },
-                            ),
-                        ),
+                        ident: `other`,
                     },
                 ],
             },
@@ -3453,7 +3357,7 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
+                    PlaceInfo::SelfValue,
                 ],
             },
             sem_expr_arena: SemExprArena(
@@ -3615,16 +3519,10 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
-                    Parameter {
+                    PlaceInfo::SelfValue,
+                    PlaceInfo::Parameter {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 185,
-                                },
-                            ),
-                        ),
+                        ident: `other`,
                     },
                 ],
             },
@@ -3890,7 +3788,7 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
+                    PlaceInfo::SelfValue,
                 ],
             },
             sem_expr_arena: SemExprArena(
@@ -4052,16 +3950,10 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
-                    Parameter {
+                    PlaceInfo::SelfValue,
+                    PlaceInfo::Parameter {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 185,
-                                },
-                            ),
-                        ),
+                        ident: `other`,
                     },
                 ],
             },
@@ -4327,16 +4219,10 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
-                    Parameter {
+                    PlaceInfo::SelfValue,
+                    PlaceInfo::Parameter {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 185,
-                                },
-                            ),
-                        ),
+                        ident: `other`,
                     },
                 ],
             },
@@ -4602,16 +4488,10 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
-                    Parameter {
+                    PlaceInfo::SelfValue,
+                    PlaceInfo::Parameter {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 193,
-                                },
-                            ),
-                        ),
+                        ident: `is_branch_cut_positive`,
                     },
                 ],
             },
@@ -4877,16 +4757,10 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
-                    Parameter {
+                    PlaceInfo::SelfValue,
+                    PlaceInfo::Parameter {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 185,
-                                },
-                            ),
-                        ),
+                        ident: `other`,
                     },
                 ],
             },
@@ -5152,26 +5026,14 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
-                    Parameter {
+                    PlaceInfo::SelfValue,
+                    PlaceInfo::Parameter {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 185,
-                                },
-                            ),
-                        ),
+                        ident: `other`,
                     },
-                    Parameter {
+                    PlaceInfo::Parameter {
                         current_variable_idx: 1,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 193,
-                                },
-                            ),
-                        ),
+                        ident: `is_branch_cut_positive`,
                     },
                 ],
             },
@@ -5706,16 +5568,10 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
-                    Parameter {
+                    PlaceInfo::SelfValue,
+                    PlaceInfo::Parameter {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 185,
-                                },
-                            ),
-                        ),
+                        ident: `other`,
                     },
                 ],
             },
@@ -5981,16 +5837,10 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
-                    Parameter {
+                    PlaceInfo::SelfValue,
+                    PlaceInfo::Parameter {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 207,
-                                },
-                            ),
-                        ),
+                        ident: `v`,
                     },
                 ],
             },
@@ -6424,16 +6274,10 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
-                    Parameter {
+                    PlaceInfo::SelfValue,
+                    PlaceInfo::Parameter {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 185,
-                                },
-                            ),
-                        ),
+                        ident: `other`,
                     },
                 ],
             },
@@ -6699,16 +6543,10 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
-                    Parameter {
+                    PlaceInfo::SelfValue,
+                    PlaceInfo::Parameter {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 114,
-                                },
-                            ),
-                        ),
+                        ident: `point`,
                     },
                 ],
             },
@@ -6974,7 +6812,7 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
+                    PlaceInfo::SelfValue,
                 ],
             },
             sem_expr_arena: SemExprArena(
@@ -7136,7 +6974,7 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
+                    PlaceInfo::SelfValue,
                 ],
             },
             sem_expr_arena: SemExprArena(
@@ -7298,7 +7136,7 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
+                    PlaceInfo::SelfValue,
                 ],
             },
             sem_expr_arena: SemExprArena(
@@ -7460,7 +7298,7 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
+                    PlaceInfo::SelfValue,
                 ],
             },
             sem_expr_arena: SemExprArena(
@@ -7790,7 +7628,7 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
+                    PlaceInfo::SelfValue,
                 ],
             },
             sem_expr_arena: SemExprArena(
@@ -7952,7 +7790,7 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
+                    PlaceInfo::SelfValue,
                 ],
             },
             sem_expr_arena: SemExprArena(
@@ -8114,7 +7952,7 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
+                    PlaceInfo::SelfValue,
                 ],
             },
             sem_expr_arena: SemExprArena(
@@ -8276,7 +8114,7 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
+                    PlaceInfo::SelfValue,
                 ],
             },
             sem_expr_arena: SemExprArena(
