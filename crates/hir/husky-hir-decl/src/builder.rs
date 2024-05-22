@@ -150,12 +150,6 @@ impl<'a> HirDeclBuilder<'a> {
         };
         let db = self.db;
         let syn_pattern_root: SynPatternRoot = syn_pattern_root.into();
-        {
-            use husky_print_utils::p;
-            use salsa::DebugWithDb;
-
-            p!(self.syn_expr_region_data[syn_pattern_root.syn_pattern_idx()].debug(db));
-        }
         source_map
             .data(db)
             .syn_pattern_root_to_sem_expr_idx(syn_pattern_root)

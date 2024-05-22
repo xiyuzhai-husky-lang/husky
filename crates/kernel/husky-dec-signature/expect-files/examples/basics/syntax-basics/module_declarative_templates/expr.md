@@ -25,7 +25,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 20,
+                                                value: 18,
                                             },
                                         ),
                                     ),
@@ -62,7 +62,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 20,
+                                                value: 18,
                                             },
                                         ),
                                     ),
@@ -99,7 +99,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 20,
+                                                value: 18,
                                             },
                                         ),
                                     ),
