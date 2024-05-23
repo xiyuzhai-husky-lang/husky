@@ -44,13 +44,7 @@
     HirDecl::Attr(
         AttrHirDecl::Derive(
             DeriveAttrHirDecl {
-                path: AttrItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 157,
-                        },
-                    ),
-                ),
+                path: AttrItemPath(`core::num::i8::@derive(0)`),
                 trais: [
                     HirTrait {
                         trai_path: TraitPath(`core::fmt::Debug`),
@@ -77,13 +71,7 @@
                     region_path: RegionPath::Decl(
                         ItemPath::Attr(
                             Room32,
-                            AttrItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 157,
-                                    },
-                                ),
-                            ),
+                            AttrItemPath(`core::num::i8::@derive(0)`),
                         ),
                     ),
                     expr_arena: Arena {
@@ -154,13 +142,7 @@
     HirDecl::Attr(
         AttrHirDecl::Derive(
             DeriveAttrHirDecl {
-                path: AttrItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 158,
-                        },
-                    ),
-                ),
+                path: AttrItemPath(`core::num::i16::@derive(0)`),
                 trais: [
                     HirTrait {
                         trai_path: TraitPath(`core::fmt::Debug`),
@@ -187,13 +169,7 @@
                     region_path: RegionPath::Decl(
                         ItemPath::Attr(
                             Room32,
-                            AttrItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 158,
-                                    },
-                                ),
-                            ),
+                            AttrItemPath(`core::num::i16::@derive(0)`),
                         ),
                     ),
                     expr_arena: Arena {
@@ -264,13 +240,7 @@
     HirDecl::Attr(
         AttrHirDecl::Derive(
             DeriveAttrHirDecl {
-                path: AttrItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 159,
-                        },
-                    ),
-                ),
+                path: AttrItemPath(`core::num::i32::@derive(0)`),
                 trais: [
                     HirTrait {
                         trai_path: TraitPath(`core::fmt::Debug`),
@@ -297,13 +267,7 @@
                     region_path: RegionPath::Decl(
                         ItemPath::Attr(
                             Room32,
-                            AttrItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 159,
-                                    },
-                                ),
-                            ),
+                            AttrItemPath(`core::num::i32::@derive(0)`),
                         ),
                     ),
                     expr_arena: Arena {
@@ -374,13 +338,7 @@
     HirDecl::Attr(
         AttrHirDecl::Derive(
             DeriveAttrHirDecl {
-                path: AttrItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 160,
-                        },
-                    ),
-                ),
+                path: AttrItemPath(`core::num::i64::@derive(0)`),
                 trais: [
                     HirTrait {
                         trai_path: TraitPath(`core::fmt::Debug`),
@@ -407,13 +365,7 @@
                     region_path: RegionPath::Decl(
                         ItemPath::Attr(
                             Room32,
-                            AttrItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 160,
-                                    },
-                                ),
-                            ),
+                            AttrItemPath(`core::num::i64::@derive(0)`),
                         ),
                     ),
                     expr_arena: Arena {
@@ -484,13 +436,7 @@
     HirDecl::Attr(
         AttrHirDecl::Derive(
             DeriveAttrHirDecl {
-                path: AttrItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 161,
-                        },
-                    ),
-                ),
+                path: AttrItemPath(`core::num::i128::@derive(0)`),
                 trais: [
                     HirTrait {
                         trai_path: TraitPath(`core::fmt::Debug`),
@@ -517,13 +463,7 @@
                     region_path: RegionPath::Decl(
                         ItemPath::Attr(
                             Room32,
-                            AttrItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 161,
-                                    },
-                                ),
-                            ),
+                            AttrItemPath(`core::num::i128::@derive(0)`),
                         ),
                     ),
                     expr_arena: Arena {
@@ -594,13 +534,7 @@
     HirDecl::Attr(
         AttrHirDecl::Derive(
             DeriveAttrHirDecl {
-                path: AttrItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 162,
-                        },
-                    ),
-                ),
+                path: AttrItemPath(`core::num::isize::@derive(0)`),
                 trais: [
                     HirTrait {
                         trai_path: TraitPath(`core::fmt::Debug`),
@@ -627,13 +561,7 @@
                     region_path: RegionPath::Decl(
                         ItemPath::Attr(
                             Room32,
-                            AttrItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 162,
-                                    },
-                                ),
-                            ),
+                            AttrItemPath(`core::num::isize::@derive(0)`),
                         ),
                     ),
                     expr_arena: Arena {
@@ -704,13 +632,7 @@
     HirDecl::Attr(
         AttrHirDecl::Derive(
             DeriveAttrHirDecl {
-                path: AttrItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 163,
-                        },
-                    ),
-                ),
+                path: AttrItemPath(`core::num::u8::@derive(0)`),
                 trais: [
                     HirTrait {
                         trai_path: TraitPath(`core::fmt::Debug`),
@@ -737,13 +659,7 @@
                     region_path: RegionPath::Decl(
                         ItemPath::Attr(
                             Room32,
-                            AttrItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 163,
-                                    },
-                                ),
-                            ),
+                            AttrItemPath(`core::num::u8::@derive(0)`),
                         ),
                     ),
                     expr_arena: Arena {
@@ -814,13 +730,7 @@
     HirDecl::Attr(
         AttrHirDecl::Derive(
             DeriveAttrHirDecl {
-                path: AttrItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 164,
-                        },
-                    ),
-                ),
+                path: AttrItemPath(`core::num::u16::@derive(0)`),
                 trais: [
                     HirTrait {
                         trai_path: TraitPath(`core::fmt::Debug`),
@@ -847,13 +757,7 @@
                     region_path: RegionPath::Decl(
                         ItemPath::Attr(
                             Room32,
-                            AttrItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 164,
-                                    },
-                                ),
-                            ),
+                            AttrItemPath(`core::num::u16::@derive(0)`),
                         ),
                     ),
                     expr_arena: Arena {
@@ -924,13 +828,7 @@
     HirDecl::Attr(
         AttrHirDecl::Derive(
             DeriveAttrHirDecl {
-                path: AttrItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 165,
-                        },
-                    ),
-                ),
+                path: AttrItemPath(`core::num::u32::@derive(0)`),
                 trais: [
                     HirTrait {
                         trai_path: TraitPath(`core::fmt::Debug`),
@@ -957,13 +855,7 @@
                     region_path: RegionPath::Decl(
                         ItemPath::Attr(
                             Room32,
-                            AttrItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 165,
-                                    },
-                                ),
-                            ),
+                            AttrItemPath(`core::num::u32::@derive(0)`),
                         ),
                     ),
                     expr_arena: Arena {
@@ -1034,13 +926,7 @@
     HirDecl::Attr(
         AttrHirDecl::Derive(
             DeriveAttrHirDecl {
-                path: AttrItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 166,
-                        },
-                    ),
-                ),
+                path: AttrItemPath(`core::num::u64::@derive(0)`),
                 trais: [
                     HirTrait {
                         trai_path: TraitPath(`core::fmt::Debug`),
@@ -1067,13 +953,7 @@
                     region_path: RegionPath::Decl(
                         ItemPath::Attr(
                             Room32,
-                            AttrItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 166,
-                                    },
-                                ),
-                            ),
+                            AttrItemPath(`core::num::u64::@derive(0)`),
                         ),
                     ),
                     expr_arena: Arena {
@@ -1144,13 +1024,7 @@
     HirDecl::Attr(
         AttrHirDecl::Derive(
             DeriveAttrHirDecl {
-                path: AttrItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 167,
-                        },
-                    ),
-                ),
+                path: AttrItemPath(`core::num::u128::@derive(0)`),
                 trais: [
                     HirTrait {
                         trai_path: TraitPath(`core::fmt::Debug`),
@@ -1177,13 +1051,7 @@
                     region_path: RegionPath::Decl(
                         ItemPath::Attr(
                             Room32,
-                            AttrItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 167,
-                                    },
-                                ),
-                            ),
+                            AttrItemPath(`core::num::u128::@derive(0)`),
                         ),
                     ),
                     expr_arena: Arena {
@@ -1254,13 +1122,7 @@
     HirDecl::Attr(
         AttrHirDecl::Derive(
             DeriveAttrHirDecl {
-                path: AttrItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 152,
-                        },
-                    ),
-                ),
+                path: AttrItemPath(`core::num::usize::@derive(0)`),
                 trais: [
                     HirTrait {
                         trai_path: TraitPath(`core::fmt::Debug`),
@@ -1287,13 +1149,7 @@
                     region_path: RegionPath::Decl(
                         ItemPath::Attr(
                             Room32,
-                            AttrItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 152,
-                                    },
-                                ),
-                            ),
+                            AttrItemPath(`core::num::usize::@derive(0)`),
                         ),
                     ),
                     expr_arena: Arena {
@@ -1364,13 +1220,7 @@
     HirDecl::Attr(
         AttrHirDecl::Derive(
             DeriveAttrHirDecl {
-                path: AttrItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 168,
-                        },
-                    ),
-                ),
+                path: AttrItemPath(`core::num::f32::@derive(0)`),
                 trais: [
                     HirTrait {
                         trai_path: TraitPath(`core::fmt::Debug`),
@@ -1397,13 +1247,7 @@
                     region_path: RegionPath::Decl(
                         ItemPath::Attr(
                             Room32,
-                            AttrItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 168,
-                                    },
-                                ),
-                            ),
+                            AttrItemPath(`core::num::f32::@derive(0)`),
                         ),
                     ),
                     expr_arena: Arena {
@@ -1474,13 +1318,7 @@
     HirDecl::Attr(
         AttrHirDecl::Derive(
             DeriveAttrHirDecl {
-                path: AttrItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 169,
-                        },
-                    ),
-                ),
+                path: AttrItemPath(`core::num::f64::@derive(0)`),
                 trais: [
                     HirTrait {
                         trai_path: TraitPath(`core::fmt::Debug`),
@@ -1507,13 +1345,7 @@
                     region_path: RegionPath::Decl(
                         ItemPath::Attr(
                             Room32,
-                            AttrItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 169,
-                                    },
-                                ),
-                            ),
+                            AttrItemPath(`core::num::f64::@derive(0)`),
                         ),
                     ),
                     expr_arena: Arena {
@@ -1543,13 +1375,7 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
-                path: TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 107,
-                        },
-                    ),
-                ),
+                path: TypeImplBlockPath(`core::num::i8(0)`),
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
@@ -1564,13 +1390,7 @@
                     region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 107,
-                                        },
-                                    ),
-                                ),
+                                TypeImplBlockPath(`core::num::i8(0)`),
                             ),
                         ),
                     ),
@@ -1602,9 +1422,12 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodRitchieHirDecl {
-                    path: TypeItemPath(`<core::num::i8(0)>::abs`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    path: TypeItemPath(
+                        `core::num::i8(0)::abs`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -1632,9 +1455,12 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`<core::num::i8(0)>::abs`, `MethodRitchie(
-                                        Fn,
-                                    )`),
+                                    TypeItemPath(
+                                        `core::num::i8(0)::abs`,
+                                        TypeItemKind::MethodRitchie(
+                                            RitchieItemKind::Fn,
+                                        ),
+                                    ),
                                 ),
                             ),
                         ),
@@ -1674,9 +1500,12 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodRitchieHirDecl {
-                    path: TypeItemPath(`<core::num::i8(0)>::max`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    path: TypeItemPath(
+                        `core::num::i8(0)::max`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -1716,9 +1545,12 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`<core::num::i8(0)>::max`, `MethodRitchie(
-                                        Fn,
-                                    )`),
+                                    TypeItemPath(
+                                        `core::num::i8(0)::max`,
+                                        TypeItemKind::MethodRitchie(
+                                            RitchieItemKind::Fn,
+                                        ),
+                                    ),
                                 ),
                             ),
                         ),
@@ -1935,13 +1767,7 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
-                path: TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 109,
-                        },
-                    ),
-                ),
+                path: TypeImplBlockPath(`core::num::i16(0)`),
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
@@ -1956,13 +1782,7 @@
                     region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 109,
-                                        },
-                                    ),
-                                ),
+                                TypeImplBlockPath(`core::num::i16(0)`),
                             ),
                         ),
                     ),
@@ -1994,9 +1814,12 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodRitchieHirDecl {
-                    path: TypeItemPath(`<core::num::i16(0)>::abs`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    path: TypeItemPath(
+                        `core::num::i16(0)::abs`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -2024,9 +1847,12 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`<core::num::i16(0)>::abs`, `MethodRitchie(
-                                        Fn,
-                                    )`),
+                                    TypeItemPath(
+                                        `core::num::i16(0)::abs`,
+                                        TypeItemKind::MethodRitchie(
+                                            RitchieItemKind::Fn,
+                                        ),
+                                    ),
                                 ),
                             ),
                         ),
@@ -2066,9 +1892,12 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodRitchieHirDecl {
-                    path: TypeItemPath(`<core::num::i16(0)>::max`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    path: TypeItemPath(
+                        `core::num::i16(0)::max`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -2108,9 +1937,12 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`<core::num::i16(0)>::max`, `MethodRitchie(
-                                        Fn,
-                                    )`),
+                                    TypeItemPath(
+                                        `core::num::i16(0)::max`,
+                                        TypeItemKind::MethodRitchie(
+                                            RitchieItemKind::Fn,
+                                        ),
+                                    ),
                                 ),
                             ),
                         ),
@@ -2327,13 +2159,7 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
-                path: TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 111,
-                        },
-                    ),
-                ),
+                path: TypeImplBlockPath(`core::num::i32(0)`),
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
@@ -2348,13 +2174,7 @@
                     region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 111,
-                                        },
-                                    ),
-                                ),
+                                TypeImplBlockPath(`core::num::i32(0)`),
                             ),
                         ),
                     ),
@@ -2386,9 +2206,12 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodRitchieHirDecl {
-                    path: TypeItemPath(`<core::num::i32(0)>::abs`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    path: TypeItemPath(
+                        `core::num::i32(0)::abs`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -2416,9 +2239,12 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`<core::num::i32(0)>::abs`, `MethodRitchie(
-                                        Fn,
-                                    )`),
+                                    TypeItemPath(
+                                        `core::num::i32(0)::abs`,
+                                        TypeItemKind::MethodRitchie(
+                                            RitchieItemKind::Fn,
+                                        ),
+                                    ),
                                 ),
                             ),
                         ),
@@ -2458,9 +2284,12 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodRitchieHirDecl {
-                    path: TypeItemPath(`<core::num::i32(0)>::max`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    path: TypeItemPath(
+                        `core::num::i32(0)::max`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -2500,9 +2329,12 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`<core::num::i32(0)>::max`, `MethodRitchie(
-                                        Fn,
-                                    )`),
+                                    TypeItemPath(
+                                        `core::num::i32(0)::max`,
+                                        TypeItemKind::MethodRitchie(
+                                            RitchieItemKind::Fn,
+                                        ),
+                                    ),
                                 ),
                             ),
                         ),
@@ -2556,9 +2388,12 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodRitchieHirDecl {
-                    path: TypeItemPath(`<core::num::i32(0)>::min`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    path: TypeItemPath(
+                        `core::num::i32(0)::min`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -2598,9 +2433,12 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`<core::num::i32(0)>::min`, `MethodRitchie(
-                                        Fn,
-                                    )`),
+                                    TypeItemPath(
+                                        `core::num::i32(0)::min`,
+                                        TypeItemKind::MethodRitchie(
+                                            RitchieItemKind::Fn,
+                                        ),
+                                    ),
                                 ),
                             ),
                         ),
@@ -2817,13 +2655,7 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
-                path: TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 113,
-                        },
-                    ),
-                ),
+                path: TypeImplBlockPath(`core::num::i64(0)`),
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
@@ -2838,13 +2670,7 @@
                     region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 113,
-                                        },
-                                    ),
-                                ),
+                                TypeImplBlockPath(`core::num::i64(0)`),
                             ),
                         ),
                     ),
@@ -2876,9 +2702,12 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodRitchieHirDecl {
-                    path: TypeItemPath(`<core::num::i64(0)>::abs`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    path: TypeItemPath(
+                        `core::num::i64(0)::abs`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -2906,9 +2735,12 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`<core::num::i64(0)>::abs`, `MethodRitchie(
-                                        Fn,
-                                    )`),
+                                    TypeItemPath(
+                                        `core::num::i64(0)::abs`,
+                                        TypeItemKind::MethodRitchie(
+                                            RitchieItemKind::Fn,
+                                        ),
+                                    ),
                                 ),
                             ),
                         ),
@@ -3111,13 +2943,7 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
-                path: TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 115,
-                        },
-                    ),
-                ),
+                path: TypeImplBlockPath(`core::num::i128(0)`),
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
@@ -3132,13 +2958,7 @@
                     region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 115,
-                                        },
-                                    ),
-                                ),
+                                TypeImplBlockPath(`core::num::i128(0)`),
                             ),
                         ),
                     ),
@@ -3170,9 +2990,12 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodRitchieHirDecl {
-                    path: TypeItemPath(`<core::num::i128(0)>::abs`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    path: TypeItemPath(
+                        `core::num::i128(0)::abs`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -3200,9 +3023,12 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`<core::num::i128(0)>::abs`, `MethodRitchie(
-                                        Fn,
-                                    )`),
+                                    TypeItemPath(
+                                        `core::num::i128(0)::abs`,
+                                        TypeItemKind::MethodRitchie(
+                                            RitchieItemKind::Fn,
+                                        ),
+                                    ),
                                 ),
                             ),
                         ),
@@ -3405,13 +3231,7 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
-                path: TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 117,
-                        },
-                    ),
-                ),
+                path: TypeImplBlockPath(`core::num::isize(0)`),
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
@@ -3426,13 +3246,7 @@
                     region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 117,
-                                        },
-                                    ),
-                                ),
+                                TypeImplBlockPath(`core::num::isize(0)`),
                             ),
                         ),
                     ),
@@ -3464,9 +3278,12 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodRitchieHirDecl {
-                    path: TypeItemPath(`<core::num::isize(0)>::abs`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    path: TypeItemPath(
+                        `core::num::isize(0)::abs`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -3494,9 +3311,12 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`<core::num::isize(0)>::abs`, `MethodRitchie(
-                                        Fn,
-                                    )`),
+                                    TypeItemPath(
+                                        `core::num::isize(0)::abs`,
+                                        TypeItemKind::MethodRitchie(
+                                            RitchieItemKind::Fn,
+                                        ),
+                                    ),
                                 ),
                             ),
                         ),
@@ -3699,13 +3519,7 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
-                path: TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 119,
-                        },
-                    ),
-                ),
+                path: TypeImplBlockPath(`core::num::u8(0)`),
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
@@ -3720,13 +3534,7 @@
                     region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 119,
-                                        },
-                                    ),
-                                ),
+                                TypeImplBlockPath(`core::num::u8(0)`),
                             ),
                         ),
                     ),
@@ -3758,9 +3566,12 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodRitchieHirDecl {
-                    path: TypeItemPath(`<core::num::u8(0)>::abs`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    path: TypeItemPath(
+                        `core::num::u8(0)::abs`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -3788,9 +3599,12 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`<core::num::u8(0)>::abs`, `MethodRitchie(
-                                        Fn,
-                                    )`),
+                                    TypeItemPath(
+                                        `core::num::u8(0)::abs`,
+                                        TypeItemKind::MethodRitchie(
+                                            RitchieItemKind::Fn,
+                                        ),
+                                    ),
                                 ),
                             ),
                         ),
@@ -3993,13 +3807,7 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
-                path: TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 121,
-                        },
-                    ),
-                ),
+                path: TypeImplBlockPath(`core::num::u16(0)`),
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
@@ -4014,13 +3822,7 @@
                     region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 121,
-                                        },
-                                    ),
-                                ),
+                                TypeImplBlockPath(`core::num::u16(0)`),
                             ),
                         ),
                     ),
@@ -4052,9 +3854,12 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodRitchieHirDecl {
-                    path: TypeItemPath(`<core::num::u16(0)>::abs`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    path: TypeItemPath(
+                        `core::num::u16(0)::abs`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -4082,9 +3887,12 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`<core::num::u16(0)>::abs`, `MethodRitchie(
-                                        Fn,
-                                    )`),
+                                    TypeItemPath(
+                                        `core::num::u16(0)::abs`,
+                                        TypeItemKind::MethodRitchie(
+                                            RitchieItemKind::Fn,
+                                        ),
+                                    ),
                                 ),
                             ),
                         ),
@@ -4287,13 +4095,7 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
-                path: TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 123,
-                        },
-                    ),
-                ),
+                path: TypeImplBlockPath(`core::num::u32(0)`),
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
@@ -4308,13 +4110,7 @@
                     region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 123,
-                                        },
-                                    ),
-                                ),
+                                TypeImplBlockPath(`core::num::u32(0)`),
                             ),
                         ),
                     ),
@@ -4346,9 +4142,12 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodRitchieHirDecl {
-                    path: TypeItemPath(`<core::num::u32(0)>::abs`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    path: TypeItemPath(
+                        `core::num::u32(0)::abs`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -4376,9 +4175,12 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`<core::num::u32(0)>::abs`, `MethodRitchie(
-                                        Fn,
-                                    )`),
+                                    TypeItemPath(
+                                        `core::num::u32(0)::abs`,
+                                        TypeItemKind::MethodRitchie(
+                                            RitchieItemKind::Fn,
+                                        ),
+                                    ),
                                 ),
                             ),
                         ),
@@ -4581,13 +4383,7 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
-                path: TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 125,
-                        },
-                    ),
-                ),
+                path: TypeImplBlockPath(`core::num::u64(0)`),
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
@@ -4602,13 +4398,7 @@
                     region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 125,
-                                        },
-                                    ),
-                                ),
+                                TypeImplBlockPath(`core::num::u64(0)`),
                             ),
                         ),
                     ),
@@ -4640,9 +4430,12 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodRitchieHirDecl {
-                    path: TypeItemPath(`<core::num::u64(0)>::abs`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    path: TypeItemPath(
+                        `core::num::u64(0)::abs`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -4670,9 +4463,12 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`<core::num::u64(0)>::abs`, `MethodRitchie(
-                                        Fn,
-                                    )`),
+                                    TypeItemPath(
+                                        `core::num::u64(0)::abs`,
+                                        TypeItemKind::MethodRitchie(
+                                            RitchieItemKind::Fn,
+                                        ),
+                                    ),
                                 ),
                             ),
                         ),
@@ -4875,13 +4671,7 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
-                path: TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 127,
-                        },
-                    ),
-                ),
+                path: TypeImplBlockPath(`core::num::u128(0)`),
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
@@ -4896,13 +4686,7 @@
                     region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 127,
-                                        },
-                                    ),
-                                ),
+                                TypeImplBlockPath(`core::num::u128(0)`),
                             ),
                         ),
                     ),
@@ -4934,9 +4718,12 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodRitchieHirDecl {
-                    path: TypeItemPath(`<core::num::u128(0)>::abs`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    path: TypeItemPath(
+                        `core::num::u128(0)::abs`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -4964,9 +4751,12 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`<core::num::u128(0)>::abs`, `MethodRitchie(
-                                        Fn,
-                                    )`),
+                                    TypeItemPath(
+                                        `core::num::u128(0)::abs`,
+                                        TypeItemKind::MethodRitchie(
+                                            RitchieItemKind::Fn,
+                                        ),
+                                    ),
                                 ),
                             ),
                         ),
@@ -5169,13 +4959,7 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
-                path: TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 129,
-                        },
-                    ),
-                ),
+                path: TypeImplBlockPath(`core::num::usize(0)`),
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
@@ -5190,13 +4974,7 @@
                     region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 129,
-                                        },
-                                    ),
-                                ),
+                                TypeImplBlockPath(`core::num::usize(0)`),
                             ),
                         ),
                     ),
@@ -5228,9 +5006,12 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodRitchieHirDecl {
-                    path: TypeItemPath(`<core::num::usize(0)>::abs`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    path: TypeItemPath(
+                        `core::num::usize(0)::abs`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -5258,9 +5039,12 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`<core::num::usize(0)>::abs`, `MethodRitchie(
-                                        Fn,
-                                    )`),
+                                    TypeItemPath(
+                                        `core::num::usize(0)::abs`,
+                                        TypeItemKind::MethodRitchie(
+                                            RitchieItemKind::Fn,
+                                        ),
+                                    ),
                                 ),
                             ),
                         ),
@@ -5463,13 +5247,7 @@
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
-                path: TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 131,
-                        },
-                    ),
-                ),
+                path: TypeImplBlockPath(`core::num::f32(0)`),
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
@@ -5484,13 +5262,7 @@
                     region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 131,
-                                        },
-                                    ),
-                                ),
+                                TypeImplBlockPath(`core::num::f32(0)`),
                             ),
                         ),
                     ),
@@ -5522,9 +5294,12 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodRitchieHirDecl {
-                    path: TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    path: TypeItemPath(
+                        `core::num::f32(0)::abs`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -5552,9 +5327,12 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`<core::num::f32(0)>::abs`, `MethodRitchie(
-                                        Fn,
-                                    )`),
+                                    TypeItemPath(
+                                        `core::num::f32(0)::abs`,
+                                        TypeItemKind::MethodRitchie(
+                                            RitchieItemKind::Fn,
+                                        ),
+                                    ),
                                 ),
                             ),
                         ),
@@ -5593,13 +5371,7 @@
     HirDecl::Attr(
         AttrHirDecl::Backprop(
             BackpropAttrHirDecl {
-                path: AttrItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 206,
-                        },
-                    ),
-                ),
+                path: AttrItemPath(`core::num::f32(0)::abs::@backprop(0)`),
             },
         ),
     ),
@@ -5607,9 +5379,12 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodRitchieHirDecl {
-                    path: TypeItemPath(`<core::num::f32(0)>::sqrt`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    path: TypeItemPath(
+                        `core::num::f32(0)::sqrt`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -5637,9 +5412,12 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`<core::num::f32(0)>::sqrt`, `MethodRitchie(
-                                        Fn,
-                                    )`),
+                                    TypeItemPath(
+                                        `core::num::f32(0)::sqrt`,
+                                        TypeItemKind::MethodRitchie(
+                                            RitchieItemKind::Fn,
+                                        ),
+                                    ),
                                 ),
                             ),
                         ),
@@ -5678,13 +5456,7 @@
     HirDecl::Attr(
         AttrHirDecl::Backprop(
             BackpropAttrHirDecl {
-                path: AttrItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 207,
-                        },
-                    ),
-                ),
+                path: AttrItemPath(`core::num::f32(0)::sqrt::@backprop(0)`),
             },
         ),
     ),
@@ -5692,9 +5464,12 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodRitchieHirDecl {
-                    path: TypeItemPath(`<core::num::f32(0)>::max`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    path: TypeItemPath(
+                        `core::num::f32(0)::max`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -5734,9 +5509,12 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`<core::num::f32(0)>::max`, `MethodRitchie(
-                                        Fn,
-                                    )`),
+                                    TypeItemPath(
+                                        `core::num::f32(0)::max`,
+                                        TypeItemKind::MethodRitchie(
+                                            RitchieItemKind::Fn,
+                                        ),
+                                    ),
                                 ),
                             ),
                         ),
@@ -5789,13 +5567,7 @@
     HirDecl::Attr(
         AttrHirDecl::Backprop(
             BackpropAttrHirDecl {
-                path: AttrItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 208,
-                        },
-                    ),
-                ),
+                path: AttrItemPath(`core::num::f32(0)::max::@backprop(0)`),
             },
         ),
     ),
@@ -5803,9 +5575,12 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodRitchieHirDecl {
-                    path: TypeItemPath(`<core::num::f32(0)>::min`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    path: TypeItemPath(
+                        `core::num::f32(0)::min`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -5845,9 +5620,12 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`<core::num::f32(0)>::min`, `MethodRitchie(
-                                        Fn,
-                                    )`),
+                                    TypeItemPath(
+                                        `core::num::f32(0)::min`,
+                                        TypeItemKind::MethodRitchie(
+                                            RitchieItemKind::Fn,
+                                        ),
+                                    ),
                                 ),
                             ),
                         ),
@@ -5900,13 +5678,7 @@
     HirDecl::Attr(
         AttrHirDecl::Backprop(
             BackpropAttrHirDecl {
-                path: AttrItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 209,
-                        },
-                    ),
-                ),
+                path: AttrItemPath(`core::num::f32(0)::min::@backprop(0)`),
             },
         ),
     ),
@@ -5914,9 +5686,12 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodRitchieHirDecl {
-                    path: TypeItemPath(`<core::num::f32(0)>::sgnx`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    path: TypeItemPath(
+                        `core::num::f32(0)::sgnx`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -5944,9 +5719,12 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`<core::num::f32(0)>::sgnx`, `MethodRitchie(
-                                        Fn,
-                                    )`),
+                                    TypeItemPath(
+                                        `core::num::f32(0)::sgnx`,
+                                        TypeItemKind::MethodRitchie(
+                                            RitchieItemKind::Fn,
+                                        ),
+                                    ),
                                 ),
                             ),
                         ),
@@ -5986,9 +5764,12 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodRitchieHirDecl {
-                    path: TypeItemPath(`<core::num::f32(0)>::cos`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    path: TypeItemPath(
+                        `core::num::f32(0)::cos`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -6016,94 +5797,12 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`<core::num::f32(0)>::cos`, `MethodRitchie(
-                                        Fn,
-                                    )`),
-                                ),
-                            ),
-                        ),
-                        expr_arena: Arena {
-                            data: [],
-                        },
-                        stmt_arena: Arena {
-                            data: [],
-                        },
-                        pattern_arena: Arena {
-                            data: [],
-                        },
-                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
-                            arena: Arena {
-                                data: [],
-                            },
-                        },
-                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
-                            arena: Arena {
-                                data: [
-                                    HirEagerRuntimeVariableEntry {
-                                        name: HirEagerRuntimeVariableName::SelfValue,
-                                        data: HirEagerRuntimeVariableData::SelfValue,
-                                    },
-                                ],
-                            },
-                            self_value_variable: Some(
-                                0,
-                            ),
-                        },
-                    },
-                },
-            ),
-        ),
-    ),
-    HirDecl::Attr(
-        AttrHirDecl::Backprop(
-            BackpropAttrHirDecl {
-                path: AttrItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 210,
-                        },
-                    ),
-                ),
-            },
-        ),
-    ),
-    HirDecl::AssocItem(
-        AssocItemHirDecl::TypeItem(
-            TypeItemHirDecl::MethodFn(
-                TypeMethodRitchieHirDecl {
-                    path: TypeItemPath(`<core::num::f32(0)>::sin`, `MethodRitchie(
-                        Fn,
-                    )`),
-                    template_parameters: HirTemplateParameters(
-                        [],
-                    ),
-                    self_value_parameter: HirEagerSelfValueParameter {
-                        contract: Pure,
-                        self_ty: PathLeading(
-                            HirTypePathLeading(
-                                Id {
-                                    value: 15,
-                                },
-                            ),
-                        ),
-                    },
-                    parenate_parameters: HirEagerParenateParameters(
-                        [],
-                    ),
-                    return_ty: HirType::PathLeading(
-                        HirTypePathLeading {
-                            ty_path: TypePath(`core::num::f32`, `Extern`),
-                            template_arguments: [],
-                            always_copyable: true,
-                        },
-                    ),
-                    hir_eager_expr_region: HirEagerExprRegion {
-                        region_path: RegionPath::Decl(
-                            ItemPath::AssocItem(
-                                AssocItemPath::TypeItem(
-                                    TypeItemPath(`<core::num::f32(0)>::sin`, `MethodRitchie(
-                                        Fn,
-                                    )`),
+                                    TypeItemPath(
+                                        `core::num::f32(0)::cos`,
+                                        TypeItemKind::MethodRitchie(
+                                            RitchieItemKind::Fn,
+                                        ),
+                                    ),
                                 ),
                             ),
                         ),
@@ -6142,13 +5841,7 @@
     HirDecl::Attr(
         AttrHirDecl::Backprop(
             BackpropAttrHirDecl {
-                path: AttrItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 211,
-                        },
-                    ),
-                ),
+                path: AttrItemPath(`core::num::f32(0)::cos::@backprop(0)`),
             },
         ),
     ),
@@ -6156,9 +5849,12 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodRitchieHirDecl {
-                    path: TypeItemPath(`<core::num::f32(0)>::acos`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    path: TypeItemPath(
+                        `core::num::f32(0)::sin`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -6186,9 +5882,97 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`<core::num::f32(0)>::acos`, `MethodRitchie(
-                                        Fn,
-                                    )`),
+                                    TypeItemPath(
+                                        `core::num::f32(0)::sin`,
+                                        TypeItemKind::MethodRitchie(
+                                            RitchieItemKind::Fn,
+                                        ),
+                                    ),
+                                ),
+                            ),
+                        ),
+                        expr_arena: Arena {
+                            data: [],
+                        },
+                        stmt_arena: Arena {
+                            data: [],
+                        },
+                        pattern_arena: Arena {
+                            data: [],
+                        },
+                        comptime_symbol_region_data: HirEagerComptimeVariableRegionData {
+                            arena: Arena {
+                                data: [],
+                            },
+                        },
+                        runtime_symbol_region_data: HirEagerRuntimeVariableRegionData {
+                            arena: Arena {
+                                data: [
+                                    HirEagerRuntimeVariableEntry {
+                                        name: HirEagerRuntimeVariableName::SelfValue,
+                                        data: HirEagerRuntimeVariableData::SelfValue,
+                                    },
+                                ],
+                            },
+                            self_value_variable: Some(
+                                0,
+                            ),
+                        },
+                    },
+                },
+            ),
+        ),
+    ),
+    HirDecl::Attr(
+        AttrHirDecl::Backprop(
+            BackpropAttrHirDecl {
+                path: AttrItemPath(`core::num::f32(0)::sin::@backprop(0)`),
+            },
+        ),
+    ),
+    HirDecl::AssocItem(
+        AssocItemHirDecl::TypeItem(
+            TypeItemHirDecl::MethodFn(
+                TypeMethodRitchieHirDecl {
+                    path: TypeItemPath(
+                        `core::num::f32(0)::acos`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
+                    template_parameters: HirTemplateParameters(
+                        [],
+                    ),
+                    self_value_parameter: HirEagerSelfValueParameter {
+                        contract: Pure,
+                        self_ty: PathLeading(
+                            HirTypePathLeading(
+                                Id {
+                                    value: 15,
+                                },
+                            ),
+                        ),
+                    },
+                    parenate_parameters: HirEagerParenateParameters(
+                        [],
+                    ),
+                    return_ty: HirType::PathLeading(
+                        HirTypePathLeading {
+                            ty_path: TypePath(`core::num::f32`, `Extern`),
+                            template_arguments: [],
+                            always_copyable: true,
+                        },
+                    ),
+                    hir_eager_expr_region: HirEagerExprRegion {
+                        region_path: RegionPath::Decl(
+                            ItemPath::AssocItem(
+                                AssocItemPath::TypeItem(
+                                    TypeItemPath(
+                                        `core::num::f32(0)::acos`,
+                                        TypeItemKind::MethodRitchie(
+                                            RitchieItemKind::Fn,
+                                        ),
+                                    ),
                                 ),
                             ),
                         ),
@@ -6391,26 +6175,14 @@
     HirDecl::Attr(
         AttrHirDecl::Backprop(
             BackpropAttrHirDecl {
-                path: AttrItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 213,
-                        },
-                    ),
-                ),
+                path: AttrItemPath(`<core::num::f32 as core::ops::Add(0)>::add::@backprop(0)`),
             },
         ),
     ),
     HirDecl::ImplBlock(
         ImplBlockHirDecl::Type(
             TypeImplBlockHirDecl {
-                path: TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 133,
-                        },
-                    ),
-                ),
+                path: TypeImplBlockPath(`core::num::f64(0)`),
                 template_parameters: HirTemplateParameters(
                     [],
                 ),
@@ -6425,13 +6197,7 @@
                     region_path: RegionPath::Decl(
                         ItemPath::ImplBlock(
                             ImplBlockPath::TypeImplBlock(
-                                TypeImplBlockPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 133,
-                                        },
-                                    ),
-                                ),
+                                TypeImplBlockPath(`core::num::f64(0)`),
                             ),
                         ),
                     ),
@@ -6463,9 +6229,12 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodRitchieHirDecl {
-                    path: TypeItemPath(`<core::num::f64(0)>::abs`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    path: TypeItemPath(
+                        `core::num::f64(0)::abs`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -6493,9 +6262,12 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`<core::num::f64(0)>::abs`, `MethodRitchie(
-                                        Fn,
-                                    )`),
+                                    TypeItemPath(
+                                        `core::num::f64(0)::abs`,
+                                        TypeItemKind::MethodRitchie(
+                                            RitchieItemKind::Fn,
+                                        ),
+                                    ),
                                 ),
                             ),
                         ),
@@ -6535,9 +6307,12 @@
         AssocItemHirDecl::TypeItem(
             TypeItemHirDecl::MethodFn(
                 TypeMethodRitchieHirDecl {
-                    path: TypeItemPath(`<core::num::f64(0)>::acos`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    path: TypeItemPath(
+                        `core::num::f64(0)::acos`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -6565,9 +6340,12 @@
                         region_path: RegionPath::Decl(
                             ItemPath::AssocItem(
                                 AssocItemPath::TypeItem(
-                                    TypeItemPath(`<core::num::f64(0)>::acos`, `MethodRitchie(
-                                        Fn,
-                                    )`),
+                                    TypeItemPath(
+                                        `core::num::f64(0)::acos`,
+                                        TypeItemKind::MethodRitchie(
+                                            RitchieItemKind::Fn,
+                                        ),
+                                    ),
                                 ),
                             ),
                         ),

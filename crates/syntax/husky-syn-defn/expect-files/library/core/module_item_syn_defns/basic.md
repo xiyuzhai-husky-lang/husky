@@ -11,13 +11,7 @@
     (
         ItemPath::Attr(
             Room32,
-            AttrItemPath(
-                ItemPathId(
-                    Id {
-                        value: 142,
-                    },
-                ),
-            ),
+            AttrItemPath(`core::basic::bool::@derive(0)`),
         ),
         None,
     ),
@@ -32,13 +26,7 @@
     (
         ItemPath::Attr(
             Room32,
-            AttrItemPath(
-                ItemPathId(
-                    Id {
-                        value: 143,
-                    },
-                ),
-            ),
+            AttrItemPath(`core::basic::never::@derive(0)`),
         ),
         None,
     ),
@@ -53,13 +41,7 @@
     (
         ItemPath::Attr(
             Room32,
-            AttrItemPath(
-                ItemPathId(
-                    Id {
-                        value: 144,
-                    },
-                ),
-            ),
+            AttrItemPath(`core::basic::unit::@derive(0)`),
         ),
         None,
     ),

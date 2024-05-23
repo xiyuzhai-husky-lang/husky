@@ -7,14 +7,20 @@
     ),
     ItemPath::AssocItem(
         AssocItemPath::TraitItem(
-            TraitItemPath(`std::ops::Add::Output`, `AssocType`),
+            TraitItemPath(
+                `std::ops::Add::Output`,
+                TraitItemKind::AssocType,
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TraitItem(
-            TraitItemPath(`std::ops::Add::add`, `MethodRitchie(
-                Fn,
-            )`),
+            TraitItemPath(
+                `std::ops::Add::add`,
+                TraitItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
 ]

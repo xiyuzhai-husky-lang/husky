@@ -303,13 +303,7 @@ EntityTreeCrateBundle {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
-                                            path: TypeImplBlockPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 162,
-                                                    },
-                                                ),
-                                            ),
+                                            path: TypeImplBlockPath(`mnist::BinaryImage28(0)`),
                                         },
                                     ),
                                 ),
@@ -323,13 +317,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::ImplBlock(
                                         ImplBlockSynNodePathData::TypeImplBlock(
                                             TypeImplBlockSynNodePathData {
-                                                path: TypeImplBlockPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 162,
-                                                        },
-                                                    ),
-                                                ),
+                                                path: TypeImplBlockPath(`mnist::BinaryImage28(0)`),
                                             },
                                         ),
                                     ),
@@ -461,13 +449,7 @@ EntityTreeCrateBundle {
                                 data: ItemSynNodePathData::ImplBlock(
                                     ImplBlockSynNodePathData::TypeImplBlock(
                                         TypeImplBlockSynNodePathData {
-                                            path: TypeImplBlockPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 165,
-                                                    },
-                                                ),
-                                            ),
+                                            path: TypeImplBlockPath(`mnist::BinaryGrid28(0)`),
                                         },
                                     ),
                                 ),
@@ -481,13 +463,7 @@ EntityTreeCrateBundle {
                                     data: ItemSynNodePathData::ImplBlock(
                                         ImplBlockSynNodePathData::TypeImplBlock(
                                             TypeImplBlockSynNodePathData {
-                                                path: TypeImplBlockPath(
-                                                    ItemPathId(
-                                                        Id {
-                                                            value: 165,
-                                                        },
-                                                    ),
-                                                ),
+                                                path: TypeImplBlockPath(`mnist::BinaryGrid28(0)`),
                                             },
                                         ),
                                     ),

@@ -46,7 +46,7 @@
                                 maybe_ambiguous_item_path: TypeVariantPath(
                                     ItemPathId(
                                         Id {
-                                            value: 92,
+                                            value: 91,
                                         },
                                     ),
                                 ),
@@ -84,7 +84,7 @@
                                 maybe_ambiguous_item_path: TypeVariantPath(
                                     ItemPathId(
                                         Id {
-                                            value: 93,
+                                            value: 92,
                                         },
                                     ),
                                 ),

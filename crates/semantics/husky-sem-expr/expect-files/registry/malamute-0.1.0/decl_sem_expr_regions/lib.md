@@ -512,25 +512,13 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    Parameter {
+                    PlaceInfo::Parameter {
                         current_variable_idx: 2,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 34,
-                                },
-                            ),
-                        ),
+                        ident: `f`,
                     },
-                    Parameter {
+                    PlaceInfo::Parameter {
                         current_variable_idx: 3,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 36,
-                                },
-                            ),
-                        ),
+                        ident: `skip`,
                     },
                 ],
             },
@@ -3710,15 +3698,9 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    Parameter {
+                    PlaceInfo::Parameter {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 24,
-                                },
-                            ),
-                        ),
+                        ident: `one_vs_all`,
                     },
                 ],
             },
@@ -6178,15 +6160,9 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    Parameter {
+                    PlaceInfo::Parameter {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 32,
-                                },
-                            ),
-                        ),
+                        ident: `one_vs_all_result`,
                     },
                 ],
             },

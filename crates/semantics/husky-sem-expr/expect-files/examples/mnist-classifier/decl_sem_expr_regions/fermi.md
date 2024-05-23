@@ -18,25 +18,13 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    Parameter {
+                    PlaceInfo::Parameter {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 45,
-                                },
-                            ),
-                        ),
+                        ident: `matches`,
                     },
-                    Parameter {
+                    PlaceInfo::Parameter {
                         current_variable_idx: 1,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 277,
-                                },
-                            ),
-                        ),
+                        ident: `others`,
                     },
                 ],
             },
@@ -875,25 +863,13 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    Parameter {
+                    PlaceInfo::Parameter {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 217,
-                                },
-                            ),
-                        ),
+                        ident: `concave_components`,
                     },
-                    Parameter {
+                    PlaceInfo::Parameter {
                         current_variable_idx: 1,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 280,
-                                },
-                            ),
-                        ),
+                        ident: `templates`,
                     },
                 ],
             },
@@ -1980,13 +1956,7 @@
         path: RegionPath::Decl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 313,
-                            },
-                        ),
-                    ),
+                    TypeImplBlockPath(`mnist_classifier::fermi::FermiMatchResult(0)`),
                 ),
             ),
         ),
@@ -1994,13 +1964,7 @@
             path: RegionPath::Decl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TypeImplBlock(
-                        TypeImplBlockPath(
-                            ItemPathId(
-                                Id {
-                                    value: 313,
-                                },
-                            ),
-                        ),
+                        TypeImplBlockPath(`mnist_classifier::fermi::FermiMatchResult(0)`),
                     ),
                 ),
             ),
@@ -2148,7 +2112,10 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::norm`, `MemoizedField`),
+                    TypeItemPath(
+                        `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
+                        TypeItemKind::MemoizedField,
+                    ),
                 ),
             ),
         ),
@@ -2156,13 +2123,16 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::norm`, `MemoizedField`),
+                        TypeItemPath(
+                            `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
+                            TypeItemKind::MemoizedField,
+                        ),
                     ),
                 ),
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
+                    PlaceInfo::SelfValue,
                 ],
             },
             sem_expr_arena: SemExprArena(
@@ -2306,7 +2276,10 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::rel_norm`, `MemoizedField`),
+                    TypeItemPath(
+                        `mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`,
+                        TypeItemKind::MemoizedField,
+                    ),
                 ),
             ),
         ),
@@ -2314,13 +2287,16 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::rel_norm`, `MemoizedField`),
+                        TypeItemPath(
+                            `mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`,
+                            TypeItemKind::MemoizedField,
+                        ),
                     ),
                 ),
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
+                    PlaceInfo::SelfValue,
                 ],
             },
             sem_expr_arena: SemExprArena(
@@ -2464,7 +2440,10 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::angle_change_norm`, `MemoizedField`),
+                    TypeItemPath(
+                        `mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`,
+                        TypeItemKind::MemoizedField,
+                    ),
                 ),
             ),
         ),
@@ -2472,13 +2451,16 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::angle_change_norm`, `MemoizedField`),
+                        TypeItemPath(
+                            `mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`,
+                            TypeItemKind::MemoizedField,
+                        ),
                     ),
                 ),
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
+                    PlaceInfo::SelfValue,
                 ],
             },
             sem_expr_arena: SemExprArena(

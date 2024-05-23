@@ -164,13 +164,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 313,
-                        },
-                    ),
-                ),
+                TypeImplBlockPath(`mnist_classifier::fermi::FermiMatchResult(0)`),
             ),
         ),
         Ok(
@@ -199,7 +193,10 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::norm`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
         ),
         Ok(
@@ -207,7 +204,10 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MemoizedField(
                         TypeMemoizedFieldDecTemplate {
-                            path: TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::norm`, `MemoizedField`),
+                            path: TypeItemPath(
+                                `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
+                                TypeItemKind::MemoizedField,
+                            ),
                             impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DecTemplateParameters {
                                     data: [],
@@ -229,7 +229,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 139,
+                                                value: 137,
                                             },
                                         ),
                                     ),
@@ -244,7 +244,10 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::rel_norm`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
         ),
         Ok(
@@ -252,7 +255,10 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MemoizedField(
                         TypeMemoizedFieldDecTemplate {
-                            path: TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::rel_norm`, `MemoizedField`),
+                            path: TypeItemPath(
+                                `mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`,
+                                TypeItemKind::MemoizedField,
+                            ),
                             impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DecTemplateParameters {
                                     data: [],
@@ -274,7 +280,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 139,
+                                                value: 137,
                                             },
                                         ),
                                     ),
@@ -289,7 +295,10 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::angle_change_norm`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
         ),
         Ok(
@@ -297,7 +306,10 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MemoizedField(
                         TypeMemoizedFieldDecTemplate {
-                            path: TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::angle_change_norm`, `MemoizedField`),
+                            path: TypeItemPath(
+                                `mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`,
+                                TypeItemKind::MemoizedField,
+                            ),
                             impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DecTemplateParameters {
                                     data: [],
@@ -319,7 +331,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 139,
+                                                value: 137,
                                             },
                                         ),
                                     ),

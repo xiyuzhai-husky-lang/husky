@@ -14,28 +14,31 @@
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
-            TypeImplBlockPath(
-                ItemPathId(
-                    Id {
-                        value: 313,
-                    },
-                ),
+            TypeImplBlockPath(`mnist_classifier::fermi::FermiMatchResult(0)`),
+        ),
+    ),
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
+            TypeItemPath(
+                `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
+                TypeItemKind::MemoizedField,
             ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::norm`, `MemoizedField`),
+            TypeItemPath(
+                `mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`,
+                TypeItemKind::MemoizedField,
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::rel_norm`, `MemoizedField`),
-        ),
-    ),
-    ItemPath::AssocItem(
-        AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::angle_change_norm`, `MemoizedField`),
+            TypeItemPath(
+                `mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`,
+                TypeItemKind::MemoizedField,
+            ),
         ),
     ),
 ]

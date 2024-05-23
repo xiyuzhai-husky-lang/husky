@@ -86,13 +86,7 @@ EntityTreeSheet {
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TypeImplBlock(
                                 TypeImplBlockSynNodePathData {
-                                    path: TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 150,
-                                            },
-                                        ),
-                                    ),
+                                    path: TypeImplBlockPath(`syntax_errors::ast::A(0)`),
                                 },
                             ),
                         ),
@@ -106,13 +100,7 @@ EntityTreeSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TypeImplBlock(
                                     TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 150,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeImplBlockPath(`syntax_errors::ast::A(0)`),
                                     },
                                 ),
                             ),

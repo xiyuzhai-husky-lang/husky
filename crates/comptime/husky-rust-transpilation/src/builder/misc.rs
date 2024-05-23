@@ -6,7 +6,7 @@ use husky_entity_path::path::{
 };
 use husky_hir_defn::defn::{major_item::ty::TypeHirDefn, HasHirDefn};
 use husky_linkage::template_argument::{qual::LinQual, ty::LinType};
-use husky_manifest::PackageDependency;
+use husky_manifest::dependency::PackageDependency;
 
 impl<'a, 'b> RustTranspilationBuilder<'a, 'b> {
     pub(crate) fn pub_use_all_in_submodule(&mut self, submodule_path: SubmoduleItemPath) {

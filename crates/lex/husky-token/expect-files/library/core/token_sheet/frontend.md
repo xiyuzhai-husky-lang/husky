@@ -20,7 +20,7 @@ TokenSheetData {
         ),
         TokenData::Keyword(
             Keyword::TypeEntity(
-                Struct,
+                Extern,
             ),
         ),
         TokenData::Ident(
@@ -36,7 +36,7 @@ TokenSheetData {
         ),
         TokenData::Keyword(
             Keyword::TypeEntity(
-                Struct,
+                Extern,
             ),
         ),
         TokenData::Ident(
@@ -52,7 +52,7 @@ TokenSheetData {
         ),
         TokenData::Keyword(
             Keyword::TypeEntity(
-                Struct,
+                Extern,
             ),
         ),
         TokenData::Ident(
@@ -68,7 +68,7 @@ TokenSheetData {
         ),
         TokenData::Keyword(
             Keyword::TypeEntity(
-                Struct,
+                Extern,
             ),
         ),
         TokenData::Ident(

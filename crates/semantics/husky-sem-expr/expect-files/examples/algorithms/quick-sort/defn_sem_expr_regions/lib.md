@@ -22,15 +22,9 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 6,
-                                },
-                            ),
-                        ),
+                        ident: `len`,
                     },
                 ],
             },
@@ -119,9 +113,12 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::slice::Slice(0)>::len`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    TypeItemPath(
+                                                        `core::slice::Slice(0)::len`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: Pure,
@@ -142,9 +139,12 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`<core::slice::Slice(0)>::len`, `MethodRitchie(
-                                                                Fn,
-                                                            )`),
+                                                            TypeItemPath(
+                                                                `core::slice::Slice(0)::len`,
+                                                                TypeItemKind::MethodRitchie(
+                                                                    RitchieItemKind::Fn,
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -848,7 +848,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 22,
+                                                    value: 20,
                                                 },
                                             ),
                                         ),
@@ -872,7 +872,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 22,
+                                                            value: 20,
                                                         },
                                                     ),
                                                 ),
@@ -1661,15 +1661,9 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 11,
-                                },
-                            ),
-                        ),
+                        ident: `p`,
                     },
                 ],
             },
@@ -3190,7 +3184,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 16,
+                                                    value: 14,
                                                 },
                                             ),
                                         ),
@@ -3214,7 +3208,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 16,
+                                                            value: 14,
                                                         },
                                                     ),
                                                 ),
@@ -4863,35 +4857,17 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
-                        ),
+                        ident: `pivot`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 1,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 15,
-                                },
-                            ),
-                        ),
+                        ident: `store_index`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 2,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 16,
-                                },
-                            ),
-                        ),
+                        ident: `last_index`,
                     },
                 ],
             },
@@ -7299,9 +7275,12 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::slice::Slice(0)>::swap`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    TypeItemPath(
+                                                        `core::slice::Slice(0)::swap`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: BorrowMut,
@@ -7345,9 +7324,12 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`<core::slice::Slice(0)>::swap`, `MethodRitchie(
-                                                                Fn,
-                                                            )`),
+                                                            TypeItemPath(
+                                                                `core::slice::Slice(0)::swap`,
+                                                                TypeItemKind::MethodRitchie(
+                                                                    RitchieItemKind::Fn,
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -7793,9 +7775,12 @@
                                         signature: MethodFlySignature::MethodFn(
                                             MethodFnFlySignature {
                                                 path: AssocItemPath::TypeItem(
-                                                    TypeItemPath(`<core::slice::Slice(0)>::swap`, `MethodRitchie(
-                                                        Fn,
-                                                    )`),
+                                                    TypeItemPath(
+                                                        `core::slice::Slice(0)::swap`,
+                                                        TypeItemKind::MethodRitchie(
+                                                            RitchieItemKind::Fn,
+                                                        ),
+                                                    ),
                                                 ),
                                                 self_value_parameter: FlyRitchieSimpleParameter {
                                                     contract: BorrowMut,
@@ -7839,9 +7824,12 @@
                                                 instantiation: FlyInstantiation {
                                                     path: ItemPath::AssocItem(
                                                         AssocItemPath::TypeItem(
-                                                            TypeItemPath(`<core::slice::Slice(0)>::swap`, `MethodRitchie(
-                                                                Fn,
-                                                            )`),
+                                                            TypeItemPath(
+                                                                `core::slice::Slice(0)::swap`,
+                                                                TypeItemKind::MethodRitchie(
+                                                                    RitchieItemKind::Fn,
+                                                                ),
+                                                            ),
                                                         ),
                                                     ),
                                                     env: MethodFn {
@@ -8598,7 +8586,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 22,
+                                                    value: 20,
                                                 },
                                             ),
                                         ),
@@ -8618,7 +8606,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 16,
+                                                    value: 14,
                                                 },
                                             ),
                                         ),
@@ -8644,7 +8632,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 16,
+                                                    value: 14,
                                                 },
                                             ),
                                         ),
@@ -8668,7 +8656,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 22,
+                                                            value: 20,
                                                         },
                                                     ),
                                                 ),
@@ -8690,7 +8678,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 16,
+                                                            value: 14,
                                                         },
                                                     ),
                                                 ),
@@ -8718,7 +8706,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 16,
+                                                            value: 14,
                                                         },
                                                     ),
                                                 ),
@@ -11327,15 +11315,9 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 20,
-                                },
-                            ),
-                        ),
+                        ident: `v`,
                     },
                 ],
             },
@@ -13013,15 +12995,9 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 23,
-                                },
-                            ),
-                        ),
+                        ident: `strs`,
                     },
                 ],
             },

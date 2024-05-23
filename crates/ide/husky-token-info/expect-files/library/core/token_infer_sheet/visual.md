@@ -84,9 +84,12 @@ Ok(
                                                         },
                                                     ),
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TraitItemPath(`core::visual::Visualize::visualize`, `MethodRitchie(
-                                                            Fn,
-                                                        )`),
+                                                        maybe_ambiguous_item_path: TraitItemPath(
+                                                            `core::visual::Visualize::visualize`,
+                                                            TraitItemKind::MethodRitchie(
+                                                                RitchieItemKind::Fn,
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },

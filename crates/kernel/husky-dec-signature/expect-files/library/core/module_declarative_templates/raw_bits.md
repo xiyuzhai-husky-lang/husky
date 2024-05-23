@@ -23,13 +23,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 135,
-                        },
-                    ),
-                ),
+                TypeImplBlockPath(`core::raw_bits::r32(0)`),
             ),
         ),
         Ok(
@@ -44,7 +38,7 @@
                                 TypePath(
                                     ItemPathId(
                                         Id {
-                                            value: 90,
+                                            value: 89,
                                         },
                                     ),
                                 ),
@@ -58,9 +52,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::raw_bits::r32(0)>::last_bits`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::raw_bits::r32(0)::last_bits`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -68,9 +65,12 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(`<core::raw_bits::r32(0)>::last_bits`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            path: TypeItemPath(
+                                `core::raw_bits::r32(0)::last_bits`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                             impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DecTemplateParameters {
                                     data: [],
@@ -80,7 +80,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 90,
+                                                    value: 89,
                                                 },
                                             ),
                                         ),
@@ -92,7 +92,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 90,
+                                                value: 89,
                                             },
                                         ),
                                     ),
@@ -108,7 +108,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 90,
+                                                    value: 89,
                                                 },
                                             ),
                                         ),
@@ -125,7 +125,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 55,
+                                                                value: 54,
                                                             },
                                                         ),
                                                     ),
@@ -140,7 +140,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 90,
+                                                value: 89,
                                             },
                                         ),
                                     ),
@@ -155,9 +155,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::raw_bits::r32(0)>::ctz`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::raw_bits::r32(0)::ctz`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -165,9 +168,12 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(`<core::raw_bits::r32(0)>::ctz`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            path: TypeItemPath(
+                                `core::raw_bits::r32(0)::ctz`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                             impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DecTemplateParameters {
                                     data: [],
@@ -177,7 +183,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 90,
+                                                    value: 89,
                                                 },
                                             ),
                                         ),
@@ -189,7 +195,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 90,
+                                                value: 89,
                                             },
                                         ),
                                     ),
@@ -205,7 +211,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 90,
+                                                    value: 89,
                                                 },
                                             ),
                                         ),
@@ -220,7 +226,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 55,
+                                                value: 54,
                                             },
                                         ),
                                     ),
@@ -235,9 +241,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::raw_bits::r32(0)>::co`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::raw_bits::r32(0)::co`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -245,9 +254,12 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(`<core::raw_bits::r32(0)>::co`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            path: TypeItemPath(
+                                `core::raw_bits::r32(0)::co`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                             impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DecTemplateParameters {
                                     data: [],
@@ -257,7 +269,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 90,
+                                                    value: 89,
                                                 },
                                             ),
                                         ),
@@ -269,7 +281,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 90,
+                                                value: 89,
                                             },
                                         ),
                                     ),
@@ -285,7 +297,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 90,
+                                                    value: 89,
                                                 },
                                             ),
                                         ),
@@ -300,7 +312,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 55,
+                                                value: 54,
                                             },
                                         ),
                                     ),
@@ -315,9 +327,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::raw_bits::r32(0)>::span`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::raw_bits::r32(0)::span`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -325,9 +340,12 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(`<core::raw_bits::r32(0)>::span`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            path: TypeItemPath(
+                                `core::raw_bits::r32(0)::span`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                             impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DecTemplateParameters {
                                     data: [],
@@ -337,7 +355,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 90,
+                                                    value: 89,
                                                 },
                                             ),
                                         ),
@@ -349,7 +367,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 90,
+                                                value: 89,
                                             },
                                         ),
                                     ),
@@ -365,7 +383,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 90,
+                                                    value: 89,
                                                 },
                                             ),
                                         ),
@@ -380,7 +398,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 55,
+                                                value: 54,
                                             },
                                         ),
                                     ),
@@ -395,9 +413,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<core::raw_bits::r32(0)>::right_mass`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `core::raw_bits::r32(0)::right_mass`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -405,9 +426,12 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(`<core::raw_bits::r32(0)>::right_mass`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            path: TypeItemPath(
+                                `core::raw_bits::r32(0)::right_mass`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                             impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DecTemplateParameters {
                                     data: [],
@@ -417,7 +441,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 90,
+                                                    value: 89,
                                                 },
                                             ),
                                         ),
@@ -429,7 +453,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 90,
+                                                value: 89,
                                             },
                                         ),
                                     ),
@@ -445,7 +469,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 90,
+                                                    value: 89,
                                                 },
                                             ),
                                         ),
@@ -460,7 +484,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 55,
+                                                value: 54,
                                             },
                                         ),
                                     ),

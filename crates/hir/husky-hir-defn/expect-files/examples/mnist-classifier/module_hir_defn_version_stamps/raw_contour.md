@@ -50,7 +50,7 @@
             AttrItemPath(
                 ItemPathId(
                     Id {
-                        value: 432,
+                        value: 431,
                     },
                 ),
             ),
@@ -345,7 +345,7 @@
                 TraitForTypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 298,
+                            value: 297,
                         },
                     ),
                 ),
@@ -367,7 +367,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 441,
+                            value: 440,
                         },
                     ),
                 ),
@@ -389,7 +389,7 @@
                 TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 299,
+                            value: 298,
                         },
                     ),
                 ),
@@ -411,7 +411,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 386,
+                            value: 385,
                         },
                     ),
                 ),
@@ -433,7 +433,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 387,
+                            value: 386,
                         },
                     ),
                 ),
@@ -455,7 +455,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 388,
+                            value: 387,
                         },
                     ),
                 ),
@@ -477,7 +477,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 389,
+                            value: 388,
                         },
                     ),
                 ),
@@ -499,7 +499,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 390,
+                            value: 389,
                         },
                     ),
                 ),

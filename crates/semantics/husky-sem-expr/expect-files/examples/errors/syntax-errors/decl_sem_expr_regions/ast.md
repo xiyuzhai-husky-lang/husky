@@ -70,13 +70,7 @@
         path: RegionPath::Decl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 150,
-                            },
-                        ),
-                    ),
+                    TypeImplBlockPath(`syntax_errors::ast::A(0)`),
                 ),
             ),
         ),
@@ -84,13 +78,7 @@
             path: RegionPath::Decl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TypeImplBlock(
-                        TypeImplBlockPath(
-                            ItemPathId(
-                                Id {
-                                    value: 150,
-                                },
-                            ),
-                        ),
+                        TypeImplBlockPath(`syntax_errors::ast::A(0)`),
                     ),
                 ),
             ),

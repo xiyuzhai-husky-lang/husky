@@ -11,9 +11,11 @@ pub struct VfsPathMenu {
     std_root: ModulePath,
     core_array: SubmodulePath,
     core_basic: SubmodulePath,
+    core_backend: SubmodulePath,
     core_clone: SubmodulePath,
     core_cmp: SubmodulePath,
     core_default: SubmodulePath,
+    core_frontend: SubmodulePath,
     core_fmt: SubmodulePath,
     core_vec: SubmodulePath,
     core_marker: SubmodulePath,
@@ -59,6 +61,12 @@ impl VfsPathMenu {
             Ident::from_ref(db, "basic").expect("should be valid identifier"),
         )
         .expect("should be valid");
+        let core_backend = ModulePath::new_child(
+            db,
+            core_root,
+            Ident::from_ref(db, "backend").expect("should be valid identifier"),
+        )
+        .expect("should be valid");
         let core_clone = ModulePath::new_child(
             db,
             core_root,
@@ -81,6 +89,12 @@ impl VfsPathMenu {
             db,
             core_root,
             Ident::from_ref(db, "fmt").expect("should be valid identifier"),
+        )
+        .expect("should be valid");
+        let core_frontend = ModulePath::new_child(
+            db,
+            core_root,
+            Ident::from_ref(db, "frontend").expect("should be valid identifier"),
         )
         .expect("should be valid");
         let core_vec = ModulePath::new_child(
@@ -164,10 +178,12 @@ impl VfsPathMenu {
             std_root,
             core_array,
             core_basic,
+            core_backend,
             core_clone,
             core_cmp,
             core_default,
             core_fmt,
+            core_frontend,
             core_marker,
             core_mem,
             core_num,
@@ -260,6 +276,14 @@ impl VfsPathMenu {
     /// core::visual
     pub fn core_visual(&self) -> SubmodulePath {
         self.core_visual
+    }
+
+    pub fn core_backend(&self) -> SubmodulePath {
+        self.core_backend
+    }
+
+    pub fn core_frontend(&self) -> SubmodulePath {
+        self.core_frontend
     }
 
     pub fn std_root(&self) -> ModulePath {

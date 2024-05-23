@@ -36,13 +36,7 @@
     (
         ItemPath::Attr(
             Room32,
-            AttrItemPath(
-                ItemPathId(
-                    Id {
-                        value: 161,
-                    },
-                ),
-            ),
+            AttrItemPath(`malamute::Class::@derive(0)`),
         ),
         None,
     ),
@@ -102,13 +96,7 @@
     (
         ItemPath::Attr(
             Room32,
-            AttrItemPath(
-                ItemPathId(
-                    Id {
-                        value: 162,
-                    },
-                ),
-            ),
+            AttrItemPath(`malamute::OneVsAll::@derive(0)`),
         ),
         None,
     ),
@@ -168,13 +156,7 @@
     (
         ItemPath::Attr(
             Room32,
-            AttrItemPath(
-                ItemPathId(
-                    Id {
-                        value: 163,
-                    },
-                ),
-            ),
+            AttrItemPath(`malamute::OneVsAllResult::@derive(0)`),
         ),
         None,
     ),

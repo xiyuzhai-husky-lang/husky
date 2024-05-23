@@ -44,9 +44,12 @@
                                         },
                                     ),
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TraitItemPath(`core::clone::Clone::clone`, `MethodRitchie(
-                                            Fn,
-                                        )`),
+                                        maybe_ambiguous_item_path: TraitItemPath(
+                                            `core::clone::Clone::clone`,
+                                            TraitItemKind::MethodRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },

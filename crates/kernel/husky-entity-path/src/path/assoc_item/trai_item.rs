@@ -88,14 +88,7 @@ impl salsa::DebugWithDb for TraitItemPath {
         f: &mut std::fmt::Formatter<'_>,
         db: &::salsa::Db,
     ) -> std::fmt::Result {
-        use std::fmt::Debug;
-
-        let data = self.data(db);
-        f.write_str("TraitItemPath(`")?;
-        data.show_aux(f, db)?;
-        f.write_str("`, `")?;
-        data.item_kind.fmt(f)?;
-        f.write_str("`)")
+        item_debug_with_db_fmt!(self, f, "TraitItemPath", db)
     }
 }
 

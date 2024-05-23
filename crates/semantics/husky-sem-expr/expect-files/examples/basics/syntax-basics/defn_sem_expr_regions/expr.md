@@ -22,15 +22,9 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 21,
-                                },
-                            ),
-                        ),
+                        ident: `t`,
                     },
                 ],
             },
@@ -464,25 +458,13 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 1,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
-                        ),
+                        ident: `x`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 21,
-                                },
-                            ),
-                        ),
+                        ident: `t`,
                     },
                 ],
             },
@@ -867,7 +849,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 25,
+                                                    value: 23,
                                                 },
                                             ),
                                         ),
@@ -909,7 +891,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 25,
+                                                            value: 23,
                                                         },
                                                     ),
                                                 ),
@@ -1259,25 +1241,13 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 1,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 13,
-                                },
-                            ),
-                        ),
+                        ident: `x`,
                     },
-                    Variable {
+                    PlaceInfo::Variable {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 21,
-                                },
-                            ),
-                        ),
+                        ident: `t`,
                     },
                 ],
             },
@@ -1723,7 +1693,7 @@
                                         TypePath(
                                             ItemPathId(
                                                 Id {
-                                                    value: 25,
+                                                    value: 23,
                                                 },
                                             ),
                                         ),
@@ -1765,7 +1735,7 @@
                                                 TypePath(
                                                     ItemPathId(
                                                         Id {
-                                                            value: 25,
+                                                            value: 23,
                                                         },
                                                     ),
                                                 ),

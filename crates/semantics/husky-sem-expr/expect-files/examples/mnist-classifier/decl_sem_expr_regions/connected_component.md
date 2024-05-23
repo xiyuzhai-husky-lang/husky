@@ -18,45 +18,21 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    Parameter {
+                    PlaceInfo::Parameter {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 39,
-                                },
-                            ),
-                        ),
+                        ident: `row_start`,
                     },
-                    Parameter {
+                    PlaceInfo::Parameter {
                         current_variable_idx: 1,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 41,
-                                },
-                            ),
-                        ),
+                        ident: `row_end`,
                     },
-                    Parameter {
+                    PlaceInfo::Parameter {
                         current_variable_idx: 2,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 42,
-                                },
-                            ),
-                        ),
+                        ident: `upper_mass`,
                     },
-                    Parameter {
+                    PlaceInfo::Parameter {
                         current_variable_idx: 3,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 43,
-                                },
-                            ),
-                        ),
+                        ident: `lower_mass`,
                     },
                 ],
             },
@@ -558,15 +534,9 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    Parameter {
+                    PlaceInfo::Parameter {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 45,
-                                },
-                            ),
-                        ),
+                        ident: `matches`,
                     },
                 ],
             },
@@ -1063,15 +1033,9 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    Parameter {
+                    PlaceInfo::Parameter {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 48,
-                                },
-                            ),
-                        ),
+                        ident: `ct`,
                     },
                 ],
             },
@@ -1479,15 +1443,9 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    Parameter {
+                    PlaceInfo::Parameter {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 53,
-                                },
-                            ),
-                        ),
+                        ident: `mask`,
                     },
                 ],
             },
@@ -1672,25 +1630,13 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    Parameter {
+                    PlaceInfo::Parameter {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 86,
-                                },
-                            ),
-                        ),
+                        ident: `a`,
                     },
-                    Parameter {
+                    PlaceInfo::Parameter {
                         current_variable_idx: 1,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 88,
-                                },
-                            ),
-                        ),
+                        ident: `x`,
                     },
                 ],
             },
@@ -2055,15 +2001,9 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    Parameter {
+                    PlaceInfo::Parameter {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 92,
-                                },
-                            ),
-                        ),
+                        ident: `img`,
                     },
                 ],
             },
@@ -2733,7 +2673,7 @@
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
+                    PlaceInfo::SelfValue,
                 ],
             },
             sem_expr_arena: SemExprArena(
@@ -2877,13 +2817,7 @@
         path: RegionPath::Decl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 297,
-                            },
-                        ),
-                    ),
+                    TypeImplBlockPath(`mnist_classifier::connected_component::ConnectedComponent(0)`),
                 ),
             ),
         ),
@@ -2891,13 +2825,7 @@
             path: RegionPath::Decl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TypeImplBlock(
-                        TypeImplBlockPath(
-                            ItemPathId(
-                                Id {
-                                    value: 297,
-                                },
-                            ),
-                        ),
+                        TypeImplBlockPath(`mnist_classifier::connected_component::ConnectedComponent(0)`),
                     ),
                 ),
             ),
@@ -3045,7 +2973,10 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::raw_contours`, `MemoizedField`),
+                    TypeItemPath(
+                        `mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`,
+                        TypeItemKind::MemoizedField,
+                    ),
                 ),
             ),
         ),
@@ -3053,13 +2984,16 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::raw_contours`, `MemoizedField`),
+                        TypeItemPath(
+                            `mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`,
+                            TypeItemKind::MemoizedField,
+                        ),
                     ),
                 ),
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
+                    PlaceInfo::SelfValue,
                 ],
             },
             sem_expr_arena: SemExprArena(
@@ -3367,7 +3301,10 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::eff_holes`, `MemoizedField`),
+                    TypeItemPath(
+                        `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
+                        TypeItemKind::MemoizedField,
+                    ),
                 ),
             ),
         ),
@@ -3375,13 +3312,16 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::eff_holes`, `MemoizedField`),
+                        TypeItemPath(
+                            `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
+                            TypeItemKind::MemoizedField,
+                        ),
                     ),
                 ),
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
+                    PlaceInfo::SelfValue,
                 ],
             },
             sem_expr_arena: SemExprArena(
@@ -3525,7 +3465,10 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::max_hole_ilen`, `MemoizedField`),
+                    TypeItemPath(
+                        `mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`,
+                        TypeItemKind::MemoizedField,
+                    ),
                 ),
             ),
         ),
@@ -3533,13 +3476,16 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::max_hole_ilen`, `MemoizedField`),
+                        TypeItemPath(
+                            `mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`,
+                            TypeItemKind::MemoizedField,
+                        ),
                     ),
                 ),
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
+                    PlaceInfo::SelfValue,
                 ],
             },
             sem_expr_arena: SemExprArena(
@@ -3683,7 +3629,10 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::max_row_span`, `MemoizedField`),
+                    TypeItemPath(
+                        `mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`,
+                        TypeItemKind::MemoizedField,
+                    ),
                 ),
             ),
         ),
@@ -3691,13 +3640,16 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::max_row_span`, `MemoizedField`),
+                        TypeItemPath(
+                            `mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`,
+                            TypeItemKind::MemoizedField,
+                        ),
                     ),
                 ),
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
+                    PlaceInfo::SelfValue,
                 ],
             },
             sem_expr_arena: SemExprArena(
@@ -3841,7 +3793,10 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::row_span_sum`, `MemoizedField`),
+                    TypeItemPath(
+                        `mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`,
+                        TypeItemKind::MemoizedField,
+                    ),
                 ),
             ),
         ),
@@ -3849,13 +3804,16 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::row_span_sum`, `MemoizedField`),
+                        TypeItemPath(
+                            `mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`,
+                            TypeItemKind::MemoizedField,
+                        ),
                     ),
                 ),
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
+                    PlaceInfo::SelfValue,
                 ],
             },
             sem_expr_arena: SemExprArena(
@@ -3999,7 +3957,10 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::distribution`, `MemoizedField`),
+                    TypeItemPath(
+                        `mnist_classifier::connected_component::ConnectedComponent(0)::distribution`,
+                        TypeItemKind::MemoizedField,
+                    ),
                 ),
             ),
         ),
@@ -4007,13 +3968,16 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::distribution`, `MemoizedField`),
+                        TypeItemPath(
+                            `mnist_classifier::connected_component::ConnectedComponent(0)::distribution`,
+                            TypeItemKind::MemoizedField,
+                        ),
                     ),
                 ),
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
+                    PlaceInfo::SelfValue,
                 ],
             },
             sem_expr_arena: SemExprArena(
@@ -4157,7 +4121,10 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::upper_mass`, `MemoizedField`),
+                    TypeItemPath(
+                        `mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`,
+                        TypeItemKind::MemoizedField,
+                    ),
                 ),
             ),
         ),
@@ -4165,13 +4132,16 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::upper_mass`, `MemoizedField`),
+                        TypeItemPath(
+                            `mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`,
+                            TypeItemKind::MemoizedField,
+                        ),
                     ),
                 ),
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
+                    PlaceInfo::SelfValue,
                 ],
             },
             sem_expr_arena: SemExprArena(
@@ -4315,7 +4285,10 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::lower_mass`, `MemoizedField`),
+                    TypeItemPath(
+                        `mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`,
+                        TypeItemKind::MemoizedField,
+                    ),
                 ),
             ),
         ),
@@ -4323,13 +4296,16 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::lower_mass`, `MemoizedField`),
+                        TypeItemPath(
+                            `mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`,
+                            TypeItemKind::MemoizedField,
+                        ),
                     ),
                 ),
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
+                    PlaceInfo::SelfValue,
                 ],
             },
             sem_expr_arena: SemExprArena(
@@ -4473,9 +4449,12 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::top_k_row_span_sum`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    TypeItemPath(
+                        `mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                 ),
             ),
         ),
@@ -4483,24 +4462,21 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::top_k_row_span_sum`, `MethodRitchie(
-                            Fn,
-                        )`),
+                        TypeItemPath(
+                            `mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`,
+                            TypeItemKind::MethodRitchie(
+                                RitchieItemKind::Fn,
+                            ),
+                        ),
                     ),
                 ),
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
-                    Parameter {
+                    PlaceInfo::SelfValue,
+                    PlaceInfo::Parameter {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 81,
-                                },
-                            ),
-                        ),
+                        ident: `k`,
                     },
                 ],
             },
@@ -4748,9 +4724,12 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::top_k_row_right_mass_sum`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    TypeItemPath(
+                        `mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                 ),
             ),
         ),
@@ -4758,24 +4737,21 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::top_k_row_right_mass_sum`, `MethodRitchie(
-                            Fn,
-                        )`),
+                        TypeItemPath(
+                            `mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`,
+                            TypeItemKind::MethodRitchie(
+                                RitchieItemKind::Fn,
+                            ),
+                        ),
                     ),
                 ),
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
-                    Parameter {
+                    PlaceInfo::SelfValue,
+                    PlaceInfo::Parameter {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 81,
-                                },
-                            ),
-                        ),
+                        ident: `k`,
                     },
                 ],
             },

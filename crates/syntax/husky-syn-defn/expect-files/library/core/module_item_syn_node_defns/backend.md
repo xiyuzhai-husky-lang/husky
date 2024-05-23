@@ -30,28 +30,7 @@
                             MajorItemSynNodePathData::Type(
                                 TypeSynNodePathData {
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TypePath(`core::backend::MlBackend`, `Struct`),
-                                        disambiguator: 0,
-                                    },
-                                },
-                            ),
-                        ),
-                    },
-                ),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemSynNodePath::MajorItem(
-            MajorItemSynNodePath::Type(
-                TypeSynNodePath(
-                    ItemSynNodePathId {
-                        data: ItemSynNodePathData::MajorItem(
-                            MajorItemSynNodePathData::Type(
-                                TypeSynNodePathData {
-                                    disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TypePath(`core::backend::RlBackend`, `Struct`),
+                                        maybe_ambiguous_item_path: TypePath(`core::backend::MlBackend`, `Extern`),
                                         disambiguator: 0,
                                     },
                                 },

@@ -3259,6 +3259,89 @@ EntityTreeSheet {
                                                     ty_variant_path: TypeVariantPath(
                                                         ItemPathId(
                                                             Id {
+                                                                value: 87,
+                                                            },
+                                                        ),
+                                                    ),
+                                                },
+                                                path: PrincipalEntityPath::TypeVariant(
+                                                    TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
+                                                                value: 87,
+                                                            },
+                                                        ),
+                                                    ),
+                                                ),
+                                                visibility: Scope::Pub,
+                                                ast_idx: 3,
+                                                use_expr_idx: 2,
+                                            },
+                                        ),
+                                        path: PrincipalEntityPath::TypeVariant(
+                                            TypeVariantPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 87,
+                                                    },
+                                                ),
+                                            ),
+                                        ),
+                                        visibility: Scope::Pub,
+                                        ast_idx: 9,
+                                        use_expr_idx: 27,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::TypeVariant(
+                                    TypeVariantPath(
+                                        ItemPathId(
+                                            Id {
+                                                value: 87,
+                                            },
+                                        ),
+                                    ),
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `core`,
+                                ),
+                                ast_idx: 22,
+                                use_expr_idx: 0,
+                            },
+                        ),
+                        path: PrincipalEntityPath::TypeVariant(
+                            TypeVariantPath(
+                                ItemPathId(
+                                    Id {
+                                        value: 87,
+                                    },
+                                ),
+                            ),
+                        ),
+                        visibility: Scope::PubUnder(
+                            `core::num`,
+                        ),
+                        ast_idx: 47,
+                        use_expr_idx: 0,
+                    },
+                ),
+            },
+            EntitySymbolEntry {
+                ident: `None`,
+                visible_scope: Scope::PubUnder(
+                    `core::num`,
+                ),
+                symbol: EntitySymbol::Use(
+                    UseSymbol {
+                        original_symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Use(
+                                            UseSymbol {
+                                                original_symbol: EntitySymbol::TypeVariant {
+                                                    ty_variant_path: TypeVariantPath(
+                                                        ItemPathId(
+                                                            Id {
                                                                 value: 88,
                                                             },
                                                         ),
@@ -3313,89 +3396,6 @@ EntityTreeSheet {
                                 ItemPathId(
                                     Id {
                                         value: 88,
-                                    },
-                                ),
-                            ),
-                        ),
-                        visibility: Scope::PubUnder(
-                            `core::num`,
-                        ),
-                        ast_idx: 47,
-                        use_expr_idx: 0,
-                    },
-                ),
-            },
-            EntitySymbolEntry {
-                ident: `None`,
-                visible_scope: Scope::PubUnder(
-                    `core::num`,
-                ),
-                symbol: EntitySymbol::Use(
-                    UseSymbol {
-                        original_symbol: EntitySymbol::Use(
-                            UseSymbol {
-                                original_symbol: EntitySymbol::Use(
-                                    UseSymbol {
-                                        original_symbol: EntitySymbol::Use(
-                                            UseSymbol {
-                                                original_symbol: EntitySymbol::TypeVariant {
-                                                    ty_variant_path: TypeVariantPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 89,
-                                                            },
-                                                        ),
-                                                    ),
-                                                },
-                                                path: PrincipalEntityPath::TypeVariant(
-                                                    TypeVariantPath(
-                                                        ItemPathId(
-                                                            Id {
-                                                                value: 89,
-                                                            },
-                                                        ),
-                                                    ),
-                                                ),
-                                                visibility: Scope::Pub,
-                                                ast_idx: 3,
-                                                use_expr_idx: 2,
-                                            },
-                                        ),
-                                        path: PrincipalEntityPath::TypeVariant(
-                                            TypeVariantPath(
-                                                ItemPathId(
-                                                    Id {
-                                                        value: 89,
-                                                    },
-                                                ),
-                                            ),
-                                        ),
-                                        visibility: Scope::Pub,
-                                        ast_idx: 9,
-                                        use_expr_idx: 27,
-                                    },
-                                ),
-                                path: PrincipalEntityPath::TypeVariant(
-                                    TypeVariantPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 89,
-                                            },
-                                        ),
-                                    ),
-                                ),
-                                visibility: Scope::PubUnder(
-                                    `core`,
-                                ),
-                                ast_idx: 22,
-                                use_expr_idx: 0,
-                            },
-                        ),
-                        path: PrincipalEntityPath::TypeVariant(
-                            TypeVariantPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 89,
                                     },
                                 ),
                             ),
@@ -3775,13 +3775,7 @@ EntityTreeSheet {
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TypeImplBlock(
                                 TypeImplBlockSynNodePathData {
-                                    path: TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 107,
-                                            },
-                                        ),
-                                    ),
+                                    path: TypeImplBlockPath(`core::num::i8(0)`),
                                 },
                             ),
                         ),
@@ -3795,13 +3789,7 @@ EntityTreeSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TypeImplBlock(
                                     TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 107,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeImplBlockPath(`core::num::i8(0)`),
                                     },
                                 ),
                             ),
@@ -3881,13 +3869,7 @@ EntityTreeSheet {
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TypeImplBlock(
                                 TypeImplBlockSynNodePathData {
-                                    path: TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 109,
-                                            },
-                                        ),
-                                    ),
+                                    path: TypeImplBlockPath(`core::num::i16(0)`),
                                 },
                             ),
                         ),
@@ -3901,13 +3883,7 @@ EntityTreeSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TypeImplBlock(
                                     TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 109,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeImplBlockPath(`core::num::i16(0)`),
                                     },
                                 ),
                             ),
@@ -3987,13 +3963,7 @@ EntityTreeSheet {
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TypeImplBlock(
                                 TypeImplBlockSynNodePathData {
-                                    path: TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 111,
-                                            },
-                                        ),
-                                    ),
+                                    path: TypeImplBlockPath(`core::num::i32(0)`),
                                 },
                             ),
                         ),
@@ -4007,13 +3977,7 @@ EntityTreeSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TypeImplBlock(
                                     TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 111,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeImplBlockPath(`core::num::i32(0)`),
                                     },
                                 ),
                             ),
@@ -4093,13 +4057,7 @@ EntityTreeSheet {
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TypeImplBlock(
                                 TypeImplBlockSynNodePathData {
-                                    path: TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 113,
-                                            },
-                                        ),
-                                    ),
+                                    path: TypeImplBlockPath(`core::num::i64(0)`),
                                 },
                             ),
                         ),
@@ -4113,13 +4071,7 @@ EntityTreeSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TypeImplBlock(
                                     TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 113,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeImplBlockPath(`core::num::i64(0)`),
                                     },
                                 ),
                             ),
@@ -4199,13 +4151,7 @@ EntityTreeSheet {
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TypeImplBlock(
                                 TypeImplBlockSynNodePathData {
-                                    path: TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 115,
-                                            },
-                                        ),
-                                    ),
+                                    path: TypeImplBlockPath(`core::num::i128(0)`),
                                 },
                             ),
                         ),
@@ -4219,13 +4165,7 @@ EntityTreeSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TypeImplBlock(
                                     TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 115,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeImplBlockPath(`core::num::i128(0)`),
                                     },
                                 ),
                             ),
@@ -4305,13 +4245,7 @@ EntityTreeSheet {
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TypeImplBlock(
                                 TypeImplBlockSynNodePathData {
-                                    path: TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 117,
-                                            },
-                                        ),
-                                    ),
+                                    path: TypeImplBlockPath(`core::num::isize(0)`),
                                 },
                             ),
                         ),
@@ -4325,13 +4259,7 @@ EntityTreeSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TypeImplBlock(
                                     TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 117,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeImplBlockPath(`core::num::isize(0)`),
                                     },
                                 ),
                             ),
@@ -4411,13 +4339,7 @@ EntityTreeSheet {
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TypeImplBlock(
                                 TypeImplBlockSynNodePathData {
-                                    path: TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 119,
-                                            },
-                                        ),
-                                    ),
+                                    path: TypeImplBlockPath(`core::num::u8(0)`),
                                 },
                             ),
                         ),
@@ -4431,13 +4353,7 @@ EntityTreeSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TypeImplBlock(
                                     TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 119,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeImplBlockPath(`core::num::u8(0)`),
                                     },
                                 ),
                             ),
@@ -4517,13 +4433,7 @@ EntityTreeSheet {
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TypeImplBlock(
                                 TypeImplBlockSynNodePathData {
-                                    path: TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 121,
-                                            },
-                                        ),
-                                    ),
+                                    path: TypeImplBlockPath(`core::num::u16(0)`),
                                 },
                             ),
                         ),
@@ -4537,13 +4447,7 @@ EntityTreeSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TypeImplBlock(
                                     TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 121,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeImplBlockPath(`core::num::u16(0)`),
                                     },
                                 ),
                             ),
@@ -4623,13 +4527,7 @@ EntityTreeSheet {
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TypeImplBlock(
                                 TypeImplBlockSynNodePathData {
-                                    path: TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 123,
-                                            },
-                                        ),
-                                    ),
+                                    path: TypeImplBlockPath(`core::num::u32(0)`),
                                 },
                             ),
                         ),
@@ -4643,13 +4541,7 @@ EntityTreeSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TypeImplBlock(
                                     TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 123,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeImplBlockPath(`core::num::u32(0)`),
                                     },
                                 ),
                             ),
@@ -4729,13 +4621,7 @@ EntityTreeSheet {
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TypeImplBlock(
                                 TypeImplBlockSynNodePathData {
-                                    path: TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 125,
-                                            },
-                                        ),
-                                    ),
+                                    path: TypeImplBlockPath(`core::num::u64(0)`),
                                 },
                             ),
                         ),
@@ -4749,13 +4635,7 @@ EntityTreeSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TypeImplBlock(
                                     TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 125,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeImplBlockPath(`core::num::u64(0)`),
                                     },
                                 ),
                             ),
@@ -4835,13 +4715,7 @@ EntityTreeSheet {
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TypeImplBlock(
                                 TypeImplBlockSynNodePathData {
-                                    path: TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 127,
-                                            },
-                                        ),
-                                    ),
+                                    path: TypeImplBlockPath(`core::num::u128(0)`),
                                 },
                             ),
                         ),
@@ -4855,13 +4729,7 @@ EntityTreeSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TypeImplBlock(
                                     TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 127,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeImplBlockPath(`core::num::u128(0)`),
                                     },
                                 ),
                             ),
@@ -4941,13 +4809,7 @@ EntityTreeSheet {
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TypeImplBlock(
                                 TypeImplBlockSynNodePathData {
-                                    path: TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 129,
-                                            },
-                                        ),
-                                    ),
+                                    path: TypeImplBlockPath(`core::num::usize(0)`),
                                 },
                             ),
                         ),
@@ -4961,13 +4823,7 @@ EntityTreeSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TypeImplBlock(
                                     TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 129,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeImplBlockPath(`core::num::usize(0)`),
                                     },
                                 ),
                             ),
@@ -5047,13 +4903,7 @@ EntityTreeSheet {
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TypeImplBlock(
                                 TypeImplBlockSynNodePathData {
-                                    path: TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 131,
-                                            },
-                                        ),
-                                    ),
+                                    path: TypeImplBlockPath(`core::num::f32(0)`),
                                 },
                             ),
                         ),
@@ -5067,13 +4917,7 @@ EntityTreeSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TypeImplBlock(
                                     TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 131,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeImplBlockPath(`core::num::f32(0)`),
                                     },
                                 ),
                             ),
@@ -5153,13 +4997,7 @@ EntityTreeSheet {
                         data: ItemSynNodePathData::ImplBlock(
                             ImplBlockSynNodePathData::TypeImplBlock(
                                 TypeImplBlockSynNodePathData {
-                                    path: TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 133,
-                                            },
-                                        ),
-                                    ),
+                                    path: TypeImplBlockPath(`core::num::f64(0)`),
                                 },
                             ),
                         ),
@@ -5173,13 +5011,7 @@ EntityTreeSheet {
                             data: ItemSynNodePathData::ImplBlock(
                                 ImplBlockSynNodePathData::TypeImplBlock(
                                     TypeImplBlockSynNodePathData {
-                                        path: TypeImplBlockPath(
-                                            ItemPathId(
-                                                Id {
-                                                    value: 133,
-                                                },
-                                            ),
-                                        ),
+                                        path: TypeImplBlockPath(`core::num::f64(0)`),
                                     },
                                 ),
                             ),

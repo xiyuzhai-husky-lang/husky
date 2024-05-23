@@ -85,9 +85,12 @@ Ok(
                                                         },
                                                     ),
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TraitItemPath(`core::default::Default::default`, `AssocRitchie(
-                                                            Fn,
-                                                        )`),
+                                                        maybe_ambiguous_item_path: TraitItemPath(
+                                                            `core::default::Default::default`,
+                                                            TraitItemKind::AssocRitchie(
+                                                                RitchieItemKind::Fn,
+                                                            ),
+                                                        ),
                                                         disambiguator: 0,
                                                     },
                                                 },

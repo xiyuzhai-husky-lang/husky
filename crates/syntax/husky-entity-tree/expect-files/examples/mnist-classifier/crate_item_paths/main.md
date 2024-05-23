@@ -128,67 +128,91 @@
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
-            TypeImplBlockPath(
-                ItemPathId(
-                    Id {
-                        value: 297,
-                    },
+            TypeImplBlockPath(`mnist_classifier::connected_component::ConnectedComponent(0)`),
+        ),
+    ),
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
+            TypeItemPath(
+                `mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`,
+                TypeItemKind::MemoizedField,
+            ),
+        ),
+    ),
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
+            TypeItemPath(
+                `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
+                TypeItemKind::MemoizedField,
+            ),
+        ),
+    ),
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
+            TypeItemPath(
+                `mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`,
+                TypeItemKind::MemoizedField,
+            ),
+        ),
+    ),
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
+            TypeItemPath(
+                `mnist_classifier::connected_component::ConnectedComponent(0)::max_row_span`,
+                TypeItemKind::MemoizedField,
+            ),
+        ),
+    ),
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
+            TypeItemPath(
+                `mnist_classifier::connected_component::ConnectedComponent(0)::row_span_sum`,
+                TypeItemKind::MemoizedField,
+            ),
+        ),
+    ),
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
+            TypeItemPath(
+                `mnist_classifier::connected_component::ConnectedComponent(0)::distribution`,
+                TypeItemKind::MemoizedField,
+            ),
+        ),
+    ),
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
+            TypeItemPath(
+                `mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`,
+                TypeItemKind::MemoizedField,
+            ),
+        ),
+    ),
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
+            TypeItemPath(
+                `mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`,
+                TypeItemKind::MemoizedField,
+            ),
+        ),
+    ),
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
+            TypeItemPath(
+                `mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_span_sum`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
                 ),
             ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::raw_contours`, `MemoizedField`),
-        ),
-    ),
-    ItemPath::AssocItem(
-        AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::eff_holes`, `MemoizedField`),
-        ),
-    ),
-    ItemPath::AssocItem(
-        AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::max_hole_ilen`, `MemoizedField`),
-        ),
-    ),
-    ItemPath::AssocItem(
-        AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::max_row_span`, `MemoizedField`),
-        ),
-    ),
-    ItemPath::AssocItem(
-        AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::row_span_sum`, `MemoizedField`),
-        ),
-    ),
-    ItemPath::AssocItem(
-        AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::distribution`, `MemoizedField`),
-        ),
-    ),
-    ItemPath::AssocItem(
-        AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::upper_mass`, `MemoizedField`),
-        ),
-    ),
-    ItemPath::AssocItem(
-        AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::lower_mass`, `MemoizedField`),
-        ),
-    ),
-    ItemPath::AssocItem(
-        AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::top_k_row_span_sum`, `MethodRitchie(
-                Fn,
-            )`),
-        ),
-    ),
-    ItemPath::AssocItem(
-        AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::top_k_row_right_mass_sum`, `MethodRitchie(
-                Fn,
-            )`),
+            TypeItemPath(
+                `mnist_classifier::connected_component::ConnectedComponent(0)::top_k_row_right_mass_sum`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::MajorItem(
@@ -203,13 +227,7 @@
     ),
     ItemPath::Attr(
         Room32,
-        AttrItemPath(
-            ItemPathId(
-                Id {
-                    value: 325,
-                },
-            ),
-        ),
+        AttrItemPath(`mnist_classifier::raw_contour::Direction::@derive(0)`),
     ),
     ItemPath::TypeVariant(
         Room32,
@@ -329,40 +347,49 @@
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
-            TypeImplBlockPath(
-                ItemPathId(
-                    Id {
-                        value: 299,
-                    },
-                ),
+            TypeImplBlockPath(`mnist_classifier::raw_contour::RawContour(0)`),
+        ),
+    ),
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
+            TypeItemPath(
+                `mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`,
+                TypeItemKind::MemoizedField,
             ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::line_segment_sketch`, `MemoizedField`),
+            TypeItemPath(
+                `mnist_classifier::raw_contour::RawContour(0)::bounding_box`,
+                TypeItemKind::MemoizedField,
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::bounding_box`, `MemoizedField`),
+            TypeItemPath(
+                `mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`,
+                TypeItemKind::MemoizedField,
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::relative_bounding_box`, `MemoizedField`),
+            TypeItemPath(
+                `mnist_classifier::raw_contour::RawContour(0)::contour_len`,
+                TypeItemKind::MemoizedField,
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::contour_len`, `MemoizedField`),
-        ),
-    ),
-    ItemPath::AssocItem(
-        AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
-                Fn,
-            )`),
+            TypeItemPath(
+                `mnist_classifier::raw_contour::RawContour(0)::displacement`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::MajorItem(
@@ -372,13 +399,7 @@
     ),
     ItemPath::Attr(
         Room32,
-        AttrItemPath(
-            ItemPathId(
-                Id {
-                    value: 332,
-                },
-            ),
-        ),
+        AttrItemPath(`mnist_classifier::geom2d::Point2d::@derive(0)`),
     ),
     ItemPath::MajorItem(
         MajorItemPath::Type(
@@ -407,232 +428,277 @@
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
-            TypeImplBlockPath(
-                ItemPathId(
-                    Id {
-                        value: 300,
-                    },
+            TypeImplBlockPath(`mnist_classifier::geom2d::Point2d(0)`),
+        ),
+    ),
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
+            TypeItemPath(
+                `mnist_classifier::geom2d::Point2d(0)::from_i_shift28`,
+                TypeItemKind::AssocRitchie(
+                    RitchieItemKind::Fn,
                 ),
             ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::from_i_shift28`, `AssocRitchie(
-                Fn,
-            )`),
+            TypeItemPath(
+                `mnist_classifier::geom2d::Point2d(0)::vector`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::vector`, `MethodRitchie(
-                Fn,
-            )`),
+            TypeItemPath(
+                `mnist_classifier::geom2d::Point2d(0)::to`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::to`, `MethodRitchie(
-                Fn,
-            )`),
+            TypeItemPath(
+                `mnist_classifier::geom2d::Point2d(0)::norm`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::norm`, `MethodRitchie(
-                Fn,
-            )`),
-        ),
-    ),
-    ItemPath::AssocItem(
-        AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::geom2d::Point2d(0)>::dist`, `MethodRitchie(
-                Fn,
-            )`),
+            TypeItemPath(
+                `mnist_classifier::geom2d::Point2d(0)::dist`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
-            TypeImplBlockPath(
-                ItemPathId(
-                    Id {
-                        value: 301,
-                    },
+            TypeImplBlockPath(`mnist_classifier::geom2d::Vector2d(0)`),
+        ),
+    ),
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
+            TypeItemPath(
+                `mnist_classifier::geom2d::Vector2d(0)::point`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
                 ),
             ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::point`, `MethodRitchie(
-                Fn,
-            )`),
+            TypeItemPath(
+                `mnist_classifier::geom2d::Vector2d(0)::to`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::to`, `MethodRitchie(
-                Fn,
-            )`),
+            TypeItemPath(
+                `mnist_classifier::geom2d::Vector2d(0)::norm`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::norm`, `MethodRitchie(
-                Fn,
-            )`),
+            TypeItemPath(
+                `mnist_classifier::geom2d::Vector2d(0)::dot`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::dot`, `MethodRitchie(
-                Fn,
-            )`),
+            TypeItemPath(
+                `mnist_classifier::geom2d::Vector2d(0)::cross`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::cross`, `MethodRitchie(
-                Fn,
-            )`),
+            TypeItemPath(
+                `mnist_classifier::geom2d::Vector2d(0)::angle`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::angle`, `MethodRitchie(
-                Fn,
-            )`),
+            TypeItemPath(
+                `mnist_classifier::geom2d::Vector2d(0)::rotation_direction_to`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::rotation_direction_to`, `MethodRitchie(
-                Fn,
-            )`),
-        ),
-    ),
-    ItemPath::AssocItem(
-        AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::geom2d::Vector2d(0)>::angle_to`, `MethodRitchie(
-                Fn,
-            )`),
+            TypeItemPath(
+                `mnist_classifier::geom2d::Vector2d(0)::angle_to`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
-            TypeImplBlockPath(
-                ItemPathId(
-                    Id {
-                        value: 302,
-                    },
+            TypeImplBlockPath(`mnist_classifier::geom2d::ClosedRange(0)`),
+        ),
+    ),
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
+            TypeItemPath(
+                `mnist_classifier::geom2d::ClosedRange(0)::relative_range`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
                 ),
             ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::geom2d::ClosedRange(0)>::relative_range`, `MethodRitchie(
-                Fn,
-            )`),
-        ),
-    ),
-    ItemPath::AssocItem(
-        AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::geom2d::ClosedRange(0)>::relative_point`, `MethodRitchie(
-                Fn,
-            )`),
+            TypeItemPath(
+                `mnist_classifier::geom2d::ClosedRange(0)::relative_point`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
-            TypeImplBlockPath(
-                ItemPathId(
-                    Id {
-                        value: 303,
-                    },
+            TypeImplBlockPath(`mnist_classifier::geom2d::BoundingBox(0)`),
+        ),
+    ),
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
+            TypeItemPath(
+                `mnist_classifier::geom2d::BoundingBox(0)::relative_bounding_box`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
                 ),
             ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::relative_bounding_box`, `MethodRitchie(
-                Fn,
-            )`),
+            TypeItemPath(
+                `mnist_classifier::geom2d::BoundingBox(0)::relative_point`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::relative_point`, `MethodRitchie(
-                Fn,
-            )`),
+            TypeItemPath(
+                `mnist_classifier::geom2d::BoundingBox(0)::xmin`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::xmin`, `MethodRitchie(
-                Fn,
-            )`),
+            TypeItemPath(
+                `mnist_classifier::geom2d::BoundingBox(0)::xmax`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::xmax`, `MethodRitchie(
-                Fn,
-            )`),
+            TypeItemPath(
+                `mnist_classifier::geom2d::BoundingBox(0)::ymin`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::ymin`, `MethodRitchie(
-                Fn,
-            )`),
-        ),
-    ),
-    ItemPath::AssocItem(
-        AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::ymax`, `MethodRitchie(
-                Fn,
-            )`),
+            TypeItemPath(
+                `mnist_classifier::geom2d::BoundingBox(0)::ymax`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
-            TypeImplBlockPath(
-                ItemPathId(
-                    Id {
-                        value: 304,
-                    },
+            TypeImplBlockPath(`mnist_classifier::geom2d::RelativeBoundingBox(0)`),
+        ),
+    ),
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
+            TypeItemPath(
+                `mnist_classifier::geom2d::RelativeBoundingBox(0)::xmin`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
                 ),
             ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::xmin`, `MethodRitchie(
-                Fn,
-            )`),
+            TypeItemPath(
+                `mnist_classifier::geom2d::RelativeBoundingBox(0)::xmax`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::xmax`, `MethodRitchie(
-                Fn,
-            )`),
+            TypeItemPath(
+                `mnist_classifier::geom2d::RelativeBoundingBox(0)::ymin`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::ymin`, `MethodRitchie(
-                Fn,
-            )`),
-        ),
-    ),
-    ItemPath::AssocItem(
-        AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::ymax`, `MethodRitchie(
-                Fn,
-            )`),
+            TypeItemPath(
+                `mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::Submodule(
@@ -737,27 +803,27 @@
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
-            TypeImplBlockPath(
-                ItemPathId(
-                    Id {
-                        value: 306,
-                    },
+            TypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentStroke(0)`),
+        ),
+    ),
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
+            TypeItemPath(
+                `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::new`,
+                TypeItemKind::AssocRitchie(
+                    RitchieItemKind::Fn,
                 ),
             ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::new`, `AssocRitchie(
-                Fn,
-            )`),
-        ),
-    ),
-    ItemPath::AssocItem(
-        AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentStroke(0)>::displacement`, `MethodRitchie(
-                Fn,
-            )`),
+            TypeItemPath(
+                `mnist_classifier::line_segment_sketch::LineSegmentStroke(0)::displacement`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::ImplBlock(
@@ -777,30 +843,33 @@
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
-            TypeImplBlockPath(
-                ItemPathId(
-                    Id {
-                        value: 308,
-                    },
-                ),
+            TypeImplBlockPath(`mnist_classifier::line_segment_sketch::LineSegmentSketch(0)`),
+        ),
+    ),
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
+            TypeItemPath(
+                `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::concave_components`,
+                TypeItemKind::MemoizedField,
             ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::concave_components`, `MemoizedField`),
+            TypeItemPath(
+                `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`,
+                TypeItemKind::MemoizedField,
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::bounding_box`, `MemoizedField`),
-        ),
-    ),
-    ItemPath::AssocItem(
-        AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::new`, `AssocRitchie(
-                Fn,
-            )`),
+            TypeItemPath(
+                `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::new`,
+                TypeItemKind::AssocRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::MajorItem(
@@ -832,85 +901,115 @@
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
-            TypeImplBlockPath(
-                ItemPathId(
-                    Id {
-                        value: 310,
-                    },
+            TypeImplBlockPath(`mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)`),
+        ),
+    ),
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
+            TypeItemPath(
+                `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::norm`,
+                TypeItemKind::MemoizedField,
+            ),
+        ),
+    ),
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
+            TypeItemPath(
+                `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::rel_norm`,
+                TypeItemKind::MemoizedField,
+            ),
+        ),
+    ),
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
+            TypeItemPath(
+                `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::hausdorff_norm`,
+                TypeItemKind::MemoizedField,
+            ),
+        ),
+    ),
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
+            TypeItemPath(
+                `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::angle_change`,
+                TypeItemKind::MemoizedField,
+            ),
+        ),
+    ),
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
+            TypeItemPath(
+                `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::bounding_box`,
+                TypeItemKind::MemoizedField,
+            ),
+        ),
+    ),
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
+            TypeItemPath(
+                `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::relative_bounding_box`,
+                TypeItemKind::MemoizedField,
+            ),
+        ),
+    ),
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
+            TypeItemPath(
+                `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::line_segment`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
                 ),
             ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::norm`, `MemoizedField`),
+            TypeItemPath(
+                `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::rel_norm`, `MemoizedField`),
+            TypeItemPath(
+                `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::hausdorff_norm`, `MemoizedField`),
+            TypeItemPath(
+                `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::displacement`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::angle_change`, `MemoizedField`),
+            TypeItemPath(
+                `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::start_tangent`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::bounding_box`, `MemoizedField`),
-        ),
-    ),
-    ItemPath::AssocItem(
-        AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::relative_bounding_box`, `MemoizedField`),
-        ),
-    ),
-    ItemPath::AssocItem(
-        AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::line_segment`, `MethodRitchie(
-                Fn,
-            )`),
-        ),
-    ),
-    ItemPath::AssocItem(
-        AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::start`, `MethodRitchie(
-                Fn,
-            )`),
-        ),
-    ),
-    ItemPath::AssocItem(
-        AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::end`, `MethodRitchie(
-                Fn,
-            )`),
-        ),
-    ),
-    ItemPath::AssocItem(
-        AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::displacement`, `MethodRitchie(
-                Fn,
-            )`),
-        ),
-    ),
-    ItemPath::AssocItem(
-        AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::start_tangent`, `MethodRitchie(
-                Fn,
-            )`),
-        ),
-    ),
-    ItemPath::AssocItem(
-        AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)>::end_tangent`, `MethodRitchie(
-                Fn,
-            )`),
+            TypeItemPath(
+                `mnist_classifier::line_segment_sketch::concave_component::ConcaveComponent(0)::end_tangent`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::MajorItem(
@@ -947,27 +1046,27 @@
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
-            TypeImplBlockPath(
-                ItemPathId(
-                    Id {
-                        value: 312,
-                    },
+            TypeImplBlockPath(`mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)`),
+        ),
+    ),
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
+            TypeItemPath(
+                `mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::displacement`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
                 ),
             ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)>::displacement`, `MethodRitchie(
-                Fn,
-            )`),
-        ),
-    ),
-    ItemPath::AssocItem(
-        AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)>::dist_to_point`, `MethodRitchie(
-                Fn,
-            )`),
+            TypeItemPath(
+                `mnist_classifier::line_segment_sketch::line_segment::LineSegment(0)::dist_to_point`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::MajorItem(
@@ -984,28 +1083,31 @@
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
-            TypeImplBlockPath(
-                ItemPathId(
-                    Id {
-                        value: 313,
-                    },
-                ),
+            TypeImplBlockPath(`mnist_classifier::fermi::FermiMatchResult(0)`),
+        ),
+    ),
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
+            TypeItemPath(
+                `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
+                TypeItemKind::MemoizedField,
             ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::norm`, `MemoizedField`),
+            TypeItemPath(
+                `mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`,
+                TypeItemKind::MemoizedField,
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::rel_norm`, `MemoizedField`),
-        ),
-    ),
-    ItemPath::AssocItem(
-        AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::angle_change_norm`, `MemoizedField`),
+            TypeItemPath(
+                `mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`,
+                TypeItemKind::MemoizedField,
+            ),
         ),
     ),
     ItemPath::Submodule(

@@ -157,7 +157,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 135,
+                                                                value: 133,
                                                             },
                                                         ),
                                                     ),
@@ -173,7 +173,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 123,
+                                                                value: 121,
                                                             },
                                                         ),
                                                     ),
@@ -188,7 +188,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 135,
+                                                value: 133,
                                             },
                                         ),
                                     ),
@@ -227,7 +227,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 135,
+                                                                value: 133,
                                                             },
                                                         ),
                                                     ),
@@ -243,7 +243,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 123,
+                                                                value: 121,
                                                             },
                                                         ),
                                                     ),
@@ -258,7 +258,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 135,
+                                                value: 133,
                                             },
                                         ),
                                     ),
@@ -297,7 +297,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 135,
+                                                                value: 133,
                                                             },
                                                         ),
                                                     ),
@@ -313,7 +313,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 123,
+                                                                value: 121,
                                                             },
                                                         ),
                                                     ),
@@ -328,7 +328,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 135,
+                                                value: 133,
                                             },
                                         ),
                                     ),
@@ -367,7 +367,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 135,
+                                                                value: 133,
                                                             },
                                                         ),
                                                     ),
@@ -383,7 +383,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 135,
+                                                                value: 133,
                                                             },
                                                         ),
                                                     ),
@@ -399,7 +399,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 123,
+                                                                value: 121,
                                                             },
                                                         ),
                                                     ),
@@ -484,7 +484,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 123,
+                                                value: 121,
                                             },
                                         ),
                                     ),
@@ -523,7 +523,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 135,
+                                                                value: 133,
                                                             },
                                                         ),
                                                     ),
@@ -539,7 +539,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 135,
+                                                                value: 133,
                                                             },
                                                         ),
                                                     ),
@@ -555,7 +555,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 123,
+                                                                value: 121,
                                                             },
                                                         ),
                                                     ),
@@ -631,7 +631,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 123,
+                                                        value: 121,
                                                     },
                                                 ),
                                             ),
@@ -646,7 +646,7 @@
                                             TypePath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 123,
+                                                        value: 121,
                                                     },
                                                 ),
                                             ),
@@ -670,7 +670,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 123,
+                                                                value: 121,
                                                             },
                                                         ),
                                                     ),
@@ -686,7 +686,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 123,
+                                                                value: 121,
                                                             },
                                                         ),
                                                     ),
@@ -827,7 +827,7 @@
                                 TraitPath(
                                     ItemPathId(
                                         Id {
-                                            value: 181,
+                                            value: 180,
                                         },
                                     ),
                                 ),
@@ -903,7 +903,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 144,
+                                                value: 153,
                                             },
                                         ),
                                     ),
@@ -918,13 +918,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 299,
-                        },
-                    ),
-                ),
+                TypeImplBlockPath(`mnist_classifier::raw_contour::RawContour(0)`),
             ),
         ),
         Ok(
@@ -953,7 +947,10 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::line_segment_sketch`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
         ),
         Ok(
@@ -961,7 +958,10 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MemoizedField(
                         TypeMemoizedFieldDecTemplate {
-                            path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::line_segment_sketch`, `MemoizedField`),
+                            path: TypeItemPath(
+                                `mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`,
+                                TypeItemKind::MemoizedField,
+                            ),
                             impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DecTemplateParameters {
                                     data: [],
@@ -998,7 +998,10 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::bounding_box`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::raw_contour::RawContour(0)::bounding_box`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
         ),
         Ok(
@@ -1006,7 +1009,10 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MemoizedField(
                         TypeMemoizedFieldDecTemplate {
-                            path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::bounding_box`, `MemoizedField`),
+                            path: TypeItemPath(
+                                `mnist_classifier::raw_contour::RawContour(0)::bounding_box`,
+                                TypeItemKind::MemoizedField,
+                            ),
                             impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DecTemplateParameters {
                                     data: [],
@@ -1043,7 +1049,10 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::relative_bounding_box`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
         ),
         Ok(
@@ -1051,7 +1060,10 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MemoizedField(
                         TypeMemoizedFieldDecTemplate {
-                            path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::relative_bounding_box`, `MemoizedField`),
+                            path: TypeItemPath(
+                                `mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`,
+                                TypeItemKind::MemoizedField,
+                            ),
                             impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DecTemplateParameters {
                                     data: [],
@@ -1088,7 +1100,10 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::contour_len`, `MemoizedField`),
+                TypeItemPath(
+                    `mnist_classifier::raw_contour::RawContour(0)::contour_len`,
+                    TypeItemKind::MemoizedField,
+                ),
             ),
         ),
         Ok(
@@ -1096,7 +1111,10 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MemoizedField(
                         TypeMemoizedFieldDecTemplate {
-                            path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::contour_len`, `MemoizedField`),
+                            path: TypeItemPath(
+                                `mnist_classifier::raw_contour::RawContour(0)::contour_len`,
+                                TypeItemKind::MemoizedField,
+                            ),
                             impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DecTemplateParameters {
                                     data: [],
@@ -1118,7 +1136,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 139,
+                                                value: 137,
                                             },
                                         ),
                                     ),
@@ -1133,9 +1151,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist_classifier::raw_contour::RawContour(0)::displacement`,
+                    TypeItemKind::MethodRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -1143,9 +1164,12 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::MethodRitchie(
                         TypeMethodRitchieDecTemplate {
-                            path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            path: TypeItemPath(
+                                `mnist_classifier::raw_contour::RawContour(0)::displacement`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                             impl_block: TypeImplBlockDecTemplate {
                                 template_parameters: DecTemplateParameters {
                                     data: [],
@@ -1200,7 +1224,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 123,
+                                                                value: 121,
                                                             },
                                                         ),
                                                     ),
@@ -1216,7 +1240,7 @@
                                                     TypePath(
                                                         ItemPathId(
                                                             Id {
-                                                                value: 123,
+                                                                value: 121,
                                                             },
                                                         ),
                                                     ),

@@ -3653,25 +3653,13 @@ SynDeclSheet {
         (
             ItemPath::ImplBlock(
                 ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 299,
-                            },
-                        ),
-                    ),
+                    TypeImplBlockPath(`mnist_classifier::raw_contour::RawContour(0)`),
                 ),
             ),
             SynDecl::ImplBlock(
                 ImplBlockSynDecl::Type(
                     TypeImplBlockSynDecl {
-                        path: TypeImplBlockPath(
-                            ItemPathId(
-                                Id {
-                                    value: 299,
-                                },
-                            ),
-                        ),
+                        path: TypeImplBlockPath(`mnist_classifier::raw_contour::RawContour(0)`),
                         template_parameters: [],
                         self_ty_expr: SelfTypeSyndicate {
                             expr: 0,
@@ -3687,13 +3675,7 @@ SynDeclSheet {
                                                     data: ItemSynNodePathData::ImplBlock(
                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                             TypeImplBlockSynNodePathData {
-                                                                path: TypeImplBlockPath(
-                                                                    ItemPathId(
-                                                                        Id {
-                                                                            value: 299,
-                                                                        },
-                                                                    ),
-                                                                ),
+                                                                path: TypeImplBlockPath(`mnist_classifier::raw_contour::RawContour(0)`),
                                                             },
                                                         ),
                                                     ),
@@ -3783,14 +3765,20 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::line_segment_sketch`, `MemoizedField`),
+                    TypeItemPath(
+                        `mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`,
+                        TypeItemKind::MemoizedField,
+                    ),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MemoizedField(
                         TypeMemoizedFieldSynDecl {
-                            path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::line_segment_sketch`, `MemoizedField`),
+                            path: TypeItemPath(
+                                `mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`,
+                                TypeItemKind::MemoizedField,
+                            ),
                             return_ty: Some(
                                 ReturnTypeBeforeEqSyndicate {
                                     expr: 0,
@@ -3811,13 +3799,7 @@ SynDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 299,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`mnist_classifier::raw_contour::RawContour(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -3910,7 +3892,10 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::line_segment_sketch`, `MemoizedField`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`,
+                                                                            TypeItemKind::MemoizedField,
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -4003,14 +3988,20 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::bounding_box`, `MemoizedField`),
+                    TypeItemPath(
+                        `mnist_classifier::raw_contour::RawContour(0)::bounding_box`,
+                        TypeItemKind::MemoizedField,
+                    ),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MemoizedField(
                         TypeMemoizedFieldSynDecl {
-                            path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::bounding_box`, `MemoizedField`),
+                            path: TypeItemPath(
+                                `mnist_classifier::raw_contour::RawContour(0)::bounding_box`,
+                                TypeItemKind::MemoizedField,
+                            ),
                             return_ty: Some(
                                 ReturnTypeBeforeEqSyndicate {
                                     expr: 0,
@@ -4031,13 +4022,7 @@ SynDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 299,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`mnist_classifier::raw_contour::RawContour(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -4130,7 +4115,10 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::bounding_box`, `MemoizedField`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `mnist_classifier::raw_contour::RawContour(0)::bounding_box`,
+                                                                            TypeItemKind::MemoizedField,
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -4223,14 +4211,20 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::relative_bounding_box`, `MemoizedField`),
+                    TypeItemPath(
+                        `mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`,
+                        TypeItemKind::MemoizedField,
+                    ),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MemoizedField(
                         TypeMemoizedFieldSynDecl {
-                            path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::relative_bounding_box`, `MemoizedField`),
+                            path: TypeItemPath(
+                                `mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`,
+                                TypeItemKind::MemoizedField,
+                            ),
                             return_ty: Some(
                                 ReturnTypeBeforeEqSyndicate {
                                     expr: 0,
@@ -4251,13 +4245,7 @@ SynDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 299,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`mnist_classifier::raw_contour::RawContour(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -4350,7 +4338,10 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::relative_bounding_box`, `MemoizedField`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`,
+                                                                            TypeItemKind::MemoizedField,
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -4443,14 +4434,20 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::contour_len`, `MemoizedField`),
+                    TypeItemPath(
+                        `mnist_classifier::raw_contour::RawContour(0)::contour_len`,
+                        TypeItemKind::MemoizedField,
+                    ),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MemoizedField(
                         TypeMemoizedFieldSynDecl {
-                            path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::contour_len`, `MemoizedField`),
+                            path: TypeItemPath(
+                                `mnist_classifier::raw_contour::RawContour(0)::contour_len`,
+                                TypeItemKind::MemoizedField,
+                            ),
                             return_ty: Some(
                                 ReturnTypeBeforeEqSyndicate {
                                     expr: 0,
@@ -4471,13 +4468,7 @@ SynDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 299,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`mnist_classifier::raw_contour::RawContour(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -4570,7 +4561,10 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::contour_len`, `MemoizedField`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `mnist_classifier::raw_contour::RawContour(0)::contour_len`,
+                                                                            TypeItemKind::MemoizedField,
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -4663,18 +4657,24 @@ SynDeclSheet {
         (
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    TypeItemPath(
+                        `mnist_classifier::raw_contour::RawContour(0)::displacement`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                 ),
             ),
             SynDecl::AssocItem(
                 AssocItemSynDecl::TypeItem(
                     TypeItemSynDecl::MethodFn(
                         TypeMethodRitchieSynDecl {
-                            path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
-                                Fn,
-                            )`),
+                            path: TypeItemPath(
+                                `mnist_classifier::raw_contour::RawContour(0)::displacement`,
+                                TypeItemKind::MethodRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                             template_parameters: [],
                             self_value_parameter: None,
                             parenate_parameters: [
@@ -4726,13 +4726,7 @@ SynDeclSheet {
                                                                     data: ItemSynNodePathData::ImplBlock(
                                                                         ImplBlockSynNodePathData::TypeImplBlock(
                                                                             TypeImplBlockSynNodePathData {
-                                                                                path: TypeImplBlockPath(
-                                                                                    ItemPathId(
-                                                                                        Id {
-                                                                                            value: 299,
-                                                                                        },
-                                                                                    ),
-                                                                                ),
+                                                                                path: TypeImplBlockPath(`mnist_classifier::raw_contour::RawContour(0)`),
                                                                             },
                                                                         ),
                                                                     ),
@@ -4825,9 +4819,12 @@ SynDeclSheet {
                                                             AssocItemSynNodePathData::TypeItem(
                                                                 TypeItemSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
-                                                                            Fn,
-                                                                        )`),
+                                                                        maybe_ambiguous_item_path: TypeItemPath(
+                                                                            `mnist_classifier::raw_contour::RawContour(0)::displacement`,
+                                                                            TypeItemKind::MethodRitchie(
+                                                                                RitchieItemKind::Fn,
+                                                                            ),
+                                                                        ),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
