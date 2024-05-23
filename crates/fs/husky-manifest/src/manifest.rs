@@ -1,7 +1,6 @@
+use crate::*;
 use husky_vfs::linktime_target_path::{LinktimeTargetPath, LinktimeTargetPathData};
 use vec_like::VecSet;
-
-use crate::*;
 
 pub trait HasPackageManifest: Copy {
     fn package_manifest(self, db: &::salsa::Db) -> ManifestResultRef<PackageManifest>;

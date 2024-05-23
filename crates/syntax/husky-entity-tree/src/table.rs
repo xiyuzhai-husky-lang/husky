@@ -5,7 +5,7 @@ pub use self::prelude::*;
 use crate::*;
 use husky_coword::coword_menu;
 use husky_entity_path::path::{ty_variant::TypeVariantPath, ItemPath};
-use husky_manifest::PackageDependency;
+use husky_manifest::dependency::PackageDependency;
 
 use husky_token::IdentToken;
 use husky_vfs::error::VfsResult;
