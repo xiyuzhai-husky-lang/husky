@@ -17,12 +17,16 @@ fn struct_derive_debug_with_db_works() {
     use expect_test::*;
 
     let db = &salsa::Db::new(|_, _| ());
-    t(A(0, 1), expect![[r#"
+    t(
+        A(0, 1),
+        expect![[r#"
         A(
             0,
             1,
         )
-    "#]], db);
+    "#]],
+        db,
+    );
 }
 
 #[salsa::derive_debug_with_db]
@@ -37,17 +41,29 @@ fn enum_derive_debug_with_db_works() {
     use expect_test::*;
 
     let db = &salsa::Db::new(|_, _| ());
-    t(Enum::PropsStructVariant { a: 1 }, expect![[r#"
+    t(
+        Enum::PropsStructVariant { a: 1 },
+        expect![[r#"
         Enum::PropsStructVariant {
             a: 1,
         }
-    "#]], db);
-    t(Enum::TupleStructVariant(0), expect![[r#"
+    "#]],
+        db,
+    );
+    t(
+        Enum::TupleStructVariant(0),
+        expect![[r#"
         Enum::TupleStructVariant(
             0,
         )
-    "#]], db);
-    t(Enum::Dog, expect![[r#"
+    "#]],
+        db,
+    );
+    t(
+        Enum::Dog,
+        expect![[r#"
         Enum::Dog
-    "#]], db);
+    "#]],
+        db,
+    );
 }

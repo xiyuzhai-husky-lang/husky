@@ -2,7 +2,7 @@ use super::*;
 use husky_cargo_utils::compile_workspace;
 use husky_corgi_config::transpilation_setup::HasTranspilationSetup;
 use husky_linkage_impl::AnyLinkageImpls;
-use husky_manifest::HasAllPackages;
+use husky_manifest::helpers::upstream::HasAllUpstreamPackages;
 use husky_rust_transpilation::transpile_to_fs::TranspileToFsFull;
 
 use husky_task_interface::TaskJarIndex;
@@ -43,7 +43,7 @@ impl MonoLinkageLibraries {
         let rust_workspace_dir = target_path.rust_workspace_abs_dir(db);
         let all_packages: HashMap<PathBuf, (TaskJarIndex, PackagePath)> = HashMap::from_iter(
             target_path
-                .all_packages(db)
+                .all_upstream_packages(db)
                 .unwrap()
                 .iter()
                 .copied()
