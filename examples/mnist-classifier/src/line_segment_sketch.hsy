@@ -22,7 +22,7 @@ impl Visualize for LineSegmentStroke:
         <LineSegment start = {self.start} end = {self.end} />
 
 impl LineSegmentStroke:
-    static fn new(ct: ~RawContour, from: i32, to: i32) -> LineSegmentStroke:
+    assoc fn new(ct: ~RawContour, from: i32, to: i32) -> LineSegmentStroke:
         assert from <= to
         LineSegmentStroke(ct.points.cyclic_slice_leashed(from, to + 1))
 
@@ -59,7 +59,7 @@ impl LineSegmentSketch:
             ClosedRange(ymin, ymax),
         )
 
-    static fn new(ct: ~RawContour, r: f32) -> LineSegmentSketch:
+    assoc fn new(ct: ~RawContour, r: f32) -> LineSegmentSketch:
         LineSegmentSketch(ct, find_line_segments(ct, r))
 
 fn go_right(u: Vector2d, r: f32) -> Vector2d:

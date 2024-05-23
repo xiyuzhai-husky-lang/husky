@@ -152,9 +152,9 @@ where
                                             )
                                         }
                                         MajorFormKind::TypeAlias => todo!(),
-                                        MajorFormKind::Formal => todo!(),
-                                        MajorFormKind::Const => todo!(),
+                                        MajorFormKind::Conceptual => todo!(),
                                         MajorFormKind::Static => todo!(),
+                                        MajorFormKind::Termic => todo!(),
                                     },
                                 },
                                 PrincipalEntityPath::TypeVariant(path) => {

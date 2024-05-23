@@ -14,9 +14,9 @@ impl EthTerm {
                     MajorFormKind::TypeAlias => todo!(),
                     MajorFormKind::Ritchie(_)
                     | MajorFormKind::Val
-                    | MajorFormKind::Formal
-                    | MajorFormKind::Const
-                    | MajorFormKind::Static => FinalDestination::AnyDerived,
+                    | MajorFormKind::Conceptual
+                    | MajorFormKind::Static
+                    | MajorFormKind::Termic => FinalDestination::AnyDerived,
                 },
                 ItemPathTerm::TypeOntology(_) => FinalDestination::TypeOntology,
                 ItemPathTerm::Trait(_)

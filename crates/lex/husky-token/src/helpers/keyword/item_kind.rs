@@ -1,3 +1,5 @@
+use husky_entity_kind::{ritchie::RitchieItemKind, MajorFormKind};
+
 use super::*;
 
 #[salsa::derive_debug_with_db]
@@ -5,6 +7,28 @@ use super::*;
 pub enum EntityKindKeywordGroup {
     /// todo: remove mod
     Submodule(ModToken),
+    Ritchie(RitchieItemKindToken),
+    /// `static fn`
+    AssocRitchie(AssocToken, RitchieItemKindToken),
+    /// `val`
+    Val(ValToken),
+    /// `memo`
+    Memo(MemoToken),
+    /// husky will have the capacities of theorem proving
+    ConceptualEntity(ConceptualEntityToken),
+    /// type defined as a major entity
+    MajorType(MajorTypeToken),
+    /// type defined as an alias or associated entity
+    AliasOrAssociateType(TypeToken),
+    Trait(TraitToken),
+    Termic(TermicToken),
+    Static(StaticToken),
+}
+
+#[enum_class::from_variants]
+#[salsa::derive_debug_with_db]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum RitchieItemKindToken {
     /// `fn`
     Fn(FnToken),
     /// `gn`
@@ -21,21 +45,21 @@ pub enum EntityKindKeywordGroup {
     Sn(SnToken),
     /// `tn`
     Tn(TnToken),
-    /// `static fn`
-    StaticFn(StaticToken, FnToken),
-    /// `val`
-    Val(ValToken),
-    /// `memo`
-    Memo(MemoToken),
-    /// husky will have the capacities of theorem proving
-    FormalEntity(FormalEntityToken),
-    /// type defined as a major entity
-    MajorType(MajorTypeToken),
-    /// type defined as an alias or associated entity
-    AliasOrAssociateType(TypeToken),
-    Trait(TraitToken),
-    Const(ConstToken),
-    Static(StaticToken),
+}
+
+impl RitchieItemKindToken {
+    pub fn ritchie_item_kind(self) -> RitchieItemKind {
+        match self {
+            RitchieItemKindToken::Fn(_) => RitchieItemKind::Fn,
+            RitchieItemKindToken::Gn(_) => RitchieItemKind::Gn,
+            RitchieItemKindToken::Vn(_) => RitchieItemKind::Vn,
+            RitchieItemKindToken::Pn(_) => RitchieItemKind::Pn,
+            RitchieItemKindToken::Qn(_) => RitchieItemKind::Qn,
+            RitchieItemKindToken::Bn(_) => RitchieItemKind::Bn,
+            RitchieItemKindToken::Sn(_) => RitchieItemKind::Sn,
+            RitchieItemKindToken::Tn(_) => RitchieItemKind::Tn,
+        }
+    }
 }
 
 #[salsa::derive_debug_with_db]
@@ -88,11 +112,11 @@ pub struct TnToken {
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct ConstToken {
+pub struct TermicToken {
     token_idx: TokenIdx,
 }
 
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for ConstToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for TermicToken
 where
     Context: TokenStreamParser<'a>,
 {
@@ -106,11 +130,17 @@ where
             return Ok(None);
         };
         match token {
-            TokenData::Keyword(Keyword::Const) => Ok(Some(ConstToken { token_idx })),
+            TokenData::Keyword(Keyword::TERMIC) => Ok(Some(TermicToken { token_idx })),
             TokenData::Error(error) => Err(error)?,
             _ => Ok(None),
         }
     }
+}
+
+#[salsa::derive_debug_with_db]
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct AssocToken {
+    token_idx: TokenIdx,
 }
 
 #[salsa::derive_debug_with_db]
@@ -121,7 +151,7 @@ pub struct StaticToken {
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum FormalEntityToken {
+pub enum ConceptualEntityToken {
     Def(DefToken),
     Lemma(LemmaToken),
     Proposition(PropositionToken),
@@ -243,29 +273,52 @@ where
         match kw {
             Keyword::Form(kw) => match kw {
                 FormKeyword::Val => Ok(Some(EntityKindKeywordGroup::Val(ValToken { token_idx }))),
-                FormKeyword::Fn => Ok(Some(EntityKindKeywordGroup::Fn(FnToken { token_idx }))),
-                FormKeyword::Vn => Ok(Some(EntityKindKeywordGroup::Vn(VnToken { token_idx }))),
-                FormKeyword::Gn => Ok(Some(EntityKindKeywordGroup::Gn(GnToken { token_idx }))),
-                FormKeyword::Pn => Ok(Some(EntityKindKeywordGroup::Pn(PnToken { token_idx }))),
-                FormKeyword::Qn => Ok(Some(EntityKindKeywordGroup::Qn(QnToken { token_idx }))),
-                FormKeyword::Bn => Ok(Some(EntityKindKeywordGroup::Bn(BnToken { token_idx }))),
-                FormKeyword::Sn => Ok(Some(EntityKindKeywordGroup::Sn(SnToken { token_idx }))),
-                FormKeyword::Tn => Ok(Some(EntityKindKeywordGroup::Tn(TnToken { token_idx }))),
-                FormKeyword::Def => Ok(Some(EntityKindKeywordGroup::FormalEntity(
-                    FormalEntityToken::Def(DefToken { token_idx }),
+                FormKeyword::Fn => Ok(Some(EntityKindKeywordGroup::Ritchie(
+                    FnToken { token_idx }.into(),
                 ))),
-                FormKeyword::Theorem => Ok(Some(EntityKindKeywordGroup::FormalEntity(
-                    FormalEntityToken::Theorem(TheoremToken { token_idx }),
+                FormKeyword::Vn => Ok(Some(EntityKindKeywordGroup::Ritchie(
+                    VnToken { token_idx }.into(),
                 ))),
-                FormKeyword::Lemma => Ok(Some(EntityKindKeywordGroup::FormalEntity(
-                    FormalEntityToken::Lemma(LemmaToken { token_idx }),
+                FormKeyword::Gn => Ok(Some(EntityKindKeywordGroup::Ritchie(
+                    GnToken { token_idx }.into(),
                 ))),
-                FormKeyword::Proposition => Ok(Some(EntityKindKeywordGroup::FormalEntity(
-                    FormalEntityToken::Proposition(PropositionToken { token_idx }),
+                FormKeyword::Pn => Ok(Some(EntityKindKeywordGroup::Ritchie(
+                    PnToken { token_idx }.into(),
+                ))),
+                FormKeyword::Qn => Ok(Some(EntityKindKeywordGroup::Ritchie(
+                    QnToken { token_idx }.into(),
+                ))),
+                FormKeyword::Bn => Ok(Some(EntityKindKeywordGroup::Ritchie(
+                    BnToken { token_idx }.into(),
+                ))),
+                FormKeyword::Sn => Ok(Some(EntityKindKeywordGroup::Ritchie(
+                    SnToken { token_idx }.into(),
+                ))),
+                FormKeyword::Tn => Ok(Some(EntityKindKeywordGroup::Ritchie(
+                    TnToken { token_idx }.into(),
+                ))),
+
+                FormKeyword::Def => Ok(Some(EntityKindKeywordGroup::ConceptualEntity(
+                    ConceptualEntityToken::Def(DefToken { token_idx }),
+                ))),
+                FormKeyword::Theorem => Ok(Some(EntityKindKeywordGroup::ConceptualEntity(
+                    ConceptualEntityToken::Theorem(TheoremToken { token_idx }),
+                ))),
+                FormKeyword::Lemma => Ok(Some(EntityKindKeywordGroup::ConceptualEntity(
+                    ConceptualEntityToken::Lemma(LemmaToken { token_idx }),
+                ))),
+                FormKeyword::Proposition => Ok(Some(EntityKindKeywordGroup::ConceptualEntity(
+                    ConceptualEntityToken::Proposition(PropositionToken { token_idx }),
                 ))),
                 FormKeyword::Type => Ok(Some(EntityKindKeywordGroup::AliasOrAssociateType(
                     TypeToken { token_idx },
                 ))),
+                FormKeyword::Static => Ok(Some(EntityKindKeywordGroup::Static(StaticToken {
+                    token_idx,
+                }))),
+                FormKeyword::Termic => Ok(Some(EntityKindKeywordGroup::Termic(TermicToken {
+                    token_idx,
+                }))),
                 FormKeyword::Memo => {
                     Ok(Some(EntityKindKeywordGroup::Memo(MemoToken { token_idx })))
                 }
@@ -283,17 +336,56 @@ where
             Keyword::Trait => Ok(Some(EntityKindKeywordGroup::Trait(TraitToken {
                 token_idx,
             }))),
-            Keyword::Const => Ok(Some(EntityKindKeywordGroup::Const(ConstToken {
-                token_idx,
-            }))),
-            Keyword::Static => match token_stream.peek() {
-                Some(TokenData::Keyword(Keyword::Form(FormKeyword::Fn))) => {
+            Keyword::Assoc => match token_stream.peek() {
+                Some(TokenData::Keyword(Keyword::Form(form_kw))) => {
                     token_stream.next();
-                    Ok(Some(EntityKindKeywordGroup::StaticFn(
-                        StaticToken { token_idx },
-                        FnToken {
+                    let ritchie_item_kind_token = match form_kw {
+                        FormKeyword::Type => todo!(),
+                        FormKeyword::Fn => FnToken {
                             token_idx: token_idx + 1,
-                        },
+                        }
+                        .into(),
+                        FormKeyword::Vn => VnToken {
+                            token_idx: token_idx + 1,
+                        }
+                        .into(),
+                        FormKeyword::Gn => GnToken {
+                            token_idx: token_idx + 1,
+                        }
+                        .into(),
+                        FormKeyword::Pn => PnToken {
+                            token_idx: token_idx + 1,
+                        }
+                        .into(),
+                        FormKeyword::Qn => QnToken {
+                            token_idx: token_idx + 1,
+                        }
+                        .into(),
+                        FormKeyword::Bn => BnToken {
+                            token_idx: token_idx + 1,
+                        }
+                        .into(),
+                        FormKeyword::Sn => SnToken {
+                            token_idx: token_idx + 1,
+                        }
+                        .into(),
+                        FormKeyword::Tn => TnToken {
+                            token_idx: token_idx + 1,
+                        }
+                        .into(),
+
+                        FormKeyword::Memo => todo!(),
+                        FormKeyword::Static => todo!(),
+                        FormKeyword::Termic => todo!(),
+                        FormKeyword::Val => todo!(),
+                        FormKeyword::Def => todo!(),
+                        FormKeyword::Theorem => todo!(),
+                        FormKeyword::Lemma => todo!(),
+                        FormKeyword::Proposition => todo!(),
+                    };
+                    Ok(Some(EntityKindKeywordGroup::AssocRitchie(
+                        AssocToken { token_idx },
+                        ritchie_item_kind_token,
                     )))
                 }
                 _ => Ok(Some(EntityKindKeywordGroup::Static(StaticToken {

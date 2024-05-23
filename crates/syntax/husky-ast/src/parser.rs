@@ -163,7 +163,7 @@ impl<'a> AstParser<'a> {
                     error: OriginalAstError::UnexpectedConnectionKeywordAsFirstNonCommentToken
                         .into(),
                 },
-                Keyword::Const | Keyword::Pub | Keyword::Static => {
+                Keyword::Const | Keyword::Pub | Keyword::Assoc => {
                     self.parse_defn_or_use::<C>(token_verse_idx)
                 }
             },

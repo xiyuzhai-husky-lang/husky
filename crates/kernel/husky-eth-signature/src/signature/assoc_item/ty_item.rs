@@ -154,8 +154,9 @@ pub(crate) fn ty_item_eth_templates_map(
                             })
                             .collect::<EtherealSignatureResult<SmallVecImpl<_>>>()
                             .map(TypeItemEthTemplates::MemoizedField),
-                        TypeItemKind::AssocFormal => todo!(),
-                        TypeItemKind::AssocConst => todo!(),
+                        TypeItemKind::AssocConceptual => todo!(),
+                        TypeItemKind::AssocStatic => todo!(),
+                        TypeItemKind::AssocTermic => todo!(),
                     },
                     Err(_e) => Err(EtherealSignatureError::EntityTreeError),
                 };

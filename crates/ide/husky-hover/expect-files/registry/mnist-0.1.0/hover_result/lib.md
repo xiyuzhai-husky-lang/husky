@@ -310,7 +310,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "Other\ntoken_idx = 50;\n\ntoken_line_group_idx = 16\n\ntoken = TokenData::Keyword(\n    Keyword::Static,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "Other\ntoken_idx = 50;\n\ntoken_line_group_idx = 16\n\ntoken = TokenData::Keyword(\n    Keyword::Assoc,\n);\n\ntoken_info = None;\n\n\n",
                         },
                     ),
                     range: Some(
@@ -321,7 +321,7 @@
                             },
                             end: Position {
                                 line: 19,
-                                character: 14,
+                                character: 13,
                             },
                         },
                     ),
@@ -347,11 +347,11 @@
                         Range {
                             start: Position {
                                 line: 19,
-                                character: 30,
+                                character: 29,
                             },
                             end: Position {
                                 line: 19,
-                                character: 32,
+                                character: 31,
                             },
                         },
                     ),
@@ -587,11 +587,11 @@
                         Range {
                             start: Position {
                                 line: 30,
-                                character: 28,
+                                character: 27,
                             },
                             end: Position {
                                 line: 30,
-                                character: 29,
+                                character: 28,
                             },
                         },
                     ),

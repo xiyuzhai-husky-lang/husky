@@ -35,7 +35,7 @@ impl DeclarativeTemplateParameter {
                     annotated_variance,
                 }
             }
-            TemplateParameterSyndicateVariant::Constant { .. } => DeclarativeTemplateParameter {
+            TemplateParameterSyndicateVariant::Termic { .. } => DeclarativeTemplateParameter {
                 svar: region
                     .current_variable_signature(symbol)
                     .expect("not none")

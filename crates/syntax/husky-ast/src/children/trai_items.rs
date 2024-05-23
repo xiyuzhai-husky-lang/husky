@@ -22,16 +22,13 @@ impl IsAstChildren for TraitItems {
     fn determine_item_kind(item_keyword_group: EntityKindKeywordGroup) -> AstResult<EntityKind> {
         let trait_item_kind = match item_keyword_group {
             EntityKindKeywordGroup::Submodule(_) => Err(OriginalAstError::UnexpectedModUnderForm)?,
-            EntityKindKeywordGroup::Fn(_) => TraitItemKind::METHOD_FN,
-            EntityKindKeywordGroup::Gn(_) => TraitItemKind::METHOD_GN,
-            EntityKindKeywordGroup::Vn(_) => TraitItemKind::METHOD_VN,
-            EntityKindKeywordGroup::Pn(_) => TraitItemKind::METHOD_PN,
-            EntityKindKeywordGroup::Qn(_) => TraitItemKind::METHOD_QN,
-            EntityKindKeywordGroup::Bn(_) => TraitItemKind::METHOD_BN,
-            EntityKindKeywordGroup::Sn(_) => TraitItemKind::METHOD_SN,
-            EntityKindKeywordGroup::Tn(_) => TraitItemKind::METHOD_TN,
-            EntityKindKeywordGroup::StaticFn(_, _) => TraitItemKind::ASSOC_FN,
-            EntityKindKeywordGroup::FormalEntity(_) => TraitItemKind::ASSOC_FORMAL,
+            EntityKindKeywordGroup::Ritchie(ritchie_item_kind_token) => {
+                TraitItemKind::MethodRitchie(ritchie_item_kind_token.ritchie_item_kind())
+            }
+            EntityKindKeywordGroup::AssocRitchie(_, ritchie_item_kind_token) => {
+                TraitItemKind::AssocRitchie(ritchie_item_kind_token.ritchie_item_kind())
+            }
+            EntityKindKeywordGroup::ConceptualEntity(_) => TraitItemKind::AssocConceptual,
             EntityKindKeywordGroup::MajorType(_) => {
                 Err(OriginalAstError::UnexpectedMajorTypeInsideImplBlock)?
             }
@@ -39,8 +36,8 @@ impl IsAstChildren for TraitItems {
             EntityKindKeywordGroup::Trait(_) => Err(OriginalAstError::UnexpectedTraitInsideTrait)?,
             EntityKindKeywordGroup::Val(_) => TraitItemKind::AssocVal,
             EntityKindKeywordGroup::Memo(_) => TraitItemKind::MemoizedField,
-            EntityKindKeywordGroup::Const(_) => TraitItemKind::AssocConst,
-            EntityKindKeywordGroup::Static(_) => todo!(),
+            EntityKindKeywordGroup::Static(_) => TraitItemKind::AssocStatic,
+            EntityKindKeywordGroup::Termic(_) => TraitItemKind::AssocTermic,
         };
         let trai_item_kind = trait_item_kind;
         Ok(EntityKind::AssocItem {

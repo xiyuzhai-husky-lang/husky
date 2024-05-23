@@ -38,7 +38,9 @@ TokenSheetData {
             ),
         ),
         TokenData::Keyword(
-            Keyword::Const,
+            Keyword::Form(
+                Termic,
+            ),
         ),
         TokenData::Ident(
             `L`,

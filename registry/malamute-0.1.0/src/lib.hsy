@@ -4,38 +4,38 @@ pub enum Class<Label>
 | Unknown
 
 #derive(Debug, Clone, Copy)
-pub enum OneVsAll<#phantom Label, #phantom const label: Label>
+pub enum OneVsAll<#phantom Label, #phantom termic label: Label>
 | Yes
 | No
 
-impl<#phantom Label, #phantom const label: Label> Default for OneVsAll Label label:
-    static fn default() -> Self:
+impl<#phantom Label, #phantom termic label: Label> Default for OneVsAll Label label:
+    assoc fn default() -> Self:
         OneVsAll::No
 
-impl<Label, #runtime const label: Label> core::ops::Unveil OneVsAll Label label for Class Label:
+impl<Label, #runtime termic label: Label> core::ops::Unveil OneVsAll Label label for Class Label:
     type Output = ()
 
-    static fn unveil(one_vs_all: OneVsAll Label label) -> core::ops::ControlFlow Self ():
+    assoc fn unveil(one_vs_all: OneVsAll Label label) -> core::ops::ControlFlow Self ():
         match one_vs_all with
         | OneVsAll::Yes => core::ops::ControlFlow::Break(Class::Known(label))
         | OneVsAll::No => core::ops::ControlFlow::Continue(())
 
 #derive(Debug, Clone, Copy)
-pub enum OneVsAllResult<#phantom Label, #phantom const label: Label>
+pub enum OneVsAllResult<#phantom Label, #phantom termic label: Label>
 | ConfidentYes
 | ConfidentNo
 | Unconfident
 
-impl<#phantom Label, #phantom const label: Label> core::ops::Unveil OneVsAllResult Label label for OneVsAll Label label:
+impl<#phantom Label, #phantom termic label: Label> core::ops::Unveil OneVsAllResult Label label for OneVsAll Label label:
     type Output = ()
 
-    static fn unveil(one_vs_all_result: OneVsAllResult Label label) -> core::ops::ControlFlow Self ():
+    assoc fn unveil(one_vs_all_result: OneVsAllResult Label label) -> core::ops::ControlFlow Self ():
         match one_vs_all_result with
         | OneVsAllResult::ConfidentYes => core::ops::ControlFlow::Break(OneVsAll::Yes)
         | OneVsAllResult::ConfidentNo => core::ops::ControlFlow::Break(OneVsAll::No)
         | OneVsAllResult::Unconfident => core::ops::ControlFlow::Continue(())
 
-pub gn narrow_down<Label, #runtime const label: Label>(
+pub gn narrow_down<Label, #runtime termic label: Label>(
     ...[] f: f32,
     skip: i32 = 5,
 ) -> OneVsAllResult Label label;

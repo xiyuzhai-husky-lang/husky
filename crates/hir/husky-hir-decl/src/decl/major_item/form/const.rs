@@ -1,5 +1,5 @@
 use super::*;
-use husky_syn_decl::decl::r#const::MajorConstSynDecl;
+use husky_syn_decl::decl::termic::MajorConstSynDecl;
 
 #[salsa::interned]
 pub struct MajorConstHirDecl {

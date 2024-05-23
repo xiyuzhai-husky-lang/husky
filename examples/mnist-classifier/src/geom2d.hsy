@@ -5,7 +5,7 @@ pub struct Point2d {
 }
 
 impl Point2d:
-    static fn from_i_shift28(i: i32, shift: i32) -> Point2d:
+    assoc fn from_i_shift28(i: i32, shift: i32) -> Point2d:
         Point2d((29 - shift) as f32, (29 - i) as f32)
 
     fn vector() -> Vector2d:

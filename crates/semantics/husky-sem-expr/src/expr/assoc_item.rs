@@ -73,10 +73,11 @@ impl<'a> SemExprBuilder<'a> {
                         TraitItemKind::AssocRitchie(_) => todo!(),
                         TraitItemKind::AssocType => Ok(self.term_menu().ty0().into()),
                         TraitItemKind::AssocVal => todo!(),
-                        TraitItemKind::AssocFormal => todo!(),
-                        TraitItemKind::AssocConst => todo!(),
                         TraitItemKind::MemoizedField => todo!(),
                         TraitItemKind::MethodRitchie(_) => todo!(),
+                        TraitItemKind::AssocStatic => todo!(),
+                        TraitItemKind::AssocTermic => todo!(),
+                        TraitItemKind::AssocConceptual => todo!(),
                     };
                     (Ok(static_dispatch), ty_result)
                 }

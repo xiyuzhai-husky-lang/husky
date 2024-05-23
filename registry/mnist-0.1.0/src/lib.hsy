@@ -17,7 +17,7 @@ impl Visualize for BinaryImage28:
     fn visualize() -> Visual;
 
 impl BinaryImage28:
-    pub static fn new_zeros() -> Self;
+    pub assoc fn new_zeros() -> Self;
 
 impl core::ops::IntIndex for BinaryImage28:
     type Output = r32
@@ -28,7 +28,7 @@ impl Visualize for BinaryGrid28:
     fn visualize() -> Visual;
 
 impl BinaryGrid28:
-    pub static fn new_zeros() -> Self;
+    pub assoc fn new_zeros() -> Self;
 
 impl core::ops::IntIndex for BinaryGrid28:
     type Output = r32
