@@ -217,13 +217,7 @@
     (
         ItemPath::Attr(
             Room32,
-            AttrItemPath(
-                ItemPathId(
-                    Id {
-                        value: 167,
-                    },
-                ),
-            ),
+            AttrItemPath(`mnist::BinaryImage28::@derive(0)`),
         ),
         None,
     ),
@@ -299,13 +293,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 162,
-                        },
-                    ),
-                ),
+                TypeImplBlockPath(`mnist::BinaryImage28(0)`),
             ),
         ),
         Some(
@@ -322,9 +310,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist::BinaryImage28(0)>::new_zeros`, `AssocRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist::BinaryImage28(0)::new_zeros`,
+                    TypeItemKind::AssocRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         Some(
@@ -417,13 +408,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 165,
-                        },
-                    ),
-                ),
+                TypeImplBlockPath(`mnist::BinaryGrid28(0)`),
             ),
         ),
         Some(
@@ -440,9 +425,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist::BinaryGrid28(0)>::new_zeros`, `AssocRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist::BinaryGrid28(0)::new_zeros`,
+                    TypeItemKind::AssocRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         Some(

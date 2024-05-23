@@ -76,13 +76,7 @@
     HirDecl::Attr(
         AttrHirDecl::Derive(
             DeriveAttrHirDecl {
-                path: AttrItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 161,
-                        },
-                    ),
-                ),
+                path: AttrItemPath(`malamute::Class::@derive(0)`),
                 trais: [
                     HirTrait {
                         trai_path: TraitPath(`core::fmt::Debug`),
@@ -101,13 +95,7 @@
                     region_path: RegionPath::Decl(
                         ItemPath::Attr(
                             Room32,
-                            AttrItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 161,
-                                    },
-                                ),
-                            ),
+                            AttrItemPath(`malamute::Class::@derive(0)`),
                         ),
                     ),
                     expr_arena: Arena {
@@ -333,13 +321,7 @@
     HirDecl::Attr(
         AttrHirDecl::Derive(
             DeriveAttrHirDecl {
-                path: AttrItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 162,
-                        },
-                    ),
-                ),
+                path: AttrItemPath(`malamute::OneVsAll::@derive(0)`),
                 trais: [
                     HirTrait {
                         trai_path: TraitPath(`core::fmt::Debug`),
@@ -358,13 +340,7 @@
                     region_path: RegionPath::Decl(
                         ItemPath::Attr(
                             Room32,
-                            AttrItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 162,
-                                    },
-                                ),
-                            ),
+                            AttrItemPath(`malamute::OneVsAll::@derive(0)`),
                         ),
                     ),
                     expr_arena: Arena {
@@ -529,13 +505,7 @@
     HirDecl::Attr(
         AttrHirDecl::Derive(
             DeriveAttrHirDecl {
-                path: AttrItemPath(
-                    ItemPathId(
-                        Id {
-                            value: 163,
-                        },
-                    ),
-                ),
+                path: AttrItemPath(`malamute::OneVsAllResult::@derive(0)`),
                 trais: [
                     HirTrait {
                         trai_path: TraitPath(`core::fmt::Debug`),
@@ -554,13 +524,7 @@
                     region_path: RegionPath::Decl(
                         ItemPath::Attr(
                             Room32,
-                            AttrItemPath(
-                                ItemPathId(
-                                    Id {
-                                        value: 163,
-                                    },
-                                ),
-                            ),
+                            AttrItemPath(`malamute::OneVsAllResult::@derive(0)`),
                         ),
                     ),
                     expr_arena: Arena {

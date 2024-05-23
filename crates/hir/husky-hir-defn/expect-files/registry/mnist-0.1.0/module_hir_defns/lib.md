@@ -884,13 +884,7 @@
         ImplBlockHirDefn::Type(
             TypeImplBlockHirDefn {
                 hir_decl: TypeImplBlockHirDecl {
-                    path: TypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 162,
-                            },
-                        ),
-                    ),
+                    path: TypeImplBlockPath(`mnist::BinaryImage28(0)`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -905,13 +899,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TypeImplBlock(
-                                    TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 162,
-                                            },
-                                        ),
-                                    ),
+                                    TypeImplBlockPath(`mnist::BinaryImage28(0)`),
                                 ),
                             ),
                         ),
@@ -944,13 +932,19 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::AssocRitchie(
                 TypeAssocRitchieHirDefn {
-                    path: TypeItemPath(`<mnist::BinaryImage28(0)>::new_zeros`, `AssocRitchie(
-                        Fn,
-                    )`),
+                    path: TypeItemPath(
+                        `mnist::BinaryImage28(0)::new_zeros`,
+                        TypeItemKind::AssocRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                     hir_decl: TypeAssocRitchieHirDecl {
-                        path: TypeItemPath(`<mnist::BinaryImage28(0)>::new_zeros`, `AssocRitchie(
-                            Fn,
-                        )`),
+                        path: TypeItemPath(
+                            `mnist::BinaryImage28(0)::new_zeros`,
+                            TypeItemKind::AssocRitchie(
+                                RitchieItemKind::Fn,
+                            ),
+                        ),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -968,9 +962,12 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`<mnist::BinaryImage28(0)>::new_zeros`, `AssocRitchie(
-                                            Fn,
-                                        )`),
+                                        TypeItemPath(
+                                            `mnist::BinaryImage28(0)::new_zeros`,
+                                            TypeItemKind::AssocRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
                                     ),
                                 ),
                             ),
@@ -1263,13 +1260,7 @@
         ImplBlockHirDefn::Type(
             TypeImplBlockHirDefn {
                 hir_decl: TypeImplBlockHirDecl {
-                    path: TypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 165,
-                            },
-                        ),
-                    ),
+                    path: TypeImplBlockPath(`mnist::BinaryGrid28(0)`),
                     template_parameters: HirTemplateParameters(
                         [],
                     ),
@@ -1284,13 +1275,7 @@
                         region_path: RegionPath::Decl(
                             ItemPath::ImplBlock(
                                 ImplBlockPath::TypeImplBlock(
-                                    TypeImplBlockPath(
-                                        ItemPathId(
-                                            Id {
-                                                value: 165,
-                                            },
-                                        ),
-                                    ),
+                                    TypeImplBlockPath(`mnist::BinaryGrid28(0)`),
                                 ),
                             ),
                         ),
@@ -1323,13 +1308,19 @@
         AssocItemHirDefn::TypeItem(
             TypeItemHirDefn::AssocRitchie(
                 TypeAssocRitchieHirDefn {
-                    path: TypeItemPath(`<mnist::BinaryGrid28(0)>::new_zeros`, `AssocRitchie(
-                        Fn,
-                    )`),
+                    path: TypeItemPath(
+                        `mnist::BinaryGrid28(0)::new_zeros`,
+                        TypeItemKind::AssocRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                     hir_decl: TypeAssocRitchieHirDecl {
-                        path: TypeItemPath(`<mnist::BinaryGrid28(0)>::new_zeros`, `AssocRitchie(
-                            Fn,
-                        )`),
+                        path: TypeItemPath(
+                            `mnist::BinaryGrid28(0)::new_zeros`,
+                            TypeItemKind::AssocRitchie(
+                                RitchieItemKind::Fn,
+                            ),
+                        ),
                         template_parameters: HirTemplateParameters(
                             [],
                         ),
@@ -1347,9 +1338,12 @@
                             region_path: RegionPath::Decl(
                                 ItemPath::AssocItem(
                                     AssocItemPath::TypeItem(
-                                        TypeItemPath(`<mnist::BinaryGrid28(0)>::new_zeros`, `AssocRitchie(
-                                            Fn,
-                                        )`),
+                                        TypeItemPath(
+                                            `mnist::BinaryGrid28(0)::new_zeros`,
+                                            TypeItemKind::AssocRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
                                     ),
                                 ),
                             ),

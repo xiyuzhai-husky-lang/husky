@@ -56,7 +56,7 @@ AstSheet {
                 },
                 item_kind: EntityKind::MajorItem {
                     module_item_kind: MajorItemKind::Type(
-                        TypeKind::Struct,
+                        TypeKind::Extern,
                     ),
                     connection: MajorItemConnectionKind::Connected,
                 },
@@ -74,53 +74,14 @@ AstSheet {
                     drained: false,
                 },
                 block: DefnBlock::Type {
-                    path: TypePath(`core::backend::MlBackend`, `Struct`),
-                    variants: None,
-                },
-            },
-            AstData::Identifiable {
-                token_verse_idx: TokenVerseIdx {
-                    lcurl: None,
-                    raw: 2,
-                },
-                visibility_expr: VisibilityExpr {
-                    data: VisibilityExprData::Pub {
-                        pub_token: PubToken {
-                            token_idx: TokenIdx(
-                                9,
-                            ),
-                        },
-                    },
-                    visibility: Scope::Pub,
-                },
-                item_kind: EntityKind::MajorItem {
-                    module_item_kind: MajorItemKind::Type(
-                        TypeKind::Struct,
-                    ),
-                    connection: MajorItemConnectionKind::Connected,
-                },
-                ident_token: IdentToken {
-                    ident: `RlBackend`,
-                    token_idx: TokenIdx(
-                        11,
-                    ),
-                },
-                is_generic: false,
-                saved_stream_state: TokenStreamState {
-                    next_token_idx: TokenIdx(
-                        12,
-                    ),
-                    drained: false,
-                },
-                block: DefnBlock::Type {
-                    path: TypePath(`core::backend::RlBackend`, `Struct`),
+                    path: TypePath(`core::backend::MlBackend`, `Extern`),
                     variants: None,
                 },
             },
         ],
     },
     top_level_asts: ArenaIdxRange(
-        0..3,
+        0..2,
     ),
     nested_top_level_asts: [],
     siblings: [
@@ -128,7 +89,7 @@ AstSheet {
             0..0,
         ),
         ArenaIdxRange(
-            0..3,
+            0..2,
         ),
     ],
 }

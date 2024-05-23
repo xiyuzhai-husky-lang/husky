@@ -48,7 +48,7 @@ Ok(
                                             MajorItemSynNodePathData::Type(
                                                 TypeSynNodePathData {
                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypePath(`core::backend::MlBackend`, `Struct`),
+                                                        maybe_ambiguous_item_path: TypePath(`core::backend::MlBackend`, `Extern`),
                                                         disambiguator: 0,
                                                     },
                                                 },
@@ -60,41 +60,7 @@ Ok(
                         ),
                         EntityKind::MajorItem {
                             module_item_kind: MajorItemKind::Type(
-                                TypeKind::Struct,
-                            ),
-                            connection: MajorItemConnectionKind::Connected,
-                        },
-                    ),
-                },
-            ),
-            None,
-            None,
-            None,
-            Some(
-                TokenInfo {
-                    src: TokenInfoSource::AstIdentifiable,
-                    data: TokenInfoData::EntityNode(
-                        ItemSynNodePath::MajorItem(
-                            MajorItemSynNodePath::Type(
-                                TypeSynNodePath(
-                                    ItemSynNodePathId {
-                                        data: ItemSynNodePathData::MajorItem(
-                                            MajorItemSynNodePathData::Type(
-                                                TypeSynNodePathData {
-                                                    disambiguated_item_path: DisambiguatedItemPath {
-                                                        maybe_ambiguous_item_path: TypePath(`core::backend::RlBackend`, `Struct`),
-                                                        disambiguator: 0,
-                                                    },
-                                                },
-                                            ),
-                                        ),
-                                    },
-                                ),
-                            ),
-                        ),
-                        EntityKind::MajorItem {
-                            module_item_kind: MajorItemKind::Type(
-                                TypeKind::Struct,
+                                TypeKind::Extern,
                             ),
                             connection: MajorItemConnectionKind::Connected,
                         },

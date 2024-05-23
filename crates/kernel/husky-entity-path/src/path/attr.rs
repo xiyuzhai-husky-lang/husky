@@ -1,7 +1,6 @@
 use super::*;
 use vec_like::VecPairMap;
 
-#[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 #[salsa::as_id]
 #[salsa::deref_id]
@@ -11,8 +10,6 @@ pub struct AttrItemPath(ItemPathId);
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub struct AttrItemPathData {
     pub parent_item_path: ItemPath,
-    // ad hoc
-    // todo: change it with OriginalAttrPath
     pub ident: Ident,
     disambiguator: u8,
 }
@@ -46,6 +43,26 @@ impl AttrItemPathData {
 
     pub fn toolchain(self, db: &::salsa::Db) -> Toolchain {
         self.module_path(db).toolchain(db)
+    }
+
+    fn show_aux(self, f: &mut std::fmt::Formatter<'_>, db: &::salsa::Db) -> std::fmt::Result {
+        use salsa::DisplayWithDb;
+        self.parent_item_path.display_fmt_with_db(f, db)?;
+        f.write_str("::@")?;
+        f.write_str(self.ident.data(db))?;
+        f.write_fmt(format_args!("({})", self.disambiguator))
+    }
+}
+
+impl salsa::DebugWithDb for AttrItemPath {
+    fn debug_with_db_fmt(
+        &self,
+        f: &mut std::fmt::Formatter<'_>,
+        db: &::salsa::Db,
+    ) -> std::fmt::Result {
+        f.write_str("AttrItemPath(`")?;
+        self.data(db).show_aux(f, db)?;
+        f.write_str("`)")
     }
 }
 

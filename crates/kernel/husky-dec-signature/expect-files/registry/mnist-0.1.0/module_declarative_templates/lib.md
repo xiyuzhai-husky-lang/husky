@@ -117,7 +117,7 @@
                                 TraitPath(
                                     ItemPathId(
                                         Id {
-                                            value: 80,
+                                            value: 79,
                                         },
                                     ),
                                 ),
@@ -193,7 +193,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 43,
+                                                value: 52,
                                             },
                                         ),
                                     ),
@@ -208,13 +208,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 162,
-                        },
-                    ),
-                ),
+                TypeImplBlockPath(`mnist::BinaryImage28(0)`),
             ),
         ),
         Ok(
@@ -243,9 +237,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist::BinaryImage28(0)>::new_zeros`, `AssocRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist::BinaryImage28(0)::new_zeros`,
+                    TypeItemKind::AssocRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -253,9 +250,12 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::AssocRitchie(
                         TypeAssocRitchieDecTemplate {
-                            path: TypeItemPath(`<mnist::BinaryImage28(0)>::new_zeros`, `AssocRitchie(
-                                Fn,
-                            )`),
+                            path: TypeItemPath(
+                                `mnist::BinaryImage28(0)::new_zeros`,
+                                TypeItemKind::AssocRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                             self_ty: EntityPath(
                                 Type(
                                     TypePath(
@@ -308,7 +308,7 @@
                                 TraitPath(
                                     ItemPathId(
                                         Id {
-                                            value: 66,
+                                            value: 65,
                                         },
                                     ),
                                 ),
@@ -358,7 +358,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 34,
+                                                value: 32,
                                             },
                                         ),
                                     ),
@@ -388,7 +388,7 @@
                                 TraitPath(
                                     ItemPathId(
                                         Id {
-                                            value: 80,
+                                            value: 79,
                                         },
                                     ),
                                 ),
@@ -464,7 +464,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 43,
+                                                value: 52,
                                             },
                                         ),
                                     ),
@@ -479,13 +479,7 @@
     (
         ItemPath::ImplBlock(
             ImplBlockPath::TypeImplBlock(
-                TypeImplBlockPath(
-                    ItemPathId(
-                        Id {
-                            value: 165,
-                        },
-                    ),
-                ),
+                TypeImplBlockPath(`mnist::BinaryGrid28(0)`),
             ),
         ),
         Ok(
@@ -514,9 +508,12 @@
     (
         ItemPath::AssocItem(
             AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist::BinaryGrid28(0)>::new_zeros`, `AssocRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist::BinaryGrid28(0)::new_zeros`,
+                    TypeItemKind::AssocRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
         ),
         Ok(
@@ -524,9 +521,12 @@
                 AssocItemDecTemplate::TypeItem(
                     TypeItemDecTemplate::AssocRitchie(
                         TypeAssocRitchieDecTemplate {
-                            path: TypeItemPath(`<mnist::BinaryGrid28(0)>::new_zeros`, `AssocRitchie(
-                                Fn,
-                            )`),
+                            path: TypeItemPath(
+                                `mnist::BinaryGrid28(0)::new_zeros`,
+                                TypeItemKind::AssocRitchie(
+                                    RitchieItemKind::Fn,
+                                ),
+                            ),
                             self_ty: EntityPath(
                                 Type(
                                     TypePath(
@@ -579,7 +579,7 @@
                                 TraitPath(
                                     ItemPathId(
                                         Id {
-                                            value: 66,
+                                            value: 65,
                                         },
                                     ),
                                 ),
@@ -629,7 +629,7 @@
                                     TypePath(
                                         ItemPathId(
                                             Id {
-                                                value: 34,
+                                                value: 32,
                                             },
                                         ),
                                     ),

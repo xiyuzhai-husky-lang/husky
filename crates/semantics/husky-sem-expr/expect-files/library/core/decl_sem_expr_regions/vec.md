@@ -88,13 +88,7 @@
         path: RegionPath::Decl(
             ItemPath::ImplBlock(
                 ImplBlockPath::TypeImplBlock(
-                    TypeImplBlockPath(
-                        ItemPathId(
-                            Id {
-                                value: 137,
-                            },
-                        ),
-                    ),
+                    TypeImplBlockPath(`core::vec::Vec(0)`),
                 ),
             ),
         ),
@@ -102,13 +96,7 @@
             path: RegionPath::Decl(
                 ItemPath::ImplBlock(
                     ImplBlockPath::TypeImplBlock(
-                        TypeImplBlockPath(
-                            ItemPathId(
-                                Id {
-                                    value: 137,
-                                },
-                            ),
-                        ),
+                        TypeImplBlockPath(`core::vec::Vec(0)`),
                     ),
                 ),
             ),
@@ -453,9 +441,12 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    TypeItemPath(
+                        `core::vec::Vec(0)::ilen`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                 ),
             ),
         ),
@@ -463,15 +454,18 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
-                            Fn,
-                        )`),
+                        TypeItemPath(
+                            `core::vec::Vec(0)::ilen`,
+                            TypeItemKind::MethodRitchie(
+                                RitchieItemKind::Fn,
+                            ),
+                        ),
                     ),
                 ),
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
+                    PlaceInfo::SelfValue,
                 ],
             },
             sem_expr_arena: SemExprArena(
@@ -633,9 +627,12 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    TypeItemPath(
+                        `core::vec::Vec(0)::push`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                 ),
             ),
         ),
@@ -643,24 +640,21 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`<core::vec::Vec(0)>::push`, `MethodRitchie(
-                            Fn,
-                        )`),
+                        TypeItemPath(
+                            `core::vec::Vec(0)::push`,
+                            TypeItemKind::MethodRitchie(
+                                RitchieItemKind::Fn,
+                            ),
+                        ),
                     ),
                 ),
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
-                    Parameter {
+                    PlaceInfo::SelfValue,
+                    PlaceInfo::Parameter {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 154,
-                                },
-                            ),
-                        ),
+                        ident: `e`,
                     },
                 ],
             },
@@ -848,9 +842,12 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<core::vec::Vec(0)>::first`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    TypeItemPath(
+                        `core::vec::Vec(0)::first`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                 ),
             ),
         ),
@@ -858,9 +855,12 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`<core::vec::Vec(0)>::first`, `MethodRitchie(
-                            Fn,
-                        )`),
+                        TypeItemPath(
+                            `core::vec::Vec(0)::first`,
+                            TypeItemKind::MethodRitchie(
+                                RitchieItemKind::Fn,
+                            ),
+                        ),
                     ),
                 ),
             ),
@@ -1362,9 +1362,12 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<core::vec::Vec(0)>::last`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    TypeItemPath(
+                        `core::vec::Vec(0)::last`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                 ),
             ),
         ),
@@ -1372,9 +1375,12 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`<core::vec::Vec(0)>::last`, `MethodRitchie(
-                            Fn,
-                        )`),
+                        TypeItemPath(
+                            `core::vec::Vec(0)::last`,
+                            TypeItemKind::MethodRitchie(
+                                RitchieItemKind::Fn,
+                            ),
+                        ),
                     ),
                 ),
             ),
@@ -1876,9 +1882,12 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<core::vec::Vec(0)>::pop`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    TypeItemPath(
+                        `core::vec::Vec(0)::pop`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                 ),
             ),
         ),
@@ -1886,15 +1895,18 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`<core::vec::Vec(0)>::pop`, `MethodRitchie(
-                            Fn,
-                        )`),
+                        TypeItemPath(
+                            `core::vec::Vec(0)::pop`,
+                            TypeItemKind::MethodRitchie(
+                                RitchieItemKind::Fn,
+                            ),
+                        ),
                     ),
                 ),
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
+                    PlaceInfo::SelfValue,
                 ],
             },
             sem_expr_arena: SemExprArena(
@@ -2230,9 +2242,12 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<core::vec::Vec(0)>::collect_leashes`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    TypeItemPath(
+                        `core::vec::Vec(0)::collect_leashes`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                 ),
             ),
         ),
@@ -2240,15 +2255,18 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`<core::vec::Vec(0)>::collect_leashes`, `MethodRitchie(
-                            Fn,
-                        )`),
+                        TypeItemPath(
+                            `core::vec::Vec(0)::collect_leashes`,
+                            TypeItemKind::MethodRitchie(
+                                RitchieItemKind::Fn,
+                            ),
+                        ),
                     ),
                 ),
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
+                    PlaceInfo::SelfValue,
                 ],
             },
             sem_expr_arena: SemExprArena(
@@ -2653,9 +2671,12 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<core::vec::Vec(0)>::cyclic_slice_leashed`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    TypeItemPath(
+                        `core::vec::Vec(0)::cyclic_slice_leashed`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                 ),
             ),
         ),
@@ -2663,34 +2684,25 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`<core::vec::Vec(0)>::cyclic_slice_leashed`, `MethodRitchie(
-                            Fn,
-                        )`),
+                        TypeItemPath(
+                            `core::vec::Vec(0)::cyclic_slice_leashed`,
+                            TypeItemKind::MethodRitchie(
+                                RitchieItemKind::Fn,
+                            ),
+                        ),
                     ),
                 ),
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
-                    Parameter {
+                    PlaceInfo::SelfValue,
+                    PlaceInfo::Parameter {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 160,
-                                },
-                            ),
-                        ),
+                        ident: `start`,
                     },
-                    Parameter {
+                    PlaceInfo::Parameter {
                         current_variable_idx: 1,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 161,
-                                },
-                            ),
-                        ),
+                        ident: `end`,
                     },
                 ],
             },
@@ -3302,9 +3314,12 @@
         path: RegionPath::Decl(
             ItemPath::AssocItem(
                 AssocItemPath::TypeItem(
-                    TypeItemPath(`<core::vec::Vec(0)>::pop_with_largest_opt_f32`, `MethodRitchie(
-                        Fn,
-                    )`),
+                    TypeItemPath(
+                        `core::vec::Vec(0)::pop_with_largest_opt_f32`,
+                        TypeItemKind::MethodRitchie(
+                            RitchieItemKind::Fn,
+                        ),
+                    ),
                 ),
             ),
         ),
@@ -3312,24 +3327,21 @@
             path: RegionPath::Decl(
                 ItemPath::AssocItem(
                     AssocItemPath::TypeItem(
-                        TypeItemPath(`<core::vec::Vec(0)>::pop_with_largest_opt_f32`, `MethodRitchie(
-                            Fn,
-                        )`),
+                        TypeItemPath(
+                            `core::vec::Vec(0)::pop_with_largest_opt_f32`,
+                            TypeItemKind::MethodRitchie(
+                                RitchieItemKind::Fn,
+                            ),
+                        ),
                     ),
                 ),
             ),
             place_registry: PlaceRegistry {
                 infos: [
-                    SelfValue,
-                    Parameter {
+                    PlaceInfo::SelfValue,
+                    PlaceInfo::Parameter {
                         current_variable_idx: 0,
-                        ident: Ident(
-                            Coword(
-                                Id {
-                                    value: 164,
-                                },
-                            ),
-                        ),
+                        ident: `f`,
                     },
                 ],
             },

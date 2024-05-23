@@ -44,7 +44,10 @@
                                         },
                                     ),
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TraitItemPath(`core::ops::Add::Output`, `AssocType`),
+                                        maybe_ambiguous_item_path: TraitItemPath(
+                                            `core::ops::Add::Output`,
+                                            TraitItemKind::AssocType,
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -79,9 +82,12 @@
                                         },
                                     ),
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TraitItemPath(`core::ops::Add::add`, `MethodRitchie(
-                                            Fn,
-                                        )`),
+                                        maybe_ambiguous_item_path: TraitItemPath(
+                                            `core::ops::Add::add`,
+                                            TraitItemKind::MethodRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -137,7 +143,10 @@
                                         },
                                     ),
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TraitItemPath(`core::ops::AddAssign::Output`, `AssocType`),
+                                        maybe_ambiguous_item_path: TraitItemPath(
+                                            `core::ops::AddAssign::Output`,
+                                            TraitItemKind::AssocType,
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -172,9 +181,12 @@
                                         },
                                     ),
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TraitItemPath(`core::ops::AddAssign::add`, `MethodRitchie(
-                                            Fn,
-                                        )`),
+                                        maybe_ambiguous_item_path: TraitItemPath(
+                                            `core::ops::AddAssign::add`,
+                                            TraitItemKind::MethodRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -230,7 +242,10 @@
                                         },
                                     ),
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TraitItemPath(`core::ops::BitAnd::Output`, `AssocType`),
+                                        maybe_ambiguous_item_path: TraitItemPath(
+                                            `core::ops::BitAnd::Output`,
+                                            TraitItemKind::AssocType,
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -265,9 +280,12 @@
                                         },
                                     ),
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TraitItemPath(`core::ops::BitAnd::bitand`, `MethodRitchie(
-                                            Fn,
-                                        )`),
+                                        maybe_ambiguous_item_path: TraitItemPath(
+                                            `core::ops::BitAnd::bitand`,
+                                            TraitItemKind::MethodRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -323,9 +341,12 @@
                                         },
                                     ),
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TraitItemPath(`core::ops::BitAndAssign::bitand_assign`, `MethodRitchie(
-                                            Fn,
-                                        )`),
+                                        maybe_ambiguous_item_path: TraitItemPath(
+                                            `core::ops::BitAndAssign::bitand_assign`,
+                                            TraitItemKind::MethodRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -381,7 +402,10 @@
                                         },
                                     ),
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TraitItemPath(`core::ops::BitOr::Output`, `AssocType`),
+                                        maybe_ambiguous_item_path: TraitItemPath(
+                                            `core::ops::BitOr::Output`,
+                                            TraitItemKind::AssocType,
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -416,9 +440,12 @@
                                         },
                                     ),
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TraitItemPath(`core::ops::BitOr::bitor`, `MethodRitchie(
-                                            Fn,
-                                        )`),
+                                        maybe_ambiguous_item_path: TraitItemPath(
+                                            `core::ops::BitOr::bitor`,
+                                            TraitItemKind::MethodRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -474,9 +501,12 @@
                                         },
                                     ),
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TraitItemPath(`core::ops::BitOrAssign::bitor_assign`, `MethodRitchie(
-                                            Fn,
-                                        )`),
+                                        maybe_ambiguous_item_path: TraitItemPath(
+                                            `core::ops::BitOrAssign::bitor_assign`,
+                                            TraitItemKind::MethodRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -532,7 +562,10 @@
                                         },
                                     ),
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TraitItemPath(`core::ops::BitXor::Output`, `AssocType`),
+                                        maybe_ambiguous_item_path: TraitItemPath(
+                                            `core::ops::BitXor::Output`,
+                                            TraitItemKind::AssocType,
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -567,9 +600,12 @@
                                         },
                                     ),
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TraitItemPath(`core::ops::BitXor::bitxor`, `MethodRitchie(
-                                            Fn,
-                                        )`),
+                                        maybe_ambiguous_item_path: TraitItemPath(
+                                            `core::ops::BitXor::bitxor`,
+                                            TraitItemKind::MethodRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -625,9 +661,12 @@
                                         },
                                     ),
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TraitItemPath(`core::ops::BitXorAssign::bitxor_assign`, `MethodRitchie(
-                                            Fn,
-                                        )`),
+                                        maybe_ambiguous_item_path: TraitItemPath(
+                                            `core::ops::BitXorAssign::bitxor_assign`,
+                                            TraitItemKind::MethodRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -683,7 +722,10 @@
                                         },
                                     ),
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TraitItemPath(`core::ops::Div::Output`, `AssocType`),
+                                        maybe_ambiguous_item_path: TraitItemPath(
+                                            `core::ops::Div::Output`,
+                                            TraitItemKind::AssocType,
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -718,9 +760,12 @@
                                         },
                                     ),
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TraitItemPath(`core::ops::Div::div`, `MethodRitchie(
-                                            Fn,
-                                        )`),
+                                        maybe_ambiguous_item_path: TraitItemPath(
+                                            `core::ops::Div::div`,
+                                            TraitItemKind::MethodRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -776,9 +821,12 @@
                                         },
                                     ),
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TraitItemPath(`core::ops::DivAssign::div_assign`, `MethodRitchie(
-                                            Fn,
-                                        )`),
+                                        maybe_ambiguous_item_path: TraitItemPath(
+                                            `core::ops::DivAssign::div_assign`,
+                                            TraitItemKind::MethodRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -834,7 +882,10 @@
                                         },
                                     ),
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TraitItemPath(`core::ops::IntIndex::Output`, `AssocType`),
+                                        maybe_ambiguous_item_path: TraitItemPath(
+                                            `core::ops::IntIndex::Output`,
+                                            TraitItemKind::AssocType,
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -890,7 +941,10 @@
                                         },
                                     ),
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TraitItemPath(`core::ops::Mul::Output`, `AssocType`),
+                                        maybe_ambiguous_item_path: TraitItemPath(
+                                            `core::ops::Mul::Output`,
+                                            TraitItemKind::AssocType,
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -925,9 +979,12 @@
                                         },
                                     ),
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TraitItemPath(`core::ops::Mul::mul`, `MethodRitchie(
-                                            Fn,
-                                        )`),
+                                        maybe_ambiguous_item_path: TraitItemPath(
+                                            `core::ops::Mul::mul`,
+                                            TraitItemKind::MethodRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -983,9 +1040,12 @@
                                         },
                                     ),
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TraitItemPath(`core::ops::MulAssign::mul_assign`, `MethodRitchie(
-                                            Fn,
-                                        )`),
+                                        maybe_ambiguous_item_path: TraitItemPath(
+                                            `core::ops::MulAssign::mul_assign`,
+                                            TraitItemKind::MethodRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -1041,7 +1101,10 @@
                                         },
                                     ),
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TraitItemPath(`core::ops::Neg::Output`, `AssocType`),
+                                        maybe_ambiguous_item_path: TraitItemPath(
+                                            `core::ops::Neg::Output`,
+                                            TraitItemKind::AssocType,
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -1076,9 +1139,12 @@
                                         },
                                     ),
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TraitItemPath(`core::ops::Neg::neg`, `MethodRitchie(
-                                            Fn,
-                                        )`),
+                                        maybe_ambiguous_item_path: TraitItemPath(
+                                            `core::ops::Neg::neg`,
+                                            TraitItemKind::MethodRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -1134,7 +1200,10 @@
                                         },
                                     ),
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TraitItemPath(`core::ops::Not::Output`, `AssocType`),
+                                        maybe_ambiguous_item_path: TraitItemPath(
+                                            `core::ops::Not::Output`,
+                                            TraitItemKind::AssocType,
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -1169,9 +1238,12 @@
                                         },
                                     ),
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TraitItemPath(`core::ops::Not::not`, `MethodRitchie(
-                                            Fn,
-                                        )`),
+                                        maybe_ambiguous_item_path: TraitItemPath(
+                                            `core::ops::Not::not`,
+                                            TraitItemKind::MethodRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -1227,7 +1299,10 @@
                                         },
                                     ),
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TraitItemPath(`core::ops::Sub::Output`, `AssocType`),
+                                        maybe_ambiguous_item_path: TraitItemPath(
+                                            `core::ops::Sub::Output`,
+                                            TraitItemKind::AssocType,
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -1262,9 +1337,12 @@
                                         },
                                     ),
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TraitItemPath(`core::ops::Sub::sub`, `MethodRitchie(
-                                            Fn,
-                                        )`),
+                                        maybe_ambiguous_item_path: TraitItemPath(
+                                            `core::ops::Sub::sub`,
+                                            TraitItemKind::MethodRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -1320,7 +1398,10 @@
                                         },
                                     ),
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TraitItemPath(`core::ops::Unveil::Output`, `AssocType`),
+                                        maybe_ambiguous_item_path: TraitItemPath(
+                                            `core::ops::Unveil::Output`,
+                                            TraitItemKind::AssocType,
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -1355,9 +1436,12 @@
                                         },
                                     ),
                                     disambiguated_item_path: DisambiguatedItemPath {
-                                        maybe_ambiguous_item_path: TraitItemPath(`core::ops::Unveil::unveil`, `AssocRitchie(
-                                            Fn,
-                                        )`),
+                                        maybe_ambiguous_item_path: TraitItemPath(
+                                            `core::ops::Unveil::unveil`,
+                                            TraitItemKind::AssocRitchie(
+                                                RitchieItemKind::Fn,
+                                            ),
+                                        ),
                                         disambiguator: 0,
                                     },
                                 },
@@ -1415,7 +1499,7 @@
                                 maybe_ambiguous_item_path: TypeVariantPath(
                                     ItemPathId(
                                         Id {
-                                            value: 85,
+                                            value: 84,
                                         },
                                     ),
                                 ),
@@ -1453,7 +1537,7 @@
                                 maybe_ambiguous_item_path: TypeVariantPath(
                                     ItemPathId(
                                         Id {
-                                            value: 86,
+                                            value: 85,
                                         },
                                     ),
                                 ),

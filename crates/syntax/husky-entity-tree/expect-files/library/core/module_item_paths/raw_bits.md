@@ -7,58 +7,61 @@
     ),
     ItemPath::Attr(
         Room32,
-        AttrItemPath(
-            ItemPathId(
-                Id {
-                    value: 238,
-                },
-            ),
-        ),
+        AttrItemPath(`core::raw_bits::r32::@derive(0)`),
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
-            TypeImplBlockPath(
-                ItemPathId(
-                    Id {
-                        value: 135,
-                    },
+            TypeImplBlockPath(`core::raw_bits::r32(0)`),
+        ),
+    ),
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
+            TypeItemPath(
+                `core::raw_bits::r32(0)::last_bits`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
                 ),
             ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<core::raw_bits::r32(0)>::last_bits`, `MethodRitchie(
-                Fn,
-            )`),
+            TypeItemPath(
+                `core::raw_bits::r32(0)::ctz`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<core::raw_bits::r32(0)>::ctz`, `MethodRitchie(
-                Fn,
-            )`),
+            TypeItemPath(
+                `core::raw_bits::r32(0)::co`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<core::raw_bits::r32(0)>::co`, `MethodRitchie(
-                Fn,
-            )`),
+            TypeItemPath(
+                `core::raw_bits::r32(0)::span`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<core::raw_bits::r32(0)>::span`, `MethodRitchie(
-                Fn,
-            )`),
-        ),
-    ),
-    ItemPath::AssocItem(
-        AssocItemPath::TypeItem(
-            TypeItemPath(`<core::raw_bits::r32(0)>::right_mass`, `MethodRitchie(
-                Fn,
-            )`),
+            TypeItemPath(
+                `core::raw_bits::r32(0)::right_mass`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
 ]

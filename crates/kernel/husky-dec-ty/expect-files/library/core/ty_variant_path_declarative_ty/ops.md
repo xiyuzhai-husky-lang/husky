@@ -7,7 +7,7 @@
                 TypeVariantPath(
                     ItemPathId(
                         Id {
-                            value: 85,
+                            value: 84,
                         },
                     ),
                 ),
@@ -19,7 +19,7 @@
                 TypeVariantPath(
                     ItemPathId(
                         Id {
-                            value: 86,
+                            value: 85,
                         },
                     ),
                 ),

@@ -1,13 +1,14 @@
-mod dependency;
-mod error;
-pub mod has_manifest;
+pub mod dependency;
+pub mod error;
+pub mod helpers;
 pub mod jar;
-mod sections;
+pub mod manifest;
+pub mod sections;
 
-pub use self::dependency::*;
-pub use self::error::*;
-pub use self::has_manifest::*;
-pub use self::sections::*;
+use self::dependency::*;
+use self::error::*;
+pub use self::manifest::*;
+use self::sections::*;
 
 use self::jar::ManifestJar as Jar;
 use husky_corgi_config::HasCorgiConfig;

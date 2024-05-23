@@ -7,9 +7,12 @@
     ),
     ItemPath::AssocItem(
         AssocItemPath::TraitItem(
-            TraitItemPath(`core::default::Default::default`, `AssocRitchie(
-                Fn,
-            )`),
+            TraitItemPath(
+                `core::default::Default::default`,
+                TraitItemKind::AssocRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
 ]

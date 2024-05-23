@@ -12,13 +12,7 @@
     ),
     ItemPath::Attr(
         Room32,
-        AttrItemPath(
-            ItemPathId(
-                Id {
-                    value: 377,
-                },
-            ),
-        ),
+        AttrItemPath(`mnist_classifier::raw_contour::Direction::@derive(0)`),
     ),
     ItemPath::TypeVariant(
         Room32,
@@ -138,40 +132,49 @@
     ),
     ItemPath::ImplBlock(
         ImplBlockPath::TypeImplBlock(
-            TypeImplBlockPath(
-                ItemPathId(
-                    Id {
-                        value: 299,
-                    },
-                ),
+            TypeImplBlockPath(`mnist_classifier::raw_contour::RawContour(0)`),
+        ),
+    ),
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
+            TypeItemPath(
+                `mnist_classifier::raw_contour::RawContour(0)::line_segment_sketch`,
+                TypeItemKind::MemoizedField,
             ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::line_segment_sketch`, `MemoizedField`),
+            TypeItemPath(
+                `mnist_classifier::raw_contour::RawContour(0)::bounding_box`,
+                TypeItemKind::MemoizedField,
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::bounding_box`, `MemoizedField`),
+            TypeItemPath(
+                `mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`,
+                TypeItemKind::MemoizedField,
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::relative_bounding_box`, `MemoizedField`),
+            TypeItemPath(
+                `mnist_classifier::raw_contour::RawContour(0)::contour_len`,
+                TypeItemKind::MemoizedField,
+            ),
         ),
     ),
     ItemPath::AssocItem(
         AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::contour_len`, `MemoizedField`),
-        ),
-    ),
-    ItemPath::AssocItem(
-        AssocItemPath::TypeItem(
-            TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::displacement`, `MethodRitchie(
-                Fn,
-            )`),
+            TypeItemPath(
+                `mnist_classifier::raw_contour::RawContour(0)::displacement`,
+                TypeItemKind::MethodRitchie(
+                    RitchieItemKind::Fn,
+                ),
+            ),
         ),
     ),
 ]

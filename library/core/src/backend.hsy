@@ -1,5 +1,3 @@
 pub trait IsBackend;
 
-pub struct MlBackend;
-
-pub struct RlBackend;
+pub extern MlBackend;

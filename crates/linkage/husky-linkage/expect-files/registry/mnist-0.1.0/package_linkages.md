@@ -397,9 +397,12 @@
     Linkage {
         data: LinkageData::AssocRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist::BinaryImage28(0)>::new_zeros`, `AssocRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist::BinaryImage28(0)::new_zeros`,
+                    TypeItemKind::AssocRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],
@@ -412,9 +415,12 @@
     Linkage {
         data: LinkageData::AssocRitchie {
             path: AssocItemPath::TypeItem(
-                TypeItemPath(`<mnist::BinaryGrid28(0)>::new_zeros`, `AssocRitchie(
-                    Fn,
-                )`),
+                TypeItemPath(
+                    `mnist::BinaryGrid28(0)::new_zeros`,
+                    TypeItemKind::AssocRitchie(
+                        RitchieItemKind::Fn,
+                    ),
+                ),
             ),
             instantiation: LinInstantiation {
                 symbol_resolutions: [],

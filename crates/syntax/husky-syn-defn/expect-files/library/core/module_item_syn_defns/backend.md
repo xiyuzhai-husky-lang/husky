@@ -11,15 +11,7 @@
     (
         ItemPath::MajorItem(
             MajorItemPath::Type(
-                TypePath(`core::backend::MlBackend`, `Struct`),
-            ),
-        ),
-        None,
-    ),
-    (
-        ItemPath::MajorItem(
-            MajorItemPath::Type(
-                TypePath(`core::backend::RlBackend`, `Struct`),
+                TypePath(`core::backend::MlBackend`, `Extern`),
             ),
         ),
         None,

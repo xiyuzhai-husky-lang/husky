@@ -84,14 +84,14 @@ SynDeclSheet {
         (
             ItemPath::MajorItem(
                 MajorItemPath::Type(
-                    TypePath(`core::frontend::Cv2dFrontend`, `Struct`),
+                    TypePath(`core::frontend::Cv2dFrontend`, `Extern`),
                 ),
             ),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
-                    TypeSynDecl::UnitStruct(
-                        UnitStructSynDecl {
-                            path: TypePath(`core::frontend::Cv2dFrontend`, `Struct`),
+                    TypeSynDecl::Extern(
+                        ExternTypeSynDecl {
+                            path: TypePath(`core::frontend::Cv2dFrontend`, `Extern`),
                             template_parameters: [],
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
@@ -105,7 +105,7 @@ SynDeclSheet {
                                                             MajorItemSynNodePathData::Type(
                                                                 TypeSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypePath(`core::frontend::Cv2dFrontend`, `Struct`),
+                                                                        maybe_ambiguous_item_path: TypePath(`core::frontend::Cv2dFrontend`, `Extern`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -166,14 +166,14 @@ SynDeclSheet {
         (
             ItemPath::MajorItem(
                 MajorItemPath::Type(
-                    TypePath(`core::frontend::Cv3dFrontend`, `Struct`),
+                    TypePath(`core::frontend::Cv3dFrontend`, `Extern`),
                 ),
             ),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
-                    TypeSynDecl::UnitStruct(
-                        UnitStructSynDecl {
-                            path: TypePath(`core::frontend::Cv3dFrontend`, `Struct`),
+                    TypeSynDecl::Extern(
+                        ExternTypeSynDecl {
+                            path: TypePath(`core::frontend::Cv3dFrontend`, `Extern`),
                             template_parameters: [],
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
@@ -187,7 +187,7 @@ SynDeclSheet {
                                                             MajorItemSynNodePathData::Type(
                                                                 TypeSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypePath(`core::frontend::Cv3dFrontend`, `Struct`),
+                                                                        maybe_ambiguous_item_path: TypePath(`core::frontend::Cv3dFrontend`, `Extern`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -248,14 +248,14 @@ SynDeclSheet {
         (
             ItemPath::MajorItem(
                 MajorItemPath::Type(
-                    TypePath(`core::frontend::NlpFrontend`, `Struct`),
+                    TypePath(`core::frontend::NlpFrontend`, `Extern`),
                 ),
             ),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
-                    TypeSynDecl::UnitStruct(
-                        UnitStructSynDecl {
-                            path: TypePath(`core::frontend::NlpFrontend`, `Struct`),
+                    TypeSynDecl::Extern(
+                        ExternTypeSynDecl {
+                            path: TypePath(`core::frontend::NlpFrontend`, `Extern`),
                             template_parameters: [],
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
@@ -269,7 +269,7 @@ SynDeclSheet {
                                                             MajorItemSynNodePathData::Type(
                                                                 TypeSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypePath(`core::frontend::NlpFrontend`, `Struct`),
+                                                                        maybe_ambiguous_item_path: TypePath(`core::frontend::NlpFrontend`, `Extern`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },
@@ -330,14 +330,14 @@ SynDeclSheet {
         (
             ItemPath::MajorItem(
                 MajorItemPath::Type(
-                    TypePath(`core::frontend::Rl2dFrontend`, `Struct`),
+                    TypePath(`core::frontend::Rl2dFrontend`, `Extern`),
                 ),
             ),
             SynDecl::MajorItem(
                 MajorItemSynDecl::Type(
-                    TypeSynDecl::UnitStruct(
-                        UnitStructSynDecl {
-                            path: TypePath(`core::frontend::Rl2dFrontend`, `Struct`),
+                    TypeSynDecl::Extern(
+                        ExternTypeSynDecl {
+                            path: TypePath(`core::frontend::Rl2dFrontend`, `Extern`),
                             template_parameters: [],
                             syn_expr_region: SynExprRegion {
                                 data: SynExprRegionData {
@@ -351,7 +351,7 @@ SynDeclSheet {
                                                             MajorItemSynNodePathData::Type(
                                                                 TypeSynNodePathData {
                                                                     disambiguated_item_path: DisambiguatedItemPath {
-                                                                        maybe_ambiguous_item_path: TypePath(`core::frontend::Rl2dFrontend`, `Struct`),
+                                                                        maybe_ambiguous_item_path: TypePath(`core::frontend::Rl2dFrontend`, `Extern`),
                                                                         disambiguator: 0,
                                                                     },
                                                                 },

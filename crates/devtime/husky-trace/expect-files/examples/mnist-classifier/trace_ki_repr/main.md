@@ -1224,7 +1224,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::raw_contours`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -1322,9 +1325,12 @@
                     Linkage {
                         data: LinkageData::MethodRitchie {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
-                                    Fn,
-                                )`),
+                                TypeItemPath(
+                                    `core::vec::Vec(0)::ilen`,
+                                    TypeItemKind::MethodRitchie(
+                                        RitchieItemKind::Fn,
+                                    ),
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [
@@ -2214,7 +2220,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::norm`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -2430,7 +2439,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::rel_norm`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -2646,7 +2658,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::angle_change_norm`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -3112,7 +3127,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::norm`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -3359,7 +3377,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::eff_holes`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -3714,7 +3735,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::eff_holes`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -4129,7 +4153,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::eff_holes`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -4597,7 +4624,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::bounding_box`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::raw_contour::RawContour(0)::bounding_box`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -4701,9 +4731,12 @@
                     Linkage {
                         data: LinkageData::MethodRitchie {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::ymax`, `MethodRitchie(
-                                    Fn,
-                                )`),
+                                TypeItemPath(
+                                    `mnist_classifier::geom2d::BoundingBox(0)::ymax`,
+                                    TypeItemKind::MethodRitchie(
+                                        RitchieItemKind::Fn,
+                                    ),
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -4907,7 +4940,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::bounding_box`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::raw_contour::RawContour(0)::bounding_box`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -5011,9 +5047,12 @@
                     Linkage {
                         data: LinkageData::MethodRitchie {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::ymin`, `MethodRitchie(
-                                    Fn,
-                                )`),
+                                TypeItemPath(
+                                    `mnist_classifier::geom2d::BoundingBox(0)::ymin`,
+                                    TypeItemKind::MethodRitchie(
+                                        RitchieItemKind::Fn,
+                                    ),
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -5327,7 +5366,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::bounding_box`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -5431,9 +5473,12 @@
                     Linkage {
                         data: LinkageData::MethodRitchie {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::ymax`, `MethodRitchie(
-                                    Fn,
-                                )`),
+                                TypeItemPath(
+                                    `mnist_classifier::geom2d::BoundingBox(0)::ymax`,
+                                    TypeItemKind::MethodRitchie(
+                                        RitchieItemKind::Fn,
+                                    ),
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -5588,7 +5633,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::bounding_box`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -5692,9 +5740,12 @@
                     Linkage {
                         data: LinkageData::MethodRitchie {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::ymin`, `MethodRitchie(
-                                    Fn,
-                                )`),
+                                TypeItemPath(
+                                    `mnist_classifier::geom2d::BoundingBox(0)::ymin`,
+                                    TypeItemKind::MethodRitchie(
+                                        RitchieItemKind::Fn,
+                                    ),
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -6416,7 +6467,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::norm`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -6632,7 +6686,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::norm`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -7360,7 +7417,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::max_hole_ilen`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -8647,7 +8707,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::norm`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -12147,7 +12210,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::eff_holes`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -12299,7 +12365,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::eff_holes`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -12610,7 +12679,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::lower_mass`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -12762,7 +12834,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::upper_mass`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -13932,7 +14007,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::eff_holes`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -14388,7 +14466,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::norm`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -14901,7 +14982,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::norm`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -15100,7 +15184,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::eff_holes`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -15312,7 +15399,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::relative_bounding_box`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -15416,9 +15506,12 @@
                     Linkage {
                         data: LinkageData::MethodRitchie {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::ymax`, `MethodRitchie(
-                                    Fn,
-                                )`),
+                                TypeItemPath(
+                                    `mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`,
+                                    TypeItemKind::MethodRitchie(
+                                        RitchieItemKind::Fn,
+                                    ),
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -15741,7 +15834,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::eff_holes`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -32852,7 +32948,7 @@
                     val_item_path: MajorFormPath(
                         ItemPathId(
                             Id {
-                                value: 289,
+                                value: 288,
                             },
                         ),
                     ),
@@ -34147,7 +34243,7 @@
                                 TypeItemPath(
                                     ItemPathId(
                                         Id {
-                                            value: 392,
+                                            value: 391,
                                         },
                                     ),
                                 ),
@@ -34173,7 +34269,7 @@
                             TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 392,
+                                        value: 391,
                                     },
                                 ),
                             ),
@@ -35119,7 +35215,7 @@
                                 TypeItemPath(
                                     ItemPathId(
                                         Id {
-                                            value: 392,
+                                            value: 391,
                                         },
                                     ),
                                 ),
@@ -35145,7 +35241,7 @@
                             TypeItemPath(
                                 ItemPathId(
                                     Id {
-                                        value: 392,
+                                        value: 391,
                                     },
                                 ),
                             ),
@@ -37377,7 +37473,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::max_hole_ilen`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::connected_component::ConnectedComponent(0)::max_hole_ilen`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -38664,7 +38763,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::norm`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -41650,7 +41752,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::eff_holes`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -41802,7 +41907,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::eff_holes`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -42113,7 +42221,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::lower_mass`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::connected_component::ConnectedComponent(0)::lower_mass`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -42265,7 +42376,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::upper_mass`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::connected_component::ConnectedComponent(0)::upper_mass`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -43435,7 +43549,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::eff_holes`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -43891,7 +44008,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::norm`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -44404,7 +44524,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::norm`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -44603,7 +44726,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::eff_holes`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -44815,7 +44941,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::relative_bounding_box`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::raw_contour::RawContour(0)::relative_bounding_box`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -44919,9 +45048,12 @@
                     Linkage {
                         data: LinkageData::MethodRitchie {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::geom2d::RelativeBoundingBox(0)>::ymax`, `MethodRitchie(
-                                    Fn,
-                                )`),
+                                TypeItemPath(
+                                    `mnist_classifier::geom2d::RelativeBoundingBox(0)::ymax`,
+                                    TypeItemKind::MethodRitchie(
+                                        RitchieItemKind::Fn,
+                                    ),
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -45244,7 +45376,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::eff_holes`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -46587,7 +46722,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::raw_contours`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::connected_component::ConnectedComponent(0)::raw_contours`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -46685,9 +46823,12 @@
                     Linkage {
                         data: LinkageData::MethodRitchie {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<core::vec::Vec(0)>::ilen`, `MethodRitchie(
-                                    Fn,
-                                )`),
+                                TypeItemPath(
+                                    `core::vec::Vec(0)::ilen`,
+                                    TypeItemKind::MethodRitchie(
+                                        RitchieItemKind::Fn,
+                                    ),
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [
@@ -47577,7 +47718,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::norm`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -47793,7 +47937,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::rel_norm`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::fermi::FermiMatchResult(0)::rel_norm`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -48009,7 +48156,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::angle_change_norm`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::fermi::FermiMatchResult(0)::angle_change_norm`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -48475,7 +48625,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::norm`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -48722,7 +48875,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::eff_holes`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -49077,7 +49233,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::eff_holes`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -49492,7 +49651,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::connected_component::ConnectedComponent(0)>::eff_holes`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::connected_component::ConnectedComponent(0)::eff_holes`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -49960,7 +50122,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::bounding_box`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::raw_contour::RawContour(0)::bounding_box`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -50064,9 +50229,12 @@
                     Linkage {
                         data: LinkageData::MethodRitchie {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::ymax`, `MethodRitchie(
-                                    Fn,
-                                )`),
+                                TypeItemPath(
+                                    `mnist_classifier::geom2d::BoundingBox(0)::ymax`,
+                                    TypeItemKind::MethodRitchie(
+                                        RitchieItemKind::Fn,
+                                    ),
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -50270,7 +50438,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::raw_contour::RawContour(0)>::bounding_box`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::raw_contour::RawContour(0)::bounding_box`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -50374,9 +50545,12 @@
                     Linkage {
                         data: LinkageData::MethodRitchie {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::ymin`, `MethodRitchie(
-                                    Fn,
-                                )`),
+                                TypeItemPath(
+                                    `mnist_classifier::geom2d::BoundingBox(0)::ymin`,
+                                    TypeItemKind::MethodRitchie(
+                                        RitchieItemKind::Fn,
+                                    ),
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -50690,7 +50864,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::bounding_box`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -50794,9 +50971,12 @@
                     Linkage {
                         data: LinkageData::MethodRitchie {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::ymax`, `MethodRitchie(
-                                    Fn,
-                                )`),
+                                TypeItemPath(
+                                    `mnist_classifier::geom2d::BoundingBox(0)::ymax`,
+                                    TypeItemKind::MethodRitchie(
+                                        RitchieItemKind::Fn,
+                                    ),
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -50951,7 +51131,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::line_segment_sketch::LineSegmentSketch(0)>::bounding_box`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::line_segment_sketch::LineSegmentSketch(0)::bounding_box`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -51055,9 +51238,12 @@
                     Linkage {
                         data: LinkageData::MethodRitchie {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::geom2d::BoundingBox(0)>::ymin`, `MethodRitchie(
-                                    Fn,
-                                )`),
+                                TypeItemPath(
+                                    `mnist_classifier::geom2d::BoundingBox(0)::ymin`,
+                                    TypeItemKind::MethodRitchie(
+                                        RitchieItemKind::Fn,
+                                    ),
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -51779,7 +51965,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::norm`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],
@@ -51995,7 +52184,10 @@
                     Linkage {
                         data: LinkageData::MemoizedField {
                             path: AssocItemPath::TypeItem(
-                                TypeItemPath(`<mnist_classifier::fermi::FermiMatchResult(0)>::norm`, `MemoizedField`),
+                                TypeItemPath(
+                                    `mnist_classifier::fermi::FermiMatchResult(0)::norm`,
+                                    TypeItemKind::MemoizedField,
+                                ),
                             ),
                             instantiation: LinInstantiation {
                                 symbol_resolutions: [],

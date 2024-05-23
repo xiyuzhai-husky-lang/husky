@@ -20,27 +20,11 @@ TokenSheetData {
         ),
         TokenData::Keyword(
             Keyword::TypeEntity(
-                Struct,
+                Extern,
             ),
         ),
         TokenData::Ident(
             `MlBackend`,
-        ),
-        TokenData::Punctuation(
-            Punctuation(
-                PunctuationMapped::Semicolon,
-            ),
-        ),
-        TokenData::Keyword(
-            Keyword::Pub,
-        ),
-        TokenData::Keyword(
-            Keyword::TypeEntity(
-                Struct,
-            ),
-        ),
-        TokenData::Ident(
-            `RlBackend`,
         ),
         TokenData::Punctuation(
             Punctuation(
@@ -63,14 +47,6 @@ TokenSheetData {
                     start: TokenVerseStart(
                         TokenIdx(
                             5,
-                        ),
-                    ),
-                    indent: 0,
-                },
-                TokenVerseData {
-                    start: TokenVerseStart(
-                        TokenIdx(
-                            9,
                         ),
                     ),
                     indent: 0,

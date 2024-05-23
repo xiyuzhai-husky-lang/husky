@@ -47,13 +47,7 @@
                                 ),
                             ),
                             attr_item_path_result: Ok(
-                                AttrItemPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 161,
-                                        },
-                                    ),
-                                ),
+                                AttrItemPath(`malamute::Class::@derive(0)`),
                             ),
                         },
                     ),
@@ -185,13 +179,7 @@
                                 ),
                             ),
                             attr_item_path_result: Ok(
-                                AttrItemPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 162,
-                                        },
-                                    ),
-                                ),
+                                AttrItemPath(`malamute::OneVsAll::@derive(0)`),
                             ),
                         },
                     ),
@@ -323,13 +311,7 @@
                                 ),
                             ),
                             attr_item_path_result: Ok(
-                                AttrItemPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 163,
-                                        },
-                                    ),
-                                ),
+                                AttrItemPath(`malamute::OneVsAllResult::@derive(0)`),
                             ),
                         },
                     ),
@@ -1814,7 +1796,7 @@
                                             TypeVariantPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 112,
+                                                        value: 111,
                                                     },
                                                 ),
                                             ),
@@ -1886,7 +1868,7 @@
                                             TypeVariantPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 111,
+                                                        value: 110,
                                                     },
                                                 ),
                                             ),
@@ -2045,7 +2027,7 @@
                                             TypeVariantPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 112,
+                                                        value: 111,
                                                     },
                                                 ),
                                             ),
@@ -2213,7 +2195,7 @@
                                             TypeVariantPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 111,
+                                                        value: 110,
                                                     },
                                                 ),
                                             ),
@@ -3225,7 +3207,7 @@
                                             TypeVariantPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 112,
+                                                        value: 111,
                                                     },
                                                 ),
                                             ),
@@ -3269,7 +3251,7 @@
                                             TypeVariantPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 112,
+                                                        value: 111,
                                                     },
                                                 ),
                                             ),
@@ -3313,7 +3295,7 @@
                                             TypeVariantPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 111,
+                                                        value: 110,
                                                     },
                                                 ),
                                             ),
@@ -3472,7 +3454,7 @@
                                             TypeVariantPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 112,
+                                                        value: 111,
                                                     },
                                                 ),
                                             ),
@@ -3640,7 +3622,7 @@
                                             TypeVariantPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 112,
+                                                        value: 111,
                                                     },
                                                 ),
                                             ),
@@ -3808,7 +3790,7 @@
                                             TypeVariantPath(
                                                 ItemPathId(
                                                     Id {
-                                                        value: 111,
+                                                        value: 110,
                                                     },
                                                 ),
                                             ),

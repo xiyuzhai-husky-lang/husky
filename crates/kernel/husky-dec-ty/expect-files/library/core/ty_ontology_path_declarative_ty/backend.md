@@ -1,13 +1,7 @@
 ```rust
 [
     (
-        TypePath(`core::backend::MlBackend`, `Struct`),
-        Ok(
-            DecTerm(`Type`),
-        ),
-    ),
-    (
-        TypePath(`core::backend::RlBackend`, `Struct`),
+        TypePath(`core::backend::MlBackend`, `Extern`),
         Ok(
             DecTerm(`Type`),
         ),

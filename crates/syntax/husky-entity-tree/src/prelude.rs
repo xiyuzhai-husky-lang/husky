@@ -1,4 +1,4 @@
-use husky_manifest::ManifestError;
+use husky_manifest::error::ManifestError;
 use husky_vfs::{error::VfsError, *};
 use thiserror::Error;
 

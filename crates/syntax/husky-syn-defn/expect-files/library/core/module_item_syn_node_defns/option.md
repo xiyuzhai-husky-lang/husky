@@ -47,13 +47,7 @@
                                 ),
                             ),
                             attr_item_path_result: Ok(
-                                AttrItemPath(
-                                    ItemPathId(
-                                        Id {
-                                            value: 237,
-                                        },
-                                    ),
-                                ),
+                                AttrItemPath(`core::option::Option::@derive(0)`),
                             ),
                         },
                     ),
@@ -87,7 +81,7 @@
                                 maybe_ambiguous_item_path: TypeVariantPath(
                                     ItemPathId(
                                         Id {
-                                            value: 88,
+                                            value: 87,
                                         },
                                     ),
                                 ),
@@ -125,7 +119,7 @@
                                 maybe_ambiguous_item_path: TypeVariantPath(
                                     ItemPathId(
                                         Id {
-                                            value: 89,
+                                            value: 88,
                                         },
                                     ),
                                 ),

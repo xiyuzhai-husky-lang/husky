@@ -1,9 +1,9 @@
 pub trait IsFrontend;
 
-pub struct Cv2dFrontend;
+pub extern Cv2dFrontend;
 
-pub struct Cv3dFrontend;
+pub extern Cv3dFrontend;
 
-pub struct NlpFrontend;
+pub extern NlpFrontend;
 
-pub struct Rl2dFrontend;
+pub extern Rl2dFrontend;

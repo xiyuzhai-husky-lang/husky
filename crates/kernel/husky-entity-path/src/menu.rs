@@ -14,7 +14,7 @@ pub fn item_path_menu(db: &::salsa::Db, toolchain: Toolchain) -> ItemPathMenu {
 #[derive(Debug, PartialEq, Eq)]
 pub struct ItemPathMenu {
     // core::ops::Add	The addition operator +.
-    core_ops_add_trai_path: TraitPath,
+    add_trai_path: TraitPath,
     // core::ops::AddAssign	The addition assignment operator +=.
     add_assign_trai_path: TraitPath,
     // core::ops::BitAnd	The bitwise AND operator &.
@@ -57,7 +57,7 @@ pub struct ItemPathMenu {
     option_ty_path: TypePath,
     result_ty_path: TypePath,
     slice_ty_path: TypePath,
-    cyclic_slice_leashed_ty_path: TypePath,
+    cyclic_slice_ty_path: TypePath,
     string_literal_ty_path: TypePath,
     str_ty_path: TypePath,
     ref_ty_path: TypePath,
@@ -96,6 +96,11 @@ pub struct ItemPathMenu {
     lifetime_ty_path: TypePath,
     place_ty_path: TypePath,
     module_ty_path: TypePath,
+    ml_backend_ty_path: TypePath,
+    cv2d_frontend_ty_path: TypePath,
+    cv3d_frontend_ty_path: TypePath,
+    nlp_frontend_ty_path: TypePath,
+    rl2d_frontend_ty_path: TypePath,
 }
 
 impl ItemPathMenu {
@@ -119,510 +124,117 @@ impl ItemPathMenu {
         let core_vec = path_menu.core_vec().inner();
         let core_array = path_menu.core_array().inner();
         let core_visual = path_menu.core_visual().inner();
-        let option_ty_path = TypePath::new(
-            core_option,
-            Ident::from_ref(db, "Option").unwrap(),
-            MajorItemConnection::Connected,
-            TypeKind::Enum,
-            db,
-        );
-        let result_ty_path = TypePath::new(
-            core_result,
-            Ident::from_ref(db, "Result").unwrap(),
-            MajorItemConnection::Connected,
-            TypeKind::Enum,
-            db,
-        );
-        let unit_ty_path = TypePath::new(
-            core_basic,
-            coword_menu.unit_ident(),
-            MajorItemConnection::Connected,
-            TypeKind::Extern,
-            db,
-        );
-        let never_ty_path = TypePath::new(
-            core_basic,
-            coword_menu.never_ident(),
-            MajorItemConnection::Connected,
-            TypeKind::Extern,
-            db,
-        );
-        let bool_ty_path = TypePath::new(
-            core_basic,
-            coword_menu.bool_ident(),
-            MajorItemConnection::Connected,
-            TypeKind::Extern,
-            db,
-        );
-        let i8_ty_path = TypePath::new(
-            core_num,
-            coword_menu.i8_ident(),
-            MajorItemConnection::Connected,
-            TypeKind::Extern,
-            db,
-        );
-        let i16_ty_path = TypePath::new(
-            core_num,
-            coword_menu.i16_ident(),
-            MajorItemConnection::Connected,
-            TypeKind::Extern,
-            db,
-        );
-        let i32_ty_path = TypePath::new(
-            core_num,
-            coword_menu.i32_ident(),
-            MajorItemConnection::Connected,
-            TypeKind::Extern,
-            db,
-        );
-        let i64_ty_path = TypePath::new(
-            core_num,
-            coword_menu.i64_ident(),
-            MajorItemConnection::Connected,
-            TypeKind::Extern,
-            db,
-        );
-        let i128_ty_path = TypePath::new(
-            core_num,
-            coword_menu.i128_ident(),
-            MajorItemConnection::Connected,
-            TypeKind::Extern,
-            db,
-        );
-        let isize_ty_path = TypePath::new(
-            core_num,
-            coword_menu.isize_ident(),
-            MajorItemConnection::Connected,
-            TypeKind::Extern,
-            db,
-        );
-        let u8_ty_path = TypePath::new(
-            core_num,
-            coword_menu.u8_ident(),
-            MajorItemConnection::Connected,
-            TypeKind::Extern,
-            db,
-        );
-        let u16_ty_path = TypePath::new(
-            core_num,
-            coword_menu.u16_ident(),
-            MajorItemConnection::Connected,
-            TypeKind::Extern,
-            db,
-        );
-        let u32_ty_path = TypePath::new(
-            core_num,
-            coword_menu.u32_ident(),
-            MajorItemConnection::Connected,
-            TypeKind::Extern,
-            db,
-        );
-        let u64_ty_path = TypePath::new(
-            core_num,
-            coword_menu.u64_ident(),
-            MajorItemConnection::Connected,
-            TypeKind::Extern,
-            db,
-        );
-        let u128_ty_path = TypePath::new(
-            core_num,
-            coword_menu.u128_ident(),
-            MajorItemConnection::Connected,
-            TypeKind::Extern,
-            db,
-        );
-        let usize_ty_path = TypePath::new(
-            core_num,
-            coword_menu.usize_ident(),
-            MajorItemConnection::Connected,
-            TypeKind::Extern,
-            db,
-        );
-        let r8_ty_path = TypePath::new(
-            core_raw_bits,
-            coword_menu.r8_ident(),
-            MajorItemConnection::Connected,
-            TypeKind::Extern,
-            db,
-        );
-        let r16_ty_path = TypePath::new(
-            core_raw_bits,
-            coword_menu.r16_ident(),
-            MajorItemConnection::Connected,
-            TypeKind::Extern,
-            db,
-        );
-        let r32_ty_path = TypePath::new(
-            core_raw_bits,
-            coword_menu.r32_ident(),
-            MajorItemConnection::Connected,
-            TypeKind::Extern,
-            db,
-        );
-        let r64_ty_path = TypePath::new(
-            core_raw_bits,
-            coword_menu.r64_ident(),
-            MajorItemConnection::Connected,
-            TypeKind::Extern,
-            db,
-        );
-        let r128_ty_path = TypePath::new(
-            core_raw_bits,
-            coword_menu.r128_ident(),
-            MajorItemConnection::Connected,
-            TypeKind::Extern,
-            db,
-        );
-        let rsize_ty_path = TypePath::new(
-            core_raw_bits,
-            coword_menu.rsize_ident(),
-            MajorItemConnection::Connected,
-            TypeKind::Extern,
-            db,
-        );
-        let f32_ty_path = TypePath::new(
-            core_num,
-            coword_menu.f32_ident(),
-            MajorItemConnection::Connected,
-            TypeKind::Extern,
-            db,
-        );
-        let f64_ty_path = TypePath::new(
-            core_num,
-            coword_menu.f64_ident(),
-            MajorItemConnection::Connected,
-            TypeKind::Extern,
-            db,
-        );
-        let lifetime_ty_path = TypePath::new(
-            core_basic,
-            coword_menu.lifetime_ty_ident(),
-            MajorItemConnection::Connected,
-            TypeKind::Extern,
-            db,
-        );
-        let place_ty_path = TypePath::new(
-            core_basic,
-            coword_menu.place_ty_ident(),
-            MajorItemConnection::Connected,
-            TypeKind::Extern,
-            db,
-        );
-        let module_ty_path = TypePath::new(
-            core_basic,
-            coword_menu.module_ident(),
-            MajorItemConnection::Connected,
-            TypeKind::Extern,
-            db,
-        );
-        let visual_ty_path = TypePath::new(
-            core_visual,
-            Ident::from_ref(db, "Visual").unwrap(),
-            MajorItemConnection::Connected,
-            TypeKind::Extern,
-            db,
-        );
-        let trai_ty_path = TypePath::new(
-            core_basic,
-            coword_menu.trai_ty_ident(),
-            MajorItemConnection::Connected,
-            TypeKind::Extern,
-            db,
-        );
-        let ref_ty_path = TypePath::new(
-            core_mem,
-            Ident::from_ref(db, "Ref").unwrap(),
-            MajorItemConnection::Connected,
-            TypeKind::Extern,
-            db,
-        );
-        let ref_mut_ty_path = TypePath::new(
-            core_mem,
-            Ident::from_ref(db, "RefMut").unwrap(),
-            MajorItemConnection::Connected,
-            TypeKind::Extern,
-            db,
-        );
-        let leash_ty_path = TypePath::new(
-            core_mem,
-            Ident::from_ref(db, "Leash").unwrap(),
-            MajorItemConnection::Connected,
-            TypeKind::Extern,
-            db,
-        );
-        let at_ty_path = TypePath::new(
-            core_mem,
-            Ident::from_ref(db, "At").unwrap(),
-            MajorItemConnection::Connected,
-            TypeKind::Extern,
-            db,
-        );
-        let universe_ty_path = TypePath::new(
-            core_basic,
-            Ident::from_ref(db, "Universe").unwrap(),
-            MajorItemConnection::Connected,
-            TypeKind::Extern,
-            db,
-        );
-        let vec_ty_path = TypePath::new(
-            core_vec,
-            Ident::from_ref(db, "Vec").unwrap(),
-            MajorItemConnection::Connected,
-            TypeKind::Extern,
-            db,
-        );
-        let array_ty_path = TypePath::new(
-            core_array,
-            Ident::from_ref(db, "Array").unwrap(),
-            MajorItemConnection::Connected,
-            TypeKind::Extern,
-            db,
-        );
-        let slice_ty_path = TypePath::new(
-            core_slice,
-            Ident::from_ref(db, "Slice").unwrap(),
-            MajorItemConnection::Connected,
-            TypeKind::Extern,
-            db,
-        );
-        let cyclic_slice_leashed_ty_path = TypePath::new(
-            core_slice,
-            Ident::from_ref(db, "CyclicSlice").unwrap(),
-            MajorItemConnection::Connected,
-            TypeKind::Extern,
-            db,
-        );
-        let string_literal_ty_path = TypePath::new(
-            core_str,
-            Ident::from_ref(db, "StringLiteral").unwrap(),
-            MajorItemConnection::Connected,
-            TypeKind::Extern,
-            db,
-        );
-        let str_ty_path = TypePath::new(
-            core_str,
-            Ident::from_ref(db, "str").unwrap(),
-            MajorItemConnection::Connected,
-            TypeKind::Extern,
-            db,
-        );
-        let core_ops_add_trai_path = TraitPath::new(
-            core_ops,
-            Ident::from_ref(db, "Add").unwrap(),
-            MajorItemConnection::Connected,
-            db,
-        );
-        let add_assign_trai_path = TraitPath::new(
-            core_ops,
-            Ident::from_ref(db, "AddAssign").unwrap(),
-            MajorItemConnection::Connected,
-            db,
-        );
-        let bit_and_trai_path = TraitPath::new(
-            core_ops,
-            Ident::from_ref(db, "BitAnd").unwrap(),
-            MajorItemConnection::Connected,
-            db,
-        );
-        let bit_and_assign_trai_path = TraitPath::new(
-            core_ops,
-            Ident::from_ref(db, "BitAndAssign").unwrap(),
-            MajorItemConnection::Connected,
-            db,
-        );
-        let bit_or_trai_path = TraitPath::new(
-            core_ops,
-            Ident::from_ref(db, "BitOr").unwrap(),
-            MajorItemConnection::Connected,
-            db,
-        );
-        let bit_or_assign_trai_path = TraitPath::new(
-            core_ops,
-            Ident::from_ref(db, "BitOrAssign").unwrap(),
-            MajorItemConnection::Connected,
-            db,
-        );
-        let bit_xor_trai_path = TraitPath::new(
-            core_ops,
-            Ident::from_ref(db, "BitXor").unwrap(),
-            MajorItemConnection::Connected,
-            db,
-        );
-        let bit_xor_assign_trai_path = TraitPath::new(
-            core_ops,
-            Ident::from_ref(db, "BitXorAssign").unwrap(),
-            MajorItemConnection::Connected,
-            db,
-        );
-        let div_trai_path = TraitPath::new(
-            core_ops,
-            Ident::from_ref(db, "Div").unwrap(),
-            MajorItemConnection::Connected,
-            db,
-        );
-        let div_assign_trai_path = TraitPath::new(
-            core_ops,
-            Ident::from_ref(db, "DivAssign").unwrap(),
-            MajorItemConnection::Connected,
-            db,
-        );
-        let int_index_trai_path = TraitPath::new(
-            core_ops,
-            Ident::from_ref(db, "IntIndex").unwrap(),
-            MajorItemConnection::Connected,
-            db,
-        );
-        let mul_trai_path = TraitPath::new(
-            core_ops,
-            Ident::from_ref(db, "Mul").unwrap(),
-            MajorItemConnection::Connected,
-            db,
-        );
-        let mul_assign_trai_path = TraitPath::new(
-            core_ops,
-            Ident::from_ref(db, "MulAssign").unwrap(),
-            MajorItemConnection::Connected,
-            db,
-        );
-        let neg_trai_path = TraitPath::new(
-            core_ops,
-            Ident::from_ref(db, "Neg").unwrap(),
-            MajorItemConnection::Connected,
-            db,
-        );
-        let not_trai_path = TraitPath::new(
-            core_ops,
-            Ident::from_ref(db, "Not").unwrap(),
-            MajorItemConnection::Connected,
-            db,
-        );
-        let unveil_trai_path = TraitPath::new(
-            core_ops,
-            Ident::from_ref(db, "Unveil").unwrap(),
-            MajorItemConnection::Connected,
-            db,
-        );
-        let debug_trai_path = TraitPath::new(
-            core_fmt,
-            Ident::from_ref(db, "Debug").unwrap(),
-            MajorItemConnection::Connected,
-            db,
-        );
-        let clone_trai_path = TraitPath::new(
-            core_clone,
-            Ident::from_ref(db, "Clone").unwrap(),
-            MajorItemConnection::Connected,
-            db,
-        );
-        let copy_trai_path = TraitPath::new(
-            core_marker,
-            Ident::from_ref(db, "Copy").unwrap(),
-            MajorItemConnection::Connected,
-            db,
-        );
-        let partial_eq_trai_path = TraitPath::new(
-            core_cmp,
-            Ident::from_ref(db, "PartialEq").unwrap(),
-            MajorItemConnection::Connected,
-            db,
-        );
-        let eq_trai_path = TraitPath::new(
-            core_cmp,
-            Ident::from_ref(db, "Eq").unwrap(),
-            MajorItemConnection::Connected,
-            db,
-        );
-        let partial_ord_trai_path = TraitPath::new(
-            core_cmp,
-            Ident::from_ref(db, "PartialOrd").unwrap(),
-            MajorItemConnection::Connected,
-            db,
-        );
-        let ord_trai_path = TraitPath::new(
-            core_cmp,
-            Ident::from_ref(db, "Ord").unwrap(),
-            MajorItemConnection::Connected,
-            db,
-        );
-        let default_trai_path = TraitPath::new(
-            core_default,
-            Ident::from_ref(db, "Default").unwrap(),
-            MajorItemConnection::Connected,
-            db,
-        );
-        let visualize_trai_path = TraitPath::new(
-            core_visual,
-            Ident::from_ref(db, "Visualize").unwrap(),
-            MajorItemConnection::Connected,
-            db,
-        );
+        let core_backend = path_menu.core_backend().inner();
+        let core_frontend = path_menu.core_frontend().inner();
+        macro_rules! mk {
+            ($m: ident, enum $ident: ident) => {{
+                TypePath::new(
+                    $m,
+                    Ident::from_ref(db, stringify!($ident)).unwrap(),
+                    MajorItemConnection::Connected,
+                    TypeKind::Enum,
+                    db,
+                )
+            }};
+            ($m: ident, struct $ident: ident) => {{
+                TypePath::new(
+                    $m,
+                    Ident::from_ref(db, stringify!($ident)).unwrap(),
+                    MajorItemConnection::Connected,
+                    TypeKind::Struct,
+                    db,
+                )
+            }};
+            ($m: ident, extern $ident: ident) => {{
+                TypePath::new(
+                    $m,
+                    Ident::from_ref(db, stringify!($ident)).unwrap(),
+                    MajorItemConnection::Connected,
+                    TypeKind::Extern,
+                    db,
+                )
+            }};
+            ($m: ident, trait $ident: ident) => {{
+                TraitPath::new(
+                    $m,
+                    Ident::from_ref(db, stringify!($ident)).unwrap(),
+                    MajorItemConnection::Connected,
+                    db,
+                )
+            }};
+        }
         Self {
-            unit_ty_path,
-            never_ty_path,
-            bool_ty_path,
-            i8_ty_path,
-            i16_ty_path,
-            i32_ty_path,
-            i64_ty_path,
-            i128_ty_path,
-            isize_ty_path,
-            r8_ty_path,
-            r16_ty_path,
-            r32_ty_path,
-            r64_ty_path,
-            r128_ty_path,
-            rsize_ty_path,
-            u8_ty_path,
-            u16_ty_path,
-            u32_ty_path,
-            u64_ty_path,
-            u128_ty_path,
-            usize_ty_path,
-            f32_ty_path,
-            f64_ty_path,
-            trai_ty_path,
-            module_ty_path,
-            lifetime_ty_path,
-            place_ty_path,
-            option_ty_path,
-            slice_ty_path,
-            cyclic_slice_leashed_ty_path,
-            string_literal_ty_path,
-            str_ty_path,
-            ref_ty_path,
-            ref_mut_ty_path,
-            leash_ty_path,
-            at_ty_path,
-            universe_ty_path,
-            visual_ty_path,
-            vec_ty_path,
-            array_ty_path,
-            core_ops_add_trai_path,
-            add_assign_trai_path,
-            bit_and_trai_path,
-            bit_and_assign_trai_path,
-            bit_or_trai_path,
-            bit_or_assign_trai_path,
-            bit_xor_trai_path,
-            bit_xor_assign_trai_path,
-            div_trai_path,
-            div_assign_trai_path,
-            int_index_trai_path,
-            mul_trai_path,
-            mul_assign_trai_path,
-            neg_trai_path,
-            not_trai_path,
-            unveil_trai_path,
-            debug_trai_path,
-            clone_trai_path,
-            copy_trai_path,
-            partial_eq_trai_path,
-            eq_trai_path,
-            partial_ord_trai_path,
-            ord_trai_path,
-            default_trai_path,
-            visualize_trai_path,
-            result_ty_path,
+            unit_ty_path: mk!(core_basic, extern unit),
+            never_ty_path: mk!(core_basic, extern never),
+            bool_ty_path: mk!(core_basic, extern bool),
+            i8_ty_path: mk!(core_num, extern i8),
+            i16_ty_path: mk!(core_num, extern i16),
+            i32_ty_path: mk!(core_num, extern i32),
+            i64_ty_path: mk!(core_num, extern i64),
+            i128_ty_path: mk!(core_num, extern i128),
+            isize_ty_path: mk!(core_num, extern isize),
+            u8_ty_path: mk!(core_num, extern u8),
+            u16_ty_path: mk!(core_num, extern u16),
+            u32_ty_path: mk!(core_num, extern u32),
+            u64_ty_path: mk!(core_num, extern u64),
+            u128_ty_path: mk!(core_num, extern u128),
+            usize_ty_path: mk!(core_num, extern usize),
+            r8_ty_path: mk!(core_raw_bits, extern r8),
+            r16_ty_path: mk!(core_raw_bits, extern r16),
+            r32_ty_path: mk!(core_raw_bits, extern r32),
+            r64_ty_path: mk!(core_raw_bits, extern r64),
+            r128_ty_path: mk!(core_raw_bits, extern r128),
+            rsize_ty_path: mk!(core_raw_bits, extern rsize),
+            f32_ty_path: mk!(core_num, extern f32),
+            f64_ty_path: mk!(core_num, extern f64),
+            trai_ty_path: mk!(core_basic, extern Trait),
+            module_ty_path: mk!(core_basic, extern Module),
+            lifetime_ty_path: mk!(core_basic, extern Lifetime),
+            place_ty_path: mk!(core_basic, extern Place),
+            option_ty_path: mk!(core_option, enum Option),
+            slice_ty_path: mk!(core_slice, extern Slice),
+            cyclic_slice_ty_path: mk!(core_slice, extern CyclicSlice),
+            string_literal_ty_path: mk!(core_str, extern StringLiteral),
+            str_ty_path: mk!(core_str, extern str),
+            ref_ty_path: mk!(core_mem, extern Ref),
+            ref_mut_ty_path: mk!(core_mem, extern RefMut),
+            leash_ty_path: mk!(core_mem, extern Leash),
+            at_ty_path: mk!(core_mem, extern At),
+            universe_ty_path: mk!(core_basic, extern Universe),
+            visual_ty_path: mk!(core_visual, extern Visual),
+            vec_ty_path: mk!(core_vec, extern Vec),
+            array_ty_path: mk!(core_array, extern Array),
+            add_trai_path: mk!(core_ops, trait Add),
+            add_assign_trai_path: mk!(core_ops, trait AddAssign),
+            bit_and_trai_path: mk!(core_ops, trait BitAnd),
+            bit_and_assign_trai_path: mk!(core_ops, trait BitAndAssign),
+            bit_or_trai_path: mk!(core_ops, trait BitOr),
+            bit_or_assign_trai_path: mk!(core_ops, trait BitOrAssign),
+            bit_xor_trai_path: mk!(core_ops, trait BitXor),
+            bit_xor_assign_trai_path: mk!(core_ops, trait BitXorAssign),
+            div_trai_path: mk!(core_ops, trait Div),
+            div_assign_trai_path: mk!(core_ops, trait DivAssign),
+            int_index_trai_path: mk!(core_ops, trait IntIndex),
+            mul_trai_path: mk!(core_ops, trait Mul),
+            mul_assign_trai_path: mk!(core_ops, trait MulAssign),
+            neg_trai_path: mk!(core_ops, trait Neg),
+            not_trai_path: mk!(core_ops, trait Not),
+            unveil_trai_path: mk!(core_ops, trait Unveil),
+            debug_trai_path: mk!(core_fmt, trait Debug),
+            clone_trai_path: mk!(core_clone, trait Clone),
+            copy_trai_path: mk!(core_marker, trait Copy),
+            partial_eq_trai_path: mk!(core_cmp, trait PartialEq),
+            eq_trai_path: mk!(core_cmp, trait Eq),
+            partial_ord_trai_path: mk!(core_cmp, trait PartialOrd),
+            ord_trai_path: mk!(core_cmp, trait Ord),
+            default_trai_path: mk!(core_default, trait Default),
+            visualize_trai_path: mk!(core_visual, trait Visualize),
+            result_ty_path: mk!(core_result, enum Result),
+            ml_backend_ty_path: mk!(core_backend, extern MlBackend),
+            cv2d_frontend_ty_path: mk!(core_frontend, extern Cv2dFrontend),
+            cv3d_frontend_ty_path: mk!(core_frontend, extern Cv3dFrontend),
+            nlp_frontend_ty_path: mk!(core_frontend, extern NlpFrontend),
+            rl2d_frontend_ty_path: mk!(core_frontend, extern Rl2dFrontend),
         }
     }
 
@@ -742,8 +354,8 @@ impl ItemPathMenu {
         self.slice_ty_path
     }
 
-    pub fn cyclic_slice_leashed_ty_path(&self) -> TypePath {
-        self.cyclic_slice_leashed_ty_path
+    pub fn cyclic_slice_ty_path(&self) -> TypePath {
+        self.cyclic_slice_ty_path
     }
 
     pub fn string_literal_ty_path(&self) -> TypePath {
@@ -787,7 +399,7 @@ impl ItemPathMenu {
     }
 
     pub fn add_trai_path(&self) -> TraitPath {
-        self.core_ops_add_trai_path
+        self.add_trai_path
     }
 
     pub fn add_assign_trai_path(&self) -> TraitPath {
