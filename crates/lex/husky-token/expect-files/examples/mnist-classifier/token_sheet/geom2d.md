@@ -111,7 +111,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Keyword(
-            Keyword::Static,
+            Keyword::Assoc,
         ),
         TokenData::Keyword(
             Keyword::Form(

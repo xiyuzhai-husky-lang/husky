@@ -587,11 +587,11 @@
                         Range {
                             start: Position {
                                 line: 88,
-                                character: 30,
+                                character: 29,
                             },
                             end: Position {
                                 line: 88,
-                                character: 41,
+                                character: 40,
                             },
                         },
                     ),

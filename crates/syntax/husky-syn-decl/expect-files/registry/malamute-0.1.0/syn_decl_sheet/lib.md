@@ -155,8 +155,8 @@ SynDeclSheet {
                                 TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 1,
-                                    variant: TemplateParameterSyndicateVariant::Constant {
-                                        const_token: ConstRegionalToken {
+                                    variant: TemplateParameterSyndicateVariant::Termic {
+                                        termic_token: TermicRegionalToken {
                                             regional_token_idx: RegionalTokenIdx(
                                                 11,
                                             ),
@@ -381,8 +381,8 @@ SynDeclSheet {
                                 TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 1,
-                                    variant: TemplateParameterSyndicateVariant::Constant {
-                                        const_token: ConstRegionalToken {
+                                    variant: TemplateParameterSyndicateVariant::Termic {
+                                        termic_token: TermicRegionalToken {
                                             regional_token_idx: RegionalTokenIdx(
                                                 11,
                                             ),
@@ -612,8 +612,8 @@ SynDeclSheet {
                                 TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 1,
-                                    variant: TemplateParameterSyndicateVariant::Constant {
-                                        const_token: ConstRegionalToken {
+                                    variant: TemplateParameterSyndicateVariant::Termic {
+                                        termic_token: TermicRegionalToken {
                                             regional_token_idx: RegionalTokenIdx(
                                                 9,
                                             ),
@@ -1119,8 +1119,8 @@ SynDeclSheet {
                             TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
-                                variant: TemplateParameterSyndicateVariant::Constant {
-                                    const_token: ConstRegionalToken {
+                                variant: TemplateParameterSyndicateVariant::Termic {
+                                    termic_token: TermicRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             9,
                                         ),
@@ -1852,8 +1852,8 @@ SynDeclSheet {
                             TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
-                                variant: TemplateParameterSyndicateVariant::Constant {
-                                    const_token: ConstRegionalToken {
+                                variant: TemplateParameterSyndicateVariant::Termic {
+                                    termic_token: TermicRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             7,
                                         ),
@@ -3434,8 +3434,8 @@ SynDeclSheet {
                             TemplateSynParameterData {
                                 annotated_variance_token: None,
                                 symbol: 1,
-                                variant: TemplateParameterSyndicateVariant::Constant {
-                                    const_token: ConstRegionalToken {
+                                variant: TemplateParameterSyndicateVariant::Termic {
+                                    termic_token: TermicRegionalToken {
                                         regional_token_idx: RegionalTokenIdx(
                                             9,
                                         ),

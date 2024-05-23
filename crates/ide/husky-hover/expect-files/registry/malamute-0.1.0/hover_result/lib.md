@@ -137,11 +137,11 @@
                         Range {
                             start: Position {
                                 line: 10,
-                                character: 58,
+                                character: 59,
                             },
                             end: Position {
                                 line: 10,
-                                character: 61,
+                                character: 62,
                             },
                         },
                     ),
@@ -197,11 +197,11 @@
                         Range {
                             start: Position {
                                 line: 14,
-                                character: 59,
+                                character: 60,
                             },
                             end: Position {
                                 line: 14,
-                                character: 67,
+                                character: 68,
                             },
                         },
                     ),
@@ -227,11 +227,11 @@
                         Range {
                             start: Position {
                                 line: 17,
-                                character: 21,
+                                character: 20,
                             },
                             end: Position {
                                 line: 17,
-                                character: 31,
+                                character: 30,
                             },
                         },
                     ),
@@ -407,11 +407,11 @@
                         Range {
                             start: Position {
                                 line: 28,
-                                character: 43,
+                                character: 44,
                             },
                             end: Position {
                                 line: 28,
-                                character: 48,
+                                character: 49,
                             },
                         },
                     ),
@@ -467,11 +467,11 @@
                         Range {
                             start: Position {
                                 line: 31,
-                                character: 75,
+                                character: 74,
                             },
                             end: Position {
                                 line: 31,
-                                character: 77,
+                                character: 76,
                             },
                         },
                     ),

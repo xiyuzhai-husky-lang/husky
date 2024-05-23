@@ -21,7 +21,7 @@
         ),
         end_line: 11,
         end_character: Some(
-            59,
+            58,
         ),
         kind: Some(
             Region,

@@ -136,10 +136,10 @@ impl Trace {
     fn from_form_path(form_path: MajorFormPath, db: &::salsa::Db) -> Option<Self> {
         match form_path.major_form_kind(db) {
             MajorFormKind::Val => Some(Trace::from_val_item_path(form_path, db).into()),
-            MajorFormKind::Const
+            MajorFormKind::Termic
             | MajorFormKind::Ritchie(_)
             | MajorFormKind::TypeAlias
-            | MajorFormKind::Formal => None,
+            | MajorFormKind::Conceptual => None,
             MajorFormKind::Static => todo!(),
         }
     }

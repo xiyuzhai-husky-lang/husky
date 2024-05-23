@@ -31,8 +31,8 @@ pub enum TemplateParameterSyndicateVariant {
         ident_token: IdentRegionalToken,
         traits: Option<TraitsSyndicate>,
     },
-    Constant {
-        const_token: ConstRegionalToken,
+    Termic {
+        termic_token: TermicRegionalToken,
         ident_token: IdentRegionalToken,
         colon_token: ColonRegionalToken,
         ty_expr: SynExprIdx,
@@ -127,7 +127,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateSynPara
                 symbol,
                 variant: TemplateParameterSyndicateVariant::Place { label_token },
             }))
-        } else if let Some(const_token) = ctx.try_parse_option::<ConstRegionalToken>()? {
+        } else if let Some(termic_token) = ctx.try_parse_option::<TermicRegionalToken>()? {
             let ident_token: IdentRegionalToken =
                 ctx.try_parse_expected(OriginalSynExprError::ExpectedIdent)?;
             let colon_token = ctx.try_parse_expected(OriginalSynExprError::ExpectedColon)?;
@@ -160,8 +160,8 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateSynPara
             Ok(Some(TemplateSynParameterData {
                 annotated_variance_token,
                 symbol,
-                variant: TemplateParameterSyndicateVariant::Constant {
-                    const_token,
+                variant: TemplateParameterSyndicateVariant::Termic {
+                    termic_token,
                     ident_token,
                     colon_token,
                     ty_expr,

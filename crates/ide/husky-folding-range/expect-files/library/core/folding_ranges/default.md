@@ -7,7 +7,7 @@
         ),
         end_line: 3,
         end_character: Some(
-            32,
+            31,
         ),
         kind: Some(
             Region,
