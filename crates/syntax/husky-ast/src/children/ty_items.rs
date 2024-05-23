@@ -19,16 +19,13 @@ impl IsAstChildren for TypeItems {
     fn determine_item_kind(item_keyword_group: EntityKindKeywordGroup) -> AstResult<EntityKind> {
         let ty_item_kind = match item_keyword_group {
             EntityKindKeywordGroup::Submodule(_) => Err(OriginalAstError::UnexpectedModUnderForm)?,
-            EntityKindKeywordGroup::Fn(_) => TypeItemKind::METHOD_FN,
-            EntityKindKeywordGroup::Gn(_) => TypeItemKind::METHOD_GN,
-            EntityKindKeywordGroup::Vn(_) => TypeItemKind::METHOD_VN,
-            EntityKindKeywordGroup::Pn(_) => TypeItemKind::METHOD_PN,
-            EntityKindKeywordGroup::Qn(_) => TypeItemKind::METHOD_QN,
-            EntityKindKeywordGroup::Bn(_) => TypeItemKind::METHOD_BN,
-            EntityKindKeywordGroup::Sn(_) => TypeItemKind::METHOD_SN,
-            EntityKindKeywordGroup::Tn(_) => TypeItemKind::METHOD_TN,
-            EntityKindKeywordGroup::StaticFn(_, _) => TypeItemKind::ASSOC_FN,
-            EntityKindKeywordGroup::FormalEntity(_) => TypeItemKind::AssocFormal,
+            EntityKindKeywordGroup::Ritchie(ritchie_item_kind_token) => {
+                TypeItemKind::MethodRitchie(ritchie_item_kind_token.ritchie_item_kind())
+            }
+            EntityKindKeywordGroup::AssocRitchie(_, ritchie_item_kind_token) => {
+                TypeItemKind::AssocRitchie(ritchie_item_kind_token.ritchie_item_kind())
+            }
+            EntityKindKeywordGroup::ConceptualEntity(_) => TypeItemKind::AssocConceptual,
             EntityKindKeywordGroup::MajorType(_) => {
                 Err(OriginalAstError::UnexpectedMajorTypeInsideImplBlock)?
             }
@@ -38,8 +35,8 @@ impl IsAstChildren for TypeItems {
             }
             EntityKindKeywordGroup::Val(_) => TypeItemKind::AssocVal,
             EntityKindKeywordGroup::Memo(_) => TypeItemKind::MemoizedField,
-            EntityKindKeywordGroup::Const(_) => TypeItemKind::AssocConst,
-            EntityKindKeywordGroup::Static(_) => todo!(),
+            EntityKindKeywordGroup::Static(_) => TypeItemKind::AssocStatic,
+            EntityKindKeywordGroup::Termic(_) => TypeItemKind::AssocTermic,
         };
         Ok(EntityKind::AssocItem {
             assoc_item_kind: AssocItemKind::TypeItem(ty_item_kind),

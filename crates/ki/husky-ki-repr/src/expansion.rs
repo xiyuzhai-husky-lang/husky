@@ -371,10 +371,10 @@ impl<'a> KiReprExpansionBuilder<'a> {
                     MajorItemPath::Trait(_) => todo!(),
                     MajorItemPath::Form(path) => match path.major_form_kind(db) {
                         MajorFormKind::Ritchie(_) => todo!(),
-                        MajorFormKind::Const => todo!(),
                         MajorFormKind::Val => return KiRepr::new_val_item(path, db),
-                        MajorFormKind::TypeAlias | MajorFormKind::Formal => unreachable!(),
+                        MajorFormKind::TypeAlias | MajorFormKind::Conceptual => unreachable!(),
                         MajorFormKind::Static => todo!(),
+                        MajorFormKind::Termic => todo!(),
                     },
                 },
                 PrincipalEntityPath::TypeVariant(path) => (KiOpn::TypeVariant(path), smallvec![]),

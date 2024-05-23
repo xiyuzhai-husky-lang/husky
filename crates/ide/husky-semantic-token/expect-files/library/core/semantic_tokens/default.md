@@ -60,13 +60,13 @@ Ok(
         SemanticToken {
             delta_line: 1,
             delta_start: 4,
-            length: 6,
+            length: 5,
             token_type: 2,
             token_modifiers_bitset: 0,
         },
         SemanticToken {
             delta_line: 0,
-            delta_start: 7,
+            delta_start: 6,
             length: 2,
             token_type: 2,
             token_modifiers_bitset: 0,

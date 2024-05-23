@@ -27,7 +27,7 @@ impl MajorConstSynNodeDecl {
 }
 
 impl<'a> DeclParser<'a> {
-    pub(super) fn parse_const_syn_node_decl(
+    pub(super) fn parse_termic_syn_node_decl(
         &self,
         syn_node_path: FormSynNodePath,
     ) -> MajorConstSynNodeDecl {

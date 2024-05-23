@@ -6,11 +6,11 @@ pub struct FormFnRegionalToken {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub struct ConstRegionalToken {
+pub struct TermicRegionalToken {
     regional_token_idx: RegionalTokenIdx,
 }
 
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for ConstRegionalToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for TermicRegionalToken
 where
     Context: RegionalTokenStreamParser<'a>,
 {
@@ -24,8 +24,8 @@ where
             return Ok(None);
         };
         match token {
-            TokenData::Keyword(Keyword::Const) => {
-                Ok(Some(ConstRegionalToken { regional_token_idx }))
+            TokenData::Keyword(Keyword::TERMIC) => {
+                Ok(Some(TermicRegionalToken { regional_token_idx }))
             }
             TokenData::Error(error) => Err(error)?,
             _ => Ok(None),

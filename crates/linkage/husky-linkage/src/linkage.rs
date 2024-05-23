@@ -366,9 +366,9 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                             }
                         )]
                     }
-                    MajorFormKind::Const => todo!(),
+                    MajorFormKind::Termic => todo!(),
                     MajorFormKind::Static => todo!(),
-                    MajorFormKind::TypeAlias | MajorFormKind::Formal => unreachable!(),
+                    MajorFormKind::TypeAlias | MajorFormKind::Conceptual => unreachable!(),
                 },
                 JavPath::TypeItem(path) => match path.item_kind(db) {
                     TypeItemKind::AssocRitchie(_) => build(
@@ -386,8 +386,9 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                     ),
                     TypeItemKind::AssocVal => todo!(),
                     TypeItemKind::AssocType => smallvec![],
-                    TypeItemKind::AssocFormal => todo!(),
-                    TypeItemKind::AssocConst => todo!(),
+                    TypeItemKind::AssocConceptual => todo!(),
+                    TypeItemKind::AssocStatic => todo!(),
+                    TypeItemKind::AssocTermic => todo!(),
                     TypeItemKind::MemoizedField => build(
                         instantiation,
                         |instantiation| {
@@ -483,8 +484,9 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                             },
                         }
                     }
-                    TraitItemKind::AssocFormal => todo!(),
-                    TraitItemKind::AssocConst => todo!(),
+                    TraitItemKind::AssocConceptual => todo!(),
+                    TraitItemKind::AssocStatic => todo!(),
+                    TraitItemKind::AssocTermic => todo!(),
                 },
                 JavPath::Type(path) => ty_linkages_emancipated_by_javelin(path, instantiation, db),
             }

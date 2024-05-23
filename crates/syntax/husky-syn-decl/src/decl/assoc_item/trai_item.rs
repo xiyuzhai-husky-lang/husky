@@ -91,8 +91,9 @@ impl<'a> DeclParser<'a> {
             TraitItemKind::AssocRitchie(_) => self
                 .parse_trai_assoc_ritchie_node_decl(syn_node_path)
                 .into(),
-            TraitItemKind::AssocFormal => todo!(),
-            TraitItemKind::AssocConst => todo!(),
+            TraitItemKind::AssocConceptual => todo!(),
+            TraitItemKind::AssocStatic => todo!(),
+            TraitItemKind::AssocTermic => todo!(),
         }
     }
 }

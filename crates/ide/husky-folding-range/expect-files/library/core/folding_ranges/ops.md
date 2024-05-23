@@ -231,7 +231,7 @@
         ),
         end_line: 88,
         end_character: Some(
-            60,
+            59,
         ),
         kind: Some(
             Region,
