@@ -1,4 +1,6 @@
 mod assoc_ritchie;
+pub mod assoc_static;
+pub mod assoc_termic;
 mod assoc_ty;
 mod assoc_val;
 mod memo_field;
@@ -86,8 +88,9 @@ impl<'a> DeclParser<'a> {
             TraitItemKind::AssocRitchie(ritchie_item_kind) => self
                 .parse_trai_for_ty_assoc_ritchie_node_decl(syn_node_path, ritchie_item_kind)
                 .into(),
-            TraitItemKind::AssocFormal => todo!(),
-            TraitItemKind::AssocConst => todo!(),
+            TraitItemKind::AssocConceptual => todo!(),
+            TraitItemKind::AssocStatic => todo!(),
+            TraitItemKind::AssocTermic => todo!(),
         }
     }
 }

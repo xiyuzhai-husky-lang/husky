@@ -32,8 +32,10 @@ pub fn item_syn_node_defn(
                         TypeItemKind::AssocVal => AllowSelfValue::True,
                         TypeItemKind::AssocType => AllowSelfValue::False,
                         TypeItemKind::MemoizedField => AllowSelfValue::True,
-                        TypeItemKind::AssocFormal => todo!(),
-                        TypeItemKind::AssocConst => AllowSelfValue::False,
+                        TypeItemKind::AssocConceptual => todo!(),
+                        TypeItemKind::AssocStatic | TypeItemKind::AssocTermic => {
+                            AllowSelfValue::False
+                        }
                     }
                 }
                 AssocItemSynNodePath::TraitItem(syn_node_path) => {
@@ -43,8 +45,10 @@ pub fn item_syn_node_defn(
                         TraitItemKind::AssocType => AllowSelfValue::False,
                         TraitItemKind::AssocVal => AllowSelfValue::True,
                         TraitItemKind::AssocRitchie(_) => AllowSelfValue::False,
-                        TraitItemKind::AssocFormal => todo!(),
-                        TraitItemKind::AssocConst => AllowSelfValue::False,
+                        TraitItemKind::AssocConceptual => todo!(),
+                        TraitItemKind::AssocStatic | TraitItemKind::AssocTermic => {
+                            AllowSelfValue::False
+                        }
                     }
                 }
                 AssocItemSynNodePath::TraitForTypeItem(syn_node_path) => {
@@ -54,8 +58,10 @@ pub fn item_syn_node_defn(
                         TraitItemKind::AssocType => AllowSelfValue::False,
                         TraitItemKind::AssocVal => AllowSelfValue::True,
                         TraitItemKind::AssocRitchie(_) => AllowSelfValue::False,
-                        TraitItemKind::AssocFormal => todo!(),
-                        TraitItemKind::AssocConst => AllowSelfValue::False,
+                        TraitItemKind::AssocConceptual => todo!(),
+                        TraitItemKind::AssocStatic | TraitItemKind::AssocTermic => {
+                            AllowSelfValue::False
+                        }
                     }
                 }
                 AssocItemSynNodePath::IllFormedItem(_) => todo!(),

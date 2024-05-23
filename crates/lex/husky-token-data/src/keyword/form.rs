@@ -2,12 +2,7 @@ use super::*;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash, Serialize, Deserialize)]
 pub enum FormKeyword {
-    Def,
-    Theorem,
-    Lemma,
-    Proposition,
     Type,
-    Val,
     Fn,
     Vn,
     Gn,
@@ -17,17 +12,18 @@ pub enum FormKeyword {
     Sn,
     Tn,
     Memo,
+    Static,
+    Termic,
+    Val,
+    Def,
+    Theorem,
+    Lemma,
+    Proposition,
 }
 
 impl FormKeyword {
     pub fn code(self) -> &'static str {
         match self {
-            FormKeyword::Def => "def",
-            FormKeyword::Theorem => "theorem",
-            FormKeyword::Lemma => "lemma",
-            FormKeyword::Proposition => "proposition",
-            FormKeyword::Type => "type",
-            FormKeyword::Val => "val",
             FormKeyword::Memo => "memo",
             FormKeyword::Fn => "fn",
             FormKeyword::Gn => "gn",
@@ -37,6 +33,14 @@ impl FormKeyword {
             FormKeyword::Bn => "bn",
             FormKeyword::Sn => "sn",
             FormKeyword::Tn => "tn",
+            FormKeyword::Static => "static",
+            FormKeyword::Termic => "termic",
+            FormKeyword::Val => "val",
+            FormKeyword::Type => "type",
+            FormKeyword::Def => "def",
+            FormKeyword::Theorem => "theorem",
+            FormKeyword::Lemma => "lemma",
+            FormKeyword::Proposition => "proposition",
         }
     }
 }

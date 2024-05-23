@@ -77,7 +77,9 @@ TokenSheetData {
             Keyword::Pub,
         ),
         TokenData::Keyword(
-            Keyword::Static,
+            Keyword::Form(
+                Static,
+            ),
         ),
         TokenData::Ident(
             `TASK`,

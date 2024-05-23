@@ -50,8 +50,8 @@ SynNodeDeclSheet {
                                             TemplateSynParameterData {
                                                 annotated_variance_token: None,
                                                 symbol: 0,
-                                                variant: TemplateParameterSyndicateVariant::Constant {
-                                                    const_token: ConstRegionalToken {
+                                                variant: TemplateParameterSyndicateVariant::Termic {
+                                                    termic_token: TermicRegionalToken {
                                                         regional_token_idx: RegionalTokenIdx(
                                                             5,
                                                         ),

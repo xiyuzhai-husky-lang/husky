@@ -212,7 +212,7 @@ TokenSheetData {
             Keyword::Pub,
         ),
         TokenData::Keyword(
-            Keyword::Static,
+            Keyword::Assoc,
         ),
         TokenData::Keyword(
             Keyword::Form(
@@ -395,7 +395,7 @@ TokenSheetData {
             Keyword::Pub,
         ),
         TokenData::Keyword(
-            Keyword::Static,
+            Keyword::Assoc,
         ),
         TokenData::Keyword(
             Keyword::Form(

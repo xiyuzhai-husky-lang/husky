@@ -250,7 +250,7 @@
                     contents: Markup(
                         MarkupContent {
                             kind: Markdown,
-                            value: "Other\ntoken_idx = 8;\n\ntoken_line_group_idx = 2\n\ntoken = TokenData::Keyword(\n    Keyword::Static,\n);\n\ntoken_info = None;\n\n\n",
+                            value: "Other\ntoken_idx = 8;\n\ntoken_line_group_idx = 2\n\ntoken = TokenData::Keyword(\n    Keyword::Assoc,\n);\n\ntoken_info = None;\n\n\n",
                         },
                     ),
                     range: Some(
@@ -261,7 +261,7 @@
                             },
                             end: Position {
                                 line: 3,
-                                character: 10,
+                                character: 9,
                             },
                         },
                     ),
@@ -287,11 +287,11 @@
                         Range {
                             start: Position {
                                 line: 3,
-                                character: 11,
+                                character: 10,
                             },
                             end: Position {
                                 line: 3,
-                                character: 13,
+                                character: 12,
                             },
                         },
                     ),
@@ -317,11 +317,11 @@
                         Range {
                             start: Position {
                                 line: 3,
-                                character: 14,
+                                character: 13,
                             },
                             end: Position {
                                 line: 3,
-                                character: 21,
+                                character: 20,
                             },
                         },
                     ),
@@ -347,11 +347,11 @@
                         Range {
                             start: Position {
                                 line: 3,
-                                character: 21,
+                                character: 20,
                             },
                             end: Position {
                                 line: 3,
-                                character: 22,
+                                character: 21,
                             },
                         },
                     ),
@@ -377,11 +377,11 @@
                         Range {
                             start: Position {
                                 line: 3,
-                                character: 22,
+                                character: 21,
                             },
                             end: Position {
                                 line: 3,
-                                character: 23,
+                                character: 22,
                             },
                         },
                     ),
@@ -407,11 +407,11 @@
                         Range {
                             start: Position {
                                 line: 3,
-                                character: 24,
+                                character: 23,
                             },
                             end: Position {
                                 line: 3,
-                                character: 26,
+                                character: 25,
                             },
                         },
                     ),
@@ -437,11 +437,11 @@
                         Range {
                             start: Position {
                                 line: 3,
-                                character: 27,
+                                character: 26,
                             },
                             end: Position {
                                 line: 3,
-                                character: 31,
+                                character: 30,
                             },
                         },
                     ),
@@ -467,11 +467,11 @@
                         Range {
                             start: Position {
                                 line: 3,
-                                character: 31,
+                                character: 30,
                             },
                             end: Position {
                                 line: 3,
-                                character: 32,
+                                character: 31,
                             },
                         },
                     ),

@@ -123,7 +123,9 @@ where
                                         module_item_kind, ..
                                     } => match module_item_kind {
                                         MajorItemKind::Form(
-                                            MajorFormKind::Val | MajorFormKind::Const,
+                                            MajorFormKind::Val
+                                            | MajorFormKind::Static
+                                            | MajorFormKind::Termic,
                                         ) => DisambiguatedTokenData::SynBinaryOpr(
                                             regional_token_idx,
                                             BinaryComparisonOpr::Less.into(),

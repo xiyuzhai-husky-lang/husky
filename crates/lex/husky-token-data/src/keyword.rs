@@ -39,7 +39,7 @@ pub enum Keyword {
     End(EndKeyword),
     Pub,
     Const,
-    Static,
+    Assoc,
     Sorry,
     Todo,
     Unreachable,
@@ -52,6 +52,8 @@ impl std::fmt::Display for Keyword {
 }
 
 impl Keyword {
+    pub const TERMIC: Self = Keyword::Form(FormKeyword::Termic);
+
     #[cfg(feature = "protocol_support")]
     pub const fn class(self) -> KeywordClass {
         match self {
@@ -89,7 +91,7 @@ impl Keyword {
             Keyword::Pronoun(keyword) => keyword.code(),
             Keyword::Pub => "pub",
             Keyword::Const => "const",
-            Keyword::Static => "static",
+            Keyword::Assoc => "assoc",
             Keyword::Sorry => "sorry",
             Keyword::Todo => "todo",
             Keyword::Unreachable => "unreachable",

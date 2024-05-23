@@ -181,7 +181,9 @@ TokenSheetData {
             `phantom`,
         ),
         TokenData::Keyword(
-            Keyword::Const,
+            Keyword::Form(
+                Termic,
+            ),
         ),
         TokenData::Ident(
             `label`,
@@ -248,7 +250,9 @@ TokenSheetData {
             `phantom`,
         ),
         TokenData::Keyword(
-            Keyword::Const,
+            Keyword::Form(
+                Termic,
+            ),
         ),
         TokenData::Ident(
             `label`,
@@ -289,7 +293,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Keyword(
-            Keyword::Static,
+            Keyword::Assoc,
         ),
         TokenData::Keyword(
             Keyword::Form(
@@ -368,7 +372,9 @@ TokenSheetData {
             `runtime`,
         ),
         TokenData::Keyword(
-            Keyword::Const,
+            Keyword::Form(
+                Termic,
+            ),
         ),
         TokenData::Ident(
             `label`,
@@ -462,7 +468,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Keyword(
-            Keyword::Static,
+            Keyword::Assoc,
         ),
         TokenData::Keyword(
             Keyword::Form(
@@ -836,7 +842,9 @@ TokenSheetData {
             `phantom`,
         ),
         TokenData::Keyword(
-            Keyword::Const,
+            Keyword::Form(
+                Termic,
+            ),
         ),
         TokenData::Ident(
             `label`,
@@ -911,7 +919,9 @@ TokenSheetData {
             `phantom`,
         ),
         TokenData::Keyword(
-            Keyword::Const,
+            Keyword::Form(
+                Termic,
+            ),
         ),
         TokenData::Ident(
             `label`,
@@ -1008,7 +1018,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Keyword(
-            Keyword::Static,
+            Keyword::Assoc,
         ),
         TokenData::Keyword(
             Keyword::Form(
@@ -1399,7 +1409,9 @@ TokenSheetData {
             `runtime`,
         ),
         TokenData::Keyword(
-            Keyword::Const,
+            Keyword::Form(
+                Termic,
+            ),
         ),
         TokenData::Ident(
             `label`,

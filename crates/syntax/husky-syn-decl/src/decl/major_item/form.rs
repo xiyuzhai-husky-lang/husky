@@ -1,6 +1,6 @@
-pub mod r#const;
 pub mod function_ritchie;
 pub mod r#static;
+pub mod termic;
 pub mod ty_alias;
 pub mod val;
 
@@ -9,8 +9,8 @@ pub use self::ty_alias::*;
 pub use self::val::*;
 
 use self::{
-    r#const::{MajorConstSynDecl, MajorConstSynNodeDecl},
     r#static::MajorStaticSynDecl,
+    termic::{MajorConstSynDecl, MajorConstSynNodeDecl},
 };
 use super::*;
 use crate::r#static::MajorStaticSynNodeDecl;
@@ -74,9 +74,9 @@ impl<'a> DeclParser<'a> {
                 .parse_ritchie_syn_node_decl(syn_node_path, ritchie_item_kind)
                 .into(),
             MajorFormKind::TypeAlias => todo!(),
-            MajorFormKind::Formal => todo!(),
-            MajorFormKind::Const => self.parse_const_syn_node_decl(syn_node_path).into(),
+            MajorFormKind::Conceptual => todo!(),
             MajorFormKind::Static => self.parse_static_syn_node_decl(syn_node_path).into(),
+            MajorFormKind::Termic => self.parse_termic_syn_node_decl(syn_node_path).into(),
         }
     }
 }
