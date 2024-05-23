@@ -33,6 +33,9 @@ count-todo:
 update-expect:
 	scripts/update_expect.sh
 
+update-expect-plain:
+	scripts/update_expect_plain.sh
+
 update-expect-package:
 	scripts/update_expect_package.sh husky-text
 
