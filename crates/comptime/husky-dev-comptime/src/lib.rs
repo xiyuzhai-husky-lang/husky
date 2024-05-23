@@ -8,7 +8,7 @@ use husky_entity_tree::helpers::ingredient::{HasIngredientPaths, IngredientPath}
 use husky_ki::Ki;
 use husky_ki_repr::repr::KiRepr;
 use husky_linkage::linkage::Linkage;
-use husky_manifest::HasAllPackages;
+use husky_manifest::helpers::upstream::HasAllUpstreamPackages;
 use husky_task::{
     helpers::{TaskDevLinkTime, TaskDevLinkageImpl},
     linktime::IsLinktime,
@@ -116,7 +116,7 @@ fn ingredient_vals(
     Vec<(IngredientPath, Option<KiRepr>, Option<Ki>)>,
 )> {
     target_path
-        .all_packages(db)
+        .all_upstream_packages(db)
         .unwrap()
         .iter()
         .map(|&package_path| {
