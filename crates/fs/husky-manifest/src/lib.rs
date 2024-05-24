@@ -4,13 +4,14 @@ pub mod helpers;
 pub mod jar;
 pub mod manifest;
 pub mod sections;
+pub mod synopsis;
+
+pub use self::manifest::*;
 
 use self::dependency::*;
 use self::error::*;
-pub use self::manifest::*;
-use self::sections::*;
-
 use self::jar::ManifestJar as Jar;
+use self::sections::*;
 use husky_corgi_config::HasCorgiConfig;
 use husky_manifest_ast::{HasPackageManifestAstSheet, PackageManifestAstSheet};
 use husky_vfs::*;

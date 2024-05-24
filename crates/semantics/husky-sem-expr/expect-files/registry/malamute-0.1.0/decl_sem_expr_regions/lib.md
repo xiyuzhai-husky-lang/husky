@@ -639,7 +639,7 @@
                             data_result: Ok(
                                 SemExprData::Literal(
                                     RegionalTokenIdx(
-                                        26,
+                                        27,
                                     ),
                                     LiteralTokenData::Integer(
                                         UnspecifiedRegular(
@@ -710,7 +710,7 @@
                                 SemExprData::CurrentSynSymbol {
                                     ident: `Label`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        31,
+                                        32,
                                     ),
                                     current_variable_idx: 0,
                                     current_variable_kind: CurrentVariableKind::TemplateParameter {
@@ -785,7 +785,7 @@
                                 SemExprData::CurrentSynSymbol {
                                     ident: `label`,
                                     regional_token_idx: RegionalTokenIdx(
-                                        32,
+                                        33,
                                     ),
                                     current_variable_idx: 1,
                                     current_variable_kind: CurrentVariableKind::TemplateParameter {

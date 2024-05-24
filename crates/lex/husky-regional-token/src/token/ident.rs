@@ -148,17 +148,17 @@ fn derive_regional_token_works() {
 #[enum_class::from_variants]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum AttrRegionalToken {
-    Phantom(PhantomRegionalToken),
-    Runtime(RuntimeRegionalToken),
+    Phan(PhanRegionalToken),
+    Poly(PolyRegionalToken),
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct PhantomRegionalToken {
+pub struct PhanRegionalToken {
     token_idx: RegionalTokenIdx,
 }
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
-pub struct RuntimeRegionalToken {
+pub struct PolyRegionalToken {
     token_idx: RegionalTokenIdx,
 }
 
@@ -174,10 +174,10 @@ where
         if let Some((token_idx, token)) = ctx.token_stream_mut().next_indexed() {
             match token {
                 TokenData::Ident(ident) => match ident.data(ctx.db()) {
-                    "phantom" => Ok(Some(AttrRegionalToken::Phantom(PhantomRegionalToken {
+                    "phan" => Ok(Some(AttrRegionalToken::Phan(PhanRegionalToken {
                         token_idx,
                     }))),
-                    "runtime" => Ok(Some(AttrRegionalToken::Runtime(RuntimeRegionalToken {
+                    "poly" => Ok(Some(AttrRegionalToken::Poly(PolyRegionalToken {
                         token_idx,
                     }))),
                     _ => Ok(None),
@@ -195,7 +195,7 @@ where
     }
 }
 
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for PhantomRegionalToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for PhanRegionalToken
 where
     Context: RegionalTokenStreamParser<'a> + ::salsa::db::HasDb<'a>,
 {
@@ -223,7 +223,7 @@ where
     }
 }
 
-impl<'a, Context> parsec::TryParseOptionFromStream<Context> for RuntimeRegionalToken
+impl<'a, Context> parsec::TryParseOptionFromStream<Context> for PolyRegionalToken
 where
     Context: RegionalTokenStreamParser<'a> + ::salsa::db::HasDb<'a>,
 {

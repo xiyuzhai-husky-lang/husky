@@ -9,5 +9,6 @@ pub struct ManifestJar(
     full_dependent_package_paths_aux,
     PackageDevDependenciesSection,
     package_dev_dependencies_unchecked,
+    crate::synopsis::package::package_synopsis,
     crate::helpers::upstream::linktime_target_path_all_upstream_packages,
 );

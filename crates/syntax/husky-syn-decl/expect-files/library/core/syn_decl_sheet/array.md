@@ -16,7 +16,7 @@ SynDeclSheet {
                                 TemplateSynParameterData {
                                     annotated_variance_token: None,
                                     symbol: 0,
-                                    variant: TemplateParameterSyndicateVariant::Termic {
+                                    variant: TemplateParameterSyndicateVariant::Compterm {
                                         termic_token: TermicRegionalToken {
                                             regional_token_idx: RegionalTokenIdx(
                                                 5,

@@ -531,7 +531,7 @@ impl<E> TranspileToRustWith<E> for HirTemplateVariable {
                 HirTypeTemplateVariable::SelfLifetime => todo!(),
                 HirTypeTemplateVariable::SelfPlace => todo!(),
             },
-            HirTemplateVariable::Const(_) => todo!(),
+            HirTemplateVariable::Compterm(_) => todo!(),
             HirTemplateVariable::Lifetime(_) => todo!(),
             HirTemplateVariable::Quary(_) => todo!(),
         }

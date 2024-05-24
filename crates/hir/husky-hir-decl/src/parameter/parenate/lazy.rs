@@ -1,6 +1,6 @@
 use super::*;
 use husky_hir_lazy_expr::HirLazyPatternIdx;
-use husky_syn_expr::SynVariadicParameterVariant;
+use husky_syn_expr::{ParenateParameterSyndicateNucleus, SynVariadicParameterVariant};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum HirLazyParenateParameter {
@@ -45,8 +45,8 @@ impl HirLazyParenateParameter {
         syndicate: &ParenateParameterSyndicate,
         builder: &HirDeclBuilder,
     ) -> Option<Self> {
-        Some(match *syndicate {
-            ParenateParameterSyndicate::Simple {
+        Some(match *syndicate.nucleus() {
+            ParenateParameterSyndicateNucleus::Simple {
                 syn_pattern_root,
                 ty,
                 ..
@@ -54,7 +54,7 @@ impl HirLazyParenateParameter {
                 pattern_idx: builder.hir_lazy_pattern_idx(syn_pattern_root),
                 ty: builder.hir_ty(ty).unwrap(),
             },
-            ParenateParameterSyndicate::Variadic {
+            ParenateParameterSyndicateNucleus::Variadic {
                 ref variadic_variant,
                 ty,
                 ..
@@ -62,7 +62,7 @@ impl HirLazyParenateParameter {
                 variant: variadic_variant.into(),
                 ty: builder.hir_ty(ty).unwrap(),
             },
-            ParenateParameterSyndicate::Keyed {
+            ParenateParameterSyndicateNucleus::Keyed {
                 ident_token, ty, ..
             } => HirLazyParenateParameter::Keyed {
                 ident: ident_token.ident(),

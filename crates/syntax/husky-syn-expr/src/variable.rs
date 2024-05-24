@@ -287,10 +287,10 @@ where
         while let Some(pound) = sp.try_parse_option::<PoundRegionalToken>()? {
             if let Some(attr_token) = sp.try_parse_option::<AttrRegionalToken>()? {
                 let syn_attr = match attr_token {
-                    AttrRegionalToken::Phantom(phantom_token) => {
+                    AttrRegionalToken::Phan(phantom_token) => {
                         TemplateSymbolSynAttr::Phantom(pound, phantom_token)
                     }
-                    AttrRegionalToken::Runtime(runtime_token) => {
+                    AttrRegionalToken::Poly(runtime_token) => {
                         TemplateSymbolSynAttr::Runtime(pound, runtime_token)
                     }
                 };
@@ -303,8 +303,8 @@ where
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum TemplateSymbolSynAttr {
-    Phantom(PoundRegionalToken, PhantomRegionalToken),
-    Runtime(PoundRegionalToken, RuntimeRegionalToken),
+    Phantom(PoundRegionalToken, PhanRegionalToken),
+    Runtime(PoundRegionalToken, PolyRegionalToken),
 }
 
 impl CurrentVariableData {

@@ -13,7 +13,7 @@
                                     symbol: HirTemplateVariable::Type(
                                         HirTypeTemplateVariable::Type {
                                             attrs: HirTemplateVariableAttrs {
-                                                class: Comptime,
+                                                class: Mono,
                                             },
                                             variance: None,
                                             disambiguator: 0,
@@ -54,7 +54,7 @@
                                             hir_comptime_symbol: HirTemplateVariable::Type(
                                                 HirTypeTemplateVariable::Type {
                                                     attrs: HirTemplateVariableAttrs {
-                                                        class: Comptime,
+                                                        class: Mono,
                                                     },
                                                     variance: None,
                                                     disambiguator: 0,
@@ -99,7 +99,7 @@
                             ty: HirType::Variable(
                                 HirTypeTemplateVariable::Type {
                                     attrs: HirTemplateVariableAttrs {
-                                        class: Comptime,
+                                        class: Mono,
                                     },
                                     variance: None,
                                     disambiguator: 0,
@@ -140,7 +140,7 @@
                                         hir_comptime_symbol: HirTemplateVariable::Type(
                                             HirTypeTemplateVariable::Type {
                                                 attrs: HirTemplateVariableAttrs {
-                                                    class: Comptime,
+                                                    class: Mono,
                                                 },
                                                 variance: None,
                                                 disambiguator: 0,
@@ -212,7 +212,7 @@
                                         hir_comptime_symbol: HirTemplateVariable::Type(
                                             HirTypeTemplateVariable::Type {
                                                 attrs: HirTemplateVariableAttrs {
-                                                    class: Comptime,
+                                                    class: Mono,
                                                 },
                                                 variance: None,
                                                 disambiguator: 0,
@@ -619,7 +619,7 @@
                                     symbol: HirTemplateVariable::Type(
                                         HirTypeTemplateVariable::Type {
                                             attrs: HirTemplateVariableAttrs {
-                                                class: Comptime,
+                                                class: Mono,
                                             },
                                             variance: None,
                                             disambiguator: 0,
@@ -631,20 +631,20 @@
                                     },
                                 },
                                 HirTemplateParameter {
-                                    symbol: HirTemplateVariable::Const(
-                                        HirConstTemplateVariable {
+                                    symbol: HirTemplateVariable::Compterm(
+                                        HirComptermTemplateVariable {
                                             ty: HirType::Variable(
                                                 HirTypeTemplateVariable::Type {
                                                     attrs: HirTemplateVariableAttrs {
-                                                        class: Comptime,
+                                                        class: Mono,
                                                     },
                                                     variance: None,
                                                     disambiguator: 0,
                                                 },
                                             ),
-                                            index: HirConstTemplateVariableIndex::Other {
+                                            index: HirComptermTemplateVariableIndex::Other {
                                                 attrs: HirTemplateVariableAttrs {
-                                                    class: Runtime,
+                                                    class: Poly,
                                                 },
                                                 disambiguator: 0,
                                             },
@@ -655,7 +655,7 @@
                                         ty: HirType::Variable(
                                             HirTypeTemplateVariable::Type {
                                                 attrs: HirTemplateVariableAttrs {
-                                                    class: Comptime,
+                                                    class: Mono,
                                                 },
                                                 variance: None,
                                                 disambiguator: 0,
@@ -682,7 +682,7 @@
                                         ident: Ident(
                                             Coword(
                                                 Id {
-                                                    value: 36,
+                                                    value: 41,
                                                 },
                                             ),
                                         ),
@@ -944,7 +944,7 @@
                                 symbol: HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -956,20 +956,20 @@
                                 },
                             },
                             HirTemplateParameter {
-                                symbol: HirTemplateVariable::Const(
-                                    HirConstTemplateVariable {
+                                symbol: HirTemplateVariable::Compterm(
+                                    HirComptermTemplateVariable {
                                         ty: HirType::Variable(
                                             HirTypeTemplateVariable::Type {
                                                 attrs: HirTemplateVariableAttrs {
-                                                    class: Comptime,
+                                                    class: Mono,
                                                 },
                                                 variance: None,
                                                 disambiguator: 0,
                                             },
                                         ),
-                                        index: HirConstTemplateVariableIndex::Other {
+                                        index: HirComptermTemplateVariableIndex::Other {
                                             attrs: HirTemplateVariableAttrs {
-                                                class: Runtime,
+                                                class: Poly,
                                             },
                                             disambiguator: 0,
                                         },
@@ -980,7 +980,7 @@
                                     ty: HirType::Variable(
                                         HirTypeTemplateVariable::Type {
                                             attrs: HirTemplateVariableAttrs {
-                                                class: Comptime,
+                                                class: Mono,
                                             },
                                             variance: None,
                                             disambiguator: 0,
@@ -1012,7 +1012,7 @@
                                     HirType::Variable(
                                         HirTypeTemplateVariable::Type {
                                             attrs: HirTemplateVariableAttrs {
-                                                class: Comptime,
+                                                class: Mono,
                                             },
                                             variance: None,
                                             disambiguator: 0,
@@ -1051,7 +1051,7 @@
                                         hir_comptime_symbol: HirTemplateVariable::Type(
                                             HirTypeTemplateVariable::Type {
                                                 attrs: HirTemplateVariableAttrs {
-                                                    class: Comptime,
+                                                    class: Mono,
                                                 },
                                                 variance: None,
                                                 disambiguator: 0,
@@ -1063,20 +1063,20 @@
                                             `label`,
                                         ),
                                         data: Current,
-                                        hir_comptime_symbol: HirTemplateVariable::Const(
-                                            HirConstTemplateVariable {
+                                        hir_comptime_symbol: HirTemplateVariable::Compterm(
+                                            HirComptermTemplateVariable {
                                                 ty: HirType::Variable(
                                                     HirTypeTemplateVariable::Type {
                                                         attrs: HirTemplateVariableAttrs {
-                                                            class: Comptime,
+                                                            class: Mono,
                                                         },
                                                         variance: None,
                                                         disambiguator: 0,
                                                     },
                                                 ),
-                                                index: HirConstTemplateVariableIndex::Other {
+                                                index: HirComptermTemplateVariableIndex::Other {
                                                     attrs: HirTemplateVariableAttrs {
-                                                        class: Runtime,
+                                                        class: Poly,
                                                     },
                                                     disambiguator: 0,
                                                 },
@@ -1151,7 +1151,7 @@
                                             hir_comptime_symbol: HirTemplateVariable::Type(
                                                 HirTypeTemplateVariable::Type {
                                                     attrs: HirTemplateVariableAttrs {
-                                                        class: Comptime,
+                                                        class: Mono,
                                                     },
                                                     variance: None,
                                                     disambiguator: 0,
@@ -1163,20 +1163,20 @@
                                                 `label`,
                                             ),
                                             data: Inherited,
-                                            hir_comptime_symbol: HirTemplateVariable::Const(
-                                                HirConstTemplateVariable {
+                                            hir_comptime_symbol: HirTemplateVariable::Compterm(
+                                                HirComptermTemplateVariable {
                                                     ty: HirType::Variable(
                                                         HirTypeTemplateVariable::Type {
                                                             attrs: HirTemplateVariableAttrs {
-                                                                class: Comptime,
+                                                                class: Mono,
                                                             },
                                                             variance: None,
                                                             disambiguator: 0,
                                                         },
                                                     ),
-                                                    index: HirConstTemplateVariableIndex::Other {
+                                                    index: HirComptermTemplateVariableIndex::Other {
                                                         attrs: HirTemplateVariableAttrs {
-                                                            class: Runtime,
+                                                            class: Poly,
                                                         },
                                                         disambiguator: 0,
                                                     },
@@ -1246,7 +1246,7 @@
                                                         HirType::Variable(
                                                             HirTypeTemplateVariable::Type {
                                                                 attrs: HirTemplateVariableAttrs {
-                                                                    class: Comptime,
+                                                                    class: Mono,
                                                                 },
                                                                 variance: None,
                                                                 disambiguator: 0,
@@ -1312,7 +1312,7 @@
                                             hir_comptime_symbol: HirTemplateVariable::Type(
                                                 HirTypeTemplateVariable::Type {
                                                     attrs: HirTemplateVariableAttrs {
-                                                        class: Comptime,
+                                                        class: Mono,
                                                     },
                                                     variance: None,
                                                     disambiguator: 0,
@@ -1324,20 +1324,20 @@
                                                 `label`,
                                             ),
                                             data: Inherited,
-                                            hir_comptime_symbol: HirTemplateVariable::Const(
-                                                HirConstTemplateVariable {
+                                            hir_comptime_symbol: HirTemplateVariable::Compterm(
+                                                HirComptermTemplateVariable {
                                                     ty: HirType::Variable(
                                                         HirTypeTemplateVariable::Type {
                                                             attrs: HirTemplateVariableAttrs {
-                                                                class: Comptime,
+                                                                class: Mono,
                                                             },
                                                             variance: None,
                                                             disambiguator: 0,
                                                         },
                                                     ),
-                                                    index: HirConstTemplateVariableIndex::Other {
+                                                    index: HirComptermTemplateVariableIndex::Other {
                                                         attrs: HirTemplateVariableAttrs {
-                                                            class: Runtime,
+                                                            class: Poly,
                                                         },
                                                         disambiguator: 0,
                                                     },
@@ -1440,7 +1440,7 @@
                                                             HirTemplateVariable::Type(
                                                                 HirTypeTemplateVariable::Type {
                                                                     attrs: HirTemplateVariableAttrs {
-                                                                        class: Comptime,
+                                                                        class: Mono,
                                                                     },
                                                                     variance: None,
                                                                     disambiguator: 0,
@@ -1451,7 +1451,7 @@
                                                                     HirType::Variable(
                                                                         HirTypeTemplateVariable::Type {
                                                                             attrs: HirTemplateVariableAttrs {
-                                                                                class: Comptime,
+                                                                                class: Mono,
                                                                             },
                                                                             variance: None,
                                                                             disambiguator: 0,
@@ -1470,7 +1470,7 @@
                                                             ty: Variable(
                                                                 Type {
                                                                     attrs: HirTemplateVariableAttrs {
-                                                                        class: Comptime,
+                                                                        class: Mono,
                                                                     },
                                                                     variance: None,
                                                                     disambiguator: 0,
@@ -1510,7 +1510,7 @@
                                                             HirTemplateVariable::Type(
                                                                 HirTypeTemplateVariable::Type {
                                                                     attrs: HirTemplateVariableAttrs {
-                                                                        class: Comptime,
+                                                                        class: Mono,
                                                                     },
                                                                     variance: None,
                                                                     disambiguator: 0,
@@ -1526,7 +1526,7 @@
                                                                                     HirType::Variable(
                                                                                         HirTypeTemplateVariable::Type {
                                                                                             attrs: HirTemplateVariableAttrs {
-                                                                                                class: Comptime,
+                                                                                                class: Mono,
                                                                                             },
                                                                                             variance: None,
                                                                                             disambiguator: 0,
@@ -1544,7 +1544,7 @@
                                                             HirTemplateVariable::Type(
                                                                 HirTypeTemplateVariable::Type {
                                                                     attrs: HirTemplateVariableAttrs {
-                                                                        class: Comptime,
+                                                                        class: Mono,
                                                                     },
                                                                     variance: None,
                                                                     disambiguator: 1,
@@ -1625,7 +1625,7 @@
                                                             HirTemplateVariable::Type(
                                                                 HirTypeTemplateVariable::Type {
                                                                     attrs: HirTemplateVariableAttrs {
-                                                                        class: Comptime,
+                                                                        class: Mono,
                                                                     },
                                                                     variance: None,
                                                                     disambiguator: 0,
@@ -1641,7 +1641,7 @@
                                                                                     HirType::Variable(
                                                                                         HirTypeTemplateVariable::Type {
                                                                                             attrs: HirTemplateVariableAttrs {
-                                                                                                class: Comptime,
+                                                                                                class: Mono,
                                                                                             },
                                                                                             variance: None,
                                                                                             disambiguator: 0,
@@ -1659,7 +1659,7 @@
                                                             HirTemplateVariable::Type(
                                                                 HirTypeTemplateVariable::Type {
                                                                     attrs: HirTemplateVariableAttrs {
-                                                                        class: Comptime,
+                                                                        class: Mono,
                                                                     },
                                                                     variance: None,
                                                                     disambiguator: 1,
@@ -1813,7 +1813,7 @@
                                                 hir_comptime_symbol: HirTemplateVariable::Type(
                                                     HirTypeTemplateVariable::Type {
                                                         attrs: HirTemplateVariableAttrs {
-                                                            class: Comptime,
+                                                            class: Mono,
                                                         },
                                                         variance: None,
                                                         disambiguator: 0,
@@ -1825,20 +1825,20 @@
                                                     `label`,
                                                 ),
                                                 data: Inherited,
-                                                hir_comptime_symbol: HirTemplateVariable::Const(
-                                                    HirConstTemplateVariable {
+                                                hir_comptime_symbol: HirTemplateVariable::Compterm(
+                                                    HirComptermTemplateVariable {
                                                         ty: HirType::Variable(
                                                             HirTypeTemplateVariable::Type {
                                                                 attrs: HirTemplateVariableAttrs {
-                                                                    class: Comptime,
+                                                                    class: Mono,
                                                                 },
                                                                 variance: None,
                                                                 disambiguator: 0,
                                                             },
                                                         ),
-                                                        index: HirConstTemplateVariableIndex::Other {
+                                                        index: HirComptermTemplateVariableIndex::Other {
                                                             attrs: HirTemplateVariableAttrs {
-                                                                class: Runtime,
+                                                                class: Poly,
                                                             },
                                                             disambiguator: 0,
                                                         },
@@ -2187,7 +2187,7 @@
                                                             HirTemplateVariable::Type(
                                                                 HirTypeTemplateVariable::Type {
                                                                     attrs: HirTemplateVariableAttrs {
-                                                                        class: Comptime,
+                                                                        class: Mono,
                                                                     },
                                                                     variance: None,
                                                                     disambiguator: 0,
@@ -2209,7 +2209,7 @@
                                                             HirTemplateVariable::Type(
                                                                 HirTypeTemplateVariable::Type {
                                                                     attrs: HirTemplateVariableAttrs {
-                                                                        class: Comptime,
+                                                                        class: Mono,
                                                                     },
                                                                     variance: None,
                                                                     disambiguator: 1,
@@ -2296,7 +2296,7 @@
                                                             HirTemplateVariable::Type(
                                                                 HirTypeTemplateVariable::Type {
                                                                     attrs: HirTemplateVariableAttrs {
-                                                                        class: Comptime,
+                                                                        class: Mono,
                                                                     },
                                                                     variance: None,
                                                                     disambiguator: 0,
@@ -2318,7 +2318,7 @@
                                                             HirTemplateVariable::Type(
                                                                 HirTypeTemplateVariable::Type {
                                                                     attrs: HirTemplateVariableAttrs {
-                                                                        class: Comptime,
+                                                                        class: Mono,
                                                                     },
                                                                     variance: None,
                                                                     disambiguator: 1,
@@ -2399,7 +2399,7 @@
                                                             HirTemplateVariable::Type(
                                                                 HirTypeTemplateVariable::Type {
                                                                     attrs: HirTemplateVariableAttrs {
-                                                                        class: Comptime,
+                                                                        class: Mono,
                                                                     },
                                                                     variance: None,
                                                                     disambiguator: 0,
@@ -2421,7 +2421,7 @@
                                                             HirTemplateVariable::Type(
                                                                 HirTypeTemplateVariable::Type {
                                                                     attrs: HirTemplateVariableAttrs {
-                                                                        class: Comptime,
+                                                                        class: Mono,
                                                                     },
                                                                     variance: None,
                                                                     disambiguator: 1,

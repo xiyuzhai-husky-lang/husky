@@ -36,7 +36,7 @@ impl IsAstChildren for TypeItems {
             EntityKindKeywordGroup::Val(_) => TypeItemKind::AssocVal,
             EntityKindKeywordGroup::Memo(_) => TypeItemKind::MemoizedField,
             EntityKindKeywordGroup::Static(_) => TypeItemKind::AssocStatic,
-            EntityKindKeywordGroup::Termic(_) => TypeItemKind::AssocTermic,
+            EntityKindKeywordGroup::Compterm(_) => TypeItemKind::AssocTermic,
         };
         Ok(EntityKind::AssocItem {
             assoc_item_kind: AssocItemKind::TypeItem(ty_item_kind),

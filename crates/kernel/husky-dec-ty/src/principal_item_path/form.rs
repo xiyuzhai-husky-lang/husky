@@ -1,6 +1,6 @@
 use super::*;
 use husky_dec_signature::signature::major_item::form::{
-    function_ritchie::MajorFunctionRitchieDecTemplate, r#const::MajorConstDecTemplate,
+    compterm::MajorComptermDecTemplate, function_ritchie::MajorFunctionRitchieDecTemplate,
     val::MajorValDecTemplate, MajorFormDecTemplate,
 };
 use husky_entity_path::path::major_item::form::MajorFormPath;
@@ -30,8 +30,8 @@ pub fn form_path_declarative_ty(
             val_path_declarative_ty(db, signature, dec_term_menu)
         }
         MajorFormDecTemplate::TypeAlias(_) => todo!(),
-        MajorFormDecTemplate::Const(signature) => {
-            const_path_declarative_ty(db, signature, dec_term_menu)
+        MajorFormDecTemplate::Compterm(signature) => {
+            compterm_path_declarative_ty(db, signature, dec_term_menu)
         }
         MajorFormDecTemplate::Static(_) => todo!(),
     }
@@ -68,9 +68,9 @@ pub(crate) fn val_path_declarative_ty(
     Ok(signature.return_ty(db).leashed_ty(db))
 }
 
-pub(crate) fn const_path_declarative_ty(
+pub(crate) fn compterm_path_declarative_ty(
     db: &::salsa::Db,
-    signature: MajorConstDecTemplate,
+    signature: MajorComptermDecTemplate,
     _declarative_term_menu: &DecTermMenu,
 ) -> DeclarativeTypeResult<DecTerm> {
     Ok(signature.return_ty(db).leashed_ty(db))

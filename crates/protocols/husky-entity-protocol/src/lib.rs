@@ -16,7 +16,7 @@ pub enum EntityClass {
     Attr,
     Formal,
     AssocDef,
-    Termic,
+    Compterm,
     Script,
     Static,
 }

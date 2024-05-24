@@ -86,6 +86,8 @@ impl Diagnose for OriginalSynNodeDeclError {
             OriginalSynNodeDeclError::ExpectedEqTokenForBackpropArgument(_) => todo!(),
             OriginalSynNodeDeclError::ExpectedExprForBackpropArgument(_) => todo!(),
             OriginalSynNodeDeclError::ExpectedColonForTraitMemoizedField(_) => todo!(),
+            OriginalSynNodeDeclError::ExpectedColonBeforeStaticReturnType(_) => todo!(),
+            OriginalSynNodeDeclError::ExpectedStaticReturnType(_) => todo!(),
         }
     }
 
@@ -129,6 +131,8 @@ impl Diagnose for OriginalSynNodeDeclError {
             OriginalSynNodeDeclError::ExpectedEqTokenForBackpropArgument(_) => todo!(),
             OriginalSynNodeDeclError::ExpectedExprForBackpropArgument(_) => todo!(),
             OriginalSynNodeDeclError::ExpectedColonForTraitMemoizedField(_) => todo!(),
+            OriginalSynNodeDeclError::ExpectedColonBeforeStaticReturnType(_) => todo!(),
+            OriginalSynNodeDeclError::ExpectedStaticReturnType(_) => todo!(),
         }
     }
 }

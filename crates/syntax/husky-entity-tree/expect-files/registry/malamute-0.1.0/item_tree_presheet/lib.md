@@ -23,11 +23,11 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 23,
+                        ast_idx: 24,
                         ident_token: IdentToken {
                             ident: `Class`,
                             token_idx: TokenIdx(
-                                12,
+                                26,
                             ),
                         },
                         block: DefnBlock::Type {
@@ -83,11 +83,11 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 25,
+                        ast_idx: 26,
                         ident_token: IdentToken {
                             ident: `OneVsAll`,
                             token_idx: TokenIdx(
-                                34,
+                                48,
                             ),
                         },
                         block: DefnBlock::Type {
@@ -143,11 +143,11 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 29,
+                        ast_idx: 30,
                         ident_token: IdentToken {
                             ident: `OneVsAllResult`,
                             token_idx: TokenIdx(
-                                179,
+                                193,
                             ),
                         },
                         block: DefnBlock::Type {
@@ -192,11 +192,11 @@ EntityTreePresheet {
                             )`, (0)),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 31,
+                        ast_idx: 32,
                         ident_token: IdentToken {
                             ident: `narrow_down`,
                             token_idx: TokenIdx(
-                                304,
+                                318,
                             ),
                         },
                         block: DefnBlock::Form {

@@ -1,0 +1,34 @@
+```rust
+[
+    (
+        ItemPath::MajorItem(
+            MajorItemPath::Trait(
+                TraitPath(`ml_task::IsMlTask`),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TraitItem(
+                TraitItemPath(
+                    `ml_task::IsMlTask::Input`,
+                    TraitItemKind::AssocType,
+                ),
+            ),
+        ),
+        None,
+    ),
+    (
+        ItemPath::AssocItem(
+            AssocItemPath::TraitItem(
+                TraitItemPath(
+                    `ml_task::IsMlTask::INPUT`,
+                    TraitItemKind::AssocStatic,
+                ),
+            ),
+        ),
+        None,
+    ),
+]
+```

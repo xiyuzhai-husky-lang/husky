@@ -366,7 +366,7 @@ fn linkages_emancipated_by_javelin(db: &::salsa::Db, javelin: Javelin) -> SmallV
                             }
                         )]
                     }
-                    MajorFormKind::Termic => todo!(),
+                    MajorFormKind::Compterm => todo!(),
                     MajorFormKind::Static => todo!(),
                     MajorFormKind::TypeAlias | MajorFormKind::Conceptual => unreachable!(),
                 },

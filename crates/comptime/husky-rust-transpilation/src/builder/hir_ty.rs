@@ -4,7 +4,7 @@ use husky_entity_kind::ritchie::RitchieItemKind;
 use husky_entity_path::path::major_item::ty::{PreludeIndirectionTypePath, PreludeTypePath};
 use husky_hir_ty::{
     instantiation::HirTermSymbolicVariableResolution, ritchie::HirRitchieType,
-    HirConstTemplateVariable,
+    HirComptermTemplateVariable,
 };
 use husky_term_prelude::ritchie::RitchieTypeKind;
 
@@ -140,7 +140,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for HirConstant {
     }
 }
 
-impl TranspileToRustWith<HirEagerExprRegion> for HirConstTemplateVariable {
+impl TranspileToRustWith<HirEagerExprRegion> for HirComptermTemplateVariable {
     fn transpile_to_rust(self, builder: &mut RustTranspilationBuilder<HirEagerExprRegion>) {
         builder.hir_template_svar(self)
     }

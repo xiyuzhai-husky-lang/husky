@@ -12,7 +12,7 @@
                                 symbol: HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -53,7 +53,7 @@
                                         hir_comptime_symbol: HirTemplateVariable::Type(
                                             HirTypeTemplateVariable::Type {
                                                 attrs: HirTemplateVariableAttrs {
-                                                    class: Comptime,
+                                                    class: Mono,
                                                 },
                                                 variance: None,
                                                 disambiguator: 0,
