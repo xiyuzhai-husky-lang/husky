@@ -37,7 +37,7 @@ impl IsAstChildren for TraitItems {
             EntityKindKeywordGroup::Val(_) => TraitItemKind::AssocVal,
             EntityKindKeywordGroup::Memo(_) => TraitItemKind::MemoizedField,
             EntityKindKeywordGroup::Static(_) => TraitItemKind::AssocStatic,
-            EntityKindKeywordGroup::Termic(_) => TraitItemKind::AssocTermic,
+            EntityKindKeywordGroup::Compterm(_) => TraitItemKind::AssocTermic,
         };
         let trai_item_kind = trait_item_kind;
         Ok(EntityKind::AssocItem {

@@ -115,10 +115,10 @@ impl<'a> DecTermEngine<'a> {
                     let attrs = DeclarativeTemplateVariableAttrs::from_attrs(syn_attrs.iter().map(
                         |syn_attr| match syn_attr {
                             TemplateSymbolSynAttr::Phantom(_, _) => {
-                                DeclarativeTemplateSymbolAttr::Phantom
+                                DeclarativeTemplateSymbolAttr::Phan
                             }
                             TemplateSymbolSynAttr::Runtime(_, _) => {
-                                DeclarativeTemplateSymbolAttr::Runtime
+                                DeclarativeTemplateSymbolAttr::Poly
                             }
                         },
                     ));

@@ -4,15 +4,15 @@ pub enum Class<Label>
 | Unknown
 
 #derive(Debug, Clone, Copy)
-pub enum OneVsAll<#phantom Label, #phantom termic label: Label>
+pub enum OneVsAll<#phan Label, #phan compterm label: Label>
 | Yes
 | No
 
-impl<#phantom Label, #phantom termic label: Label> Default for OneVsAll Label label:
+impl<#phan Label, #phan compterm label: Label> Default for OneVsAll Label label:
     assoc fn default() -> Self:
         OneVsAll::No
 
-impl<Label, #runtime termic label: Label> core::ops::Unveil OneVsAll Label label for Class Label:
+impl<Label, #poly compterm label: Label> core::ops::Unveil OneVsAll Label label for Class Label:
     type Output = ()
 
     assoc fn unveil(one_vs_all: OneVsAll Label label) -> core::ops::ControlFlow Self ():
@@ -21,12 +21,12 @@ impl<Label, #runtime termic label: Label> core::ops::Unveil OneVsAll Label label
         | OneVsAll::No => core::ops::ControlFlow::Continue(())
 
 #derive(Debug, Clone, Copy)
-pub enum OneVsAllResult<#phantom Label, #phantom termic label: Label>
+pub enum OneVsAllResult<#phan Label, #phan compterm label: Label>
 | ConfidentYes
 | ConfidentNo
 | Unconfident
 
-impl<#phantom Label, #phantom termic label: Label> core::ops::Unveil OneVsAllResult Label label for OneVsAll Label label:
+impl<#phan Label, #phan compterm label: Label> core::ops::Unveil OneVsAllResult Label label for OneVsAll Label label:
     type Output = ()
 
     assoc fn unveil(one_vs_all_result: OneVsAllResult Label label) -> core::ops::ControlFlow Self ():
@@ -35,7 +35,7 @@ impl<#phantom Label, #phantom termic label: Label> core::ops::Unveil OneVsAllRes
         | OneVsAllResult::ConfidentNo => core::ops::ControlFlow::Break(OneVsAll::No)
         | OneVsAllResult::Unconfident => core::ops::ControlFlow::Continue(())
 
-pub gn narrow_down<Label, #runtime termic label: Label>(
+pub gn narrow_down<Label, #poly compterm label: Label>(
     ...[] f: f32,
     skip: i32 = 5,
 ) -> OneVsAllResult Label label;

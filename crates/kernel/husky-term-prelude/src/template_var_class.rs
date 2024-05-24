@@ -1,12 +1,15 @@
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 pub enum TemplateVariableClass {
-    Phantom,
-    Runtime,
-    Comptime,
+    /// monomorphic
+    Mono,
+    /// polymorphic
+    Poly,
+    /// phantomic
+    Phan,
 }
 
 impl Default for TemplateVariableClass {
     fn default() -> Self {
-        TemplateVariableClass::Comptime
+        TemplateVariableClass::Mono
     }
 }

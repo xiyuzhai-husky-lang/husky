@@ -1,28 +1,32 @@
 use super::*;
-use husky_hir_decl::decl::major_item::form::r#const::MajorConstHirDecl;
+use husky_hir_decl::decl::major_item::form::compterm::MajorComptermHirDecl;
 use husky_hir_expr::helpers::hir_body_with_expr_region;
 
 #[salsa::interned(constructor = new_inner)]
-pub struct MajorConstHirDefn {
+pub struct MajorComptermHirDefn {
     pub path: MajorFormPath,
-    pub hir_decl: MajorConstHirDecl,
+    pub hir_decl: MajorComptermHirDecl,
     pub hir_expr_body_and_region: Option<(HirExprIdx, HirExprRegion)>,
 }
 
-impl From<MajorConstHirDefn> for MajorItemHirDefn {
-    fn from(hir_defn: MajorConstHirDefn) -> Self {
+impl From<MajorComptermHirDefn> for MajorItemHirDefn {
+    fn from(hir_defn: MajorComptermHirDefn) -> Self {
         MajorItemHirDefn::Form(hir_defn.into())
     }
 }
 
-impl From<MajorConstHirDefn> for HirDefn {
-    fn from(hir_defn: MajorConstHirDefn) -> Self {
+impl From<MajorComptermHirDefn> for HirDefn {
+    fn from(hir_defn: MajorComptermHirDefn) -> Self {
         HirDefn::MajorItem(hir_defn.into())
     }
 }
 
-impl MajorConstHirDefn {
-    pub(super) fn new(db: &::salsa::Db, path: MajorFormPath, hir_decl: MajorConstHirDecl) -> Self {
+impl MajorComptermHirDefn {
+    pub(super) fn new(
+        db: &::salsa::Db,
+        path: MajorFormPath,
+        hir_decl: MajorComptermHirDecl,
+    ) -> Self {
         Self::new_inner(
             db,
             path,
@@ -47,7 +51,7 @@ impl MajorConstHirDefn {
 #[salsa::tracked]
 fn major_const_hir_defn_dependencies(
     db: &::salsa::Db,
-    hir_defn: MajorConstHirDefn,
+    hir_defn: MajorComptermHirDefn,
 ) -> HirDefnDependencies {
     let mut builder = HirDefnDependenciesBuilder::new(hir_defn.path(db), db);
     let hir_decl = hir_defn.hir_decl(db);
@@ -62,7 +66,7 @@ fn major_const_hir_defn_dependencies(
 #[salsa::tracked]
 fn major_const_hir_defn_version_stamp(
     db: &::salsa::Db,
-    hir_defn: MajorConstHirDefn,
+    hir_defn: MajorComptermHirDefn,
 ) -> HirDefnVersionStamp {
     HirDefnVersionStamp::new(hir_defn, db)
 }

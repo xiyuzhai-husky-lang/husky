@@ -21,7 +21,7 @@ pub enum EntityKindKeywordGroup {
     /// type defined as an alias or associated entity
     AliasOrAssociateType(TypeToken),
     Trait(TraitToken),
-    Termic(TermicToken),
+    Compterm(TermicToken),
     Static(StaticToken),
 }
 
@@ -316,7 +316,7 @@ where
                 FormKeyword::Static => Ok(Some(EntityKindKeywordGroup::Static(StaticToken {
                     token_idx,
                 }))),
-                FormKeyword::Termic => Ok(Some(EntityKindKeywordGroup::Termic(TermicToken {
+                FormKeyword::Compterm => Ok(Some(EntityKindKeywordGroup::Compterm(TermicToken {
                     token_idx,
                 }))),
                 FormKeyword::Memo => {
@@ -376,7 +376,7 @@ where
 
                         FormKeyword::Memo => todo!(),
                         FormKeyword::Static => todo!(),
-                        FormKeyword::Termic => todo!(),
+                        FormKeyword::Compterm => todo!(),
                         FormKeyword::Val => todo!(),
                         FormKeyword::Def => todo!(),
                         FormKeyword::Theorem => todo!(),

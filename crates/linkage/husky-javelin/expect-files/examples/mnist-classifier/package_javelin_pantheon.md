@@ -37,7 +37,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -97,7 +97,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -157,7 +157,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -223,7 +223,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -283,7 +283,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -349,7 +349,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -415,7 +415,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -475,7 +475,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -550,7 +550,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -616,7 +616,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -676,7 +676,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -731,7 +731,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -786,7 +786,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -844,7 +844,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -913,7 +913,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -998,7 +998,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -1058,7 +1058,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -1148,7 +1148,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -1214,7 +1214,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -1304,7 +1304,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -1364,7 +1364,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -1460,7 +1460,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -1544,7 +1544,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -1629,7 +1629,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -1772,7 +1772,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -1847,7 +1847,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -1907,7 +1907,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -1967,7 +1967,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -2027,7 +2027,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -2093,7 +2093,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -2159,7 +2159,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -2273,7 +2273,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -2369,7 +2369,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -2526,7 +2526,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -2556,7 +2556,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 1,
@@ -2614,7 +2614,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -2674,7 +2674,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -2734,7 +2734,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -2861,7 +2861,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -2882,7 +2882,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 1,
@@ -2947,7 +2947,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -3015,7 +3015,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -3105,7 +3105,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -3153,7 +3153,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -3225,7 +3225,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -3282,7 +3282,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -3348,7 +3348,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -3390,7 +3390,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -3456,7 +3456,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -3504,7 +3504,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -3552,7 +3552,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -3600,7 +3600,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -3648,7 +3648,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -3726,7 +3726,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -3780,7 +3780,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -3822,7 +3822,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -3870,7 +3870,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -3912,7 +3912,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -3960,7 +3960,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -4002,7 +4002,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -4050,7 +4050,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -4098,7 +4098,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -4152,7 +4152,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -4194,7 +4194,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -4242,7 +4242,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -4284,7 +4284,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -4326,7 +4326,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -4368,7 +4368,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -4410,7 +4410,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -4482,7 +4482,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -4549,7 +4549,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -4606,7 +4606,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -4672,7 +4672,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -4760,7 +4760,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -4799,7 +4799,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -4851,7 +4851,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -4888,7 +4888,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -4923,7 +4923,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -4958,7 +4958,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 0,
@@ -4988,7 +4988,7 @@ ValkyrieJavelinPantheon {
                                 HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: None,
                                         disambiguator: 1,

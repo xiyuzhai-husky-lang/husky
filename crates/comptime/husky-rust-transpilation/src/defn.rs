@@ -135,7 +135,7 @@ impl TranspileToRustWith<HirEagerExprRegion> for &HirTemplateParameter {
             }
             HirTemplateParameterData::Constant { ident: _, ty: _ } => {
                 // ad hoc
-                // we should skip #runtime constants
+                // we should skip #poly constants
                 // use salsa::DebugWithDb;
                 // p!(ident.debug(builder.db()));
                 // todo!()

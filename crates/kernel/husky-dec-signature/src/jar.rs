@@ -34,7 +34,7 @@ pub struct DecSignatureJar(
     // form
     crate::signature::major_item::form::form_syn_dec_template,
     crate::signature::major_item::form::val:: MajorValDecTemplate,
-    crate::signature::major_item::form::r#const::MajorConstDecTemplate,
+    crate::signature::major_item::form::compterm::MajorComptermDecTemplate,
     crate::signature::major_item::form::r#static::MajorStaticDecTemplate,
     crate::signature::major_item::form::function_ritchie:: MajorFunctionRitchieDecTemplate,
     crate::signature::major_item::form::ty_alias:: TypeAliasDecTemplate,

@@ -14,7 +14,7 @@ impl EthTemplateSymbolAttrs {
     }
 
     pub fn phantom(self) -> bool {
-        self.class == TemplateVariableClass::Phantom
+        self.class == TemplateVariableClass::Phan
     }
 }
 

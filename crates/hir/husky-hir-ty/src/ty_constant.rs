@@ -28,7 +28,7 @@ pub enum HirConstant {
     RSize(usize),
     // todo: should we add more types here?
     // Rust only allows for these things
-    Symbol(HirConstTemplateVariable),
+    Symbol(HirComptermTemplateVariable),
     // todo: instantiation and fields
     TypeVariant(TypeVariantPath),
     StaticLifetime,
@@ -72,8 +72,8 @@ impl HirConstant {
     }
 }
 
-impl From<HirConstTemplateVariable> for HirConstant {
-    fn from(symbol: HirConstTemplateVariable) -> Self {
+impl From<HirComptermTemplateVariable> for HirConstant {
+    fn from(symbol: HirComptermTemplateVariable) -> Self {
         HirConstant::Symbol(symbol)
     }
 }

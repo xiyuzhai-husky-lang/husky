@@ -22,7 +22,7 @@ pub struct HirTypeJar(
     HirTypeTypeAssocType,
     HirTypeTraitAssocType,
     hir_template_variable_from_eth,
-    HirConstTemplateVariable,
+    HirComptermTemplateVariable,
     crate::ty::ritchie::hir_ty_from_eth_term_ritchie,
     hir_ty_from_eth_term_application,
     crate::ty::ritchie::HirRitchieType,

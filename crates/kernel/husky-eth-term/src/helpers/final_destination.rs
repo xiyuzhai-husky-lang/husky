@@ -16,7 +16,7 @@ impl EthTerm {
                     | MajorFormKind::Val
                     | MajorFormKind::Conceptual
                     | MajorFormKind::Static
-                    | MajorFormKind::Termic => FinalDestination::AnyDerived,
+                    | MajorFormKind::Compterm => FinalDestination::AnyDerived,
                 },
                 ItemPathTerm::TypeOntology(_) => FinalDestination::TypeOntology,
                 ItemPathTerm::Trait(_)

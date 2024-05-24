@@ -6,7 +6,7 @@ use husky_hir_defn::defn::assoc_item::trai_for_ty_item::{
     assoc_val::TraitForTypeAssocValHirDefn, method_ritchie::TraitForTypeMethodRitchieHirDefn,
     TraitForTypeItemHirDefn,
 };
-use husky_hir_ty::{HirConstTemplateVariable, HirTemplateVariable, HirTemplateVariableClass};
+use husky_hir_ty::{HirComptermTemplateVariable, HirTemplateVariable, HirTemplateVariableClass};
 use smallvec::SmallVec;
 
 use super::*;
@@ -45,14 +45,14 @@ impl TranspileToRustWith for TraitForTypeAssocRitchieHirDefn {
                         );
                         builder.heterogeneous_comma_list_item_with(|builder| {
                             let hir_decl = impl_block_path.hir_decl(db).unwrap();
-                            let runtime_const_symbols: SmallVec<[HirConstTemplateVariable; 4]> =
+                            let runtime_const_symbols: SmallVec<[HirComptermTemplateVariable; 4]> =
                                 hir_decl
                                     .template_parameters(db)
                                     .iter()
                                     .filter_map(|param| match param.symbol() {
-                                        HirTemplateVariable::Const(symbol) => {
+                                        HirTemplateVariable::Compterm(symbol) => {
                                             (symbol.index(db).class()
-                                                == HirTemplateVariableClass::Runtime)
+                                                == HirTemplateVariableClass::Poly)
                                                 .then_some(symbol)
                                         }
                                         _ => None,

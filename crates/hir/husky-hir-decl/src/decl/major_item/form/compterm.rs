@@ -1,14 +1,14 @@
 use super::*;
-use husky_syn_decl::decl::termic::MajorConstSynDecl;
+use husky_syn_decl::decl::compterm::MajorConstSynDecl;
 
 #[salsa::interned]
-pub struct MajorConstHirDecl {
+pub struct MajorComptermHirDecl {
     pub path: MajorFormPath,
     pub return_ty: HirType,
     pub hir_eager_expr_region: HirEagerExprRegion,
 }
 
-impl MajorConstHirDecl {
+impl MajorComptermHirDecl {
     pub(super) fn from_syn(
         path: MajorFormPath,
         syn_decl: MajorConstSynDecl,
