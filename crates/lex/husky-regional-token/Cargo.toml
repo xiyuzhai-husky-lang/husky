@@ -11,7 +11,7 @@ parsec.workspace = true
 salsa.workspace = true
 shifted-unsigned-int.workspace = true
 # fs
-husky-vfs.workspace = true
+husky-vfs = { workspace = true, features = ["test_utils"] }
 # lex
 husky-text.workspace = true
 husky-token-data.workspace = true

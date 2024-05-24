@@ -63,7 +63,7 @@ fn attr_syn_node_decl(db: &::salsa::Db, syn_node_path: AttrSynNodePath) -> AttrS
         attr_ident if attr_ident == coword_menu.derive_ident() => {
             AttrSynNodeDecl::Derive(DeriveAttrSynNodeDecl::new(db, syn_node_path))
         }
-        attr_ident if attr_ident == coword_menu.effect_ident() => {
+        attr_ident if attr_ident == coword_menu.affect_ident() => {
             AttrSynNodeDecl::Effect(AffectAttrSynNodeDecl::new(db, syn_node_path))
         }
         attr_ident if attr_ident == coword_menu.test_ident() => {

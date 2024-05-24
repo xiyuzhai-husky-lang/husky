@@ -1,10 +1,27 @@
 use super::*;
 use either::*;
+#[cfg(test)]
+use expect_test::*;
 use husky_token_data::delimiter::Delimiter;
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone)]
-pub enum ParenateParameterSyndicate {
+pub struct ParenateParameterSyndicate {
+    /// ad hoc
+    attrs: Vec<()>,
+    const_constraint: Option<ConstConstraint>,
+    nucleus: ParenateParameterSyndicateNucleus,
+}
+
+#[salsa::derive_debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub struct ConstConstraint {
+    const_token: ConstRegionalToken,
+}
+
+#[salsa::derive_debug_with_db]
+#[derive(Debug, PartialEq, Eq, Clone)]
+pub enum ParenateParameterSyndicateNucleus {
     Simple {
         syn_pattern_root: ParenateParameterSynPatternRoot,
         variables: CurrentSynSymbolIdxRange,
@@ -43,13 +60,22 @@ pub enum SynVariadicParameterVariant {
     },
 }
 
+impl ParenateParameterSyndicate {
+    pub fn nucleus(&self) -> &ParenateParameterSyndicateNucleus {
+        &self.nucleus
+    }
+}
+
 impl<'a> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateParameterSyndicate {
     type Error = SynExprError;
 
     fn try_parse_option_from_stream_without_guaranteed_rollback(
         ctx: &mut SynDeclExprParser<'a>,
     ) -> SynExprResult<Option<Self>> {
-        if let Some(syn_pattern_root) = ctx.try_parse_option::<ParenateParameterSynPatternRoot>()? {
+        let const_constraint = ctx.try_parse_option()?;
+        let nucleus = if let Some(syn_pattern_root) =
+            ctx.try_parse_option::<ParenateParameterSynPatternRoot>()?
+        {
             let symbols = ctx
                 .pattern_expr_region()
                 .pattern_expr_symbols(syn_pattern_root.syn_pattern_idx());
@@ -105,7 +131,7 @@ impl<'a> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateParameterSy
                         OriginalSynExprError::ExpectedExplicitParameterDefaultValue,
                     ))
                 };
-                Ok(Some(ParenateParameterSyndicate::Keyed {
+                ParenateParameterSyndicateNucleus::Keyed {
                     syn_pattern_root,
                     symbol_modifier_keyword_group,
                     ident_token,
@@ -114,14 +140,14 @@ impl<'a> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateParameterSy
                     ty: ty_expr_idx,
                     eq_token,
                     default,
-                }))
+                }
             } else {
-                Ok(Some(ParenateParameterSyndicate::Simple {
-                    syn_pattern_root: syn_pattern_root,
+                ParenateParameterSyndicateNucleus::Simple {
+                    syn_pattern_root,
                     variables,
                     colon,
                     ty: ty_expr_idx,
-                }))
+                }
             }
         } else if let Some(dot_dot_dot_token) = ctx.try_parse_option::<DotDotDotRegionalToken>()? {
             let access_start = ctx.state().next_regional_token_idx();
@@ -151,7 +177,7 @@ impl<'a> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateParameterSy
                 variable,
                 Some(SyndicateTypeConstraint::VariadicParenateParameter { ident_token, ty }),
             );
-            Ok(Some(ParenateParameterSyndicate::Variadic {
+            ParenateParameterSyndicateNucleus::Variadic {
                 dot_dot_dot_token,
                 variadic_variant,
                 symbol_modifier_keyword_group,
@@ -159,10 +185,28 @@ impl<'a> TryParseOptionFromStream<SynDeclExprParser<'a>> for ParenateParameterSy
                 variable,
                 colon,
                 ty,
-            }))
+            }
         } else {
-            Ok(None)
-        }
+            return Ok(None);
+        };
+        Ok(Some(Self {
+            attrs: vec![()], // ad hoc
+            const_constraint,
+            nucleus,
+        }))
+    }
+}
+
+impl<'a> TryParseOptionFromStream<SynDeclExprParser<'a>> for ConstConstraint {
+    type Error = SynExprError;
+
+    fn try_parse_option_from_stream_without_guaranteed_rollback(
+        sp: &mut SynDeclExprParser<'a>,
+    ) -> Result<Option<Self>, Self::Error> {
+        let Some(const_token) = sp.try_parse_option()? else {
+            return Ok(None);
+        };
+        Ok(Some(Self { const_token }))
     }
 }
 
@@ -183,4 +227,136 @@ impl<'a, 'b> TryParseFromStream<SynDeclExprParser<'a>> for SynVariadicParameterV
             Ok(SynVariadicParameterVariant::Default)
         }
     }
+}
+
+#[test]
+#[ignore]
+fn parenate_parameter_syndicate_works() {
+    fn t(input: &str, expect: &Expect, db: &::salsa::Db) {
+        use salsa::DebugWithDb;
+
+        expect.assert_debug_eq(
+            &snippet::try_parse_snippet_in_decl::<ParenateParameterSyndicate>(input, db).debug(db),
+        )
+    }
+    let db = &DB::default();
+    t(
+        "a: i32",
+        &expect![[r#"
+        Ok(
+            Some(
+                ParenateParameterSyndicate {
+                    attrs: [
+                        (),
+                    ],
+                    const_constraint: None,
+                    nucleus: ParenateParameterSyndicateNucleus::Simple {
+                        syn_pattern_root: ParenateParameterSynPatternRoot {
+                            syn_pattern_idx: 0,
+                        },
+                        variables: ArenaIdxRange(
+                            0..1,
+                        ),
+                        colon: ColonRegionalToken(
+                            RegionalTokenIdx(
+                                2,
+                            ),
+                        ),
+                        ty: 0,
+                    },
+                },
+            ),
+        )
+    "#]],
+        db,
+    );
+    t(
+        "const a: i32",
+        &expect![[r#"
+        Ok(
+            Some(
+                ParenateParameterSyndicate {
+                    attrs: [
+                        (),
+                    ],
+                    const_constraint: Some(
+                        ConstConstraint {
+                            const_token: ConstRegionalToken {
+                                regional_token_idx: RegionalTokenIdx(
+                                    1,
+                                ),
+                            },
+                        },
+                    ),
+                    nucleus: ParenateParameterSyndicateNucleus::Simple {
+                        syn_pattern_root: ParenateParameterSynPatternRoot {
+                            syn_pattern_idx: 0,
+                        },
+                        variables: ArenaIdxRange(
+                            0..1,
+                        ),
+                        colon: ColonRegionalToken(
+                            RegionalTokenIdx(
+                                3,
+                            ),
+                        ),
+                        ty: 0,
+                    },
+                },
+            ),
+        )
+    "#]],
+        db,
+    );
+    t(
+        "const skip: i32 = 5",
+        &expect![[r#"
+        Ok(
+            Some(
+                ParenateParameterSyndicate {
+                    attrs: [
+                        (),
+                    ],
+                    const_constraint: Some(
+                        ConstConstraint {
+                            const_token: ConstRegionalToken {
+                                regional_token_idx: RegionalTokenIdx(
+                                    1,
+                                ),
+                            },
+                        },
+                    ),
+                    nucleus: ParenateParameterSyndicateNucleus::Keyed {
+                        syn_pattern_root: ParenateParameterSynPatternRoot {
+                            syn_pattern_idx: 0,
+                        },
+                        symbol_modifier_keyword_group: None,
+                        ident_token: IdentRegionalToken {
+                            ident: `skip`,
+                            regional_token_idx: RegionalTokenIdx(
+                                2,
+                            ),
+                        },
+                        variable: 0,
+                        colon: ColonRegionalToken(
+                            RegionalTokenIdx(
+                                3,
+                            ),
+                        ),
+                        ty: 0,
+                        eq_token: EqRegionalToken(
+                            RegionalTokenIdx(
+                                5,
+                            ),
+                        ),
+                        default: Right(
+                            1,
+                        ),
+                    },
+                },
+            ),
+        )
+    "#]],
+        db,
+    );
 }

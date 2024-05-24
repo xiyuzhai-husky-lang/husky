@@ -31,6 +31,8 @@ pub use self::variable::*;
 
 use self::entity_path::*;
 use self::jar::SynExprJar as Jar;
+#[cfg(test)]
+use self::tests::*;
 use husky_coword::*;
 use husky_entity_path::path::{major_item::MajorItemPath, EntityPath, PrincipalEntityPath};
 use husky_entity_tree::*;

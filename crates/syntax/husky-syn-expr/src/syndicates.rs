@@ -25,5 +25,5 @@ pub use self::template_parameter::*;
 pub use self::trai::*;
 pub use self::tuple_field::*;
 
-use super::*;
+use crate::*;
 use parsec::*;

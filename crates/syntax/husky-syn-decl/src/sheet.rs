@@ -99,7 +99,12 @@ pub fn syn_decl_sheet(db: &::salsa::Db, path: ModulePath) -> SynDeclSheet {
     let mut decls: Vec<(ItemPath, SynDecl)> = Default::default();
     for syn_node_path in item_tree_sheet.major_item_syn_node_paths() {
         if let Some(path) = syn_node_path.unambiguous_item_path(db) {
-            let Ok(decl) = path.syn_decl(db) else { todo!() };
+            let Ok(decl) = path.syn_decl(db) else {
+                use husky_print_utils::p;
+                use salsa::DebugWithDb;
+                p!(path.syn_decl(db).debug(db), path.debug(db));
+                todo!()
+            };
             decls.push((path, decl))
         }
     }

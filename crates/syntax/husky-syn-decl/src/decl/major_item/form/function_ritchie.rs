@@ -1,5 +1,7 @@
 use super::*;
 use husky_entity_kind::ritchie::RitchieItemKind;
+use husky_print_utils::p;
+use salsa::DebugWithDb;
 
 #[salsa::tracked]
 pub struct MajorFunctionRitchieSynNodeDecl {
@@ -107,6 +109,10 @@ impl MajorFunctionRitchieSynDecl {
                     .collect()
             })
             .unwrap_or_default();
+        p!(
+            path.debug(db),
+            syn_node_decl.parenate_parameter_obelisk_list(db).debug(db)
+        );
         let parenate_parameter_decl_list =
             syn_node_decl.parenate_parameter_obelisk_list(db).as_ref()?;
         let parenate_parameters: ParenateSynParametersData = parenate_parameter_decl_list

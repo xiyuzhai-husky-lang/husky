@@ -138,13 +138,10 @@ impl<'a> TokenVersesBuilder<'a> {
                                 Punctuation::LPAR | Punctuation::LBOX | Punctuation::LA_OR_LT,
                             ) => Continue,
                             _ => match line1_start_token_data {
-                                TokenData::Keyword(
-                                    Keyword::Pronoun(_)
-                                    | Keyword::Modifier(_)
-                                    | Keyword::End(_)
-                                    | Keyword::Pub,
-                                ) => Continue,
-                                TokenData::Keyword(_kw) => Break,
+                                TokenData::Keyword(kw) => match kw {
+                                    Keyword::Stmt(_) | Keyword::Impl => Break,
+                                    _ => Continue,
+                                },
                                 _ => Continue,
                             },
                         }
