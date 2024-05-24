@@ -12,6 +12,10 @@ categories.workspace = true
 keywords.workspace = true
 
 [dependencies]
+# library
+husky-core.workspace = true
+# registry
+ad-hoc-task-dependency.workspace = true
 
 [lints]
 workspace = true

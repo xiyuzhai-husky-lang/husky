@@ -486,6 +486,10 @@ dependencies = [
 [[package]]
 name = "ml-task"
 version = "0.1.0"
+dependencies = [
+ "ad-hoc-task-dependency",
+ "husky-core",
+]
 
 [[package]]
 name = "ml-task-linkages"
