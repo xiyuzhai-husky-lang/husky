@@ -1,0 +1,15 @@
+[workspace]
+members = ["ml-task/linkages"]
+resolver = "2"
+
+[workspace.dependencies.ad-hoc-task-dependency]
+path = "../../ad-hoc-task-dependency"
+
+[workspace.dependencies.husky-core]
+path = "../../../library/core"
+
+[workspace.dependencies.ml-task]
+path = ".."
+
+[workspace.dependencies.ml-task-linkages]
+path = "ml-task/linkages"

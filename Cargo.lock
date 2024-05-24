@@ -7842,6 +7842,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "ml-task"
+version = "0.1.0"
+
+[[package]]
 name = "mnist"
 version = "0.1.0"
 dependencies = [

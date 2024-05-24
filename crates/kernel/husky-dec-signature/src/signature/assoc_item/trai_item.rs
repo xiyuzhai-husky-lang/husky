@@ -1,10 +1,12 @@
 pub mod assoc_ritchie;
+pub mod assoc_static;
 pub mod assoc_ty;
 pub mod assoc_val;
 pub mod memo_field;
 pub mod method_ritchie;
 
 use self::assoc_ritchie::*;
+use self::assoc_static::*;
 use self::assoc_ty::*;
 use self::assoc_val::*;
 use self::method_ritchie::*;
@@ -18,6 +20,7 @@ pub enum TraitItemDecTemplate {
     AssocRitchie(TraitAssocRitchieDecTemplate),
     MethodRitchie(TraitMethodRitchieDecTemplate),
     AssocType(TraitAssocTypeDecTemplate),
+    AssocStatic(TraitAssocStaticDecTemplate),
     AssocVal(TraitAssocValDecTemplate),
 }
 
@@ -59,6 +62,9 @@ pub(crate) fn trai_item_syn_dec_template(
         TraitItemSynDecl::AssocVal(decl) => {
             TraitAssocValDecTemplate::from_decl(db, decl).map(Into::into)
         }
+        TraitItemSynDecl::AssocStatic(decl) => {
+            TraitAssocStaticDecTemplate::from_decl(db, decl).map(Into::into)
+        }
     }
 }
 
@@ -71,7 +77,8 @@ impl TraitItemDecTemplate {
                 // slf.template_parameters(db)
                 &[]
             }
-            TraitItemDecTemplate::AssocVal(slf) => &[],
+            TraitItemDecTemplate::AssocVal(_) => &[],
+            TraitItemDecTemplate::AssocStatic(_) => &[],
         }
     }
 }

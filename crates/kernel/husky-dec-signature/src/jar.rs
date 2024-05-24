@@ -62,6 +62,7 @@ pub struct DecSignatureJar(
     crate::signature::assoc_item::trai_item::assoc_ritchie::TraitAssocRitchieDecTemplate,
     crate::signature::assoc_item::trai_item::assoc_ty::TraitAssocTypeDecTemplate,
     crate::signature::assoc_item::trai_item::assoc_val::TraitAssocValDecTemplate,
+    crate::signature::assoc_item::trai_item::assoc_static::TraitAssocStaticDecTemplate,
     crate::signature::assoc_item::trai_item::method_ritchie::TraitMethodRitchieDecTemplate,
     // type as trait item
     crate::signature::assoc_item::trai_for_ty_item::trai_for_ty_item_syn_declarative_signature_from_decl,
