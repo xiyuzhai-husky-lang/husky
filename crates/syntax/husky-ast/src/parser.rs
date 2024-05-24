@@ -164,7 +164,10 @@ impl<'a> AstParser<'a> {
                         .into(),
                 },
                 Keyword::Pub | Keyword::Assoc => self.parse_defn_or_use::<C>(token_verse_idx),
-                Keyword::Const => todo!(),
+                Keyword::Const => AstData::Err {
+                    token_verse_idx,
+                    error: OriginalAstError::UnexpectedConst.into(),
+                },
             },
             TokenData::Punctuation(Punctuation::POUND) => match snd {
                 Some(snd) => match snd {
