@@ -329,19 +329,25 @@ SynDeclSheet {
                             ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameters: [],
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Simple {
-                                    syn_pattern_root: ParenateParameterSynPatternRoot {
-                                        syn_pattern_idx: 0,
-                                    },
-                                    variables: ArenaIdxRange(
-                                        0..1,
-                                    ),
-                                    colon: ColonRegionalToken(
-                                        RegionalTokenIdx(
-                                            6,
+                                ParenateParameterSyndicate {
+                                    attrs: [
+                                        (),
+                                    ],
+                                    const_constraint: None,
+                                    nucleus: ParenateParameterSyndicateNucleus::Simple {
+                                        syn_pattern_root: ParenateParameterSynPatternRoot {
+                                            syn_pattern_idx: 0,
+                                        },
+                                        variables: ArenaIdxRange(
+                                            0..1,
                                         ),
-                                    ),
-                                    ty: 1,
+                                        colon: ColonRegionalToken(
+                                            RegionalTokenIdx(
+                                                6,
+                                            ),
+                                        ),
+                                        ty: 1,
+                                    },
                                 },
                             ],
                             return_ty: Some(

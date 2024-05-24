@@ -1,4 +1,5 @@
 use husky_hir_ty::ritchie::HirContract;
+use husky_syn_expr::ParenateParameterSyndicateNucleus;
 
 use super::*;
 
@@ -19,8 +20,8 @@ impl HirEagerParenateParameter {
         syndicate: &ParenateParameterSyndicate,
         builder: &HirDeclBuilder,
     ) -> Option<Self> {
-        Some(match syndicate {
-            &ParenateParameterSyndicate::Simple {
+        Some(match *syndicate.nucleus() {
+            ParenateParameterSyndicateNucleus::Simple {
                 syn_pattern_root,
                 ty,
                 ..
@@ -33,7 +34,7 @@ impl HirEagerParenateParameter {
                 ),
                 ty: builder.hir_ty(ty).unwrap(),
             },
-            ParenateParameterSyndicate::Variadic {
+            ParenateParameterSyndicateNucleus::Variadic {
                 dot_dot_dot_token: _,
                 variadic_variant: _,
                 symbol_modifier_keyword_group: _,
@@ -42,7 +43,7 @@ impl HirEagerParenateParameter {
                 colon: _,
                 ty: _,
             } => HirEagerParenateParameter::Variadic,
-            ParenateParameterSyndicate::Keyed {
+            ParenateParameterSyndicateNucleus::Keyed {
                 syn_pattern_root: _,
                 symbol_modifier_keyword_group: _,
                 ident_token: _,

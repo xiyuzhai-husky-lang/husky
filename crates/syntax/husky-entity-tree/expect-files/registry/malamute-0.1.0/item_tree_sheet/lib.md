@@ -23,11 +23,11 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 23,
+                        ast_idx: 24,
                         ident_token: IdentToken {
                             ident: `Class`,
                             token_idx: TokenIdx(
-                                12,
+                                26,
                             ),
                         },
                         block: DefnBlock::Type {
@@ -83,11 +83,11 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 25,
+                        ast_idx: 26,
                         ident_token: IdentToken {
                             ident: `OneVsAll`,
                             token_idx: TokenIdx(
-                                34,
+                                48,
                             ),
                         },
                         block: DefnBlock::Type {
@@ -143,11 +143,11 @@ EntityTreeSheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 29,
+                        ast_idx: 30,
                         ident_token: IdentToken {
                             ident: `OneVsAllResult`,
                             token_idx: TokenIdx(
-                                179,
+                                193,
                             ),
                         },
                         block: DefnBlock::Type {
@@ -192,11 +192,11 @@ EntityTreeSheet {
                             )`, (0)),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 31,
+                        ast_idx: 32,
                         ident_token: IdentToken {
                             ident: `narrow_down`,
                             token_idx: TokenIdx(
-                                304,
+                                318,
                             ),
                         },
                         block: DefnBlock::Form {
@@ -289,15 +289,15 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 26,
+                    ast_idx: 27,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            51,
+                            65,
                         ),
                     },
                     trai_expr: 0,
                     for_token: TokenIdx(
-                        65,
+                        79,
                     ),
                     ty_sketch_expr: Path(
                         1,
@@ -341,15 +341,15 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 27,
+                    ast_idx: 28,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            81,
+                            95,
                         ),
                     },
                     trai_expr: 4,
                     for_token: TokenIdx(
-                        100,
+                        114,
                     ),
                     ty_sketch_expr: Path(
                         5,
@@ -393,15 +393,15 @@ EntityTreeSheet {
                             ),
                         },
                     ),
-                    ast_idx: 30,
+                    ast_idx: 31,
                     impl_token: ImplToken {
                         token_idx: TokenIdx(
-                            198,
+                            212,
                         ),
                     },
                     trai_expr: 8,
                     for_token: TokenIdx(
-                        219,
+                        233,
                     ),
                     ty_sketch_expr: Path(
                         9,

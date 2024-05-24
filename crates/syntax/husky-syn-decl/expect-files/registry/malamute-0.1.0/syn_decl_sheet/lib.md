@@ -634,65 +634,85 @@ SynDeclSheet {
                                 },
                             ],
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Variadic {
-                                    dot_dot_dot_token: DotDotDotRegionalToken(
-                                        RegionalTokenIdx(
-                                            15,
-                                        ),
-                                    ),
-                                    variadic_variant: SynVariadicParameterVariant::Vec {
-                                        lbox_token: LboxRegionalToken(
+                                ParenateParameterSyndicate {
+                                    attrs: [
+                                        (),
+                                    ],
+                                    const_constraint: None,
+                                    nucleus: ParenateParameterSyndicateNucleus::Variadic {
+                                        dot_dot_dot_token: DotDotDotRegionalToken(
                                             RegionalTokenIdx(
-                                                16,
+                                                15,
                                             ),
                                         ),
-                                        rbox_token: RboxRegionalToken(
+                                        variadic_variant: SynVariadicParameterVariant::Vec {
+                                            lbox_token: LboxRegionalToken(
+                                                RegionalTokenIdx(
+                                                    16,
+                                                ),
+                                            ),
+                                            rbox_token: RboxRegionalToken(
+                                                RegionalTokenIdx(
+                                                    17,
+                                                ),
+                                            ),
+                                        },
+                                        symbol_modifier_keyword_group: None,
+                                        ident_token: IdentRegionalToken {
+                                            ident: `f`,
+                                            regional_token_idx: RegionalTokenIdx(
+                                                18,
+                                            ),
+                                        },
+                                        variable: 2,
+                                        colon: ColonRegionalToken(
                                             RegionalTokenIdx(
-                                                17,
+                                                19,
                                             ),
                                         ),
+                                        ty: 1,
                                     },
-                                    symbol_modifier_keyword_group: None,
-                                    ident_token: IdentRegionalToken {
-                                        ident: `f`,
-                                        regional_token_idx: RegionalTokenIdx(
-                                            18,
-                                        ),
-                                    },
-                                    variable: 2,
-                                    colon: ColonRegionalToken(
-                                        RegionalTokenIdx(
-                                            19,
-                                        ),
-                                    ),
-                                    ty: 1,
                                 },
-                                ParenateParameterSyndicate::Keyed {
-                                    syn_pattern_root: ParenateParameterSynPatternRoot {
-                                        syn_pattern_idx: 0,
-                                    },
-                                    symbol_modifier_keyword_group: None,
-                                    ident_token: IdentRegionalToken {
-                                        ident: `skip`,
-                                        regional_token_idx: RegionalTokenIdx(
-                                            22,
+                                ParenateParameterSyndicate {
+                                    attrs: [
+                                        (),
+                                    ],
+                                    const_constraint: Some(
+                                        ConstConstraint {
+                                            const_token: ConstRegionalToken {
+                                                regional_token_idx: RegionalTokenIdx(
+                                                    22,
+                                                ),
+                                            },
+                                        },
+                                    ),
+                                    nucleus: ParenateParameterSyndicateNucleus::Keyed {
+                                        syn_pattern_root: ParenateParameterSynPatternRoot {
+                                            syn_pattern_idx: 0,
+                                        },
+                                        symbol_modifier_keyword_group: None,
+                                        ident_token: IdentRegionalToken {
+                                            ident: `skip`,
+                                            regional_token_idx: RegionalTokenIdx(
+                                                23,
+                                            ),
+                                        },
+                                        variable: 3,
+                                        colon: ColonRegionalToken(
+                                            RegionalTokenIdx(
+                                                24,
+                                            ),
+                                        ),
+                                        ty: 2,
+                                        eq_token: EqRegionalToken(
+                                            RegionalTokenIdx(
+                                                26,
+                                            ),
+                                        ),
+                                        default: Right(
+                                            3,
                                         ),
                                     },
-                                    variable: 3,
-                                    colon: ColonRegionalToken(
-                                        RegionalTokenIdx(
-                                            23,
-                                        ),
-                                    ),
-                                    ty: 2,
-                                    eq_token: EqRegionalToken(
-                                        RegionalTokenIdx(
-                                            25,
-                                        ),
-                                    ),
-                                    default: Right(
-                                        3,
-                                    ),
                                 },
                             ],
                             return_ty: Some(
@@ -753,7 +773,7 @@ SynDeclSheet {
                                             },
                                             SynExprData::Literal(
                                                 RegionalTokenIdx(
-                                                    26,
+                                                    27,
                                                 ),
                                                 LiteralTokenData::Integer(
                                                     UnspecifiedRegular(
@@ -774,7 +794,7 @@ SynDeclSheet {
                                             SynExprData::CurrentSynSymbol {
                                                 ident: `Label`,
                                                 regional_token_idx: RegionalTokenIdx(
-                                                    31,
+                                                    32,
                                                 ),
                                                 current_variable_idx: 0,
                                                 current_variable_kind: CurrentVariableKind::TemplateParameter {
@@ -795,7 +815,7 @@ SynDeclSheet {
                                             SynExprData::CurrentSynSymbol {
                                                 ident: `label`,
                                                 regional_token_idx: RegionalTokenIdx(
-                                                    32,
+                                                    33,
                                                 ),
                                                 current_variable_idx: 1,
                                                 current_variable_kind: CurrentVariableKind::TemplateParameter {
@@ -837,7 +857,7 @@ SynDeclSheet {
                                                     IdentRegionalToken {
                                                         ident: `i32`,
                                                         regional_token_idx: RegionalTokenIdx(
-                                                            24,
+                                                            25,
                                                         ),
                                                     },
                                                 ),
@@ -852,7 +872,7 @@ SynDeclSheet {
                                                     IdentRegionalToken {
                                                         ident: `OneVsAllResult`,
                                                         regional_token_idx: RegionalTokenIdx(
-                                                            30,
+                                                            31,
                                                         ),
                                                     },
                                                 ),
@@ -875,7 +895,7 @@ SynDeclSheet {
                                                     ident_token: IdentRegionalToken {
                                                         ident: `skip`,
                                                         regional_token_idx: RegionalTokenIdx(
-                                                            22,
+                                                            23,
                                                         ),
                                                     },
                                                 },
@@ -989,7 +1009,7 @@ SynDeclSheet {
                                                 CurrentVariableEntry {
                                                     modifier: Pure,
                                                     access_start: RegionalTokenIdx(
-                                                        23,
+                                                        24,
                                                     ),
                                                     access_end: None,
                                                     data: CurrentVariableData::SimpleParenateParameter {
@@ -1020,7 +1040,7 @@ SynDeclSheet {
                                                         ident: Ident(
                                                             Coword(
                                                                 Id {
-                                                                    value: 34,
+                                                                    value: 39,
                                                                 },
                                                             ),
                                                         ),
@@ -2731,19 +2751,25 @@ SynDeclSheet {
                             ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameters: [],
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Simple {
-                                    syn_pattern_root: ParenateParameterSynPatternRoot {
-                                        syn_pattern_idx: 0,
-                                    },
-                                    variables: ArenaIdxRange(
-                                        0..1,
-                                    ),
-                                    colon: ColonRegionalToken(
-                                        RegionalTokenIdx(
-                                            6,
+                                ParenateParameterSyndicate {
+                                    attrs: [
+                                        (),
+                                    ],
+                                    const_constraint: None,
+                                    nucleus: ParenateParameterSyndicateNucleus::Simple {
+                                        syn_pattern_root: ParenateParameterSynPatternRoot {
+                                            syn_pattern_idx: 0,
+                                        },
+                                        variables: ArenaIdxRange(
+                                            0..1,
                                         ),
-                                    ),
-                                    ty: 4,
+                                        colon: ColonRegionalToken(
+                                            RegionalTokenIdx(
+                                                6,
+                                            ),
+                                        ),
+                                        ty: 4,
+                                    },
                                 },
                             ],
                             return_ty: Some(
@@ -4381,19 +4407,25 @@ SynDeclSheet {
                             ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameters: [],
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Simple {
-                                    syn_pattern_root: ParenateParameterSynPatternRoot {
-                                        syn_pattern_idx: 0,
-                                    },
-                                    variables: ArenaIdxRange(
-                                        0..1,
-                                    ),
-                                    colon: ColonRegionalToken(
-                                        RegionalTokenIdx(
-                                            6,
+                                ParenateParameterSyndicate {
+                                    attrs: [
+                                        (),
+                                    ],
+                                    const_constraint: None,
+                                    nucleus: ParenateParameterSyndicateNucleus::Simple {
+                                        syn_pattern_root: ParenateParameterSynPatternRoot {
+                                            syn_pattern_idx: 0,
+                                        },
+                                        variables: ArenaIdxRange(
+                                            0..1,
                                         ),
-                                    ),
-                                    ty: 4,
+                                        colon: ColonRegionalToken(
+                                            RegionalTokenIdx(
+                                                6,
+                                            ),
+                                        ),
+                                        ty: 4,
+                                    },
                                 },
                             ],
                             return_ty: Some(
