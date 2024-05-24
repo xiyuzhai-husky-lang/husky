@@ -33,8 +33,8 @@ impl JavInstantiation {
                 .iter()
                 .filter_map(|&(symbol, resolution)| {
                     match symbol {
-                        HirTemplateVariable::Const(symbol)
-                            if symbol.index(db).class() == HirTemplateVariableClass::Runtime =>
+                        HirTemplateVariable::Compterm(symbol)
+                            if symbol.index(db).class() == HirTemplateVariableClass::Poly =>
                         {
                             return None
                         }

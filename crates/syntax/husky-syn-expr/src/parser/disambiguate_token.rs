@@ -125,7 +125,7 @@ where
                                         MajorItemKind::Form(
                                             MajorFormKind::Val
                                             | MajorFormKind::Static
-                                            | MajorFormKind::Termic,
+                                            | MajorFormKind::Compterm,
                                         ) => DisambiguatedTokenData::SynBinaryOpr(
                                             regional_token_idx,
                                             BinaryComparisonOpr::Less.into(),

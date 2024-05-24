@@ -206,10 +206,6 @@ impl<'a> SynExprContext<'a> {
         self.has_self_place = true;
     }
 
-    pub fn path(&self) -> SynNodeRegionPath {
-        self.path
-    }
-
     pub fn syn_principal_entity_path_expr_arena(&self) -> &SynPrincipalEntityPathExprArena {
         &self.syn_principal_entity_path_expr_arena
     }

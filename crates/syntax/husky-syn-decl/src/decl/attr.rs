@@ -1,13 +1,13 @@
+pub mod affect;
 pub mod backprop;
 pub mod derive;
-pub mod effect;
 pub mod marker;
 pub mod test;
 
 use self::derive::*;
 use self::{
+    affect::{AffectAttrSynDecl, AffectAttrSynNodeDecl},
     backprop::{BackpropAttrSynDecl, BackpropAttrSynNodeDecl},
-    effect::{EffectAttrSynDecl, EffectAttrSynNodeDecl},
     test::{TestAttrSynDecl, TestAttrSynNodeDecl},
 };
 use super::*;
@@ -19,7 +19,7 @@ use husky_entity_path::path::attr::AttrItemPath;
 pub enum AttrSynNodeDecl {
     Backprop(BackpropAttrSynNodeDecl),
     Derive(DeriveAttrSynNodeDecl),
-    Effect(EffectAttrSynNodeDecl),
+    Effect(AffectAttrSynNodeDecl),
     Test(TestAttrSynNodeDecl),
 }
 
@@ -63,8 +63,8 @@ fn attr_syn_node_decl(db: &::salsa::Db, syn_node_path: AttrSynNodePath) -> AttrS
         attr_ident if attr_ident == coword_menu.derive_ident() => {
             AttrSynNodeDecl::Derive(DeriveAttrSynNodeDecl::new(db, syn_node_path))
         }
-        attr_ident if attr_ident == coword_menu.effect_ident() => {
-            AttrSynNodeDecl::Effect(EffectAttrSynNodeDecl::new(db, syn_node_path))
+        attr_ident if attr_ident == coword_menu.affect_ident() => {
+            AttrSynNodeDecl::Effect(AffectAttrSynNodeDecl::new(db, syn_node_path))
         }
         attr_ident if attr_ident == coword_menu.test_ident() => {
             AttrSynNodeDecl::Test(TestAttrSynNodeDecl::new(db, syn_node_path))
@@ -78,7 +78,7 @@ fn attr_syn_node_decl(db: &::salsa::Db, syn_node_path: AttrSynNodePath) -> AttrS
 pub enum AttrSynDecl {
     Backprop(BackpropAttrSynDecl),
     Derive(DeriveAttrSynDecl),
-    Effect(EffectAttrSynDecl),
+    Effect(AffectAttrSynDecl),
     Test(TestAttrSynDecl),
 }
 
@@ -98,7 +98,7 @@ impl AttrSynDecl {
                 BackpropAttrSynDecl::from_node_decl(db, path, syn_node_decl)?.into()
             }
             AttrSynNodeDecl::Effect(node_decl) => {
-                EffectAttrSynDecl::from_node(path, node_decl, db)?.into()
+                AffectAttrSynDecl::from_node(path, node_decl, db)?.into()
             }
             AttrSynNodeDecl::Test(node_decl) => {
                 TestAttrSynDecl::from_node(path, node_decl, db)?.into()

@@ -1,7 +1,7 @@
+pub mod affect;
 pub mod be_variable;
 pub mod case_variable;
 pub mod closure_parameter;
-pub mod effect;
 pub mod let_variable;
 pub mod parenate_parameter;
 pub mod props_field;
@@ -25,5 +25,5 @@ pub use self::template_parameter::*;
 pub use self::trai::*;
 pub use self::tuple_field::*;
 
-use super::*;
+use crate::*;
 use parsec::*;

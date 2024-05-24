@@ -32,7 +32,7 @@ impl Attrs {
             match attr_path.hir_decl(db).unwrap() {
                 AttrHirDecl::Backprop(_) => (),
                 AttrHirDecl::Derive(decl) => derive_attrs.merge(decl.trais(db), db),
-                AttrHirDecl::Effect(_) => (),
+                AttrHirDecl::Affect(_) => (),
                 AttrHirDecl::Test(_) => is_test = true,
             }
         }

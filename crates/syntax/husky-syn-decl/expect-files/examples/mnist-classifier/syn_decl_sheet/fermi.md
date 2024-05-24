@@ -333,33 +333,45 @@ SynDeclSheet {
                             ritchie_item_kind: RitchieItemKind::Fn,
                             template_parameters: [],
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Simple {
-                                    syn_pattern_root: ParenateParameterSynPatternRoot {
-                                        syn_pattern_idx: 0,
-                                    },
-                                    variables: ArenaIdxRange(
-                                        0..1,
-                                    ),
-                                    colon: ColonRegionalToken(
-                                        RegionalTokenIdx(
-                                            6,
+                                ParenateParameterSyndicate {
+                                    attrs: [
+                                        (),
+                                    ],
+                                    const_constraint: None,
+                                    nucleus: ParenateParameterSyndicateNucleus::Simple {
+                                        syn_pattern_root: ParenateParameterSynPatternRoot {
+                                            syn_pattern_idx: 0,
+                                        },
+                                        variables: ArenaIdxRange(
+                                            0..1,
                                         ),
-                                    ),
-                                    ty: 3,
+                                        colon: ColonRegionalToken(
+                                            RegionalTokenIdx(
+                                                6,
+                                            ),
+                                        ),
+                                        ty: 3,
+                                    },
                                 },
-                                ParenateParameterSyndicate::Simple {
-                                    syn_pattern_root: ParenateParameterSynPatternRoot {
-                                        syn_pattern_idx: 1,
-                                    },
-                                    variables: ArenaIdxRange(
-                                        1..2,
-                                    ),
-                                    colon: ColonRegionalToken(
-                                        RegionalTokenIdx(
-                                            13,
+                                ParenateParameterSyndicate {
+                                    attrs: [
+                                        (),
+                                    ],
+                                    const_constraint: None,
+                                    nucleus: ParenateParameterSyndicateNucleus::Simple {
+                                        syn_pattern_root: ParenateParameterSynPatternRoot {
+                                            syn_pattern_idx: 1,
+                                        },
+                                        variables: ArenaIdxRange(
+                                            1..2,
                                         ),
-                                    ),
-                                    ty: 10,
+                                        colon: ColonRegionalToken(
+                                            RegionalTokenIdx(
+                                                13,
+                                            ),
+                                        ),
+                                        ty: 10,
+                                    },
                                 },
                             ],
                             return_ty: Some(

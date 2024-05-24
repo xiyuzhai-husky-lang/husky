@@ -203,8 +203,8 @@ fn transpile_hir_eager_expr_to_rust(
                         .symbol_map()
                         .iter()
                         .filter_map(|&(symbol, resolution)| match symbol {
-                            HirTemplateVariable::Const(symbol) => (symbol.index(db).class()
-                                == HirTemplateVariableClass::Runtime)
+                            HirTemplateVariable::Compterm(symbol) => (symbol.index(db).class()
+                                == HirTemplateVariableClass::Poly)
                                 .then_some(resolution),
                             _ => None,
                         })

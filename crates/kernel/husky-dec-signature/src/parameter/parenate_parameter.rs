@@ -1,5 +1,6 @@
 use super::*;
 use either::*;
+use husky_syn_expr::ParenateParameterSyndicateNucleus;
 
 #[derive(Debug, PartialEq, Eq, Clone, Hash)]
 #[salsa::derive_debug_with_db]
@@ -26,8 +27,8 @@ impl DeclarativeParenateParameters {
                 .iter()
                 .enumerate()
                 .map(|(i, parameter)| {
-                    Ok(match parameter {
-                        ParenateParameterSyndicate::Simple {
+                    Ok(match *parameter.nucleus() {
+                        ParenateParameterSyndicateNucleus::Simple {
                             syn_pattern_root,
                             variables,
                             colon,
@@ -35,23 +36,23 @@ impl DeclarativeParenateParameters {
                         } => DeclarativeRitchieSimpleParameter::new(
                             syn_expr_region_data
                                 .pattern_contract(syn_pattern_root.syn_pattern_idx()),
-                            signature_region.expr_term(*ty).map_err(|_| {
+                            signature_region.expr_term(ty).map_err(|_| {
                                 DecSignatureError::ParameterTypeDecTermError(i.try_into().unwrap())
                             })?,
                         )
                         .into(),
-                        ParenateParameterSyndicate::Variadic {
+                        ParenateParameterSyndicateNucleus::Variadic {
                             symbol_modifier_keyword_group,
                             ty,
                             ..
                         } => DeclarativeRitchieVariadicParameter::new(
-                            Contract::new(*symbol_modifier_keyword_group),
-                            signature_region.expr_term(*ty).map_err(|_| {
+                            Contract::new(symbol_modifier_keyword_group),
+                            signature_region.expr_term(ty).map_err(|_| {
                                 DecSignatureError::ParameterTypeDecTermError(i.try_into().unwrap())
                             })?,
                         )
                         .into(),
-                        ParenateParameterSyndicate::Keyed {
+                        ParenateParameterSyndicateNucleus::Keyed {
                             symbol_modifier_keyword_group,
                             ident_token,
                             ty,
@@ -59,20 +60,13 @@ impl DeclarativeParenateParameters {
                             ..
                         } => DeclarativeRitchieKeyedParameter::new(
                             ident_token.ident(),
-                            Contract::new(*symbol_modifier_keyword_group),
-                            signature_region.expr_term(*ty).map_err(|_| {
+                            Contract::new(symbol_modifier_keyword_group),
+                            signature_region.expr_term(ty).map_err(|_| {
                                 DecSignatureError::ParameterTypeDecTermError(i.try_into().unwrap())
                             })?,
-                            match *default {
+                            match default {
                                 Left(_) => false,
                                 Right(_) => true,
-                                // Some(
-                                //     signature_region.expr_term(default_expr_idx).map_err(|_| {
-                                //         DecSignatureError::ParameterTypeDecTermError(
-                                //             i.try_into().unwrap(),
-                                //         )
-                                //     })?,
-                                // ),
                             },
                         )
                         .into(),

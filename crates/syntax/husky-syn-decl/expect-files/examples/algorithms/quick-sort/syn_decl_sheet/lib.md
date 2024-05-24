@@ -45,19 +45,25 @@ SynDeclSheet {
                                 },
                             ],
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Simple {
-                                    syn_pattern_root: ParenateParameterSynPatternRoot {
-                                        syn_pattern_idx: 0,
-                                    },
-                                    variables: ArenaIdxRange(
-                                        1..2,
-                                    ),
-                                    colon: ColonRegionalToken(
-                                        RegionalTokenIdx(
-                                            13,
+                                ParenateParameterSyndicate {
+                                    attrs: [
+                                        (),
+                                    ],
+                                    const_constraint: None,
+                                    nucleus: ParenateParameterSyndicateNucleus::Simple {
+                                        syn_pattern_root: ParenateParameterSynPatternRoot {
+                                            syn_pattern_idx: 0,
+                                        },
+                                        variables: ArenaIdxRange(
+                                            1..2,
                                         ),
-                                    ),
-                                    ty: 3,
+                                        colon: ColonRegionalToken(
+                                            RegionalTokenIdx(
+                                                13,
+                                            ),
+                                        ),
+                                        ty: 3,
+                                    },
                                 },
                             ],
                             return_ty: None,
@@ -335,47 +341,65 @@ SynDeclSheet {
                                 },
                             ],
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Simple {
-                                    syn_pattern_root: ParenateParameterSynPatternRoot {
-                                        syn_pattern_idx: 0,
-                                    },
-                                    variables: ArenaIdxRange(
-                                        1..2,
-                                    ),
-                                    colon: ColonRegionalToken(
-                                        RegionalTokenIdx(
-                                            12,
+                                ParenateParameterSyndicate {
+                                    attrs: [
+                                        (),
+                                    ],
+                                    const_constraint: None,
+                                    nucleus: ParenateParameterSyndicateNucleus::Simple {
+                                        syn_pattern_root: ParenateParameterSynPatternRoot {
+                                            syn_pattern_idx: 0,
+                                        },
+                                        variables: ArenaIdxRange(
+                                            1..2,
                                         ),
-                                    ),
-                                    ty: 3,
+                                        colon: ColonRegionalToken(
+                                            RegionalTokenIdx(
+                                                12,
+                                            ),
+                                        ),
+                                        ty: 3,
+                                    },
                                 },
-                                ParenateParameterSyndicate::Simple {
-                                    syn_pattern_root: ParenateParameterSynPatternRoot {
-                                        syn_pattern_idx: 1,
-                                    },
-                                    variables: ArenaIdxRange(
-                                        2..3,
-                                    ),
-                                    colon: ColonRegionalToken(
-                                        RegionalTokenIdx(
-                                            19,
+                                ParenateParameterSyndicate {
+                                    attrs: [
+                                        (),
+                                    ],
+                                    const_constraint: None,
+                                    nucleus: ParenateParameterSyndicateNucleus::Simple {
+                                        syn_pattern_root: ParenateParameterSynPatternRoot {
+                                            syn_pattern_idx: 1,
+                                        },
+                                        variables: ArenaIdxRange(
+                                            2..3,
                                         ),
-                                    ),
-                                    ty: 4,
+                                        colon: ColonRegionalToken(
+                                            RegionalTokenIdx(
+                                                19,
+                                            ),
+                                        ),
+                                        ty: 4,
+                                    },
                                 },
-                                ParenateParameterSyndicate::Simple {
-                                    syn_pattern_root: ParenateParameterSynPatternRoot {
-                                        syn_pattern_idx: 2,
-                                    },
-                                    variables: ArenaIdxRange(
-                                        3..4,
-                                    ),
-                                    colon: ColonRegionalToken(
-                                        RegionalTokenIdx(
-                                            23,
+                                ParenateParameterSyndicate {
+                                    attrs: [
+                                        (),
+                                    ],
+                                    const_constraint: None,
+                                    nucleus: ParenateParameterSyndicateNucleus::Simple {
+                                        syn_pattern_root: ParenateParameterSynPatternRoot {
+                                            syn_pattern_idx: 2,
+                                        },
+                                        variables: ArenaIdxRange(
+                                            3..4,
                                         ),
-                                    ),
-                                    ty: 5,
+                                        colon: ColonRegionalToken(
+                                            RegionalTokenIdx(
+                                                23,
+                                            ),
+                                        ),
+                                        ty: 5,
+                                    },
                                 },
                             ],
                             return_ty: None,
@@ -811,47 +835,65 @@ SynDeclSheet {
                                 },
                             ],
                             parenate_parameters: [
-                                ParenateParameterSyndicate::Simple {
-                                    syn_pattern_root: ParenateParameterSynPatternRoot {
-                                        syn_pattern_idx: 0,
-                                    },
-                                    variables: ArenaIdxRange(
-                                        1..2,
-                                    ),
-                                    colon: ColonRegionalToken(
-                                        RegionalTokenIdx(
-                                            12,
+                                ParenateParameterSyndicate {
+                                    attrs: [
+                                        (),
+                                    ],
+                                    const_constraint: None,
+                                    nucleus: ParenateParameterSyndicateNucleus::Simple {
+                                        syn_pattern_root: ParenateParameterSynPatternRoot {
+                                            syn_pattern_idx: 0,
+                                        },
+                                        variables: ArenaIdxRange(
+                                            1..2,
                                         ),
-                                    ),
-                                    ty: 3,
+                                        colon: ColonRegionalToken(
+                                            RegionalTokenIdx(
+                                                12,
+                                            ),
+                                        ),
+                                        ty: 3,
+                                    },
                                 },
-                                ParenateParameterSyndicate::Simple {
-                                    syn_pattern_root: ParenateParameterSynPatternRoot {
-                                        syn_pattern_idx: 1,
-                                    },
-                                    variables: ArenaIdxRange(
-                                        2..3,
-                                    ),
-                                    colon: ColonRegionalToken(
-                                        RegionalTokenIdx(
-                                            19,
+                                ParenateParameterSyndicate {
+                                    attrs: [
+                                        (),
+                                    ],
+                                    const_constraint: None,
+                                    nucleus: ParenateParameterSyndicateNucleus::Simple {
+                                        syn_pattern_root: ParenateParameterSynPatternRoot {
+                                            syn_pattern_idx: 1,
+                                        },
+                                        variables: ArenaIdxRange(
+                                            2..3,
                                         ),
-                                    ),
-                                    ty: 4,
+                                        colon: ColonRegionalToken(
+                                            RegionalTokenIdx(
+                                                19,
+                                            ),
+                                        ),
+                                        ty: 4,
+                                    },
                                 },
-                                ParenateParameterSyndicate::Simple {
-                                    syn_pattern_root: ParenateParameterSynPatternRoot {
-                                        syn_pattern_idx: 2,
-                                    },
-                                    variables: ArenaIdxRange(
-                                        3..4,
-                                    ),
-                                    colon: ColonRegionalToken(
-                                        RegionalTokenIdx(
-                                            23,
+                                ParenateParameterSyndicate {
+                                    attrs: [
+                                        (),
+                                    ],
+                                    const_constraint: None,
+                                    nucleus: ParenateParameterSyndicateNucleus::Simple {
+                                        syn_pattern_root: ParenateParameterSynPatternRoot {
+                                            syn_pattern_idx: 2,
+                                        },
+                                        variables: ArenaIdxRange(
+                                            3..4,
                                         ),
-                                    ),
-                                    ty: 5,
+                                        colon: ColonRegionalToken(
+                                            RegionalTokenIdx(
+                                                23,
+                                            ),
+                                        ),
+                                        ty: 5,
+                                    },
                                 },
                             ],
                             return_ty: Some(

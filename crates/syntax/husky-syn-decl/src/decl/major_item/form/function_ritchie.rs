@@ -1,5 +1,7 @@
 use super::*;
 use husky_entity_kind::ritchie::RitchieItemKind;
+use husky_print_utils::p;
+use salsa::DebugWithDb;
 
 #[salsa::tracked]
 pub struct MajorFunctionRitchieSynNodeDecl {

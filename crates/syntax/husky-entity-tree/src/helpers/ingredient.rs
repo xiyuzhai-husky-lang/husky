@@ -54,7 +54,7 @@ impl IngredientPath {
                     MajorFormKind::Val => true,
                     MajorFormKind::Conceptual => false,
                     MajorFormKind::Static => true,
-                    MajorFormKind::Termic => true,
+                    MajorFormKind::Compterm => true,
                 },
                 MajorItemKind::Trait => false,
             },

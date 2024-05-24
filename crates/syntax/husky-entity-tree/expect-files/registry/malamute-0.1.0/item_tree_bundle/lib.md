@@ -25,11 +25,11 @@ EntityTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 23,
+                                ast_idx: 24,
                                 ident_token: IdentToken {
                                     ident: `Class`,
                                     token_idx: TokenIdx(
-                                        12,
+                                        26,
                                     ),
                                 },
                                 block: DefnBlock::Type {
@@ -85,11 +85,11 @@ EntityTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 25,
+                                ast_idx: 26,
                                 ident_token: IdentToken {
                                     ident: `OneVsAll`,
                                     token_idx: TokenIdx(
-                                        34,
+                                        48,
                                     ),
                                 },
                                 block: DefnBlock::Type {
@@ -145,11 +145,11 @@ EntityTreeCrateBundle {
                                     ),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 29,
+                                ast_idx: 30,
                                 ident_token: IdentToken {
                                     ident: `OneVsAllResult`,
                                     token_idx: TokenIdx(
-                                        179,
+                                        193,
                                     ),
                                 },
                                 block: DefnBlock::Type {
@@ -194,11 +194,11 @@ EntityTreeCrateBundle {
                                     )`, (0)),
                                 ),
                                 visibility: Scope::Pub,
-                                ast_idx: 31,
+                                ast_idx: 32,
                                 ident_token: IdentToken {
                                     ident: `narrow_down`,
                                     token_idx: TokenIdx(
-                                        304,
+                                        318,
                                     ),
                                 },
                                 block: DefnBlock::Form {
@@ -291,15 +291,15 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                             ),
-                            ast_idx: 26,
+                            ast_idx: 27,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    51,
+                                    65,
                                 ),
                             },
                             trai_expr: 0,
                             for_token: TokenIdx(
-                                65,
+                                79,
                             ),
                             ty_sketch_expr: Path(
                                 1,
@@ -343,15 +343,15 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                             ),
-                            ast_idx: 27,
+                            ast_idx: 28,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    81,
+                                    95,
                                 ),
                             },
                             trai_expr: 4,
                             for_token: TokenIdx(
-                                100,
+                                114,
                             ),
                             ty_sketch_expr: Path(
                                 5,
@@ -395,15 +395,15 @@ EntityTreeCrateBundle {
                                     ),
                                 },
                             ),
-                            ast_idx: 30,
+                            ast_idx: 31,
                             impl_token: ImplToken {
                                 token_idx: TokenIdx(
-                                    198,
+                                    212,
                                 ),
                             },
                             trai_expr: 8,
                             for_token: TokenIdx(
-                                219,
+                                233,
                             ),
                             ty_sketch_expr: Path(
                                 9,
@@ -437,7 +437,7 @@ EntityTreeCrateBundle {
                     IdentToken {
                         ident: `Default`,
                         token_idx: TokenIdx(
-                            64,
+                            78,
                         ),
                     },
                 ),
@@ -452,7 +452,7 @@ EntityTreeCrateBundle {
                     IdentToken {
                         ident: `OneVsAll`,
                         token_idx: TokenIdx(
-                            66,
+                            80,
                         ),
                     },
                 ),
@@ -467,7 +467,7 @@ EntityTreeCrateBundle {
                     IdentToken {
                         ident: `Unveil`,
                         token_idx: TokenIdx(
-                            96,
+                            110,
                         ),
                     },
                 ),
@@ -482,13 +482,13 @@ EntityTreeCrateBundle {
                     IdentToken {
                         ident: `ops`,
                         token_idx: TokenIdx(
-                            94,
+                            108,
                         ),
                     },
                 ),
                 colon_colon_token: ColonColonToken(
                     TokenIdx(
-                        95,
+                        109,
                     ),
                 ),
                 subexpr: 2,
@@ -498,13 +498,13 @@ EntityTreeCrateBundle {
                     IdentToken {
                         ident: `core`,
                         token_idx: TokenIdx(
-                            92,
+                            106,
                         ),
                     },
                 ),
                 colon_colon_token: ColonColonToken(
                     TokenIdx(
-                        93,
+                        107,
                     ),
                 ),
                 subexpr: 3,
@@ -514,7 +514,7 @@ EntityTreeCrateBundle {
                     IdentToken {
                         ident: `Class`,
                         token_idx: TokenIdx(
-                            101,
+                            115,
                         ),
                     },
                 ),
@@ -529,7 +529,7 @@ EntityTreeCrateBundle {
                     IdentToken {
                         ident: `Unveil`,
                         token_idx: TokenIdx(
-                            215,
+                            229,
                         ),
                     },
                 ),
@@ -544,13 +544,13 @@ EntityTreeCrateBundle {
                     IdentToken {
                         ident: `ops`,
                         token_idx: TokenIdx(
-                            213,
+                            227,
                         ),
                     },
                 ),
                 colon_colon_token: ColonColonToken(
                     TokenIdx(
-                        214,
+                        228,
                     ),
                 ),
                 subexpr: 6,
@@ -560,13 +560,13 @@ EntityTreeCrateBundle {
                     IdentToken {
                         ident: `core`,
                         token_idx: TokenIdx(
-                            211,
+                            225,
                         ),
                     },
                 ),
                 colon_colon_token: ColonColonToken(
                     TokenIdx(
-                        212,
+                        226,
                     ),
                 ),
                 subexpr: 7,
@@ -576,7 +576,7 @@ EntityTreeCrateBundle {
                     IdentToken {
                         ident: `OneVsAll`,
                         token_idx: TokenIdx(
-                            220,
+                            234,
                         ),
                     },
                 ),

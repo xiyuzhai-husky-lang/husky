@@ -350,7 +350,7 @@
                                                                                         3,
                                                                                     ),
                                                                                 ),
-                                                                                PhantomRegionalToken {
+                                                                                PhanRegionalToken {
                                                                                     token_idx: RegionalTokenIdx(
                                                                                         4,
                                                                                     ),
@@ -385,7 +385,7 @@
                                                                                         7,
                                                                                     ),
                                                                                 ),
-                                                                                PhantomRegionalToken {
+                                                                                PhanRegionalToken {
                                                                                     token_idx: RegionalTokenIdx(
                                                                                         8,
                                                                                     ),
@@ -1036,7 +1036,7 @@
                                                                                         5,
                                                                                     ),
                                                                                 ),
-                                                                                RuntimeRegionalToken {
+                                                                                PolyRegionalToken {
                                                                                     token_idx: RegionalTokenIdx(
                                                                                         6,
                                                                                     ),
@@ -2376,7 +2376,7 @@
                                                                                         3,
                                                                                     ),
                                                                                 ),
-                                                                                PhantomRegionalToken {
+                                                                                PhanRegionalToken {
                                                                                     token_idx: RegionalTokenIdx(
                                                                                         4,
                                                                                     ),
@@ -2411,7 +2411,7 @@
                                                                                         7,
                                                                                     ),
                                                                                 ),
-                                                                                PhantomRegionalToken {
+                                                                                PhanRegionalToken {
                                                                                     token_idx: RegionalTokenIdx(
                                                                                         8,
                                                                                     ),

@@ -14,7 +14,7 @@ pub(crate) fn package_dependencies(
 ) -> ManifestResult<PackageDependenciesSection> {
     let cyclic_dependent_package_paths = cyclic_dependent_package_paths(db, package_path)?;
     if cyclic_dependent_package_paths.len() > 0 {
-        Err(ManifestError::CyclicDependendencies {
+        Err(OriginalManifestError::CyclicDependendencies {
             package_path,
             cyclic_dependent_package_paths,
         })?

@@ -37,7 +37,7 @@ pub(crate) fn reserved_cowords(_db: &::salsa::Db) -> VecPairMap<&'static str, Pr
             FormKeyword::Proposition,
             FormKeyword::Memo,
             FormKeyword::Static,
-            FormKeyword::Termic,
+            FormKeyword::Compterm,
             FormKeyword::Val,
             FormKeyword::Type,
             FormKeyword::Def,

@@ -154,7 +154,7 @@ where
                                         MajorFormKind::TypeAlias => todo!(),
                                         MajorFormKind::Conceptual => todo!(),
                                         MajorFormKind::Static => todo!(),
-                                        MajorFormKind::Termic => todo!(),
+                                        MajorFormKind::Compterm => todo!(),
                                     },
                                 },
                                 PrincipalEntityPath::TypeVariant(path) => {

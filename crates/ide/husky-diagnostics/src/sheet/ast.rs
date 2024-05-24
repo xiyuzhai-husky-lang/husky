@@ -181,6 +181,7 @@ impl Diagnose for (TokenVerseIdx, &OriginalAstError) {
             OriginalAstError::ExpectedLboxOrIdentAfterPoundForAttrOrSorce => todo!(),
             OriginalAstError::UnexpectedMemoUnderModule => todo!(),
             OriginalAstError::UnexpectedMemoUnderForm => todo!(),
+            OriginalAstError::UnexpectedConst => todo!(),
         }
     }
 
@@ -249,6 +250,7 @@ impl Diagnose for (TokenVerseIdx, &OriginalAstError) {
             OriginalAstError::ExpectedLboxOrIdentAfterPoundForAttrOrSorce => todo!(),
             OriginalAstError::UnexpectedMemoUnderModule => todo!(),
             OriginalAstError::UnexpectedMemoUnderForm => todo!(),
+            OriginalAstError::UnexpectedConst => todo!(),
         }
     }
 }

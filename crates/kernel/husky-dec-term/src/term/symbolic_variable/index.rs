@@ -18,18 +18,18 @@ impl DeclarativeTemplateVariableAttrs {
         let mut slf: Self = Default::default();
         for attr in attrs {
             match attr {
-                DeclarativeTemplateSymbolAttr::Phantom => {
+                DeclarativeTemplateSymbolAttr::Phan => {
                     slf.class = match slf.class {
-                        TemplateVariableClass::Phantom => todo!("err"),
-                        TemplateVariableClass::Runtime => todo!("err"),
-                        TemplateVariableClass::Comptime => TemplateVariableClass::Phantom,
+                        TemplateVariableClass::Phan => todo!("err"),
+                        TemplateVariableClass::Poly => todo!("err"),
+                        TemplateVariableClass::Mono => TemplateVariableClass::Phan,
                     }
                 }
-                DeclarativeTemplateSymbolAttr::Runtime => {
+                DeclarativeTemplateSymbolAttr::Poly => {
                     slf.class = match slf.class {
-                        TemplateVariableClass::Phantom => todo!("err"),
-                        TemplateVariableClass::Runtime => todo!("err"),
-                        TemplateVariableClass::Comptime => TemplateVariableClass::Runtime,
+                        TemplateVariableClass::Phan => todo!("err"),
+                        TemplateVariableClass::Poly => todo!("err"),
+                        TemplateVariableClass::Mono => TemplateVariableClass::Poly,
                     }
                 }
             }
@@ -39,8 +39,8 @@ impl DeclarativeTemplateVariableAttrs {
 }
 
 pub enum DeclarativeTemplateSymbolAttr {
-    Phantom,
-    Runtime,
+    Phan,
+    Poly,
 }
 
 /// wrapper so such the construction is private

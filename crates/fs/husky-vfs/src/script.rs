@@ -14,6 +14,7 @@ pub enum ScriptSource {
 }
 
 impl Script {
+    #[cfg(feature = "test_utils")]
     pub fn new_dev_snippet(data: impl Into<String>, db: &::salsa::Db) -> Self {
         let toolchain = db.dev_toolchain().unwrap();
         Self::new(db, ScriptSource::Snippet { toolchain }, data.into())

@@ -31,7 +31,7 @@ pub enum TemplateParameterSyndicateVariant {
         ident_token: IdentRegionalToken,
         traits: Option<TraitsSyndicate>,
     },
-    Termic {
+    Compterm {
         termic_token: TermicRegionalToken,
         ident_token: IdentRegionalToken,
         colon_token: ColonRegionalToken,
@@ -160,7 +160,7 @@ impl<'a, 'b> TryParseOptionFromStream<SynDeclExprParser<'a>> for TemplateSynPara
             Ok(Some(TemplateSynParameterData {
                 annotated_variance_token,
                 symbol,
-                variant: TemplateParameterSyndicateVariant::Termic {
+                variant: TemplateParameterSyndicateVariant::Compterm {
                     termic_token,
                     ident_token,
                     colon_token,

@@ -1,3 +1,4 @@
+pub(crate) use expect_test::*;
 pub(crate) use husky_vfs::*;
 
 use expect_test::{expect, Expect};

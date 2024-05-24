@@ -8,8 +8,8 @@
                     template_parameters: HirTemplateParameters(
                         [
                             HirTemplateParameter {
-                                symbol: HirTemplateVariable::Const(
-                                    HirConstTemplateVariable {
+                                symbol: HirTemplateVariable::Compterm(
+                                    HirComptermTemplateVariable {
                                         ty: HirType::PathLeading(
                                             HirTypePathLeading {
                                                 ty_path: TypePath(`core::num::usize`, `Extern`),
@@ -17,9 +17,9 @@
                                                 always_copyable: true,
                                             },
                                         ),
-                                        index: HirConstTemplateVariableIndex::PathLeading {
+                                        index: HirComptermTemplateVariableIndex::PathLeading {
                                             attrs: HirTemplateVariableAttrs {
-                                                class: Comptime,
+                                                class: Mono,
                                             },
                                             disambiguator: 0,
                                             ty_path: TypePath(`core::num::usize`, `Extern`),
@@ -41,7 +41,7 @@
                                 symbol: HirTemplateVariable::Type(
                                     HirTypeTemplateVariable::Type {
                                         attrs: HirTemplateVariableAttrs {
-                                            class: Comptime,
+                                            class: Mono,
                                         },
                                         variance: Some(
                                             Covariant,
@@ -81,8 +81,8 @@
                                             `L`,
                                         ),
                                         data: Current,
-                                        hir_comptime_symbol: HirTemplateVariable::Const(
-                                            HirConstTemplateVariable {
+                                        hir_comptime_symbol: HirTemplateVariable::Compterm(
+                                            HirComptermTemplateVariable {
                                                 ty: HirType::PathLeading(
                                                     HirTypePathLeading {
                                                         ty_path: TypePath(`core::num::usize`, `Extern`),
@@ -90,9 +90,9 @@
                                                         always_copyable: true,
                                                     },
                                                 ),
-                                                index: HirConstTemplateVariableIndex::PathLeading {
+                                                index: HirComptermTemplateVariableIndex::PathLeading {
                                                     attrs: HirTemplateVariableAttrs {
-                                                        class: Comptime,
+                                                        class: Mono,
                                                     },
                                                     disambiguator: 0,
                                                     ty_path: TypePath(`core::num::usize`, `Extern`),
@@ -108,7 +108,7 @@
                                         hir_comptime_symbol: HirTemplateVariable::Type(
                                             HirTypeTemplateVariable::Type {
                                                 attrs: HirTemplateVariableAttrs {
-                                                    class: Comptime,
+                                                    class: Mono,
                                                 },
                                                 variance: Some(
                                                     Covariant,

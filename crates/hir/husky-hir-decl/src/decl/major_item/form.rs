@@ -1,11 +1,11 @@
-pub mod r#const;
+pub mod compterm;
 pub mod function_ritchie;
 pub mod r#static;
 pub mod ty_alias;
 pub mod val;
 
+use self::compterm::*;
 pub use self::function_ritchie::*;
-use self::r#const::*;
 use self::r#static::*;
 pub use self::ty_alias::*;
 pub use self::val::*;
@@ -20,7 +20,7 @@ use husky_syn_decl::decl::FormSynDecl;
 pub enum MajorFormHirDecl {
     Ritchie(MajorFunctionRitchieHirDecl),
     Val(MajorValHirDecl),
-    Const(MajorConstHirDecl),
+    Const(MajorComptermHirDecl),
     Static(MajorStaticHirDecl),
     TypeAlias(MajorTypeAliasHirDecl),
 }
@@ -74,7 +74,7 @@ fn major_form_hir_decl(db: &::salsa::Db, path: MajorFormPath) -> Option<MajorFor
         FormSynDecl::Val(syn_decl) => Some(MajorValHirDecl::from_syn(path, syn_decl, db).into()),
         FormSynDecl::TypeAlias(_) => None,
         FormSynDecl::Const(syn_decl) => {
-            Some(MajorConstHirDecl::from_syn(path, syn_decl, db).into())
+            Some(MajorComptermHirDecl::from_syn(path, syn_decl, db).into())
         }
         FormSynDecl::Static(syn_decl) => {
             Some(MajorStaticHirDecl::from_syn(path, syn_decl, db).into())

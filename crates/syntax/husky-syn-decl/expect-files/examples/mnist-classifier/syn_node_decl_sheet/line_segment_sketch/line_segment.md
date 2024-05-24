@@ -833,19 +833,25 @@ SynNodeDeclSheet {
                                     self_value_parameter: None,
                                     comma_after_self_parameter: None,
                                     parenate_parameters: [
-                                        ParenateParameterSyndicate::Simple {
-                                            syn_pattern_root: ParenateParameterSynPatternRoot {
-                                                syn_pattern_idx: 0,
-                                            },
-                                            variables: ArenaIdxRange(
-                                                0..1,
-                                            ),
-                                            colon: ColonRegionalToken(
-                                                RegionalTokenIdx(
-                                                    5,
+                                        ParenateParameterSyndicate {
+                                            attrs: [
+                                                (),
+                                            ],
+                                            const_constraint: None,
+                                            nucleus: ParenateParameterSyndicateNucleus::Simple {
+                                                syn_pattern_root: ParenateParameterSynPatternRoot {
+                                                    syn_pattern_idx: 0,
+                                                },
+                                                variables: ArenaIdxRange(
+                                                    0..1,
                                                 ),
-                                            ),
-                                            ty: 0,
+                                                colon: ColonRegionalToken(
+                                                    RegionalTokenIdx(
+                                                        5,
+                                                    ),
+                                                ),
+                                                ty: 0,
+                                            },
                                         },
                                     ],
                                     commas: [],

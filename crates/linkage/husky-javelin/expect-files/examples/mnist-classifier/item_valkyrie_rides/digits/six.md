@@ -154,7 +154,7 @@
                                     HirTemplateVariable::Type(
                                         HirTypeTemplateVariable::Type {
                                             attrs: HirTemplateVariableAttrs {
-                                                class: Comptime,
+                                                class: Mono,
                                             },
                                             variance: None,
                                             disambiguator: 0,
@@ -173,20 +173,20 @@
                                     ),
                                 ),
                                 (
-                                    HirTemplateVariable::Const(
-                                        HirConstTemplateVariable {
+                                    HirTemplateVariable::Compterm(
+                                        HirComptermTemplateVariable {
                                             ty: HirType::Variable(
                                                 HirTypeTemplateVariable::Type {
                                                     attrs: HirTemplateVariableAttrs {
-                                                        class: Comptime,
+                                                        class: Mono,
                                                     },
                                                     variance: None,
                                                     disambiguator: 0,
                                                 },
                                             ),
-                                            index: HirConstTemplateVariableIndex::Other {
+                                            index: HirComptermTemplateVariableIndex::Other {
                                                 attrs: HirTemplateVariableAttrs {
-                                                    class: Runtime,
+                                                    class: Poly,
                                                 },
                                                 disambiguator: 0,
                                             },
