@@ -374,7 +374,7 @@ impl<'a> KiReprExpansionBuilder<'a> {
                         MajorFormKind::Val => return KiRepr::new_val_item(path, db),
                         MajorFormKind::TypeAlias | MajorFormKind::Conceptual => unreachable!(),
                         MajorFormKind::Static => todo!(),
-                        MajorFormKind::Termic => todo!(),
+                        MajorFormKind::Compterm => todo!(),
                     },
                 },
                 PrincipalEntityPath::TypeVariant(path) => (KiOpn::TypeVariant(path), smallvec![]),
@@ -719,8 +719,8 @@ fn runtime_constants(
     instantiation
         .iter()
         .filter_map(|&(symbol, res)| match symbol {
-            HirTemplateVariable::Const(symbol)
-                if symbol.index(db).class() == HirTemplateVariableClass::Runtime =>
+            HirTemplateVariable::Compterm(symbol)
+                if symbol.index(db).class() == HirTemplateVariableClass::Poly =>
             {
                 Some(match res {
                     HirTermSymbolicVariableResolution::Explicit(arg) => match arg {

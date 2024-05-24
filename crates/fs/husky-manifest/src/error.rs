@@ -5,6 +5,14 @@ use thiserror::Error;
 
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum ManifestError {
+    #[error("{0}")]
+    Original(#[from] OriginalManifestError),
+    #[error("{0}")]
+    Derived(#[from] DerivedManifestError),
+}
+
+#[derive(Debug, Error, PartialEq, Eq)]
+pub enum OriginalManifestError {
     #[error("CyclicDependendencies")]
     CyclicDependendencies {
         package_path: PackagePath,
@@ -12,12 +20,18 @@ pub enum ManifestError {
     },
 }
 
+#[derive(Debug, Error, PartialEq, Eq)]
+pub enum DerivedManifestError {
+    #[error("DerivedManifest")]
+    Manifest,
+}
+
 pub type ManifestResult<T> = Result<T, ManifestError>;
 pub type ManifestResultRef<'a, T> = Result<T, &'a ManifestError>;
 
 impl From<&ManifestError> for ManifestError {
-    fn from(_value: &ManifestError) -> Self {
-        todo!()
+    fn from(e: &ManifestError) -> Self {
+        DerivedManifestError::Manifest.into()
     }
 }
 

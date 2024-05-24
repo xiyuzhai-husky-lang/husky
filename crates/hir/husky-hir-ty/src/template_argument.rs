@@ -31,7 +31,7 @@ impl From<HirTemplateVariable> for HirTemplateArgument {
     fn from(symbol: HirTemplateVariable) -> Self {
         match symbol {
             HirTemplateVariable::Type(symbol) => HirTemplateArgument::Type(symbol.into()),
-            HirTemplateVariable::Const(symbol) => HirTemplateArgument::Constant(symbol.into()),
+            HirTemplateVariable::Compterm(symbol) => HirTemplateArgument::Constant(symbol.into()),
             HirTemplateVariable::Lifetime(symbol) => HirTemplateArgument::Lifetime(symbol.into()),
             HirTemplateVariable::Quary(symbol) => todo!(),
             // HirTemplateArgument::ContractedQuary(symbol.into()),

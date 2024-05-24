@@ -30,7 +30,7 @@ impl IsAstChildren for FormBody {
             EntityKindKeywordGroup::AliasOrAssociateType(_) => MajorFormKind::TypeAlias.into(),
             EntityKindKeywordGroup::Trait(_) => MajorItemKind::Trait,
             EntityKindKeywordGroup::Val(_) => MajorFormKind::Val.into(),
-            EntityKindKeywordGroup::Termic(_) => MajorFormKind::Termic.into(),
+            EntityKindKeywordGroup::Compterm(_) => MajorFormKind::Compterm.into(),
             EntityKindKeywordGroup::Static(_) => MajorFormKind::Static.into(),
             EntityKindKeywordGroup::Memo(_) => Err(OriginalAstError::UnexpectedMemoUnderForm)?,
         };

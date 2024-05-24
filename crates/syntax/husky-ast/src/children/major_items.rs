@@ -18,7 +18,7 @@ impl IsAstChildren for MajorItems {
             EntityKindKeywordGroup::AssocRitchie(_, _) => {
                 Err(OriginalAstError::UnexpectedStaticFnOutsideImplBlock)?
             }
-            EntityKindKeywordGroup::Termic(_) => MajorFormKind::Termic.into(),
+            EntityKindKeywordGroup::Compterm(_) => MajorFormKind::Compterm.into(),
             EntityKindKeywordGroup::Val(_) => MajorFormKind::Val.into(),
             EntityKindKeywordGroup::Memo(_) => Err(OriginalAstError::UnexpectedMemoUnderModule)?,
             EntityKindKeywordGroup::ConceptualEntity(_) => MajorFormKind::Conceptual.into(),

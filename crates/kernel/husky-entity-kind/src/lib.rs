@@ -24,7 +24,7 @@ pub enum MajorFormKind {
     TypeAlias,
     Val,
     Static,
-    Termic,
+    Compterm,
     Conceptual,
 }
 
@@ -80,7 +80,7 @@ impl EntityKind {
                     MajorFormKind::TypeAlias => EntityClass::TypeAlias,
                     MajorFormKind::Val => EntityClass::Val,
                     MajorFormKind::Conceptual => EntityClass::Formal,
-                    MajorFormKind::Termic => EntityClass::Termic,
+                    MajorFormKind::Compterm => EntityClass::Compterm,
                     MajorFormKind::Static => EntityClass::Static,
                 },
                 MajorItemKind::Trait => EntityClass::Trait,
@@ -139,7 +139,7 @@ impl Into<EntityClass> for TypeItemKind {
             TypeItemKind::AssocRitchie(_) => EntityClass::AssocRitchie,
             TypeItemKind::AssocConceptual => EntityClass::AssocDef,
             TypeItemKind::AssocStatic => EntityClass::Static,
-            TypeItemKind::AssocTermic => EntityClass::Termic,
+            TypeItemKind::AssocTermic => EntityClass::Compterm,
         }
     }
 }
@@ -168,7 +168,7 @@ impl Into<EntityClass> for TraitItemKind {
             TraitItemKind::AssocRitchie(_) => EntityClass::AssocRitchie,
             TraitItemKind::AssocConceptual => EntityClass::AssocDef,
             TraitItemKind::AssocStatic => EntityClass::Static,
-            TraitItemKind::AssocTermic => EntityClass::Termic,
+            TraitItemKind::AssocTermic => EntityClass::Compterm,
         }
     }
 }

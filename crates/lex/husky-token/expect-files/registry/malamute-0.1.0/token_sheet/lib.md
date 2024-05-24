@@ -162,7 +162,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Ident(
-            `phantom`,
+            `phan`,
         ),
         TokenData::Ident(
             `Label`,
@@ -178,11 +178,11 @@ TokenSheetData {
             ),
         ),
         TokenData::Ident(
-            `phantom`,
+            `phan`,
         ),
         TokenData::Keyword(
             Keyword::Form(
-                Termic,
+                Compterm,
             ),
         ),
         TokenData::Ident(
@@ -231,7 +231,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Ident(
-            `phantom`,
+            `phan`,
         ),
         TokenData::Ident(
             `Label`,
@@ -247,11 +247,11 @@ TokenSheetData {
             ),
         ),
         TokenData::Ident(
-            `phantom`,
+            `phan`,
         ),
         TokenData::Keyword(
             Keyword::Form(
-                Termic,
+                Compterm,
             ),
         ),
         TokenData::Ident(
@@ -369,11 +369,11 @@ TokenSheetData {
             ),
         ),
         TokenData::Ident(
-            `runtime`,
+            `poly`,
         ),
         TokenData::Keyword(
             Keyword::Form(
-                Termic,
+                Compterm,
             ),
         ),
         TokenData::Ident(
@@ -823,7 +823,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Ident(
-            `phantom`,
+            `phan`,
         ),
         TokenData::Ident(
             `Label`,
@@ -839,11 +839,11 @@ TokenSheetData {
             ),
         ),
         TokenData::Ident(
-            `phantom`,
+            `phan`,
         ),
         TokenData::Keyword(
             Keyword::Form(
-                Termic,
+                Compterm,
             ),
         ),
         TokenData::Ident(
@@ -900,7 +900,7 @@ TokenSheetData {
             ),
         ),
         TokenData::Ident(
-            `phantom`,
+            `phan`,
         ),
         TokenData::Ident(
             `Label`,
@@ -916,11 +916,11 @@ TokenSheetData {
             ),
         ),
         TokenData::Ident(
-            `phantom`,
+            `phan`,
         ),
         TokenData::Keyword(
             Keyword::Form(
-                Termic,
+                Compterm,
             ),
         ),
         TokenData::Ident(
@@ -1406,11 +1406,11 @@ TokenSheetData {
             ),
         ),
         TokenData::Ident(
-            `runtime`,
+            `poly`,
         ),
         TokenData::Keyword(
             Keyword::Form(
-                Termic,
+                Compterm,
             ),
         ),
         TokenData::Ident(

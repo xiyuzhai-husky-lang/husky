@@ -39,7 +39,7 @@ TokenSheetData {
         ),
         TokenData::Keyword(
             Keyword::Form(
-                Termic,
+                Compterm,
             ),
         ),
         TokenData::Ident(

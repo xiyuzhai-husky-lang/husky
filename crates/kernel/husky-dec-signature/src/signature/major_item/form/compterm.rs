@@ -1,20 +1,20 @@
 use crate::*;
-use husky_syn_decl::decl::termic::MajorConstSynDecl;
+use husky_syn_decl::decl::compterm::MajorConstSynDecl;
 
 #[salsa::interned]
-pub struct MajorConstDecTemplate {
+pub struct MajorComptermDecTemplate {
     pub return_ty: DecTerm,
 }
 
-impl MajorConstDecTemplate {
+impl MajorComptermDecTemplate {
     pub(super) fn from_decl(
         db: &::salsa::Db,
         decl: MajorConstSynDecl,
-    ) -> DecSignatureResult<MajorConstDecTemplate> {
+    ) -> DecSignatureResult<MajorComptermDecTemplate> {
         let syn_expr_region = decl.syn_expr_region(db);
         let dec_term_region = syn_expr_dec_term_region(db, syn_expr_region);
         let return_ty = dec_term_region.expr_term(decl.return_ty(db).syn_expr_idx())?;
-        Ok(MajorConstDecTemplate::new(db, return_ty))
+        Ok(MajorComptermDecTemplate::new(db, return_ty))
     }
 
     #[inline(always)]

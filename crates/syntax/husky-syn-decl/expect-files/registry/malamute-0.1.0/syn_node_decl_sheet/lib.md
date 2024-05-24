@@ -235,7 +235,7 @@ SynNodeDeclSheet {
                                             TemplateSynParameterData {
                                                 annotated_variance_token: None,
                                                 symbol: 1,
-                                                variant: TemplateParameterSyndicateVariant::Termic {
+                                                variant: TemplateParameterSyndicateVariant::Compterm {
                                                     termic_token: TermicRegionalToken {
                                                         regional_token_idx: RegionalTokenIdx(
                                                             11,
@@ -360,7 +360,7 @@ SynNodeDeclSheet {
                                                                             5,
                                                                         ),
                                                                     ),
-                                                                    PhantomRegionalToken {
+                                                                    PhanRegionalToken {
                                                                         token_idx: RegionalTokenIdx(
                                                                             6,
                                                                         ),
@@ -395,7 +395,7 @@ SynNodeDeclSheet {
                                                                             9,
                                                                         ),
                                                                     ),
-                                                                    PhantomRegionalToken {
+                                                                    PhanRegionalToken {
                                                                         token_idx: RegionalTokenIdx(
                                                                             10,
                                                                         ),
@@ -513,7 +513,7 @@ SynNodeDeclSheet {
                                             TemplateSynParameterData {
                                                 annotated_variance_token: None,
                                                 symbol: 1,
-                                                variant: TemplateParameterSyndicateVariant::Termic {
+                                                variant: TemplateParameterSyndicateVariant::Compterm {
                                                     termic_token: TermicRegionalToken {
                                                         regional_token_idx: RegionalTokenIdx(
                                                             11,
@@ -638,7 +638,7 @@ SynNodeDeclSheet {
                                                                             5,
                                                                         ),
                                                                     ),
-                                                                    PhantomRegionalToken {
+                                                                    PhanRegionalToken {
                                                                         token_idx: RegionalTokenIdx(
                                                                             6,
                                                                         ),
@@ -673,7 +673,7 @@ SynNodeDeclSheet {
                                                                             9,
                                                                         ),
                                                                     ),
-                                                                    PhantomRegionalToken {
+                                                                    PhanRegionalToken {
                                                                         token_idx: RegionalTokenIdx(
                                                                             10,
                                                                         ),
@@ -770,7 +770,7 @@ SynNodeDeclSheet {
                                             TemplateSynParameterData {
                                                 annotated_variance_token: None,
                                                 symbol: 1,
-                                                variant: TemplateParameterSyndicateVariant::Termic {
+                                                variant: TemplateParameterSyndicateVariant::Compterm {
                                                     termic_token: TermicRegionalToken {
                                                         regional_token_idx: RegionalTokenIdx(
                                                             9,
@@ -1174,7 +1174,7 @@ SynNodeDeclSheet {
                                                                             7,
                                                                         ),
                                                                     ),
-                                                                    RuntimeRegionalToken {
+                                                                    PolyRegionalToken {
                                                                         token_idx: RegionalTokenIdx(
                                                                             8,
                                                                         ),
@@ -1376,7 +1376,7 @@ SynNodeDeclSheet {
                                         TemplateSynParameterData {
                                             annotated_variance_token: None,
                                             symbol: 1,
-                                            variant: TemplateParameterSyndicateVariant::Termic {
+                                            variant: TemplateParameterSyndicateVariant::Compterm {
                                                 termic_token: TermicRegionalToken {
                                                     regional_token_idx: RegionalTokenIdx(
                                                         9,
@@ -1613,7 +1613,7 @@ SynNodeDeclSheet {
                                                                         3,
                                                                     ),
                                                                 ),
-                                                                PhantomRegionalToken {
+                                                                PhanRegionalToken {
                                                                     token_idx: RegionalTokenIdx(
                                                                         4,
                                                                     ),
@@ -1648,7 +1648,7 @@ SynNodeDeclSheet {
                                                                         7,
                                                                     ),
                                                                 ),
-                                                                PhantomRegionalToken {
+                                                                PhanRegionalToken {
                                                                     token_idx: RegionalTokenIdx(
                                                                         8,
                                                                     ),
@@ -1984,7 +1984,7 @@ SynNodeDeclSheet {
                                                                                         3,
                                                                                     ),
                                                                                 ),
-                                                                                PhantomRegionalToken {
+                                                                                PhanRegionalToken {
                                                                                     token_idx: RegionalTokenIdx(
                                                                                         4,
                                                                                     ),
@@ -2019,7 +2019,7 @@ SynNodeDeclSheet {
                                                                                         7,
                                                                                     ),
                                                                                 ),
-                                                                                PhantomRegionalToken {
+                                                                                PhanRegionalToken {
                                                                                     token_idx: RegionalTokenIdx(
                                                                                         8,
                                                                                     ),
@@ -2239,7 +2239,7 @@ SynNodeDeclSheet {
                                         TemplateSynParameterData {
                                             annotated_variance_token: None,
                                             symbol: 1,
-                                            variant: TemplateParameterSyndicateVariant::Termic {
+                                            variant: TemplateParameterSyndicateVariant::Compterm {
                                                 termic_token: TermicRegionalToken {
                                                     regional_token_idx: RegionalTokenIdx(
                                                         7,
@@ -2590,7 +2590,7 @@ SynNodeDeclSheet {
                                                                         5,
                                                                     ),
                                                                 ),
-                                                                RuntimeRegionalToken {
+                                                                PolyRegionalToken {
                                                                     token_idx: RegionalTokenIdx(
                                                                         6,
                                                                     ),
@@ -3000,7 +3000,7 @@ SynNodeDeclSheet {
                                                                                         5,
                                                                                     ),
                                                                                 ),
-                                                                                RuntimeRegionalToken {
+                                                                                PolyRegionalToken {
                                                                                     token_idx: RegionalTokenIdx(
                                                                                         6,
                                                                                     ),
@@ -3563,7 +3563,7 @@ SynNodeDeclSheet {
                                                                                         5,
                                                                                     ),
                                                                                 ),
-                                                                                RuntimeRegionalToken {
+                                                                                PolyRegionalToken {
                                                                                     token_idx: RegionalTokenIdx(
                                                                                         6,
                                                                                     ),
@@ -3986,7 +3986,7 @@ SynNodeDeclSheet {
                                         TemplateSynParameterData {
                                             annotated_variance_token: None,
                                             symbol: 1,
-                                            variant: TemplateParameterSyndicateVariant::Termic {
+                                            variant: TemplateParameterSyndicateVariant::Compterm {
                                                 termic_token: TermicRegionalToken {
                                                     regional_token_idx: RegionalTokenIdx(
                                                         9,
@@ -4336,7 +4336,7 @@ SynNodeDeclSheet {
                                                                         3,
                                                                     ),
                                                                 ),
-                                                                PhantomRegionalToken {
+                                                                PhanRegionalToken {
                                                                     token_idx: RegionalTokenIdx(
                                                                         4,
                                                                     ),
@@ -4371,7 +4371,7 @@ SynNodeDeclSheet {
                                                                         7,
                                                                     ),
                                                                 ),
-                                                                PhantomRegionalToken {
+                                                                PhanRegionalToken {
                                                                     token_idx: RegionalTokenIdx(
                                                                         8,
                                                                     ),
@@ -4780,7 +4780,7 @@ SynNodeDeclSheet {
                                                                                         3,
                                                                                     ),
                                                                                 ),
-                                                                                PhantomRegionalToken {
+                                                                                PhanRegionalToken {
                                                                                     token_idx: RegionalTokenIdx(
                                                                                         4,
                                                                                     ),
@@ -4815,7 +4815,7 @@ SynNodeDeclSheet {
                                                                                         7,
                                                                                     ),
                                                                                 ),
-                                                                                PhantomRegionalToken {
+                                                                                PhanRegionalToken {
                                                                                     token_idx: RegionalTokenIdx(
                                                                                         8,
                                                                                     ),
@@ -5377,7 +5377,7 @@ SynNodeDeclSheet {
                                                                                         3,
                                                                                     ),
                                                                                 ),
-                                                                                PhantomRegionalToken {
+                                                                                PhanRegionalToken {
                                                                                     token_idx: RegionalTokenIdx(
                                                                                         4,
                                                                                     ),
@@ -5412,7 +5412,7 @@ SynNodeDeclSheet {
                                                                                         7,
                                                                                     ),
                                                                                 ),
-                                                                                PhantomRegionalToken {
+                                                                                PhanRegionalToken {
                                                                                     token_idx: RegionalTokenIdx(
                                                                                         8,
                                                                                     ),

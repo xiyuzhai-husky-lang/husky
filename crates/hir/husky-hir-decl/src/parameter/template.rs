@@ -78,7 +78,7 @@ impl HirTemplateParameter {
                     None => smallvec![],
                 },
             },
-            TemplateParameterSyndicateVariant::Termic {
+            TemplateParameterSyndicateVariant::Compterm {
                 ident_token,
                 ty_expr,
                 ..

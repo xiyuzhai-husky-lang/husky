@@ -116,7 +116,7 @@ impl From<EntityClass> for TokenClass {
             EntityClass::Attr => unreachable!(),
             EntityClass::Formal => TokenClass::DefEntity,
             EntityClass::AssocDef => TokenClass::DefEntity,
-            EntityClass::Termic => TokenClass::TermicEntity,
+            EntityClass::Compterm => TokenClass::TermicEntity,
             EntityClass::Script => unreachable!(),
             EntityClass::Static => TokenClass::StaticEntity,
         }

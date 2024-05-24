@@ -3,14 +3,14 @@ use husky_entity_path::path::major_item::ty::TypePath;
 
 /// a constant value, not a type
 #[salsa::interned(db = HirTypeDb, jar = HirTypeJar, constructor = pub(crate) new)]
-pub struct HirConstTemplateVariable {
+pub struct HirComptermTemplateVariable {
     pub ty: HirType,
-    pub index: HirConstTemplateVariableIndex,
+    pub index: HirComptermTemplateVariableIndex,
 }
 
 #[salsa::derive_debug_with_db]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
-pub enum HirConstTemplateVariableIndex {
+pub enum HirComptermTemplateVariableIndex {
     PathLeading {
         attrs: HirTemplateVariableAttrs,
         disambiguator: u8,
@@ -22,11 +22,11 @@ pub enum HirConstTemplateVariableIndex {
     },
 }
 
-impl HirConstTemplateVariableIndex {
+impl HirComptermTemplateVariableIndex {
     pub fn attrs(self) -> HirTemplateVariableAttrs {
         match self {
-            HirConstTemplateVariableIndex::PathLeading { attrs, .. }
-            | HirConstTemplateVariableIndex::Other { attrs, .. } => attrs,
+            HirComptermTemplateVariableIndex::PathLeading { attrs, .. }
+            | HirComptermTemplateVariableIndex::Other { attrs, .. } => attrs,
         }
     }
 

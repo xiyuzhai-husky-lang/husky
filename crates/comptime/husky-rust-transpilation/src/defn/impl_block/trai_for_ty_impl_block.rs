@@ -4,7 +4,7 @@ use husky_entity_path::path::major_item::trai::PreludeTraitPath;
 use husky_entity_tree::HasAssocItemPaths;
 use husky_hir_decl::decl::TraitForTypeImplBlockHirDecl;
 use husky_hir_defn::defn::impl_block::trai_for_ty_impl_block::TraitForTypeImplBlockHirDefn;
-use husky_hir_ty::{HirConstTemplateVariable, HirTemplateVariable, HirTemplateVariableClass};
+use husky_hir_ty::{HirComptermTemplateVariable, HirTemplateVariable, HirTemplateVariableClass};
 use smallvec::SmallVec;
 
 impl TranspileToRustWith for TraitForTypeImplBlockHirDefn {
@@ -20,13 +20,13 @@ impl TranspileToRustWith for TraitForTypeImplBlockHirDefn {
         }
         builder.rustfmt_skip();
         hir_decl.transpile_to_rust(builder);
-        let runtime_const_symbols: SmallVec<[HirConstTemplateVariable; 4]> = hir_decl
+        let runtime_const_symbols: SmallVec<[HirComptermTemplateVariable; 4]> = hir_decl
             .template_parameters(db)
             .iter()
             .filter_map(|param| match param.symbol() {
-                HirTemplateVariable::Const(symbol) => (symbol.index(db).class()
-                    == HirTemplateVariableClass::Runtime)
-                    .then_some(symbol),
+                HirTemplateVariable::Compterm(symbol) => {
+                    (symbol.index(db).class() == HirTemplateVariableClass::Poly).then_some(symbol)
+                }
                 _ => None,
             })
             .collect();

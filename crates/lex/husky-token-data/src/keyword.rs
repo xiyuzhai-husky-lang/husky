@@ -52,7 +52,7 @@ impl std::fmt::Display for Keyword {
 }
 
 impl Keyword {
-    pub const TERMIC: Self = Keyword::Form(FormKeyword::Termic);
+    pub const TERMIC: Self = Keyword::Form(FormKeyword::Compterm);
 
     #[cfg(feature = "protocol_support")]
     pub const fn class(self) -> KeywordClass {

@@ -1,11 +1,11 @@
-mod r#const;
+mod compterm;
 mod lifetime;
 mod quary;
 mod ty;
 
+pub use self::compterm::*;
 pub use self::lifetime::*;
 pub use self::quary::*;
-pub use self::r#const::*;
 pub use self::ty::*;
 
 use crate::*;
@@ -19,7 +19,7 @@ use husky_term_prelude::template_var_class::TemplateVariableClass;
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum HirTemplateVariable {
     Type(HirTypeTemplateVariable),
-    Const(HirConstTemplateVariable),
+    Compterm(HirComptermTemplateVariable),
     Lifetime(HirLifetimeTemplateVariable),
     Quary(HirQuaryTemplateVariable),
 }
@@ -31,16 +31,18 @@ pub struct HirTemplateVariableAttrs {
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum HirTemplateVariableClass {
-    Comptime,
-    Runtime,
+    /// monomorphic
+    Mono,
+    /// polymorphic
+    Poly,
 }
 
 impl HirTemplateVariableClass {
     fn from_term(class: TemplateVariableClass) -> Option<Self> {
         match class {
-            TemplateVariableClass::Phantom => None,
-            TemplateVariableClass::Runtime => Some(HirTemplateVariableClass::Runtime),
-            TemplateVariableClass::Comptime => Some(HirTemplateVariableClass::Comptime),
+            TemplateVariableClass::Phan => None,
+            TemplateVariableClass::Poly => Some(HirTemplateVariableClass::Poly),
+            TemplateVariableClass::Mono => Some(HirTemplateVariableClass::Mono),
         }
     }
 }
@@ -107,10 +109,10 @@ fn hir_template_variable_from_eth(
             disambiguator,
             ty_path,
         } => Some(
-            HirConstTemplateVariable::new(
+            HirComptermTemplateVariable::new(
                 db,
                 HirType::from_eth(var.ty(db), db)?,
-                HirConstTemplateVariableIndex::PathLeading {
+                HirComptermTemplateVariableIndex::PathLeading {
                     attrs: HirTemplateVariableAttrs::from_eth(attrs)?,
                     disambiguator,
                     ty_path,
@@ -122,10 +124,10 @@ fn hir_template_variable_from_eth(
             attrs,
             disambiguator,
         } => Some(
-            HirConstTemplateVariable::new(
+            HirComptermTemplateVariable::new(
                 db,
                 HirType::from_eth(var.ty(db), db)?,
-                HirConstTemplateVariableIndex::Other {
+                HirComptermTemplateVariableIndex::Other {
                     attrs: HirTemplateVariableAttrs::from_eth(attrs)?,
                     disambiguator,
                 },

@@ -242,7 +242,7 @@
                                     HirTemplateVariable::Type(
                                         HirTypeTemplateVariable::Type {
                                             attrs: HirTemplateVariableAttrs {
-                                                class: Comptime,
+                                                class: Mono,
                                             },
                                             variance: None,
                                             disambiguator: 0,
