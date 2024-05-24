@@ -1,15 +1,21 @@
 use super::*;
-use husky_syn_decl::decl::attr::effect::EffectAttrSynDecl;
+use husky_syn_decl::decl::attr::affect::AffectAttrSynDecl;
 
 #[salsa::interned]
-pub struct EffectAttrHirDecl {
+pub struct AffectAttrHirDecl {
     pub path: AttrItemPath,
 }
 
-impl EffectAttrHirDecl {
+pub struct HirAffectArgument {
+    static_site: HirStaticSite,
+}
+
+pub enum HirStaticSite {}
+
+impl AffectAttrHirDecl {
     pub(super) fn from_syn(
         path: AttrItemPath,
-        syn_decl: EffectAttrSynDecl,
+        syn_decl: AffectAttrSynDecl,
         db: &::salsa::Db,
     ) -> Self {
         let builder = HirDeclBuilder::new(syn_decl.syn_expr_region(db), db);

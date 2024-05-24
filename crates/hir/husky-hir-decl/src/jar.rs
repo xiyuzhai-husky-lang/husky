@@ -58,7 +58,7 @@ pub struct HirDeclJar(
     // attr
     crate::decl::attr::backprop::BackpropAttrHirDecl,
     crate::decl::attr::derive::DeriveAttrHirDecl,
-    crate::decl::attr::effect::EffectAttrHirDecl,
+    crate::decl::attr::affect::AffectAttrHirDecl,
     crate::decl::attr::marker::MarkerAttrHirDecl,
     crate::decl::attr::test::TestAttrHirDecl,
     // helpers

@@ -2,7 +2,7 @@ use super::*;
 use parsec::PunctuatedSmallList;
 
 #[salsa::tracked(constructor = new_inner)]
-pub struct EffectAttrSynNodeDecl {
+pub struct AffectAttrSynNodeDecl {
     #[id]
     pub syn_node_path: AttrSynNodePath,
     pub pound_token: PoundRegionalToken,
@@ -26,7 +26,7 @@ pub enum EffectSynNodeDecl {
 
 /// # constructor
 
-impl EffectAttrSynNodeDecl {
+impl AffectAttrSynNodeDecl {
     pub(super) fn new(db: &::salsa::Db, syn_node_path: AttrSynNodePath) -> Self {
         todo!()
     }
@@ -34,24 +34,24 @@ impl EffectAttrSynNodeDecl {
 
 /// # getters
 
-impl EffectAttrSynNodeDecl {
+impl AffectAttrSynNodeDecl {
     pub fn errors(self, db: &::salsa::Db) -> SynNodeDeclErrorRefs {
         todo!()
     }
 }
 
 #[salsa::tracked]
-pub struct EffectAttrSynDecl {
+pub struct AffectAttrSynDecl {
     #[id]
     pub path: AttrItemPath,
     // todo: effects
     pub syn_expr_region: SynExprRegion,
 }
 
-impl EffectAttrSynDecl {
+impl AffectAttrSynDecl {
     pub(super) fn from_node(
         path: AttrItemPath,
-        syn_node_decl: EffectAttrSynNodeDecl,
+        syn_node_decl: AffectAttrSynNodeDecl,
         db: &::salsa::Db,
     ) -> SynDeclResult<Self> {
         let syn_expr_region = syn_node_decl.syn_expr_region(db);
