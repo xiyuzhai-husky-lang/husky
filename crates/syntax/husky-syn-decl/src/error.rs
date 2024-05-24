@@ -62,10 +62,14 @@ pub enum OriginalSynNodeDeclError {
     ExpectedRightParenthesisInParameterList(RegionalTokenStreamState),
     #[error("expected `)` in parameter list")]
     ExpectedRightParenthesisInTupleStructFieldTypeList(RegionalTokenStreamState),
-    #[error("expected colon before `val` return type")]
+    #[error("expected `:` before `val` return type")]
     ExpectedColonBeforeValReturnType(RegionalTokenStreamState),
     #[error("expect `val` return type")]
     ExpectedValReturnType(RegionalTokenStreamState),
+    #[error("expect `:` before `static` return type")]
+    ExpectedColonBeforeStaticReturnType(RegionalTokenStreamState),
+    #[error("expect `static` return type")]
+    ExpectedStaticReturnType(RegionalTokenStreamState),
     #[error("expect `=` for memo")]
     ExpectEqTokenForMemo(RegionalTokenStreamState),
     #[error("expected `{{` `(` or `;` for struct")]

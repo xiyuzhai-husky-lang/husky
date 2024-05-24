@@ -104,6 +104,8 @@ pub struct SynDeclJar(
     crate::decl::assoc_item::trai_item::method_ritchie::TraitMethodRitchieSynDecl,
     crate::decl::assoc_item::trai_item::memo_field::TraitMemoizedFieldSynNodeDecl,
     crate::decl::assoc_item::trai_item::memo_field::TraitMemoizedFieldSynDecl,
+    crate::decl::assoc_item::trai_item::assoc_static::TraitAssocStaticSynNodeDecl,
+    crate::decl::assoc_item::trai_item::assoc_static::TraitAssocStaticSynDecl,
     crate::decl::assoc_item::trai_item::assoc_ty::TraitAssocTypeSynNodeDecl,
     crate::decl::assoc_item::trai_item::assoc_ty::TraitAssocTypeSynDecl,
     crate::decl::assoc_item::trai_item::assoc_val::TraitAssocValSynNodeDecl,
