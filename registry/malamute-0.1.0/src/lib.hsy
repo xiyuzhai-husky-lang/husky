@@ -1,3 +1,5 @@
+:- default const against = (Task as ml_task::IsMlTask)::INPUT
+
 #derive(Debug, Clone, Copy)
 pub enum Class<Label>
 | Known(Label)
@@ -37,5 +39,5 @@ impl<#phan Label, #phan compterm label: Label> core::ops::Unveil OneVsAllResult 
 
 pub gn narrow_down<Label, #poly compterm label: Label>(
     ...[] f: f32,
-    skip: i32 = 5,
+    const skip: i32 = 5,
 ) -> OneVsAllResult Label label;
