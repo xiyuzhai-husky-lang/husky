@@ -1,11 +1,11 @@
+pub mod affect;
 pub mod backprop;
 pub mod derive;
-pub mod effect;
 pub mod marker;
 pub mod test;
 
 use self::{
-    backprop::BackpropAttrHirDecl, derive::DeriveAttrHirDecl, effect::EffectAttrHirDecl,
+    affect::AffectAttrHirDecl, backprop::BackpropAttrHirDecl, derive::DeriveAttrHirDecl,
     test::TestAttrHirDecl,
 };
 use super::*;
@@ -16,9 +16,9 @@ use husky_syn_decl::decl::AttrSynDecl;
 #[enum_class::from_variants]
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum AttrHirDecl {
+    Affect(AffectAttrHirDecl),
     Backprop(BackpropAttrHirDecl),
     Derive(DeriveAttrHirDecl),
-    Effect(EffectAttrHirDecl),
     Test(TestAttrHirDecl),
 }
 
@@ -27,7 +27,7 @@ impl AttrHirDecl {
         match self {
             AttrHirDecl::Backprop(slf) => slf.path(db),
             AttrHirDecl::Derive(slf) => slf.path(db),
-            AttrHirDecl::Effect(slf) => slf.path(db),
+            AttrHirDecl::Affect(slf) => slf.path(db),
             AttrHirDecl::Test(slf) => slf.path(db),
         }
     }
@@ -51,7 +51,7 @@ fn attr_hir_decl(db: &::salsa::Db, path: AttrItemPath) -> Option<AttrHirDecl> {
             Some(DeriveAttrHirDecl::from_syn(path, syn_decl, db).into())
         }
         AttrSynDecl::Effect(syn_decl) => {
-            Some(EffectAttrHirDecl::from_syn(path, syn_decl, db).into())
+            Some(AffectAttrHirDecl::from_syn(path, syn_decl, db).into())
         }
         AttrSynDecl::Test(syn_decl) => Some(TestAttrHirDecl::from_syn(path, syn_decl, db).into()),
     }
