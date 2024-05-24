@@ -230,7 +230,6 @@ impl<'a, 'b> TryParseFromStream<SynDeclExprParser<'a>> for SynVariadicParameterV
 }
 
 #[test]
-#[ignore]
 fn parenate_parameter_syndicate_works() {
     fn t(input: &str, expect: &Expect, db: &::salsa::Db) {
         use salsa::DebugWithDb;
