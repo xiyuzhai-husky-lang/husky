@@ -52,6 +52,9 @@ pub(crate) fn resolve_module_path(
     path: impl AsRef<Path>,
 ) -> VfsResult<ModulePath> {
     let path = path.as_ref();
+    if !path.exists() {
+        todo!()
+    }
     if path.extension().and_then(|s| s.to_str()) != Some("hsy") {
         todo!()
     }
@@ -70,7 +73,8 @@ pub(crate) fn resolve_module_path(
                 )?,
                 CrateKind::Lib,
                 db,
-            )?
+            )
+            .expect("should be guaranteed to exist because path exists!")
             .root_module_path(db),
             "main" => CratePath::new(
                 PackagePath::new_local_or_toolchain_package(
@@ -80,7 +84,8 @@ pub(crate) fn resolve_module_path(
                 )?,
                 CrateKind::Main,
                 db,
-            )?
+            )
+            .expect("should be guaranteed to exist because path exists!")
             .root_module_path(db),
             _ => {
                 let lib_path = parent.join("lib.hsy");
@@ -89,7 +94,8 @@ pub(crate) fn resolve_module_path(
                         db,
                         resolve_module_path(db, toolchain, lib_path)?,
                         Ident::from_ref(db, file_stem).ok_or(VfsError::ModulePathResolveFailure)?,
-                    )?
+                    )
+                    .expect("should be guaranteed to exist because path exists!")
                     .into()
                 } else {
                     let main_path = parent.join("main.hsy");
@@ -99,7 +105,8 @@ pub(crate) fn resolve_module_path(
                             resolve_module_path(db, toolchain, main_path)?,
                             Ident::from_ref(db, file_stem)
                                 .ok_or(VfsError::ModulePathResolveFailure)?,
-                        )?
+                        )
+                        .expect("should be guaranteed to exist because path exists!")
                         .into()
                     } else {
                         todo!()
@@ -116,7 +123,8 @@ pub(crate) fn resolve_module_path(
             db,
             resolve_module_path(db, toolchain, parent_module_path)?,
             Ident::from_ref(db, file_stem).ok_or(VfsError::ModulePathResolveFailure)?,
-        )?
+        )
+        .expect("should be guaranteed to exist because path exists!")
         .into()
     })
 }

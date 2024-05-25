@@ -32,7 +32,7 @@ impl Script {
 #[salsa::tracked]
 fn script_toolchain(db: &::salsa::Db, script: Script) -> Toolchain {
     match script.source(db) {
-        ScriptSource::Snippet { toolchain } => todo!(),
-        ScriptSource::Child { parent } => todo!(),
+        ScriptSource::Snippet { toolchain } => toolchain,
+        ScriptSource::Child { parent } => parent.toolchain(db),
     }
 }

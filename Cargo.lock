@@ -6718,6 +6718,7 @@ dependencies = [
  "husky-toml-utils",
  "indicatif",
  "lsp-types 0.95.0",
+ "maybe-result",
  "notify-debouncer-mini",
  "pathdiff",
  "relative-path",

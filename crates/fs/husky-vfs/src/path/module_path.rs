@@ -5,6 +5,7 @@ use crate::script::Script;
 
 use super::*;
 pub use ancestry::*;
+use maybe_result::*;
 use salsa::{AsId, DisplayWithDb};
 use with_db::PartialOrdWithDb;
 #[cfg(test)]
@@ -42,15 +43,14 @@ impl ScriptModulePath {
 }
 
 impl ModulePath {
-    pub fn new(db: &::salsa::Db, data: ModulePathData) -> VfsResult<Self> {
+    pub fn new(db: &::salsa::Db, data: ModulePathData) -> VfsMaybeResult<Self> {
         let slf = Self::new_inner(db, data);
         if let Some(virtual_path) = module_virtual_path(db, slf)? {
-            virtual_path
-                .file(db)?
-                .text(db)?
-                .ok_or(VfsError::FileNotExists(virtual_path))?;
+            if virtual_path.file(db)?.text(db)?.is_none() {
+                return Nothing;
+            }
         }
-        Ok(slf)
+        JustOk(slf)
     }
 
     pub fn is_root(self, db: &::salsa::Db) -> bool {
@@ -128,7 +128,7 @@ impl ModulePath {
     }
 
     /// use CratePath::root_module_path instead in other crates
-    pub(crate) fn new_root(db: &::salsa::Db, crate_path: CratePath) -> VfsResult<Self> {
+    pub(crate) fn new_root(db: &::salsa::Db, crate_path: CratePath) -> VfsMaybeResult<Self> {
         Self::new(db, ModulePathData::Root(crate_path))
     }
 
@@ -136,8 +136,8 @@ impl ModulePath {
         db: &::salsa::Db,
         parent: ModulePath,
         ident: Ident,
-    ) -> VfsResult<SubmodulePath> {
-        Ok(SubmodulePath(Self::new(
+    ) -> VfsMaybeResult<SubmodulePath> {
+        JustOk(SubmodulePath(Self::new(
             db,
             ModulePathData::Child { parent, ident },
         )?))
