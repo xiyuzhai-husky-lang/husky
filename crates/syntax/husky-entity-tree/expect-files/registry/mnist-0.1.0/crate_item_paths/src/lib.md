@@ -1,18 +1,18 @@
 ```rust
 [
+    ItemPath::Submodule(
+        Room32,
+        SubmoduleItemPath(
+            ItemPathId(
+                Id {
+                    value: 1,
+                },
+            ),
+        ),
+    ),
     ItemPath::MajorItem(
         MajorItemPath::Type(
             TypePath(`mnist::MnistLabel`, `Enum`),
-        ),
-    ),
-    ItemPath::TypeVariant(
-        Room32,
-        TypeVariantPath(
-            ItemPathId(
-                Id {
-                    value: 2,
-                },
-            ),
         ),
     ),
     ItemPath::TypeVariant(
@@ -101,6 +101,16 @@
             ItemPathId(
                 Id {
                     value: 11,
+                },
+            ),
+        ),
+    ),
+    ItemPath::TypeVariant(
+        Room32,
+        TypeVariantPath(
+            ItemPathId(
+                Id {
+                    value: 12,
                 },
             ),
         ),
@@ -207,6 +217,26 @@
             TraitForTypeItemPath(
                 `<mnist::BinaryGrid28 as core::ops::IntIndex(0)>::Output`,
                 TraitItemKind::AssocType,
+            ),
+        ),
+    ),
+    ItemPath::MajorItem(
+        MajorItemPath::Type(
+            TypePath(`mnist::task::MnistTask`, `Extern`),
+        ),
+    ),
+    ItemPath::ImplBlock(
+        ImplBlockPath::TypeImplBlock(
+            TypeImplBlockPath(`mnist::task::MnistTask(0)`),
+        ),
+    ),
+    ItemPath::AssocItem(
+        AssocItemPath::TypeItem(
+            TypeItemPath(
+                `mnist::task::MnistTask(0)::new`,
+                TypeItemKind::AssocRitchie(
+                    RitchieItemKind::Fn,
+                ),
             ),
         ),
     ),

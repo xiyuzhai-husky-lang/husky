@@ -1,12 +1,27 @@
 ```rust
 [
     (
+        Submodule(
+            Room32,
+            SubmoduleItemPath(
+                ItemPathId(
+                    Id {
+                        value: 1,
+                    },
+                ),
+            ),
+        ),
+        Some(
+            None,
+        ),
+    ),
+    (
         MajorItem(
             Type(
                 TypePath(
                     ItemPathId(
                         Id {
-                            value: 1,
+                            value: 2,
                         },
                     ),
                 ),
@@ -28,27 +43,6 @@
             TypeVariantPath(
                 ItemPathId(
                     Id {
-                        value: 2,
-                    },
-                ),
-            ),
-        ),
-        Some(
-            Some(
-                HirDefnVersionStamp(
-                    Id {
-                        value: 2,
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
                         value: 3,
                     },
                 ),
@@ -58,7 +52,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 3,
+                        value: 2,
                     },
                 ),
             ),
@@ -79,6 +73,27 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
+                        value: 3,
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        TypeVariant(
+            Room32,
+            TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 5,
+                    },
+                ),
+            ),
+        ),
+        Some(
+            Some(
+                HirDefnVersionStamp(
+                    Id {
                         value: 4,
                     },
                 ),
@@ -91,27 +106,6 @@
             TypeVariantPath(
                 ItemPathId(
                     Id {
-                        value: 5,
-                    },
-                ),
-            ),
-        ),
-        Some(
-            Some(
-                HirDefnVersionStamp(
-                    Id {
-                        value: 5,
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
                         value: 6,
                     },
                 ),
@@ -121,7 +115,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 6,
+                        value: 5,
                     },
                 ),
             ),
@@ -142,6 +136,27 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
+                        value: 6,
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        TypeVariant(
+            Room32,
+            TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 8,
+                    },
+                ),
+            ),
+        ),
+        Some(
+            Some(
+                HirDefnVersionStamp(
+                    Id {
                         value: 7,
                     },
                 ),
@@ -154,7 +169,7 @@
             TypeVariantPath(
                 ItemPathId(
                     Id {
-                        value: 8,
+                        value: 9,
                     },
                 ),
             ),
@@ -175,27 +190,6 @@
             TypeVariantPath(
                 ItemPathId(
                     Id {
-                        value: 9,
-                    },
-                ),
-            ),
-        ),
-        Some(
-            Some(
-                HirDefnVersionStamp(
-                    Id {
-                        value: 9,
-                    },
-                ),
-            ),
-        ),
-    ),
-    (
-        TypeVariant(
-            Room32,
-            TypeVariantPath(
-                ItemPathId(
-                    Id {
                         value: 10,
                     },
                 ),
@@ -205,7 +199,7 @@
             Some(
                 HirDefnVersionStamp(
                     Id {
-                        value: 10,
+                        value: 9,
                     },
                 ),
             ),
@@ -218,6 +212,27 @@
                 ItemPathId(
                     Id {
                         value: 11,
+                    },
+                ),
+            ),
+        ),
+        Some(
+            Some(
+                HirDefnVersionStamp(
+                    Id {
+                        value: 10,
+                    },
+                ),
+            ),
+        ),
+    ),
+    (
+        TypeVariant(
+            Room32,
+            TypeVariantPath(
+                ItemPathId(
+                    Id {
+                        value: 12,
                     },
                 ),
             ),
@@ -238,7 +253,7 @@
                 TypePath(
                     ItemPathId(
                         Id {
-                            value: 12,
+                            value: 13,
                         },
                     ),
                 ),
@@ -260,7 +275,7 @@
             AttrItemPath(
                 ItemPathId(
                     Id {
-                        value: 166,
+                        value: 169,
                     },
                 ),
             ),
@@ -273,7 +288,7 @@
                 TypePath(
                     ItemPathId(
                         Id {
-                            value: 13,
+                            value: 14,
                         },
                     ),
                 ),
@@ -295,7 +310,7 @@
                 MajorFormPath(
                     ItemPathId(
                         Id {
-                            value: 14,
+                            value: 15,
                         },
                     ),
                 ),
@@ -317,7 +332,7 @@
                 TraitForTypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 160,
+                            value: 162,
                         },
                     ),
                 ),
@@ -339,7 +354,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 167,
+                            value: 170,
                         },
                     ),
                 ),
@@ -361,7 +376,7 @@
                 TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 161,
+                            value: 163,
                         },
                     ),
                 ),
@@ -383,7 +398,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 168,
+                            value: 171,
                         },
                     ),
                 ),
@@ -405,7 +420,7 @@
                 TraitForTypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 162,
+                            value: 164,
                         },
                     ),
                 ),
@@ -427,7 +442,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 169,
+                            value: 172,
                         },
                     ),
                 ),
@@ -449,7 +464,7 @@
                 TraitForTypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 163,
+                            value: 165,
                         },
                     ),
                 ),
@@ -471,7 +486,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 170,
+                            value: 173,
                         },
                     ),
                 ),
@@ -493,7 +508,7 @@
                 TypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 164,
+                            value: 166,
                         },
                     ),
                 ),
@@ -515,7 +530,7 @@
                 TypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 171,
+                            value: 174,
                         },
                     ),
                 ),
@@ -537,7 +552,7 @@
                 TraitForTypeImplBlockPath(
                     ItemPathId(
                         Id {
-                            value: 165,
+                            value: 167,
                         },
                     ),
                 ),
@@ -559,7 +574,7 @@
                 TraitForTypeItemPath(
                     ItemPathId(
                         Id {
-                            value: 172,
+                            value: 175,
                         },
                     ),
                 ),

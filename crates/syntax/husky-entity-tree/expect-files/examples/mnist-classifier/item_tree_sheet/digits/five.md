@@ -896,6 +896,57 @@ EntityTreeSheet {
                 ),
             },
             EntitySymbolEntry {
+                ident: `task`,
+                visible_scope: Scope::PubUnder(
+                    `mnist_classifier::digits::five`,
+                ),
+                symbol: EntitySymbol::Use(
+                    UseSymbol {
+                        original_symbol: EntitySymbol::Use(
+                            UseSymbol {
+                                original_symbol: EntitySymbol::Use(
+                                    UseSymbol {
+                                        original_symbol: EntitySymbol::Submodule {
+                                            submodule_item_path: SubmoduleItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 275,
+                                                    },
+                                                ),
+                                            ),
+                                        },
+                                        path: PrincipalEntityPath::Module(
+                                            `mnist::task`,
+                                        ),
+                                        visibility: Scope::PubUnder(
+                                            `mnist_classifier`,
+                                        ),
+                                        ast_idx: 24,
+                                        use_expr_idx: 20,
+                                    },
+                                ),
+                                path: PrincipalEntityPath::Module(
+                                    `mnist::task`,
+                                ),
+                                visibility: Scope::PubUnder(
+                                    `mnist_classifier::digits`,
+                                ),
+                                ast_idx: 19,
+                                use_expr_idx: 26,
+                            },
+                        ),
+                        path: PrincipalEntityPath::Module(
+                            `mnist::task`,
+                        ),
+                        visibility: Scope::PubUnder(
+                            `mnist_classifier::digits::five`,
+                        ),
+                        ast_idx: 1,
+                        use_expr_idx: 0,
+                    },
+                ),
+            },
+            EntitySymbolEntry {
                 ident: `MnistLabel`,
                 visible_scope: Scope::PubUnder(
                     `mnist_classifier::digits::five`,
@@ -3164,7 +3215,7 @@ EntityTreeSheet {
                     `mnist_classifier::digits::five`,
                 ),
                 progress: Ok(
-                    64,
+                    65,
                 ),
             },
         ],

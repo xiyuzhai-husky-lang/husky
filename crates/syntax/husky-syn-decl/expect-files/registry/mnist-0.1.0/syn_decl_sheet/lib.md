@@ -2,6 +2,29 @@
 SynDeclSheet {
     decls: [
         (
+            ItemPath::Submodule(
+                Room32,
+                SubmoduleItemPath(
+                    ItemPathId(
+                        Id {
+                            value: 1,
+                        },
+                    ),
+                ),
+            ),
+            SynDecl::Submodule(
+                SubmoduleSynDecl {
+                    path: SubmoduleItemPath(
+                        ItemPathId(
+                            Id {
+                                value: 1,
+                            },
+                        ),
+                    ),
+                },
+            ),
+        ),
+        (
             ItemPath::MajorItem(
                 MajorItemPath::Type(
                     TypePath(`mnist::MnistLabel`, `Enum`),

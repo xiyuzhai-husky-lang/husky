@@ -4,6 +4,61 @@ EntityTreePresheet {
     major_item_node_table: MajorEntityNodeTable {
         entries: [
             ItemNodeEntry {
+                node: ItemSynNode::Submodule(
+                    SubmoduleSynNode {
+                        syn_node_path: SubmoduleSynNodePath(
+                            ItemSynNodePathId {
+                                data: ItemSynNodePathData::Submodule(
+                                    SubmoduleSynNodePathData {
+                                        disambiguated_item_path: DisambiguatedItemPath {
+                                            maybe_ambiguous_item_path: SubmoduleItemPath(
+                                                ItemPathId(
+                                                    Id {
+                                                        value: 1,
+                                                    },
+                                                ),
+                                            ),
+                                            disambiguator: 0,
+                                        },
+                                    },
+                                ),
+                            },
+                        ),
+                        visibility: Scope::Pub,
+                        ast_idx: 16,
+                        ident_token: IdentToken {
+                            ident: `task`,
+                            token_idx: TokenIdx(
+                                3,
+                            ),
+                        },
+                    },
+                ),
+                syn_node_path: ItemSynNodePath::Submodule(
+                    Room32,
+                    SubmoduleSynNodePath(
+                        ItemSynNodePathId {
+                            data: ItemSynNodePathData::Submodule(
+                                SubmoduleSynNodePathData {
+                                    disambiguated_item_path: DisambiguatedItemPath {
+                                        maybe_ambiguous_item_path: SubmoduleItemPath(
+                                            ItemPathId(
+                                                Id {
+                                                    value: 1,
+                                                },
+                                            ),
+                                        ),
+                                        disambiguator: 0,
+                                    },
+                                },
+                            ),
+                        },
+                    ),
+                ),
+                ident: `task`,
+                visibility: Scope::Pub,
+            },
+            ItemNodeEntry {
                 node: ItemSynNode::MajorItem(
                     MajorItemSynNode {
                         syn_node_path: MajorItemSynNodePath::Type(
@@ -23,11 +78,11 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 16,
+                        ast_idx: 17,
                         ident_token: IdentToken {
                             ident: `MnistLabel`,
                             token_idx: TokenIdx(
-                                3,
+                                6,
                             ),
                         },
                         block: DefnBlock::Type {
@@ -83,11 +138,11 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 18,
+                        ast_idx: 19,
                         ident_token: IdentToken {
                             ident: `BinaryImage28`,
                             token_idx: TokenIdx(
-                                33,
+                                36,
                             ),
                         },
                         block: DefnBlock::Type {
@@ -137,11 +192,11 @@ EntityTreePresheet {
                             ),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 22,
+                        ast_idx: 23,
                         ident_token: IdentToken {
                             ident: `BinaryGrid28`,
                             token_idx: TokenIdx(
-                                74,
+                                77,
                             ),
                         },
                         block: DefnBlock::Type {
@@ -178,11 +233,11 @@ EntityTreePresheet {
                             FormSynNodePath(`mnist::input`, `Val`, (0)),
                         ),
                         visibility: Scope::Pub,
-                        ast_idx: 26,
+                        ast_idx: 27,
                         ident_token: IdentToken {
                             ident: `input`,
                             token_idx: TokenIdx(
-                                115,
+                                118,
                             ),
                         },
                         block: DefnBlock::Form {

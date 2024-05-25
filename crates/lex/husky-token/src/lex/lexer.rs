@@ -113,7 +113,9 @@ impl<'token> Tokenizer<'token> {
                                     == ranged_pretoken.range.start.col.0 + INDENT_INCR
                                 {
                                     token_data = match i {
-                                        0 => TokenData::Error(TokenDataError::MissingLcurl),
+                                        0 => TokenData::Error(
+                                            TokenDataError::RcurlMissingMatchingLcurl,
+                                        ),
                                         _ => match self.token_datas[i - 1] {
                                             TokenData::NESTED_LCURL => TokenData::NESTED_RCURL,
                                             _ => TokenData::INLINE_RCURL,

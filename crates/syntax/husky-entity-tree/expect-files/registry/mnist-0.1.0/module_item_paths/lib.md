@@ -1,18 +1,18 @@
 ```rust
 [
+    ItemPath::Submodule(
+        Room32,
+        SubmoduleItemPath(
+            ItemPathId(
+                Id {
+                    value: 1,
+                },
+            ),
+        ),
+    ),
     ItemPath::MajorItem(
         MajorItemPath::Type(
             TypePath(`mnist::MnistLabel`, `Enum`),
-        ),
-    ),
-    ItemPath::TypeVariant(
-        Room32,
-        TypeVariantPath(
-            ItemPathId(
-                Id {
-                    value: 2,
-                },
-            ),
         ),
     ),
     ItemPath::TypeVariant(
@@ -101,6 +101,16 @@
             ItemPathId(
                 Id {
                     value: 11,
+                },
+            ),
+        ),
+    ),
+    ItemPath::TypeVariant(
+        Room32,
+        TypeVariantPath(
+            ItemPathId(
+                Id {
+                    value: 12,
                 },
             ),
         ),
