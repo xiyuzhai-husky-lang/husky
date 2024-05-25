@@ -1,6 +1,7 @@
 use crate::*;
 
 use husky_fs_specs::FsSpecsError;
+use maybe_result::MaybeResult::JustOk;
 use salsa::Db;
 use vec_like::VecSet;
 
@@ -160,12 +161,12 @@ impl VfsDb for Db {
     fn collect_crates(&self, package_path: PackagePath) -> VfsResult<Vec<CratePath>> {
         let mut crates: Vec<CratePath> = vec![];
         let package_dir = package_path.dir(self).as_ref()?.data(self);
-        if package_dir.join("src/lib.hsy").exists() {
-            crates.push(CratePath::new(package_path, CrateKind::Lib, self)?);
-        }
-        if package_dir.join("src/main.hsy").exists() {
-            crates.push(CratePath::new(package_path, CrateKind::Main, self)?);
-        }
+        crates.extend(CratePath::new(package_path, CrateKind::Lib, self).into_result_option()?);
+        crates.extend(CratePath::new(package_path, CrateKind::Main, self).into_result_option()?);
+        crates.extend(
+            CratePath::new(package_path, CrateKind::Requirements, self).into_result_option()?,
+        );
+        crates.extend(CratePath::new(package_path, CrateKind::Task, self).into_result_option()?);
         if package_dir.join("src/bin").exists() {
             todo!()
         }
@@ -201,7 +202,7 @@ impl VfsDb for Db {
                         .and_then(|filename| filename.to_str())
                         .and_then(|filename| Ident::from_ref(db, filename))
                     {
-                        if let Ok(child) = ModulePath::new_child(db, parent, ident) {
+                        if let JustOk(child) = ModulePath::new_child(db, parent, ident) {
                             collect_probable_modules(db, child.inner(), &path, modules)?
                         }
                     }
@@ -218,7 +219,8 @@ impl VfsDb for Db {
                         };
                         if push_flag {
                             if let Some(ident) = Ident::from_ref(db, file_stem) {
-                                if let Ok(new_child) = ModulePath::new_child(db, parent, ident) {
+                                if let JustOk(new_child) = ModulePath::new_child(db, parent, ident)
+                                {
                                     modules.push(new_child.into())
                                 }
                             }
@@ -235,7 +237,7 @@ impl VfsDb for Db {
         };
         let package_dir = diff_path.data(self);
         if package_dir.join("src/lib.hsy").exists() {
-            if let Ok(root_module) = ModulePath::new_root(
+            if let JustOk(root_module) = ModulePath::new_root(
                 self,
                 CratePath::new(package, CrateKind::Lib, self).expect("should be valid"),
             ) {
@@ -250,7 +252,7 @@ impl VfsDb for Db {
                 }
             }
         } else if package_dir.join("src/main.hsy").exists() {
-            if let Ok(root_module) = ModulePath::new_root(
+            if let JustOk(root_module) = ModulePath::new_root(
                 self,
                 CratePath::new(package, CrateKind::Main, self).expect("should be valid"),
             ) {
@@ -310,6 +312,7 @@ pub struct VfsJar(
     crate::linktime_target_path::linktime_target_rust_abs_dir,
     crate::path::package_path::PackagePath,
     crate::path::package_path::is_package_path_virtual,
+    crate::path::package_path::package_task_crate_path,
     crate::path::crate_path::package_crate_paths,
     crate::path::module_path::relative_path::module_relative_path,
     crate::path::module_path::relative_path::module_relative_stem,

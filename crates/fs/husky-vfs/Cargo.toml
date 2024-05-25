@@ -20,10 +20,11 @@ serde.workspace = true
 serde_json.workspace = true
 lsp-types = { workspace = true, optional = true }
 # abstractions
-vec-like.workspace = true
-salsa.workspace = true
-with-db.workspace = true
 enum-class.workspace = true
+maybe-result.workspace = true
+salsa.workspace = true
+vec-like.workspace = true
+with-db.workspace = true
 # fs
 # husky-toolchain-config.workspace = true
 husky-fs-specs = { path = "../../fs/husky-fs-specs" }

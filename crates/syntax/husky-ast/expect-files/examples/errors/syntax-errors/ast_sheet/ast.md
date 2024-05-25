@@ -24,13 +24,7 @@ AstSheet {
                                 2,
                             ),
                         },
-                        error: VfsError::FileNotExists(
-                            VirtualPath {
-                                _data: VirtualPathBuf(
-                                    "../../../examples/errors/syntax-errors/src/ast/submodule_name.hsy",
-                                ),
-                            },
-                        ),
+                        error: None,
                     },
                 ),
             },

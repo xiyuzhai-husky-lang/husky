@@ -1,4 +1,5 @@
 use super::*;
+use maybe_result::*;
 
 /// it's guaranteed via construction that root module path will be valid
 #[salsa::interned(db = VfsDb, jar = VfsJar, constructor = new_inner)]
@@ -13,10 +14,10 @@ impl CratePath {
         package_path: PackagePath,
         crate_kind: CrateKind,
         db: &::salsa::Db,
-    ) -> VfsResult<Self> {
+    ) -> VfsMaybeResult<Self> {
         let slf = Self::new_inner(db, package_path, crate_kind);
         ModulePath::new_root(db, slf)?;
-        Ok(slf)
+        JustOk(slf)
     }
 
     pub fn relative_path(&self, db: &::salsa::Db) -> std::borrow::Cow<'static, str> {
@@ -26,7 +27,8 @@ impl CratePath {
             CrateKind::Bin(_ident) => todo!(),
             CrateKind::IntegratedTest(_) => todo!(),
             CrateKind::Example => todo!(),
-            CrateKind::Script => todo!(),
+            CrateKind::Task => "task.hsy".into(),
+            CrateKind::Requirements => "requirements.hsy".into(),
         }
     }
 
@@ -47,10 +49,11 @@ impl CratePath {
 pub enum CrateKind {
     Lib,
     Main,
+    Task,
+    Requirements,
     Bin(Ident),
     IntegratedTest(Ident),
     Example,
-    Script,
 }
 
 impl PackagePath {
@@ -58,18 +61,22 @@ impl PackagePath {
         package_crate_paths(db, self)
     }
 
+    // todo: change to MaybeResult and cached
     pub fn lib_crate_path(self, db: &::salsa::Db) -> Option<CratePath> {
         CratePath::new(self, CrateKind::Lib, db).ok()
     }
 
+    // todo: change to MaybeResult and cached
     pub fn lib_root_module_path(self, db: &::salsa::Db) -> Option<ModulePath> {
         Some(self.lib_crate_path(db)?.root_module_path(db))
     }
 
+    // todo: change to MaybeResult and cached
     pub fn main_crate_path(self, db: &::salsa::Db) -> Option<CratePath> {
         CratePath::new(self, CrateKind::Main, db).ok()
     }
 
+    // todo: change to MaybeResult and cached
     pub fn main_root_module_path(self, db: &::salsa::Db) -> Option<ModulePath> {
         Some(self.main_crate_path(db)?.root_module_path(db))
     }

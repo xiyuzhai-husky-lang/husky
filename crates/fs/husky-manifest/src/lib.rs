@@ -5,6 +5,8 @@ pub mod jar;
 pub mod manifest;
 pub mod sections;
 pub mod synopsis;
+#[cfg(test)]
+mod tests;
 
 pub use self::manifest::*;
 
@@ -12,6 +14,8 @@ use self::dependency::*;
 use self::error::*;
 use self::jar::ManifestJar as Jar;
 use self::sections::*;
+#[cfg(test)]
+use self::tests::*;
 use husky_corgi_config::HasCorgiConfig;
 use husky_manifest_ast::{HasPackageManifestAstSheet, PackageManifestAstSheet};
 use husky_vfs::*;

@@ -111,6 +111,14 @@ impl PackagePath {
         package_manifest_path(db, self)
     }
 
+    pub fn task_crate_path(self, db: &::salsa::Db) -> VfsMaybeResult<CratePath> {
+        package_task_crate_path(db, self)
+    }
+
+    pub fn task_module_path(self, db: &::salsa::Db) -> VfsResult<Option<ModulePath>> {
+        todo!()
+    }
+
     pub fn is_virtual(self, db: &::salsa::Db) -> bool {
         is_package_path_virtual(db, self)
     }
@@ -187,4 +195,9 @@ pub(crate) fn package_manifest_path(
         db,
         package.dir(db)?.data(db).join("Corgi.toml"),
     )?))
+}
+
+#[salsa::tracked]
+fn package_task_crate_path(db: &::salsa::Db, package: PackagePath) -> VfsMaybeResult<CratePath> {
+    CratePath::new(package, CrateKind::Task, db)
 }

@@ -3,6 +3,7 @@ use husky_manifest_ast::ManifestAstError;
 use husky_vfs::{error::VfsError, PackagePath};
 use thiserror::Error;
 
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum ManifestError {
     #[error("{0}")]
@@ -18,6 +19,8 @@ pub enum OriginalManifestError {
         package_path: PackagePath,
         cyclic_dependent_package_paths: Vec<PackagePath>,
     },
+    #[error("NoLibOrMainForPackage")]
+    NoLibOrMainForPackage,
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]
