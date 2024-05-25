@@ -1,4 +1,4 @@
-use crate::{HasPackageManifest, ManifestResult, ManifestResultRef};
+use crate::{HasManifest, ManifestResult, ManifestResultRef};
 use husky_vfs::{
     linktime_target_path::{LinktimeTargetPath, LinktimeTargetPathData},
     PackagePath,

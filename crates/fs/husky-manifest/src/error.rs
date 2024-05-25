@@ -1,8 +1,9 @@
 use husky_corgi_config::CorgiConfigError;
 use husky_manifest_ast::ManifestAstError;
-use husky_vfs::{error::VfsError, PackagePath};
+use husky_vfs::{error::VfsError, CratePath, PackagePath};
 use thiserror::Error;
 
+#[salsa::derive_debug_with_db]
 #[derive(Debug, Error, PartialEq, Eq)]
 pub enum ManifestError {
     #[error("{0}")]
@@ -17,6 +18,16 @@ pub enum OriginalManifestError {
     CyclicDependendencies {
         package_path: PackagePath,
         cyclic_dependent_package_paths: Vec<PackagePath>,
+    },
+    #[error("NoLibOrMainForPackage")]
+    NoLibOrMainForPackage,
+    #[error("NoTaskForMain")]
+    NoTaskForMain,
+    #[error("conflicting tasks")]
+    ConflictingTasks {
+        inherited_task_crate_path: CratePath,
+        dependent_package_path: PackagePath,
+        task_crate_path: CratePath,
     },
 }
 

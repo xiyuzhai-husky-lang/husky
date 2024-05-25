@@ -1,15 +1,15 @@
 use crate::*;
 
-pub trait HasPackageManifest: Copy {
-    fn package_manifest(self, db: &::salsa::Db) -> ManifestResultRef<PackageManifest>;
+pub trait HasManifest: Copy {
+    fn manifest(self, db: &::salsa::Db) -> ManifestResultRef<PackageManifest>;
 
     fn dependencies(self, db: &::salsa::Db) -> ManifestResultRef<&[PackageDependency]>;
 
     fn full_dependencies(self, db: &::salsa::Db) -> ManifestResultRef<&[PackagePath]>;
 }
 
-impl HasPackageManifest for PackagePath {
-    fn package_manifest(self, db: &::salsa::Db) -> ManifestResultRef<PackageManifest> {
+impl HasManifest for PackagePath {
+    fn manifest(self, db: &::salsa::Db) -> ManifestResultRef<PackageManifest> {
         package_manifest(db, self)
     }
 

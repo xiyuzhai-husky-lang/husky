@@ -15,6 +15,25 @@ pub enum MaybeResult<T, E> {
     Nothing,
 }
 
+impl<T, E> MaybeResult<T, E> {
+    #[track_caller]
+    pub fn expect(self, message: &str) -> T {
+        match self {
+            JustOk(t) => t,
+            JustErr(_) => panic!("{message}"),
+            Nothing => panic!("{message}"),
+        }
+    }
+
+    pub fn map_err_or_none<E2>(self, f: impl FnOnce(Option<E>) -> E2) -> Result<T, E2> {
+        match self {
+            JustOk(t) => Ok(t),
+            JustErr(e) => Err(f(Some(e))),
+            Nothing => Err(f(None)),
+        }
+    }
+}
+
 impl<T, E> From<Result<T, E>> for MaybeResult<T, E> {
     fn from(result: Result<T, E>) -> Self {
         match result {

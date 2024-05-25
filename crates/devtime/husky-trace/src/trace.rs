@@ -326,7 +326,7 @@ fn root_traces(db: &::salsa::Db, crate_path: CratePath) -> Vec<Trace> {
 /// the order is to put parent first
 #[salsa::tracked(jar = TraceJar, return_ref)]
 pub fn trace_bundles(db: &::salsa::Db, target_path: CratePath) -> Vec<TraceBundle<Trace>> {
-    use husky_manifest::manifest::HasPackageManifest;
+    use husky_manifest::manifest::HasManifest;
     target_path
         .package_path(db)
         .full_dependencies(db)
