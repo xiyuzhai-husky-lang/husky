@@ -46,6 +46,7 @@ pub(crate) fn module_virtual_path(
 }
 
 // this shouldn't be tracked
+// todo: add tests for this
 pub(crate) fn resolve_module_path(
     db: &::salsa::Db,
     toolchain: Toolchain,
@@ -63,7 +64,25 @@ pub(crate) fn resolve_module_path(
         .file_stem()
         .and_then(|s| s.to_str())
         .ok_or(VfsError::ModulePathResolveFailure)?;
-    Ok(if parent.ends_with("src") {
+    Ok(if parent.join("Corgi.toml").exists() {
+        match file_stem {
+            "requirements" => CratePath::new(
+                PackagePath::new_local_or_toolchain_package(db, toolchain, parent)?,
+                CrateKind::Requirements,
+                db,
+            )
+            .expect("should be guaranteed to exist because path exists!")
+            .root_module_path(db),
+            "task" => CratePath::new(
+                PackagePath::new_local_or_toolchain_package(db, toolchain, parent)?,
+                CrateKind::Task,
+                db,
+            )
+            .expect("should be guaranteed to exist because path exists!")
+            .root_module_path(db),
+            _ => todo!(),
+        }
+    } else if parent.ends_with("src") {
         match file_stem {
             "lib" => CratePath::new(
                 PackagePath::new_local_or_toolchain_package(
