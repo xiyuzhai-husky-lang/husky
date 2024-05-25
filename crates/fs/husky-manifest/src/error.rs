@@ -1,6 +1,6 @@
 use husky_corgi_config::CorgiConfigError;
 use husky_manifest_ast::ManifestAstError;
-use husky_vfs::{error::VfsError, PackagePath};
+use husky_vfs::{error::VfsError, CratePath, PackagePath};
 use thiserror::Error;
 
 #[salsa::derive_debug_with_db]
@@ -21,6 +21,14 @@ pub enum OriginalManifestError {
     },
     #[error("NoLibOrMainForPackage")]
     NoLibOrMainForPackage,
+    #[error("NoTaskForMain")]
+    NoTaskForMain,
+    #[error("conflicting tasks")]
+    ConflictingTasks {
+        inherited_task_crate_path: CratePath,
+        dependent_package_path: PackagePath,
+        task_crate_path: CratePath,
+    },
 }
 
 #[derive(Debug, Error, PartialEq, Eq)]

@@ -11,7 +11,7 @@ use husky_hir_expr::HirExprRegion;
 use husky_hir_lazy_expr::HirLazyStmtData;
 use husky_hir_lazy_expr::{HirLazyExprData, HirLazyExprRegion};
 use husky_hir_ty::{instantiation::HirInstantiation, HirType};
-use husky_manifest::HasPackageManifest;
+use husky_manifest::HasManifest;
 use husky_vfs::PackagePath;
 use vec_like::VecSet;
 

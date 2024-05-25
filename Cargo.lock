@@ -5451,6 +5451,7 @@ name = "husky-manifest"
 version = "0.1.0"
 dependencies = [
  "husky-corgi-config",
+ "husky-corgi-config-ast",
  "husky-coword",
  "husky-manifest-ast",
  "husky-print-utils",
